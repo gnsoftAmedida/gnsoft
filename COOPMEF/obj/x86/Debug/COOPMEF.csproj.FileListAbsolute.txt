@@ -1,0 +1,161 @@
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\COOPMEF.exe.config
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\COOPMEF.exe
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Logs.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Negocio.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Logs.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Negocio.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmAgenda.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmAltaUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmConsultaLogs.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarEvento.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmReporteEventos.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmSeleccionUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmLogin.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.Ingreso_de_excedidos.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarClaveUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.frmVerReportes.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.Properties.Resources.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.exe
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\COOPMEF\obj\x86\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\COOPMEF.exe.config
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.exe
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\COOPMEF.exe
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Logs.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Negocio.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Logs.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Negocio.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmAgenda.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmAltaUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmConsultaLogs.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarEvento.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmReporteEventos.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmSeleccionUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmLogin.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarClaveUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmVerReportes.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.Properties.Resources.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.gsw.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmMantOficinas.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v11\COOPMEF\obj\x86\Debug\COOPMEF.frmMantenimientoInciso.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\COOPMEF.exe.config
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.exe
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\COOPMEF.exe
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Logs.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Negocio.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Logs.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Negocio.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmAgenda.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmMantOficinas.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmAltaUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmConsultaLogs.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarEvento.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmMantenimientoInciso.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmReporteEventos.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmSeleccionUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmLogin.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarClaveUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarUsuario.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmVerReportes.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.Properties.Resources.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.gsw.resources
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\GNSoft\Desktop\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\COOPMEF.exe.config
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\COOPMEF.exe
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Logs.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Negocio.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Logs.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Negocio.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmAgenda.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmMantOficinas.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmAltaUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmConsultaLogs.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarEvento.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmMantenimientoInciso.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmReporteEventos.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmSeleccionUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmLogin.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarClaveUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarUsuario.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmVerReportes.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.Properties.Resources.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.gsw.resources
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\GenerateResource.read.1.tlog
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\GenerateResource.write.1.tlog
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.exe
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x86\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\COOPMEF.exe.config
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\COOPMEF.exe
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Logs.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Negocio.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Logs.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Negocio.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.csprojResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmAgenda.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmMantOficinas.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmAltaUsuario.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmConsultaLogs.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarEvento.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmMantenimientoInciso.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmPlanDePrestamo.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmReporteEventos.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSeleccionUsuario.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmLogin.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarClaveUsuario.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarUsuario.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmVerReportes.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.Properties.Resources.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.gsw.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.csproj.GenerateResource.Cache
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.exe
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.pdb
