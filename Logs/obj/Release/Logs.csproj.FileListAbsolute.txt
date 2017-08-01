@@ -1,0 +1,27 @@
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\bin\Release\Logs.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\bin\Release\Logs.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\bin\Release\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\bin\Release\Utilidades.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\bin\Release\Persistencia.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\bin\Release\Utilidades.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\obj\Release\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\obj\Release\Logs.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Logs\obj\Release\Logs.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\bin\Release\Logs.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\bin\Release\Logs.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\bin\Release\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\bin\Release\Utilidades.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\bin\Release\Persistencia.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\bin\Release\Utilidades.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\obj\Release\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\obj\Release\Logs.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\obj\Release\Logs.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Release\Logs.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Release\Logs.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Release\Persistencia.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Release\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Release\Persistencia.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Release\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\obj\Release\Logs.csprojResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\obj\Release\Logs.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\obj\Release\Logs.pdb
