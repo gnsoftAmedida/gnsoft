@@ -1,0 +1,21 @@
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Persistencia\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Persistencia\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Persistencia\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF\Persistencia\obj\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\obj\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.csprojResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.pdb
