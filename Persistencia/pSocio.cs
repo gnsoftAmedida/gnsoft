@@ -141,26 +141,26 @@ namespace Persistencia
                 connection.Close();
             }
 
-            catch (MySqlException ex)
-            {
-                transaction.Rollback();
-                connection.Close();
+            //catch (MySqlException ex)
+            //{
+            //    transaction.Rollback();
+            //    connection.Close();
 
-                switch (ex.Number)
-                {
-                    case 1406:
-                        MisExcepciones ep = new MisExcepciones("Datos muy largos");
-                        throw ep;
+            //    switch (ex.Number)
+            //    {
+            //        case 1406:
+            //            MisExcepciones ep = new MisExcepciones("Datos muy largos");
+            //            throw ep;
 
-                    case 1062:
-                        MisExcepciones es = new MisExcepciones("Ya exíste el Socio. Verifique su nro");
-                        throw es;
+            //        //case 1062:
+            //        //    MisExcepciones es = new MisExcepciones("Ya exíste el Socio. Verifique su nro");
+            //        //    throw es;
 
-                }
+            //    }
 
-                MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
-                throw eg;
-            }
+            //    MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
+            //    throw eg;
+            //}
             catch (Exception ex)
             {
                 transaction.Rollback();

@@ -17,6 +17,8 @@ namespace COOPMEF
         private Controladora empresa = Controladora.Instance;
         private DataSet dsAccionesPermitidas;
         DataSet dsSocios;
+        DataSet dsIncisos;
+        DataSet dsOficinas;
         private bool nuevo = true;
 
         public frmPrincipal()
@@ -138,7 +140,10 @@ namespace COOPMEF
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             dsAccionesPermitidas = empresa.DevolverAccionesXUsuario(Utilidades.UsuarioLogueado.IdUsuario);
-            dsSocios = empresa.DevolverSocios();//************************
+            dsSocios = empresa.DevolverSocios();
+            dsIncisos = empresa.DevolverIncisos();
+            dsOficinas = empresa.DevolverOficinas();
+            pantallaInicialSocio();
         }
 
         private void resetearContraseñasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -309,9 +314,9 @@ namespace COOPMEF
             this.txtApellidos.Enabled = true;
 
             
-            this.dtpFechaNacimiento.Enabled = true;
+            this.dtpFechaNac.Enabled = true;
 
-            this.dtpFechaIngreso.Enabled = true;
+            this.dtpFechaIng.Enabled = true;
 
 
             this.cmbEstadoCivil.Enabled = true;
@@ -350,102 +355,156 @@ namespace COOPMEF
             //this.lblErrorGenerico.Visible = false;
         }
 
+        private void pantallaInicialSocio() {
+            this.lblNroCo.Visible = false;
+            this.lblNombre.Visible = false;
+            this.lblApellido.Visible = false;
+            this.lblDir.Visible = false;
+            this.lblEmail.Visible = false;
+            this.lblErrorGenerico.Visible = false;
+            this.lblReferenciaError.Visible = false;
+            this.lblNroS.Visible = false;
+            this.lblTel.Visible = false;
+            this.lblErrorEdad.Visible = false;
+            this.lblErrorOficina.Visible = false;
+            this.lblErrorInciso.Visible = false;
+
+
+            for (int i = 18; i < 100; i++) this.cmbEdad.Items.Add(i);
+            this.cmbEdad.SelectedIndex = 0;
+
+            this.cmbEstadoCivil.Items.Add("Soltero/a");
+            this.cmbEstadoCivil.Items.Add("Casado/a");
+            this.cmbEstadoCivil.Items.Add("Divorciado/a");
+            this.cmbEstadoCivil.Items.Add("Viudo/a");
+            this.cmbEstadoCivil.SelectedIndex = 0;
+
+            this.cmbInciso.DataSource = dsIncisos.Tables["incisos"];
+            this.cmbInciso.DisplayMember = "inciso_abreviatura";
+            this.cmbInciso.ValueMember = "inciso_id";
+            this.cmbInciso.SelectedIndex = 0;
+            this.cmbInciso.Enabled = true;
+
+            this.cmbOficina.DataSource = dsOficinas.Tables["oficinas"];
+            this.cmbOficina.DisplayMember = "oficina_abreviatura";
+            this.cmbOficina.ValueMember = "oficina_id";
+            this.cmbOficina.SelectedIndex = 0;
+            this.cmbOficina.Enabled = true;
+
+            this.rbtnMasculino.Checked = true;
+            this.rbtnMasculino.Select();
+        
+        }
+
         private void nuevoSocio()
         {
             bool valido = true;
+            pantallaInicialSocio();
+           
 
             // Control de campos obligatorios 
             if (this.txtNroSocio.Text.Trim() == "")
             {
                 this.lblNroS.Visible = true;
-                this.lblNroS.Text = "Campo obligatorio";
+                this.lblNroS.Text = "*";
                 valido = false;
             }
 
             if (this.txtNroCobro.Text.Trim() == "")
             {
-                this.lblNroDeCobro.Visible = true;
-                this.lblNroDeCobro.Text = "Campo obligatorio";
+                this.lblNroCo.Visible = true;
+                this.lblNroCo.Text = "*";
                 valido = false;
             }
 
             if (this.txtNombres.Text.Trim() == "")
             {
                 this.lblNombre.Visible = true;
-                this.lblNombre.Text = "Campo obligatorio";
+                this.lblNombre.Text = "*";
                 valido = false;
             }
 
             if (this.txtNombres.Text.Trim() == "")
             {
                 this.lblNombre.Visible = true;
-                this.lblNombre.Text = "Campo obligatorio";
+                this.lblNombre.Text = "*";
                 valido = false;
             }
 
             if (this.txtApellidos.Text.Trim() == "")
             {
                 this.lblApellido.Visible = true;
-                this.lblApellido.Text = "Campo obligatorio";
+                this.lblApellido.Text = "*";
                 valido = false;
             }
 
             if (this.txtTelefono.Text.Trim() == "")
             {
                 this.lblTel.Visible = true;
-                this.lblTel.Text = "Campo obligatorio";
+                this.lblTel.Text = "*";
                 valido = false;
             }
 
             if (this.txtDireccion.Text.Trim() == "")
             {
                 this.lblDir.Visible = true;
-                this.lblDir.Text = "Campo obligatorio";
+                this.lblDir.Text = "*";
                 valido = false;
             }
 
             if (this.txtEmail.Text.Trim() == "")
             {
                 this.lblEmail.Visible = true;
-                this.lblEmail.Text = "Campo obligatorio";
+                this.lblEmail.Text = "*";
                 valido = false;
             }
-            /*
+
+            this.lblReferenciaError.Text = "* Campo obligatorio";
+            if (!valido) this.lblReferenciaError.Visible = true;
+            
             // Control de duplicado para código, nombre e inciso. Se hace en memoria y luego a nivel de BD
             //int filas = dsSocios.Tables["socios"].Rows.Count;
             int f = dsSocios.Tables[0].Rows.Count;
             //int f = dsSocios.Tables["incisos"].Rows.Count;
+
+            int index = this.cmbBusqueda.SelectedIndex;
+
             for (int i = 0; i < f ; i++)
             {
-                if (this.txtNroSocio.Text.Trim() == dsSocios.Tables["socios"].Rows[i][3].ToString())
-                {
-                    this.lblNroS.Visible = true;
-                    this.lblNroS.Text = "Ya exíste";
-                    valido = false;
-                }
+               // if (Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString()) != Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
                 
-                if (this.txtNroDeCobro.Text.Trim() == dsSocios.Tables["socios"].Rows[i][4].ToString())
-                {
-                    this.lblNroDeCobro.Visible = true;
-                    this.lblNroDeCobro.Text = "Ya existe ese Nro";
-                    valido = false;
-                };
+                    string numSocio = this.txtNroSocio.Text.Trim();
+                    string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
+                    if (numSocio == numSocioTable)
+                    {
+                        this.lblNroS.Visible = true;
+                        this.lblNroS.Text = "Ya exíste ese nro de socio";
+                        valido = false;
+                    }
 
-                if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socios"].Rows[i][13].ToString())
-                {
-                    this.lblTel.Visible = true;
-                    this.lblTel.Text = "Ya exíste ese tel";
-                    valido = false;
-                };
+                    if (this.txtNroDeCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
+                    {
+                        this.lblNroCo.Visible = true;
+                        this.lblNroCo.Text = "Ya existe ese Nro de cobro";
+                        valido = false;
+                    };
 
-                if (this.txtEmail.Text.Trim() == dsSocios.Tables["socios"].Rows[i][15].ToString())
-                {
-                    this.lblEmail.Visible = true;
-                    this.lblEmail.Text = "Ya exíste ese Email";
-                    valido = false;
-                };
+                    if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
+                    {
+                        this.lblTel.Visible = true;
+                        this.lblTel.Text = "Ya exíste ese tel";
+                        valido = false;
+                    };
+
+                    if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
+                    {
+                        this.lblEmail.Visible = true;
+                        this.lblEmail.Text = "Ya exíste ese Email";
+                        valido = false;
+                    };
+                
             }
-            */
+            
             if (valido)
             {
                 try
@@ -470,13 +529,13 @@ namespace COOPMEF
 
 
 
-                    /*OJOOOOOOOOO  ESTÁ HARDCODEEEEEEEEEEEEEEEEEEEEEEEEEE
-                     * 
-                     * int of = cmbOficina.SelectedIndex;
-                    int inc = cmbInciso.SelectedIndex;
-                    */
-                     int of = 1;
-                    int inc = 1;
+                    ///*OJOOOOOOOOO  ESTÁ HARDCODEEEEEEEEEEEEEEEEEEEEEEEEEE
+                     
+                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
+                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
+                    
+                    // int of = 1;
+                    //int inc = 1;
                     
 
                     empresa.AltaSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estadoCivil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);

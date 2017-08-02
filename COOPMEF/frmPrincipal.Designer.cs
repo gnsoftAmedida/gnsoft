@@ -86,6 +86,8 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.lblEmail = new System.Windows.Forms.Label();
             this.lblDir = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
@@ -109,14 +111,12 @@
             this.txtEmail = new System.Windows.Forms.TextBox();
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
-            this.dtpFechaIngreso = new System.Windows.Forms.DateTimePicker();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbEdad = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.rbtnFemenino = new System.Windows.Forms.RadioButton();
             this.rbtnMasculino = new System.Windows.Forms.RadioButton();
             this.cmbEstadoCivil = new System.Windows.Forms.ComboBox();
-            this.dtpFechaNacimiento = new System.Windows.Forms.DateTimePicker();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
             this.lblEdad = new System.Windows.Forms.Label();
@@ -225,8 +225,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
+            this.lblReferenciaError = new System.Windows.Forms.Label();
+            this.lblErrorEdad = new System.Windows.Forms.Label();
+            this.lblErrorOficina = new System.Windows.Forms.Label();
+            this.lblErrorInciso = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -604,6 +606,7 @@
             // lblErrorGenerico
             // 
             resources.ApplyResources(this.lblErrorGenerico, "lblErrorGenerico");
+            this.lblErrorGenerico.ForeColor = System.Drawing.Color.Red;
             this.lblErrorGenerico.Name = "lblErrorGenerico";
             // 
             // btnSalir
@@ -659,6 +662,10 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblErrorInciso);
+            this.groupBox1.Controls.Add(this.lblErrorOficina);
+            this.groupBox1.Controls.Add(this.lblErrorEdad);
+            this.groupBox1.Controls.Add(this.lblReferenciaError);
             this.groupBox1.Controls.Add(this.dtpFechaIng);
             this.groupBox1.Controls.Add(this.dtpFechaNac);
             this.groupBox1.Controls.Add(this.lblEmail);
@@ -682,12 +689,10 @@
             this.groupBox1.Controls.Add(this.txtEmail);
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label22);
-            this.groupBox1.Controls.Add(this.dtpFechaIngreso);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.cmbEdad);
             this.groupBox1.Controls.Add(this.groupBox2);
             this.groupBox1.Controls.Add(this.cmbEstadoCivil);
-            this.groupBox1.Controls.Add(this.dtpFechaNacimiento);
             this.groupBox1.Controls.Add(this.txtApellidos);
             this.groupBox1.Controls.Add(this.txtNombres);
             this.groupBox1.Controls.Add(this.lblEdad);
@@ -702,39 +707,56 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // dtpFechaIng
+            // 
+            resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
+            this.dtpFechaIng.Name = "dtpFechaIng";
+            // 
+            // dtpFechaNac
+            // 
+            resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            // 
             // lblEmail
             // 
             resources.ApplyResources(this.lblEmail, "lblEmail");
+            this.lblEmail.ForeColor = System.Drawing.Color.Red;
             this.lblEmail.Name = "lblEmail";
             // 
             // lblDir
             // 
             resources.ApplyResources(this.lblDir, "lblDir");
+            this.lblDir.ForeColor = System.Drawing.Color.Red;
             this.lblDir.Name = "lblDir";
             // 
             // lblTel
             // 
             resources.ApplyResources(this.lblTel, "lblTel");
+            this.lblTel.ForeColor = System.Drawing.Color.Red;
             this.lblTel.Name = "lblTel";
             // 
             // lblApellido
             // 
             resources.ApplyResources(this.lblApellido, "lblApellido");
+            this.lblApellido.ForeColor = System.Drawing.Color.Red;
             this.lblApellido.Name = "lblApellido";
             // 
             // lblNombre
             // 
             resources.ApplyResources(this.lblNombre, "lblNombre");
+            this.lblNombre.ForeColor = System.Drawing.Color.Red;
             this.lblNombre.Name = "lblNombre";
             // 
             // lblNroCo
             // 
             resources.ApplyResources(this.lblNroCo, "lblNroCo");
+            this.lblNroCo.ForeColor = System.Drawing.Color.Red;
             this.lblNroCo.Name = "lblNroCo";
             // 
             // lblNroS
             // 
             resources.ApplyResources(this.lblNroS, "lblNroS");
+            this.lblNroS.ForeColor = System.Drawing.Color.Red;
             this.lblNroS.Name = "lblNroS";
             // 
             // label37
@@ -782,6 +804,7 @@
             // rBtnActivo
             // 
             resources.ApplyResources(this.rBtnActivo, "rBtnActivo");
+            this.rBtnActivo.Checked = true;
             this.rBtnActivo.Name = "rBtnActivo";
             this.rBtnActivo.TabStop = true;
             this.rBtnActivo.UseVisualStyleBackColor = true;
@@ -826,12 +849,6 @@
             resources.ApplyResources(this.label22, "label22");
             this.label22.Name = "label22";
             // 
-            // dtpFechaIngreso
-            // 
-            this.dtpFechaIngreso.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            resources.ApplyResources(this.dtpFechaIngreso, "dtpFechaIngreso");
-            this.dtpFechaIngreso.Name = "dtpFechaIngreso";
-            // 
             // label18
             // 
             resources.ApplyResources(this.label18, "label18");
@@ -861,6 +878,7 @@
             // rbtnMasculino
             // 
             resources.ApplyResources(this.rbtnMasculino, "rbtnMasculino");
+            this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Name = "rbtnMasculino";
             this.rbtnMasculino.TabStop = true;
             this.rbtnMasculino.UseVisualStyleBackColor = true;
@@ -870,12 +888,6 @@
             this.cmbEstadoCivil.FormattingEnabled = true;
             resources.ApplyResources(this.cmbEstadoCivil, "cmbEstadoCivil");
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
-            // 
-            // dtpFechaNacimiento
-            // 
-            this.dtpFechaNacimiento.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            resources.ApplyResources(this.dtpFechaNacimiento, "dtpFechaNacimiento");
-            this.dtpFechaNacimiento.Name = "dtpFechaNacimiento";
             // 
             // txtApellidos
             // 
@@ -1564,15 +1576,29 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // dtpFechaNac
+            // lblReferenciaError
             // 
-            resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
-            this.dtpFechaNac.Name = "dtpFechaNac";
+            resources.ApplyResources(this.lblReferenciaError, "lblReferenciaError");
+            this.lblReferenciaError.ForeColor = System.Drawing.Color.Red;
+            this.lblReferenciaError.Name = "lblReferenciaError";
             // 
-            // dtpFechaIng
+            // lblErrorEdad
             // 
-            resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
-            this.dtpFechaIng.Name = "dtpFechaIng";
+            resources.ApplyResources(this.lblErrorEdad, "lblErrorEdad");
+            this.lblErrorEdad.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorEdad.Name = "lblErrorEdad";
+            // 
+            // lblErrorOficina
+            // 
+            resources.ApplyResources(this.lblErrorOficina, "lblErrorOficina");
+            this.lblErrorOficina.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorOficina.Name = "lblErrorOficina";
+            // 
+            // lblErrorInciso
+            // 
+            resources.ApplyResources(this.lblErrorInciso, "lblErrorInciso");
+            this.lblErrorInciso.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorInciso.Name = "lblErrorInciso";
             // 
             // frmPrincipal
             // 
@@ -1782,14 +1808,12 @@
         private System.Windows.Forms.TextBox txtEmail;
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.DateTimePicker dtpFechaIngreso;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbEdad;
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RadioButton rbtnFemenino;
         private System.Windows.Forms.RadioButton rbtnMasculino;
         private System.Windows.Forms.ComboBox cmbEstadoCivil;
-        private System.Windows.Forms.DateTimePicker dtpFechaNacimiento;
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtNombres;
         private System.Windows.Forms.Label lblEdad;
@@ -1835,6 +1859,10 @@
         private System.Windows.Forms.Label lblErrorGenerico;
         private System.Windows.Forms.DateTimePicker dtpFechaIng;
         private System.Windows.Forms.DateTimePicker dtpFechaNac;
+        private System.Windows.Forms.Label lblReferenciaError;
+        private System.Windows.Forms.Label lblErrorInciso;
+        private System.Windows.Forms.Label lblErrorOficina;
+        private System.Windows.Forms.Label lblErrorEdad;
     }
 }
 
