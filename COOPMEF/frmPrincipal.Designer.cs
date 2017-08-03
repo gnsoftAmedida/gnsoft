@@ -86,6 +86,7 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblReferenciaError = new System.Windows.Forms.Label();
             this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.lblEmail = new System.Windows.Forms.Label();
@@ -225,10 +226,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.lblReferenciaError = new System.Windows.Forms.Label();
-            this.lblErrorEdad = new System.Windows.Forms.Label();
-            this.lblErrorOficina = new System.Windows.Forms.Label();
-            this.lblErrorInciso = new System.Windows.Forms.Label();
+            this.lblYaExisteSocio = new System.Windows.Forms.Label();
+            this.lblYaExisteCobro = new System.Windows.Forms.Label();
+            this.lblYaExisteTel = new System.Windows.Forms.Label();
+            this.lblYaExisteMail = new System.Windows.Forms.Label();
+            this.lblYaExiste = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -615,6 +617,7 @@
             resources.ApplyResources(this.btnSalir, "btnSalir");
             this.btnSalir.Name = "btnSalir";
             this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
             // 
             // btnVerMasSocio
             // 
@@ -662,9 +665,11 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.lblErrorInciso);
-            this.groupBox1.Controls.Add(this.lblErrorOficina);
-            this.groupBox1.Controls.Add(this.lblErrorEdad);
+            this.groupBox1.Controls.Add(this.lblYaExiste);
+            this.groupBox1.Controls.Add(this.lblYaExisteMail);
+            this.groupBox1.Controls.Add(this.lblYaExisteTel);
+            this.groupBox1.Controls.Add(this.lblYaExisteCobro);
+            this.groupBox1.Controls.Add(this.lblYaExisteSocio);
             this.groupBox1.Controls.Add(this.lblReferenciaError);
             this.groupBox1.Controls.Add(this.dtpFechaIng);
             this.groupBox1.Controls.Add(this.dtpFechaNac);
@@ -706,6 +711,12 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // lblReferenciaError
+            // 
+            resources.ApplyResources(this.lblReferenciaError, "lblReferenciaError");
+            this.lblReferenciaError.ForeColor = System.Drawing.Color.Red;
+            this.lblReferenciaError.Name = "lblReferenciaError";
             // 
             // dtpFechaIng
             // 
@@ -1576,29 +1587,35 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // lblReferenciaError
+            // lblYaExisteSocio
             // 
-            resources.ApplyResources(this.lblReferenciaError, "lblReferenciaError");
-            this.lblReferenciaError.ForeColor = System.Drawing.Color.Red;
-            this.lblReferenciaError.Name = "lblReferenciaError";
+            resources.ApplyResources(this.lblYaExisteSocio, "lblYaExisteSocio");
+            this.lblYaExisteSocio.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteSocio.Name = "lblYaExisteSocio";
             // 
-            // lblErrorEdad
+            // lblYaExisteCobro
             // 
-            resources.ApplyResources(this.lblErrorEdad, "lblErrorEdad");
-            this.lblErrorEdad.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorEdad.Name = "lblErrorEdad";
+            resources.ApplyResources(this.lblYaExisteCobro, "lblYaExisteCobro");
+            this.lblYaExisteCobro.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteCobro.Name = "lblYaExisteCobro";
             // 
-            // lblErrorOficina
+            // lblYaExisteTel
             // 
-            resources.ApplyResources(this.lblErrorOficina, "lblErrorOficina");
-            this.lblErrorOficina.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorOficina.Name = "lblErrorOficina";
+            resources.ApplyResources(this.lblYaExisteTel, "lblYaExisteTel");
+            this.lblYaExisteTel.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteTel.Name = "lblYaExisteTel";
             // 
-            // lblErrorInciso
+            // lblYaExisteMail
             // 
-            resources.ApplyResources(this.lblErrorInciso, "lblErrorInciso");
-            this.lblErrorInciso.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorInciso.Name = "lblErrorInciso";
+            resources.ApplyResources(this.lblYaExisteMail, "lblYaExisteMail");
+            this.lblYaExisteMail.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteMail.Name = "lblYaExisteMail";
+            // 
+            // lblYaExiste
+            // 
+            resources.ApplyResources(this.lblYaExiste, "lblYaExiste");
+            this.lblYaExiste.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExiste.Name = "lblYaExiste";
             // 
             // frmPrincipal
             // 
@@ -1860,9 +1877,11 @@
         private System.Windows.Forms.DateTimePicker dtpFechaIng;
         private System.Windows.Forms.DateTimePicker dtpFechaNac;
         private System.Windows.Forms.Label lblReferenciaError;
-        private System.Windows.Forms.Label lblErrorInciso;
-        private System.Windows.Forms.Label lblErrorOficina;
-        private System.Windows.Forms.Label lblErrorEdad;
+        private System.Windows.Forms.Label lblYaExisteTel;
+        private System.Windows.Forms.Label lblYaExisteCobro;
+        private System.Windows.Forms.Label lblYaExisteSocio;
+        private System.Windows.Forms.Label lblYaExisteMail;
+        private System.Windows.Forms.Label lblYaExiste;
     }
 }
 
