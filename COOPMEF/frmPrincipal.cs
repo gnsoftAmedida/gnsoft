@@ -654,5 +654,54 @@ namespace COOPMEF
         {
 
         }
+
+        private void btnEliminarSocio_Click(object sender, EventArgs e)
+        {
+            int nroSocio = Convert.ToInt32(this.txtNroSocio.Text);
+
+            
+                string message = "¿Está seguro de que desea eliminar el socio?";
+                string caption = "Eliminar Socio";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
+
+
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+
+
+                    try
+                    {
+                        empresa.bajaSocio(nroSocio);
+
+                        MessageBox.Show("Socio eliminado correctamente");
+
+                        //Cargo Planes
+                        //dsPlanes = empresa.DevolverPlanes();
+                        pantallaInicialSocio();
+                    }
+                    catch (Exception ex)
+                    {
+                        this.lblErrorGenerico.Visible = true;
+                        this.lblErrorGenerico.Text = ex.Message;
+                    }
+                }
+            }
+
+        private void cmbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            int nroSocio = Convert.ToInt32(txtBusqueda.Text);
+            empresa.buscarSocio(nroSocio);
+        }
+
+        
+        }
     }
-}
+

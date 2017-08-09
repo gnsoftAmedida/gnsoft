@@ -170,6 +170,23 @@ namespace Negocio
             tmpPlan.eliminar();
         }
 
+        public void bajaSocio(int socioNro) {
+            Socio tmpSocio = new Socio();
+            //revisar que el socio no tenga prestamos activos  (pendiente)
+            tmpSocio.Socio_nro = socioNro;
+            tmpSocio.eliminar();
+        
+        }
+
+        public void buscarSocio(int socioNro)
+        {
+            Socio tmpSocio = new Socio();
+            //revisar que el socio no tenga prestamos activos  (pendiente)
+            tmpSocio.Socio_nro = socioNro;
+            tmpSocio.buscar();
+        
+        }
+
         public void bajaInciso (int idInciso)
         {
             Inciso tmpInciso = new Inciso();

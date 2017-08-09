@@ -35,13 +35,13 @@ namespace Persistencia
             }
         }
 
-        public void eliminarSocio(int Id)
+        public void eliminarSocio(int nro)
         {
 
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-            string sql = "DELETE FROM socio WHERE socio_id = '" + Id + "'";
+            string sql = "DELETE FROM socio WHERE socio_nro = '" + nro + "'";
 
             try
             {
@@ -68,9 +68,9 @@ namespace Persistencia
                         MisExcepciones ep = new MisExcepciones("Datos muy largos");
                         throw ep;
 
-                    case 1062:
-                        MisExcepciones es = new MisExcepciones("Ya exíste el Socio");
-                        throw es;
+                    //case 1062:
+                    //    MisExcepciones es = new MisExcepciones("Ya exíste el Socio");
+                    //    throw es;
 
                     //case 1451:
                     //    MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten prestamos asociadas ");
@@ -85,6 +85,27 @@ namespace Persistencia
                 transaction.Rollback();
                 connection.Close();
                 throw ex;
+            }
+        }
+
+        public void buscarSocio(int numSocio)
+        {
+            DataSet dsSocios = devolverTodos();
+
+            int f = dsSocios.Tables[0].Rows.Count;
+
+            for (int i = 0; i < f; i++)
+            {
+                // if (Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString()) != Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
+
+                //string numSocio = this.txtNroSocio.Text.Trim();
+                int numSocioTable = Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][3].ToString());
+                if (numSocio == numSocioTable)
+                {
+                    //Socio s = new Socio();
+
+                }
+
             }
         }
 

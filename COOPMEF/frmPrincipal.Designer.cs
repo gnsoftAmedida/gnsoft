@@ -86,6 +86,11 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblYaExiste = new System.Windows.Forms.Label();
+            this.lblYaExisteMail = new System.Windows.Forms.Label();
+            this.lblYaExisteTel = new System.Windows.Forms.Label();
+            this.lblYaExisteCobro = new System.Windows.Forms.Label();
+            this.lblYaExisteSocio = new System.Windows.Forms.Label();
             this.lblReferenciaError = new System.Windows.Forms.Label();
             this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
@@ -212,7 +217,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.cmbBusquedaPrincipal = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -226,11 +231,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.lblYaExisteSocio = new System.Windows.Forms.Label();
-            this.lblYaExisteCobro = new System.Windows.Forms.Label();
-            this.lblYaExisteTel = new System.Windows.Forms.Label();
-            this.lblYaExisteMail = new System.Windows.Forms.Label();
-            this.lblYaExiste = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -641,6 +641,7 @@
             resources.ApplyResources(this.btnEliminarSocio, "btnEliminarSocio");
             this.btnEliminarSocio.Name = "btnEliminarSocio";
             this.btnEliminarSocio.UseVisualStyleBackColor = true;
+            this.btnEliminarSocio.Click += new System.EventHandler(this.btnEliminarSocio_Click);
             // 
             // btnEditarSocio
             // 
@@ -711,6 +712,36 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // lblYaExiste
+            // 
+            resources.ApplyResources(this.lblYaExiste, "lblYaExiste");
+            this.lblYaExiste.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExiste.Name = "lblYaExiste";
+            // 
+            // lblYaExisteMail
+            // 
+            resources.ApplyResources(this.lblYaExisteMail, "lblYaExisteMail");
+            this.lblYaExisteMail.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteMail.Name = "lblYaExisteMail";
+            // 
+            // lblYaExisteTel
+            // 
+            resources.ApplyResources(this.lblYaExisteTel, "lblYaExisteTel");
+            this.lblYaExisteTel.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteTel.Name = "lblYaExisteTel";
+            // 
+            // lblYaExisteCobro
+            // 
+            resources.ApplyResources(this.lblYaExisteCobro, "lblYaExisteCobro");
+            this.lblYaExisteCobro.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteCobro.Name = "lblYaExisteCobro";
+            // 
+            // lblYaExisteSocio
+            // 
+            resources.ApplyResources(this.lblYaExisteSocio, "lblYaExisteSocio");
+            this.lblYaExisteSocio.ForeColor = System.Drawing.Color.Blue;
+            this.lblYaExisteSocio.Name = "lblYaExisteSocio";
             // 
             // lblReferenciaError
             // 
@@ -1483,7 +1514,7 @@
             // cmbBusquedaPrincipal
             // 
             this.cmbBusquedaPrincipal.Controls.Add(this.btnBuscar);
-            this.cmbBusquedaPrincipal.Controls.Add(this.textBox1);
+            this.cmbBusquedaPrincipal.Controls.Add(this.txtBusqueda);
             this.cmbBusquedaPrincipal.Controls.Add(this.cmbBusqueda);
             resources.ApplyResources(this.cmbBusquedaPrincipal, "cmbBusquedaPrincipal");
             this.cmbBusquedaPrincipal.Name = "cmbBusquedaPrincipal";
@@ -1496,11 +1527,12 @@
             resources.ApplyResources(this.btnBuscar, "btnBuscar");
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
-            // textBox1
+            // txtBusqueda
             // 
-            resources.ApplyResources(this.textBox1, "textBox1");
-            this.textBox1.Name = "textBox1";
+            resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
+            this.txtBusqueda.Name = "txtBusqueda";
             // 
             // cmbBusqueda
             // 
@@ -1510,6 +1542,7 @@
             resources.GetString("cmbBusqueda.Items"),
             resources.GetString("cmbBusqueda.Items1")});
             this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -1587,36 +1620,6 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // lblYaExisteSocio
-            // 
-            resources.ApplyResources(this.lblYaExisteSocio, "lblYaExisteSocio");
-            this.lblYaExisteSocio.ForeColor = System.Drawing.Color.Blue;
-            this.lblYaExisteSocio.Name = "lblYaExisteSocio";
-            // 
-            // lblYaExisteCobro
-            // 
-            resources.ApplyResources(this.lblYaExisteCobro, "lblYaExisteCobro");
-            this.lblYaExisteCobro.ForeColor = System.Drawing.Color.Blue;
-            this.lblYaExisteCobro.Name = "lblYaExisteCobro";
-            // 
-            // lblYaExisteTel
-            // 
-            resources.ApplyResources(this.lblYaExisteTel, "lblYaExisteTel");
-            this.lblYaExisteTel.ForeColor = System.Drawing.Color.Blue;
-            this.lblYaExisteTel.Name = "lblYaExisteTel";
-            // 
-            // lblYaExisteMail
-            // 
-            resources.ApplyResources(this.lblYaExisteMail, "lblYaExisteMail");
-            this.lblYaExisteMail.ForeColor = System.Drawing.Color.Blue;
-            this.lblYaExisteMail.Name = "lblYaExisteMail";
-            // 
-            // lblYaExiste
-            // 
-            resources.ApplyResources(this.lblYaExiste, "lblYaExiste");
-            this.lblYaExiste.ForeColor = System.Drawing.Color.Blue;
-            this.lblYaExiste.Name = "lblYaExiste";
-            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1691,7 +1694,7 @@
         private System.Windows.Forms.TabPage tabBusqueda;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox cmbBusquedaPrincipal;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.ComboBox cmbBusqueda;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label9;
