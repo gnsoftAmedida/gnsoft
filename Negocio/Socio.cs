@@ -141,7 +141,13 @@ namespace Negocio
         public void eliminar()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.eliminarSocio(this.socio_id);
+            tmpSocio.eliminarSocio(this.socio_nro);
+        }
+
+        public void buscar()
+        {
+            pSocio tmpSocio = new pSocio();
+            tmpSocio.buscarSocio(this.socio_nro);
         }
 
         public void modificarSocio()
