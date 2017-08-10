@@ -193,16 +193,16 @@ namespace COOPMEF
             {
                 if (index != -1)
                 {
-                    this.cmbIncisos.Enabled = true;
-                    this.txtCodigo.Enabled = true;
-                    this.txtNombre.Enabled = true;
-                    this.txtAbreviatura.Enabled = true;
-                    this.txtDireccion.Enabled = true;
-                    this.txtCodigoPostal.Enabled = true;
-                    this.cmbDepartamento.Enabled = true;
-                    this.txtTelefono.Enabled = true;
-                    this.txtEmail.Enabled = true;
-                    this.txtNombreContacto.Enabled = true;
+                    this.cmbIncisos.Enabled = false;
+                    this.txtCodigo.Enabled = false;
+                    this.txtNombre.Enabled = false;
+                    this.txtAbreviatura.Enabled = false;
+                    this.txtDireccion.Enabled = false;
+                    this.txtCodigoPostal.Enabled = false;
+                    this.cmbDepartamento.Enabled = false;
+                    this.txtTelefono.Enabled = false;
+                    this.txtEmail.Enabled = false;
+                    this.txtNombreContacto.Enabled = false;
 
                     this.btnEliminar.Enabled = true;
                     this.btnEditar.Enabled = true;
