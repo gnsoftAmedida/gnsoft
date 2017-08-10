@@ -43,6 +43,7 @@
             this.txtNombreContacto = new System.Windows.Forms.TextBox();
             this.txtAbreviatura = new System.Windows.Forms.TextBox();
             this.txtDireccion = new System.Windows.Forms.TextBox();
+            this.cmbTodosIncisos = new System.Windows.Forms.ComboBox();
             this.cmbOficinas = new System.Windows.Forms.ComboBox();
             this.cmbIncisos = new System.Windows.Forms.ComboBox();
             this.label24 = new System.Windows.Forms.Label();
@@ -61,6 +62,7 @@
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
             this.lblOficina = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblNroSocio = new System.Windows.Forms.Label();
             this.btnNuevaOficina = new System.Windows.Forms.Button();
             this.btnCancelar = new System.Windows.Forms.Button();
@@ -68,8 +70,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.cmbTodosIncisos = new System.Windows.Forms.ComboBox();
-            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -261,6 +261,15 @@
             this.txtDireccion.Size = new System.Drawing.Size(173, 20);
             this.txtDireccion.TabIndex = 5;
             // 
+            // cmbTodosIncisos
+            // 
+            this.cmbTodosIncisos.FormattingEnabled = true;
+            this.cmbTodosIncisos.Location = new System.Drawing.Point(138, 19);
+            this.cmbTodosIncisos.Name = "cmbTodosIncisos";
+            this.cmbTodosIncisos.Size = new System.Drawing.Size(202, 21);
+            this.cmbTodosIncisos.TabIndex = 0;
+            this.cmbTodosIncisos.SelectedIndexChanged += new System.EventHandler(this.cmbTodosIncisos_SelectedIndexChanged);
+            // 
             // cmbOficinas
             // 
             this.cmbOficinas.FormattingEnabled = true;
@@ -426,6 +435,16 @@
             this.lblOficina.TabIndex = 0;
             this.lblOficina.Text = "Oficina";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label1.Location = new System.Drawing.Point(17, 27);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(35, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Inciso";
+            // 
             // lblNroSocio
             // 
             this.lblNroSocio.AutoSize = true;
@@ -513,25 +532,6 @@
             this.btnSalir.Text = "     Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
-            // 
-            // cmbTodosIncisos
-            // 
-            this.cmbTodosIncisos.FormattingEnabled = true;
-            this.cmbTodosIncisos.Location = new System.Drawing.Point(138, 19);
-            this.cmbTodosIncisos.Name = "cmbTodosIncisos";
-            this.cmbTodosIncisos.Size = new System.Drawing.Size(202, 21);
-            this.cmbTodosIncisos.TabIndex = 0;
-            this.cmbTodosIncisos.SelectedIndexChanged += new System.EventHandler(this.cmbOficinas_SelectedIndexChanged);
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(17, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(35, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Inciso";
             // 
             // frmMantOficinas
             // 

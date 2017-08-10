@@ -95,6 +95,13 @@ namespace Negocio
             return oficinas;
         }
 
+        public DataSet devolverOficinasPorInciso(int idInciso)
+        {
+            pOficina tmpInciso = new pOficina();
+            DataSet oficinasInciso = tmpInciso.devolverOficinasPorInciso(idInciso);
+            return oficinasInciso;
+        }
+
         public void Guardar()
         {
             pOficina tmpOficina = new pOficina();

@@ -153,6 +153,13 @@ namespace Negocio
             return oficinas;
         }
 
+        public DataSet DevolverOficinasPorInciso(int idInciso)
+        {
+            Oficina tmpOficina = new Oficina();
+            DataSet oficinasInciso = tmpOficina.devolverOficinasPorInciso(idInciso);
+            return oficinasInciso;
+        }
+
         public DataSet DevolverSocios()
         {
             Socio tmpSocio = new Socio();

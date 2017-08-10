@@ -16,9 +16,11 @@ namespace COOPMEF
         private Controladora empresa = Controladora.Instance;
         DataSet dsOficinas;
         DataSet dsIncisos;
+        DataSet dsIncisosTodos;
         DataSet dsDepartamentos;
         private bool nuevo = true;
         private bool yaHizoLoad = false;
+        private bool yaHizoLoadOficina = false;
 
         public frmMantOficinas()
         {
@@ -32,37 +34,36 @@ namespace COOPMEF
 
         private void frmMantOficinas_Load(object sender, EventArgs e)
         {
-            //Cargar oficinas
-            dsOficinas = empresa.DevolverOficinas();
 
             //Cargo Incisos
             dsIncisos = empresa.DevolverIncisos();
+
+            dsIncisosTodos = empresa.DevolverIncisos();
 
             //Cargo Departamentos
             dsDepartamentos = empresa.DevolverDepartamentos();
 
             pantallaInicial();
-
-            yaHizoLoad = true;
+           
         }
 
         public void pantallaInicial()
         {
+            this.cmbTodosIncisos.Enabled = true;
+ 
+            this.yaHizoLoad = false;
+            this.yaHizoLoadOficina = false;
+
             // Cargo combos de oficinas, departamentos e incisos
-            this.cmbTodosIncisos.DataSource = dsIncisos.Tables["incisos"];
-            this.cmbTodosIncisos.DisplayMember = "inciso_nombre";
-            this.cmbTodosIncisos.ValueMember = "inciso_id";
-            this.cmbTodosIncisos.SelectedIndex = -1;
-
-            this.cmbOficinas.DataSource = dsOficinas.Tables["oficinas"];
-            this.cmbOficinas.DisplayMember = "oficina_nombre";
-            this.cmbOficinas.ValueMember = "oficina_id";
-            this.cmbOficinas.SelectedIndex = -1;
-
             this.cmbIncisos.DataSource = dsIncisos.Tables["incisos"];
             this.cmbIncisos.DisplayMember = "inciso_nombre";
             this.cmbIncisos.ValueMember = "inciso_id";
             this.cmbIncisos.SelectedIndex = -1;
+
+            this.cmbTodosIncisos.DataSource = dsIncisosTodos.Tables["incisos"];
+            this.cmbTodosIncisos.DisplayMember = "inciso_nombre";
+            this.cmbTodosIncisos.ValueMember = "inciso_id";
+            this.cmbTodosIncisos.SelectedIndex = -1;
 
             this.cmbDepartamento.DataSource = dsDepartamentos.Tables["departamentos"];
             this.cmbDepartamento.DisplayMember = "departamento_nombre";
@@ -70,7 +71,8 @@ namespace COOPMEF
             this.cmbDepartamento.SelectedIndex = -1;
 
             //Deshabilito cajas de texto
-            this.cmbOficinas.Enabled = true;
+            this.cmbOficinas.Enabled = false;
+            this.cmbOficinas.SelectedIndex = -1;
             this.cmbIncisos.Enabled = false;
             this.txtCodigo.Enabled = false;
             this.txtNombre.Enabled = false;
@@ -100,11 +102,16 @@ namespace COOPMEF
             this.btnGuardar.Enabled = false;
             this.btnCancelar.Enabled = false;
             this.btnNuevaOficina.Enabled = true;
+
+            yaHizoLoad = true;
         }
 
         private void btnNuevaOficina_Click(object sender, EventArgs e)
         {
             this.nuevo = true;
+
+            this.cmbTodosIncisos.Enabled = false;
+            this.cmbTodosIncisos.SelectedIndex = -1;
 
             this.cmbOficinas.Enabled = false;
             this.cmbOficinas.SelectedIndex = -1;
@@ -182,7 +189,7 @@ namespace COOPMEF
         {
             int index = this.cmbOficinas.SelectedIndex;
             //Como en el load se pasa por este método, sino lo controlo los combos de departamento e inciso se caen
-            if (yaHizoLoad)
+            if (yaHizoLoadOficina)
             {
                 if (index != -1)
                 {
@@ -377,6 +384,37 @@ namespace COOPMEF
             this.lblErrCodigoPostal.Text = "";
             this.lblErrTelefono.Text = "";
             this.lblErrorGenerico.Text = "";
+        }
+
+        private void cmbTodosIncisos_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (yaHizoLoad)
+            {
+                int index = this.cmbTodosIncisos.SelectedIndex;
+                if (index != -1)
+                {
+                    this.cmbOficinas.Enabled = true;
+
+
+                    int idInciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString());
+
+                    //Cargar oficinas
+                    dsOficinas = empresa.DevolverOficinasPorInciso(idInciso);
+
+                    this.cmbOficinas.DataSource = dsOficinas.Tables["oficinas"];
+                    this.cmbOficinas.DisplayMember = "oficina_nombre";
+                    this.cmbOficinas.ValueMember = "oficina_id";
+                    this.cmbOficinas.SelectedIndex = -1;
+                    this.cmbOficinas.Enabled = true;
+
+                    this.cmbTodosIncisos.Enabled = false;
+
+                    yaHizoLoadOficina = true;
+
+                    this.btnCancelar.Enabled = true;
+                    this.btnNuevaOficina.Enabled = true;
+                }
+            }
         }
     }
 }
