@@ -60,18 +60,6 @@ C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPM
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x64\Debug\gsw\COOPMEF.resources.dll
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x64\Debug\COOPMEF.exe
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x64\Debug\COOPMEF.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\COOPMEF.exe.config
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\COOPMEF.exe
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\COOPMEF.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\gsw\COOPMEF.resources.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Logs.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Negocio.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Utilidades.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Persistencia.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Logs.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Negocio.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Utilidades.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Persistencia.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.csprojResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.frmAgenda.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.frmMantOficinas.resources
@@ -90,6 +78,18 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.frmVerRepo
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.Properties.Resources.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.frmPrincipal.gsw.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.csproj.GenerateResource.Cache
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\COOPMEF.exe.config
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\COOPMEF.exe
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\COOPMEF.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Logs.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Negocio.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Logs.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Negocio.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Debug\Persistencia.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\gsw\COOPMEF.resources.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.exe
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Debug\COOPMEF.pdb

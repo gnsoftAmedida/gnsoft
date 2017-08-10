@@ -44,13 +44,13 @@ namespace COOPMEF
             dsDepartamentos = empresa.DevolverDepartamentos();
 
             pantallaInicial();
-           
+
         }
 
         public void pantallaInicial()
         {
             this.cmbTodosIncisos.Enabled = true;
- 
+
             this.yaHizoLoad = false;
             this.yaHizoLoadOficina = false;
 
@@ -249,7 +249,126 @@ namespace COOPMEF
             }
             else
             {
-                //   this.editarInciso();
+                this.editarOficina();
+            }
+        }
+
+        private void editarOficina()
+        {
+            bool valido = true;
+
+            // Control de campos obligatorios 
+            if (this.cmbIncisos.SelectedIndex == -1)
+            {
+                this.lblErrInciso.Visible = true;
+                this.lblErrInciso.Text = "Campo obligatorio";
+            }
+
+            if (this.txtCodigo.Text.Trim() == "")
+            {
+                this.lblErrCodigo.Visible = true;
+                this.lblErrCodigo.Text = "Campo obligatorio";
+                valido = false;
+            }
+
+            if (this.txtNombre.Text.Trim() == "")
+            {
+                this.lblErrNombre.Visible = true;
+                this.lblErrNombre.Text = "Campo obligatorio";
+                valido = false;
+            }
+
+            if (this.txtAbreviatura.Text.Trim() == "")
+            {
+                this.lblErrAbreviatura.Visible = true;
+                this.lblErrAbreviatura.Text = "Campo obligatorio";
+                valido = false;
+            }
+
+            if (this.txtDireccion.Text.Trim() == "")
+            {
+                this.lblErrDireccion.Visible = true;
+                this.lblErrDireccion.Text = "Campo obligatorio";
+                valido = false;
+            }
+
+            if (this.txtCodigoPostal.Text.Trim() == "")
+            {
+                this.lblErrCodigoPostal.Visible = true;
+                this.lblErrCodigoPostal.Text = "Campo obligatorio";
+                valido = false;
+            }
+
+            if (this.cmbDepartamento.SelectedIndex == -1)
+            {
+                this.lblErrDepartamento.Visible = true;
+                this.lblErrDepartamento.Text = "Campo obligatorio";
+            }
+
+            if (this.txtTelefono.Text.Trim() == "")
+            {
+                this.lblErrTelefono.Visible = true;
+                this.lblErrTelefono.Text = "Campo obligatorio";
+                valido = false;
+            }
+
+            if (this.txtEmail.Text.Trim() == "")
+            {
+                this.lblErrMail.Visible = true;
+                this.lblErrMail.Text = "Campo obligatorio";
+                valido = false;
+            }
+            else
+            {
+                Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+                if (!regex.IsMatch(txtEmail.Text))
+                {
+                    this.lblErrMail.Visible = true;
+                    this.lblErrMail.Text = "Formato inválido";
+                    valido = false;
+                }
+            }
+
+            if (this.txtNombreContacto.Text.Trim() == "")
+            {
+                this.lblErrContacto.Visible = true;
+                this.lblErrContacto.Text = "Campo obligatorio";
+                valido = false;
+            }
+
+            if (valido)
+            {
+
+                try
+                {
+                    string message = "¿Está seguro de que desea modificar la oficina?";
+                    string caption = "Modificar Oficina";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons);
+
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+
+
+                        int id_inciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[this.cmbIncisos.SelectedIndex][0].ToString());
+                        int id_departamento = Convert.ToInt32(dsDepartamentos.Tables["departamentos"].Rows[this.cmbDepartamento.SelectedIndex][0].ToString());
+                        int index = this.cmbOficinas.SelectedIndex;
+
+                        empresa.modificarOficina(txtCodigo.Text, txtNombre.Text, txtAbreviatura.Text, txtDireccion.Text, id_inciso, id_departamento, txtCodigoPostal.Text, txtTelefono.Text, txtEmail.Text, txtNombreContacto.Text, Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[index][0].ToString()));
+
+                        MessageBox.Show("Oficina creada correctamente");
+
+                        //Cargo Incisos
+                        dsOficinas = empresa.DevolverOficinas();
+                        pantallaInicial();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    this.lblErrorGenerico.Visible = true;
+                    this.lblErrorGenerico.Text = ex.Message;
+                }
             }
         }
 
@@ -345,7 +464,7 @@ namespace COOPMEF
 
                     empresa.AltaOficina(txtCodigo.Text, txtNombre.Text, txtAbreviatura.Text, txtDireccion.Text, id_inciso, id_departamento, txtCodigoPostal.Text, txtTelefono.Text, txtEmail.Text, txtNombreContacto.Text);
 
-                    MessageBox.Show("Inciso creado correctamente");
+                    MessageBox.Show("Oficina creada correctamente");
 
                     //Cargo Incisos
                     dsOficinas = empresa.DevolverOficinas();
@@ -415,6 +534,29 @@ namespace COOPMEF
                     this.btnNuevaOficina.Enabled = true;
                 }
             }
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
+            this.nuevo = false;
+
+            this.cmbIncisos.Enabled = true;
+            this.txtCodigo.Enabled = true;
+            this.txtNombre.Enabled = true;
+            this.txtAbreviatura.Enabled = true;
+            this.txtDireccion.Enabled = true;
+            this.txtCodigoPostal.Enabled = true;
+            this.cmbDepartamento.Enabled = true;
+            this.txtTelefono.Enabled = true;
+            this.txtEmail.Enabled = true;
+            this.txtNombreContacto.Enabled = true;
+
+            this.btnEliminar.Enabled = false;
+            this.btnEditar.Enabled = false;
+            this.btnGuardar.Enabled = true;
+            this.btnCancelar.Enabled = true;
+
+            this.lblErrorGenerico.Visible = false;
         }
     }
 }

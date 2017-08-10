@@ -97,8 +97,8 @@ namespace Negocio
 
         public DataSet devolverOficinasPorInciso(int idInciso)
         {
-            pOficina tmpInciso = new pOficina();
-            DataSet oficinasInciso = tmpInciso.devolverOficinasPorInciso(idInciso);
+            pOficina tmpOficina = new pOficina();
+            DataSet oficinasInciso = tmpOficina.devolverOficinasPorInciso(idInciso);
             return oficinasInciso;
         }
 
@@ -106,6 +106,12 @@ namespace Negocio
         {
             pOficina tmpOficina = new pOficina();
             tmpOficina.GuardarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto);
+        }
+
+        public void modificarOficina()
+        {
+            pOficina tmpOficina = new pOficina();
+            tmpOficina.modificarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto, Oficina_id);
         }
 
         public void eliminar()

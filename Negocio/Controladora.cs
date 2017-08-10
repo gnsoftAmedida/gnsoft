@@ -125,6 +125,30 @@ namespace Negocio
             tmpInciso.modificarInciso();
         }
 
+        public void modificarOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto, int idOficina)
+        {
+            Oficina tmpOficina = new Oficina();
+
+            Inciso tmpInciso = new Inciso();
+            tmpInciso.Inciso_id = idInciso;
+
+            Departamento tmpDepartamento = new Departamento();
+            tmpDepartamento.Departamento_id = idDepartamento;
+
+            tmpOficina.Oficina_codigo = codigo;
+            tmpOficina.Oficina_nombre = nombre;
+            tmpOficina.Oficina_abreviatura = abreviatura;
+            tmpOficina.Oficina_direccion = direccion;
+            tmpOficina.Oficina_inciso = tmpInciso;
+            tmpOficina.Departamento = tmpDepartamento;
+            tmpOficina.Oficina_codigopostal = codigoPostal;
+            tmpOficina.Oficina_telefono = telefono;
+            tmpOficina.Oficina_email = email;
+            tmpOficina.Oficina_nombrecontacto = nombreContacto;
+            tmpOficina.Oficina_id = idOficina;
+            tmpOficina.modificarOficina();
+        }
+
         public DataSet DevolverUsuarios()
         {
             Usuario tmpUsuario = new Usuario();
@@ -240,16 +264,6 @@ namespace Negocio
             tmpPlan.Plan_id = idPlan;
             tmpPlan.modificarPlan();
         }
-
-        //public void bajaPlan(int idInciso)
-        //{
-        //    Inciso tmpInciso = new Inciso();
-        //    if (idInciso == 0)
-        //        throw new Exception("Id del usuario no puede ser 0");
-
-        //    tmpInciso.Inciso_id = idInciso;
-        //    tmpInciso.eliminar();
-        //}
 
         public void BajaUsuario(int idUsuario)
         {

@@ -49,6 +49,62 @@ namespace Persistencia
             }
         }
 
+
+        public void modificarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto, int idOficina)
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            string sql = "Update oficina set oficina_codigo = '" + oficina_codigo + "', oficina_nombre = '" + oficina_nombre + "', oficina_abreviatura = '" + oficina_abreviatura + "', oficina_direccion = '" + oficina_direccion + "', inciso_inciso_id = '" + oficina_inciso + "', departamento_departamento_id = '" + departamento + "', oficina_codigopostal = '" + oficina_codigopostal + "', oficina_telefono = '" + oficina_telefono + "', oficina_email = '" + oficina_email + "', oficina_nombrecontacto = '" + oficina_nombrecontacto + "' WHERE oficina_id =" + idOficina;
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                MySqlAdapter.UpdateCommand = connection.CreateCommand();
+                MySqlAdapter.UpdateCommand.Transaction = transaction;
+
+                MySqlAdapter.UpdateCommand.CommandText = sql;
+                MySqlAdapter.UpdateCommand.ExecuteNonQuery();
+
+                transaction.Commit();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+                throw ex;
+            }
+        }
+
+
+        public DataSet devolverOficinasPorInciso(int idInciso)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT * FROM oficina where inciso_inciso_id =" + idInciso;
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "oficinas");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void GuardarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto)
         {
             MySqlConnection connection = conectar();
@@ -82,31 +138,6 @@ namespace Persistencia
                         MisExcepciones ep = new MisExcepciones("Datos muy largos");
                         throw ep;
                 }
-            }
-        }
-
-
-        public DataSet devolverOficinasPorInciso(int idInciso)
-        {
-            try
-            {
-                MySqlConnection connection = conectar();
-
-                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT * FROM oficina where inciso_inciso_id =" + idInciso;
-                DataSet ds = new DataSet();
-
-                connection.Open();
-                MySqlAdapter.SelectCommand = connection.CreateCommand();
-                MySqlAdapter.SelectCommand.CommandText = sql;
-                MySqlAdapter.Fill(ds, "oficinas");
-                connection.Close();
-                return ds;
-
-            }
-            catch (Exception ex)
-            {
-                throw ex;
             }
         }
 
