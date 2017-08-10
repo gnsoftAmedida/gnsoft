@@ -49,6 +49,11 @@ namespace COOPMEF
         public void pantallaInicial()
         {
             // Cargo combos de oficinas, departamentos e incisos
+            this.cmbTodosIncisos.DataSource = dsIncisos.Tables["incisos"];
+            this.cmbTodosIncisos.DisplayMember = "inciso_nombre";
+            this.cmbTodosIncisos.ValueMember = "inciso_id";
+            this.cmbTodosIncisos.SelectedIndex = -1;
+
             this.cmbOficinas.DataSource = dsOficinas.Tables["oficinas"];
             this.cmbOficinas.DisplayMember = "oficina_nombre";
             this.cmbOficinas.ValueMember = "oficina_id";
