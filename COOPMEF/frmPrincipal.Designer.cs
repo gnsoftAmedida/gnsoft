@@ -231,6 +231,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -666,6 +667,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.comboBox1);
             this.groupBox1.Controls.Add(this.lblYaExiste);
             this.groupBox1.Controls.Add(this.lblYaExisteMail);
             this.groupBox1.Controls.Add(this.lblYaExisteTel);
@@ -1620,6 +1622,12 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            resources.ApplyResources(this.comboBox1, "comboBox1");
+            this.comboBox1.Name = "comboBox1";
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1885,6 +1893,7 @@
         private System.Windows.Forms.Label lblYaExisteSocio;
         private System.Windows.Forms.Label lblYaExisteMail;
         private System.Windows.Forms.Label lblYaExiste;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 
