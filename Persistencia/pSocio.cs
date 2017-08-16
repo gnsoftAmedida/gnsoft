@@ -199,7 +199,7 @@ namespace Persistencia
 
             string sql;
 
-            sql = "Update socio set socio_nombre ='" + Tsocio_nombre +"', socio_apellido ='" + Tsocio_apellido +"', socio_nroCobro ='" + Tsocio_nroCobro+"',socio_fechaNac='"+ Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd")+ "',socio_sexo = '"+ Tsocio_sexo + "', socio_estado = '" + Tsocio_estado+"', socio_estadoCivil = '" + Tsocio_estadoCivil+"', socio_edad='" + Tsocio_edad +"', socio_oficinaId = '"+ Tsocio_oficinaId+"', socio_incisoId = '"+ Tsocio_incisoId +"', socio_tel='" + Tsocio_tel+"', socio_direccion='"+Tsocio_direccion+"', socio_email='"+Tsocio_email+"'WHERE nro_socio =" + Tsocio_nro;
+            sql = "Update socio set socio_nombre ='" + Tsocio_nombre + "', socio_apellido ='" + Tsocio_apellido + "', socio_nroCobro ='" + Tsocio_nroCobro + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel + "', socio_direccion='" + Tsocio_direccion + "', socio_email='" + Tsocio_email + "'WHERE socio_nro =" + Tsocio_nro;
 
             try
             {
