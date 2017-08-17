@@ -509,7 +509,7 @@ namespace COOPMEF
             int f = dsSocios.Tables[0].Rows.Count;
             int index = this.cmbSocios.SelectedIndex;
 
-            for (int i = 0; i < f; i++)
+            for (int i = 0; valido == true && i < f; i++)
             {
                 //Compruebo que no se esté comprando con el mismo
                 if (index >-1)
@@ -613,7 +613,7 @@ namespace COOPMEF
         private void editarSocio()
         {
             bool valido = true;
-            pantallaInicialSocio();
+            //pantallaInicialSocio();
 
 
             // Control de campos obligatorios 
@@ -662,23 +662,45 @@ namespace COOPMEF
             }
         }
 
+        private void dejarPantallaComoAlInicio() {
+            pantallaInicialSocio();
+            desactivarAltaSocio();
+
+            this.cmbSocios.DataSource = dsSocios.Tables["socio"];
+            this.cmbSocios.DisplayMember = "socio_nombre";
+            this.cmbSocios.ValueMember = "socio_id";
+            this.cmbSocios.SelectedIndex = -1;
+            this.cmbSocios.Enabled = false;
+
+            this.btnEditarSocio.Enabled = true;
+            this.btnEliminarSocio.Enabled = true;
+            this.btnVerMasSocio.Enabled = true;
+            this.btnNuevoSocio.Enabled = true;
+            this.btnGuardarSocio.Enabled = true;
+            this.btnSalir.Enabled = true;
+        
+        }
         private void btnGuardarSocio_Click(object sender, EventArgs e)
         {
             if (nuevo)
             {
                 this.nuevoSocio();
+                //dejarPantallaComoAlInicio();
+
             }
             else
             {
                 this.editarSocio();
-                pantallaInicialSocio();
-                desactivarAltaSocio();
+                //pantallaInicialSocio();
+                //desactivarAltaSocio();
 
                 this.cmbSocios.DataSource = dsSocios.Tables["socio"];
                 this.cmbSocios.DisplayMember = "socio_nombre";
                 this.cmbSocios.ValueMember = "socio_id";
                 this.cmbSocios.SelectedIndex = -1;
                 this.cmbSocios.Enabled = false;
+
+                //dejarPantallaComoAlInicio();
             }
         }
 
@@ -689,6 +711,17 @@ namespace COOPMEF
 
         private void btnEliminarSocio_Click(object sender, EventArgs e)
         {
+            nuevo = false;
+            this.cmbSocios.Enabled = true;
+            activarAltaSocio();
+            this.btnNuevoSocio.Enabled = false;
+            this.btnEditarSocio.Enabled = false;
+            this.btnVerMasSocio.Enabled = false;
+
+            this.btnGuardarSocio.Enabled = true;
+            this.btnSalir.Enabled = true;
+
+            this.lblErrorGenerico.Visible = false;
             int nroSocio = Convert.ToInt32(this.txtNroSocio.Text);
 
             
@@ -788,16 +821,25 @@ namespace COOPMEF
 
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void btnCancelarSocio_Click(object sender, EventArgs e)
         {
-            pantallaInicialSocio();
-            desactivarAltaSocio();
+            //pantallaInicialSocio();
+            //desactivarAltaSocio();
 
-            this.cmbSocios.DataSource = dsSocios.Tables["socio"];
-            this.cmbSocios.DisplayMember = "socio_nombre";
-            this.cmbSocios.ValueMember = "socio_id";
-            this.cmbSocios.SelectedIndex = -1;
-            this.cmbSocios.Enabled = false;
+            //this.cmbSocios.DataSource = dsSocios.Tables["socio"];
+            //this.cmbSocios.DisplayMember = "socio_nombre";  
+            //this.cmbSocios.ValueMember = "socio_id";
+            //this.cmbSocios.SelectedIndex = -1;
+            //this.cmbSocios.Enabled = false;
+
+            //this.btnEditarSocio.Enabled = true;
+            //this.btnEliminarSocio.Enabled = true;
+            //this.btnVerMasSocio.Enabled = true;
+            //this.btnNuevoSocio.Enabled = true;
+            //this.btnGuardarSocio.Enabled = true;
+            //this.btnSalir.Enabled = true;
+
+            dejarPantallaComoAlInicio();
         }
         }
 
