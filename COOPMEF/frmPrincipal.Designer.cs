@@ -71,6 +71,7 @@
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbcPestanas = new System.Windows.Forms.TabControl();
             this.tabBusqueda = new System.Windows.Forms.TabPage();
+            this.dgvSociosCampo = new System.Windows.Forms.DataGridView();
             this.btnSalirPlan = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
             this.btnCancelarBusqueda = new System.Windows.Forms.Button();
@@ -238,10 +239,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.dgvSociosCampo = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).BeginInit();
             this.lblErrorG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -264,7 +265,6 @@
             this.groupBox9.SuspendLayout();
             this.cmbBusquedaPrincipal.SuspendLayout();
             this.groupBox3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -561,6 +561,12 @@
             resources.ApplyResources(this.tabBusqueda, "tabBusqueda");
             this.tabBusqueda.Name = "tabBusqueda";
             // 
+            // dgvSociosCampo
+            // 
+            this.dgvSociosCampo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
+            this.dgvSociosCampo.Name = "dgvSociosCampo";
+            // 
             // btnSalirPlan
             // 
             this.btnSalirPlan.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
@@ -763,11 +769,13 @@
             // 
             // dtpFechaIng
             // 
+            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
             this.dtpFechaIng.Name = "dtpFechaIng";
             // 
             // dtpFechaNac
             // 
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
             this.dtpFechaNac.Name = "dtpFechaNac";
             // 
@@ -829,6 +837,7 @@
             this.cmbInciso.FormattingEnabled = true;
             resources.ApplyResources(this.cmbInciso, "cmbInciso");
             this.cmbInciso.Name = "cmbInciso";
+            this.cmbInciso.SelectedIndexChanged += new System.EventHandler(this.cmbInciso_SelectedIndexChanged);
             // 
             // label36
             // 
@@ -1554,8 +1563,7 @@
             resources.GetString("cmbBusqueda.Items"),
             resources.GetString("cmbBusqueda.Items1"),
             resources.GetString("cmbBusqueda.Items2"),
-            resources.GetString("cmbBusqueda.Items3"),
-            resources.GetString("cmbBusqueda.Items4")});
+            resources.GetString("cmbBusqueda.Items3")});
             this.cmbBusqueda.Name = "cmbBusqueda";
             // 
             // groupBox3
@@ -1676,12 +1684,6 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // dgvSociosCampo
-            // 
-            this.dgvSociosCampo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
-            this.dgvSociosCampo.Name = "dgvSociosCampo";
-            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1700,6 +1702,7 @@
             this.menuStrip1.PerformLayout();
             this.tbcPestanas.ResumeLayout(false);
             this.tabBusqueda.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).EndInit();
             this.lblErrorG.ResumeLayout(false);
             this.lblErrorG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -1737,7 +1740,6 @@
             this.cmbBusquedaPrincipal.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 

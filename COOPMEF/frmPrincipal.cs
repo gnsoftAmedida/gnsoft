@@ -143,10 +143,10 @@ namespace COOPMEF
             dsAccionesPermitidas = empresa.DevolverAccionesXUsuario(Utilidades.UsuarioLogueado.IdUsuario);
             dsSocios = empresa.DevolverSocios();
             dsIncisos = empresa.DevolverIncisos();
-            dsOficinas = empresa.DevolverOficinas();
+            //  dsOficinas = empresa.DevolverOficinas();
 
             cmbBusqueda.SelectedIndex = 0;
-        
+
             pantallaInicialSocio();
             desactivarAltaSocio();
 
@@ -407,10 +407,6 @@ namespace COOPMEF
             lblYaExisteMail.Visible = false;
             lblYaExisteSocio.Visible = false;
             lblYaExisteTel.Visible = false;
-            //this.lblErrorEdad.Visible = false;
-            //this.lblErrorOficina.Visible = false;
-            //this.lblErrorInciso.Visible = false;
-
 
             for (int i = 18; i < 100; i++) this.cmbEdad.Items.Add(i);
             this.cmbEdad.SelectedIndex = 0;
@@ -426,12 +422,6 @@ namespace COOPMEF
             this.cmbInciso.ValueMember = "inciso_id";
             this.cmbInciso.SelectedIndex = 0;
             this.cmbInciso.Enabled = true;
-
-            this.cmbOficina.DataSource = dsOficinas.Tables["oficinas"];
-            this.cmbOficina.DisplayMember = "oficina_abreviatura";
-            this.cmbOficina.ValueMember = "oficina_id";
-            this.cmbOficina.SelectedIndex = 0;
-            this.cmbOficina.Enabled = true;
 
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
@@ -685,15 +675,10 @@ namespace COOPMEF
             if (nuevo)
             {
                 this.nuevoSocio();
-                //dejarPantallaComoAlInicio();
-
             }
             else
             {
                 this.editarSocio();
-                //pantallaInicialSocio();
-                //desactivarAltaSocio();
-                //dejarPantallaComoAlInicio();
             }
         }
 
@@ -757,23 +742,19 @@ namespace COOPMEF
 
                 if (this.cmbBusqueda.SelectedItem.ToString() == "Documento")
                 {
-
                     campo = "socio_nro";
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Apellido")
                 {
                     campo = "socio_apellido";
-
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Nombre")
                 {
                     campo = "socio_nombre";
-
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Dirección")
                 {
                     campo = "socio_direccion";
-
                 }
 
                 string valor = this.txtBusqueda.Text;
@@ -966,7 +947,19 @@ namespace COOPMEF
 
                 this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
                 this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_nombre"].Value.ToString();
-                this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
+
+
+/*
+                //Elijo el inciso de la oficina seleccionada
+                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dsSociosPorCampo.Tables["socio_idInciso"].Rows[][5].ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
+                    {
+                        this.cmbIncisos.SelectedIndex = i;
+                    }
+                }
+  */             
+               // this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
@@ -999,9 +992,29 @@ namespace COOPMEF
 
         }
 
+        private void cmbInciso_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            DataSet dsOficinasDelInciso = null;
+            int index = this.cmbInciso.SelectedIndex;
+            int idInciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString());
 
+             dsOficinasDelInciso = empresa.DevolverOficinasPorInciso(idInciso);
+
+            if (dsOficinasDelInciso.Tables["oficinas"].Rows.Count > 0)
+            {
+                this.cmbOficina.DataSource = dsOficinasDelInciso.Tables["oficinas"];
+                this.cmbOficina.DisplayMember = "oficina_abreviatura";
+                this.cmbOficina.ValueMember = "oficina_id";
+                this.cmbOficina.Enabled = true;
+            }
+            else
+            {
+                this.cmbOficina.DataSource = null;
+                this.cmbOficina.Items.Clear();
+                this.cmbOficina.Refresh();
+            }
+        }
     }
-
 }
 
 
