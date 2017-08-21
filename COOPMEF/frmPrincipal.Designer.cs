@@ -77,6 +77,7 @@
             this.button5 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblErrorG = new System.Windows.Forms.TabPage();
+            this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
             this.btnSalir = new System.Windows.Forms.Button();
             this.btnVerMasSocio = new System.Windows.Forms.Button();
@@ -86,6 +87,7 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbSocios = new System.Windows.Forms.ComboBox();
             this.lblYaExiste = new System.Windows.Forms.Label();
             this.lblYaExisteMail = new System.Windows.Forms.Label();
             this.lblYaExisteTel = new System.Windows.Forms.Label();
@@ -592,6 +594,7 @@
             // lblErrorG
             // 
             this.lblErrorG.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblErrorG.Controls.Add(this.btnCancelarSocio);
             this.lblErrorG.Controls.Add(this.lblErrorGenerico);
             this.lblErrorG.Controls.Add(this.btnSalir);
             this.lblErrorG.Controls.Add(this.btnVerMasSocio);
@@ -604,6 +607,13 @@
             resources.ApplyResources(this.lblErrorG, "lblErrorG");
             this.lblErrorG.Name = "lblErrorG";
             this.lblErrorG.Click += new System.EventHandler(this.tabSocio_Click);
+            // 
+            // btnCancelarSocio
+            // 
+            resources.ApplyResources(this.btnCancelarSocio, "btnCancelarSocio");
+            this.btnCancelarSocio.Name = "btnCancelarSocio";
+            this.btnCancelarSocio.UseVisualStyleBackColor = true;
+            this.btnCancelarSocio.Click += new System.EventHandler(this.btnCancelarSocio_Click);
             // 
             // lblErrorGenerico
             // 
@@ -649,6 +659,7 @@
             resources.ApplyResources(this.btnEditarSocio, "btnEditarSocio");
             this.btnEditarSocio.Name = "btnEditarSocio";
             this.btnEditarSocio.UseVisualStyleBackColor = true;
+            this.btnEditarSocio.Click += new System.EventHandler(this.btnEditarSocio_Click);
             // 
             // btnNuevoSocio
             // 
@@ -666,6 +677,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbSocios);
             this.groupBox1.Controls.Add(this.lblYaExiste);
             this.groupBox1.Controls.Add(this.lblYaExisteMail);
             this.groupBox1.Controls.Add(this.lblYaExisteTel);
@@ -712,6 +724,13 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // cmbSocios
+            // 
+            this.cmbSocios.FormattingEnabled = true;
+            resources.ApplyResources(this.cmbSocios, "cmbSocios");
+            this.cmbSocios.Name = "cmbSocios";
+            this.cmbSocios.SelectedIndexChanged += new System.EventHandler(this.cmbSocios_SelectedIndexChanged);
             // 
             // lblYaExiste
             // 
@@ -1885,6 +1904,8 @@
         private System.Windows.Forms.Label lblYaExisteSocio;
         private System.Windows.Forms.Label lblYaExisteMail;
         private System.Windows.Forms.Label lblYaExiste;
+        private System.Windows.Forms.ComboBox cmbSocios;
+        private System.Windows.Forms.Button btnCancelarSocio;
     }
 }
 

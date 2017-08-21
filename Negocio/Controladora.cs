@@ -375,5 +375,27 @@ namespace Negocio
             tmpSocio.Socio_email = email;
             tmpSocio.Guardar();
         }
+
+        public void EditarSocio(int NroSocio, int NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
+            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
+        {
+            Socio tmpSocio = new Socio();
+            tmpSocio.Socio_nro = NroSocio;
+            tmpSocio.Socio_nroCobro = NroCobro;
+            tmpSocio.Socio_nombre = Nombres;
+            tmpSocio.Socio_apellido = Apellidos;
+            tmpSocio.Socio_fechaNac = FechaNacimiento;
+            tmpSocio.Socio_fechaIngreso = FechaIngreso;
+            tmpSocio.Socio_estadoCivil = EstadoCivil;
+            tmpSocio.Socio_sexo = sexo;
+            tmpSocio.Socio_estado = estado;
+            tmpSocio.Socio_edad = edad;
+            tmpSocio.Socio_oficinaId = OficinaId;
+            tmpSocio.Socio_incisoId = IncisoId;
+            tmpSocio.Socio_tel = tel;
+            tmpSocio.Socio_direccion = direccion;
+            tmpSocio.Socio_email = email;
+            tmpSocio.ModificarSocio();
+        }
     }
 }

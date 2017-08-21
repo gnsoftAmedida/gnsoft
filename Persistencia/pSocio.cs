@@ -103,6 +103,7 @@ namespace Persistencia
                 if (numSocio == numSocioTable)
                 {
                     //Socio s = new Socio();
+                    //return dsSocios.Tables[0].ge
 
                 }
 
@@ -148,6 +149,57 @@ namespace Persistencia
 
             string sql;
             sql = "INSERT INTO socio (socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email) VALUES ('" + Tsocio_nombre + "','" + Tsocio_apellido + "','" + Tsocio_nro + "','" + Tsocio_nroCobro + "','" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "','" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "','" + Tsocio_estadoCivil + "','" + Tsocio_sexo + "','" + Tsocio_estado + "','" + Tsocio_edad + "','" + Tsocio_oficinaId + "','" + Tsocio_incisoId + "','" + Tsocio_tel + "','" + Tsocio_direccion + "','" + Tsocio_email + "');" + "Select last_insert_id()";
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                MySqlAdapter.InsertCommand = connection.CreateCommand();
+                MySqlAdapter.InsertCommand.Transaction = transaction;
+                MySqlAdapter.InsertCommand.CommandText = sql;
+                MySqlAdapter.InsertCommand.ExecuteNonQuery();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            //catch (MySqlException ex)
+            //{
+            //    transaction.Rollback();
+            //    connection.Close();
+
+            //    switch (ex.Number)
+            //    {
+            //        case 1406:
+            //            MisExcepciones ep = new MisExcepciones("Datos muy largos");
+            //            throw ep;
+
+            //        //case 1062:
+            //        //    MisExcepciones es = new MisExcepciones("Ya exíste el Socio. Verifique su nro");
+            //        //    throw es;
+
+            //    }
+
+            //    MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
+            //    throw eg;
+            //}
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+                throw ex;
+            }
+        }
+
+        public void GuardarSocioModificado(string Tsocio_nombre, string Tsocio_apellido, int Tsocio_nro, int Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            string sql;
+
+            sql = "Update socio set socio_nombre ='" + Tsocio_nombre + "', socio_apellido ='" + Tsocio_apellido + "', socio_nroCobro ='" + Tsocio_nroCobro + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel + "', socio_direccion='" + Tsocio_direccion + "', socio_email='" + Tsocio_email + "'WHERE socio_nro =" + Tsocio_nro;
 
             try
             {
