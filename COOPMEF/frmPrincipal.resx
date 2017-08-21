@@ -398,6 +398,27 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
+  <data name="dgvSociosCampo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>16, 95</value>
+  </data>
+  <data name="dgvSociosCampo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>647, 245</value>
+  </data>
+  <data name="dgvSociosCampo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.Name" xml:space="preserve">
+    <value>dgvSociosCampo</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.Parent" xml:space="preserve">
+    <value>tabBusqueda</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
   <data name="btnSalirPlan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -427,7 +448,7 @@
     <value>tabBusqueda</value>
   </data>
   <data name="&gt;&gt;btnSalirPlan.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="button8.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -457,37 +478,37 @@
     <value>tabBusqueda</value>
   </data>
   <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
-  <data name="button6.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnCancelarBusqueda.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnCancelarBusqueda.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button6.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnCancelarBusqueda.Location" type="System.Drawing.Point, System.Drawing">
     <value>304, 362</value>
   </data>
-  <data name="button6.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnCancelarBusqueda.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 33</value>
   </data>
-  <data name="button6.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnCancelarBusqueda.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="button6.Text" xml:space="preserve">
+  <data name="btnCancelarBusqueda.Text" xml:space="preserve">
     <value>Cancelar</value>
   </data>
-  <data name="&gt;&gt;button6.Name" xml:space="preserve">
-    <value>button6</value>
+  <data name="&gt;&gt;btnCancelarBusqueda.Name" xml:space="preserve">
+    <value>btnCancelarBusqueda</value>
   </data>
-  <data name="&gt;&gt;button6.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnCancelarBusqueda.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnCancelarBusqueda.Parent" xml:space="preserve">
     <value>tabBusqueda</value>
   </data>
-  <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
-    <value>2</value>
+  <data name="&gt;&gt;btnCancelarBusqueda.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="btnSeleccionarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -517,27 +538,6 @@
     <value>tabBusqueda</value>
   </data>
   <data name="&gt;&gt;btnSeleccionarSocio.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="dgvSociosCampo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>16, 95</value>
-  </data>
-  <data name="dgvSociosCampo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>647, 245</value>
-  </data>
-  <data name="dgvSociosCampo.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.Name" xml:space="preserve">
-    <value>dgvSociosCampo</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.Parent" xml:space="preserve">
-    <value>tabBusqueda</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="tabBusqueda.Location" type="System.Drawing.Point, System.Drawing">
@@ -4342,16 +4342,19 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="cmbBusqueda.Items" xml:space="preserve">
-    <value>Apellido</value>
-  </data>
-  <data name="cmbBusqueda.Items1" xml:space="preserve">
-    <value>Dirección </value>
-  </data>
-  <data name="cmbBusqueda.Items2" xml:space="preserve">
     <value>Documento</value>
   </data>
-  <data name="cmbBusqueda.Items3" xml:space="preserve">
+  <data name="cmbBusqueda.Items1" xml:space="preserve">
     <value>Nombre</value>
+  </data>
+  <data name="cmbBusqueda.Items2" xml:space="preserve">
+    <value>Apellido</value>
+  </data>
+  <data name="cmbBusqueda.Items3" xml:space="preserve">
+    <value>Dirección </value>
+  </data>
+  <data name="cmbBusqueda.Items4" xml:space="preserve">
+    <value />
   </data>
   <data name="cmbBusqueda.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 19</value>

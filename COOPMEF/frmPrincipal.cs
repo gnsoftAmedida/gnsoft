@@ -145,8 +145,13 @@ namespace COOPMEF
             dsIncisos = empresa.DevolverIncisos();
             dsOficinas = empresa.DevolverOficinas();
 
+            cmbBusqueda.SelectedIndex = 0;
+        
             pantallaInicialSocio();
             desactivarAltaSocio();
+
+            // Trampa para generar columnas en el datagridview
+            socioPorCampo("socio_nro", "-1");
         }
 
         private void desactivarAltaSocio()
@@ -164,8 +169,6 @@ namespace COOPMEF
             this.cmbOficina.Enabled = false;
             this.cmbInciso.Enabled = false;
             this.cmbEstadoCivil.Enabled = false;
-
-
         }
 
 
@@ -499,7 +502,7 @@ namespace COOPMEF
 
 
             // Agregado por Nico para que el control de duplicado funcione igual
-            int index  = -1;
+            int index = -1;
             int indexSocio = dgvSociosCampo.CurrentRow.Index;
             int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
 
@@ -720,12 +723,8 @@ namespace COOPMEF
             DialogResult result;
             result = MessageBox.Show(message, caption, buttons);
 
-
-
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
-
-
                 try
                 {
                     empresa.bajaSocio(nroSocio);
@@ -749,9 +748,9 @@ namespace COOPMEF
         {
             String campo = "";
 
-            if (this.cmbBusqueda.SelectedItem == null || this.txtBusqueda.Text.Trim() == "")
+            if (this.txtBusqueda.Text.Trim() == "")
             {
-                MessageBox.Show("Debe seleccionar una categoría y un valor de búsqueda");
+                MessageBox.Show("Debe seleccionar un valor de búsqueda");
             }
             else
             {
@@ -779,74 +778,82 @@ namespace COOPMEF
 
                 string valor = this.txtBusqueda.Text;
 
-                dsSociosPorCampo = empresa.buscarSociosPorCampo(campo, valor);
-
-                dgvSociosCampo.DataSource = dsSociosPorCampo.Tables["socios"];
-
-                dgvSociosCampo.RowHeadersVisible = false;
-                dgvSociosCampo.ReadOnly = true;
-                dgvSociosCampo.MultiSelect = false;
-                dgvSociosCampo.ReadOnly = true;
-                dgvSociosCampo.AllowDrop = false;
-                dgvSociosCampo.AllowUserToAddRows = false;
-                dgvSociosCampo.AllowUserToDeleteRows = false;
-                dgvSociosCampo.AllowUserToResizeColumns = false;
-                dgvSociosCampo.AllowUserToResizeRows = false;
-                dgvSociosCampo.AllowUserToOrderColumns = false;
-                dgvSociosCampo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-                dgvSociosCampo.BackgroundColor = BackColor;
-                dgvSociosCampo.BorderStyle = BorderStyle.None;
-
-
-                dgvSociosCampo.Columns["socio_id"].Visible = false;
-                dgvSociosCampo.Columns["socio_oficinaId"].Visible = false;
-                dgvSociosCampo.Columns["socio_IncisoId"].Visible = false;
-
-                dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
-                dgvSociosCampo.Columns["socio_nro"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_nombre"].HeaderText = "Nombre";
-                dgvSociosCampo.Columns["socio_apellido"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_apellido"].HeaderText = "Apellido";
-                dgvSociosCampo.Columns["socio_apellido"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_nroCobro"].HeaderText = "Nro Cobro";
-                dgvSociosCampo.Columns["socio_nroCobro"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_fechaNac"].HeaderText = "Fecha Nacimiento";
-                dgvSociosCampo.Columns["socio_fechaNac"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_fechaIngreso"].HeaderText = "Fecha Ingreso";
-                dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_estadoCivil"].HeaderText = "Estado Civil";
-                dgvSociosCampo.Columns["socio_estadoCivil"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_sexo"].HeaderText = "Sexo";
-                dgvSociosCampo.Columns["socio_sexo"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_estado"].HeaderText = "Estado";
-                dgvSociosCampo.Columns["socio_estado"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_edad"].HeaderText = "Edad";
-                dgvSociosCampo.Columns["socio_edad"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_tel"].HeaderText = "Teléfono";
-                dgvSociosCampo.Columns["socio_tel"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_direccion"].HeaderText = "Dirección";
-                dgvSociosCampo.Columns["socio_direccion"].Width = 100;
-
-                dgvSociosCampo.Columns["socio_email"].HeaderText = "Email";
-                dgvSociosCampo.Columns["socio_email"].Width = 100;
-
-                dgvSociosCampo.Columns["oficina_nombre"].HeaderText = "Oficina";
-                dgvSociosCampo.Columns["oficina_nombre"].Width = 100;
-
-                dgvSociosCampo.Columns["inciso_nombre"].HeaderText = "Inciso";
-                dgvSociosCampo.Columns["inciso_nombre"].Width = 150;
+                socioPorCampo(campo, valor);
             }
+        }
+
+        private void socioPorCampo(string campo, string valor)
+        {
+
+            dsSociosPorCampo = empresa.buscarSociosPorCampo(campo, valor);
+
+            dgvSociosCampo.DataSource = dsSociosPorCampo.Tables["socios"];
+
+            dgvSociosCampo.RowHeadersVisible = false;
+            dgvSociosCampo.ReadOnly = true;
+            dgvSociosCampo.MultiSelect = false;
+            dgvSociosCampo.ReadOnly = true;
+            dgvSociosCampo.AllowDrop = false;
+            dgvSociosCampo.AllowUserToAddRows = false;
+            dgvSociosCampo.AllowUserToDeleteRows = false;
+            dgvSociosCampo.AllowUserToResizeColumns = false;
+            dgvSociosCampo.AllowUserToResizeRows = false;
+            dgvSociosCampo.AllowUserToOrderColumns = false;
+            dgvSociosCampo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSociosCampo.BackgroundColor = BackColor;
+            dgvSociosCampo.BorderStyle = BorderStyle.None;
+
+
+            dgvSociosCampo.Columns["socio_id"].Visible = false;
+            dgvSociosCampo.Columns["socio_oficinaId"].Visible = false;
+            dgvSociosCampo.Columns["socio_IncisoId"].Visible = false;
+
+            dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
+            dgvSociosCampo.Columns["socio_nro"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_nombre"].HeaderText = "Nombre";
+            dgvSociosCampo.Columns["socio_apellido"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_apellido"].HeaderText = "Apellido";
+            dgvSociosCampo.Columns["socio_apellido"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_nroCobro"].HeaderText = "Nro Cobro";
+            dgvSociosCampo.Columns["socio_nroCobro"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_fechaNac"].HeaderText = "Fecha Nacimiento";
+            dgvSociosCampo.Columns["socio_fechaNac"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_fechaIngreso"].HeaderText = "Fecha Ingreso";
+            dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_estadoCivil"].HeaderText = "Estado Civil";
+            dgvSociosCampo.Columns["socio_estadoCivil"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_sexo"].HeaderText = "Sexo";
+            dgvSociosCampo.Columns["socio_sexo"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_estado"].HeaderText = "Estado";
+            dgvSociosCampo.Columns["socio_estado"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_edad"].HeaderText = "Edad";
+            dgvSociosCampo.Columns["socio_edad"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_tel"].HeaderText = "Teléfono";
+            dgvSociosCampo.Columns["socio_tel"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_direccion"].HeaderText = "Dirección";
+            dgvSociosCampo.Columns["socio_direccion"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_email"].HeaderText = "Email";
+            dgvSociosCampo.Columns["socio_email"].Width = 100;
+
+            dgvSociosCampo.Columns["oficina_nombre"].HeaderText = "Oficina";
+            dgvSociosCampo.Columns["oficina_nombre"].Width = 100;
+
+            dgvSociosCampo.Columns["inciso_nombre"].HeaderText = "Inciso";
+            dgvSociosCampo.Columns["inciso_nombre"].Width = 150;
+
+            tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
         }
 
         private void cmbSocios_SelectedIndexChanged(object sender, EventArgs e)
@@ -975,6 +982,23 @@ namespace COOPMEF
                 seleccionarSocio();
             }
         }
+
+        private void btnCancelarBusqueda_Click(object sender, EventArgs e)
+        {
+            lblNumeroSocio.Text = "...";
+            lblNombreSocio.Text = "...";
+            lblApellidosSocio.Text = "...";
+            lblFechaNacSocio.Text = "...";
+            lblFechaIngresoSocio.Text = "...";
+            lblEstadoCivilSocio.Text = "...";
+            lblEdadSocio.Text = "...";
+            lblTelefonoSocio.Text = "...";
+
+            // Trampa para generar columnas en el datagridview
+            socioPorCampo("socio_nro", "-1");
+
+        }
+
 
     }
 
