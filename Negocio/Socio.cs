@@ -132,6 +132,13 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet buscarSociosPorCampo(string campo, string valor)
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.buscarSociosPorCampo(campo, valor);
+            return socios;
+        }
+
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();

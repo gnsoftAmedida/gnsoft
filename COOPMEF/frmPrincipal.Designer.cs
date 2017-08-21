@@ -73,9 +73,8 @@
             this.tabBusqueda = new System.Windows.Forms.TabPage();
             this.btnSalirPlan = new System.Windows.Forms.Button();
             this.button8 = new System.Windows.Forms.Button();
-            this.button6 = new System.Windows.Forms.Button();
-            this.button5 = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.btnCancelarBusqueda = new System.Windows.Forms.Button();
+            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.lblErrorG = new System.Windows.Forms.TabPage();
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
@@ -87,7 +86,6 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbSocios = new System.Windows.Forms.ComboBox();
             this.lblYaExiste = new System.Windows.Forms.Label();
             this.lblYaExisteMail = new System.Windows.Forms.Label();
             this.lblYaExisteTel = new System.Windows.Forms.Label();
@@ -224,7 +222,14 @@
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
+            this.lblTelefonoSocio = new System.Windows.Forms.Label();
+            this.lblEstadoCivilSocio = new System.Windows.Forms.Label();
+            this.lblApellidosSocio = new System.Windows.Forms.Label();
+            this.lblEdadSocio = new System.Windows.Forms.Label();
+            this.lblFechaIngresoSocio = new System.Windows.Forms.Label();
+            this.lblNombreSocio = new System.Windows.Forms.Label();
+            this.lblFechaNacSocio = new System.Windows.Forms.Label();
+            this.lblNumeroSocio = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -233,10 +238,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.dgvSociosCampo = new System.Windows.Forms.DataGridView();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.lblErrorG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox1.SuspendLayout();
@@ -259,6 +264,7 @@
             this.groupBox9.SuspendLayout();
             this.cmbBusquedaPrincipal.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).BeginInit();
             this.SuspendLayout();
             // 
             // menuStrip1
@@ -547,11 +553,11 @@
             // tabBusqueda
             // 
             this.tabBusqueda.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabBusqueda.Controls.Add(this.dgvSociosCampo);
             this.tabBusqueda.Controls.Add(this.btnSalirPlan);
             this.tabBusqueda.Controls.Add(this.button8);
-            this.tabBusqueda.Controls.Add(this.button6);
-            this.tabBusqueda.Controls.Add(this.button5);
-            this.tabBusqueda.Controls.Add(this.dataGridView1);
+            this.tabBusqueda.Controls.Add(this.btnCancelarBusqueda);
+            this.tabBusqueda.Controls.Add(this.btnSeleccionarSocio);
             resources.ApplyResources(this.tabBusqueda, "tabBusqueda");
             this.tabBusqueda.Name = "tabBusqueda";
             // 
@@ -571,25 +577,21 @@
             this.button8.Name = "button8";
             this.button8.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // btnCancelarBusqueda
             // 
-            this.button6.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
-            resources.ApplyResources(this.button6, "button6");
-            this.button6.Name = "button6";
-            this.button6.UseVisualStyleBackColor = true;
+            this.btnCancelarBusqueda.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
+            resources.ApplyResources(this.btnCancelarBusqueda, "btnCancelarBusqueda");
+            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
+            this.btnCancelarBusqueda.UseVisualStyleBackColor = true;
+            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
             // 
-            // button5
+            // btnSeleccionarSocio
             // 
-            this.button5.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
-            resources.ApplyResources(this.button5, "button5");
-            this.button5.Name = "button5";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dataGridView1, "dataGridView1");
-            this.dataGridView1.Name = "dataGridView1";
+            this.btnSeleccionarSocio.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            resources.ApplyResources(this.btnSeleccionarSocio, "btnSeleccionarSocio");
+            this.btnSeleccionarSocio.Name = "btnSeleccionarSocio";
+            this.btnSeleccionarSocio.UseVisualStyleBackColor = true;
+            this.btnSeleccionarSocio.Click += new System.EventHandler(this.btnSeleccionarSocio_Click);
             // 
             // lblErrorG
             // 
@@ -606,7 +608,6 @@
             this.lblErrorG.Controls.Add(this.groupBox1);
             resources.ApplyResources(this.lblErrorG, "lblErrorG");
             this.lblErrorG.Name = "lblErrorG";
-            this.lblErrorG.Click += new System.EventHandler(this.tabSocio_Click);
             // 
             // btnCancelarSocio
             // 
@@ -677,7 +678,6 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmbSocios);
             this.groupBox1.Controls.Add(this.lblYaExiste);
             this.groupBox1.Controls.Add(this.lblYaExisteMail);
             this.groupBox1.Controls.Add(this.lblYaExisteTel);
@@ -724,13 +724,6 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            // 
-            // cmbSocios
-            // 
-            this.cmbSocios.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbSocios, "cmbSocios");
-            this.cmbSocios.Name = "cmbSocios";
-            this.cmbSocios.SelectedIndexChanged += new System.EventHandler(this.cmbSocios_SelectedIndexChanged);
             // 
             // lblYaExiste
             // 
@@ -1008,7 +1001,6 @@
             this.tabEstado.Controls.Add(this.dataGridView2);
             resources.ApplyResources(this.tabEstado, "tabEstado");
             this.tabEstado.Name = "tabEstado";
-            this.tabEstado.Click += new System.EventHandler(this.tabEstado_Click);
             // 
             // btnNuevoPrestamo
             // 
@@ -1555,19 +1547,29 @@
             // 
             // cmbBusqueda
             // 
+            this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             resources.ApplyResources(this.cmbBusqueda, "cmbBusqueda");
             this.cmbBusqueda.FormattingEnabled = true;
             this.cmbBusqueda.Items.AddRange(new object[] {
             resources.GetString("cmbBusqueda.Items"),
-            resources.GetString("cmbBusqueda.Items1")});
+            resources.GetString("cmbBusqueda.Items1"),
+            resources.GetString("cmbBusqueda.Items2"),
+            resources.GetString("cmbBusqueda.Items3"),
+            resources.GetString("cmbBusqueda.Items4")});
             this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label11);
-            this.groupBox3.Controls.Add(this.label9);
+            this.groupBox3.Controls.Add(this.lblTelefonoSocio);
+            this.groupBox3.Controls.Add(this.lblEstadoCivilSocio);
+            this.groupBox3.Controls.Add(this.lblApellidosSocio);
+            this.groupBox3.Controls.Add(this.lblEdadSocio);
+            this.groupBox3.Controls.Add(this.lblFechaIngresoSocio);
+            this.groupBox3.Controls.Add(this.lblNombreSocio);
+            this.groupBox3.Controls.Add(this.lblFechaNacSocio);
+            this.groupBox3.Controls.Add(this.lblNumeroSocio);
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Controls.Add(this.label2);
             this.groupBox3.Controls.Add(this.label3);
@@ -1588,10 +1590,45 @@
             resources.ApplyResources(this.label11, "label11");
             this.label11.Name = "label11";
             // 
-            // label9
+            // lblTelefonoSocio
             // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
+            resources.ApplyResources(this.lblTelefonoSocio, "lblTelefonoSocio");
+            this.lblTelefonoSocio.Name = "lblTelefonoSocio";
+            // 
+            // lblEstadoCivilSocio
+            // 
+            resources.ApplyResources(this.lblEstadoCivilSocio, "lblEstadoCivilSocio");
+            this.lblEstadoCivilSocio.Name = "lblEstadoCivilSocio";
+            // 
+            // lblApellidosSocio
+            // 
+            resources.ApplyResources(this.lblApellidosSocio, "lblApellidosSocio");
+            this.lblApellidosSocio.Name = "lblApellidosSocio";
+            // 
+            // lblEdadSocio
+            // 
+            resources.ApplyResources(this.lblEdadSocio, "lblEdadSocio");
+            this.lblEdadSocio.Name = "lblEdadSocio";
+            // 
+            // lblFechaIngresoSocio
+            // 
+            resources.ApplyResources(this.lblFechaIngresoSocio, "lblFechaIngresoSocio");
+            this.lblFechaIngresoSocio.Name = "lblFechaIngresoSocio";
+            // 
+            // lblNombreSocio
+            // 
+            resources.ApplyResources(this.lblNombreSocio, "lblNombreSocio");
+            this.lblNombreSocio.Name = "lblNombreSocio";
+            // 
+            // lblFechaNacSocio
+            // 
+            resources.ApplyResources(this.lblFechaNacSocio, "lblFechaNacSocio");
+            this.lblFechaNacSocio.Name = "lblFechaNacSocio";
+            // 
+            // lblNumeroSocio
+            // 
+            resources.ApplyResources(this.lblNumeroSocio, "lblNumeroSocio");
+            this.lblNumeroSocio.Name = "lblNumeroSocio";
             // 
             // label1
             // 
@@ -1639,6 +1676,12 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // dgvSociosCampo
+            // 
+            this.dgvSociosCampo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
+            this.dgvSociosCampo.Name = "dgvSociosCampo";
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1657,7 +1700,6 @@
             this.menuStrip1.PerformLayout();
             this.tbcPestanas.ResumeLayout(false);
             this.tabBusqueda.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.lblErrorG.ResumeLayout(false);
             this.lblErrorG.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
@@ -1695,6 +1737,7 @@
             this.cmbBusquedaPrincipal.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1711,12 +1754,10 @@
         private System.Windows.Forms.ToolStripMenuItem calendarioToolStripMenuItem;
         private System.Windows.Forms.TabControl tbcPestanas;
         private System.Windows.Forms.TabPage tabBusqueda;
-        private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.GroupBox cmbBusquedaPrincipal;
         private System.Windows.Forms.TextBox txtBusqueda;
-        private System.Windows.Forms.ComboBox cmbBusqueda;
         private System.Windows.Forms.GroupBox groupBox3;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblNumeroSocio;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
@@ -1823,8 +1864,8 @@
         private System.Windows.Forms.ToolStripMenuItem bajaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem modificaciónToolStripMenuItem;
         private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button btnCancelarBusqueda;
+        private System.Windows.Forms.Button btnSeleccionarSocio;
         private System.Windows.Forms.Button button9;
         private System.Windows.Forms.Button btnOtrosDatos;
         private System.Windows.Forms.ToolStripMenuItem miCuentaToolStripMenuItem;
@@ -1904,8 +1945,16 @@
         private System.Windows.Forms.Label lblYaExisteSocio;
         private System.Windows.Forms.Label lblYaExisteMail;
         private System.Windows.Forms.Label lblYaExiste;
-        private System.Windows.Forms.ComboBox cmbSocios;
         private System.Windows.Forms.Button btnCancelarSocio;
+        private System.Windows.Forms.ComboBox cmbBusqueda;
+        private System.Windows.Forms.Label lblTelefonoSocio;
+        private System.Windows.Forms.Label lblEstadoCivilSocio;
+        private System.Windows.Forms.Label lblApellidosSocio;
+        private System.Windows.Forms.Label lblEdadSocio;
+        private System.Windows.Forms.Label lblFechaIngresoSocio;
+        private System.Windows.Forms.Label lblNombreSocio;
+        private System.Windows.Forms.Label lblFechaNacSocio;
+        private System.Windows.Forms.DataGridView dgvSociosCampo;
     }
 }
 

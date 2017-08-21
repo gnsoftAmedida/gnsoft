@@ -89,7 +89,7 @@ namespace Negocio
             tmpInciso.Guardar();
         }
 
-        public void AltaOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal , string telefono, string email, string nombreContacto)
+        public void AltaOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto)
         {
             Oficina tmpOficina = new Oficina();
 
@@ -104,14 +104,14 @@ namespace Negocio
             tmpOficina.Oficina_abreviatura = abreviatura;
             tmpOficina.Oficina_direccion = direccion;
             tmpOficina.Oficina_inciso = tmpInciso;
-            tmpOficina.Departamento = tmpDepartamento;            
+            tmpOficina.Departamento = tmpDepartamento;
             tmpOficina.Oficina_codigopostal = codigoPostal;
             tmpOficina.Oficina_telefono = telefono;
             tmpOficina.Oficina_email = email;
             tmpOficina.Oficina_nombrecontacto = nombreContacto;
             tmpOficina.Guardar();
         }
-                                                                                                                           
+
         public void modificarInciso(string Codigo, string Nombre, string Abreviatura, int idInciso)
         {
             Inciso tmpInciso = new Inciso();
@@ -201,12 +201,13 @@ namespace Negocio
             tmpPlan.eliminar();
         }
 
-        public void bajaSocio(int socioNro) {
+        public void bajaSocio(int socioNro)
+        {
             Socio tmpSocio = new Socio();
             //revisar que el socio no tenga prestamos activos  (pendiente)
             tmpSocio.Socio_nro = socioNro;
             tmpSocio.eliminar();
-        
+
         }
 
         public void buscarSocio(int socioNro)
@@ -215,10 +216,17 @@ namespace Negocio
             //revisar que el socio no tenga prestamos activos  (pendiente)
             tmpSocio.Socio_nro = socioNro;
             tmpSocio.buscar();
-        
+
         }
 
-        public void bajaInciso (int idInciso)
+        public DataSet buscarSociosPorCampo(string campo, string valor)
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socios = tmpSocio.buscarSociosPorCampo(campo, valor);
+            return socios;
+        }
+
+        public void bajaInciso(int idInciso)
         {
             Inciso tmpInciso = new Inciso();
             if (idInciso == 0)
@@ -352,10 +360,10 @@ namespace Negocio
             Evento tmpEvento = new Evento();
             return tmpEvento.devolverEventosEntreFechas(fechaDesde, fechaHasta);
         }
-      
 
-        public void AltaSocio(int NroSocio, int NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso, 
-            string EstadoCivil, char sexo,string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
+
+        public void AltaSocio(int NroSocio, int NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
+            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
         {
             Socio tmpSocio = new Socio();
             tmpSocio.Socio_nro = NroSocio;

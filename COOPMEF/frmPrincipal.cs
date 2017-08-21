@@ -17,6 +17,7 @@ namespace COOPMEF
         private Controladora empresa = Controladora.Instance;
         private DataSet dsAccionesPermitidas;
         DataSet dsSocios;
+        DataSet dsSociosPorCampo;
         DataSet dsIncisos;
         DataSet dsOficinas;
         private bool nuevo = true;
@@ -143,18 +144,18 @@ namespace COOPMEF
             dsSocios = empresa.DevolverSocios();
             dsIncisos = empresa.DevolverIncisos();
             dsOficinas = empresa.DevolverOficinas();
-            
+
+            cmbBusqueda.SelectedIndex = 0;
+        
             pantallaInicialSocio();
             desactivarAltaSocio();
 
-            this.cmbSocios.DataSource = dsSocios.Tables["socio"];
-            this.cmbSocios.DisplayMember = "socio_nombre";
-            this.cmbSocios.ValueMember = "socio_id";
-            this.cmbSocios.SelectedIndex = -1;
-            this.cmbSocios.Enabled = false;
+            // Trampa para generar columnas en el datagridview
+            socioPorCampo("socio_nro", "-1");
         }
 
-        private void desactivarAltaSocio() {
+        private void desactivarAltaSocio()
+        {
             this.txtNroSocio.Enabled = false;
             this.txtNombres.Enabled = false;
             this.txtApellidos.Enabled = false;
@@ -168,11 +169,9 @@ namespace COOPMEF
             this.cmbOficina.Enabled = false;
             this.cmbInciso.Enabled = false;
             this.cmbEstadoCivil.Enabled = false;
-        
-        
         }
 
-     
+
         private void activarAltaSocio()
         {
             this.txtNroSocio.Enabled = true;
@@ -262,16 +261,6 @@ namespace COOPMEF
             registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cierre de Sesión");
         }
 
-        private void tabEstado_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void tabSocio_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnVerMasSocio_Click(object sender, EventArgs e)
         {
             if (this.dataGridView3.Visible == true)
@@ -346,7 +335,7 @@ namespace COOPMEF
             pantallaInicialSocio();
             this.nuevo = true;
 
-        
+
 
             this.txtNroSocio.Clear();
             this.txtNroSocio.Enabled = true;
@@ -360,7 +349,7 @@ namespace COOPMEF
             this.txtApellidos.Clear();
             this.txtApellidos.Enabled = true;
 
-            
+
             this.dtpFechaNac.Enabled = true;
 
             this.dtpFechaIng.Enabled = true;
@@ -374,10 +363,10 @@ namespace COOPMEF
             this.rBtnActivo.Enabled = true;
             this.rBtnPasivo.Enabled = true;
 
-            
+
             this.cmbEdad.Enabled = true;
 
-            
+
             this.cmbOficina.Enabled = true;
             this.cmbInciso.Enabled = true;
 
@@ -390,7 +379,7 @@ namespace COOPMEF
 
             this.txtEmail.Clear();
             this.txtEmail.Enabled = true;
-            
+
 
             this.btnEditarSocio.Enabled = false;
             this.btnEliminarSocio.Enabled = false;
@@ -402,7 +391,8 @@ namespace COOPMEF
             this.lblErrorGenerico.Visible = false;
         }
 
-        private void pantallaInicialSocio() {
+        private void pantallaInicialSocio()
+        {
             this.lblNroCo.Visible = false;
             this.lblNombre.Visible = false;
             this.lblApellido.Visible = false;
@@ -445,10 +435,11 @@ namespace COOPMEF
 
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
-        
+
         }
 
-        private bool camposObligatoriosSocio() {
+        private bool camposObligatoriosSocio()
+        {
             bool valido = true;
             if (this.txtNroSocio.Text.Trim() == "")
             {
@@ -504,73 +495,87 @@ namespace COOPMEF
             return valido;
         }
 
-        private bool controlSociosDuplicados() {
+        private bool controlSociosDuplicados()
+        {
             bool valido = true;
             int f = dsSocios.Tables[0].Rows.Count;
-            int index = this.cmbSocios.SelectedIndex;
+
+
+            // Agregado por Nico para que el control de duplicado funcione igual
+            int index = -1;
+            int indexSocio = dgvSociosCampo.CurrentRow.Index;
+            int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
+
+            for (int i = 0; i <= dsSocios.Tables["socio"].Rows.Count - 1; i++)
+            {
+                if (dsSocios.Tables["socio"].Rows[i][0].ToString().Equals(idSocio))
+                {
+                    index = i;
+                }
+            }
 
             for (int i = 0; valido == true && i < f; i++)
             {
                 //Compruebo que no se esté comprando con el mismo
-                if (index >-1)
+                if (index > -1)
                     if (Convert.ToInt32(dsSocios.Tables["socio"].Rows[index][0].ToString()) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
-                {
-                    string numSocio = this.txtNroSocio.Text.Trim();
-                    string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
-                    if (numSocio == numSocioTable)
                     {
-                        this.lblYaExisteSocio.Visible = true;
-                        this.lblYaExisteSocio.Text = "#";
-                        valido = false;
+                        string numSocio = this.txtNroSocio.Text.Trim();
+                        string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
+                        if (numSocio == numSocioTable)
+                        {
+                            this.lblYaExisteSocio.Visible = true;
+                            this.lblYaExisteSocio.Text = "#";
+                            valido = false;
+                        }
+
+                        if (this.txtNroCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
+                        {
+                            this.lblYaExisteCobro.Visible = true;
+                            this.lblYaExisteCobro.Text = "#";
+                            valido = false;
+                        };
+
+                        if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
+                        {
+                            this.lblYaExisteTel.Visible = true;
+                            this.lblYaExisteTel.Text = "#";
+                            valido = false;
+                        };
+
+                        if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
+                        {
+                            this.lblYaExisteMail.Visible = true;
+                            this.lblYaExisteMail.Text = "#";
+                            valido = false;
+                        };
+                        if (valido == false)
+                        {
+                            lblYaExiste.Visible = true;
+                            lblYaExiste.Text = "Error!! Ya existe";
+                        }
+                        else
+                            lblYaExiste.Visible = false;
                     }
-
-                    if (this.txtNroCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
-                    {
-                        this.lblYaExisteCobro.Visible = true;
-                        this.lblYaExisteCobro.Text = "#";
-                        valido = false;
-                    };
-
-                    if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
-                    {
-                        this.lblYaExisteTel.Visible = true;
-                        this.lblYaExisteTel.Text = "#";
-                        valido = false;
-                    };
-
-                    if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
-                    {
-                        this.lblYaExisteMail.Visible = true;
-                        this.lblYaExisteMail.Text = "#";
-                        valido = false;
-                    };
-                    if (valido == false)
-                    {
-                        lblYaExiste.Visible = true;
-                        lblYaExiste.Text = "Error!! Ya existe";
-                    }
-                    else
-                        lblYaExiste.Visible = false;
-                }
             }
 
             return valido;
-        
+
         }
 
         private void nuevoSocio()
         {
             bool valido = true;
             pantallaInicialSocio();
-           
+
 
             // Control de campos obligatorios 
             valido = camposObligatoriosSocio();
-            
+
             // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
             valido = controlSociosDuplicados();
-            
+
             if (valido)
             {
                 try
@@ -590,9 +595,9 @@ namespace COOPMEF
 
                     DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
                     DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
-                     
-                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
-                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
+
+                    int of = Convert.ToInt32(cmbOficina.SelectedValue);
+                    int inc = Convert.ToInt32(cmbInciso.SelectedValue);
 
                     empresa.AltaSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estadoCivil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
@@ -662,15 +667,10 @@ namespace COOPMEF
             }
         }
 
-        private void dejarPantallaComoAlInicio() {
+        private void dejarPantallaComoAlInicio()
+        {
             pantallaInicialSocio();
             desactivarAltaSocio();
-
-            this.cmbSocios.DataSource = dsSocios.Tables["socio"];
-            this.cmbSocios.DisplayMember = "socio_nombre";
-            this.cmbSocios.ValueMember = "socio_id";
-            this.cmbSocios.SelectedIndex = -1;
-            this.cmbSocios.Enabled = false;
 
             this.btnEditarSocio.Enabled = true;
             this.btnEliminarSocio.Enabled = true;
@@ -678,7 +678,7 @@ namespace COOPMEF
             this.btnNuevoSocio.Enabled = true;
             this.btnGuardarSocio.Enabled = true;
             this.btnSalir.Enabled = true;
-        
+
         }
         private void btnGuardarSocio_Click(object sender, EventArgs e)
         {
@@ -693,13 +693,6 @@ namespace COOPMEF
                 this.editarSocio();
                 //pantallaInicialSocio();
                 //desactivarAltaSocio();
-
-                this.cmbSocios.DataSource = dsSocios.Tables["socio"];
-                this.cmbSocios.DisplayMember = "socio_nombre";
-                this.cmbSocios.ValueMember = "socio_id";
-                this.cmbSocios.SelectedIndex = -1;
-                this.cmbSocios.Enabled = false;
-
                 //dejarPantallaComoAlInicio();
             }
         }
@@ -712,7 +705,6 @@ namespace COOPMEF
         private void btnEliminarSocio_Click(object sender, EventArgs e)
         {
             nuevo = false;
-            this.cmbSocios.Enabled = true;
             activarAltaSocio();
             this.btnNuevoSocio.Enabled = false;
             this.btnEditarSocio.Enabled = false;
@@ -724,55 +716,153 @@ namespace COOPMEF
             this.lblErrorGenerico.Visible = false;
             int nroSocio = Convert.ToInt32(this.txtNroSocio.Text);
 
-            
-                string message = "¿Está seguro de que desea eliminar el socio?";
-                string caption = "Eliminar Socio";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-                result = MessageBox.Show(message, caption, buttons);
 
+            string message = "¿Está seguro de que desea eliminar el socio?";
+            string caption = "Eliminar Socio";
+            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+            DialogResult result;
+            result = MessageBox.Show(message, caption, buttons);
 
-
-                if (result == System.Windows.Forms.DialogResult.Yes)
+            if (result == System.Windows.Forms.DialogResult.Yes)
+            {
+                try
                 {
+                    empresa.bajaSocio(nroSocio);
 
+                    MessageBox.Show("Socio eliminado correctamente");
 
-                    try
-                    {
-                        empresa.bajaSocio(nroSocio);
-
-                        MessageBox.Show("Socio eliminado correctamente");
-
-                        //Cargo Planes
-                        //dsPlanes = empresa.DevolverPlanes();
-                        pantallaInicialSocio();
-                    }
-                    catch (Exception ex)
-                    {
-                        this.lblErrorGenerico.Visible = true;
-                        this.lblErrorGenerico.Text = ex.Message;
-                    }
+                    //Cargo Planes
+                    //dsPlanes = empresa.DevolverPlanes();
+                    pantallaInicialSocio();
+                }
+                catch (Exception ex)
+                {
+                    this.lblErrorGenerico.Visible = true;
+                    this.lblErrorGenerico.Text = ex.Message;
                 }
             }
-
-        private void cmbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
-        {
-
         }
+
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
-            int nroSocio = Convert.ToInt32(txtBusqueda.Text);
-            empresa.buscarSocio(nroSocio);
+            String campo = "";
+
+            if (this.txtBusqueda.Text.Trim() == "")
+            {
+                MessageBox.Show("Debe seleccionar un valor de búsqueda");
+            }
+            else
+            {
+
+                if (this.cmbBusqueda.SelectedItem.ToString() == "Documento")
+                {
+
+                    campo = "socio_nro";
+                }
+                else if (this.cmbBusqueda.SelectedItem.ToString() == "Apellido")
+                {
+                    campo = "socio_apellido";
+
+                }
+                else if (this.cmbBusqueda.SelectedItem.ToString() == "Nombre")
+                {
+                    campo = "socio_nombre";
+
+                }
+                else if (this.cmbBusqueda.SelectedItem.ToString() == "Dirección")
+                {
+                    campo = "socio_direccion";
+
+                }
+
+                string valor = this.txtBusqueda.Text;
+
+                socioPorCampo(campo, valor);
+            }
+        }
+
+        private void socioPorCampo(string campo, string valor)
+        {
+
+            dsSociosPorCampo = empresa.buscarSociosPorCampo(campo, valor);
+
+            dgvSociosCampo.DataSource = dsSociosPorCampo.Tables["socios"];
+
+            dgvSociosCampo.RowHeadersVisible = false;
+            dgvSociosCampo.ReadOnly = true;
+            dgvSociosCampo.MultiSelect = false;
+            dgvSociosCampo.ReadOnly = true;
+            dgvSociosCampo.AllowDrop = false;
+            dgvSociosCampo.AllowUserToAddRows = false;
+            dgvSociosCampo.AllowUserToDeleteRows = false;
+            dgvSociosCampo.AllowUserToResizeColumns = false;
+            dgvSociosCampo.AllowUserToResizeRows = false;
+            dgvSociosCampo.AllowUserToOrderColumns = false;
+            dgvSociosCampo.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvSociosCampo.BackgroundColor = BackColor;
+            dgvSociosCampo.BorderStyle = BorderStyle.None;
+
+
+            dgvSociosCampo.Columns["socio_id"].Visible = false;
+            dgvSociosCampo.Columns["socio_oficinaId"].Visible = false;
+            dgvSociosCampo.Columns["socio_IncisoId"].Visible = false;
+
+            dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
+            dgvSociosCampo.Columns["socio_nro"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_nombre"].HeaderText = "Nombre";
+            dgvSociosCampo.Columns["socio_apellido"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_apellido"].HeaderText = "Apellido";
+            dgvSociosCampo.Columns["socio_apellido"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_nroCobro"].HeaderText = "Nro Cobro";
+            dgvSociosCampo.Columns["socio_nroCobro"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_fechaNac"].HeaderText = "Fecha Nacimiento";
+            dgvSociosCampo.Columns["socio_fechaNac"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_fechaIngreso"].HeaderText = "Fecha Ingreso";
+            dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_estadoCivil"].HeaderText = "Estado Civil";
+            dgvSociosCampo.Columns["socio_estadoCivil"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_sexo"].HeaderText = "Sexo";
+            dgvSociosCampo.Columns["socio_sexo"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_estado"].HeaderText = "Estado";
+            dgvSociosCampo.Columns["socio_estado"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_edad"].HeaderText = "Edad";
+            dgvSociosCampo.Columns["socio_edad"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_tel"].HeaderText = "Teléfono";
+            dgvSociosCampo.Columns["socio_tel"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_direccion"].HeaderText = "Dirección";
+            dgvSociosCampo.Columns["socio_direccion"].Width = 100;
+
+            dgvSociosCampo.Columns["socio_email"].HeaderText = "Email";
+            dgvSociosCampo.Columns["socio_email"].Width = 100;
+
+            dgvSociosCampo.Columns["oficina_nombre"].HeaderText = "Oficina";
+            dgvSociosCampo.Columns["oficina_nombre"].Width = 100;
+
+            dgvSociosCampo.Columns["inciso_nombre"].HeaderText = "Inciso";
+            dgvSociosCampo.Columns["inciso_nombre"].Width = 150;
+
+            tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
         }
 
         private void cmbSocios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            /*
             int index = this.cmbSocios.SelectedIndex;
             if (index != -1)
             {
-                
+
 
                 this.txtNombres.Text = dsSocios.Tables["socio"].Rows[index][1].ToString();
                 this.txtApellidos.Text = dsSocios.Tables["socio"].Rows[index][2].ToString();
@@ -781,14 +871,14 @@ namespace COOPMEF
                 this.dtpFechaNac.Text = dsSocios.Tables["socio"].Rows[index][5].ToString();
                 this.dtpFechaIng.Text = dsSocios.Tables["socio"].Rows[index][6].ToString();
                 this.cmbEstadoCivil.Text = dsSocios.Tables["socio"].Rows[index][7].ToString();
-                 if (dsSocios.Tables["socio"].Rows[index][3].Equals(0))
-                     rBtnActivo.Checked = true;
-                 else rBtnPasivo.Checked = true;
+                if (dsSocios.Tables["socio"].Rows[index][3].Equals(0))
+                    rBtnActivo.Checked = true;
+                else rBtnPasivo.Checked = true;
 
                 //this.cmbEstadoCivil.Text = dsSocios.Tables["socio"].Rows[index][7].ToString();
-                 if (dsSocios.Tables["socio"].Rows[index][8].Equals('M'))
-                     rbtnMasculino.Checked = true;
-                 else rbtnFemenino.Checked = true;
+                if (dsSocios.Tables["socio"].Rows[index][8].Equals('M'))
+                    rbtnMasculino.Checked = true;
+                else rbtnFemenino.Checked = true;
 
 
                 if (dsSocios.Tables["socio"].Rows[index][9].Equals("Activo"))
@@ -803,12 +893,12 @@ namespace COOPMEF
                 this.txtEmail.Text = dsSocios.Tables["socio"].Rows[index][15].ToString();
 
             }
+             * */
         }
 
         private void btnEditarSocio_Click(object sender, EventArgs e)
         {
             nuevo = false;
-            this.cmbSocios.Enabled = true;
             activarAltaSocio();
             this.btnNuevoSocio.Enabled = false;
             this.btnEliminarSocio.Enabled = false;
@@ -841,9 +931,77 @@ namespace COOPMEF
 
             dejarPantallaComoAlInicio();
         }
+
+        private void seleccionarSocio()
+        {
+            int index = dgvSociosCampo.CurrentRow.Index;
+            int idSocio = (int)dgvSociosCampo.Rows[index].Cells["socio_id"].Value;
+
+            if (index != -1)
+            {
+                lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
+                lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
+                lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
+                lblFechaNacSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
+                lblFechaIngresoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
+                lblEstadoCivilSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
+                lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+                lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
+
+                this.txtNombres.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
+                this.txtApellidos.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
+                this.txtNroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
+                this.txtNroCobro.Text = dgvSociosCampo.Rows[index].Cells["socio_nroCobro"].Value.ToString();
+                this.dtpFechaNac.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
+                this.dtpFechaIng.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
+                this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
+
+                if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals(0))
+                    rBtnActivo.Checked = true;
+                else rBtnPasivo.Checked = true;
+
+                if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals('M'))
+                    rbtnMasculino.Checked = true;
+                else rbtnFemenino.Checked = true;
+
+                this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+                this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_nombre"].Value.ToString();
+                this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
+                this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
+                this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
+                this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
+            }
+            tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
+
         }
 
-        
+        private void btnSeleccionarSocio_Click(object sender, EventArgs e)
+        {
+            if (!(dgvSociosCampo.CurrentRow == null))
+            {
+                seleccionarSocio();
+            }
         }
-    
+
+        private void btnCancelarBusqueda_Click(object sender, EventArgs e)
+        {
+            lblNumeroSocio.Text = "...";
+            lblNombreSocio.Text = "...";
+            lblApellidosSocio.Text = "...";
+            lblFechaNacSocio.Text = "...";
+            lblFechaIngresoSocio.Text = "...";
+            lblEstadoCivilSocio.Text = "...";
+            lblEdadSocio.Text = "...";
+            lblTelefonoSocio.Text = "...";
+
+            // Trampa para generar columnas en el datagridview
+            socioPorCampo("socio_nro", "-1");
+
+        }
+
+
+    }
+
+}
+
 
