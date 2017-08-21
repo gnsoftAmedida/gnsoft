@@ -90,36 +90,3 @@ C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPM
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x64\Release\gsw\COOPMEF.resources.dll
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x64\Release\COOPMEF.exe
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\COOPMEF\obj\x64\Release\COOPMEF.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.csprojResolveAssemblyReference.cache
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmAgenda.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmMantOficinas.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmAltaUsuario.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmConsultaLogs.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmModificarEvento.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmMantenimientoInciso.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmPlanDePrestamo.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmReporteEventos.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmSeleccionUsuario.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmLogin.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmModificarClaveUsuario.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmModificarUsuario.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmPrincipal.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmVerReportes.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.Properties.Resources.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmPrincipal.gsw.resources
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.csproj.GenerateResource.Cache
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\COOPMEF.exe.config
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\COOPMEF.exe
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\COOPMEF.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\gsw\COOPMEF.resources.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Logs.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Negocio.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Utilidades.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Persistencia.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Logs.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Negocio.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Utilidades.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Persistencia.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\gsw\COOPMEF.resources.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.exe
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.pdb

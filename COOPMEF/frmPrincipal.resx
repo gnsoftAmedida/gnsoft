@@ -489,55 +489,55 @@
   <data name="&gt;&gt;button6.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="button5.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+  <data name="btnSeleccionarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
-  <data name="button5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnSeleccionarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="button5.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="btnSeleccionarSocio.Location" type="System.Drawing.Point, System.Drawing">
     <value>195, 362</value>
   </data>
-  <data name="button5.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="btnSeleccionarSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>103, 33</value>
   </data>
-  <data name="button5.TabIndex" type="System.Int32, mscorlib">
+  <data name="btnSeleccionarSocio.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
   </data>
-  <data name="button5.Text" xml:space="preserve">
+  <data name="btnSeleccionarSocio.Text" xml:space="preserve">
     <value>     Seleccionar</value>
   </data>
-  <data name="&gt;&gt;button5.Name" xml:space="preserve">
-    <value>button5</value>
+  <data name="&gt;&gt;btnSeleccionarSocio.Name" xml:space="preserve">
+    <value>btnSeleccionarSocio</value>
   </data>
-  <data name="&gt;&gt;button5.Type" xml:space="preserve">
+  <data name="&gt;&gt;btnSeleccionarSocio.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;button5.Parent" xml:space="preserve">
+  <data name="&gt;&gt;btnSeleccionarSocio.Parent" xml:space="preserve">
     <value>tabBusqueda</value>
   </data>
-  <data name="&gt;&gt;button5.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;btnSeleccionarSocio.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
-  <data name="dataGridView1.Location" type="System.Drawing.Point, System.Drawing">
+  <data name="dgvSociosCampo.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 95</value>
   </data>
-  <data name="dataGridView1.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="dgvSociosCampo.Size" type="System.Drawing.Size, System.Drawing">
     <value>647, 245</value>
   </data>
-  <data name="dataGridView1.TabIndex" type="System.Int32, mscorlib">
+  <data name="dgvSociosCampo.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.Name" xml:space="preserve">
-    <value>dataGridView1</value>
+  <data name="&gt;&gt;dgvSociosCampo.Name" xml:space="preserve">
+    <value>dgvSociosCampo</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.Type" xml:space="preserve">
+  <data name="&gt;&gt;dgvSociosCampo.Type" xml:space="preserve">
     <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.Parent" xml:space="preserve">
+  <data name="&gt;&gt;dgvSociosCampo.Parent" xml:space="preserve">
     <value>tabBusqueda</value>
   </data>
-  <data name="&gt;&gt;dataGridView1.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;dgvSociosCampo.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
   <data name="tabBusqueda.Location" type="System.Drawing.Point, System.Drawing">
@@ -819,27 +819,6 @@
   <data name="&gt;&gt;dataGridView3.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="cmbSocios.Location" type="System.Drawing.Point, System.Drawing">
-    <value>195, 10</value>
-  </data>
-  <data name="cmbSocios.Size" type="System.Drawing.Size, System.Drawing">
-    <value>62, 24</value>
-  </data>
-  <data name="cmbSocios.TabIndex" type="System.Int32, mscorlib">
-    <value>41</value>
-  </data>
-  <data name="&gt;&gt;cmbSocios.Name" xml:space="preserve">
-    <value>cmbSocios</value>
-  </data>
-  <data name="&gt;&gt;cmbSocios.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbSocios.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;cmbSocios.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="lblYaExiste.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -865,7 +844,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExiste.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="lblYaExisteMail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -895,7 +874,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteMail.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="lblYaExisteTel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -925,7 +904,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteTel.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="lblYaExisteCobro.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -955,7 +934,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteCobro.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="lblYaExisteSocio.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -982,7 +961,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteSocio.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="lblReferenciaError.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1009,7 +988,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblReferenciaError.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>5</value>
   </data>
   <data name="dtpFechaIng.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 115</value>
@@ -1030,7 +1009,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;dtpFechaIng.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>6</value>
   </data>
   <data name="dtpFechaNac.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 90</value>
@@ -1051,7 +1030,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;dtpFechaNac.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>7</value>
   </data>
   <data name="lblEmail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1081,7 +1060,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblEmail.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>8</value>
   </data>
   <data name="lblDir.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1111,7 +1090,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblDir.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>9</value>
   </data>
   <data name="lblTel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1141,7 +1120,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblTel.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>10</value>
   </data>
   <data name="lblApellido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1171,7 +1150,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblApellido.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>11</value>
   </data>
   <data name="lblNombre.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1201,7 +1180,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblNombre.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>12</value>
   </data>
   <data name="lblNroCo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1231,7 +1210,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblNroCo.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>13</value>
   </data>
   <data name="lblNroS.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1264,7 +1243,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblNroS.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>14</value>
   </data>
   <data name="label37.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1294,7 +1273,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label37.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>15</value>
   </data>
   <data name="cmbOficina.Location" type="System.Drawing.Point, System.Drawing">
     <value>292, 205</value>
@@ -1315,7 +1294,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmbOficina.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>16</value>
   </data>
   <data name="cmbInciso.Location" type="System.Drawing.Point, System.Drawing">
     <value>426, 205</value>
@@ -1336,7 +1315,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmbInciso.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>17</value>
   </data>
   <data name="label36.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1366,7 +1345,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label36.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>18</value>
   </data>
   <data name="label35.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1396,7 +1375,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label35.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>19</value>
   </data>
   <data name="rBtnPasivo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1477,7 +1456,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox13.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>20</value>
   </data>
   <data name="txtNroCobro.Location" type="System.Drawing.Point, System.Drawing">
     <value>390, 13</value>
@@ -1498,7 +1477,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtNroCobro.ZOrder" xml:space="preserve">
-    <value>22</value>
+    <value>21</value>
   </data>
   <data name="label34.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1528,7 +1507,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label34.ZOrder" xml:space="preserve">
-    <value>23</value>
+    <value>22</value>
   </data>
   <data name="label24.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1558,7 +1537,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label24.ZOrder" xml:space="preserve">
-    <value>24</value>
+    <value>23</value>
   </data>
   <data name="label23.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1588,7 +1567,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label23.ZOrder" xml:space="preserve">
-    <value>25</value>
+    <value>24</value>
   </data>
   <data name="txtDireccion.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 260</value>
@@ -1609,7 +1588,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtDireccion.ZOrder" xml:space="preserve">
-    <value>26</value>
+    <value>25</value>
   </data>
   <data name="txtEmail.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 286</value>
@@ -1630,7 +1609,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtEmail.ZOrder" xml:space="preserve">
-    <value>27</value>
+    <value>26</value>
   </data>
   <data name="txtTelefono.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 232</value>
@@ -1651,7 +1630,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtTelefono.ZOrder" xml:space="preserve">
-    <value>28</value>
+    <value>27</value>
   </data>
   <data name="label22.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1681,7 +1660,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label22.ZOrder" xml:space="preserve">
-    <value>29</value>
+    <value>28</value>
   </data>
   <data name="label18.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1711,7 +1690,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label18.ZOrder" xml:space="preserve">
-    <value>30</value>
+    <value>29</value>
   </data>
   <data name="cmbEdad.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 205</value>
@@ -1732,7 +1711,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmbEdad.ZOrder" xml:space="preserve">
-    <value>31</value>
+    <value>30</value>
   </data>
   <data name="rbtnFemenino.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1813,7 +1792,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>32</value>
+    <value>31</value>
   </data>
   <data name="cmbEstadoCivil.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 139</value>
@@ -1834,7 +1813,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmbEstadoCivil.ZOrder" xml:space="preserve">
-    <value>33</value>
+    <value>32</value>
   </data>
   <data name="txtApellidos.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 63</value>
@@ -1855,7 +1834,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtApellidos.ZOrder" xml:space="preserve">
-    <value>34</value>
+    <value>33</value>
   </data>
   <data name="txtNombres.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 37</value>
@@ -1876,7 +1855,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtNombres.ZOrder" xml:space="preserve">
-    <value>35</value>
+    <value>34</value>
   </data>
   <data name="lblEdad.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1906,7 +1885,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblEdad.ZOrder" xml:space="preserve">
-    <value>36</value>
+    <value>35</value>
   </data>
   <data name="lblSexo.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1936,7 +1915,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblSexo.ZOrder" xml:space="preserve">
-    <value>37</value>
+    <value>36</value>
   </data>
   <data name="lblEstadoCivil.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1966,13 +1945,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblEstadoCivil.ZOrder" xml:space="preserve">
-    <value>38</value>
+    <value>37</value>
   </data>
   <data name="txtNroSocio.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 10</value>
   </data>
   <data name="txtNroSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>31, 22</value>
+    <value>100, 22</value>
   </data>
   <data name="txtNroSocio.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -1987,7 +1966,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtNroSocio.ZOrder" xml:space="preserve">
-    <value>39</value>
+    <value>38</value>
   </data>
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2017,7 +1996,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>40</value>
+    <value>39</value>
   </data>
   <data name="lblApellidos.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2047,7 +2026,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblApellidos.ZOrder" xml:space="preserve">
-    <value>41</value>
+    <value>40</value>
   </data>
   <data name="lblNombres.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2077,7 +2056,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblNombres.ZOrder" xml:space="preserve">
-    <value>42</value>
+    <value>41</value>
   </data>
   <data name="lblNroSocio.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -2107,7 +2086,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblNroSocio.ZOrder" xml:space="preserve">
-    <value>43</value>
+    <value>42</value>
   </data>
   <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
     <value>16, 3</value>
@@ -4363,10 +4342,16 @@
     <value>Microsoft Sans Serif, 9.75pt</value>
   </data>
   <data name="cmbBusqueda.Items" xml:space="preserve">
-    <value>Documento</value>
+    <value>Apellido</value>
   </data>
   <data name="cmbBusqueda.Items1" xml:space="preserve">
-    <value>Apellido </value>
+    <value>Dirección </value>
+  </data>
+  <data name="cmbBusqueda.Items2" xml:space="preserve">
+    <value>Documento</value>
+  </data>
+  <data name="cmbBusqueda.Items3" xml:space="preserve">
+    <value>Nombre</value>
   </data>
   <data name="cmbBusqueda.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 19</value>
@@ -4375,7 +4360,7 @@
     <value>121, 24</value>
   </data>
   <data name="cmbBusqueda.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;cmbBusqueda.Name" xml:space="preserve">
     <value>cmbBusqueda</value>
@@ -4482,35 +4467,245 @@
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
-  <data name="label9.AutoSize" type="System.Boolean, mscorlib">
+  <data name="lblTelefonoSocio.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
-  <data name="label9.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="lblTelefonoSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="label9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>99, 18</value>
+  <data name="lblTelefonoSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>601, 47</value>
   </data>
-  <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
+  <data name="lblTelefonoSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>16, 13</value>
   </data>
-  <data name="label9.TabIndex" type="System.Int32, mscorlib">
+  <data name="lblTelefonoSocio.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
-  <data name="label9.Text" xml:space="preserve">
+  <data name="lblTelefonoSocio.Text" xml:space="preserve">
     <value>...</value>
   </data>
-  <data name="&gt;&gt;label9.Name" xml:space="preserve">
-    <value>label9</value>
+  <data name="&gt;&gt;lblTelefonoSocio.Name" xml:space="preserve">
+    <value>lblTelefonoSocio</value>
   </data>
-  <data name="&gt;&gt;label9.Type" xml:space="preserve">
+  <data name="&gt;&gt;lblTelefonoSocio.Type" xml:space="preserve">
     <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;label9.Parent" xml:space="preserve">
+  <data name="&gt;&gt;lblTelefonoSocio.Parent" xml:space="preserve">
     <value>groupBox3</value>
   </data>
-  <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
+  <data name="&gt;&gt;lblTelefonoSocio.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="lblEstadoCivilSocio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEstadoCivilSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEstadoCivilSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 74</value>
+  </data>
+  <data name="lblEstadoCivilSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblEstadoCivilSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblEstadoCivilSocio.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivilSocio.Name" xml:space="preserve">
+    <value>lblEstadoCivilSocio</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivilSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivilSocio.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblEstadoCivilSocio.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="lblApellidosSocio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblApellidosSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblApellidosSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 74</value>
+  </data>
+  <data name="lblApellidosSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblApellidosSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblApellidosSocio.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lblApellidosSocio.Name" xml:space="preserve">
+    <value>lblApellidosSocio</value>
+  </data>
+  <data name="&gt;&gt;lblApellidosSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblApellidosSocio.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblApellidosSocio.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="lblEdadSocio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblEdadSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblEdadSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>601, 18</value>
+  </data>
+  <data name="lblEdadSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblEdadSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblEdadSocio.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lblEdadSocio.Name" xml:space="preserve">
+    <value>lblEdadSocio</value>
+  </data>
+  <data name="&gt;&gt;lblEdadSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblEdadSocio.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblEdadSocio.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="lblFechaIngresoSocio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFechaIngresoSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFechaIngresoSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 45</value>
+  </data>
+  <data name="lblFechaIngresoSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblFechaIngresoSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblFechaIngresoSocio.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lblFechaIngresoSocio.Name" xml:space="preserve">
+    <value>lblFechaIngresoSocio</value>
+  </data>
+  <data name="&gt;&gt;lblFechaIngresoSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFechaIngresoSocio.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblFechaIngresoSocio.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="lblNombreSocio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNombreSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblNombreSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 45</value>
+  </data>
+  <data name="lblNombreSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblNombreSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblNombreSocio.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lblNombreSocio.Name" xml:space="preserve">
+    <value>lblNombreSocio</value>
+  </data>
+  <data name="&gt;&gt;lblNombreSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNombreSocio.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblNombreSocio.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="lblFechaNacSocio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblFechaNacSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblFechaNacSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>403, 18</value>
+  </data>
+  <data name="lblFechaNacSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblFechaNacSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblFechaNacSocio.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNacSocio.Name" xml:space="preserve">
+    <value>lblFechaNacSocio</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNacSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNacSocio.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblFechaNacSocio.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="lblNumeroSocio.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="lblNumeroSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="lblNumeroSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 18</value>
+  </data>
+  <data name="lblNumeroSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>16, 13</value>
+  </data>
+  <data name="lblNumeroSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="lblNumeroSocio.Text" xml:space="preserve">
+    <value>...</value>
+  </data>
+  <data name="&gt;&gt;lblNumeroSocio.Name" xml:space="preserve">
+    <value>lblNumeroSocio</value>
+  </data>
+  <data name="&gt;&gt;lblNumeroSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNumeroSocio.Parent" xml:space="preserve">
+    <value>groupBox3</value>
+  </data>
+  <data name="&gt;&gt;lblNumeroSocio.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="label1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4543,7 +4738,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>10</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4576,7 +4771,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>11</value>
   </data>
   <data name="label3.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4609,7 +4804,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>12</value>
   </data>
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4642,7 +4837,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>13</value>
   </data>
   <data name="label6.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4675,7 +4870,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>14</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -4708,7 +4903,7 @@
     <value>groupBox3</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>15</value>
   </data>
   <data name="groupBox3.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 91</value>
@@ -4795,7 +4990,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>722, 671</value>
+    <value>722, 637</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
