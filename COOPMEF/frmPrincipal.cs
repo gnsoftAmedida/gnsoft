@@ -505,7 +505,7 @@ namespace COOPMEF
             int index = -1;
             int indexSocio = dgvSociosCampo.CurrentRow.Index;
             int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
-
+         
             for (int i = 0; i <= dsSocios.Tables["socio"].Rows.Count - 1; i++)
             {
                 if (dsSocios.Tables["socio"].Rows[i][0].ToString().Equals(idSocio))
@@ -513,7 +513,7 @@ namespace COOPMEF
                     index = i;
                 }
             }
-
+            //*******
             for (int i = 0; valido == true && i < f; i++)
             {
                 //Compruebo que no se esté comprando con el mismo

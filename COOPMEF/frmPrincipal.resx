@@ -4351,10 +4351,7 @@
     <value>Apellido</value>
   </data>
   <data name="cmbBusqueda.Items3" xml:space="preserve">
-    <value>Dirección </value>
-  </data>
-  <data name="cmbBusqueda.Items4" xml:space="preserve">
-    <value />
+    <value>Dirección</value>
   </data>
   <data name="cmbBusqueda.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 19</value>
