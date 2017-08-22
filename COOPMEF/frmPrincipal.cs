@@ -488,67 +488,70 @@ namespace COOPMEF
         private bool controlSociosDuplicados()
         {
             bool valido = true;
-            int f = dsSocios.Tables[0].Rows.Count;
+               int f = dsSocios.Tables[0].Rows.Count;
 
 
-            // Agregado por Nico para que el control de duplicado funcione igual
-            int index = -1;
-            int indexSocio = dgvSociosCampo.CurrentRow.Index;
-            int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
-         
-            for (int i = 0; i <= dsSocios.Tables["socio"].Rows.Count - 1; i++)
-            {
-                if (dsSocios.Tables["socio"].Rows[i][0].ToString().Equals(idSocio))
-                {
-                    index = i;
-                }
-            }
-            //*******
-            for (int i = 0; valido == true && i < f; i++)
-            {
-                //Compruebo que no se esté comprando con el mismo
-                if (index > -1)
-                    if (Convert.ToInt32(dsSocios.Tables["socio"].Rows[index][0].ToString()) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
-                    {
-                        string numSocio = this.txtNroSocio.Text.Trim();
-                        string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
-                        if (numSocio == numSocioTable)
-                        {
-                            this.lblYaExisteSocio.Visible = true;
-                            this.lblYaExisteSocio.Text = "#";
-                            valido = false;
-                        }
+               // Agregado por Nico para que el control de duplicado funcione igual
 
-                        if (this.txtNroCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
-                        {
-                            this.lblYaExisteCobro.Visible = true;
-                            this.lblYaExisteCobro.Text = "#";
-                            valido = false;
-                        };
+            
+                   int index = -1;
+                   int indexSocio = dgvSociosCampo.CurrentRow.Index;
+                   int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
 
-                        if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
-                        {
-                            this.lblYaExisteTel.Visible = true;
-                            this.lblYaExisteTel.Text = "#";
-                            valido = false;
-                        };
+                   for (int i = 0; i <= dsSocios.Tables["socio"].Rows.Count - 1; i++)
+                   {
+                       if (dsSocios.Tables["socio"].Rows[i][0].ToString().Equals(idSocio))
+                       {
+                           index = i;
+                       }
+                   }
+               
+               //*******
+               for (int i = 0; valido == true && i < f; i++)
+               {
+                   //Compruebo que no se esté comprando con el mismo
+                   if (index > -1)
+                       if (Convert.ToInt32(dsSocios.Tables["socio"].Rows[index][0].ToString()) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
+                       {
+                           string numSocio = this.txtNroSocio.Text.Trim();
+                           string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
+                           if (numSocio == numSocioTable)
+                           {
+                               this.lblYaExisteSocio.Visible = true;
+                               this.lblYaExisteSocio.Text = "#";
+                               valido = false;
+                           }
 
-                        if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
-                        {
-                            this.lblYaExisteMail.Visible = true;
-                            this.lblYaExisteMail.Text = "#";
-                            valido = false;
-                        };
-                        if (valido == false)
-                        {
-                            lblYaExiste.Visible = true;
-                            lblYaExiste.Text = "Error!! Ya existe";
-                        }
-                        else
-                            lblYaExiste.Visible = false;
-                    }
-            }
+                           if (this.txtNroCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
+                           {
+                               this.lblYaExisteCobro.Visible = true;
+                               this.lblYaExisteCobro.Text = "#";
+                               valido = false;
+                           };
 
+                           if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
+                           {
+                               this.lblYaExisteTel.Visible = true;
+                               this.lblYaExisteTel.Text = "#";
+                               valido = false;
+                           };
+
+                           if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
+                           {
+                               this.lblYaExisteMail.Visible = true;
+                               this.lblYaExisteMail.Text = "#";
+                               valido = false;
+                           };
+                           if (valido == false)
+                           {
+                               lblYaExiste.Visible = true;
+                               lblYaExiste.Text = "Error!! Ya existe";
+                           }
+                           else
+                               lblYaExiste.Visible = false;
+                       }
+               }
+               
             return valido;
 
         }
@@ -564,7 +567,7 @@ namespace COOPMEF
 
             // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
-            valido = controlSociosDuplicados();
+     //       valido = controlSociosDuplicados();
 
             if (valido)
             {
@@ -579,7 +582,7 @@ namespace COOPMEF
                         estadoPoA = "Activo";
 
                     int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
-                    int socioNro = Convert.ToInt32(txtNroSocio.Text);
+                    string socioNro = txtNroSocio.Text;
                     int nroCobro = Convert.ToInt32(txtNroCobro.Text);
 
 
@@ -631,7 +634,7 @@ namespace COOPMEF
                         estadoPoA = "Activo";
 
                     int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
-                    int socioNro = Convert.ToInt32(txtNroSocio.Text);
+                    string socioNro = txtNroSocio.Text;
                     int nroCobro = Convert.ToInt32(txtNroCobro.Text);
 
 
@@ -699,7 +702,7 @@ namespace COOPMEF
             this.btnSalir.Enabled = true;
 
             this.lblErrorGenerico.Visible = false;
-            int nroSocio = Convert.ToInt32(this.txtNroSocio.Text);
+            string nroSocio = this.txtNroSocio.Text;
 
 
             string message = "¿Está seguro de que desea eliminar el socio?";
@@ -949,17 +952,17 @@ namespace COOPMEF
                 this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_nombre"].Value.ToString();
 
 
-/*
-                //Elijo el inciso de la oficina seleccionada
-                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
-                {
-                    if (Convert.ToInt32(dsSociosPorCampo.Tables["socio_idInciso"].Rows[][5].ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
-                    {
-                        this.cmbIncisos.SelectedIndex = i;
-                    }
-                }
-  */             
-               // this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
+                /*
+                                //Elijo el inciso de la oficina seleccionada
+                                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
+                                {
+                                    if (Convert.ToInt32(dsSociosPorCampo.Tables["socio_idInciso"].Rows[][5].ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
+                                    {
+                                        this.cmbIncisos.SelectedIndex = i;
+                                    }
+                                }
+                  */
+                // this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
@@ -998,7 +1001,7 @@ namespace COOPMEF
             int index = this.cmbInciso.SelectedIndex;
             int idInciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString());
 
-             dsOficinasDelInciso = empresa.DevolverOficinasPorInciso(idInciso);
+            dsOficinasDelInciso = empresa.DevolverOficinasPorInciso(idInciso);
 
             if (dsOficinasDelInciso.Tables["oficinas"].Rows.Count > 0)
             {
