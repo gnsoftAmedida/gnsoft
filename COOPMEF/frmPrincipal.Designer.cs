@@ -769,11 +769,13 @@
             // 
             // dtpFechaIng
             // 
+            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
             this.dtpFechaIng.Name = "dtpFechaIng";
             // 
             // dtpFechaNac
             // 
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
             this.dtpFechaNac.Name = "dtpFechaNac";
             // 
@@ -835,6 +837,7 @@
             this.cmbInciso.FormattingEnabled = true;
             resources.ApplyResources(this.cmbInciso, "cmbInciso");
             this.cmbInciso.Name = "cmbInciso";
+            this.cmbInciso.SelectedIndexChanged += new System.EventHandler(this.cmbInciso_SelectedIndexChanged);
             // 
             // label36
             // 
