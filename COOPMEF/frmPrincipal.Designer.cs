@@ -87,6 +87,7 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
             this.lblYaExiste = new System.Windows.Forms.Label();
             this.lblYaExisteMail = new System.Windows.Forms.Label();
             this.lblYaExisteTel = new System.Windows.Forms.Label();
@@ -238,7 +239,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -730,6 +730,11 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // txtNroSocio
+            // 
+            resources.ApplyResources(this.txtNroSocio, "txtNroSocio");
+            this.txtNroSocio.Name = "txtNroSocio";
             // 
             // lblYaExiste
             // 
@@ -1678,11 +1683,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
-            // 
-            // txtNroSocio
-            // 
-            resources.ApplyResources(this.txtNroSocio, "txtNroSocio");
-            this.txtNroSocio.Name = "txtNroSocio";
             // 
             // frmPrincipal
             // 
