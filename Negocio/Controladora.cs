@@ -201,7 +201,7 @@ namespace Negocio
             tmpPlan.eliminar();
         }
 
-        public void bajaSocio(int socioNro)
+        public void bajaSocio(string socioNro)
         {
             Socio tmpSocio = new Socio();
             //revisar que el socio no tenga prestamos activos  (pendiente)
@@ -210,7 +210,7 @@ namespace Negocio
 
         }
 
-        public void buscarSocio(int socioNro)
+        public void buscarSocio(string socioNro)
         {
             Socio tmpSocio = new Socio();
             //revisar que el socio no tenga prestamos activos  (pendiente)
@@ -362,7 +362,7 @@ namespace Negocio
         }
 
 
-        public void AltaSocio(int NroSocio, int NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
+        public void AltaSocio(string NroSocio, int NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
             string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
         {
             Socio tmpSocio = new Socio();
@@ -384,7 +384,7 @@ namespace Negocio
             tmpSocio.Guardar();
         }
 
-        public void EditarSocio(int NroSocio, int NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
+        public void EditarSocio(string NroSocio, int NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
             string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
         {
             Socio tmpSocio = new Socio();

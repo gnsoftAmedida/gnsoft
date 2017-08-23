@@ -129,7 +129,6 @@
             this.lblEdad = new System.Windows.Forms.Label();
             this.lblSexo = new System.Windows.Forms.Label();
             this.lblEstadoCivil = new System.Windows.Forms.Label();
-            this.txtNroSocio = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
@@ -239,6 +238,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -684,6 +684,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtNroSocio);
             this.groupBox1.Controls.Add(this.lblYaExiste);
             this.groupBox1.Controls.Add(this.lblYaExisteMail);
             this.groupBox1.Controls.Add(this.lblYaExisteTel);
@@ -722,7 +723,6 @@
             this.groupBox1.Controls.Add(this.lblEdad);
             this.groupBox1.Controls.Add(this.lblSexo);
             this.groupBox1.Controls.Add(this.lblEstadoCivil);
-            this.groupBox1.Controls.Add(this.txtNroSocio);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.lblApellidos);
             this.groupBox1.Controls.Add(this.lblNombres);
@@ -976,11 +976,6 @@
             // 
             resources.ApplyResources(this.lblEstadoCivil, "lblEstadoCivil");
             this.lblEstadoCivil.Name = "lblEstadoCivil";
-            // 
-            // txtNroSocio
-            // 
-            resources.ApplyResources(this.txtNroSocio, "txtNroSocio");
-            this.txtNroSocio.Name = "txtNroSocio";
             // 
             // label4
             // 
@@ -1684,6 +1679,11 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // txtNroSocio
+            // 
+            resources.ApplyResources(this.txtNroSocio, "txtNroSocio");
+            this.txtNroSocio.Name = "txtNroSocio";
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1901,7 +1901,6 @@
         private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblSexo;
         private System.Windows.Forms.Label lblEstadoCivil;
-        private System.Windows.Forms.TextBox txtNroSocio;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Label lblNombres;
@@ -1957,6 +1956,7 @@
         private System.Windows.Forms.Label lblNombreSocio;
         private System.Windows.Forms.Label lblFechaNacSocio;
         private System.Windows.Forms.DataGridView dgvSociosCampo;
+        private System.Windows.Forms.MaskedTextBox txtNroSocio;
     }
 }
 

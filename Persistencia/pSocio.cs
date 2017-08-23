@@ -18,7 +18,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, o.oficina_nombre, i.inciso_nombre  FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and " + campo + " like " + " '%" + valor + "%' ";
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, o.oficina_nombre, i.inciso_nombre  FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and " + campo + " like " + " '%" + valor + "%' ORDER BY " + campo + " ASC ";
                 DataSet ds = new DataSet();
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
@@ -58,7 +58,7 @@ namespace Persistencia
             }
         }
 
-        public void eliminarSocio(int nro)
+        public void eliminarSocio(string nro)
         {
 
             MySqlConnection connection = conectar();
@@ -111,7 +111,7 @@ namespace Persistencia
             }
         }
 
-        public void buscarSocio(int numSocio)
+        public void buscarSocio(string numSocio)
         {
             DataSet dsSocios = devolverTodos();
 
@@ -123,7 +123,7 @@ namespace Persistencia
 
                 //string numSocio = this.txtNroSocio.Text.Trim();
                 int numSocioTable = Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][3].ToString());
-                if (numSocio == numSocioTable)
+                if (numSocio.Equals(numSocioTable))
                 {
                     //Socio s = new Socio();
                     //return dsSocios.Tables[0].ge
@@ -164,7 +164,7 @@ namespace Persistencia
         //    }
         //}
 
-        public void GuardarSocio(string Tsocio_nombre, string Tsocio_apellido, int Tsocio_nro, int Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
+        public void GuardarSocio(string Tsocio_nombre, string Tsocio_apellido, string Tsocio_nro, int Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
@@ -214,7 +214,7 @@ namespace Persistencia
             }
         }
 
-        public void GuardarSocioModificado(string Tsocio_nombre, string Tsocio_apellido, int Tsocio_nro, int Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
+        public void GuardarSocioModificado(string Tsocio_nombre, string Tsocio_apellido, string Tsocio_nro, int Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
