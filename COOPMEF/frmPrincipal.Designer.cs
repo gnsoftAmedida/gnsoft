@@ -924,6 +924,7 @@
             // 
             // cmbEdad
             // 
+            this.cmbEdad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEdad.FormattingEnabled = true;
             resources.ApplyResources(this.cmbEdad, "cmbEdad");
             this.cmbEdad.Name = "cmbEdad";
@@ -953,7 +954,13 @@
             // 
             // cmbEstadoCivil
             // 
+            this.cmbEstadoCivil.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEstadoCivil.FormattingEnabled = true;
+            this.cmbEstadoCivil.Items.AddRange(new object[] {
+            resources.GetString("cmbEstadoCivil.Items"),
+            resources.GetString("cmbEstadoCivil.Items1"),
+            resources.GetString("cmbEstadoCivil.Items2"),
+            resources.GetString("cmbEstadoCivil.Items3")});
             resources.ApplyResources(this.cmbEstadoCivil, "cmbEstadoCivil");
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
             // 

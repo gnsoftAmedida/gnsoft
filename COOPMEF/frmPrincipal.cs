@@ -153,7 +153,7 @@ namespace COOPMEF
             desactivarAltaSocio();
 
             // Trampa para generar columnas en el datagridview
-            socioPorCampo("socio_nro", "-1");
+            socioPorCampo("socio_nro", "A");
         }
 
         private void desactivarAltaSocio()
@@ -412,12 +412,9 @@ namespace COOPMEF
             lblYaExisteTel.Visible = false;
 
             for (int i = 18; i < 100; i++) this.cmbEdad.Items.Add(i);
+
             this.cmbEdad.SelectedIndex = 0;
 
-            this.cmbEstadoCivil.Items.Add("Soltero/a");
-            this.cmbEstadoCivil.Items.Add("Casado/a");
-            this.cmbEstadoCivil.Items.Add("Divorciado/a");
-            this.cmbEstadoCivil.Items.Add("Viudo/a");
             this.cmbEstadoCivil.SelectedIndex = 0;
 
             this.cmbInciso.DataSource = dsIncisos.Tables["incisos"];
@@ -434,6 +431,7 @@ namespace COOPMEF
         private bool camposObligatoriosSocio()
         {
             bool valido = true;
+
             if (this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim() == "")
             {
                 this.lblNroS.Visible = true;
@@ -488,90 +486,72 @@ namespace COOPMEF
             return valido;
         }
 
-        private bool controlSociosDuplicados()
+        private bool controlSociosDuplicados(int idSocio, string nroSocio, string nroCobro)
         {
             bool valido = true;
             int f = dsSocios.Tables[0].Rows.Count;
 
-
-            // Agregado por Nico para que el control de duplicado funcione igual
-
-
-            int index = -1;
-            int indexSocio = dgvSociosCampo.CurrentRow.Index;
-            int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
-
-            for (int i = 0; i <= dsSocios.Tables["socio"].Rows.Count - 1; i++)
-            {
-                if (dsSocios.Tables["socio"].Rows[i][0].ToString().Equals(idSocio))
-                {
-                    index = i;
-                }
-            }
-
-            //*******
             for (int i = 0; valido == true && i < f; i++)
             {
                 //Compruebo que no se esté comprando con el mismo
-                if (index > -1)
-                    if (Convert.ToInt32(dsSocios.Tables["socio"].Rows[index][0].ToString()) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
+
+                if ((idSocio) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
+                {
+
+                    string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
+                    if (nroSocio == numSocioTable.Replace(",", "").Replace(".", "").Replace("-", "").Trim())
                     {
-                        string numSocio = this.txtNroSocio.Text.Trim();
-                        string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
-                        if (numSocio == numSocioTable)
-                        {
-                            this.lblYaExisteSocio.Visible = true;
-                            this.lblYaExisteSocio.Text = "#";
-                            valido = false;
-                        }
-
-                        if (this.txtNroCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
-                        {
-                            this.lblYaExisteCobro.Visible = true;
-                            this.lblYaExisteCobro.Text = "#";
-                            valido = false;
-                        };
-
-                        if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
-                        {
-                            this.lblYaExisteTel.Visible = true;
-                            this.lblYaExisteTel.Text = "#";
-                            valido = false;
-                        };
-
-                        if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
-                        {
-                            this.lblYaExisteMail.Visible = true;
-                            this.lblYaExisteMail.Text = "#";
-                            valido = false;
-                        };
-                        if (valido == false)
-                        {
-                            lblYaExiste.Visible = true;
-                            lblYaExiste.Text = "Error!! Ya existe";
-                        }
-                        else
-                            lblYaExiste.Visible = false;
+                        this.lblYaExisteSocio.Visible = true;
+                        this.lblYaExisteSocio.Text = "#";
+                        valido = false;
                     }
-            }
 
+                    if (nroCobro == dsSocios.Tables["socio"].Rows[i][4].ToString())
+                    {
+                        this.lblYaExisteCobro.Visible = true;
+                        this.lblYaExisteCobro.Text = "#";
+                        valido = false;
+                    };
+
+                    if (valido == false)
+                    {
+                        lblYaExiste.Visible = true;
+                        lblYaExiste.Text = "Error!! Ya existe";
+                    }
+                    else
+                        lblYaExiste.Visible = false;
+                }
+
+            }
             return valido;
 
         }
 
         private void nuevoSocio()
         {
-            bool valido = true;
+            bool valido = false;
+            bool obligatoriosOk = false;
+            bool duplicadosOK = false;
+
+            // si el id de socio es 0 es que se trata de un nuevo socio.
+            int id_socio = 0;
+            string nro_socio = this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim();
+            string nro_cobro = this.txtNroCobro.Text;
 
             pantallaInicialSocio();
 
 
             // Control de campos obligatorios 
-            valido = camposObligatoriosSocio();
+            obligatoriosOk = camposObligatoriosSocio();
 
-            // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
+            // Control de duplicado para nroSocio, nroCobro Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
-            //       valido = controlSociosDuplicados();
+            duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
+
+            if (obligatoriosOk && duplicadosOK)
+            {
+                valido = true;
+            }
 
             if (valido)
             {
@@ -586,12 +566,12 @@ namespace COOPMEF
                         estadoPoA = "Activo";
 
                     int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
-             
+
                     string socioNro = txtNroSocio.Text;
 
 
 
-                    int nroCobro = Convert.ToInt32(txtNroCobro.Text);
+                    string nroCobro = txtNroCobro.Text;
 
 
                     DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
@@ -627,7 +607,7 @@ namespace COOPMEF
 
             // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
-            valido = controlSociosDuplicados();
+            // OJOOOOOO  valido = controlSociosDuplicados();
 
             if (valido)
             {
@@ -643,7 +623,7 @@ namespace COOPMEF
 
                     int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
                     string socioNro = txtNroSocio.Text;
-                    int nroCobro = Convert.ToInt32(txtNroCobro.Text);
+                    string nroCobro = txtNroCobro.Text;
 
 
                     DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
