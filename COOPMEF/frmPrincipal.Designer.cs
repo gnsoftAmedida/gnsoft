@@ -614,7 +614,6 @@
             this.lblErrorG.Controls.Add(this.groupBox1);
             resources.ApplyResources(this.lblErrorG, "lblErrorG");
             this.lblErrorG.Name = "lblErrorG";
-            this.lblErrorG.Click += new System.EventHandler(this.lblErrorG_Click);
             // 
             // btnCancelarSocio
             // 

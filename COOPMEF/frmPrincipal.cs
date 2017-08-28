@@ -141,13 +141,15 @@ namespace COOPMEF
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             dsAccionesPermitidas = empresa.DevolverAccionesXUsuario(Utilidades.UsuarioLogueado.IdUsuario);
+
             dsSocios = empresa.DevolverSocios();
+
             dsIncisos = empresa.DevolverIncisos();
-            //  dsOficinas = empresa.DevolverOficinas();
 
             cmbBusqueda.SelectedIndex = 0;
 
             pantallaInicialSocio();
+
             desactivarAltaSocio();
 
             // Trampa para generar columnas en el datagridview
@@ -187,9 +189,8 @@ namespace COOPMEF
             this.cmbOficina.Enabled = true;
             this.cmbInciso.Enabled = true;
             this.cmbEstadoCivil.Enabled = true;
-
-
         }
+
         private void resetearContraseñasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (VerificarPermisosUsuario("frmResetearClaveUsuario"))
@@ -332,7 +333,9 @@ namespace COOPMEF
         private void btnNuevoSocio_Click(object sender, EventArgs e)
         {
             activarAltaSocio();
+
             pantallaInicialSocio();
+
             this.nuevo = true;
 
 
@@ -431,7 +434,7 @@ namespace COOPMEF
         private bool camposObligatoriosSocio()
         {
             bool valido = true;
-            if (this.txtNroSocio.Text.Trim() == "")
+            if (this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim() == "")
             {
                 this.lblNroS.Visible = true;
                 this.lblNroS.Text = "*";
@@ -488,70 +491,70 @@ namespace COOPMEF
         private bool controlSociosDuplicados()
         {
             bool valido = true;
-               int f = dsSocios.Tables[0].Rows.Count;
+            int f = dsSocios.Tables[0].Rows.Count;
 
 
-               // Agregado por Nico para que el control de duplicado funcione igual
+            // Agregado por Nico para que el control de duplicado funcione igual
 
-            
-                   int index = -1;
-                   int indexSocio = dgvSociosCampo.CurrentRow.Index;
-                   int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
 
-                   for (int i = 0; i <= dsSocios.Tables["socio"].Rows.Count - 1; i++)
-                   {
-                       if (dsSocios.Tables["socio"].Rows[i][0].ToString().Equals(idSocio))
-                       {
-                           index = i;
-                       }
-                   }
-               
-               //*******
-               for (int i = 0; valido == true && i < f; i++)
-               {
-                   //Compruebo que no se esté comprando con el mismo
-                   if (index > -1)
-                       if (Convert.ToInt32(dsSocios.Tables["socio"].Rows[index][0].ToString()) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
-                       {
-                           string numSocio = this.txtNroSocio.Text.Trim();
-                           string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
-                           if (numSocio == numSocioTable)
-                           {
-                               this.lblYaExisteSocio.Visible = true;
-                               this.lblYaExisteSocio.Text = "#";
-                               valido = false;
-                           }
+            int index = -1;
+            int indexSocio = dgvSociosCampo.CurrentRow.Index;
+            int idSocio = (int)dgvSociosCampo.Rows[indexSocio].Cells["socio_id"].Value;
 
-                           if (this.txtNroCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
-                           {
-                               this.lblYaExisteCobro.Visible = true;
-                               this.lblYaExisteCobro.Text = "#";
-                               valido = false;
-                           };
+            for (int i = 0; i <= dsSocios.Tables["socio"].Rows.Count - 1; i++)
+            {
+                if (dsSocios.Tables["socio"].Rows[i][0].ToString().Equals(idSocio))
+                {
+                    index = i;
+                }
+            }
 
-                           if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
-                           {
-                               this.lblYaExisteTel.Visible = true;
-                               this.lblYaExisteTel.Text = "#";
-                               valido = false;
-                           };
+            //*******
+            for (int i = 0; valido == true && i < f; i++)
+            {
+                //Compruebo que no se esté comprando con el mismo
+                if (index > -1)
+                    if (Convert.ToInt32(dsSocios.Tables["socio"].Rows[index][0].ToString()) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
+                    {
+                        string numSocio = this.txtNroSocio.Text.Trim();
+                        string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
+                        if (numSocio == numSocioTable)
+                        {
+                            this.lblYaExisteSocio.Visible = true;
+                            this.lblYaExisteSocio.Text = "#";
+                            valido = false;
+                        }
 
-                           if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
-                           {
-                               this.lblYaExisteMail.Visible = true;
-                               this.lblYaExisteMail.Text = "#";
-                               valido = false;
-                           };
-                           if (valido == false)
-                           {
-                               lblYaExiste.Visible = true;
-                               lblYaExiste.Text = "Error!! Ya existe";
-                           }
-                           else
-                               lblYaExiste.Visible = false;
-                       }
-               }
-               
+                        if (this.txtNroCobro.Text.Trim() == dsSocios.Tables["socio"].Rows[i][4].ToString())
+                        {
+                            this.lblYaExisteCobro.Visible = true;
+                            this.lblYaExisteCobro.Text = "#";
+                            valido = false;
+                        };
+
+                        if (this.txtTelefono.Text.Trim() == dsSocios.Tables["socio"].Rows[i][13].ToString())
+                        {
+                            this.lblYaExisteTel.Visible = true;
+                            this.lblYaExisteTel.Text = "#";
+                            valido = false;
+                        };
+
+                        if (this.txtEmail.Text.Trim() == dsSocios.Tables["socio"].Rows[i][15].ToString())
+                        {
+                            this.lblYaExisteMail.Visible = true;
+                            this.lblYaExisteMail.Text = "#";
+                            valido = false;
+                        };
+                        if (valido == false)
+                        {
+                            lblYaExiste.Visible = true;
+                            lblYaExiste.Text = "Error!! Ya existe";
+                        }
+                        else
+                            lblYaExiste.Visible = false;
+                    }
+            }
+
             return valido;
 
         }
@@ -559,6 +562,7 @@ namespace COOPMEF
         private void nuevoSocio()
         {
             bool valido = true;
+
             pantallaInicialSocio();
 
 
@@ -567,7 +571,7 @@ namespace COOPMEF
 
             // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
-     //       valido = controlSociosDuplicados();
+            //       valido = controlSociosDuplicados();
 
             if (valido)
             {
@@ -582,7 +586,11 @@ namespace COOPMEF
                         estadoPoA = "Activo";
 
                     int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
+             
                     string socioNro = txtNroSocio.Text;
+
+
+
                     int nroCobro = Convert.ToInt32(txtNroCobro.Text);
 
 
