@@ -37,9 +37,9 @@ namespace Negocio
             get { return socio_nro; }
             set { socio_nro = value; }
         }
-        private int socio_nroCobro;
+        private string socio_nroCobro;
 
-        public int Socio_nroCobro
+        public string Socio_nroCobro
         {
             get { return socio_nroCobro; }
             set { socio_nroCobro = value; }
