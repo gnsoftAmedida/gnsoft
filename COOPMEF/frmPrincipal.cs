@@ -394,6 +394,24 @@ namespace COOPMEF
             this.lblErrorGenerico.Visible = false;
         }
 
+        public void borrarErroresNuevoSocio()
+        {
+            this.lblNroCo.Visible = false;
+            this.lblNombre.Visible = false;
+            this.lblApellido.Visible = false;
+            this.lblDir.Visible = false;
+            this.lblEmail.Visible = false;
+            this.lblErrorGenerico.Visible = false;
+            this.lblReferenciaError.Visible = false;
+            this.lblNroS.Visible = false;
+            this.lblTel.Visible = false;
+            lblYaExiste.Visible = false;
+            lblYaExisteCobro.Visible = false;
+            lblYaExisteMail.Visible = false;
+            lblYaExisteSocio.Visible = false;
+            lblYaExisteTel.Visible = false;
+        }
+
         private void pantallaInicialSocio()
         {
             this.lblNroCo.Visible = false;
@@ -420,8 +438,8 @@ namespace COOPMEF
             this.cmbInciso.DataSource = dsIncisos.Tables["incisos"];
             this.cmbInciso.DisplayMember = "inciso_abreviatura";
             this.cmbInciso.ValueMember = "inciso_id";
-            this.cmbInciso.SelectedIndex = 0;
             this.cmbInciso.Enabled = true;
+            this.cmbInciso.SelectedIndex = 0;
 
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
@@ -538,7 +556,7 @@ namespace COOPMEF
             string nro_socio = this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim();
             string nro_cobro = this.txtNroCobro.Text;
 
-            pantallaInicialSocio();
+            borrarErroresNuevoSocio();
 
 
             // Control de campos obligatorios 
