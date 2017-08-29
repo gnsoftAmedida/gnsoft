@@ -239,6 +239,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.lblFormatoInvalido = new System.Windows.Forms.Label();
+            this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -684,6 +686,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblEmailFormatoInvalido);
+            this.groupBox1.Controls.Add(this.lblFormatoInvalido);
             this.groupBox1.Controls.Add(this.txtNroSocio);
             this.groupBox1.Controls.Add(this.lblYaExiste);
             this.groupBox1.Controls.Add(this.lblYaExisteMail);
@@ -1691,6 +1695,18 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // lblFormatoInvalido
+            // 
+            resources.ApplyResources(this.lblFormatoInvalido, "lblFormatoInvalido");
+            this.lblFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
+            this.lblFormatoInvalido.Name = "lblFormatoInvalido";
+            // 
+            // lblEmailFormatoInvalido
+            // 
+            resources.ApplyResources(this.lblEmailFormatoInvalido, "lblEmailFormatoInvalido");
+            this.lblEmailFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
+            this.lblEmailFormatoInvalido.Name = "lblEmailFormatoInvalido";
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1964,6 +1980,8 @@
         private System.Windows.Forms.Label lblFechaNacSocio;
         private System.Windows.Forms.DataGridView dgvSociosCampo;
         private System.Windows.Forms.MaskedTextBox txtNroSocio;
+        private System.Windows.Forms.Label lblEmailFormatoInvalido;
+        private System.Windows.Forms.Label lblFormatoInvalido;
     }
 }
 

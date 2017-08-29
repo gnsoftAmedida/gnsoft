@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Negocio;
 using Logs;
+using System.Text.RegularExpressions;
 
 
 namespace COOPMEF
@@ -396,6 +397,8 @@ namespace COOPMEF
 
         public void borrarErroresNuevoSocio()
         {
+            this.lblEmailFormatoInvalido.Visible = false;
+            this.lblFormatoInvalido.Visible = false;
             this.lblNroCo.Visible = false;
             this.lblNombre.Visible = false;
             this.lblApellido.Visible = false;
@@ -414,6 +417,8 @@ namespace COOPMEF
 
         private void pantallaInicialSocio()
         {
+            this.lblEmailFormatoInvalido.Visible = false;
+            this.lblFormatoInvalido.Visible = false;
             this.lblNroCo.Visible = false;
             this.lblNombre.Visible = false;
             this.lblApellido.Visible = false;
@@ -534,7 +539,7 @@ namespace COOPMEF
                     if (valido == false)
                     {
                         lblYaExiste.Visible = true;
-                        lblYaExiste.Text = "Error!! Ya existe";
+                        //lblYaExiste.Text = "Error!! Ya existe";
                     }
                     else
                         lblYaExiste.Visible = false;
@@ -565,8 +570,17 @@ namespace COOPMEF
             // Control de duplicado para nroSocio, nroCobro Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
             duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
+            bool formatoMailOK = true;
+            Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+            if (!regex.IsMatch(txtEmail.Text))
+            {
+                this.lblEmailFormatoInvalido.Visible = true;
+                this.lblFormatoInvalido.Visible = true;
+                //this.lblEmailFormatoInvalido.Text = "Formato inválido";
+                formatoMailOK = false;
+            }
 
-            if (obligatoriosOk && duplicadosOK)
+            if (formatoMailOK && obligatoriosOk && duplicadosOK)
             {
                 valido = true;
             }
@@ -598,7 +612,10 @@ namespace COOPMEF
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
 
-                    empresa.AltaSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estadoCivil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                    // agregro estado_civil para que guarde el texto y no numeros en la BD
+                    string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
+
+                    empresa.AltaSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
                     MessageBox.Show("Socio creado correctamente");
 
@@ -627,6 +644,16 @@ namespace COOPMEF
             //int index = this.cmbBusqueda.SelectedIndex;
             // OJOOOOOO  valido = controlSociosDuplicados();
 
+            //bool formatoMailOK = true;
+            Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+            if (!regex.IsMatch(txtEmail.Text))
+            {
+                this.lblEmailFormatoInvalido.Visible = true;
+                this.lblFormatoInvalido.Visible = true;
+                //this.lblEmailFormatoInvalido.Text = "Formato inválido";
+                valido = false;
+            }
+
             if (valido)
             {
                 try
@@ -650,7 +677,10 @@ namespace COOPMEF
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
 
-                    empresa.EditarSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estadoCivil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                    // agregro estado_civil para que guarde el texto y no numeros en la BD
+                    string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
+
+                    empresa.EditarSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
                     MessageBox.Show("Socio modificado correctamente");
 
