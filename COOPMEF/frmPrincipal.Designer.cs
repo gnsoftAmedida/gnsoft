@@ -241,6 +241,8 @@
             this.btnOtrosDatos = new System.Windows.Forms.Button();
             this.lblFormatoInvalido = new System.Windows.Forms.Label();
             this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
+            this.lblEstadoActivo = new System.Windows.Forms.Label();
+            this.lblEstadoDeBaja = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -686,6 +688,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblEstadoDeBaja);
+            this.groupBox1.Controls.Add(this.lblEstadoActivo);
             this.groupBox1.Controls.Add(this.lblEmailFormatoInvalido);
             this.groupBox1.Controls.Add(this.lblFormatoInvalido);
             this.groupBox1.Controls.Add(this.txtNroSocio);
@@ -1707,6 +1711,18 @@
             this.lblEmailFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
             this.lblEmailFormatoInvalido.Name = "lblEmailFormatoInvalido";
             // 
+            // lblEstadoActivo
+            // 
+            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
+            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            this.lblEstadoActivo.Name = "lblEstadoActivo";
+            // 
+            // lblEstadoDeBaja
+            // 
+            resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
+            this.lblEstadoDeBaja.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
+            this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
+            // 
             // frmPrincipal
             // 
             resources.ApplyResources(this, "$this");
@@ -1982,6 +1998,8 @@
         private System.Windows.Forms.MaskedTextBox txtNroSocio;
         private System.Windows.Forms.Label lblEmailFormatoInvalido;
         private System.Windows.Forms.Label lblFormatoInvalido;
+        private System.Windows.Forms.Label lblEstadoDeBaja;
+        private System.Windows.Forms.Label lblEstadoActivo;
     }
 }
 

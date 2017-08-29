@@ -362,7 +362,7 @@ namespace Negocio
         }
 
 
-        public void AltaSocio(string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
+        public void AltaSocio(int socioActivo,string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
             string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
         {
             Socio tmpSocio = new Socio();
@@ -381,6 +381,7 @@ namespace Negocio
             tmpSocio.Socio_tel = tel;
             tmpSocio.Socio_direccion = direccion;
             tmpSocio.Socio_email = email;
+            tmpSocio.Socio_activo = socioActivo;
             tmpSocio.Guardar();
         }
 

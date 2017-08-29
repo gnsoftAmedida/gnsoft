@@ -122,6 +122,14 @@ namespace Negocio
             set { socio_email = value; }
         }
 
+        private int socio_activo;
+
+        public int Socio_activo
+        {
+            get { return Socio_activo; }
+            set { socio_activo = value; }
+        }
+
 
 
 
@@ -142,7 +150,7 @@ namespace Negocio
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocio(socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
+            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
         }
 
         public void ModificarSocio()

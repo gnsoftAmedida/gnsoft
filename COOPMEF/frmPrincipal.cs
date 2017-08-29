@@ -589,6 +589,7 @@ namespace COOPMEF
             {
                 try
                 {
+
                     string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
                     char sexoo = 'F';
                     if (rbtnMasculino.Checked)
@@ -614,8 +615,12 @@ namespace COOPMEF
 
                     // agregro estado_civil para que guarde el texto y no numeros en la BD
                     string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
+                    
 
-                    empresa.AltaSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                    //si socioActivo = 1 el socio está activo, si es 0 no
+                    int socioActivo = 1;
+
+                    empresa.AltaSocio(socioActivo, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
                     MessageBox.Show("Socio creado correctamente");
 
@@ -806,6 +811,7 @@ namespace COOPMEF
         {
 
             dsSociosPorCampo = empresa.buscarSociosPorCampo(campo, valor);
+           
 
             dgvSociosCampo.DataSource = dsSociosPorCampo.Tables["socios"];
 
@@ -872,6 +878,9 @@ namespace COOPMEF
 
             dgvSociosCampo.Columns["inciso_nombre"].HeaderText = "Inciso";
             dgvSociosCampo.Columns["inciso_nombre"].Width = 150;
+
+            //dgvSociosCampo.Columns["socio_activo"].HeaderText = "De baja";
+            //dgvSociosCampo.Columns["socio_activo"].Width = 50;
 
             tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
         }
@@ -956,9 +965,20 @@ namespace COOPMEF
         {
             int index = dgvSociosCampo.CurrentRow.Index;
             int idSocio = (int)dgvSociosCampo.Rows[index].Cells["socio_id"].Value;
+            //int estaDeBaja = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
 
             if (index != -1)
             {
+                //if (estaDeBaja == 1)
+                //{
+                //    this.lblEstadoActivo.Visible = false;
+                //    this.lblEstadoDeBaja.Visible = true;
+                //}
+                //else {
+                //    this.lblEstadoActivo.Visible = true;
+                //    this.lblEstadoDeBaja.Visible = false;
+                //}
+
                 lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
                 lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
                 lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
@@ -976,6 +996,7 @@ namespace COOPMEF
                 this.dtpFechaIng.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
 
+                
                 if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals(0))
                     rBtnActivo.Checked = true;
                 else rBtnPasivo.Checked = true;
