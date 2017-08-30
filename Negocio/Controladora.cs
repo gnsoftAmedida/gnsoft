@@ -201,11 +201,11 @@ namespace Negocio
             tmpPlan.eliminar();
         }
 
-        public void bajaSocio(string socioNro)
+        public void bajaSocio(int idSocio)
         {
             Socio tmpSocio = new Socio();
             //revisar que el socio no tenga prestamos activos  (pendiente)
-            tmpSocio.Socio_nro = socioNro;
+            tmpSocio.Socio_id = idSocio;
             tmpSocio.eliminar();
 
         }
@@ -385,7 +385,7 @@ namespace Negocio
             tmpSocio.Guardar();
         }
 
-        public void EditarSocio(string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
+        public void EditarSocio(int Tsocio_id, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
             string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
         {
             Socio tmpSocio = new Socio();
@@ -404,6 +404,7 @@ namespace Negocio
             tmpSocio.Socio_tel = tel;
             tmpSocio.Socio_direccion = direccion;
             tmpSocio.Socio_email = email;
+            tmpSocio.Socio_id = Tsocio_id;
             tmpSocio.ModificarSocio();
         }
     }

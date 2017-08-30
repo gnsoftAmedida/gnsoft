@@ -21,6 +21,7 @@ namespace COOPMEF
         DataSet dsSociosPorCampo;
         DataSet dsIncisos;
         DataSet dsOficinas;
+        private int idSocioSeleccionado = 0;
         private bool nuevo = true;
 
         public frmPrincipal()
@@ -615,7 +616,7 @@ namespace COOPMEF
 
                     // agregro estado_civil para que guarde el texto y no numeros en la BD
                     string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
-                    
+
 
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
@@ -638,66 +639,74 @@ namespace COOPMEF
 
         private void editarSocio()
         {
-            bool valido = true;
-            //pantallaInicialSocio();
 
-
-            // Control de campos obligatorios 
-            valido = camposObligatoriosSocio();
-
-            // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
-            //int index = this.cmbBusqueda.SelectedIndex;
-            // OJOOOOOO  valido = controlSociosDuplicados();
-
-            //bool formatoMailOK = true;
-            Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
-            if (!regex.IsMatch(txtEmail.Text))
+            if (this.idSocioSeleccionado != 0)
             {
-                this.lblEmailFormatoInvalido.Visible = true;
-                this.lblFormatoInvalido.Visible = true;
-                //this.lblEmailFormatoInvalido.Text = "Formato inválido";
-                valido = false;
+                bool valido = true;
+                //pantallaInicialSocio();
+
+
+                // Control de campos obligatorios 
+                valido = camposObligatoriosSocio();
+
+                // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
+                //int index = this.cmbBusqueda.SelectedIndex;
+                // OJOOOOOO  valido = controlSociosDuplicados();
+
+                //bool formatoMailOK = true;
+                Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+                if (!regex.IsMatch(txtEmail.Text))
+                {
+                    this.lblEmailFormatoInvalido.Visible = true;
+                    this.lblFormatoInvalido.Visible = true;
+                    //this.lblEmailFormatoInvalido.Text = "Formato inválido";
+                    valido = false;
+                }
+
+                if (valido)
+                {
+                    try
+                    {
+                        string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
+                        char sexoo = 'F';
+                        if (rbtnMasculino.Checked)
+                            sexoo = 'M';
+                        string estadoPoA = "Pasivo";
+                        if (rBtnActivo.Checked)
+                            estadoPoA = "Activo";
+
+                        int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
+                        string socioNro = txtNroSocio.Text;
+                        string nroCobro = txtNroCobro.Text;
+
+
+                        DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
+                        DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+
+                        int of = Convert.ToInt32(cmbOficina.SelectedValue);
+                        int inc = Convert.ToInt32(cmbInciso.SelectedValue);
+
+                        // agregro estado_civil para que guarde el texto y no numeros en la BD
+                        string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
+
+                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+
+                        MessageBox.Show("Socio modificado correctamente");
+
+                        //Cargo Socios
+                        dsSocios = empresa.DevolverSocios();
+                        pantallaInicialSocio();
+                    }
+                    catch (Exception ex)
+                    {
+                        this.lblErrorGenerico.Visible = true;
+                        this.lblErrorGenerico.Text = ex.Message;
+                    }
+                }
             }
+            else {
 
-            if (valido)
-            {
-                try
-                {
-                    string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
-                    char sexoo = 'F';
-                    if (rbtnMasculino.Checked)
-                        sexoo = 'M';
-                    string estadoPoA = "Pasivo";
-                    if (rBtnActivo.Checked)
-                        estadoPoA = "Activo";
-
-                    int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
-                    string socioNro = txtNroSocio.Text;
-                    string nroCobro = txtNroCobro.Text;
-
-
-                    DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
-                    DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
-
-                    int of = Convert.ToInt32(cmbOficina.SelectedValue);
-                    int inc = Convert.ToInt32(cmbInciso.SelectedValue);
-
-                    // agregro estado_civil para que guarde el texto y no numeros en la BD
-                    string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
-
-                    empresa.EditarSocio(socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
-
-                    MessageBox.Show("Socio modificado correctamente");
-
-                    //Cargo Socios
-                    dsSocios = empresa.DevolverSocios();
-                    pantallaInicialSocio();
-                }
-                catch (Exception ex)
-                {
-                    this.lblErrorGenerico.Visible = true;
-                    this.lblErrorGenerico.Text = ex.Message;
-                }
+                MessageBox.Show("Debe seleccionar un socio antes de intentar editarlo");
             }
         }
 
@@ -733,48 +742,64 @@ namespace COOPMEF
 
         private void btnEliminarSocio_Click(object sender, EventArgs e)
         {
-            nuevo = false;
-            activarAltaSocio();
-            this.btnNuevoSocio.Enabled = false;
-            this.btnEditarSocio.Enabled = false;
-            this.btnVerMasSocio.Enabled = false;
-
-            this.btnGuardarSocio.Enabled = true;
-            this.btnSalir.Enabled = true;
-
-            this.lblErrorGenerico.Visible = false;
-            string nroSocio = this.txtNroSocio.Text;
-
-
-            string message = "¿Está seguro de que desea eliminar el socio?";
-            string caption = "Eliminar Socio";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
-
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (idSocioSeleccionado != 0)
             {
-                try
-                {
-                    empresa.bajaSocio(nroSocio);
 
-                    MessageBox.Show("Socio eliminado correctamente");
 
-                    //Cargo Planes
-                    //dsPlanes = empresa.DevolverPlanes();
-                    pantallaInicialSocio();
-                }
-                catch (Exception ex)
+                nuevo = false;
+                activarAltaSocio();
+                this.btnNuevoSocio.Enabled = false;
+                this.btnEditarSocio.Enabled = false;
+                this.btnVerMasSocio.Enabled = false;
+
+                this.btnGuardarSocio.Enabled = true;
+                this.btnSalir.Enabled = true;
+
+                this.lblErrorGenerico.Visible = false;
+                string nroSocio = this.txtNroSocio.Text;
+
+
+                string message = "¿Está seguro de que desea dar de baja el socio?";
+                string caption = "Baja Socio";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
+
+                if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-                    this.lblErrorGenerico.Visible = true;
-                    this.lblErrorGenerico.Text = ex.Message;
+                    try
+                    {
+
+                        empresa.bajaSocio(idSocioSeleccionado);
+                        MessageBox.Show("Socio dado de baja correctamente");
+
+                        //Cargo Planes
+                        //dsPlanes = empresa.DevolverPlanes();
+                        pantallaInicialSocio();
+                    }
+                    catch (Exception ex)
+                    {
+                        this.lblErrorGenerico.Visible = true;
+                        this.lblErrorGenerico.Text = ex.Message;
+                    }
                 }
             }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un socio antes de darlo de baja");
+            }
+
         }
 
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
+            this.buscarCampo();
+        }
+
+
+        private void buscarCampo() {
+
             String campo = "";
 
             if (this.txtBusqueda.Text.Trim() == "")
@@ -811,7 +836,7 @@ namespace COOPMEF
         {
 
             dsSociosPorCampo = empresa.buscarSociosPorCampo(campo, valor);
-           
+
 
             dgvSociosCampo.DataSource = dsSociosPorCampo.Tables["socios"];
 
@@ -833,15 +858,25 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_id"].Visible = false;
             dgvSociosCampo.Columns["socio_oficinaId"].Visible = false;
             dgvSociosCampo.Columns["socio_IncisoId"].Visible = false;
+            dgvSociosCampo.Columns["socio_fechaNac"].Visible = false;
+            dgvSociosCampo.Columns["socio_estadoCivil"].Visible = false;
+            dgvSociosCampo.Columns["socio_sexo"].Visible = false;
+            dgvSociosCampo.Columns["socio_email"].Visible = false;
+            dgvSociosCampo.Columns["socio_estado"].Visible = false;
+            dgvSociosCampo.Columns["socio_nroCobro"].Visible = false;
+            dgvSociosCampo.Columns["socio_direccion"].Visible = false;
+            dgvSociosCampo.Columns["socio_edad"].Visible = false;
+            dgvSociosCampo.Columns["socio_activo"].Visible = false;
+            dgvSociosCampo.Columns["socio_tel"].Visible = false;
 
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
-            dgvSociosCampo.Columns["socio_nro"].Width = 100;
+            dgvSociosCampo.Columns["socio_nro"].Width = 85;
 
             dgvSociosCampo.Columns["socio_nombre"].HeaderText = "Nombre";
-            dgvSociosCampo.Columns["socio_apellido"].Width = 100;
+            dgvSociosCampo.Columns["socio_nombre"].Width = 180;
 
             dgvSociosCampo.Columns["socio_apellido"].HeaderText = "Apellido";
-            dgvSociosCampo.Columns["socio_apellido"].Width = 100;
+            dgvSociosCampo.Columns["socio_apellido"].Width = 180;
 
             dgvSociosCampo.Columns["socio_nroCobro"].HeaderText = "Nro Cobro";
             dgvSociosCampo.Columns["socio_nroCobro"].Width = 100;
@@ -849,7 +884,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_fechaNac"].HeaderText = "Fecha Nacimiento";
             dgvSociosCampo.Columns["socio_fechaNac"].Width = 100;
 
-            dgvSociosCampo.Columns["socio_fechaIngreso"].HeaderText = "Fecha Ingreso";
+            dgvSociosCampo.Columns["socio_fechaIngreso"].HeaderText = "Ingreso";
             dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 100;
 
             dgvSociosCampo.Columns["socio_estadoCivil"].HeaderText = "Estado Civil";
@@ -873,16 +908,31 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_email"].HeaderText = "Email";
             dgvSociosCampo.Columns["socio_email"].Width = 100;
 
-            dgvSociosCampo.Columns["oficina_nombre"].HeaderText = "Oficina";
-            dgvSociosCampo.Columns["oficina_nombre"].Width = 100;
+            dgvSociosCampo.Columns["oficina_codigo"].HeaderText = "Oficina";
+            dgvSociosCampo.Columns["oficina_codigo"].Width = 50;
 
-            dgvSociosCampo.Columns["inciso_nombre"].HeaderText = "Inciso";
-            dgvSociosCampo.Columns["inciso_nombre"].Width = 150;
+            dgvSociosCampo.Columns["inciso_codigo"].HeaderText = "Inciso";
+            dgvSociosCampo.Columns["inciso_codigo"].Width = 50;
 
-            //dgvSociosCampo.Columns["socio_activo"].HeaderText = "De baja";
-            //dgvSociosCampo.Columns["socio_activo"].Width = 50;
+            dgvSociosCampo.Columns["socio_activo"].HeaderText = "De baja";
+            dgvSociosCampo.Columns["socio_activo"].Width = 50;
+
+            this.EstablecerColoresNotificaciones();
 
             tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
+        }
+
+        public void EstablecerColoresNotificaciones()
+        {
+            foreach (DataGridViewRow fila in dgvSociosCampo.Rows)
+            {
+                int activo = (int)fila.Cells["socio_activo"].Value;
+
+                if (activo == 0)
+                {
+                    fila.DefaultCellStyle.BackColor = Color.LightPink;
+                }
+            }
         }
 
         private void cmbSocios_SelectedIndexChanged(object sender, EventArgs e)
@@ -967,17 +1017,20 @@ namespace COOPMEF
             int idSocio = (int)dgvSociosCampo.Rows[index].Cells["socio_id"].Value;
             //int estaDeBaja = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
 
+
+            this.idSocioSeleccionado = idSocio;
+
+            //{
+            //    this.lblEstadoActivo.Visible = false;
+            //    this.lblEstadoDeBaja.Visible = true;
+            //}
+            //else {
+            //    this.lblEstadoActivo.Visible = true;
+            //    this.lblEstadoDeBaja.Visible = false;
+            //}
+
             if (index != -1)
             {
-                //if (estaDeBaja == 1)
-                //{
-                //    this.lblEstadoActivo.Visible = false;
-                //    this.lblEstadoDeBaja.Visible = true;
-                //}
-                //else {
-                //    this.lblEstadoActivo.Visible = true;
-                //    this.lblEstadoDeBaja.Visible = false;
-                //}
 
                 lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
                 lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
@@ -996,7 +1049,7 @@ namespace COOPMEF
                 this.dtpFechaIng.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
 
-                
+
                 if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals(0))
                     rBtnActivo.Checked = true;
                 else rBtnPasivo.Checked = true;
@@ -1006,7 +1059,7 @@ namespace COOPMEF
                 else rbtnFemenino.Checked = true;
 
                 this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
-                this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_nombre"].Value.ToString();
+                this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_codigo"].Value.ToString();
 
 
                 /*
