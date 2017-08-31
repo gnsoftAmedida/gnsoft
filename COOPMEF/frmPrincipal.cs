@@ -757,7 +757,7 @@ namespace COOPMEF
             if (idSocioSeleccionado != 0)
             {
 
-
+                int estadoActual=devolverEstadoSocio();
                 nuevo = false;
                 activarAltaSocio();
                 this.btnNuevoSocio.Enabled = false;
@@ -771,19 +771,22 @@ namespace COOPMEF
                 string nroSocio = this.txtNroSocio.Text;
 
 
-                string message = "¿Está seguro de que desea dar de baja el socio?";
-                string caption = "Baja Socio";
+                string message = "¿Está seguro de que desea cambiar de estado al socio?";
+                string caption = "Estado Socio";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons);
+                
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
                     try
                     {
 
-                        empresa.bajaSocio(idSocioSeleccionado);
-                        MessageBox.Show("Socio dado de baja correctamente");
+                        empresa.bajaSocio(idSocioSeleccionado, ref estadoActual);
+                        MessageBox.Show("Estado del socio actualizado correctamente");
+                        cambiarEstado(estadoActual);
+                        cambiarBotonBajaAlta(estadoActual);
                         desactivarAltaSocio();
                         btnEliminarSocio.Enabled = false;
                         btnGuardarSocio.Enabled = false;
@@ -949,6 +952,16 @@ namespace COOPMEF
                     fila.DefaultCellStyle.BackColor = Color.LightPink;
                 }
             }
+            
+        }
+
+        public int devolverEstadoSocio() {
+            //int esta = 0;
+            int index = dgvSociosCampo.CurrentRow.Index;
+            int esta = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
+
+
+            return esta;
         }
 
         private void cmbSocios_SelectedIndexChanged(object sender, EventArgs e)
@@ -1088,17 +1101,86 @@ namespace COOPMEF
 
         }
 
+        private void cambiarEstado(int estado) {
+            if (estado == 1)
+            {
+                lblEstadoActivo.Visible = true;
+                lblEstadoDeBaja.Visible = false;
+
+            }
+            else
+            {
+                lblEstadoActivo.Visible = false;
+                lblEstadoDeBaja.Visible = true;
+
+            }
+            
+        }
+
+        private void definirEstado(int estado)
+        {
+            if (estado == 1)
+            {
+                lblEstadoActivo.Visible = true;
+                lblEstadoDeBaja.Visible = false;
+
+            }
+            else
+            {
+                lblEstadoActivo.Visible = false;
+                lblEstadoDeBaja.Visible = true;
+
+            }
+
+        }
+
+        private int definirEstado()
+        {
+            int estado = devolverEstadoSocio();
+            if (estado== 1)
+            {
+                lblEstadoActivo.Visible = true;
+                lblEstadoDeBaja.Visible = false;
+
+            }
+            else
+            {
+                lblEstadoActivo.Visible = false;
+                lblEstadoDeBaja.Visible = true;
+
+            }
+            return estado;
+
+        }
+
+        private void cambiarBotonBajaAlta(int estado) {
+            if (estado == 1)
+                this.btnEliminarSocio.Text = "Baja";
+            else
+                this.btnEliminarSocio.Text = "Alta";
+        
+        }
+
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
         {
             if (!(dgvSociosCampo.CurrentRow == null))
             {
                 seleccionarSocio();
+
+
             }
 
+            int index = dgvSociosCampo.CurrentRow.Index;
+            int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
+
+
+            //int estadoActual = definirEstado();
             //dejarPantallaComoAlInicio();
             desactivarAltaSocio();
+            cambiarBotonBajaAlta(estadoActual);
+            definirEstado();
             borrarErroresNuevoSocio();
-            this.btnEditarSocio.Enabled = true;
+          this.btnEditarSocio.Enabled = true;
             this.btnEliminarSocio.Enabled = true;
             this.btnVerMasSocio.Enabled = true;
             this.btnCancelarSocio.Enabled = true;

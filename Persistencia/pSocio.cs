@@ -58,13 +58,17 @@ namespace Persistencia
             }
         }
 
-        public void eliminarSocio(int nro)
+        public void eliminarSocio(int nro, ref int estaActivoOdeBaja)
         {
 
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-            string sql = "UPDATE socio SET socio_activo = '0' WHERE socio_id = '" + nro + "'";
+            int nuevoEstado = 0;
+            if (estaActivoOdeBaja == 0) nuevoEstado = 1;
+            estaActivoOdeBaja = nuevoEstado;
+            //string sql = "UPDATE socio SET socio_activo = '0' WHERE socio_id = '" + nro + "'";
+            string sql = "UPDATE socio SET socio_activo = '" + nuevoEstado + "' WHERE socio_id = '" + nro + "'";
 
             try
             {

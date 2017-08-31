@@ -126,7 +126,7 @@ namespace Negocio
 
         public int Socio_activo
         {
-            get { return Socio_activo; }
+            get { return socio_activo; }
             set { socio_activo = value; }
         }
 
@@ -159,10 +159,12 @@ namespace Negocio
             tmpSocio.GuardarSocioModificado(Socio_id, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
         }
 
-        public void eliminar()
+        public void eliminar(ref int estadoActual)
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.eliminarSocio(this.Socio_id);
+            //estadoActual = socio_activo;
+            tmpSocio.eliminarSocio(this.Socio_id, ref estadoActual);
+            //estadoActual = Socio_activo;
         }
 
         public void buscar()

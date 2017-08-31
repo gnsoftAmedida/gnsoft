@@ -201,12 +201,12 @@ namespace Negocio
             tmpPlan.eliminar();
         }
 
-        public void bajaSocio(int idSocio)
+        public void bajaSocio(int idSocio, ref int estadoActual)
         {
             Socio tmpSocio = new Socio();
             //revisar que el socio no tenga prestamos activos  (pendiente)
             tmpSocio.Socio_id = idSocio;
-            tmpSocio.eliminar();
+            tmpSocio.eliminar(ref estadoActual);
 
         }
 
