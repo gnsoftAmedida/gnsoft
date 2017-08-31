@@ -87,6 +87,10 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblEstadoDeBaja = new System.Windows.Forms.Label();
+            this.lblEstadoActivo = new System.Windows.Forms.Label();
+            this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
+            this.lblFormatoInvalido = new System.Windows.Forms.Label();
             this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
             this.lblYaExiste = new System.Windows.Forms.Label();
             this.lblYaExisteMail = new System.Windows.Forms.Label();
@@ -108,7 +112,7 @@
             this.cmbInciso = new System.Windows.Forms.ComboBox();
             this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
-            this.groupBox13 = new System.Windows.Forms.GroupBox();
+            this.gBoxEstado = new System.Windows.Forms.GroupBox();
             this.rBtnPasivo = new System.Windows.Forms.RadioButton();
             this.rBtnActivo = new System.Windows.Forms.RadioButton();
             this.txtNroCobro = new System.Windows.Forms.TextBox();
@@ -121,7 +125,7 @@
             this.label22 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
             this.cmbEdad = new System.Windows.Forms.ComboBox();
-            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.gBoxSexo = new System.Windows.Forms.GroupBox();
             this.rbtnFemenino = new System.Windows.Forms.RadioButton();
             this.rbtnMasculino = new System.Windows.Forms.RadioButton();
             this.cmbEstadoCivil = new System.Windows.Forms.ComboBox();
@@ -239,10 +243,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.lblFormatoInvalido = new System.Windows.Forms.Label();
-            this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
-            this.lblEstadoActivo = new System.Windows.Forms.Label();
-            this.lblEstadoDeBaja = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -250,8 +250,8 @@
             this.lblErrorG.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox1.SuspendLayout();
-            this.groupBox13.SuspendLayout();
-            this.groupBox2.SuspendLayout();
+            this.gBoxEstado.SuspendLayout();
+            this.gBoxSexo.SuspendLayout();
             this.tabEstado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabCobranza.SuspendLayout();
@@ -713,7 +713,7 @@
             this.groupBox1.Controls.Add(this.cmbInciso);
             this.groupBox1.Controls.Add(this.label36);
             this.groupBox1.Controls.Add(this.label35);
-            this.groupBox1.Controls.Add(this.groupBox13);
+            this.groupBox1.Controls.Add(this.gBoxEstado);
             this.groupBox1.Controls.Add(this.txtNroCobro);
             this.groupBox1.Controls.Add(this.label34);
             this.groupBox1.Controls.Add(this.label24);
@@ -724,7 +724,7 @@
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label18);
             this.groupBox1.Controls.Add(this.cmbEdad);
-            this.groupBox1.Controls.Add(this.groupBox2);
+            this.groupBox1.Controls.Add(this.gBoxSexo);
             this.groupBox1.Controls.Add(this.cmbEstadoCivil);
             this.groupBox1.Controls.Add(this.txtApellidos);
             this.groupBox1.Controls.Add(this.txtNombres);
@@ -738,6 +738,30 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            // 
+            // lblEstadoDeBaja
+            // 
+            resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
+            this.lblEstadoDeBaja.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
+            this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
+            // 
+            // lblEstadoActivo
+            // 
+            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
+            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            this.lblEstadoActivo.Name = "lblEstadoActivo";
+            // 
+            // lblEmailFormatoInvalido
+            // 
+            resources.ApplyResources(this.lblEmailFormatoInvalido, "lblEmailFormatoInvalido");
+            this.lblEmailFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
+            this.lblEmailFormatoInvalido.Name = "lblEmailFormatoInvalido";
+            // 
+            // lblFormatoInvalido
+            // 
+            resources.ApplyResources(this.lblFormatoInvalido, "lblFormatoInvalido");
+            this.lblFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
+            this.lblFormatoInvalido.Name = "lblFormatoInvalido";
             // 
             // txtNroSocio
             // 
@@ -862,13 +886,13 @@
             resources.ApplyResources(this.label35, "label35");
             this.label35.Name = "label35";
             // 
-            // groupBox13
+            // gBoxEstado
             // 
-            this.groupBox13.Controls.Add(this.rBtnPasivo);
-            this.groupBox13.Controls.Add(this.rBtnActivo);
-            resources.ApplyResources(this.groupBox13, "groupBox13");
-            this.groupBox13.Name = "groupBox13";
-            this.groupBox13.TabStop = false;
+            this.gBoxEstado.Controls.Add(this.rBtnPasivo);
+            this.gBoxEstado.Controls.Add(this.rBtnActivo);
+            resources.ApplyResources(this.gBoxEstado, "gBoxEstado");
+            this.gBoxEstado.Name = "gBoxEstado";
+            this.gBoxEstado.TabStop = false;
             // 
             // rBtnPasivo
             // 
@@ -937,13 +961,13 @@
             resources.ApplyResources(this.cmbEdad, "cmbEdad");
             this.cmbEdad.Name = "cmbEdad";
             // 
-            // groupBox2
+            // gBoxSexo
             // 
-            this.groupBox2.Controls.Add(this.rbtnFemenino);
-            this.groupBox2.Controls.Add(this.rbtnMasculino);
-            resources.ApplyResources(this.groupBox2, "groupBox2");
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.TabStop = false;
+            this.gBoxSexo.Controls.Add(this.rbtnFemenino);
+            this.gBoxSexo.Controls.Add(this.rbtnMasculino);
+            resources.ApplyResources(this.gBoxSexo, "gBoxSexo");
+            this.gBoxSexo.Name = "gBoxSexo";
+            this.gBoxSexo.TabStop = false;
             // 
             // rbtnFemenino
             // 
@@ -1699,32 +1723,9 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // lblFormatoInvalido
-            // 
-            resources.ApplyResources(this.lblFormatoInvalido, "lblFormatoInvalido");
-            this.lblFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
-            this.lblFormatoInvalido.Name = "lblFormatoInvalido";
-            // 
-            // lblEmailFormatoInvalido
-            // 
-            resources.ApplyResources(this.lblEmailFormatoInvalido, "lblEmailFormatoInvalido");
-            this.lblEmailFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
-            this.lblEmailFormatoInvalido.Name = "lblEmailFormatoInvalido";
-            // 
-            // lblEstadoActivo
-            // 
-            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
-            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
-            this.lblEstadoActivo.Name = "lblEstadoActivo";
-            // 
-            // lblEstadoDeBaja
-            // 
-            resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
-            this.lblEstadoDeBaja.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
-            this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
-            // 
             // frmPrincipal
             // 
+            this.AcceptButton = this.btnBuscar;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button9);
@@ -1747,10 +1748,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            this.groupBox13.ResumeLayout(false);
-            this.groupBox13.PerformLayout();
-            this.groupBox2.ResumeLayout(false);
-            this.groupBox2.PerformLayout();
+            this.gBoxEstado.ResumeLayout(false);
+            this.gBoxEstado.PerformLayout();
+            this.gBoxSexo.ResumeLayout(false);
+            this.gBoxSexo.PerformLayout();
             this.tabEstado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabCobranza.ResumeLayout(false);
@@ -1931,7 +1932,7 @@
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.ComboBox cmbEdad;
-        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.GroupBox gBoxSexo;
         private System.Windows.Forms.RadioButton rbtnFemenino;
         private System.Windows.Forms.RadioButton rbtnMasculino;
         private System.Windows.Forms.ComboBox cmbEstadoCivil;
@@ -1960,7 +1961,7 @@
         private System.Windows.Forms.ComboBox cmbInciso;
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.Label label35;
-        private System.Windows.Forms.GroupBox groupBox13;
+        private System.Windows.Forms.GroupBox gBoxEstado;
         private System.Windows.Forms.RadioButton rBtnPasivo;
         private System.Windows.Forms.RadioButton rBtnActivo;
         private System.Windows.Forms.TextBox txtNroCobro;

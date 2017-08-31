@@ -173,6 +173,9 @@ namespace COOPMEF
             this.cmbOficina.Enabled = false;
             this.cmbInciso.Enabled = false;
             this.cmbEstadoCivil.Enabled = false;
+            this.gBoxEstado.Enabled = false;
+            this.gBoxSexo.Enabled = false;
+
         }
 
 
@@ -191,6 +194,8 @@ namespace COOPMEF
             this.cmbOficina.Enabled = true;
             this.cmbInciso.Enabled = true;
             this.cmbEstadoCivil.Enabled = true;
+            this.gBoxEstado.Enabled = true;
+            this.gBoxSexo.Enabled = true;
         }
 
         private void resetearContraseñasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -624,10 +629,13 @@ namespace COOPMEF
                     empresa.AltaSocio(socioActivo, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
                     MessageBox.Show("Socio creado correctamente");
+                    desactivarAltaSocio();
+                    borrarErroresNuevoSocio();
+                    
 
                     //Cargo Socios
                     dsSocios = empresa.DevolverSocios();
-                    pantallaInicialSocio();
+                    //pantallaInicialSocio();
                 }
                 catch (Exception ex)
                 {
@@ -695,7 +703,8 @@ namespace COOPMEF
 
                         //Cargo Socios
                         dsSocios = empresa.DevolverSocios();
-                        pantallaInicialSocio();
+                        borrarErroresNuevoSocio();
+                        //pantallaInicialSocio();
                     }
                     catch (Exception ex)
                     {
@@ -732,7 +741,10 @@ namespace COOPMEF
             else
             {
                 this.editarSocio();
+                desactivarAltaSocio();
             }
+            
+            
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -772,10 +784,14 @@ namespace COOPMEF
 
                         empresa.bajaSocio(idSocioSeleccionado);
                         MessageBox.Show("Socio dado de baja correctamente");
+                        desactivarAltaSocio();
+                        btnEliminarSocio.Enabled = false;
+                        btnGuardarSocio.Enabled = false;
+                        btnCancelarSocio.Enabled = false;
 
                         //Cargo Planes
                         //dsPlanes = empresa.DevolverPlanes();
-                        pantallaInicialSocio();
+                        //pantallaInicialSocio();
                     }
                     catch (Exception ex)
                     {
@@ -985,6 +1001,7 @@ namespace COOPMEF
 
             this.btnGuardarSocio.Enabled = true;
             this.btnSalir.Enabled = true;
+            this.btnCancelarSocio.Enabled = true;
 
             this.lblErrorGenerico.Visible = false;
 
@@ -993,22 +1010,12 @@ namespace COOPMEF
         private void btnCancelarSocio_Click(object sender, EventArgs e)
         {
             //pantallaInicialSocio();
-            //desactivarAltaSocio();
 
-            //this.cmbSocios.DataSource = dsSocios.Tables["socio"];
-            //this.cmbSocios.DisplayMember = "socio_nombre";  
-            //this.cmbSocios.ValueMember = "socio_id";
-            //this.cmbSocios.SelectedIndex = -1;
-            //this.cmbSocios.Enabled = false;
-
-            //this.btnEditarSocio.Enabled = true;
-            //this.btnEliminarSocio.Enabled = true;
-            //this.btnVerMasSocio.Enabled = true;
-            //this.btnNuevoSocio.Enabled = true;
-            //this.btnGuardarSocio.Enabled = true;
-            //this.btnSalir.Enabled = true;
-
-            dejarPantallaComoAlInicio();
+            desactivarAltaSocio();
+            this.btnNuevoSocio.Enabled = true;
+            this.btnEditarSocio.Enabled = true;
+            this.btnVerMasSocio.Enabled = true;
+            this.btnEliminarSocio.Enabled = true;
         }
 
         private void seleccionarSocio()
@@ -1087,6 +1094,15 @@ namespace COOPMEF
             {
                 seleccionarSocio();
             }
+
+            //dejarPantallaComoAlInicio();
+            desactivarAltaSocio();
+            borrarErroresNuevoSocio();
+            this.btnEditarSocio.Enabled = true;
+            this.btnEliminarSocio.Enabled = true;
+            this.btnVerMasSocio.Enabled = true;
+            this.btnCancelarSocio.Enabled = true;
+
         }
 
         private void btnCancelarBusqueda_Click(object sender, EventArgs e)

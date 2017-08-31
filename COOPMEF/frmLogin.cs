@@ -26,6 +26,7 @@ namespace COOPMEF
             frmPrincipal principal = new frmPrincipal();
             principal.ShowDialog();
             this.Close();
+            
 
                  //string mensaje = "";
                  //try
