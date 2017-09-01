@@ -67,7 +67,6 @@ namespace Persistencia
             int nuevoEstado = 0;
             if (estaActivoOdeBaja == 0) nuevoEstado = 1;
             estaActivoOdeBaja = nuevoEstado;
-            //string sql = "UPDATE socio SET socio_activo = '0' WHERE socio_id = '" + nro + "'";
             string sql = "UPDATE socio SET socio_activo = '" + nuevoEstado + "' WHERE socio_id = '" + nro + "'";
 
             try
@@ -123,9 +122,6 @@ namespace Persistencia
 
             for (int i = 0; i < f; i++)
             {
-                // if (Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString()) != Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
-
-                //string numSocio = this.txtNroSocio.Text.Trim();
                 int numSocioTable = Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][3].ToString());
                 if (numSocio.Equals(numSocioTable))
                 {
@@ -136,37 +132,6 @@ namespace Persistencia
 
             }
         }
-
-        //public void modificarPlan(string Plan_cod, string Plan_descrip, int Plan_cantCuo, double Plan_int, int Plan_id)
-        //{
-        //    MySqlConnection connection = conectar();
-        //    MySqlTransaction transaction = null;
-        //    MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-
-        //    try
-        //    {
-
-        //        string sql = "Update planprestamo set plan_codigo = '" + Plan_cod + "', plan_descripcion = '" + Plan_descrip + "', plan_cantCuotas = '" + Plan_cantCuo + "', plan_interes = '" + Plan_int + "'  WHERE plan_id =" + Plan_id;
-
-        //        connection.Open();
-        //        transaction = connection.BeginTransaction();
-        //        MySqlAdapter.UpdateCommand = connection.CreateCommand();
-        //        MySqlAdapter.UpdateCommand.Transaction = transaction;
-
-        //        MySqlAdapter.UpdateCommand.CommandText = sql;
-        //        MySqlAdapter.UpdateCommand.ExecuteNonQuery();
-
-        //        transaction.Commit();
-
-        //        connection.Close();
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        transaction.Rollback();
-        //        connection.Close();
-        //        throw ex;
-        //    }
-        //}
 
         public void GuardarSocio(int Tsocio_activo, string Tsocio_nombre, string Tsocio_apellido, string Tsocio_nro, string Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
         {
@@ -190,26 +155,6 @@ namespace Persistencia
                 connection.Close();
             }
 
-            //catch (MySqlException ex)
-            //{
-            //    transaction.Rollback();
-            //    connection.Close();
-
-            //    switch (ex.Number)
-            //    {
-            //        case 1406:
-            //            MisExcepciones ep = new MisExcepciones("Datos muy largos");
-            //            throw ep;
-
-            //        //case 1062:
-            //        //    MisExcepciones es = new MisExcepciones("Ya exíste el Socio. Verifique su nro");
-            //        //    throw es;
-
-            //    }
-
-            //    MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
-            //    throw eg;
-            //}
             catch (Exception ex)
             {
                 transaction.Rollback();
@@ -241,26 +186,7 @@ namespace Persistencia
                 connection.Close();
             }
 
-            //catch (MySqlException ex)
-            //{
-            //    transaction.Rollback();
-            //    connection.Close();
-
-            //    switch (ex.Number)
-            //    {
-            //        case 1406:
-            //            MisExcepciones ep = new MisExcepciones("Datos muy largos");
-            //            throw ep;
-
-            //        //case 1062:
-            //        //    MisExcepciones es = new MisExcepciones("Ya exíste el Socio. Verifique su nro");
-            //        //    throw es;
-
-            //    }
-
-            //    MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
-            //    throw eg;
-            //}
+           
             catch (Exception ex)
             {
                 transaction.Rollback();

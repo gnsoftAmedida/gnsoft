@@ -340,6 +340,10 @@ namespace COOPMEF
         private void btnNuevoSocio_Click(object sender, EventArgs e)
         {
             activarAltaSocio();
+            //se agrega 31/8/2017
+            lblEstadoActivo.Visible = true;
+            lblEstadoDeBaja.Visible = false;
+            //********
 
             pantallaInicialSocio();
 
@@ -522,7 +526,7 @@ namespace COOPMEF
 
             for (int i = 0; valido == true && i < f; i++)
             {
-                //Compruebo que no se esté comprando con el mismo
+                //Compruebo que no se esté comparando con el mismo
 
                 if ((idSocio) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
                 {
@@ -635,7 +639,7 @@ namespace COOPMEF
 
                     //Cargo Socios
                     dsSocios = empresa.DevolverSocios();
-                    //pantallaInicialSocio();
+                    
                 }
                 catch (Exception ex)
                 {
@@ -651,9 +655,6 @@ namespace COOPMEF
             if (this.idSocioSeleccionado != 0)
             {
                 bool valido = true;
-                //pantallaInicialSocio();
-
-
                 // Control de campos obligatorios 
                 valido = camposObligatoriosSocio();
 
@@ -790,7 +791,9 @@ namespace COOPMEF
                         desactivarAltaSocio();
                         btnEliminarSocio.Enabled = false;
                         btnGuardarSocio.Enabled = false;
+                        //se agrega 31/8
                         btnCancelarSocio.Enabled = false;
+                        this.btnNuevoSocio.Enabled = true;
 
                         //Cargo Planes
                         //dsPlanes = empresa.DevolverPlanes();
@@ -949,7 +952,7 @@ namespace COOPMEF
 
                 if (activo == 0)
                 {
-                    fila.DefaultCellStyle.BackColor = Color.LightPink;
+                    fila.DefaultCellStyle.BackColor = Color.LightGray;
                 }
             }
             
@@ -966,42 +969,7 @@ namespace COOPMEF
 
         private void cmbSocios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            /*
-            int index = this.cmbSocios.SelectedIndex;
-            if (index != -1)
-            {
 
-
-                this.txtNombres.Text = dsSocios.Tables["socio"].Rows[index][1].ToString();
-                this.txtApellidos.Text = dsSocios.Tables["socio"].Rows[index][2].ToString();
-                this.txtNroSocio.Text = dsSocios.Tables["socio"].Rows[index][3].ToString();
-                this.txtNroCobro.Text = dsSocios.Tables["socio"].Rows[index][4].ToString();
-                this.dtpFechaNac.Text = dsSocios.Tables["socio"].Rows[index][5].ToString();
-                this.dtpFechaIng.Text = dsSocios.Tables["socio"].Rows[index][6].ToString();
-                this.cmbEstadoCivil.Text = dsSocios.Tables["socio"].Rows[index][7].ToString();
-                if (dsSocios.Tables["socio"].Rows[index][3].Equals(0))
-                    rBtnActivo.Checked = true;
-                else rBtnPasivo.Checked = true;
-
-                //this.cmbEstadoCivil.Text = dsSocios.Tables["socio"].Rows[index][7].ToString();
-                if (dsSocios.Tables["socio"].Rows[index][8].Equals('M'))
-                    rbtnMasculino.Checked = true;
-                else rbtnFemenino.Checked = true;
-
-
-                if (dsSocios.Tables["socio"].Rows[index][9].Equals("Activo"))
-                    rBtnActivo.Checked = true;
-                else rBtnPasivo.Checked = true;
-
-                this.cmbEdad.Text = dsSocios.Tables["socio"].Rows[index][10].ToString();
-                this.cmbOficina.Text = dsSocios.Tables["socio"].Rows[index][11].ToString();
-                this.cmbInciso.Text = dsSocios.Tables["socio"].Rows[index][12].ToString();
-                this.txtTelefono.Text = dsSocios.Tables["socio"].Rows[index][13].ToString();
-                this.txtDireccion.Text = dsSocios.Tables["socio"].Rows[index][14].ToString();
-                this.txtEmail.Text = dsSocios.Tables["socio"].Rows[index][15].ToString();
-
-            }
-             * */
         }
 
         private void btnEditarSocio_Click(object sender, EventArgs e)
@@ -1035,19 +1003,8 @@ namespace COOPMEF
         {
             int index = dgvSociosCampo.CurrentRow.Index;
             int idSocio = (int)dgvSociosCampo.Rows[index].Cells["socio_id"].Value;
-            //int estaDeBaja = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
-
 
             this.idSocioSeleccionado = idSocio;
-
-            //{
-            //    this.lblEstadoActivo.Visible = false;
-            //    this.lblEstadoDeBaja.Visible = true;
-            //}
-            //else {
-            //    this.lblEstadoActivo.Visible = true;
-            //    this.lblEstadoDeBaja.Visible = false;
-            //}
 
             if (index != -1)
             {
