@@ -87,7 +87,10 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblNroSocioFormatoInvalido = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.lblEstadoDeBaja = new System.Windows.Forms.Label();
+            this.lblEstadoActivo = new System.Windows.Forms.Label();
             this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
             this.lblFormatoInvalido = new System.Windows.Forms.Label();
             this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
@@ -242,8 +245,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.lblEstadoActivo = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -571,6 +572,7 @@
             this.dgvSociosCampo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
             this.dgvSociosCampo.Name = "dgvSociosCampo";
+            this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
             // 
             // btnSalirPlan
             // 
@@ -689,6 +691,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblNroSocioFormatoInvalido);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.lblEstadoDeBaja);
             this.groupBox1.Controls.Add(this.lblEstadoActivo);
@@ -741,11 +744,28 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             // 
+            // lblNroSocioFormatoInvalido
+            // 
+            resources.ApplyResources(this.lblNroSocioFormatoInvalido, "lblNroSocioFormatoInvalido");
+            this.lblNroSocioFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
+            this.lblNroSocioFormatoInvalido.Name = "lblNroSocioFormatoInvalido";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
             // lblEstadoDeBaja
             // 
             resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
             this.lblEstadoDeBaja.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
             this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
+            // 
+            // lblEstadoActivo
+            // 
+            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
+            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            this.lblEstadoActivo.Name = "lblEstadoActivo";
             // 
             // lblEmailFormatoInvalido
             // 
@@ -1719,17 +1739,6 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // lblEstadoActivo
-            // 
-            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
-            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
-            this.lblEstadoActivo.Name = "lblEstadoActivo";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
-            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2009,6 +2018,7 @@
         private System.Windows.Forms.Label lblEstadoDeBaja;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblEstadoActivo;
+        private System.Windows.Forms.Label lblNroSocioFormatoInvalido;
     }
 }
 

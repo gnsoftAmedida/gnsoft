@@ -408,6 +408,7 @@ namespace COOPMEF
         public void borrarErroresNuevoSocio()
         {
             this.lblEmailFormatoInvalido.Visible = false;
+            this.lblNroSocioFormatoInvalido.Visible = false;
             this.lblFormatoInvalido.Visible = false;
             this.lblNroCo.Visible = false;
             this.lblNombre.Visible = false;
@@ -427,6 +428,7 @@ namespace COOPMEF
 
         private void pantallaInicialSocio()
         {
+            this.lblNroSocioFormatoInvalido.Visible = false;
             this.lblEmailFormatoInvalido.Visible = false;
             this.lblFormatoInvalido.Visible = false;
             this.lblNroCo.Visible = false;
@@ -573,13 +575,41 @@ namespace COOPMEF
 
             borrarErroresNuevoSocio();
 
-
             // Control de campos obligatorios 
             obligatoriosOk = camposObligatoriosSocio();
 
             // Control de duplicado para nroSocio, nroCobro Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
             duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
+
+            bool formatoCiOK = true;
+            int resultado;
+
+            if (int.TryParse(nro_socio, out resultado))
+            {
+                if (resultado.ToString().Length >= 7)
+                {
+                    if (!(empresa.validoCedula(resultado.ToString()).Equals(resultado.ToString().Substring(resultado.ToString().Length - 1, 1))))
+                    {
+                        formatoCiOK = false;
+                    }
+                }
+                else
+                {
+                    formatoCiOK = false;
+                }
+            }
+            else
+            {
+                formatoCiOK = false;
+            }
+
+            if (!(formatoCiOK))
+            {
+                this.lblNroSocioFormatoInvalido.Visible = true;
+                this.lblFormatoInvalido.Visible = true;
+            }
+
             bool formatoMailOK = true;
             Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
             if (!regex.IsMatch(txtEmail.Text))
@@ -590,7 +620,7 @@ namespace COOPMEF
                 formatoMailOK = false;
             }
 
-            if (formatoMailOK && obligatoriosOk && duplicadosOK)
+            if (formatoCiOK && formatoMailOK && obligatoriosOk && duplicadosOK)
             {
                 valido = true;
             }
@@ -635,11 +665,11 @@ namespace COOPMEF
                     MessageBox.Show("Socio creado correctamente");
                     desactivarAltaSocio();
                     borrarErroresNuevoSocio();
-                    
+
 
                     //Cargo Socios
                     dsSocios = empresa.DevolverSocios();
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -672,6 +702,37 @@ namespace COOPMEF
                     valido = false;
                 }
 
+                string nro_socio = this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim();
+
+                bool formatoCiOK = true;
+                int resultado;
+
+                if (int.TryParse(nro_socio, out resultado))
+                {
+                    if (resultado.ToString().Length >= 7)
+                    {
+                        if (!(empresa.validoCedula(resultado.ToString()).Equals(resultado.ToString().Substring(resultado.ToString().Length - 1, 1))))
+                        {
+                            formatoCiOK = false;
+                        }
+                    }
+                    else
+                    {
+                        formatoCiOK = false;
+                    }
+                }
+                else
+                {
+                    formatoCiOK = false;
+                }
+
+                if (!(formatoCiOK))
+                {
+                    this.lblNroSocioFormatoInvalido.Visible = true;
+                    this.lblFormatoInvalido.Visible = true;
+                    valido = false;
+                }
+                
                 if (valido)
                 {
                     try
@@ -706,6 +767,7 @@ namespace COOPMEF
                         dsSocios = empresa.DevolverSocios();
                         borrarErroresNuevoSocio();
                         //pantallaInicialSocio();
+                        desactivarAltaSocio();
                     }
                     catch (Exception ex)
                     {
@@ -714,7 +776,8 @@ namespace COOPMEF
                     }
                 }
             }
-            else {
+            else
+            {
 
                 MessageBox.Show("Debe seleccionar un socio antes de intentar editarlo");
             }
@@ -742,10 +805,8 @@ namespace COOPMEF
             else
             {
                 this.editarSocio();
-                desactivarAltaSocio();
+                
             }
-            
-            
         }
 
         private void btnSalir_Click_1(object sender, EventArgs e)
@@ -758,7 +819,7 @@ namespace COOPMEF
             if (idSocioSeleccionado != 0)
             {
 
-                int estadoActual=devolverEstadoSocio();
+                int estadoActual = devolverEstadoSocio();
                 nuevo = false;
                 activarAltaSocio();
                 this.btnNuevoSocio.Enabled = false;
@@ -777,7 +838,7 @@ namespace COOPMEF
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
                 DialogResult result;
                 result = MessageBox.Show(message, caption, buttons);
-                
+
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
@@ -820,7 +881,8 @@ namespace COOPMEF
         }
 
 
-        private void buscarCampo() {
+        private void buscarCampo()
+        {
 
             String campo = "";
 
@@ -955,10 +1017,11 @@ namespace COOPMEF
                     fila.DefaultCellStyle.BackColor = Color.LightGray;
                 }
             }
-            
+
         }
 
-        public int devolverEstadoSocio() {
+        public int devolverEstadoSocio()
+        {
             //int esta = 0;
             int index = dgvSociosCampo.CurrentRow.Index;
             int esta = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
@@ -1058,7 +1121,8 @@ namespace COOPMEF
 
         }
 
-        private void cambiarEstado(int estado) {
+        private void cambiarEstado(int estado)
+        {
             if (estado == 1)
             {
                 lblEstadoActivo.Visible = true;
@@ -1071,7 +1135,7 @@ namespace COOPMEF
                 lblEstadoDeBaja.Visible = true;
 
             }
-            
+
         }
 
         private void definirEstado(int estado)
@@ -1094,7 +1158,7 @@ namespace COOPMEF
         private int definirEstado()
         {
             int estado = devolverEstadoSocio();
-            if (estado== 1)
+            if (estado == 1)
             {
                 lblEstadoActivo.Visible = true;
                 lblEstadoDeBaja.Visible = false;
@@ -1110,12 +1174,13 @@ namespace COOPMEF
 
         }
 
-        private void cambiarBotonBajaAlta(int estado) {
+        private void cambiarBotonBajaAlta(int estado)
+        {
             if (estado == 1)
                 this.btnEliminarSocio.Text = "Baja";
             else
                 this.btnEliminarSocio.Text = "Alta";
-        
+
         }
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
@@ -1137,7 +1202,7 @@ namespace COOPMEF
             cambiarBotonBajaAlta(estadoActual);
             definirEstado();
             borrarErroresNuevoSocio();
-          this.btnEditarSocio.Enabled = true;
+            this.btnEditarSocio.Enabled = true;
             this.btnEliminarSocio.Enabled = true;
             this.btnVerMasSocio.Enabled = true;
             this.btnCancelarSocio.Enabled = true;
@@ -1181,6 +1246,11 @@ namespace COOPMEF
                 this.cmbOficina.Items.Clear();
                 this.cmbOficina.Refresh();
             }
+        }
+
+        private void dgvSociosCampo_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            this.EstablecerColoresNotificaciones();
         }
     }
 }

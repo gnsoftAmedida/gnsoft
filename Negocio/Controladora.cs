@@ -32,6 +32,42 @@ namespace Negocio
             return false;
         }
 
+        public string validoCedula(string cedula)
+        {
+            int[] digitos = new int[7];
+            int[] multipli = new int[7];
+            int calculo = 0;
+            int controldigito;
+            int compara = 0;
+
+            multipli[0] = 2;
+            multipli[1] = 9;
+            multipli[2] = 8;
+            multipli[3] = 7;
+            multipli[4] = 6;
+            multipli[5] = 3;
+            multipli[6] = 4;
+
+            for (int i = 0; i < 7; i++)
+            {
+                digitos[i] = Convert.ToInt32(cedula.Substring(i, 1));
+                calculo = calculo + digitos[i] * multipli[i];
+            }
+
+            controldigito = (calculo - (calculo / 10) * 10);
+
+            if (controldigito == 0)
+            {
+                compara = controldigito;
+            }
+            else
+            {
+                compara = 10 - controldigito;
+            }
+
+            return compara.ToString();
+        }
+
         public bool controlarVencimiento()
         {
             DateTime fechaVencimiento;
@@ -362,7 +398,7 @@ namespace Negocio
         }
 
 
-        public void AltaSocio(int socioActivo,string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
+        public void AltaSocio(int socioActivo, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
             string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
         {
             Socio tmpSocio = new Socio();
