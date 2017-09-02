@@ -732,7 +732,7 @@ namespace COOPMEF
                     this.lblFormatoInvalido.Visible = true;
                     valido = false;
                 }
-                
+
                 if (valido)
                 {
                     try
@@ -805,7 +805,7 @@ namespace COOPMEF
             else
             {
                 this.editarSocio();
-                
+
             }
         }
 
@@ -912,7 +912,7 @@ namespace COOPMEF
 
                 string valor = this.txtBusqueda.Text;
 
-                socioPorCampo(campo, valor);
+                socioPorCampo(campo.Replace(",", "").Replace(".", "").Replace("-", "").Trim(), valor);
             }
         }
 
