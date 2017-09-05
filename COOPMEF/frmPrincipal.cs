@@ -1031,7 +1031,7 @@ namespace COOPMEF
                     rBtnActivo.Checked = true;
                 else rBtnPasivo.Checked = true;
 
-                if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals('M'))
+                if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals("M"))
                     rbtnMasculino.Checked = true;
                 else rbtnFemenino.Checked = true;
 
