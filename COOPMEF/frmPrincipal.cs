@@ -562,6 +562,14 @@ namespace COOPMEF
 
         }
 
+        private int EdadPersona(DateTime FechaNacimiento)
+        {
+            if (FechaNacimiento.Year == DateTime.Today.Year)
+                return 0;
+
+            return 1 + EdadPersona(FechaNacimiento.AddYears(1));
+        }
+
         private void nuevoSocio()
         {
             bool valido = false;
@@ -638,7 +646,7 @@ namespace COOPMEF
                     if (rBtnActivo.Checked)
                         estadoPoA = "Activo";
 
-                    int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
+                    int edadde = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
 
                     string socioNro = txtNroSocio.Text;
 
@@ -649,6 +657,7 @@ namespace COOPMEF
 
                     DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
                     DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+                    int edadd = EdadPersona(fnac);
 
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
@@ -745,13 +754,14 @@ namespace COOPMEF
                         if (rBtnActivo.Checked)
                             estadoPoA = "Activo";
 
-                        int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
+                        int edaddeee = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
                         string socioNro = txtNroSocio.Text;
                         string nroCobro = txtNroCobro.Text;
 
 
                         DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
                         DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+                        int edadd = EdadPersona(fnac);
 
                         int of = Convert.ToInt32(cmbOficina.SelectedValue);
                         int inc = Convert.ToInt32(cmbInciso.SelectedValue);
@@ -1099,6 +1109,7 @@ namespace COOPMEF
                 else rbtnFemenino.Checked = true;
 
                 this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+                this.lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
                 this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_codigo"].Value.ToString();
 
 
