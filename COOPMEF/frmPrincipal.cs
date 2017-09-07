@@ -685,8 +685,13 @@ namespace COOPMEF
             if (this.idSocioSeleccionado != 0)
             {
                 bool valido = true;
+                bool duplicadosOK = true;
+
                 // Control de campos obligatorios 
                 valido = camposObligatoriosSocio();
+           
+
+                
 
                 // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
                 //int index = this.cmbBusqueda.SelectedIndex;
@@ -733,7 +738,13 @@ namespace COOPMEF
                     valido = false;
                 }
 
-                if (valido)
+                int id_socio = this.idSocioSeleccionado;
+               
+                string nro_cobro = this.txtNroCobro.Text;
+
+                duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
+
+                if (valido && duplicadosOK)
                 {
                     try
                     {
