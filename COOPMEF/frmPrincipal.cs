@@ -689,9 +689,9 @@ namespace COOPMEF
 
                 // Control de campos obligatorios 
                 valido = camposObligatoriosSocio();
-           
 
-                
+
+
 
                 // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
                 //int index = this.cmbBusqueda.SelectedIndex;
@@ -739,7 +739,7 @@ namespace COOPMEF
                 }
 
                 int id_socio = this.idSocioSeleccionado;
-               
+
                 string nro_cobro = this.txtNroCobro.Text;
 
                 duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
@@ -1110,20 +1110,26 @@ namespace COOPMEF
                 else rbtnFemenino.Checked = true;
 
                 this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
-                this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_codigo"].Value.ToString();
 
 
-                /*
-                                //Elijo el inciso de la oficina seleccionada
-                                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
-                                {
-                                    if (Convert.ToInt32(dsSociosPorCampo.Tables["socio_idInciso"].Rows[][5].ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
-                                    {
-                                        this.cmbIncisos.SelectedIndex = i;
-                                    }
-                                }
-                  */
-                // this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
+                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
+                    {
+                        this.cmbInciso.SelectedIndex = i;
+                    }
+                   
+                }
+
+      /*          for (int i = 0; i < dsOficinas.Tables["oficinas"].Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_oficinaId"].Value.ToString()) == Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[i][0].ToString()))
+                    {
+                        this.cmbOficina.SelectedIndex = i;
+                    }
+
+                }
+*/
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
@@ -1239,6 +1245,7 @@ namespace COOPMEF
         private void cmbInciso_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataSet dsOficinasDelInciso = null;
+            dsOficinas = dsOficinasDelInciso;
             int index = this.cmbInciso.SelectedIndex;
             int idInciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString());
 
