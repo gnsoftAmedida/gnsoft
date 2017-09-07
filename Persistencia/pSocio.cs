@@ -163,7 +163,7 @@ namespace Persistencia
             }
         }
 
-        public void GuardarSocioModificado(int Tsocio_id, string Tsocio_nombre, string Tsocio_apellido, string Tsocio_nro, string Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
+        public void GuardarSocioModificado(int Tsocio_id, string socio_nro, string Tsocio_nombre, string Tsocio_apellido, string Tsocio_nro, string Tsocio_nroCobro, DateTime Tsocio_fechaNac, DateTime Tsocio_fechaIngreso, string Tsocio_estadoCivil, char Tsocio_sexo, string Tsocio_estado, int Tsocio_edad, int Tsocio_oficinaId, int Tsocio_incisoId, string Tsocio_tel, string Tsocio_direccion, string Tsocio_email)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
@@ -171,7 +171,7 @@ namespace Persistencia
 
             string sql;
 
-            sql = "Update socio set socio_nombre ='" + Tsocio_nombre + "', socio_apellido ='" + Tsocio_apellido + "', socio_nroCobro ='" + Tsocio_nroCobro + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel + "', socio_direccion='" + Tsocio_direccion + "', socio_email='" + Tsocio_email + "'WHERE socio_id =" + Tsocio_id;
+            sql = "Update socio set socio_nombre ='" + Tsocio_nombre + "', socio_nro  ='" + socio_nro  + "', socio_apellido ='" + Tsocio_apellido + "', socio_nroCobro ='" + Tsocio_nroCobro + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel + "', socio_direccion='" + Tsocio_direccion + "', socio_email='" + Tsocio_email + "'WHERE socio_id =" + Tsocio_id;
 
             try
             {
