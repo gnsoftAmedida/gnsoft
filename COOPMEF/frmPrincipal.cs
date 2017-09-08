@@ -23,10 +23,12 @@ namespace COOPMEF
         DataSet dsOficinas;
         private int idSocioSeleccionado = 0;
         private bool nuevo = true;
+        private int edadDeRiesgo = 58;
 
         public frmPrincipal()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -169,7 +171,6 @@ namespace COOPMEF
             this.txtEmail.Enabled = false;
             this.dtpFechaIng.Enabled = false;
             this.dtpFechaNac.Enabled = false;
-            this.cmbEdad.Enabled = false;
             this.cmbOficina.Enabled = false;
             this.cmbInciso.Enabled = false;
             this.cmbEstadoCivil.Enabled = false;
@@ -190,7 +191,7 @@ namespace COOPMEF
             this.txtEmail.Enabled = true;
             this.dtpFechaIng.Enabled = true;
             this.dtpFechaNac.Enabled = true;
-            this.cmbEdad.Enabled = true;
+            //this.cmbEdad.Enabled = true;
             this.cmbOficina.Enabled = true;
             this.cmbInciso.Enabled = true;
             this.cmbEstadoCivil.Enabled = true;
@@ -378,7 +379,7 @@ namespace COOPMEF
             this.rBtnPasivo.Enabled = true;
 
 
-            this.cmbEdad.Enabled = true;
+            //this.cmbEdad.Enabled = true;
 
 
             this.cmbOficina.Enabled = true;
@@ -446,9 +447,9 @@ namespace COOPMEF
             lblYaExisteSocio.Visible = false;
             lblYaExisteTel.Visible = false;
 
-            for (int i = 18; i < 100; i++) this.cmbEdad.Items.Add(i);
+            //for (int i = 18; i < 100; i++) this.cmbEdad.Items.Add(i);
 
-            this.cmbEdad.SelectedIndex = 0;
+            //this.cmbEdad.SelectedIndex = 0;
 
             this.cmbEstadoCivil.SelectedIndex = 0;
 
@@ -562,6 +563,14 @@ namespace COOPMEF
 
         }
 
+        private int EdadPersona(DateTime FechaNacimiento)
+        {
+            if (FechaNacimiento.Year == DateTime.Today.Year)
+                return 0;
+
+            return 1 + EdadPersona(FechaNacimiento.AddYears(1));
+        }
+
         private void nuevoSocio()
         {
             bool valido = false;
@@ -638,7 +647,7 @@ namespace COOPMEF
                     if (rBtnActivo.Checked)
                         estadoPoA = "Activo";
 
-                    int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
+                    //int edadde = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
 
                     string socioNro = txtNroSocio.Text;
 
@@ -649,6 +658,11 @@ namespace COOPMEF
 
                     DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
                     DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+                    int edadd = EdadPersona(fnac);
+                    lblEdadSocio.Text = edadd.ToString();
+                    if (edadd > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
+                    else lblEdadSocio.ForeColor = Color.Blue;
+                    
 
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
@@ -685,13 +699,8 @@ namespace COOPMEF
             if (this.idSocioSeleccionado != 0)
             {
                 bool valido = true;
-                bool duplicadosOK = true;
-
                 // Control de campos obligatorios 
                 valido = camposObligatoriosSocio();
-
-
-
 
                 // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
                 //int index = this.cmbBusqueda.SelectedIndex;
@@ -738,13 +747,7 @@ namespace COOPMEF
                     valido = false;
                 }
 
-                int id_socio = this.idSocioSeleccionado;
-
-                string nro_cobro = this.txtNroCobro.Text;
-
-                duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
-
-                if (valido && duplicadosOK)
+                if (valido)
                 {
                     try
                     {
@@ -756,13 +759,17 @@ namespace COOPMEF
                         if (rBtnActivo.Checked)
                             estadoPoA = "Activo";
 
-                        int edadd = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
+                        //int edaddeee = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
                         string socioNro = txtNroSocio.Text;
                         string nroCobro = txtNroCobro.Text;
 
 
                         DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
                         DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+                        int edadd = EdadPersona(fnac);
+                        lblEdadSocio.Text = edadd.ToString();
+                        if (edadd > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
+                        else lblEdadSocio.ForeColor = Color.Blue;
 
                         int of = Convert.ToInt32(cmbOficina.SelectedValue);
                         int inc = Convert.ToInt32(cmbInciso.SelectedValue);
@@ -1105,31 +1112,29 @@ namespace COOPMEF
                     rBtnActivo.Checked = true;
                 else rBtnPasivo.Checked = true;
 
-                if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals('M'))
+                if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals("M"))
                     rbtnMasculino.Checked = true;
                 else rbtnFemenino.Checked = true;
 
-                this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+                //this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+                int edad = (int)dgvSociosCampo.Rows[index].Cells["socio_edad"].Value;
+                if (edad > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
+                else lblEdadSocio.ForeColor = Color.Blue;
+                this.lblEdadSocio.Text = edad.ToString();
+                this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_codigo"].Value.ToString();
 
 
-                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
-                {
-                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
-                    {
-                        this.cmbInciso.SelectedIndex = i;
-                    }
-                   
-                }
-
-      /*          for (int i = 0; i < dsOficinas.Tables["oficinas"].Rows.Count; i++)
-                {
-                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_oficinaId"].Value.ToString()) == Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[i][0].ToString()))
-                    {
-                        this.cmbOficina.SelectedIndex = i;
-                    }
-
-                }
-*/
+                /*
+                                //Elijo el inciso de la oficina seleccionada
+                                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
+                                {
+                                    if (Convert.ToInt32(dsSociosPorCampo.Tables["socio_idInciso"].Rows[][5].ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
+                                    {
+                                        this.cmbIncisos.SelectedIndex = i;
+                                    }
+                                }
+                  */
+                // this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
@@ -1245,7 +1250,6 @@ namespace COOPMEF
         private void cmbInciso_SelectedIndexChanged(object sender, EventArgs e)
         {
             DataSet dsOficinasDelInciso = null;
-            dsOficinas = dsOficinasDelInciso;
             int index = this.cmbInciso.SelectedIndex;
             int idInciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString());
 

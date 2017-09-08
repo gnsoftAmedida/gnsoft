@@ -19,14 +19,17 @@ namespace COOPMEF
         public frmLogin()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-            frmPrincipal principal = new frmPrincipal();
+          frmPrincipal  principal = new frmPrincipal();
+          this.Close();
             principal.ShowDialog();
-            this.Close();
             
+         
+           
 
                  //string mensaje = "";
                  //try
@@ -85,11 +88,6 @@ namespace COOPMEF
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void frmLogin_Load(object sender, EventArgs e)
-        {
-
         }
     }
 }

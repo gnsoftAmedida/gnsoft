@@ -27,6 +27,8 @@ namespace COOPMEF
 
             frmLogin login = new frmLogin();
             login.ShowDialog();
+          
+
         }
     }
 }
