@@ -18,6 +18,7 @@ namespace COOPMEF
         private Controladora empresa = Controladora.Instance;
         private DataSet dsAccionesPermitidas;
         DataSet dsSocios;
+        DataSet dsPlanes;
         DataSet dsSociosPorCampo;
         DataSet dsIncisos;
         DataSet dsOficinas;
@@ -158,6 +159,12 @@ namespace COOPMEF
 
             // Trampa para generar columnas en el datagridview
             socioPorCampo("socio_nro", "A");
+
+            //Cargar combo préstamos
+            dsPlanes = empresa.DevolverPlanes();
+            this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
+            this.cmbPlanPréstamo.DisplayMember = "Plan_codigo";
+            this.cmbPlanPréstamo.ValueMember = "plan_id";
         }
 
         private void desactivarAltaSocio()
@@ -569,6 +576,7 @@ namespace COOPMEF
                 return 0;
 
             return 1 + EdadPersona(FechaNacimiento.AddYears(1));
+
         }
 
         private void nuevoSocio()
@@ -701,6 +709,8 @@ namespace COOPMEF
                 bool valido = true;
                 bool duplicadosOK = true;
 
+                borrarErroresNuevoSocio();
+
                 // Control de campos obligatorios 
                 valido = camposObligatoriosSocio();
 
@@ -788,6 +798,8 @@ namespace COOPMEF
                         empresa.EditarSocio(this.idSocioSeleccionado, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
                         MessageBox.Show("Socio modificado correctamente");
+
+                        this.btnNuevoSocio.Enabled = true;
 
                         //Cargo Socios
                         dsSocios = empresa.DevolverSocios();
@@ -1129,7 +1141,7 @@ namespace COOPMEF
                 if (edad > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
                 else lblEdadSocio.ForeColor = Color.Blue;
                 this.lblEdadSocio.Text = edad.ToString();
-                
+
                 for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
                 {
                     if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
@@ -1288,6 +1300,11 @@ namespace COOPMEF
         private void dgvSociosCampo_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.EstablecerColoresNotificaciones();
+        }
+
+        private void btnGuardarPrestamo_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

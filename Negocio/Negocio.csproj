@@ -42,6 +42,7 @@
   <ItemGroup>
     <Compile Include="Accion.cs" />
     <Compile Include="Controladora.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Evento.cs" />
     <Compile Include="Inciso.cs" />

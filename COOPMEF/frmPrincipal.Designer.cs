@@ -1155,6 +1155,7 @@
             resources.ApplyResources(this.btnGuardarPrestamo, "btnGuardarPrestamo");
             this.btnGuardarPrestamo.Name = "btnGuardarPrestamo";
             this.btnGuardarPrestamo.UseVisualStyleBackColor = true;
+            this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click);
             // 
             // btnSalirPrestamo
             // 
