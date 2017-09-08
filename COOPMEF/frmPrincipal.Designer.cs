@@ -126,14 +126,12 @@
             this.txtTelefono = new System.Windows.Forms.TextBox();
             this.label22 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
-            this.cmbEdad = new System.Windows.Forms.ComboBox();
             this.gBoxSexo = new System.Windows.Forms.GroupBox();
             this.rbtnFemenino = new System.Windows.Forms.RadioButton();
             this.rbtnMasculino = new System.Windows.Forms.RadioButton();
             this.cmbEstadoCivil = new System.Windows.Forms.ComboBox();
             this.txtApellidos = new System.Windows.Forms.TextBox();
             this.txtNombres = new System.Windows.Forms.TextBox();
-            this.lblEdad = new System.Windows.Forms.Label();
             this.lblSexo = new System.Windows.Forms.Label();
             this.lblEstadoCivil = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -728,12 +726,10 @@
             this.groupBox1.Controls.Add(this.txtTelefono);
             this.groupBox1.Controls.Add(this.label22);
             this.groupBox1.Controls.Add(this.label18);
-            this.groupBox1.Controls.Add(this.cmbEdad);
             this.groupBox1.Controls.Add(this.gBoxSexo);
             this.groupBox1.Controls.Add(this.cmbEstadoCivil);
             this.groupBox1.Controls.Add(this.txtApellidos);
             this.groupBox1.Controls.Add(this.txtNombres);
-            this.groupBox1.Controls.Add(this.lblEdad);
             this.groupBox1.Controls.Add(this.lblSexo);
             this.groupBox1.Controls.Add(this.lblEstadoCivil);
             this.groupBox1.Controls.Add(this.label4);
@@ -970,13 +966,6 @@
             resources.ApplyResources(this.label18, "label18");
             this.label18.Name = "label18";
             // 
-            // cmbEdad
-            // 
-            this.cmbEdad.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbEdad.FormattingEnabled = true;
-            resources.ApplyResources(this.cmbEdad, "cmbEdad");
-            this.cmbEdad.Name = "cmbEdad";
-            // 
             // gBoxSexo
             // 
             this.gBoxSexo.Controls.Add(this.rbtnFemenino);
@@ -1021,11 +1010,6 @@
             // 
             resources.ApplyResources(this.txtNombres, "txtNombres");
             this.txtNombres.Name = "txtNombres";
-            // 
-            // lblEdad
-            // 
-            resources.ApplyResources(this.lblEdad, "lblEdad");
-            this.lblEdad.Name = "lblEdad";
             // 
             // lblSexo
             // 
@@ -1671,6 +1655,7 @@
             // lblEdadSocio
             // 
             resources.ApplyResources(this.lblEdadSocio, "lblEdadSocio");
+            this.lblEdadSocio.ForeColor = System.Drawing.SystemColors.Highlight;
             this.lblEdadSocio.Name = "lblEdadSocio";
             // 
             // lblFechaIngresoSocio
@@ -1947,14 +1932,12 @@
         private System.Windows.Forms.TextBox txtTelefono;
         private System.Windows.Forms.Label label22;
         private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.ComboBox cmbEdad;
         private System.Windows.Forms.GroupBox gBoxSexo;
         private System.Windows.Forms.RadioButton rbtnFemenino;
         private System.Windows.Forms.RadioButton rbtnMasculino;
         private System.Windows.Forms.ComboBox cmbEstadoCivil;
         private System.Windows.Forms.TextBox txtApellidos;
         private System.Windows.Forms.TextBox txtNombres;
-        private System.Windows.Forms.Label lblEdad;
         private System.Windows.Forms.Label lblSexo;
         private System.Windows.Forms.Label lblEstadoCivil;
         private System.Windows.Forms.Label label4;
