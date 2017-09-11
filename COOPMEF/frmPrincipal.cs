@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Negocio;
 using Logs;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
 
 
 namespace COOPMEF
@@ -18,6 +19,7 @@ namespace COOPMEF
         private Controladora empresa = Controladora.Instance;
         private DataSet dsAccionesPermitidas;
         DataSet dsSocios;
+        DataSet dsPlanes;
         DataSet dsSociosPorCampo;
         DataSet dsIncisos;
         DataSet dsOficinas;
@@ -158,6 +160,12 @@ namespace COOPMEF
 
             // Trampa para generar columnas en el datagridview
             socioPorCampo("socio_nro", "A");
+
+            //Cargar combo préstamos
+            dsPlanes = empresa.DevolverPlanes();
+            this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
+            this.cmbPlanPréstamo.DisplayMember = "Plan_codigo";
+            this.cmbPlanPréstamo.ValueMember = "plan_id";
         }
 
         private void desactivarAltaSocio()
@@ -569,6 +577,7 @@ namespace COOPMEF
                 return 0;
 
             return 1 + EdadPersona(FechaNacimiento.AddYears(1));
+
         }
 
         private void nuevoSocio()
@@ -662,7 +671,7 @@ namespace COOPMEF
                     lblEdadSocio.Text = edadd.ToString();
                     if (edadd > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
                     else lblEdadSocio.ForeColor = Color.Blue;
-                    
+
 
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
@@ -699,6 +708,10 @@ namespace COOPMEF
             if (this.idSocioSeleccionado != 0)
             {
                 bool valido = true;
+                bool duplicadosOK = true;
+
+                borrarErroresNuevoSocio();
+
                 // Control de campos obligatorios 
                 valido = camposObligatoriosSocio();
 
@@ -747,7 +760,13 @@ namespace COOPMEF
                     valido = false;
                 }
 
-                if (valido)
+                int id_socio = this.idSocioSeleccionado;
+
+                string nro_cobro = this.txtNroCobro.Text;
+
+                duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
+
+                if (valido && duplicadosOK)
                 {
                     try
                     {
@@ -780,6 +799,8 @@ namespace COOPMEF
                         empresa.EditarSocio(this.idSocioSeleccionado, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
                         MessageBox.Show("Socio modificado correctamente");
+
+                        this.btnNuevoSocio.Enabled = true;
 
                         //Cargo Socios
                         dsSocios = empresa.DevolverSocios();
@@ -1121,20 +1142,27 @@ namespace COOPMEF
                 if (edad > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
                 else lblEdadSocio.ForeColor = Color.Blue;
                 this.lblEdadSocio.Text = edad.ToString();
-                this.cmbOficina.Text = dgvSociosCampo.Rows[index].Cells["oficina_codigo"].Value.ToString();
+
+                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
+                    {
+                        this.cmbInciso.SelectedIndex = i;
+                    }
+
+                }
+
+                /*          for (int i = 0; i < dsOficinas.Tables["oficinas"].Rows.Count; i++)
+                {
+                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_oficinaId"].Value.ToString()) == Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[i][0].ToString()))
+                    {
+                        this.cmbOficina.SelectedIndex = i;
+                    }
+
+                }
+*/
 
 
-                /*
-                                //Elijo el inciso de la oficina seleccionada
-                                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
-                                {
-                                    if (Convert.ToInt32(dsSociosPorCampo.Tables["socio_idInciso"].Rows[][5].ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
-                                    {
-                                        this.cmbIncisos.SelectedIndex = i;
-                                    }
-                                }
-                  */
-                // this.cmbInciso.Text = dgvSociosCampo.Rows[index].Cells["inciso_nombre"].Value.ToString();
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
@@ -1273,6 +1301,16 @@ namespace COOPMEF
         private void dgvSociosCampo_ColumnHeaderMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             this.EstablecerColoresNotificaciones();
+        }
+
+        private void btnGuardarPrestamo_Click(object sender, EventArgs e)
+        {
+            Socio tmpSocio = new Socio();
+            tmpSocio.Socio_id = this.idSocioSeleccionado;
+            //(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+          double resultado = empresa.AmortCuota(3,5,10,100);
+            empresa.AltaPrestamo(tmpSocio, "Prueba", DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
         }
     }
 }

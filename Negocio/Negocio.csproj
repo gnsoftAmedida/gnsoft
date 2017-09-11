@@ -31,6 +31,7 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -42,6 +43,7 @@
   <ItemGroup>
     <Compile Include="Accion.cs" />
     <Compile Include="Controladora.cs" />
+    <Compile Include="Prestamo.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Evento.cs" />
     <Compile Include="Inciso.cs" />
