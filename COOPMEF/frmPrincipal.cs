@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Negocio;
 using Logs;
 using System.Text.RegularExpressions;
+using Microsoft.VisualBasic;
 
 
 namespace COOPMEF
@@ -1304,7 +1305,12 @@ namespace COOPMEF
 
         private void btnGuardarPrestamo_Click(object sender, EventArgs e)
         {
-
+            Socio tmpSocio = new Socio();
+            tmpSocio.Socio_id = this.idSocioSeleccionado;
+            //(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+          double resultado = empresa.AmortCuota(3,5,10,100);
+            empresa.AltaPrestamo(tmpSocio, "Prueba", DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+            MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
         }
     }
 }
