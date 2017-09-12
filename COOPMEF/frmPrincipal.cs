@@ -416,6 +416,9 @@ namespace COOPMEF
 
         public void borrarErroresNuevoSocio()
         {
+            lblErrorFechas.Visible = false;
+            lblFechaIng.Visible = false;
+            lblFechaNac.Visible = false;
             this.lblEmailFormatoInvalido.Visible = false;
             this.lblNroSocioFormatoInvalido.Visible = false;
             this.lblFormatoInvalido.Visible = false;
@@ -437,6 +440,9 @@ namespace COOPMEF
 
         private void pantallaInicialSocio()
         {
+            lblErrorFechas.Visible = false;
+            lblFechaIng.Visible = false;
+            lblFechaNac.Visible = false;
             this.lblNroSocioFormatoInvalido.Visible = false;
             this.lblEmailFormatoInvalido.Visible = false;
             this.lblFormatoInvalido.Visible = false;
@@ -571,14 +577,57 @@ namespace COOPMEF
 
         }
 
-        private int EdadPersona(DateTime FechaNacimiento)
+        public int EdadPersona(DateTime FechaNacimiento)
         {
-            if (FechaNacimiento.Year == DateTime.Today.Year)
-                return 0;
-
-            return 1 + EdadPersona(FechaNacimiento.AddYears(1));
-
+            int age = DateTime.Today.Year - FechaNacimiento.Year;
+            if (DateTime.Today.Month < FechaNacimiento.Month || (DateTime.Today.Month == FechaNacimiento.Month && DateTime.Today.Day < FechaNacimiento.Day))
+                age--;
+            return age;
         }
+
+        private bool compararFechas(DateTime fnac, DateTime fing)
+        {
+            bool valido = true;
+            int comparaFechaNacIng = fnac.Date.CompareTo(fing.Date); //1
+            int comparaFechaToday = fnac.Date.CompareTo(DateTime.Today.Date); //-1
+            int comparaFechaIngMenorHoy = fing.Date.CompareTo(DateTime.Today.Date); //-1
+
+            /*menor que cero: si la primera fecha es menor que la segunda
+                cero: si las dos fechas son iguales
+             * mayor que cero: si la primera fecha es mayor que la segunda
+             */
+
+            if (comparaFechaNacIng >= 0)
+            {
+                lblFechaNac.Visible = true;
+                lblErrorFechas.Visible = true;
+                lblErrorFechas.Text = "Fecha de nac >= fecha ing";
+                valido = false;
+            }
+            
+
+            if (comparaFechaToday >= 0)
+            {
+
+                lblFechaIng.Visible = true;
+                lblErrorFechas.Visible = true;
+                lblErrorFechas.Text = "Fecha de nac >= fecha actual";
+                valido = false;
+            }
+            
+            if (comparaFechaIngMenorHoy > 0)
+            {
+
+                lblFechaIng.Visible = true;
+                lblErrorFechas.Visible = true;
+                lblErrorFechas.Text = "Fecha de ing > fecha actual";
+                valido = false;
+            }
+           
+            return valido;
+        }
+
+        
 
         private void nuevoSocio()
         {
@@ -643,6 +692,11 @@ namespace COOPMEF
                 valido = true;
             }
 
+            DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
+            DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+            valido = compararFechas(fnac, fing);
+
+            //****************
             if (valido)
             {
                 try
@@ -655,23 +709,14 @@ namespace COOPMEF
                     string estadoPoA = "Pasivo";
                     if (rBtnActivo.Checked)
                         estadoPoA = "Activo";
-
-                    //int edadde = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
-
                     string socioNro = txtNroSocio.Text;
-
-
-
                     string nroCobro = txtNroCobro.Text;
-
-
-                    DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
-                    DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
                     int edadd = EdadPersona(fnac);
                     lblEdadSocio.Text = edadd.ToString();
-                    if (edadd > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
-                    else lblEdadSocio.ForeColor = Color.Blue;
-
+                    if (edadd > edadDeRiesgo) 
+                        lblEdadSocio.ForeColor = Color.Red;
+                    else 
+                        lblEdadSocio.ForeColor = Color.Blue;
 
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
                     int inc = Convert.ToInt32(cmbInciso.SelectedValue);
@@ -766,6 +811,10 @@ namespace COOPMEF
 
                 duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
 
+                DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
+                DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+                valido = compararFechas(fnac, fing);
+
                 if (valido && duplicadosOK)
                 {
                     try
@@ -781,10 +830,6 @@ namespace COOPMEF
                         //int edaddeee = Convert.ToInt32(this.cmbEdad.SelectedItem.ToString());
                         string socioNro = txtNroSocio.Text;
                         string nroCobro = txtNroCobro.Text;
-
-
-                        DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
-                        DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
                         int edadd = EdadPersona(fnac);
                         lblEdadSocio.Text = edadd.ToString();
                         if (edadd > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
@@ -805,7 +850,6 @@ namespace COOPMEF
                         //Cargo Socios
                         dsSocios = empresa.DevolverSocios();
                         borrarErroresNuevoSocio();
-                        //pantallaInicialSocio();
                         desactivarAltaSocio();
                     }
                     catch (Exception ex)
@@ -1311,6 +1355,11 @@ namespace COOPMEF
           double resultado = empresa.AmortCuota(3,5,10,100);
             empresa.AltaPrestamo(tmpSocio, "Prueba", DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
             MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
+        }
+
+        private void groupBox1_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }

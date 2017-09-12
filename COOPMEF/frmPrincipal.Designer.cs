@@ -243,6 +243,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.lblFechaNac = new System.Windows.Forms.Label();
+            this.lblFechaIng = new System.Windows.Forms.Label();
+            this.lblErrorFechas = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -689,6 +692,9 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.lblErrorFechas);
+            this.groupBox1.Controls.Add(this.lblFechaIng);
+            this.groupBox1.Controls.Add(this.lblFechaNac);
             this.groupBox1.Controls.Add(this.lblNroSocioFormatoInvalido);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.lblEstadoDeBaja);
@@ -739,6 +745,7 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblNroSocioFormatoInvalido
             // 
@@ -1725,6 +1732,24 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // lblFechaNac
+            // 
+            resources.ApplyResources(this.lblFechaNac, "lblFechaNac");
+            this.lblFechaNac.ForeColor = System.Drawing.Color.Gold;
+            this.lblFechaNac.Name = "lblFechaNac";
+            // 
+            // lblFechaIng
+            // 
+            resources.ApplyResources(this.lblFechaIng, "lblFechaIng");
+            this.lblFechaIng.ForeColor = System.Drawing.Color.Gold;
+            this.lblFechaIng.Name = "lblFechaIng";
+            // 
+            // lblErrorFechas
+            // 
+            resources.ApplyResources(this.lblErrorFechas, "lblErrorFechas");
+            this.lblErrorFechas.ForeColor = System.Drawing.Color.Gold;
+            this.lblErrorFechas.Name = "lblErrorFechas";
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2003,6 +2028,9 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblEstadoActivo;
         private System.Windows.Forms.Label lblNroSocioFormatoInvalido;
+        private System.Windows.Forms.Label lblFechaIng;
+        private System.Windows.Forms.Label lblFechaNac;
+        private System.Windows.Forms.Label lblErrorFechas;
     }
 }
 
