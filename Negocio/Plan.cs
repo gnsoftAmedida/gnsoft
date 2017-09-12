@@ -66,6 +66,13 @@ namespace Negocio
             return planes;
         }
 
+        public DataSet devolverActivos()
+        {
+            pPlan tmpPlan = new pPlan();
+            DataSet planes = tmpPlan.devolverActivos();
+            return planes;
+        }
+
         public void Guardar()
         {
             pPlan tmpPlan = new pPlan();

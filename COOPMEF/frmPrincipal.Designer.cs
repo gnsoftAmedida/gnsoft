@@ -87,6 +87,9 @@
             this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lblErrorFechas = new System.Windows.Forms.Label();
+            this.lblFechaIng = new System.Windows.Forms.Label();
+            this.lblFechaNac = new System.Windows.Forms.Label();
             this.lblNroSocioFormatoInvalido = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.lblEstadoDeBaja = new System.Windows.Forms.Label();
@@ -243,9 +246,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.lblFechaNac = new System.Windows.Forms.Label();
-            this.lblFechaIng = new System.Windows.Forms.Label();
-            this.lblErrorFechas = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -556,6 +556,7 @@
             resources.ApplyResources(this.tbcPestanas, "tbcPestanas");
             this.tbcPestanas.Name = "tbcPestanas";
             this.tbcPestanas.SelectedIndex = 0;
+            this.tbcPestanas.Click += new System.EventHandler(this.cargarPlanPrestamos);
             // 
             // tabBusqueda
             // 
@@ -745,7 +746,24 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
-            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // lblErrorFechas
+            // 
+            resources.ApplyResources(this.lblErrorFechas, "lblErrorFechas");
+            this.lblErrorFechas.ForeColor = System.Drawing.Color.Gold;
+            this.lblErrorFechas.Name = "lblErrorFechas";
+            // 
+            // lblFechaIng
+            // 
+            resources.ApplyResources(this.lblFechaIng, "lblFechaIng");
+            this.lblFechaIng.ForeColor = System.Drawing.Color.Gold;
+            this.lblFechaIng.Name = "lblFechaIng";
+            // 
+            // lblFechaNac
+            // 
+            resources.ApplyResources(this.lblFechaNac, "lblFechaNac");
+            this.lblFechaNac.ForeColor = System.Drawing.Color.Gold;
+            this.lblFechaNac.Name = "lblFechaNac";
             // 
             // lblNroSocioFormatoInvalido
             // 
@@ -1731,24 +1749,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
-            // 
-            // lblFechaNac
-            // 
-            resources.ApplyResources(this.lblFechaNac, "lblFechaNac");
-            this.lblFechaNac.ForeColor = System.Drawing.Color.Gold;
-            this.lblFechaNac.Name = "lblFechaNac";
-            // 
-            // lblFechaIng
-            // 
-            resources.ApplyResources(this.lblFechaIng, "lblFechaIng");
-            this.lblFechaIng.ForeColor = System.Drawing.Color.Gold;
-            this.lblFechaIng.Name = "lblFechaIng";
-            // 
-            // lblErrorFechas
-            // 
-            resources.ApplyResources(this.lblErrorFechas, "lblErrorFechas");
-            this.lblErrorFechas.ForeColor = System.Drawing.Color.Gold;
-            this.lblErrorFechas.Name = "lblErrorFechas";
             // 
             // frmPrincipal
             // 

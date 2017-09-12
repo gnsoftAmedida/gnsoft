@@ -290,6 +290,12 @@ namespace Negocio
             return planes;
         }
 
+        public DataSet DevolverPlanesActivos()
+        {
+            Plan tmpPlan = new Plan();
+            DataSet planes = tmpPlan.devolverActivos();
+            return planes;
+        }
         public void AltaPlan(int Plan_cantCuotas, double Plan_TasaAnualEfectiva, double Plan_IvaSobreIntereses, int Plan_vigencia, string Plan_nombre, double Plan_CuotaCada1000)
         {
             Plan tmpPlan = new Plan();

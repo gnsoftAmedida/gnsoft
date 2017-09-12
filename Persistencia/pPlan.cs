@@ -12,6 +12,31 @@ namespace Persistencia
 {
     public class pPlan : CapaDatos
     {
+        public DataSet devolverActivos()
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT plan_id, plan_NroCuotas, plan_TasaAnualEfectiva, plan_IvaSobreIntereses, plan_vigente, plan_nombre, plan_CuotaCada1000 FROM planprestamo where plan_vigente = 1";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "planprestamo");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public DataSet devolverTodos()
         {
             try
