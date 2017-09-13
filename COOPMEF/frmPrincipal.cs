@@ -33,6 +33,25 @@ namespace COOPMEF
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+            dsAccionesPermitidas = empresa.DevolverAccionesXUsuario(Utilidades.UsuarioLogueado.IdUsuario);
+
+            dsSocios = empresa.DevolverSocios();
+
+            dsIncisos = empresa.DevolverIncisos();
+
+            cmbBusqueda.SelectedIndex = 0;
+
+            pantallaInicialSocio();
+
+            desactivarAltaSocio();
+
+            // Trampa para generar columnas en el datagridview
+            socioPorCampo("socio_nro", "A");
+        }
+
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             tbcPestanas.SelectedIndex = 0;
@@ -144,23 +163,7 @@ namespace COOPMEF
             return false;
         }
 
-        private void frmPrincipal_Load(object sender, EventArgs e)
-        {
-            dsAccionesPermitidas = empresa.DevolverAccionesXUsuario(Utilidades.UsuarioLogueado.IdUsuario);
-
-            dsSocios = empresa.DevolverSocios();
-
-            dsIncisos = empresa.DevolverIncisos();
-
-            cmbBusqueda.SelectedIndex = 0;
-
-            pantallaInicialSocio();
-
-            desactivarAltaSocio();
-
-            // Trampa para generar columnas en el datagridview
-            socioPorCampo("socio_nro", "A");        
-        }
+        
 
         private void desactivarAltaSocio()
         {
@@ -621,7 +624,18 @@ namespace COOPMEF
             return valido;
         }
 
+        private void actualizarDatosGeneralesDelSocio(string estadoCivil, int edadd) {
+            this.lblNumeroSocio.Text = txtNroCobro.Text;
+            this.lblNombreSocio.Text = txtNombres.Text;
+            this.lblApellidosSocio.Text = txtApellidos.Text;
+            this.lblFechaNacSocio.Text = dtpFechaNac.Value.ToShortDateString();
+            this.lblFechaIngresoSocio.Text = dtpFechaIng.Value.ToShortDateString();
+            this.lblEstadoCivilSocio.Text = estadoCivil.ToString();
+            this.lblEdadSocio.Text = edadd.ToString();
+            this.lblTelefonoSocio.Text = txtTelefono.Text;
         
+        
+        }
 
         private void nuevoSocio()
         {
@@ -706,7 +720,7 @@ namespace COOPMEF
                     string socioNro = txtNroSocio.Text;
                     string nroCobro = txtNroCobro.Text;
                     int edadd = EdadPersona(fnac);
-                    lblEdadSocio.Text = edadd.ToString();
+                    //lblEdadSocio.Text = edadd.ToString();
                     if (edadd > edadDeRiesgo) 
                         lblEdadSocio.ForeColor = Color.Red;
                     else 
@@ -723,7 +737,9 @@ namespace COOPMEF
                     int socioActivo = 1;
 
                     empresa.AltaSocio(socioActivo, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
-
+                    //*******
+                    actualizarDatosGeneralesDelSocio(estado_civil, edadd);
+                    //******
                     MessageBox.Show("Socio creado correctamente");
                     desactivarAltaSocio();
                     borrarErroresNuevoSocio();
@@ -836,6 +852,14 @@ namespace COOPMEF
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
 
                         empresa.EditarSocio(this.idSocioSeleccionado, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+
+
+                        //*******
+
+                        actualizarDatosGeneralesDelSocio(estado_civil, edadd);
+                        
+                        //*****
+
 
                         MessageBox.Show("Socio modificado correctamente");
 

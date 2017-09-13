@@ -73,6 +73,7 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Release\Negocio.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Release\Utilidades.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\Release\Persistencia.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.csprojResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.csproj.ResolveComReference.cache
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmAgenda.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmMantOficinas.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmAltaUsuario.resources
@@ -93,4 +94,3 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.csproj.G
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\gsw\COOPMEF.resources.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.exe
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.csproj.ResolveComReference.cache
