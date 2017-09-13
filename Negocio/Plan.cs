@@ -10,39 +10,53 @@ namespace Negocio
     public class Plan
     {
         private int plan_id;
-        private string plan_codigo;
-        private string plan_descripcion;
         private int plan_cantCuotas;
-        private double plan_interes;
+        private double plan_TasaAnualEfectiva;
+        private double plan_IvaSobreIntereses;
+        private int plan_vigencia;
+        private string plan_nombre;
+        private double plan_CuotaCada1000;
 
         public int Plan_id
         {
             get { return plan_id; }
             set { plan_id = value; }
         }
-
-        public string Plan_codigo
-        {
-            get { return plan_codigo; }
-            set { plan_codigo = value; }
-        }
-
-        public string Plan_descripcion
-        {
-            get { return plan_descripcion; }
-            set { plan_descripcion = value; }
-        }
-
+        
         public int Plan_cantCuotas
         {
             get { return plan_cantCuotas; }
             set { plan_cantCuotas = value; }
         }
-
-        public double Plan_interes
+       
+        public double Plan_TasaAnualEfectiva
         {
-            get { return plan_interes; }
-            set { plan_interes = value; }
+            get { return plan_TasaAnualEfectiva; }
+            set { plan_TasaAnualEfectiva = value; }
+        }
+
+        public double Plan_IvaSobreIntereses
+        {
+            get { return plan_IvaSobreIntereses; }
+            set { plan_IvaSobreIntereses = value; }
+        }
+      
+        public int Plan_vigencia
+        {
+            get { return plan_vigencia; }
+            set { plan_vigencia = value; }
+        }
+    
+        public string Plan_nombre
+        {
+            get { return plan_nombre; }
+            set { plan_nombre = value; }
+        }
+       
+        public double Plan_CuotaCada1000
+        {
+            get { return plan_CuotaCada1000; }
+            set { plan_CuotaCada1000 = value; }
         }
 
         public DataSet devolverPlanes()
@@ -52,11 +66,18 @@ namespace Negocio
             return planes;
         }
 
+        public DataSet devolverActivos()
+        {
+            pPlan tmpPlan = new pPlan();
+            DataSet planes = tmpPlan.devolverActivos();
+            return planes;
+        }
+
         public void Guardar()
         {
             pPlan tmpPlan = new pPlan();
-            //tmpPlan.GuardarPlan(Plan_codigo, Plan_descripcion, Plan_cantCuotas, Plan_interes);
-            tmpPlan.GuardarPlan(Plan_descripcion, Plan_descripcion, Plan_cantCuotas, Plan_interes);
+
+            tmpPlan.GuardarPlan(Plan_cantCuotas, Plan_TasaAnualEfectiva, Plan_IvaSobreIntereses, Plan_vigencia, Plan_nombre, Plan_CuotaCada1000);
         }
 
         public void eliminar()
@@ -68,7 +89,7 @@ namespace Negocio
         public void modificarPlan()
         {
             pPlan tmpPlan = new pPlan();
-            tmpPlan.modificarPlan(Plan_descripcion, Plan_descripcion, Plan_cantCuotas, Plan_interes, Plan_id);
+            tmpPlan.modificarPlan(Plan_id, Plan_cantCuotas, Plan_TasaAnualEfectiva, Plan_IvaSobreIntereses, Plan_vigencia, Plan_nombre, Plan_CuotaCada1000);
         }
     }
 }

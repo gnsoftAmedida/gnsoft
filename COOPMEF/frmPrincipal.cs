@@ -159,13 +159,7 @@ namespace COOPMEF
             desactivarAltaSocio();
 
             // Trampa para generar columnas en el datagridview
-            socioPorCampo("socio_nro", "A");
-
-            //Cargar combo préstamos
-            dsPlanes = empresa.DevolverPlanes();
-            this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
-            this.cmbPlanPréstamo.DisplayMember = "Plan_codigo";
-            this.cmbPlanPréstamo.ValueMember = "plan_id";
+            socioPorCampo("socio_nro", "A");        
         }
 
         private void desactivarAltaSocio()
@@ -1357,9 +1351,16 @@ namespace COOPMEF
             MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
         }
 
-        private void groupBox1_Enter(object sender, EventArgs e)
+
+        public void cargarPlanPrestamos(object sender, EventArgs e)
         {
 
+            //Cargar combo préstamos
+            dsPlanes = empresa.DevolverPlanesActivos();
+            this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
+            this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
+            this.cmbPlanPréstamo.ValueMember = "plan_id";
+             
         }
     }
 }

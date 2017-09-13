@@ -12,6 +12,31 @@ namespace Persistencia
 {
     public class pPlan : CapaDatos
     {
+        public DataSet devolverActivos()
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT plan_id, plan_NroCuotas, plan_TasaAnualEfectiva, plan_IvaSobreIntereses, plan_vigente, plan_nombre, plan_CuotaCada1000 FROM planprestamo where plan_vigente = 1";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "planprestamo");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public DataSet devolverTodos()
         {
             try
@@ -19,7 +44,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT plan_id, Plan_codigo, Plan_descripcion, Plan_cantCuotas, Plan_interes FROM planprestamo";
+                string sql = "SELECT plan_id, plan_NroCuotas, plan_TasaAnualEfectiva, plan_IvaSobreIntereses, plan_vigente, plan_nombre, plan_CuotaCada1000 FROM planprestamo";
                 DataSet ds = new DataSet();
 
                 connection.Open();
@@ -72,10 +97,6 @@ namespace Persistencia
                     case 1062:
                         MisExcepciones es = new MisExcepciones("Ya exíste el Plan");
                         throw es;
-
-                    //case 1451:
-                    //    MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten oficinas asociadas ");
-                    //    throw fk;
                 }
 
                 MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
@@ -89,7 +110,7 @@ namespace Persistencia
             }
         }
 
-        public void modificarPlan(string Plan_cod, string Plan_descrip, int Plan_cantCuo, double Plan_int, int Plan_id)
+        public void modificarPlan(int id_plan, int plan_cantCuotas, double plan_TasaAnualEfectiva, double plan_IvaSobreIntereses, int plan_vigencia, string plan_nombre, double plan_CuotaCada1000)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
@@ -98,7 +119,7 @@ namespace Persistencia
             try
             {
 
-                string sql = "Update planprestamo set plan_codigo = '" + Plan_cod + "', plan_descripcion = '" + Plan_descrip + "', plan_cantCuotas = '" + Plan_cantCuo + "', plan_interes = '" + Plan_int + "'  WHERE plan_id =" + Plan_id;
+                string sql = "Update planprestamo set plan_NroCuotas = " + plan_cantCuotas + ", plan_TasaAnualEfectiva = " + plan_TasaAnualEfectiva.ToString().Replace(",", ".") + ", plan_IvaSobreIntereses = " + plan_IvaSobreIntereses.ToString().Replace(",", ".") + ", plan_vigente = " + plan_vigencia + ", plan_nombre = '" + plan_nombre + "', plan_CuotaCada1000 = " + plan_CuotaCada1000 + " WHERE plan_id =" + id_plan;
 
                 connection.Open();
                 transaction = connection.BeginTransaction();
@@ -120,14 +141,14 @@ namespace Persistencia
             }
         }
 
-        public void GuardarPlan(string Plan_cod, string Plan_descrip, int Plan_cantCuo, double Plan_int)
+        public void GuardarPlan(int plan_cantCuotas, double plan_TasaAnualEfectiva, double plan_IvaSobreIntereses, int plan_vigencia,string plan_nombre, double plan_CuotaCada1000)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-
+          
             string sql;
-            sql = "INSERT INTO planprestamo (Plan_codigo, Plan_descripcion, Plan_cantCuotas, Plan_interes) VALUES ('" + Plan_cod + "','" + Plan_descrip + "','" + Plan_cantCuo + "','" + Plan_int + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO planprestamo (plan_NroCuotas, plan_TasaAnualEfectiva, plan_IvaSobreIntereses, plan_vigente, plan_nombre, plan_CuotaCada1000) VALUES ('" + plan_cantCuotas + "','" + plan_TasaAnualEfectiva.ToString().Replace(",", ".") + "','" + plan_IvaSobreIntereses.ToString().Replace(",", ".") + "','" + plan_vigencia + "','" + plan_nombre + "','" + plan_CuotaCada1000 + "');" + "Select last_insert_id()";
 
             try
             {

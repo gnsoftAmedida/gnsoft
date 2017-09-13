@@ -290,23 +290,34 @@ namespace Negocio
             return planes;
         }
 
-        public void AltaPlan(string Plan_codigo, string Plan_descripcion, int Plan_cantCuotas, double Plan_interes)
+        public DataSet DevolverPlanesActivos()
         {
             Plan tmpPlan = new Plan();
-            tmpPlan.Plan_codigo = Plan_codigo;
-            tmpPlan.Plan_descripcion = Plan_descripcion;
+            DataSet planes = tmpPlan.devolverActivos();
+            return planes;
+        }
+        public void AltaPlan(int Plan_cantCuotas, double Plan_TasaAnualEfectiva, double Plan_IvaSobreIntereses, int Plan_vigencia, string Plan_nombre, double Plan_CuotaCada1000)
+        {
+            Plan tmpPlan = new Plan();
             tmpPlan.Plan_cantCuotas = Plan_cantCuotas;
-            tmpPlan.Plan_interes = Plan_interes;
+            tmpPlan.Plan_TasaAnualEfectiva = Plan_TasaAnualEfectiva;
+            tmpPlan.Plan_IvaSobreIntereses = Plan_IvaSobreIntereses;
+            tmpPlan.Plan_vigencia = Plan_vigencia;
+            tmpPlan.Plan_nombre = Plan_nombre;
+            tmpPlan.Plan_CuotaCada1000 = Plan_CuotaCada1000;
             tmpPlan.Guardar();
         }
 
-        public void ModificarPlan(string Plan_descripcion, int Plan_cantCuotas, double Plan_interes, int idPlan)
+        public void ModificarPlan(int id_plan, int Plan_cantCuotas, double Plan_TasaAnualEfectiva, double Plan_IvaSobreIntereses, int Plan_vigencia, string Plan_nombre, double Plan_CuotaCada1000)
         {
             Plan tmpPlan = new Plan();
-            tmpPlan.Plan_descripcion = Plan_descripcion;
+            tmpPlan.Plan_id = id_plan;
             tmpPlan.Plan_cantCuotas = Plan_cantCuotas;
-            tmpPlan.Plan_interes = Plan_interes;
-            tmpPlan.Plan_id = idPlan;
+            tmpPlan.Plan_TasaAnualEfectiva = Plan_TasaAnualEfectiva;
+            tmpPlan.Plan_IvaSobreIntereses = Plan_IvaSobreIntereses;
+            tmpPlan.Plan_vigencia = Plan_vigencia;
+            tmpPlan.Plan_nombre = Plan_nombre;
+            tmpPlan.Plan_CuotaCada1000 = Plan_CuotaCada1000;
             tmpPlan.modificarPlan();
         }
 

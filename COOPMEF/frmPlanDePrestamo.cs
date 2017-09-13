@@ -22,7 +22,7 @@ namespace COOPMEF
             InitializeComponent();
         }
 
-       
+
         private void frmPlanDePrestamo_Load(object sender, EventArgs e)
         {
             //Cargo planes
@@ -33,22 +33,26 @@ namespace COOPMEF
         public void pantallaInicial()
         {
             this.cmbPlan.DataSource = dsPlanes.Tables["planprestamo"];
-            this.cmbPlan.ValueMember = "plan_descripcion";
+            this.cmbPlan.ValueMember = "plan_nombre";
             this.cmbPlan.SelectedIndex = -1;
             this.cmbPlan.Enabled = true;
             this.cmbPlan.Text = "";
+            this.chkVigencia.Enabled = false;
             this.btnEditarPlan.Enabled = false;
+            this.btnGuardarPlan.Enabled = false;
             this.btnNuevoPlan.Enabled = true;
             this.btnEliminarPlan.Enabled = false;
-            this.texBoxDescripcion.Enabled = false;
+            this.texBoxNombrePlan.Enabled = false;
             this.txtBoxCantCuotas.Enabled = false;
-            this.txtBoxInteres.Enabled = false;
-            this.texBoxDescripcion.Clear();
+            this.txtBoxTasaAnualSinIVA.Enabled = false;
+            this.txtBoxIVA.Enabled = false;
+            this.txtBoxIVA.Clear();
+            this.texBoxNombrePlan.Clear();
             this.txtBoxCantCuotas.Clear();
-            this.txtBoxInteres.Clear();
+            this.txtBoxTasaAnualSinIVA.Clear();
             this.lblCantCuotas.Visible = false;
-            this.lblDescripcion.Visible = false;
-            this.lblInteres.Visible = false;
+            this.lblNombre.Visible = false;
+            this.lblTasaAnual.Visible = false;
             this.lblErrorGenerico.Visible = false;
 
         }
@@ -58,21 +62,32 @@ namespace COOPMEF
             int index = this.cmbPlan.SelectedIndex;
             if (index != -1)
             {
-                this.texBoxDescripcion.Enabled = false;
+                this.texBoxNombrePlan.Enabled = false;
                 this.txtBoxCantCuotas.Enabled = false;
-                this.txtBoxInteres.Enabled = false;
+                this.txtBoxTasaAnualSinIVA.Enabled = false;
+                this.txtBoxIVA.Enabled = false;
 
                 this.btnEliminarPlan.Enabled = true;
                 this.btnEditarPlan.Enabled = true;
                 this.btnGuardarPlan.Enabled = false;
                 this.btnCancelarPlan.Enabled = true;
 
-                this.texBoxDescripcion.Text = dsPlanes.Tables["planprestamo"].Rows[index][2].ToString();
-                this.txtBoxCantCuotas.Text = dsPlanes.Tables["planprestamo"].Rows[index][3].ToString();
-                this.txtBoxInteres.Text = dsPlanes.Tables["planprestamo"].Rows[index][4].ToString();
+                this.texBoxNombrePlan.Text = dsPlanes.Tables["planprestamo"].Rows[index][5].ToString();
+                this.txtBoxCantCuotas.Text = dsPlanes.Tables["planprestamo"].Rows[index][1].ToString();
+                this.txtBoxTasaAnualSinIVA.Text = dsPlanes.Tables["planprestamo"].Rows[index][2].ToString();
+                this.txtBoxIVA.Text = dsPlanes.Tables["planprestamo"].Rows[index][3].ToString();
+
+                if (Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][4].ToString()) == 1)
+                {
+                    this.chkVigencia.Checked = true;
+                }
+                else
+                {
+                    this.chkVigencia.Checked = false;
+                }
             }
         }
-        
+
         private void btnNuevoPlan_Click(object sender, EventArgs e)
         {
             {
@@ -81,19 +96,23 @@ namespace COOPMEF
                 this.cmbPlan.Enabled = false;
                 this.cmbPlan.SelectedIndex = -1;
 
-                this.texBoxDescripcion.Clear();
-                this.texBoxDescripcion.Enabled = true;
+                this.texBoxNombrePlan.Clear();
+                this.texBoxNombrePlan.Enabled = true;
 
                 this.txtBoxCantCuotas.Clear();
                 this.txtBoxCantCuotas.Enabled = true;
 
-                this.txtBoxInteres.Clear();
-                this.txtBoxInteres.Enabled = true;
+                this.txtBoxTasaAnualSinIVA.Clear();
+                this.txtBoxTasaAnualSinIVA.Enabled = true;
+
+                this.txtBoxIVA.Clear();
+                this.txtBoxIVA.Enabled = true;
 
                 this.btnEditarPlan.Enabled = false;
                 this.btnEliminarPlan.Enabled = false;
                 this.btnCancelarPlan.Enabled = true;
                 this.btnGuardarPlan.Enabled = true;
+                this.chkVigencia.Enabled = true;
 
             }
         }
@@ -121,20 +140,59 @@ namespace COOPMEF
             }
         }
 
+
+        public bool esDecimal(string nroPrueba)
+        {
+            double resultado = 0;
+            Boolean esDouble = double.TryParse(nroPrueba, out resultado);
+
+            Boolean esPositivo = false;
+
+            if (esDouble)
+            {
+
+                if (resultado > 0)
+                {
+                    esPositivo = true;
+                }
+            }
+
+            return esDouble && esPositivo;
+        }
+
+        public bool esEntero(string nroPrueba)
+        {
+            int resultado = 0;
+            Boolean esEntero = int.TryParse(nroPrueba, out resultado);
+
+            Boolean esPositivo = false;
+
+            if (esEntero)
+            {
+
+                if (resultado > 0)
+                {
+                    esPositivo = true;
+                }
+            }
+
+            return esEntero && esPositivo;
+        }
+
         private void editarPlan()
         {
             bool valido = true;
 
             this.lblCantCuotas.Visible = false;
-            this.lblDescripcion.Visible = false;
-            this.lblInteres.Visible = false;
+            this.lblNombre.Visible = false;
+            this.lblTasaAnual.Visible = false;
             this.lblErrorGenerico.Visible = false;
 
             // Control de campos obligatorios 
-            if (this.texBoxDescripcion.Text.Trim() == "")
+            if (this.texBoxNombrePlan.Text.Trim() == "")
             {
-                this.lblDescripcion.Visible = true;
-                this.lblDescripcion.Text = "Campo obligatorio";
+                this.lblNombre.Visible = true;
+                this.lblNombre.Text = "Campo obligatorio";
                 valido = false;
             }
 
@@ -144,11 +202,36 @@ namespace COOPMEF
                 this.lblCantCuotas.Text = "Campo obligatorio";
                 valido = false;
             }
-
-            if (this.txtBoxInteres.Text.Trim() == "")
+            else if (!(esEntero(txtBoxCantCuotas.Text)))
             {
-                this.lblInteres.Visible = true;
-                this.lblInteres.Text = "Campo obligatorio";
+                this.lblCantCuotas.Visible = true;
+                this.lblCantCuotas.Text = "Ingrese Nro Entero";
+                valido = false;
+            }
+
+            if (this.txtBoxTasaAnualSinIVA.Text.Trim() == "")
+            {
+                this.lblTasaAnual.Visible = true;
+                this.lblTasaAnual.Text = "Campo obligatorio";
+                valido = false;
+            }
+            else if (!(esDecimal(txtBoxTasaAnualSinIVA.Text)))
+            {
+                this.lblTasaAnual.Visible = true;
+                this.lblTasaAnual.Text = "Ingrese número válido";
+                valido = false;
+            }
+
+            if (this.txtBoxIVA.Text.Trim() == "")
+            {
+                this.lblIva.Visible = true;
+                this.lblIva.Text = "Campo obligatorio";
+                valido = false;
+            }
+            else if (!(esDecimal(txtBoxIVA.Text)))
+            {
+                this.lblIva.Visible = true;
+                this.lblIva.Text = "Ingrese número válido";
                 valido = false;
             }
 
@@ -159,14 +242,14 @@ namespace COOPMEF
             {
                 if (Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString()) != Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][0].ToString()))
                 {
-                    if (this.texBoxDescripcion.Text.Trim() == dsPlanes.Tables["planprestamo"].Rows[i][1].ToString())
+                    if (this.texBoxNombrePlan.Text.Trim() == dsPlanes.Tables["planprestamo"].Rows[i][1].ToString())
                     {
-                        this.lblDescripcion.Visible = true;
-                        this.lblDescripcion.Text = "Ya exíste";
+                        this.lblNombre.Visible = true;
+                        this.lblNombre.Text = "Ya exíste";
                         valido = false;
                     }
 
-                   }
+                }
             }
 
             if (valido)
@@ -182,7 +265,20 @@ namespace COOPMEF
                 {
                     try
                     {
-                        empresa.ModificarPlan(texBoxDescripcion.Text, Convert.ToInt32(txtBoxCantCuotas.Text), Convert.ToInt32(txtBoxInteres.Text), Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString()));
+                        int vigencia;
+
+                        if (chkVigencia.Checked)
+                        {
+                            vigencia = 1;
+                        }
+                        else
+                        {
+                            vigencia = 0;
+                        }
+
+                        double CuotaCada1000 = 0; // Calcular luego de hablar con la coop
+
+                        empresa.ModificarPlan(Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString()), Convert.ToInt32(txtBoxCantCuotas.Text), Convert.ToDouble(txtBoxTasaAnualSinIVA.Text.Replace(".", ",")), Convert.ToDouble(txtBoxIVA.Text.Replace(".", ",")), vigencia, texBoxNombrePlan.Text, CuotaCada1000);
                         MessageBox.Show("Plan modificado correctamente");
 
                         //Cargo Planes
@@ -195,8 +291,8 @@ namespace COOPMEF
                         this.lblErrorGenerico.Text = ex.Message;
                     }
                     this.lblCantCuotas.Visible = false;
-                    this.lblDescripcion.Visible = false;
-                    this.lblInteres.Visible = false;
+                    this.lblNombre.Visible = false;
+                    this.lblTasaAnual.Visible = false;
 
                 }
             }
@@ -206,16 +302,17 @@ namespace COOPMEF
         {
             bool valido = true;
 
+            this.lblNombre.Visible = false;
             this.lblCantCuotas.Visible = false;
-            this.lblDescripcion.Visible = false;
-            this.lblInteres.Visible = false;
+            this.lblTasaAnual.Visible = false;
+            this.lblIva.Visible = false;
             this.lblErrorGenerico.Visible = false;
 
             // Control de campos obligatorios 
-            if (this.texBoxDescripcion.Text.Trim() == "")
+            if (this.texBoxNombrePlan.Text.Trim() == "")
             {
-                this.lblDescripcion.Visible = true;
-                this.lblDescripcion.Text = "Campo obligatorio";
+                this.lblNombre.Visible = true;
+                this.lblNombre.Text = "Campo obligatorio";
                 valido = false;
             }
 
@@ -225,11 +322,36 @@ namespace COOPMEF
                 this.lblCantCuotas.Text = "Campo obligatorio";
                 valido = false;
             }
-
-            if (this.txtBoxInteres.Text.Trim() == "")
+            else if (!(esEntero(txtBoxCantCuotas.Text)))
             {
-                this.lblInteres.Visible = true;
-                this.lblInteres.Text = "Campo obligatorio";
+                this.lblCantCuotas.Visible = true;
+                this.lblCantCuotas.Text = "Ingrese Nro Entero";
+                valido = false;
+            }
+
+            if (this.txtBoxTasaAnualSinIVA.Text.Trim() == "")
+            {
+                this.lblTasaAnual.Visible = true;
+                this.lblTasaAnual.Text = "Campo obligatorio";
+                valido = false;
+            }
+            else if (!(esDecimal(txtBoxTasaAnualSinIVA.Text)))
+            {
+                this.lblTasaAnual.Visible = true;
+                this.lblTasaAnual.Text = "Ingrese número válido";
+                valido = false;
+            }
+
+            if (this.txtBoxIVA.Text.Trim() == "")
+            {
+                this.lblIva.Visible = true;
+                this.lblIva.Text = "Campo obligatorio";
+                valido = false;
+            }
+            else if (!(esDecimal(txtBoxIVA.Text)))
+            {
+                this.lblIva.Visible = true;
+                this.lblIva.Text = "Ingrese número válido";
                 valido = false;
             }
 
@@ -238,21 +360,33 @@ namespace COOPMEF
             // Control de duplicado para código, nombre e inciso. Se hace en memoria y luego a nivel de BD
             for (int i = 0; i < dsPlanes.Tables["planprestamo"].Rows.Count; i++)
             {
-                if (this.texBoxDescripcion.Text.Trim() == dsPlanes.Tables["planprestamo"].Rows[i][1].ToString())
+                if (this.texBoxNombrePlan.Text.Trim() == dsPlanes.Tables["planprestamo"].Rows[i][5].ToString())
                 {
-                    this.lblDescripcion.Visible = true;
-                    this.lblDescripcion.Text = "Ya exíste";
+                    this.lblNombre.Visible = true;
+                    this.lblNombre.Text = "Ya exíste";
                     valido = false;
                 }
 
             }
 
-
             if (valido)
             {
                 try
                 {
-                    empresa.AltaPlan(texBoxDescripcion.Text, texBoxDescripcion.Text, Convert.ToInt32(txtBoxCantCuotas.Text), Convert.ToInt32(txtBoxInteres.Text));
+                    int vigencia;
+
+                    if (chkVigencia.Checked)
+                    {
+                        vigencia = 1;
+                    }
+                    else
+                    {
+                        vigencia = 0;
+                    }
+
+                    double CuotaCada1000 = 0; // Calcular luego de hablar con la coop
+
+                    empresa.AltaPlan(Convert.ToInt32(txtBoxCantCuotas.Text), Convert.ToDouble(txtBoxTasaAnualSinIVA.Text.Replace(".", ",")), Convert.ToDouble(txtBoxIVA.Text.Replace(".", ",")), vigencia, texBoxNombrePlan.Text, CuotaCada1000);
 
                     MessageBox.Show("Plan creado correctamente");
 
@@ -260,7 +394,7 @@ namespace COOPMEF
                     dsPlanes = empresa.DevolverPlanes();
                     pantallaInicial();
 
-                    
+
                 }
                 catch (Exception ex)
                 {
@@ -268,10 +402,10 @@ namespace COOPMEF
                     this.lblErrorGenerico.Text = ex.Message;
                 }
                 this.lblCantCuotas.Visible = false;
-                this.lblDescripcion.Visible = false;
-                this.lblInteres.Visible = false;
+                this.lblNombre.Visible = false;
+                this.lblTasaAnual.Visible = false;
             }
-        
+
         }
 
         private void btnEliminarPlan_Click(object sender, EventArgs e)
@@ -318,17 +452,22 @@ namespace COOPMEF
 
             this.cmbPlan.Enabled = false;
 
-            this.texBoxDescripcion.Enabled = true;
+            this.texBoxNombrePlan.Enabled = true;
 
             this.txtBoxCantCuotas.Enabled = true;
 
-            this.txtBoxInteres.Enabled = true;
+            this.txtBoxTasaAnualSinIVA.Enabled = true;
+
+            this.txtBoxIVA.Enabled = true;
 
             this.btnGuardarPlan.Enabled = true;
             this.btnEditarPlan.Enabled = true;
             this.btnCancelarPlan.Enabled = true;
             this.btnEliminarPlan.Enabled = false;
             this.btnNuevoPlan.Enabled = false;
+            this.chkVigencia.Enabled = true;
+
+            this.btnEditarPlan.Enabled = false;
 
         }
     }
