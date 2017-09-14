@@ -280,12 +280,12 @@ namespace COOPMEF
             if (this.dataGridView3.Visible == true)
             {
                 this.dataGridView3.Visible = false;
-                this.btnOtrosDatos.Text = "  Ver más";
+                this.btnVerMasSocio.Text = "  Ver más";
             }
             else
             {
                 this.dataGridView3.Visible = true;
-                this.btnOtrosDatos.Text = "     Ver menos";
+                this.btnVerMasSocio.Text = "     Ver menos";
             }
         }
 
@@ -345,6 +345,7 @@ namespace COOPMEF
 
         private void btnNuevoSocio_Click(object sender, EventArgs e)
         {
+            limpiarDatosGralesDeSocio();
             activarAltaSocio();
             //se agrega 31/8/2017
             lblEstadoActivo.Visible = true;
@@ -625,7 +626,7 @@ namespace COOPMEF
         }
 
         private void actualizarDatosGeneralesDelSocio(string estadoCivil, int edadd) {
-            this.lblNumeroSocio.Text = txtNroCobro.Text;
+            this.lblNumeroSocio.Text = txtNroSocio.Text;
             this.lblNombreSocio.Text = txtNombres.Text;
             this.lblApellidosSocio.Text = txtApellidos.Text;
             this.lblFechaNacSocio.Text = dtpFechaNac.Value.ToShortDateString();
@@ -695,14 +696,16 @@ namespace COOPMEF
                 formatoMailOK = false;
             }
 
-            if (formatoCiOK && formatoMailOK && obligatoriosOk && duplicadosOK)
+            DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
+            DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
+            bool fechasOK = compararFechas(fnac, fing);
+
+            if (formatoCiOK && formatoMailOK && obligatoriosOk && duplicadosOK && fechasOK)
             {
                 valido = true;
             }
 
-            DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
-            DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
-            valido = compararFechas(fnac, fing);
+            
 
             //****************
             if (valido)
@@ -762,26 +765,26 @@ namespace COOPMEF
 
             if (this.idSocioSeleccionado != 0)
             {
-                bool valido = true;
+                //bool valido = true;
                 bool duplicadosOK = true;
 
                 borrarErroresNuevoSocio();
 
                 // Control de campos obligatorios 
-                valido = camposObligatoriosSocio();
+                bool camposObligatoriosOK = camposObligatoriosSocio();
 
                 // Control de duplicado para nroSocio, nroCobro, tel y mail de socio. Se hace en memoria y luego a nivel de BD
                 //int index = this.cmbBusqueda.SelectedIndex;
                 // OJOOOOOO  valido = controlSociosDuplicados();
 
-                //bool formatoMailOK = true;
+                bool formatoMailOK = true;
                 Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
                 if (!regex.IsMatch(txtEmail.Text))
                 {
                     this.lblEmailFormatoInvalido.Visible = true;
                     this.lblFormatoInvalido.Visible = true;
                     //this.lblEmailFormatoInvalido.Text = "Formato inválido";
-                    valido = false;
+                    formatoMailOK = false;
                 }
 
                 string nro_socio = this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim();
@@ -812,7 +815,7 @@ namespace COOPMEF
                 {
                     this.lblNroSocioFormatoInvalido.Visible = true;
                     this.lblFormatoInvalido.Visible = true;
-                    valido = false;
+                    //valido = false;
                 }
 
                 int id_socio = this.idSocioSeleccionado;
@@ -823,9 +826,9 @@ namespace COOPMEF
 
                 DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
                 DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
-                valido = compararFechas(fnac, fing);
+                bool fechasOK = compararFechas(fnac, fing);
 
-                if (valido && duplicadosOK)
+                if (formatoMailOK && camposObligatoriosOK && formatoCiOK && duplicadosOK && fechasOK)
                 {
                     try
                     {
@@ -1154,13 +1157,22 @@ namespace COOPMEF
 
         private void btnCancelarSocio_Click(object sender, EventArgs e)
         {
-            //pantallaInicialSocio();
+            if (!(dgvSociosCampo.CurrentRow == null))
+            {
+                seleccionarSocioYllenarDataGrid();
+                //btnNuevoSocio.Enabled = true;
+            }
+            else
+            {
+                pantallaInicialSocio();
+                btnNuevoSocio.Enabled = true;
+            }
 
-            desactivarAltaSocio();
-            this.btnNuevoSocio.Enabled = true;
-            this.btnEditarSocio.Enabled = true;
-            this.btnVerMasSocio.Enabled = true;
-            this.btnEliminarSocio.Enabled = true;
+            activarAltaSocio();
+            //this.btnNuevoSocio.Enabled = true;
+            //this.btnEditarSocio.Enabled = true;
+            //this.btnVerMasSocio.Enabled = true;
+            //this.btnEliminarSocio.Enabled = true;
         }
 
         private void seleccionarSocio()
@@ -1173,8 +1185,8 @@ namespace COOPMEF
             if (index != -1)
             {
 
-                lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
-                lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
+                lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
+                lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
                 lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
                 lblFechaNacSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
                 lblFechaIngresoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
@@ -1295,11 +1307,44 @@ namespace COOPMEF
 
         }
 
-        private void btnSeleccionarSocio_Click(object sender, EventArgs e)
-        {
+        private void cargarDatosGralesDesdeDataGrid() { 
+            int index = dgvSociosCampo.CurrentRow.Index;
+            //int index = 0;
+            if (index != -1)
+            {
+
+                lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
+                lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
+                lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
+                lblFechaNacSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
+                lblFechaIngresoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
+                lblEstadoCivilSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
+                lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+                lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
+            }
+        
+        }
+
+        private void limpiarDatosGralesDeSocio() {
+            lblNumeroSocio.Text = "";
+            lblNombreSocio.Text = "";
+            lblApellidosSocio.Text = "";
+            lblFechaNacSocio.Text = "";
+            lblFechaIngresoSocio.Text = "";
+            lblEstadoCivilSocio.Text = "";
+            lblEdadSocio.Text = "";
+            lblTelefonoSocio.Text = "";
+        
+        
+        }
+
+        private void seleccionarSocioYllenarDataGrid() {
             if (!(dgvSociosCampo.CurrentRow == null))
             {
                 seleccionarSocio();
+                //int index = dgvSociosCampo.CurrentRow.Index;
+                //int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
+                //cambiarBotonBajaAlta(estadoActual);
 
 
             }
@@ -1318,6 +1363,36 @@ namespace COOPMEF
             this.btnEliminarSocio.Enabled = true;
             this.btnVerMasSocio.Enabled = true;
             this.btnCancelarSocio.Enabled = true;
+        
+        
+        
+        }
+
+        private void btnSeleccionarSocio_Click(object sender, EventArgs e)
+        {
+
+            seleccionarSocioYllenarDataGrid();
+            //if (!(dgvSociosCampo.CurrentRow == null))
+            //{
+            //    seleccionarSocio();
+
+
+            //}
+
+            //int index = dgvSociosCampo.CurrentRow.Index;
+            //int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
+
+
+            ////int estadoActual = definirEstado();
+            ////dejarPantallaComoAlInicio();
+            //desactivarAltaSocio();
+            //cambiarBotonBajaAlta(estadoActual);
+            //definirEstado();
+            //borrarErroresNuevoSocio();
+            //this.btnEditarSocio.Enabled = true;
+            //this.btnEliminarSocio.Enabled = true;
+            //this.btnVerMasSocio.Enabled = true;
+            //this.btnCancelarSocio.Enabled = true;
 
         }
 
@@ -1385,6 +1460,37 @@ namespace COOPMEF
             this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
             this.cmbPlanPréstamo.ValueMember = "plan_id";
              
+        }
+
+        private void dgvSociosCampo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            
+        }
+
+        private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            cargarDatosGralesDesdeDataGrid();
+        }
+
+        private void dgvSociosCampo_CursorChanged(object sender, EventArgs e)
+        {
+            //cargarDatosGralesDesdeDataGrid();
+        }
+
+        private void dgvSociosCampo_RowEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            
+            //cargarDatosGralesDesdeDataGrid();
+        }
+
+        private void tbcPestanas_SizeChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tbcPestanas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //cargarDatosGralesDesdeDataGrid();
         }
     }
 }

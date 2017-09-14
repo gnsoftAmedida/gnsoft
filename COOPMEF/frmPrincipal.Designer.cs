@@ -556,6 +556,8 @@
             resources.ApplyResources(this.tbcPestanas, "tbcPestanas");
             this.tbcPestanas.Name = "tbcPestanas";
             this.tbcPestanas.SelectedIndex = 0;
+            this.tbcPestanas.SelectedIndexChanged += new System.EventHandler(this.tbcPestanas_SelectedIndexChanged);
+            this.tbcPestanas.SizeChanged += new System.EventHandler(this.tbcPestanas_SizeChanged);
             this.tbcPestanas.Click += new System.EventHandler(this.cargarPlanPrestamos);
             // 
             // tabBusqueda
@@ -574,7 +576,11 @@
             this.dgvSociosCampo.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
             this.dgvSociosCampo.Name = "dgvSociosCampo";
+            this.dgvSociosCampo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellClick);
+            this.dgvSociosCampo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentClick);
             this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
+            this.dgvSociosCampo.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_RowEnter);
+            this.dgvSociosCampo.CursorChanged += new System.EventHandler(this.dgvSociosCampo_CursorChanged);
             // 
             // btnSalirPlan
             // 
