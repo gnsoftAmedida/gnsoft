@@ -163,7 +163,7 @@ namespace COOPMEF
             return false;
         }
 
-        
+
 
         private void desactivarAltaSocio()
         {
@@ -602,7 +602,7 @@ namespace COOPMEF
                 lblErrorFechas.Text = "Fecha de nac >= fecha ing";
                 valido = false;
             }
-            
+
 
             if (comparaFechaToday >= 0)
             {
@@ -612,7 +612,7 @@ namespace COOPMEF
                 lblErrorFechas.Text = "Fecha de nac >= fecha actual";
                 valido = false;
             }
-            
+
             if (comparaFechaIngMenorHoy > 0)
             {
 
@@ -621,11 +621,12 @@ namespace COOPMEF
                 lblErrorFechas.Text = "Fecha de ing > fecha actual";
                 valido = false;
             }
-           
+
             return valido;
         }
 
-        private void actualizarDatosGeneralesDelSocio(string estadoCivil, int edadd) {
+        private void actualizarDatosGeneralesDelSocio(string estadoCivil, int edadd)
+        {
             this.lblNumeroSocio.Text = txtNroSocio.Text;
             this.lblNombreSocio.Text = txtNombres.Text;
             this.lblApellidosSocio.Text = txtApellidos.Text;
@@ -634,8 +635,8 @@ namespace COOPMEF
             this.lblEstadoCivilSocio.Text = estadoCivil.ToString();
             this.lblEdadSocio.Text = edadd.ToString();
             this.lblTelefonoSocio.Text = txtTelefono.Text;
-        
-        
+
+
         }
 
         private void nuevoSocio()
@@ -705,7 +706,7 @@ namespace COOPMEF
                 valido = true;
             }
 
-            
+
 
             //****************
             if (valido)
@@ -724,9 +725,9 @@ namespace COOPMEF
                     string nroCobro = txtNroCobro.Text;
                     int edadd = EdadPersona(fnac);
                     //lblEdadSocio.Text = edadd.ToString();
-                    if (edadd > edadDeRiesgo) 
+                    if (edadd > edadDeRiesgo)
                         lblEdadSocio.ForeColor = Color.Red;
-                    else 
+                    else
                         lblEdadSocio.ForeColor = Color.Blue;
 
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
@@ -860,7 +861,7 @@ namespace COOPMEF
                         //*******
 
                         actualizarDatosGeneralesDelSocio(estado_civil, edadd);
-                        
+
                         //*****
 
 
@@ -1307,7 +1308,8 @@ namespace COOPMEF
 
         }
 
-        private void cargarDatosGralesDesdeDataGrid() { 
+        private void cargarDatosGralesDesdeDataGrid()
+        {
             int index = dgvSociosCampo.CurrentRow.Index;
             //int index = 0;
             if (index != -1)
@@ -1322,10 +1324,11 @@ namespace COOPMEF
                 lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
                 lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
             }
-        
+
         }
 
-        private void limpiarDatosGralesDeSocio() {
+        private void limpiarDatosGralesDeSocio()
+        {
             lblNumeroSocio.Text = "";
             lblNombreSocio.Text = "";
             lblApellidosSocio.Text = "";
@@ -1334,11 +1337,12 @@ namespace COOPMEF
             lblEstadoCivilSocio.Text = "";
             lblEdadSocio.Text = "";
             lblTelefonoSocio.Text = "";
-        
-        
+
+
         }
 
-        private void seleccionarSocioYllenarDataGrid() {
+        private void seleccionarSocioYllenarDataGrid()
+        {
             if (!(dgvSociosCampo.CurrentRow == null))
             {
                 seleccionarSocio();
@@ -1363,9 +1367,9 @@ namespace COOPMEF
             this.btnEliminarSocio.Enabled = true;
             this.btnVerMasSocio.Enabled = true;
             this.btnCancelarSocio.Enabled = true;
-        
-        
-        
+
+
+
         }
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
@@ -1444,10 +1448,15 @@ namespace COOPMEF
         {
             Socio tmpSocio = new Socio();
             tmpSocio.Socio_id = this.idSocioSeleccionado;
-            //(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
-          double resultado = empresa.AmortCuota(3,5,10,100);
+
+
+
             empresa.AltaPrestamo(tmpSocio, "Prueba", DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-            MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
+
+            //(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+            //  double resultado = empresa.AmortCuota(3,5,10,100);
+
+            //   MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
         }
 
 
@@ -1459,12 +1468,6 @@ namespace COOPMEF
             this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
             this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
             this.cmbPlanPréstamo.ValueMember = "plan_id";
-             
-        }
-
-        private void dgvSociosCampo_CellContentClick(object sender, DataGridViewCellEventArgs e)
-        {
-            
         }
 
         private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1472,25 +1475,69 @@ namespace COOPMEF
             cargarDatosGralesDesdeDataGrid();
         }
 
-        private void dgvSociosCampo_CursorChanged(object sender, EventArgs e)
+        private void CalcularImporteCuota(object sender, EventArgs e)
         {
-            //cargarDatosGralesDesdeDataGrid();
+            if (!(txtNuevoImporte.Text.Trim() == ""))
+            {
+                if (esDecimal(txtNuevoImporte.Text.Replace(".", ",")))
+                {
+                    int index = this.cmbPlanPréstamo.SelectedIndex;
+                    int idPrestamo = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString());
+                    int cantidadCuotas = 0;
+                    double tasaAnualEfectivaSinIVA = 0;
+                    double iva = 0;
+
+                    for (int i = 0; i < dsPlanes.Tables["planprestamo"].Rows.Count; i++)
+                    {
+                        if (idPrestamo == Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][0].ToString()))
+                        {
+                            cantidadCuotas = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][1].ToString());
+                            tasaAnualEfectivaSinIVA = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[i][2].ToString());
+                            iva = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[i][3].ToString());
+                        }
+                    }
+
+                     //   double intereses = empresa.CalculoInteres(0, cantidadCuotas, tasaAnualEfectiva, iva);
+                  //  MessageBox.Show(intereses.ToString());
+
+                    double tasaConIva= (Math.Pow( (1 + (tasaAnualEfectivaSinIVA / 100)), Convert.ToDouble(Decimal.Divide(1,12)))) * ((iva / 100)+1);
+
+
+                    double cuota = empresa.Cuota(tasaConIva, cantidadCuotas, Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")));
+                    txtImporteCuota.Text = cuota.ToString();
+                }
+                else
+                {
+                    txtImporteCuota.Text = "0.00";
+                }
+            }
+
+
         }
 
-        private void dgvSociosCampo_RowEnter(object sender, DataGridViewCellEventArgs e)
+
+        public bool esDecimal(string nroPrueba)
         {
-            
-            //cargarDatosGralesDesdeDataGrid();
+            double resultado = 0;
+            Boolean esDouble = double.TryParse(nroPrueba, out resultado);
+
+            Boolean esPositivo = false;
+
+            if (esDouble)
+            {
+
+                if (resultado > 0)
+                {
+                    esPositivo = true;
+                }
+            }
+
+            return esDouble && esPositivo;
         }
 
-        private void tbcPestanas_SizeChanged(object sender, EventArgs e)
+        private void CalcularImporteCuota()
         {
 
-        }
-
-        private void tbcPestanas_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //cargarDatosGralesDesdeDataGrid();
         }
     }
 }
