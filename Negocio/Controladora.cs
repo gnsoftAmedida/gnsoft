@@ -619,7 +619,7 @@ namespace Negocio
 
             tasa = tasa + 100; //ejemp. 60 + 100 = 160
             tasa = tasa / 100; //ejemp. 160 / 100 = 1.60
-            tasa = Math.Pow(tasa, (1 / 12)) - 1; //esta es la tasa mensual;
+            tasa = Math.Pow(tasa, Convert.ToDouble(Decimal.Divide(1, 12))) - 1; //esta es la tasa mensual;
 
             if ((CantidadCuotas - NroCuota) == 0)
             {

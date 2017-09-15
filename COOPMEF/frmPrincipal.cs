@@ -27,6 +27,17 @@ namespace COOPMEF
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
 
+        // ############################ VARIABLES PRESTAMO ############################
+        int cantidadCuotas = 0;
+        double tasaAnualEfectivaSinIVA = 0;
+        double iva = 0;
+        double totalDeuda = 0;
+        double tasaConIva = 0;
+        double cuota = 0;
+        bool prestamoCorrecto;
+        string nro_socio = "";
+        //#############################################################################
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -1446,17 +1457,32 @@ namespace COOPMEF
 
         private void btnGuardarPrestamo_Click(object sender, EventArgs e)
         {
-            Socio tmpSocio = new Socio();
-            tmpSocio.Socio_id = this.idSocioSeleccionado;
+            if (!(idSocioSeleccionado == 0))
+            {
+                if (prestamoCorrecto)
+                {
+                    Socio tmpSocio = new Socio();
+                    tmpSocio.Socio_id = this.idSocioSeleccionado;
 
+                    double amortizacionVencer = empresa.AmortVencer(tasaConIva, cantidadCuotas, 0, cuota);
 
+                    double interesesVencer = empresa.IntVencer(cuota, cantidadCuotas, 0, amortizacionVencer);
 
-            empresa.AltaPrestamo(tmpSocio, "Prueba", DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+                    //(Socio.Socio_id,  Socio_nro, Fecha, Hora, Monteopedido, Tasa,Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+                    empresa.AltaPrestamo(tmpSocio, nro_socio, DateTime.Now, DateTime.Now, totalDeuda, tasaConIva, cantidadCuotas, cuota, 0, 0, amortizacionVencer, interesesVencer, cantidadCuotas, 0, 0, 0, 0);
 
-                         //(Socio.Socio_id,  Socio_nro, Fecha, Hora,       Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
-            //  double resultado = empresa.AmortCuota(3,5,10,100);
+                    MessageBox.Show("Préstamo Ingresado Correctamente");
 
-            //   MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
+                }
+                else
+                {
+                    MessageBox.Show("Verifique el monto solicitado para poder hacer el préstamo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un socio");
+            }
         }
 
 
@@ -1483,9 +1509,7 @@ namespace COOPMEF
                 {
                     int index = this.cmbPlanPréstamo.SelectedIndex;
                     int idPrestamo = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString());
-                    int cantidadCuotas = 0;
-                    double tasaAnualEfectivaSinIVA = 0;
-                    double iva = 0;
+
 
                     for (int i = 0; i < dsPlanes.Tables["planprestamo"].Rows.Count; i++)
                     {
@@ -1497,15 +1521,41 @@ namespace COOPMEF
                         }
                     }
 
-                    double tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
-                    double cuota = empresa.Cuota(tasaConIva, cantidadCuotas, Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")));
-                   
-                    txtImporteCuota.Text = cuota.ToString();
+                    for (int i = 0; i < dsSociosPorCampo.Tables["socios"].Rows.Count; i++)
+                    {
+                        if (this.idSocioSeleccionado == Convert.ToInt32(dsSociosPorCampo.Tables["socios"].Rows[i][0].ToString()))
+                        {
+                            nro_socio = dsSociosPorCampo.Tables["socios"].Rows[i][2].ToString();
+                        }
+                    }
+
+
+                    tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
+
                     txtTotalDeuda.Text = txtNuevoImporte.Text;
+
+                    totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
+
+                    cuota = empresa.Cuota(tasaConIva, cantidadCuotas, totalDeuda);
+
+                    txtImporteCuota.Text = cuota.ToString();
+
+                    prestamoCorrecto = true;
+
+
                 }
                 else
                 {
                     txtImporteCuota.Text = "0.00";
+                    txtTotalDeuda.Text = "0.00";
+                    cantidadCuotas = 0;
+                    tasaAnualEfectivaSinIVA = 0;
+                    iva = 0;
+                    totalDeuda = 0;
+                    tasaConIva = 0;
+                    cuota = 0;
+                    prestamoCorrecto = false;
+                    nro_socio = "";
                 }
             }
         }
