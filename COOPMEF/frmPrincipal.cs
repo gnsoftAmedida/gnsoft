@@ -1453,7 +1453,7 @@ namespace COOPMEF
 
             empresa.AltaPrestamo(tmpSocio, "Prueba", DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
 
-            //(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+                         //(Socio.Socio_id,  Socio_nro, Fecha, Hora,       Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
             //  double resultado = empresa.AmortCuota(3,5,10,100);
 
             //   MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
@@ -1475,7 +1475,7 @@ namespace COOPMEF
             cargarDatosGralesDesdeDataGrid();
         }
 
-        private void CalcularImporteCuota(object sender, EventArgs e)
+        private void CalcularImporteCuota()
         {
             if (!(txtNuevoImporte.Text.Trim() == ""))
             {
@@ -1497,22 +1497,17 @@ namespace COOPMEF
                         }
                     }
 
-                     //   double intereses = empresa.CalculoInteres(0, cantidadCuotas, tasaAnualEfectiva, iva);
-                  //  MessageBox.Show(intereses.ToString());
-
-                    double tasaConIva= (Math.Pow( (1 + (tasaAnualEfectivaSinIVA / 100)), Convert.ToDouble(Decimal.Divide(1,12)))) * ((iva / 100)+1);
-
-
+                    double tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
                     double cuota = empresa.Cuota(tasaConIva, cantidadCuotas, Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")));
+                   
                     txtImporteCuota.Text = cuota.ToString();
+                    txtTotalDeuda.Text = txtNuevoImporte.Text;
                 }
                 else
                 {
                     txtImporteCuota.Text = "0.00";
                 }
             }
-
-
         }
 
 
@@ -1535,9 +1530,14 @@ namespace COOPMEF
             return esDouble && esPositivo;
         }
 
-        private void CalcularImporteCuota()
+        private void cmbPlanPréstamo_SelectedIndexChanged(object sender, EventArgs e)
         {
+            CalcularImporteCuota();
+        }
 
+        private void txtNuevoImporte_Leave(object sender, EventArgs e)
+        {
+            CalcularImporteCuota();
         }
     }
 }

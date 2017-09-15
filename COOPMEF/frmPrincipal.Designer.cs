@@ -1224,6 +1224,7 @@
             this.cmbPlanPréstamo.FormattingEnabled = true;
             resources.ApplyResources(this.cmbPlanPréstamo, "cmbPlanPréstamo");
             this.cmbPlanPréstamo.Name = "cmbPlanPréstamo";
+            this.cmbPlanPréstamo.SelectedIndexChanged += new System.EventHandler(this.cmbPlanPréstamo_SelectedIndexChanged);
             // 
             // txtImporteCuota
             // 
@@ -1241,7 +1242,7 @@
             // 
             resources.ApplyResources(this.txtNuevoImporte, "txtNuevoImporte");
             this.txtNuevoImporte.Name = "txtNuevoImporte";
-            this.txtNuevoImporte.Leave += new System.EventHandler(this.CalcularImporteCuota);
+            this.txtNuevoImporte.Leave += new System.EventHandler(this.txtNuevoImporte_Leave);
             // 
             // label17
             // 
