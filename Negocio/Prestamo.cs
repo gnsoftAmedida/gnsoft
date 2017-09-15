@@ -141,5 +141,12 @@ namespace Negocio
             pPrestamo tmpPrestamo = new pPrestamo();
             tmpPrestamo.GuardarPrestamo(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
         }
+
+          public DataSet devolverPrestamoActivoSocio(int idSocio)
+        {
+            pPrestamo tmpOficina = new pPrestamo();
+            DataSet prestamoActivo = tmpOficina.devolverPrestamoActivoSocio(idSocio);
+            return prestamoActivo;
+        }
     }
 }

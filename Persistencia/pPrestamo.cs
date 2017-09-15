@@ -12,6 +12,32 @@ namespace Persistencia
 {
     public class pPrestamo : CapaDatos
     {
+
+        public DataSet devolverPrestamoActivoSocio(int idSocio)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT * FROM prestamo where socio_id =" + idSocio + " and anulado=0";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "prestamoActivoSocio");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public void GuardarPrestamo(int id_socio,
                                     string socio_nro,
                                     DateTime fecha,

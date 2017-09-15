@@ -696,5 +696,12 @@ namespace Negocio
         {
             return (tasaAnualEfectivaSinIVA * ((iva + 100) / 100));
         }
+
+        public DataSet devolverPrestamoActivoSocio(int idSocio)
+        {
+            Prestamo tmpPrestamo = new Prestamo();
+            DataSet prestamoActivo = tmpPrestamo.devolverPrestamoActivoSocio(idSocio);
+            return prestamoActivo;
+        }
     }
 }

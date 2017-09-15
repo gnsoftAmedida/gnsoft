@@ -1494,6 +1494,9 @@ namespace COOPMEF
             this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
             this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
             this.cmbPlanPréstamo.ValueMember = "plan_id";
+
+            // Continuar buscando el préstamo activo
+             empresa.devolverPrestamoActivoSocio(idSocioSeleccionado);
         }
 
         private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)
