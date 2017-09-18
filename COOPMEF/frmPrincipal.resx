@@ -2740,7 +2740,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnGuardarPrestamo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>429, 374</value>
+    <value>337, 374</value>
   </data>
   <data name="btnGuardarPrestamo.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 26</value>
@@ -2800,7 +2800,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancelarPrestamo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>338, 374</value>
+    <value>440, 374</value>
   </data>
   <data name="btnCancelarPrestamo.Size" type="System.Drawing.Size, System.Drawing">
     <value>85, 26</value>
@@ -3084,6 +3084,9 @@
   <data name="txtInteresesAVencer.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 263</value>
   </data>
+  <data name="txtInteresesAVencer.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="txtInteresesAVencer.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
   </data>
@@ -3104,6 +3107,9 @@
   </data>
   <data name="txtTasa.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 127</value>
+  </data>
+  <data name="txtTasa.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="txtTasa.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
@@ -3126,6 +3132,9 @@
   <data name="txtMonto.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 157</value>
   </data>
+  <data name="txtMonto.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="txtMonto.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
   </data>
@@ -3146,6 +3155,9 @@
   </data>
   <data name="txtImporteCuotaPendiente.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 189</value>
+  </data>
+  <data name="txtImporteCuotaPendiente.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="txtImporteCuotaPendiente.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
@@ -3168,6 +3180,9 @@
   <data name="txtAmortización.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 223</value>
   </data>
+  <data name="txtAmortización.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="txtAmortización.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
   </data>
@@ -3188,6 +3203,9 @@
   </data>
   <data name="txtPagas.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 98</value>
+  </data>
+  <data name="txtPagas.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="txtPagas.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
@@ -3210,6 +3228,9 @@
   <data name="txtCuotas.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 66</value>
   </data>
+  <data name="txtCuotas.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
   <data name="txtCuotas.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
   </data>
@@ -3230,6 +3251,9 @@
   </data>
   <data name="txtNroPréstamo.Location" type="System.Drawing.Point, System.Drawing">
     <value>144, 32</value>
+  </data>
+  <data name="txtNroPréstamo.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
   </data>
   <data name="txtNroPréstamo.Size" type="System.Drawing.Size, System.Drawing">
     <value>118, 22</value>
@@ -5233,7 +5257,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>727, 645</value>
+    <value>727, 637</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

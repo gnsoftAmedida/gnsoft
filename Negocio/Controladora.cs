@@ -471,7 +471,7 @@ namespace Negocio
                                  double interesesVencer,
                                  int cuotasPactadas,
                                  int cuotasPagadas,
-                                 int cuotaAnt,
+                                 double cuotaAnt,
                                  double tasaanterior,
                                  int anulado)
         {
@@ -494,9 +494,15 @@ namespace Negocio
             tmpPrestamo.CuotaAnt = cuotaAnt;
             tmpPrestamo.Tasaanterior = tasaanterior;
             tmpPrestamo.Anulado = anulado;
+
+
+            if (!(tmpPrestamo.NumeroPrestamoAnt == 0))
+            {
+                tmpPrestamo.anularPrestamo(tmpPrestamo.NumeroPrestamoAnt);
+            }
+
             tmpPrestamo.Guardar();
         }
-
 
         public DateTime VtoPrimerCuota(DateTime Fecha)
         {

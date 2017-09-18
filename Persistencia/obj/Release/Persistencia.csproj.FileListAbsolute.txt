@@ -12,10 +12,3 @@ C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persi
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\obj\Release\ResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\obj\Release\Persistencia.dll
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Persistencia\obj\Release\Persistencia.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Release\Persistencia.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Release\Persistencia.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Release\Utilidades.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Release\Utilidades.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Release\Persistencia.csprojResolveAssemblyReference.cache
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Release\Persistencia.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Release\Persistencia.pdb

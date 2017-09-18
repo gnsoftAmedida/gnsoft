@@ -24,7 +24,7 @@ namespace Negocio
         private double interesesVencer;
         private int cuotasPactadas;
         private int cuotasPagadas;
-        private int cuotaAnt;
+        private double cuotaAnt;
         private double tasaanterior;
         private int anulado;
 
@@ -118,7 +118,7 @@ namespace Negocio
             set { cuotasPagadas = value; }
         }
 
-        public int CuotaAnt
+        public double CuotaAnt
         {
             get { return cuotaAnt; }
             set { cuotaAnt = value; }
@@ -142,11 +142,17 @@ namespace Negocio
             tmpPrestamo.GuardarPrestamo(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
         }
 
-          public DataSet devolverPrestamoActivoSocio(int idSocio)
+        public DataSet devolverPrestamoActivoSocio(int idSocio)
         {
-            pPrestamo tmpOficina = new pPrestamo();
-            DataSet prestamoActivo = tmpOficina.devolverPrestamoActivoSocio(idSocio);
+            pPrestamo tmpPrestamo = new pPrestamo();
+            DataSet prestamoActivo = tmpPrestamo.devolverPrestamoActivoSocio(idSocio);
             return prestamoActivo;
+        }
+
+        public void anularPrestamo(int nroPrestamo)
+        {
+            pPrestamo tmpPrestamo = new pPrestamo();
+            tmpPrestamo.anularPrestamo(nroPrestamo);
         }
     }
 }

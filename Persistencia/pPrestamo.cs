@@ -38,6 +38,61 @@ namespace Persistencia
         }
 
 
+        public void anularPrestamo(int nroPrestamo)
+        {
+
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            string sql = "UPDATE prestamo SET anulado = 1 WHERE prestamo_id = " + nroPrestamo ;
+
+            try
+            {
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                MySqlAdapter.UpdateCommand = connection.CreateCommand();
+                MySqlAdapter.UpdateCommand.Transaction = transaction;
+
+                MySqlAdapter.UpdateCommand.CommandText = sql;
+                MySqlAdapter.UpdateCommand.ExecuteNonQuery();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+
+                switch (ex.Number)
+                {
+                    case 1406:
+                        MisExcepciones ep = new MisExcepciones("Datos muy largos");
+                        throw ep;
+
+                    //case 1062:
+                    //    MisExcepciones es = new MisExcepciones("Ya exíste el Socio");
+                    //    throw es;
+
+                    //case 1451:
+                    //    MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten prestamos asociadas ");
+                    //    throw fk;
+                }
+
+                MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
+                throw eg;
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+                throw ex;
+            }
+        }
+
+
         public void GuardarPrestamo(int id_socio,
                                     string socio_nro,
                                     DateTime fecha,
@@ -52,7 +107,7 @@ namespace Persistencia
                                     double interesesVencer,
                                     int cuotasPactadas,
                                     int cuotasPagadas,
-                                    int cuotaAnt,
+                                    double cuotaAnt,
                                     double tasaanterior,
                                     int anulado)
         {

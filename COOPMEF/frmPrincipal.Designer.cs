@@ -1182,7 +1182,7 @@
             resources.ApplyResources(this.btnGuardarPrestamo, "btnGuardarPrestamo");
             this.btnGuardarPrestamo.Name = "btnGuardarPrestamo";
             this.btnGuardarPrestamo.UseVisualStyleBackColor = true;
-            this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click);
+            this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click_1);
             // 
             // btnSalirPrestamo
             // 
@@ -1290,41 +1290,49 @@
             // 
             resources.ApplyResources(this.txtInteresesAVencer, "txtInteresesAVencer");
             this.txtInteresesAVencer.Name = "txtInteresesAVencer";
+            this.txtInteresesAVencer.ReadOnly = true;
             // 
             // txtTasa
             // 
             resources.ApplyResources(this.txtTasa, "txtTasa");
             this.txtTasa.Name = "txtTasa";
+            this.txtTasa.ReadOnly = true;
             // 
             // txtMonto
             // 
             resources.ApplyResources(this.txtMonto, "txtMonto");
             this.txtMonto.Name = "txtMonto";
+            this.txtMonto.ReadOnly = true;
             // 
             // txtImporteCuotaPendiente
             // 
             resources.ApplyResources(this.txtImporteCuotaPendiente, "txtImporteCuotaPendiente");
             this.txtImporteCuotaPendiente.Name = "txtImporteCuotaPendiente";
+            this.txtImporteCuotaPendiente.ReadOnly = true;
             // 
             // txtAmortización
             // 
             resources.ApplyResources(this.txtAmortización, "txtAmortización");
             this.txtAmortización.Name = "txtAmortización";
+            this.txtAmortización.ReadOnly = true;
             // 
             // txtPagas
             // 
             resources.ApplyResources(this.txtPagas, "txtPagas");
             this.txtPagas.Name = "txtPagas";
+            this.txtPagas.ReadOnly = true;
             // 
             // txtCuotas
             // 
             resources.ApplyResources(this.txtCuotas, "txtCuotas");
             this.txtCuotas.Name = "txtCuotas";
+            this.txtCuotas.ReadOnly = true;
             // 
             // txtNroPréstamo
             // 
             resources.ApplyResources(this.txtNroPréstamo, "txtNroPréstamo");
             this.txtNroPréstamo.Name = "txtNroPréstamo";
+            this.txtNroPréstamo.ReadOnly = true;
             // 
             // label14
             // 
@@ -1380,11 +1388,13 @@
             // 
             resources.ApplyResources(this.txtInciso, "txtInciso");
             this.txtInciso.Name = "txtInciso";
+            this.txtInciso.ReadOnly = true;
             // 
             // txtOficina
             // 
             resources.ApplyResources(this.txtOficina, "txtOficina");
             this.txtOficina.Name = "txtOficina";
+            this.txtOficina.ReadOnly = true;
             // 
             // lblOficina
             // 
