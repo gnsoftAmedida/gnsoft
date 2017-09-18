@@ -556,8 +556,7 @@
             resources.ApplyResources(this.tbcPestanas, "tbcPestanas");
             this.tbcPestanas.Name = "tbcPestanas";
             this.tbcPestanas.SelectedIndex = 0;
-            this.tbcPestanas.SelectedIndexChanged += new System.EventHandler(this.tbcPestanas_SelectedIndexChanged);
-            this.tbcPestanas.SizeChanged += new System.EventHandler(this.tbcPestanas_SizeChanged);
+            this.tbcPestanas.SelectedIndexChanged += new System.EventHandler(this.cargarPlanPrestamos);
             this.tbcPestanas.Click += new System.EventHandler(this.cargarPlanPrestamos);
             // 
             // tabBusqueda
@@ -577,10 +576,7 @@
             resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
             this.dgvSociosCampo.Name = "dgvSociosCampo";
             this.dgvSociosCampo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellClick);
-            this.dgvSociosCampo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentClick);
             this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
-            this.dgvSociosCampo.RowEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_RowEnter);
-            this.dgvSociosCampo.CursorChanged += new System.EventHandler(this.dgvSociosCampo_CursorChanged);
             // 
             // btnSalirPlan
             // 
@@ -1186,7 +1182,7 @@
             resources.ApplyResources(this.btnGuardarPrestamo, "btnGuardarPrestamo");
             this.btnGuardarPrestamo.Name = "btnGuardarPrestamo";
             this.btnGuardarPrestamo.UseVisualStyleBackColor = true;
-            this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click);
+            this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click_1);
             // 
             // btnSalirPrestamo
             // 
@@ -1224,24 +1220,29 @@
             // 
             // cmbPlanPréstamo
             // 
+            this.cmbPlanPréstamo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbPlanPréstamo.FormattingEnabled = true;
             resources.ApplyResources(this.cmbPlanPréstamo, "cmbPlanPréstamo");
             this.cmbPlanPréstamo.Name = "cmbPlanPréstamo";
+            this.cmbPlanPréstamo.SelectedIndexChanged += new System.EventHandler(this.cmbPlanPréstamo_SelectedIndexChanged);
             // 
             // txtImporteCuota
             // 
             resources.ApplyResources(this.txtImporteCuota, "txtImporteCuota");
             this.txtImporteCuota.Name = "txtImporteCuota";
+            this.txtImporteCuota.ReadOnly = true;
             // 
             // txtTotalDeuda
             // 
             resources.ApplyResources(this.txtTotalDeuda, "txtTotalDeuda");
             this.txtTotalDeuda.Name = "txtTotalDeuda";
+            this.txtTotalDeuda.ReadOnly = true;
             // 
             // txtNuevoImporte
             // 
             resources.ApplyResources(this.txtNuevoImporte, "txtNuevoImporte");
             this.txtNuevoImporte.Name = "txtNuevoImporte";
+            this.txtNuevoImporte.Leave += new System.EventHandler(this.txtNuevoImporte_Leave);
             // 
             // label17
             // 
@@ -1289,41 +1290,49 @@
             // 
             resources.ApplyResources(this.txtInteresesAVencer, "txtInteresesAVencer");
             this.txtInteresesAVencer.Name = "txtInteresesAVencer";
+            this.txtInteresesAVencer.ReadOnly = true;
             // 
             // txtTasa
             // 
             resources.ApplyResources(this.txtTasa, "txtTasa");
             this.txtTasa.Name = "txtTasa";
+            this.txtTasa.ReadOnly = true;
             // 
             // txtMonto
             // 
             resources.ApplyResources(this.txtMonto, "txtMonto");
             this.txtMonto.Name = "txtMonto";
+            this.txtMonto.ReadOnly = true;
             // 
             // txtImporteCuotaPendiente
             // 
             resources.ApplyResources(this.txtImporteCuotaPendiente, "txtImporteCuotaPendiente");
             this.txtImporteCuotaPendiente.Name = "txtImporteCuotaPendiente";
+            this.txtImporteCuotaPendiente.ReadOnly = true;
             // 
             // txtAmortización
             // 
             resources.ApplyResources(this.txtAmortización, "txtAmortización");
             this.txtAmortización.Name = "txtAmortización";
+            this.txtAmortización.ReadOnly = true;
             // 
             // txtPagas
             // 
             resources.ApplyResources(this.txtPagas, "txtPagas");
             this.txtPagas.Name = "txtPagas";
+            this.txtPagas.ReadOnly = true;
             // 
             // txtCuotas
             // 
             resources.ApplyResources(this.txtCuotas, "txtCuotas");
             this.txtCuotas.Name = "txtCuotas";
+            this.txtCuotas.ReadOnly = true;
             // 
             // txtNroPréstamo
             // 
             resources.ApplyResources(this.txtNroPréstamo, "txtNroPréstamo");
             this.txtNroPréstamo.Name = "txtNroPréstamo";
+            this.txtNroPréstamo.ReadOnly = true;
             // 
             // label14
             // 
@@ -1379,11 +1388,13 @@
             // 
             resources.ApplyResources(this.txtInciso, "txtInciso");
             this.txtInciso.Name = "txtInciso";
+            this.txtInciso.ReadOnly = true;
             // 
             // txtOficina
             // 
             resources.ApplyResources(this.txtOficina, "txtOficina");
             this.txtOficina.Name = "txtOficina";
+            this.txtOficina.ReadOnly = true;
             // 
             // lblOficina
             // 

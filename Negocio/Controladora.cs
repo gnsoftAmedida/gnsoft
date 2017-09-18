@@ -456,10 +456,10 @@ namespace Negocio
             tmpSocio.ModificarSocio();
         }
 
-//********************************************* PRESTAMOS***********************************
-        public void AltaPrestamo(Socio socio, 
+        //********************************************* PRESTAMOS***********************************
+        public void AltaPrestamo(Socio socio,
                                  string socio_nro,
-                                 DateTime fecha, 
+                                 DateTime fecha,
                                  DateTime hora,
                                  double monteopedido,
                                  double tasa,
@@ -471,7 +471,7 @@ namespace Negocio
                                  double interesesVencer,
                                  int cuotasPactadas,
                                  int cuotasPagadas,
-                                 int cuotaAnt,
+                                 double cuotaAnt,
                                  double tasaanterior,
                                  int anulado)
         {
@@ -494,11 +494,17 @@ namespace Negocio
             tmpPrestamo.CuotaAnt = cuotaAnt;
             tmpPrestamo.Tasaanterior = tasaanterior;
             tmpPrestamo.Anulado = anulado;
+
+
+            if (!(tmpPrestamo.NumeroPrestamoAnt == 0))
+            {
+                tmpPrestamo.anularPrestamo(tmpPrestamo.NumeroPrestamoAnt);
+            }
+
             tmpPrestamo.Guardar();
         }
-    
 
-       public DateTime VtoPrimerCuota(DateTime Fecha)
+        public DateTime VtoPrimerCuota(DateTime Fecha)
         {
             DateTime VtoPrimerCuota;
             DateTime FechaNueva;
@@ -619,7 +625,7 @@ namespace Negocio
 
             tasa = tasa + 100; //ejemp. 60 + 100 = 160
             tasa = tasa / 100; //ejemp. 160 / 100 = 1.60
-            tasa = Math.Pow(tasa, (1 / 12)) - 1; //esta es la tasa mensual;
+            tasa = Math.Pow(tasa, Convert.ToDouble(Decimal.Divide(1, 12))) - 1; //esta es la tasa mensual;
 
             if ((CantidadCuotas - NroCuota) == 0)
             {
@@ -650,7 +656,7 @@ namespace Negocio
 
             tasa = tasa + 100; //ejemp. 60 + 100 = 160
             tasa = tasa / 100; //ejemp. 160 / 100 = 1.60
-            tasa = Math.Pow(tasa, (1 / 12)) - 1; //esta es la tasa mensual;
+            tasa = Math.Pow(tasa, Convert.ToDouble(Decimal.Divide(1, 12))) - 1; //esta es la tasa mensual;
 
             Cuota = Convert.ToDouble(Strings.Format(Financial.Pmt(tasa, CantidadCuotas, -Capital), "##########.00"));
 
@@ -676,7 +682,7 @@ namespace Negocio
              * iva porcentaje de iva componente de la cuota 
             */
 
-            InteresMensual = Math.Pow(Wtasa, (1 / 12));
+            InteresMensual = Math.Pow(Wtasa, Convert.ToDouble(Decimal.Divide(1, 12)));
 
             if (NroCuotas == 1)
             {
@@ -690,6 +696,18 @@ namespace Negocio
                 CalculoInteres = ((InteresMensual - 1) / Wiva);
                 return Convert.ToDouble(Strings.Format(CalculoInteres, "##.#000000"));
             }
+        }
+
+        public double agregarleIvaAtasaAnual(double tasaAnualEfectivaSinIVA, double iva)
+        {
+            return (tasaAnualEfectivaSinIVA * ((iva + 100) / 100));
+        }
+
+        public DataSet devolverPrestamoActivoSocio(int idSocio)
+        {
+            Prestamo tmpPrestamo = new Prestamo();
+            DataSet prestamoActivo = tmpPrestamo.devolverPrestamoActivoSocio(idSocio);
+            return prestamoActivo;
         }
     }
 }

@@ -27,6 +27,22 @@ namespace COOPMEF
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
 
+        // ############################ VARIABLES PRESTAMO ############################
+        int cantidadCuotas = 0;
+        double tasaAnualEfectivaSinIVA = 0;
+        double iva = 0;
+        double totalDeuda = 0;
+        double tasaConIva = 0;
+        double cuota = 0;
+        bool prestamoCorrecto;
+        string nro_socio = "";
+        DataSet dsPrestamoActivo;
+        double cuotaAnteriorPrestamo;
+        double tasaAnteriorPrestamo;
+        int nro_prestamoAnterior;
+        double montoAnterior;
+        //#############################################################################
+
         public frmPrincipal()
         {
             InitializeComponent();
@@ -163,7 +179,7 @@ namespace COOPMEF
             return false;
         }
 
-        
+
 
         private void desactivarAltaSocio()
         {
@@ -602,7 +618,7 @@ namespace COOPMEF
                 lblErrorFechas.Text = "Fecha de nac >= fecha ing";
                 valido = false;
             }
-            
+
 
             if (comparaFechaToday >= 0)
             {
@@ -612,7 +628,7 @@ namespace COOPMEF
                 lblErrorFechas.Text = "Fecha de nac >= fecha actual";
                 valido = false;
             }
-            
+
             if (comparaFechaIngMenorHoy > 0)
             {
 
@@ -621,11 +637,12 @@ namespace COOPMEF
                 lblErrorFechas.Text = "Fecha de ing > fecha actual";
                 valido = false;
             }
-           
+
             return valido;
         }
 
-        private void actualizarDatosGeneralesDelSocio(string estadoCivil, int edadd) {
+        private void actualizarDatosGeneralesDelSocio(string estadoCivil, int edadd)
+        {
             this.lblNumeroSocio.Text = txtNroSocio.Text;
             this.lblNombreSocio.Text = txtNombres.Text;
             this.lblApellidosSocio.Text = txtApellidos.Text;
@@ -634,8 +651,8 @@ namespace COOPMEF
             this.lblEstadoCivilSocio.Text = estadoCivil.ToString();
             this.lblEdadSocio.Text = edadd.ToString();
             this.lblTelefonoSocio.Text = txtTelefono.Text;
-        
-        
+
+
         }
 
         private void nuevoSocio()
@@ -705,7 +722,7 @@ namespace COOPMEF
                 valido = true;
             }
 
-            
+
 
             //****************
             if (valido)
@@ -724,9 +741,9 @@ namespace COOPMEF
                     string nroCobro = txtNroCobro.Text;
                     int edadd = EdadPersona(fnac);
                     //lblEdadSocio.Text = edadd.ToString();
-                    if (edadd > edadDeRiesgo) 
+                    if (edadd > edadDeRiesgo)
                         lblEdadSocio.ForeColor = Color.Red;
-                    else 
+                    else
                         lblEdadSocio.ForeColor = Color.Blue;
 
                     int of = Convert.ToInt32(cmbOficina.SelectedValue);
@@ -860,7 +877,7 @@ namespace COOPMEF
                         //*******
 
                         actualizarDatosGeneralesDelSocio(estado_civil, edadd);
-                        
+
                         //*****
 
 
@@ -1307,7 +1324,8 @@ namespace COOPMEF
 
         }
 
-        private void cargarDatosGralesDesdeDataGrid() { 
+        private void cargarDatosGralesDesdeDataGrid()
+        {
             int index = dgvSociosCampo.CurrentRow.Index;
             //int index = 0;
             if (index != -1)
@@ -1322,10 +1340,11 @@ namespace COOPMEF
                 lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
                 lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
             }
-        
+
         }
 
-        private void limpiarDatosGralesDeSocio() {
+        private void limpiarDatosGralesDeSocio()
+        {
             lblNumeroSocio.Text = "";
             lblNombreSocio.Text = "";
             lblApellidosSocio.Text = "";
@@ -1334,11 +1353,12 @@ namespace COOPMEF
             lblEstadoCivilSocio.Text = "";
             lblEdadSocio.Text = "";
             lblTelefonoSocio.Text = "";
-        
-        
+
+
         }
 
-        private void seleccionarSocioYllenarDataGrid() {
+        private void seleccionarSocioYllenarDataGrid()
+        {
             if (!(dgvSociosCampo.CurrentRow == null))
             {
                 seleccionarSocio();
@@ -1363,9 +1383,9 @@ namespace COOPMEF
             this.btnEliminarSocio.Enabled = true;
             this.btnVerMasSocio.Enabled = true;
             this.btnCancelarSocio.Enabled = true;
-        
-        
-        
+
+
+
         }
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
@@ -1440,57 +1460,209 @@ namespace COOPMEF
             this.EstablecerColoresNotificaciones();
         }
 
-        private void btnGuardarPrestamo_Click(object sender, EventArgs e)
-        {
-            Socio tmpSocio = new Socio();
-            tmpSocio.Socio_id = this.idSocioSeleccionado;
-            //(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
-          double resultado = empresa.AmortCuota(3,5,10,100);
-            empresa.AltaPrestamo(tmpSocio, "Prueba", DateTime.Now, DateTime.Now, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-            MessageBox.Show("Aunque precario el préstamo se guarda. Amortización de Prueba: Tasa 3% , cuota 5, 10 cuotas toal, Capital $100 Resultado: " +  resultado);
-        }
-
-
         public void cargarPlanPrestamos(object sender, EventArgs e)
         {
-
-            //Cargar combo préstamos
-            dsPlanes = empresa.DevolverPlanesActivos();
-            this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
-            this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
-            this.cmbPlanPréstamo.ValueMember = "plan_id";
-             
+            cargarPlanPrestamoSocio();
         }
 
-        private void dgvSociosCampo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        public void cargarPlanPrestamoSocio()
         {
-            
+
+            if (tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabPrestamo"])
+            {
+                //Cargar combo préstamos
+                dsPlanes = empresa.DevolverPlanesActivos();
+                this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
+                this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
+                this.cmbPlanPréstamo.ValueMember = "plan_id";
+
+                if (!(idSocioSeleccionado == 0))
+                {
+                    dsPrestamoActivo = empresa.devolverPrestamoActivoSocio(idSocioSeleccionado);
+
+                    if (dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows.Count == 1)
+                    {
+                        MessageBox.Show("El usuario tiene deuda pendiente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+
+                        txtNroPréstamo.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][1].ToString();
+                        txtCuotas.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][13].ToString();
+                        txtPagas.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][14].ToString();
+                        txtTasa.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][6].ToString();
+                        txtMonto.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][5].ToString();
+                        txtImporteCuotaPendiente.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][8].ToString();
+                        txtAmortización.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][11].ToString();
+                        txtInteresesAVencer.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][12].ToString();
+
+                        cuotaAnteriorPrestamo = Convert.ToDouble(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][8].ToString());
+                        tasaAnteriorPrestamo = Convert.ToDouble(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][6].ToString());
+                        nro_prestamoAnterior = Convert.ToInt32(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][0].ToString());
+                        montoAnterior = Convert.ToDouble(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][5].ToString());
+                        txtTotalDeuda.Text = montoAnterior.ToString();
+                    }
+                    else
+                    {
+                        txtNroPréstamo.Text = "0";
+                        txtCuotas.Text = "0";
+                        txtPagas.Text = "0";
+                        txtTasa.Text = "0";
+                        txtMonto.Text = "0";
+                        txtImporteCuotaPendiente.Text = "0";
+                        txtAmortización.Text = "0";
+                        txtInteresesAVencer.Text = "0";
+                        cuotaAnteriorPrestamo = 0;
+                        tasaAnteriorPrestamo = 0;
+                        nro_prestamoAnterior = 0;
+                        montoAnterior = 0;
+
+                    }
+                }
+            }
         }
+
+
 
         private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
             cargarDatosGralesDesdeDataGrid();
         }
 
-        private void dgvSociosCampo_CursorChanged(object sender, EventArgs e)
+        private void CalcularImporteCuota()
         {
-            //cargarDatosGralesDesdeDataGrid();
+            if (!(idSocioSeleccionado == 0))
+            {
+                if (!(txtNuevoImporte.Text.Trim() == ""))
+                {
+                    if (esDecimal(txtNuevoImporte.Text.Replace(".", ",")))
+                    {
+                        int index = this.cmbPlanPréstamo.SelectedIndex;
+                        int idPrestamo = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString());
+
+
+                        for (int i = 0; i < dsPlanes.Tables["planprestamo"].Rows.Count; i++)
+                        {
+                            if (idPrestamo == Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][0].ToString()))
+                            {
+                                cantidadCuotas = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][1].ToString());
+                                tasaAnualEfectivaSinIVA = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[i][2].ToString());
+                                iva = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[i][3].ToString());
+                            }
+                        }
+
+                        for (int i = 0; i < dsSociosPorCampo.Tables["socios"].Rows.Count; i++)
+                        {
+                            if (this.idSocioSeleccionado == Convert.ToInt32(dsSociosPorCampo.Tables["socios"].Rows[i][0].ToString()))
+                            {
+                                nro_socio = dsSociosPorCampo.Tables["socios"].Rows[i][1].ToString();
+                            }
+                        }
+
+
+                        tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
+
+                        txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text) + montoAnterior);
+
+                        totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
+
+                        cuota = empresa.Cuota(tasaConIva, cantidadCuotas, totalDeuda);
+
+                        txtImporteCuota.Text = cuota.ToString();
+
+                        prestamoCorrecto = true;
+
+
+                    }
+                    else
+                    {
+                        txtImporteCuota.Text = "0.00";
+                        txtTotalDeuda.Text = montoAnterior.ToString();
+                        cantidadCuotas = 0;
+                        tasaAnualEfectivaSinIVA = 0;
+                        iva = 0;
+                        totalDeuda = 0;
+                        tasaConIva = 0;
+                        cuota = 0;
+                        prestamoCorrecto = false;
+                        nro_socio = "";
+                    }
+                }
+            }
         }
 
-        private void dgvSociosCampo_RowEnter(object sender, DataGridViewCellEventArgs e)
+
+        public bool esDecimal(string nroPrueba)
         {
-            
-            //cargarDatosGralesDesdeDataGrid();
+            double resultado = 0;
+            Boolean esDouble = double.TryParse(nroPrueba, out resultado);
+
+            Boolean esPositivo = false;
+
+            if (esDouble)
+            {
+
+                if (resultado > 0)
+                {
+                    esPositivo = true;
+                }
+            }
+
+            return esDouble && esPositivo;
         }
 
-        private void tbcPestanas_SizeChanged(object sender, EventArgs e)
+        private void cmbPlanPréstamo_SelectedIndexChanged(object sender, EventArgs e)
         {
-
+            CalcularImporteCuota();
         }
 
-        private void tbcPestanas_SelectedIndexChanged(object sender, EventArgs e)
+        private void txtNuevoImporte_Leave(object sender, EventArgs e)
         {
-            //cargarDatosGralesDesdeDataGrid();
+            CalcularImporteCuota();
+        }
+
+        private void btnGuardarPrestamo_Click_1(object sender, EventArgs e)
+        {
+            if (!(idSocioSeleccionado == 0))
+            {
+                if (prestamoCorrecto)
+                {
+
+                    string message = "¿Está seguro de que desea solicitar un nuevo préstamo?";
+                    string caption = "Nuevo Préstamo";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons);
+
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+
+                        Socio tmpSocio = new Socio();
+                        tmpSocio.Socio_id = this.idSocioSeleccionado;
+
+                        double amortizacionVencer = empresa.AmortVencer(tasaConIva, cantidadCuotas, 0, cuota);
+
+                        double interesesVencer = empresa.IntVencer(cuota, cantidadCuotas, 0, amortizacionVencer);
+
+                        //(Socio.Socio_id,  Socio_nro, Fecha, Hora, Monteopedido, Tasa,Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+
+
+                        empresa.AltaPrestamo(tmpSocio, nro_socio, DateTime.Now, DateTime.Now, totalDeuda, tasaConIva, cantidadCuotas, cuota, nro_prestamoAnterior, montoAnterior, amortizacionVencer, interesesVencer, cantidadCuotas, 0, cuotaAnteriorPrestamo, tasaAnteriorPrestamo, 0);
+
+                        MessageBox.Show("Préstamo Ingresado Correctamente");
+
+                        txtNuevoImporte.Text = "";
+                        prestamoCorrecto = false;
+                        txtImporteCuota.Text = "0.00";
+                        cargarPlanPrestamoSocio();
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Verifique el monto solicitado para poder hacer el préstamo");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Seleccione un socio");
+            }
         }
     }
 }
