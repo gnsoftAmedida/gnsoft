@@ -1712,6 +1712,12 @@ namespace COOPMEF
                 txtBusqueda.Mask = "";
             }
         }
+
+        private void parámetrosDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ParámetrosDelSistema ps = new ParámetrosDelSistema();
+            ps.Show();
+        }
     }
 }
 
