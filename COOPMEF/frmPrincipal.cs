@@ -663,7 +663,8 @@ namespace COOPMEF
 
             // si el id de socio es 0 es que se trata de un nuevo socio.
             int id_socio = 0;
-            string nro_socio = this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim();
+            //  string nro_socio = this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim();
+            string nro_socio = this.txtNroSocio.Text;
             string nro_cobro = this.txtNroCobro.Text;
 
             borrarErroresNuevoSocio();
@@ -756,7 +757,7 @@ namespace COOPMEF
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
-                    empresa.AltaSocio(socioActivo, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                    empresa.AltaSocio(socioActivo, socioNro.Replace(".", "").Replace(",", "").Replace("-", "").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
@@ -804,7 +805,7 @@ namespace COOPMEF
                     formatoMailOK = false;
                 }
 
-                string nro_socio = this.txtNroSocio.Text.Replace(",", "").Replace(".", "").Replace("-", "").Trim();
+                string nro_socio = this.txtNroSocio.Text;
 
                 bool formatoCiOK = true;
                 int resultado;
@@ -871,7 +872,7 @@ namespace COOPMEF
                         // agregro estado_civil para que guarde el texto y no numeros en la BD
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
 
-                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro, nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(".", "").Replace(",", "").Replace("-", "").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
 
                         //*******
@@ -1013,27 +1014,51 @@ namespace COOPMEF
             }
             else
             {
-
+                string valor = "";
                 if (this.cmbBusqueda.SelectedItem.ToString() == "Documento")
                 {
                     campo = "socio_nro";
+
+                    if (this.txtBusqueda.Text.Replace(" ", "").Length == 11)
+                    {
+                        valor = this.txtBusqueda.Text;
+                    }
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Replace("-", "").Replace(",", "").Length == 1)
+                    {
+                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "").Replace(",", "");
+                    }
+
+                    else
+                    {
+                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "");
+                    }
+
+                    /*  else if (this.txtBusqueda.Text.Replace(" ", "").Replace("-", "").Replace(",", "").Length < 5)
+                    {
+                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "").Replace(",", "").Substring(0,4);
+                    }
+                     * */
+
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Apellido")
                 {
                     campo = "socio_apellido";
+                    valor = this.txtBusqueda.Text;
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Nombre")
                 {
                     campo = "socio_nombre";
+                    valor = this.txtBusqueda.Text;
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Dirección")
                 {
                     campo = "socio_direccion";
+                    valor = this.txtBusqueda.Text;
                 }
 
-                string valor = this.txtBusqueda.Text;
 
-                socioPorCampo(campo.Replace(",", "").Replace(".", "").Replace("-", "").Trim(), valor);
+
+                socioPorCampo(campo, valor);
             }
         }
 
@@ -1372,6 +1397,10 @@ namespace COOPMEF
             int index = dgvSociosCampo.CurrentRow.Index;
             int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
 
+            // Resteo variables préstamo
+            txtNuevoImporte.Text = "";
+            prestamoCorrecto = false;
+            txtImporteCuota.Text = "0.00";
 
             //int estadoActual = definirEstado();
             //dejarPantallaComoAlInicio();
@@ -1392,6 +1421,9 @@ namespace COOPMEF
         {
 
             seleccionarSocioYllenarDataGrid();
+
+
+
             //if (!(dgvSociosCampo.CurrentRow == null))
             //{
             //    seleccionarSocio();
@@ -1517,6 +1549,10 @@ namespace COOPMEF
                     }
                 }
             }
+            else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabBusqueda"]))
+            {
+                this.buscarCampo();
+            }
         }
 
 
@@ -1559,7 +1595,7 @@ namespace COOPMEF
 
                         tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
 
-                        txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text) + montoAnterior);
+                        txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + montoAnterior);
 
                         totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
 
@@ -1662,6 +1698,18 @@ namespace COOPMEF
             else
             {
                 MessageBox.Show("Seleccione un socio");
+            }
+        }
+
+        private void cmbBusqueda_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (cmbBusqueda.SelectedIndex == 0)
+            {
+                txtBusqueda.Mask = "0.000.000-0";
+            }
+            else
+            {
+                txtBusqueda.Mask = "";
             }
         }
     }

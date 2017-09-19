@@ -225,7 +225,6 @@
             this.label25 = new System.Windows.Forms.Label();
             this.cmbBusquedaPrincipal = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -246,6 +245,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.txtBusqueda = new System.Windows.Forms.MaskedTextBox();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -1615,8 +1615,8 @@
             // 
             // cmbBusquedaPrincipal
             // 
-            this.cmbBusquedaPrincipal.Controls.Add(this.btnBuscar);
             this.cmbBusquedaPrincipal.Controls.Add(this.txtBusqueda);
+            this.cmbBusquedaPrincipal.Controls.Add(this.btnBuscar);
             this.cmbBusquedaPrincipal.Controls.Add(this.cmbBusqueda);
             resources.ApplyResources(this.cmbBusquedaPrincipal, "cmbBusquedaPrincipal");
             this.cmbBusquedaPrincipal.Name = "cmbBusquedaPrincipal";
@@ -1631,11 +1631,6 @@
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
             // 
-            // txtBusqueda
-            // 
-            resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
-            this.txtBusqueda.Name = "txtBusqueda";
-            // 
             // cmbBusqueda
             // 
             this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1647,6 +1642,7 @@
             resources.GetString("cmbBusqueda.Items2"),
             resources.GetString("cmbBusqueda.Items3")});
             this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -1767,6 +1763,11 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // txtBusqueda
+            // 
+            resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
+            this.txtBusqueda.Name = "txtBusqueda";
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -1841,7 +1842,6 @@
         private System.Windows.Forms.TabControl tbcPestanas;
         private System.Windows.Forms.TabPage tabBusqueda;
         private System.Windows.Forms.GroupBox cmbBusquedaPrincipal;
-        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblNumeroSocio;
         private System.Windows.Forms.Label label1;
@@ -2048,6 +2048,7 @@
         private System.Windows.Forms.Label lblFechaIng;
         private System.Windows.Forms.Label lblFechaNac;
         private System.Windows.Forms.Label lblErrorFechas;
+        private System.Windows.Forms.MaskedTextBox txtBusqueda;
     }
 }
 

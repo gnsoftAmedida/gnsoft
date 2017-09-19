@@ -16,6 +16,7 @@ namespace COOPMEF
         private Controladora empresa = Controladora.Instance;
         DataSet dsPlanes;
         private bool nuevo = true;
+        private bool yaHizoLoad = false;
 
         public frmPlanDePrestamo()
         {
@@ -28,6 +29,7 @@ namespace COOPMEF
             //Cargo planes
             dsPlanes = empresa.DevolverPlanes();
             pantallaInicial();
+            yaHizoLoad = true;
         }
 
         public void pantallaInicial()
@@ -59,31 +61,35 @@ namespace COOPMEF
 
         private void cmbPLan_SelectedIndexChanged(object sender, EventArgs e)
         {
-            int index = this.cmbPlan.SelectedIndex;
-            if (index != -1)
+
+            if (yaHizoLoad)
             {
-                this.texBoxNombrePlan.Enabled = false;
-                this.txtBoxCantCuotas.Enabled = false;
-                this.txtBoxTasaAnualSinIVA.Enabled = false;
-                this.txtBoxIVA.Enabled = false;
-
-                this.btnEliminarPlan.Enabled = true;
-                this.btnEditarPlan.Enabled = true;
-                this.btnGuardarPlan.Enabled = false;
-                this.btnCancelarPlan.Enabled = true;
-
-                this.texBoxNombrePlan.Text = dsPlanes.Tables["planprestamo"].Rows[index][5].ToString();
-                this.txtBoxCantCuotas.Text = dsPlanes.Tables["planprestamo"].Rows[index][1].ToString();
-                this.txtBoxTasaAnualSinIVA.Text = dsPlanes.Tables["planprestamo"].Rows[index][2].ToString();
-                this.txtBoxIVA.Text = dsPlanes.Tables["planprestamo"].Rows[index][3].ToString();
-
-                if (Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][4].ToString()) == 1)
+                int index = this.cmbPlan.SelectedIndex;
+                if (index != -1)
                 {
-                    this.chkVigencia.Checked = true;
-                }
-                else
-                {
-                    this.chkVigencia.Checked = false;
+                    this.texBoxNombrePlan.Enabled = false;
+                    this.txtBoxCantCuotas.Enabled = false;
+                    this.txtBoxTasaAnualSinIVA.Enabled = false;
+                    this.txtBoxIVA.Enabled = false;
+
+                    this.btnEliminarPlan.Enabled = true;
+                    this.btnEditarPlan.Enabled = true;
+                    this.btnGuardarPlan.Enabled = false;
+                    this.btnCancelarPlan.Enabled = true;
+
+                    this.texBoxNombrePlan.Text = dsPlanes.Tables["planprestamo"].Rows[index][5].ToString();
+                    this.txtBoxCantCuotas.Text = dsPlanes.Tables["planprestamo"].Rows[index][1].ToString();
+                    this.txtBoxTasaAnualSinIVA.Text = dsPlanes.Tables["planprestamo"].Rows[index][2].ToString();
+                    this.txtBoxIVA.Text = dsPlanes.Tables["planprestamo"].Rows[index][3].ToString();
+
+                    if (Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][4].ToString()) == 1)
+                    {
+                        this.chkVigencia.Checked = true;
+                    }
+                    else
+                    {
+                        this.chkVigencia.Checked = false;
+                    }
                 }
             }
         }
