@@ -56,8 +56,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.btnSalirParametrosSistema = new System.Windows.Forms.Button();
-            this.btnGuardarParametrosSistema = new System.Windows.Forms.Button();
             this.dtpFechaEleccion = new System.Windows.Forms.DateTimePicker();
             this.txtTesoreroCoop = new System.Windows.Forms.TextBox();
             this.txtSecretarioCoop = new System.Windows.Forms.TextBox();
@@ -70,6 +68,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
+            this.btnSalirParametrosSistema = new System.Windows.Forms.Button();
+            this.btnGuardarParametrosSistema = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -339,31 +339,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Autoridades";
             // 
-            // btnSalirParametrosSistema
-            // 
-            this.btnSalirParametrosSistema.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
-            this.btnSalirParametrosSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSalirParametrosSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirParametrosSistema.Location = new System.Drawing.Point(664, 328);
-            this.btnSalirParametrosSistema.Name = "btnSalirParametrosSistema";
-            this.btnSalirParametrosSistema.Size = new System.Drawing.Size(96, 29);
-            this.btnSalirParametrosSistema.TabIndex = 33;
-            this.btnSalirParametrosSistema.Text = "     Salir";
-            this.btnSalirParametrosSistema.UseVisualStyleBackColor = true;
-            this.btnSalirParametrosSistema.Click += new System.EventHandler(this.btnSalirParametrosSistema_Click);
-            // 
-            // btnGuardarParametrosSistema
-            // 
-            this.btnGuardarParametrosSistema.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
-            this.btnGuardarParametrosSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarParametrosSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardarParametrosSistema.Location = new System.Drawing.Point(551, 328);
-            this.btnGuardarParametrosSistema.Name = "btnGuardarParametrosSistema";
-            this.btnGuardarParametrosSistema.Size = new System.Drawing.Size(96, 31);
-            this.btnGuardarParametrosSistema.TabIndex = 32;
-            this.btnGuardarParametrosSistema.Text = "     Guardar";
-            this.btnGuardarParametrosSistema.UseVisualStyleBackColor = true;
-            // 
             // dtpFechaEleccion
             // 
             this.dtpFechaEleccion.Format = System.Windows.Forms.DateTimePickerFormat.Short;
@@ -461,6 +436,31 @@
             this.label14.TabIndex = 0;
             this.label14.Text = "Presidente";
             // 
+            // btnSalirParametrosSistema
+            // 
+            this.btnSalirParametrosSistema.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
+            this.btnSalirParametrosSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalirParametrosSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSalirParametrosSistema.Location = new System.Drawing.Point(664, 328);
+            this.btnSalirParametrosSistema.Name = "btnSalirParametrosSistema";
+            this.btnSalirParametrosSistema.Size = new System.Drawing.Size(96, 29);
+            this.btnSalirParametrosSistema.TabIndex = 33;
+            this.btnSalirParametrosSistema.Text = "     Salir";
+            this.btnSalirParametrosSistema.UseVisualStyleBackColor = true;
+            this.btnSalirParametrosSistema.Click += new System.EventHandler(this.btnSalirParametrosSistema_Click);
+            // 
+            // btnGuardarParametrosSistema
+            // 
+            this.btnGuardarParametrosSistema.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
+            this.btnGuardarParametrosSistema.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarParametrosSistema.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnGuardarParametrosSistema.Location = new System.Drawing.Point(551, 328);
+            this.btnGuardarParametrosSistema.Name = "btnGuardarParametrosSistema";
+            this.btnGuardarParametrosSistema.Size = new System.Drawing.Size(96, 31);
+            this.btnGuardarParametrosSistema.TabIndex = 32;
+            this.btnGuardarParametrosSistema.Text = "     Guardar";
+            this.btnGuardarParametrosSistema.UseVisualStyleBackColor = true;
+            // 
             // ParámetrosDelSistema
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -472,6 +472,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ParámetrosDelSistema";
             this.Text = "ParametrosDelSistema";
+            this.Load += new System.EventHandler(this.ParámetrosDelSistema_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
