@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.cmbDepartamentoCoop = new System.Windows.Forms.ComboBox();
             this.txtInteresMoraCoop = new System.Windows.Forms.TextBox();
             this.txtMaxUnidCoop = new System.Windows.Forms.TextBox();
             this.txtCodPostal = new System.Windows.Forms.TextBox();
@@ -70,13 +69,14 @@
             this.label14 = new System.Windows.Forms.Label();
             this.btnSalirParametrosSistema = new System.Windows.Forms.Button();
             this.btnGuardarParametrosSistema = new System.Windows.Forms.Button();
+            this.txtDeptoCoop = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.cmbDepartamentoCoop);
+            this.groupBox1.Controls.Add(this.txtDeptoCoop);
             this.groupBox1.Controls.Add(this.txtInteresMoraCoop);
             this.groupBox1.Controls.Add(this.txtMaxUnidCoop);
             this.groupBox1.Controls.Add(this.txtCodPostal);
@@ -108,14 +108,6 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Datos de la cooperativa";
-            // 
-            // cmbDepartamentoCoop
-            // 
-            this.cmbDepartamentoCoop.FormattingEnabled = true;
-            this.cmbDepartamentoCoop.Location = new System.Drawing.Point(104, 110);
-            this.cmbDepartamentoCoop.Name = "cmbDepartamentoCoop";
-            this.cmbDepartamentoCoop.Size = new System.Drawing.Size(242, 21);
-            this.cmbDepartamentoCoop.TabIndex = 25;
             // 
             // txtInteresMoraCoop
             // 
@@ -460,6 +452,14 @@
             this.btnGuardarParametrosSistema.TabIndex = 32;
             this.btnGuardarParametrosSistema.Text = "     Guardar";
             this.btnGuardarParametrosSistema.UseVisualStyleBackColor = true;
+            this.btnGuardarParametrosSistema.Click += new System.EventHandler(this.btnGuardarParametrosSistema_Click);
+            // 
+            // txtDeptoCoop
+            // 
+            this.txtDeptoCoop.Location = new System.Drawing.Point(104, 109);
+            this.txtDeptoCoop.Name = "txtDeptoCoop";
+            this.txtDeptoCoop.Size = new System.Drawing.Size(242, 20);
+            this.txtDeptoCoop.TabIndex = 25;
             // 
             // ParámetrosDelSistema
             // 
@@ -510,7 +510,6 @@
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.ComboBox cmbDepartamentoCoop;
         private System.Windows.Forms.TextBox txtTesoreroCoop;
         private System.Windows.Forms.TextBox txtSecretarioCoop;
         private System.Windows.Forms.TextBox txtPrimerVocalCoop;
@@ -525,5 +524,6 @@
         private System.Windows.Forms.DateTimePicker dtpFechaEleccion;
         private System.Windows.Forms.Button btnSalirParametrosSistema;
         private System.Windows.Forms.Button btnGuardarParametrosSistema;
+        private System.Windows.Forms.TextBox txtDeptoCoop;
     }
 }

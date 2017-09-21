@@ -149,7 +149,7 @@ namespace Negocio
             tmpOficina.Guardar();
         }
 
-        public void AltaEmpresa(String empresa_sigla, String empresa_direccion, int empresa_departamento,
+        public void AltaEmpresa(String empresa_nombre, String empresa_sigla, String empresa_direccion, String empresa_departamento,
             String empresa_codigoPostal, string empresa__telefono, string empresa_fax, String empresa_rut, 
             int empresa_aporte, int empresa_MaxUnidad, int empresa_iva, int empresa_intMora, 
             string empresa_mail, string empresa_presidente, string empresa__tesorero, string empresa_secretario, 
@@ -158,6 +158,7 @@ namespace Negocio
         {
             Empresa tmpEmpresa = new Empresa();
 
+            tmpEmpresa.Empresa_nombre = empresa_nombre;
             tmpEmpresa.Empresa_sigla = empresa_sigla;
             tmpEmpresa.Empresa_direccion = empresa_direccion;
             tmpEmpresa.Empresa_departamento = empresa_departamento;

@@ -33,7 +33,7 @@ namespace Negocio
         public string Empresa_sigla { get; set; }
         public string Empresa_nombre { get; set; }
         public string Empresa_direccion { get; set; }
-        public int Empresa_departamento { get; set; }
+        public string Empresa_departamento { get; set; }
         public string Empresa_codigoPostal { get; set; }
         public string Empresa__telefono { get; set; }
         public string Empresa_fax { get; set; }
