@@ -472,7 +472,7 @@
             this.Controls.Add(this.groupBox1);
             this.Name = "ParámetrosDelSistema";
             this.Text = "ParametrosDelSistema";
-            this.Load += new System.EventHandler(this.frmParametrosSistema_Load);
+            this.Load += new System.EventHandler(this.ParámetrosDelSistema_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
