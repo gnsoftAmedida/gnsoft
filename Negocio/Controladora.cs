@@ -149,6 +149,38 @@ namespace Negocio
             tmpOficina.Guardar();
         }
 
+        public void AltaEmpresa(String empresa_sigla, String empresa_direccion, int empresa_departamento,
+            String empresa_codigoPostal, string empresa__telefono, string empresa_fax, String empresa_rut, 
+            int empresa_aporte, int empresa_MaxUnidad, int empresa_iva, int empresa_intMora, 
+            string empresa_mail, string empresa_presidente, string empresa__tesorero, string empresa_secretario, 
+            string empresa_primerVocal, string empresa_segundoVocal, DateTime empresa_fechaEleccion)
+
+        {
+            Empresa tmpEmpresa = new Empresa();
+
+            tmpEmpresa.Empresa_sigla = empresa_sigla;
+            tmpEmpresa.Empresa_direccion = empresa_direccion;
+            tmpEmpresa.Empresa_departamento = empresa_departamento;
+            tmpEmpresa.Empresa_codigoPostal = empresa_codigoPostal;
+            tmpEmpresa.Empresa__telefono = empresa__telefono;
+            tmpEmpresa.Empresa_fax = empresa_fax;
+            tmpEmpresa.Empresa_rut = empresa_rut;
+            tmpEmpresa.Empresa_aporte = empresa_aporte;
+            tmpEmpresa.Empresa_MaxUnidad = empresa_MaxUnidad;
+
+            tmpEmpresa.Empresa_iva = empresa_iva;
+            tmpEmpresa.Empresa_intMora = empresa_intMora;
+            tmpEmpresa.Empresa_mail = empresa_mail;
+            tmpEmpresa.Empresa_presidente = empresa_presidente;
+            tmpEmpresa.Empresa__tesorero = empresa__tesorero;
+            tmpEmpresa.Empresa_secretario = empresa_secretario;
+            tmpEmpresa.Empresa_primerVocal = empresa_primerVocal;
+            tmpEmpresa.Empresa_segundoVocal = empresa_segundoVocal;
+            tmpEmpresa.Empresa_fechaEleccion = empresa_fechaEleccion;
+
+            tmpEmpresa.Guardar();
+        }
+
         public void modificarInciso(string Codigo, string Nombre, string Abreviatura, int idInciso)
         {
             Inciso tmpInciso = new Inciso();
