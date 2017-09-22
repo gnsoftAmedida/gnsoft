@@ -9,8 +9,8 @@ namespace Persistencia
 {
     public class pEmpresa : CapaDatos
     {
-        public void GuardarEmpresa(String empresa_nombre, String empresa_sigla, String empresa_direccion, int empresa_departamento, String empresa_codigoPostal, string empresa__telefono, string empresa_fax, String empresa_rut, int empresa_aporte, int empresa_MaxUnidad, int empresa_iva, int empresa_intMora, string empresa_mail, string empresa_presidente, string empresa__tesorero,
-            string empresa_secretario, string empresa_primerVocal, string empresa_segundoVocal, DateTime empresa_fechaEleccion)
+        public void GuardarEmpresa(String _nombre, String _sigla, String _direccion, int _departamento, String _codigoPostal, string __telefono, string _fax, String _rut, int _aporte, int _MaxUnidad, int _iva, int _intMora, string _mail, string _presidente, string _tesorero,
+            string _secretario, string _primerVocal, string _segundoVocal, DateTime _fechaEleccion)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
@@ -18,8 +18,13 @@ namespace Persistencia
 
             string sql;
             //sql = "INSERT INTO empresa ( empresa_nombre, empresa_sigla,  empresa_direccion,  empresa_departamento,  empresa_codigoPostal,  empresa__telefono,  empresa_fax,  empresa_rut,  empresa_aporte,  empresa_MaxUnidad,  empresa_iva,  empresa_intMora,  empresa_mail,  empresa_presidente,  empresa__tesorero,empresa_secretario,  empresa_primerVocal,  empresa_segundoVocal,  empresa_fechaEleccion) VALUES ('" + empresa_nombre + "','" + empresa_sigla + "','" + empresa_direccion + "','" + empresa_departamento + "','" + empresa_codigoPostal + "','" + empresa__telefono + "','" + empresa_fax + "','" + empresa_rut + "','" + empresa_aporte + "','" + empresa_MaxUnidad + "','" + empresa_iva + "','" + empresa_intMora+ "','" +empresa_mail+ "','" + empresa_presidente+ "','" + empresa__tesorero + "','" +empresa_secretario+ "','" +empresa_primerVocal+ "','" +empresa_segundoVocal+ "','" + empresa_fechaEleccion+"');"  + "Select last_insert_id()";
-            sql = "UPDATE empresa SET ( empresa_nombre, empresa_sigla,  empresa_direccion,  empresa_departamento,  empresa_codigoPostal,  empresa__telefono,  empresa_fax,  empresa_rut,  empresa_aporte,  empresa_MaxUnidad,  empresa_iva,  empresa_intMora,  empresa_mail,  empresa_presidente,  empresa__tesorero,empresa_secretario,  empresa_primerVocal,  empresa_segundoVocal,  empresa_fechaEleccion) VALUES ('" + empresa_nombre + "','" + empresa_sigla + "','" + empresa_direccion + "','" + empresa_departamento + "','" + empresa_codigoPostal + "','" + empresa__telefono + "','" + empresa_fax + "','" + empresa_rut + "','" + empresa_aporte + "','" + empresa_MaxUnidad + "','" + empresa_iva + "','" + empresa_intMora + "','" + empresa_mail + "','" + empresa_presidente + "','" + empresa__tesorero + "','" + empresa_secretario + "','" + empresa_primerVocal + "','" + empresa_segundoVocal + "','" + empresa_fechaEleccion + "'+ WHERE empresa_id =" + 0;
+            sql = "Update empresa set empresa_nombre='" + _nombre + "', empresa_sigla='" + _sigla + "',  empresa_direccion='" + _direccion + "',  empresa_dpto='" + _departamento + "',  empresa_codigoPostal='" + _codigoPostal + "',  empresa_tel='" + __telefono + "',  empresa_fax='" + _fax + "',  empresa_rut='" + _rut + "',  empresa_aporte='" + _aporte + "',  empresa_MaxUnidad='" + _MaxUnidad + "',  empresa_iva='" + _iva + "',  empresa_intMora='" + _intMora + "',  empresa_mail='" + _mail + "',  empresa_presidente='" + _presidente + "',  empresa_tesorero='" + _tesorero + "',empresa_secretario='" + _secretario + "',  empresa_primerVocal='" + _primerVocal + "',  empresa_segundoVocal='" + _segundoVocal + "',  empresa_fechaEleccion='" + _fechaEleccion + "' WHERE idEmpresa =" + 0;
 
+               
+                
+
+            //"Update inciso set inciso_codigo = '" + Codigo + "', inciso_nombre = '" + Nombre + "', inciso_abreviatura = '" + Abreviatura + "'  WHERE inciso_id =" + idInciso;
+            
             try
             {
                 connection.Open();
