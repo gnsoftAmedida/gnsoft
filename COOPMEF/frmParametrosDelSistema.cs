@@ -20,6 +20,7 @@ namespace COOPMEF
         public ParámetrosDelSistema()
         {
             InitializeComponent();
+            this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void ParámetrosDelSistema_Load(object sender, EventArgs e) {
@@ -68,10 +69,43 @@ namespace COOPMEF
         }
 
         private void nuevaEmpresa() {
-            int iva = Convert.ToInt32(txtIVACoop.Text);
+            int iva;
+            bool parametrosOK = true;
+
+            if (this.txtNombreCoop.Text.Trim() == "")
+            {
+                parametrosOK = false;
+            }
+
+            if (this.txtIVACoop.Text.Trim() == "")
+            {
+                parametrosOK = false;
+            }
+            else iva = Convert.ToInt32(txtIVACoop.Text);
+
+            if (this.txtAporteCoop.Text.Trim() == "")
+            {
+                parametrosOK = false;
+            }
+
+            if (this.txtInteresMoraCoop.Text.Trim() == "")
+            {
+                parametrosOK = false;
+            }
+
+            if (this.txtMaxUnidCoop.Text.Trim() == "")
+            {
+                parametrosOK = false;
+            }
+            
+            if (parametrosOK)
+            {
             //int id_departamento = Convert.ToInt32(dsDepartamentos.Tables["departamentos"].Rows[this.cmbDepartamentoCoop.SelectedIndex][0].ToString());
-            DateTime fechaEleccion = Convert.ToDateTime(dtpFechaEleccion.Value);
-            empresa.AltaEmpresa(txtNombreCoop.Text, txtSiglaCoop.Text, txtDirecciónCoop.Text, txtDeptoCoop.Text, txtCodPostal.Text, txtTelCoop.Text, txtFaxCoop.Text, txtRUTCoop.Text, Convert.ToInt32(txtAporteCoop.Text), Convert.ToInt32(txtMaxUnidCoop.Text), Convert.ToInt32(txtIVACoop.Text), Convert.ToInt32(txtInteresMoraCoop.Text), txtEmailCoop.Text, txtPresidenteCoop.Text, txtTesoreroCoop.Text, txtSecretarioCoop.Text, txtPrimerVocalCoop.Text, txtSegVocalCoop.Text, fechaEleccion);
+                DateTime fechaEleccion = Convert.ToDateTime(dtpFechaEleccion.Value);
+                empresa.AltaEmpresa(txtNombreCoop.Text, txtSiglaCoop.Text, txtDirecciónCoop.Text, txtDeptoCoop.Text, txtCodPostal.Text, txtTelCoop.Text, txtFaxCoop.Text, txtRUTCoop.Text, Convert.ToInt32(txtAporteCoop.Text), Convert.ToInt32(txtMaxUnidCoop.Text), Convert.ToInt32(txtIVACoop.Text), Convert.ToInt32(txtInteresMoraCoop.Text), txtEmailCoop.Text, txtPresidenteCoop.Text, txtTesoreroCoop.Text, txtSecretarioCoop.Text, txtPrimerVocalCoop.Text, txtSegVocalCoop.Text, fechaEleccion);
+            }else
+                MessageBox.Show("Falta cargar datos obligatorios * ");
+
         
         }
     }

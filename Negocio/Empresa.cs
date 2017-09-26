@@ -53,8 +53,8 @@ namespace Negocio
         public void Guardar()
         {
             pEmpresa tmpEmpresa = new pEmpresa();
-            tmpEmpresa.GuardarEmpresa( empresa_nombre,  empresa_sigla,  empresa_direccion,  empresa_departamento,  empresa_codigoPostal,  empresa__telefono,  empresa_fax,  empresa_rut,  empresa_aporte,  empresa_MaxUnidad,  empresa_iva,  empresa_intMora,  empresa_mail,  empresa_presidente,  empresa__tesorero,
-             empresa_secretario,  empresa_primerVocal,  empresa_segundoVocal,  empresa_fechaEleccion);
+            tmpEmpresa.GuardarEmpresa( Empresa_nombre,  Empresa_sigla,  Empresa_direccion,  Empresa_departamento,  Empresa_codigoPostal,  Empresa__telefono,  Empresa_fax,  Empresa_rut,  Empresa_aporte,  Empresa_MaxUnidad,  Empresa_iva,  Empresa_intMora,  Empresa_mail,  Empresa_presidente,  Empresa__tesorero,
+             Empresa_secretario,  Empresa_primerVocal,  Empresa_segundoVocal,  Empresa_fechaEleccion);
         }
 
 

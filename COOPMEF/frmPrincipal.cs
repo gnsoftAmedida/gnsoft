@@ -1717,6 +1717,7 @@ namespace COOPMEF
         {
             ParámetrosDelSistema ps = new ParámetrosDelSistema();
             ps.Show();
+            
         }
     }
 }
