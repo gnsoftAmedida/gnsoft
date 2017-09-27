@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Persistencia;
+using System.Data;
 
 namespace Negocio
 {
@@ -55,6 +56,13 @@ namespace Negocio
             pEmpresa tmpEmpresa = new pEmpresa();
             tmpEmpresa.GuardarEmpresa( Empresa_nombre,  Empresa_sigla,  Empresa_direccion,  Empresa_departamento,  Empresa_codigoPostal,  Empresa__telefono,  Empresa_fax,  Empresa_rut,  Empresa_aporte,  Empresa_MaxUnidad,  Empresa_iva,  Empresa_intMora,  Empresa_mail,  Empresa_presidente,  Empresa__tesorero,
              Empresa_secretario,  Empresa_primerVocal,  Empresa_segundoVocal,  Empresa_fechaEleccion);
+        }
+
+        public DataSet devolverEmpresa()
+        {
+            pEmpresa tmpEmpresa = new pEmpresa();
+            DataSet empresas = tmpEmpresa.devolverTodos();
+            return empresas;
         }
 
 

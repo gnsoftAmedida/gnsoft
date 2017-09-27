@@ -584,6 +584,7 @@
             resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
             this.dgvSociosCampo.Name = "dgvSociosCampo";
             this.dgvSociosCampo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellClick);
+            this.dgvSociosCampo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentClick);
             this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
             // 
             // btnSalirPlan
@@ -1444,6 +1445,7 @@
             resources.ApplyResources(this.btnGuardarCobranza, "btnGuardarCobranza");
             this.btnGuardarCobranza.Name = "btnGuardarCobranza";
             this.btnGuardarCobranza.UseVisualStyleBackColor = true;
+            this.btnGuardarCobranza.Click += new System.EventHandler(this.btnGuardarCobranza_Click);
             // 
             // btnSalirCobranza
             // 

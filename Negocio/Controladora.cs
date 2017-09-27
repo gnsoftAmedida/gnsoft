@@ -233,6 +233,13 @@ namespace Negocio
             return incisos;
         }
 
+        public DataSet DevolverEmpresa()
+        {
+            Empresa tmpInciso = new Empresa();
+            DataSet empresas = tmpInciso.devolverEmpresa();
+            return empresas;
+        }
+
         public DataSet DevolverDepartamentos()
         {
             Departamento tmpDepartamento = new Departamento();

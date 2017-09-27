@@ -1719,6 +1719,16 @@ namespace COOPMEF
             ps.Show();
             
         }
+
+        private void dgvSociosCampo_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void btnGuardarCobranza_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 
