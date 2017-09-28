@@ -8,3 +8,7 @@ C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utili
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utilidades\obj\Release\ResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utilidades\obj\Release\Utilidades.dll
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utilidades\obj\Release\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Release\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Release\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Release\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Release\Utilidades.pdb

@@ -16,6 +16,15 @@ C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\obj\Debug\Logs.dll
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Logs\obj\Debug\Logs.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\bin\Debug\Logs.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\bin\Debug\Logs.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\obj\Debug\Logs.csprojResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\obj\Debug\Logs.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Logs\obj\Debug\Logs.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Debug\Logs.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Debug\Logs.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Logs\bin\Debug\Persistencia.dll

@@ -68,6 +68,7 @@
             this.incisoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.oficinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.parámetrosDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbcPestanas = new System.Windows.Forms.TabControl();
             this.tabBusqueda = new System.Windows.Forms.TabPage();
@@ -224,8 +225,8 @@
             this.lblNroDeCobro = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
             this.cmbBusquedaPrincipal = new System.Windows.Forms.GroupBox();
+            this.txtBusqueda = new System.Windows.Forms.MaskedTextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
-            this.txtBusqueda = new System.Windows.Forms.TextBox();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -462,7 +463,8 @@
             this.logsToolStripMenuItem,
             this.incisoToolStripMenuItem,
             this.oficinaToolStripMenuItem,
-            this.planDePréstamosToolStripMenuItem});
+            this.planDePréstamosToolStripMenuItem,
+            this.parámetrosDelSistemaToolStripMenuItem});
             resources.ApplyResources(this.mToolStripMenuItem, "mToolStripMenuItem");
             this.mToolStripMenuItem.Name = "mToolStripMenuItem";
             this.mToolStripMenuItem.Click += new System.EventHandler(this.mToolStripMenuItem_Click);
@@ -538,6 +540,12 @@
             resources.ApplyResources(this.planDePréstamosToolStripMenuItem, "planDePréstamosToolStripMenuItem");
             this.planDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.planDePréstamosToolStripMenuItem_Click);
             // 
+            // parámetrosDelSistemaToolStripMenuItem
+            // 
+            this.parámetrosDelSistemaToolStripMenuItem.Name = "parámetrosDelSistemaToolStripMenuItem";
+            resources.ApplyResources(this.parámetrosDelSistemaToolStripMenuItem, "parámetrosDelSistemaToolStripMenuItem");
+            this.parámetrosDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.parámetrosDelSistemaToolStripMenuItem_Click);
+            // 
             // ayudaToolStripMenuItem
             // 
             this.ayudaToolStripMenuItem.BackColor = System.Drawing.SystemColors.ButtonFace;
@@ -576,6 +584,7 @@
             resources.ApplyResources(this.dgvSociosCampo, "dgvSociosCampo");
             this.dgvSociosCampo.Name = "dgvSociosCampo";
             this.dgvSociosCampo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellClick);
+            this.dgvSociosCampo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentClick);
             this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
             // 
             // btnSalirPlan
@@ -1436,6 +1445,7 @@
             resources.ApplyResources(this.btnGuardarCobranza, "btnGuardarCobranza");
             this.btnGuardarCobranza.Name = "btnGuardarCobranza";
             this.btnGuardarCobranza.UseVisualStyleBackColor = true;
+            this.btnGuardarCobranza.Click += new System.EventHandler(this.btnGuardarCobranza_Click);
             // 
             // btnSalirCobranza
             // 
@@ -1615,12 +1625,17 @@
             // 
             // cmbBusquedaPrincipal
             // 
-            this.cmbBusquedaPrincipal.Controls.Add(this.btnBuscar);
             this.cmbBusquedaPrincipal.Controls.Add(this.txtBusqueda);
+            this.cmbBusquedaPrincipal.Controls.Add(this.btnBuscar);
             this.cmbBusquedaPrincipal.Controls.Add(this.cmbBusqueda);
             resources.ApplyResources(this.cmbBusquedaPrincipal, "cmbBusquedaPrincipal");
             this.cmbBusquedaPrincipal.Name = "cmbBusquedaPrincipal";
             this.cmbBusquedaPrincipal.TabStop = false;
+            // 
+            // txtBusqueda
+            // 
+            resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
+            this.txtBusqueda.Name = "txtBusqueda";
             // 
             // btnBuscar
             // 
@@ -1630,11 +1645,6 @@
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
-            // 
-            // txtBusqueda
-            // 
-            resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
-            this.txtBusqueda.Name = "txtBusqueda";
             // 
             // cmbBusqueda
             // 
@@ -1647,6 +1657,7 @@
             resources.GetString("cmbBusqueda.Items2"),
             resources.GetString("cmbBusqueda.Items3")});
             this.cmbBusqueda.Name = "cmbBusqueda";
+            this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 
             // groupBox3
             // 
@@ -1841,7 +1852,6 @@
         private System.Windows.Forms.TabControl tbcPestanas;
         private System.Windows.Forms.TabPage tabBusqueda;
         private System.Windows.Forms.GroupBox cmbBusquedaPrincipal;
-        private System.Windows.Forms.TextBox txtBusqueda;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label lblNumeroSocio;
         private System.Windows.Forms.Label label1;
@@ -2048,6 +2058,8 @@
         private System.Windows.Forms.Label lblFechaIng;
         private System.Windows.Forms.Label lblFechaNac;
         private System.Windows.Forms.Label lblErrorFechas;
+        private System.Windows.Forms.MaskedTextBox txtBusqueda;
+        private System.Windows.Forms.ToolStripMenuItem parámetrosDelSistemaToolStripMenuItem;
     }
 }
 

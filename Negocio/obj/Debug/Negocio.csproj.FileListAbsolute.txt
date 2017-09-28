@@ -16,6 +16,15 @@ C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Negoc
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Negocio\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Negocio\obj\Debug\Negocio.dll
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Negocio\obj\Debug\Negocio.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\obj\Debug\Negocio.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\bin\Debug\Negocio.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\bin\Debug\Negocio.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\Coopmef19092017\gnsoft\Negocio\obj\Debug\Negocio.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\bin\Debug\Negocio.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\bin\Debug\Negocio.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\bin\Debug\Persistencia.dll
