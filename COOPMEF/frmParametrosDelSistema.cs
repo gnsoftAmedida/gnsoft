@@ -58,6 +58,28 @@ namespace COOPMEF
             this.Close();
         }
 
+        //devuelve true si lo ingresado es numérico y si es < a 1 lo convierte en nro entero
+        public Boolean validarNumericoPositivo(String numero)
+        {
+            try
+            {
+                Decimal num = Convert.ToDecimal(numero);
+                
+                if (num >= 1)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+            catch (Exception)
+            {
+                return false;
+            }
+        }
+
         private void btnGuardarParametrosSistema_Click(object sender, EventArgs e)
         {
             nuevaEmpresa();
@@ -66,42 +88,48 @@ namespace COOPMEF
         private void nuevaEmpresa() {
             int iva;
             bool parametrosOK = true;
+            string nombreCoop =this.txtNombreCoop.Text.Trim();
+            string ivaCoop =this.txtIVACoop.Text.Trim() ;
+            string aporteCoop =this.txtAporteCoop.Text.Trim();
+            string interesMoraCoop =this.txtInteresMoraCoop.Text.Trim() ;
+            string maxUnidCoop =this.txtMaxUnidCoop.Text.Trim() ;
 
-            if (this.txtNombreCoop.Text.Trim() == "")
+
+            if ( nombreCoop == "")
             {
                 parametrosOK = false;
             }
 
-            if (this.txtIVACoop.Text.Trim() == "")
+            if (!validarNumericoPositivo(ivaCoop) || ivaCoop== "")
             {
                 parametrosOK = false;
             }
             else iva = Convert.ToInt32(txtIVACoop.Text);
 
-            if (this.txtAporteCoop.Text.Trim() == "")
+            if (!validarNumericoPositivo(aporteCoop)|| aporteCoop== "")
             {
                 parametrosOK = false;
             }
 
-            if (this.txtInteresMoraCoop.Text.Trim() == "")
+            if (!validarNumericoPositivo(interesMoraCoop) || interesMoraCoop== "")
             {
                 parametrosOK = false;
             }
 
-            if (this.txtMaxUnidCoop.Text.Trim() == "")
+            if (!validarNumericoPositivo(maxUnidCoop) || maxUnidCoop== "")
             {
                 parametrosOK = false;
             }
             
+            
             if (parametrosOK)
             {
-            //int id_departamento = Convert.ToInt32(dsDepartamentos.Tables["departamentos"].Rows[this.cmbDepartamentoCoop.SelectedIndex][0].ToString());
                 DateTime fechaEleccion = Convert.ToDateTime(dtpFechaEleccion.Value);
                 empresa.AltaEmpresa(txtNombreCoop.Text, txtSiglaCoop.Text, txtDirecciónCoop.Text, txtDeptoCoop.Text, txtCodPostal.Text, txtTelCoop.Text, txtFaxCoop.Text, txtRUTCoop.Text, Convert.ToInt32(txtAporteCoop.Text), Convert.ToInt32(txtMaxUnidCoop.Text), Convert.ToInt32(txtIVACoop.Text), Convert.ToInt32(txtInteresMoraCoop.Text), txtEmailCoop.Text, txtPresidenteCoop.Text, txtTesoreroCoop.Text, txtSecretarioCoop.Text, txtPrimerVocalCoop.Text, txtSegVocalCoop.Text, fechaEleccion);
                 MessageBox.Show("Los datos de la empresa han sido actualizados");
                 this.Close();
             }else
-                MessageBox.Show("Falta cargar datos obligatorios * ");
+                MessageBox.Show("Falta cargar datos obligatorios * o los mismos no tienen el formato correcto ");
 
         
         }

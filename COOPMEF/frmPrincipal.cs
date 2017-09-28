@@ -26,6 +26,7 @@ namespace COOPMEF
         private int idSocioSeleccionado = 0;
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
+        private bool estaVaciaDataGrid = true; // variable para que al hacer clic en el datagrid sin hacer una búsqueda antes, no se caiga.
 
         // ############################ VARIABLES PRESTAMO ############################
         int cantidadCuotas = 0;
@@ -1000,6 +1001,7 @@ namespace COOPMEF
         private void btnBuscar_Click_1(object sender, EventArgs e)
         {
             this.buscarCampo();
+            estaVaciaDataGrid = false;
         }
 
 
@@ -1351,19 +1353,22 @@ namespace COOPMEF
 
         private void cargarDatosGralesDesdeDataGrid()
         {
-            int index = dgvSociosCampo.CurrentRow.Index;
-            //int index = 0;
-            if (index != -1)
+            if (!estaVaciaDataGrid)
             {
+                int index = dgvSociosCampo.CurrentRow.Index;
+                //int index = 0;
+                if (index != -1)
+                {
 
-                lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
-                lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
-                lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
-                lblFechaNacSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
-                lblFechaIngresoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
-                lblEstadoCivilSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
-                lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
-                lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
+                    lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
+                    lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
+                    lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
+                    lblFechaNacSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
+                    lblFechaIngresoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
+                    lblEstadoCivilSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
+                    lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+                    lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
+                }
             }
 
         }
