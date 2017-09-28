@@ -150,11 +150,10 @@ namespace Negocio
         }
 
         public void AltaEmpresa(String empresa_nombre, String empresa_sigla, String empresa_direccion, String empresa_departamento,
-            String empresa_codigoPostal, string empresa__telefono, string empresa_fax, String empresa_rut, 
-            int empresa_aporte, int empresa_MaxUnidad, int empresa_iva, int empresa_intMora, 
-            string empresa_mail, string empresa_presidente, string empresa__tesorero, string empresa_secretario, 
+            String empresa_codigoPostal, string empresa__telefono, string empresa_fax, String empresa_rut,
+            int empresa_aporte, int empresa_MaxUnidad, int empresa_iva, int empresa_intMora,
+            string empresa_mail, string empresa_presidente, string empresa__tesorero, string empresa_secretario,
             string empresa_primerVocal, string empresa_segundoVocal, DateTime empresa_fechaEleccion)
-
         {
             Empresa tmpEmpresa = new Empresa();
 
@@ -750,10 +749,44 @@ namespace Negocio
             return prestamoActivo;
         }
 
-        public void cierre() {
+        public void cierre()
+        {
+            double CuotaCapita;
+            double amo_cuota;
+            double int_cuota;
+            double amo_vencer;
+            double int_vencer;
+            double CuotasVan;
+            DateTime FechaVto;
+            DateTime FechaCierre;
+            DateTime HoraCierre;
+            double ImporteTotal;
+            double TotalAmortizacion;
+            double TotalIntereses;
+            int ProgresoBarra;
+            double Wmora;
+            double Wiva;
+            double InteresCuota;
+            double IvaCuota;
+            double Mora;
 
-             DateTime fecha = this.VtoPto(DateTime.Today);
-        
+            double WIvaMora; //contiene el porcentaje
+            double IvaMora; //va a contener el resultado del iva sobre la mora
+
+            DateTime fechaVto = this.VtoPto(DateTime.Today);
+            DateTime fechaCierre = DateTime.Today;
+            DateTime horaCierre = DateTime.Now;
+
+            //Traer parámetros aporteCapital, mora, iva
+
+            /*       
+          CuotaCapital = RsParametros!aportecapital
+          Wmora = RsParametros!Mora
+   
+          'Agregado 14/10/2009
+          WIvaMora = RsParametros!Iva
+                   */
+
         }
     }
 }
