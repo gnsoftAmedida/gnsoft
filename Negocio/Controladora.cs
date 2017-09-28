@@ -749,5 +749,11 @@ namespace Negocio
             DataSet prestamoActivo = tmpPrestamo.devolverPrestamoActivoSocio(idSocio);
             return prestamoActivo;
         }
+
+        public void cierre() {
+
+             DateTime fecha = this.VtoPto(DateTime.Today);
+        
+        }
     }
 }
