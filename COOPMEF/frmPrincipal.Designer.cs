@@ -1207,6 +1207,7 @@
             resources.ApplyResources(this.btnCancelarPrestamo, "btnCancelarPrestamo");
             this.btnCancelarPrestamo.Name = "btnCancelarPrestamo";
             this.btnCancelarPrestamo.UseVisualStyleBackColor = true;
+            this.btnCancelarPrestamo.Click += new System.EventHandler(this.btnCancelarPrestamo_Click);
             // 
             // txtObs
             // 

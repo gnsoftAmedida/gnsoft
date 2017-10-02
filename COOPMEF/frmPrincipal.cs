@@ -1734,6 +1734,14 @@ namespace COOPMEF
         {
 
         }
+
+        private void btnCancelarPrestamo_Click(object sender, EventArgs e)
+        {
+            //para pruebas
+            DateTime fecha = empresa.VtoPto(DateTime.Today);
+
+            MessageBox.Show(fecha.ToString());
+        }
     }
 }
 
