@@ -1102,7 +1102,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_tel"].Visible = false;
 
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
-            dgvSociosCampo.Columns["socio_nro"].Width = 85;
+            dgvSociosCampo.Columns["socio_nro"].Width = 150;
 
             dgvSociosCampo.Columns["socio_nombre"].HeaderText = "Nombre";
             dgvSociosCampo.Columns["socio_nombre"].Width = 180;
@@ -1117,7 +1117,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_fechaNac"].Width = 100;
 
             dgvSociosCampo.Columns["socio_fechaIngreso"].HeaderText = "Ingreso";
-            dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 100;
+            dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 150;
 
             dgvSociosCampo.Columns["socio_estadoCivil"].HeaderText = "Estado Civil";
             dgvSociosCampo.Columns["socio_estadoCivil"].Width = 100;
@@ -1141,10 +1141,10 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_email"].Width = 100;
 
             dgvSociosCampo.Columns["oficina_codigo"].HeaderText = "Oficina";
-            dgvSociosCampo.Columns["oficina_codigo"].Width = 50;
+            dgvSociosCampo.Columns["oficina_codigo"].Width = 90;
 
             dgvSociosCampo.Columns["inciso_codigo"].HeaderText = "Inciso";
-            dgvSociosCampo.Columns["inciso_codigo"].Width = 50;
+            dgvSociosCampo.Columns["inciso_codigo"].Width = 90;
 
             dgvSociosCampo.Columns["socio_activo"].HeaderText = "De baja";
             dgvSociosCampo.Columns["socio_activo"].Width = 50;
