@@ -299,6 +299,15 @@ namespace Negocio
             tmpPlan.eliminar();
         }
 
+        public void eliminarAmortizacionVencerCeroCobranza()
+        {
+            Cobranza tmpCobranza = new Cobranza();
+            tmpCobranza.eliminarAmortizacionVencerCero();
+        }
+
+
+
+
         public void bajaSocio(int idSocio, ref int estadoActual)
         {
             Socio tmpSocio = new Socio();
@@ -711,7 +720,7 @@ namespace Negocio
 
             tasa = tasa + 100; //ejemp. 60 + 100 = 160
             tasa = tasa / 100; //ejemp. 160 / 100 = 1.60
-            tasa = Math.Pow(tasa, (1 / 12)) - 1; //esta es la tasa mensual;
+            tasa = Math.Pow(tasa, Convert.ToDouble(Decimal.Divide(1, 12))) - 1; //esta es la tasa mensual;
 
             AmortCuota = Convert.ToDouble(Strings.Format(Financial.PPmt(tasa, NroCuota, CantidadCuotas, -Capital, 0, 0), "##########.00"));
 
@@ -785,7 +794,7 @@ namespace Negocio
             double int_cuota;
             double amo_vencer;
             double int_vencer;
-            double CuotasVan;
+            int CuotasVan;
             DateTime FechaVto;
             DateTime FechaCierre;
             DateTime HoraCierre;
@@ -802,26 +811,65 @@ namespace Negocio
             double WIvaMora; //contiene el porcentaje
             double IvaMora; //va a contener el resultado del iva sobre la mora
 
+            // AGREGADOS POR NICO
+            double tasa;
+            int cantidadCuotas;
+            double montoPedido;
+            int id_cobranza;
+
             DateTime fechaVto = this.VtoPto(DateTime.Today);
             DateTime fechaCierre = DateTime.Today;
             DateTime horaCierre = DateTime.Now;
 
-            DataSet parametros = DevolverEmpresa();
-            DataSet sociosActivos = DevolverSociosActivos();
-            DataSet fechasCierres = DevolverFechasCierres();
-            DataSet cobranzasProvisorias = DevolverCobranzasProvisorias();     
+            DataSet dsParametros = DevolverEmpresa();
+            DataSet dsSociosActivos = DevolverSociosActivos();
+            DataSet dsFechasCierres = DevolverFechasCierres();
+            DataSet dsCobranzasProvisorias = DevolverCobranzasProvisorias();
+            DataSet dsCobranzas = DevolverCobranzas();
 
             //*****************************
             // Traer Historia
             //*****************************
 
 
-            CuotaCapital = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][22].ToString());
-            Wmora = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][11].ToString());
-            WIvaMora = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][10].ToString());
+            CuotaCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][22].ToString());
+            Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
+            WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
 
 
+            this.eliminarAmortizacionVencerCeroCobranza();
 
+            if (dsCobranzas.Tables["cobranzas"].Rows.Count > 0)
+            {
+                for (int i = 0; i < dsCobranzas.Tables["cobranzas"].Rows.Count; i++)
+                {
+
+                    id_cobranza = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][0].ToString());
+                    CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString()) + 1;
+                    Wiva = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][4].ToString()); // Porcentaje iva
+                    tasa = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][3].ToString());
+                    cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
+                    montoPedido = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][5].ToString());
+                    amo_cuota = AmortCuota(tasa, CuotasVan, cantidadCuotas, montoPedido);
+
+                    if (Wiva != 0)
+                    {
+                        /*       InteresCuota = Format((RsCobranza!ImporteCuota - amo_cuota) / ((Wiva / 100) + 1), "##,##0.00")
+                               RsCobranza!InteresCuota = InteresCuota
+                               IvaCuota = Format(RsCobranza!ImporteCuota - amo_cuota - InteresCuota, "##,##0.00")
+                               RsCobranza!IvaCuota = IvaCuota
+                         * */
+                    }
+                    else
+                    {
+                        /*  InteresCuota = RsCobranza!ImporteCuota - amo_cuota
+                          RsCobranza!InteresCuota = InteresCuota
+                          RsCobranza!IvaCuota = 0
+                         * */
+                    }
+
+                }
+            }
         }
     }
 }
