@@ -267,6 +267,13 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet DevolverSociosActivos()
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socios = tmpSocio.devolverSociosActivos();
+            return socios;
+        }
+
         public void bajaPlan(int idPlan)
         {
             Plan tmpPlan = new Plan();
@@ -751,7 +758,7 @@ namespace Negocio
 
         public void cierre()
         {
-            double CuotaCapita;
+            double CuotaCapital;
             double amo_cuota;
             double int_cuota;
             double amo_vencer;
@@ -777,16 +784,18 @@ namespace Negocio
             DateTime fechaCierre = DateTime.Today;
             DateTime horaCierre = DateTime.Now;
 
-            //Traer parámetros aporteCapital, mora, iva
+            DataSet parametros = DevolverEmpresa();
+            DataSet sociosActivos = DevolverSociosActivos();
 
-            /*       
-          CuotaCapital = RsParametros!aportecapital
-          Wmora = RsParametros!Mora
-   
-          'Agregado 14/10/2009
-          WIvaMora = RsParametros!Iva
-                   */
 
+            //*****************************
+            // Traer CobranzaProvisoria, Historia, FechasCierre
+            //*****************************
+
+
+            CuotaCapital = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][22].ToString());
+            Wmora = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][11].ToString());
+            WIvaMora = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][10].ToString());
         }
     }
 }

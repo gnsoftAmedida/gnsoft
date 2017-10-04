@@ -1737,10 +1737,13 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
-            //para pruebas
-            DateTime fecha = empresa.VtoPto(DateTime.Today);
+         
+        }
 
-            MessageBox.Show(fecha.ToString());
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            frmCierreMes frmCierre = new frmCierreMes();
+            frmCierre.Show();
         }
     }
 }
