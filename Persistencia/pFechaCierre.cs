@@ -10,22 +10,22 @@ using System.Collections;
 
 namespace Persistencia
 {
-    public class pCobranza : CapaDatos
+    public class pFechaCierre : CapaDatos
     {
-        public DataSet devolverTodas()
+        public DataSet devolverTodos()
         {
             try
             {
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT cobranza_id, prestamo_id, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer,InteresVencer, aportecapital, socio_id FROM cobranza";
+                string sql = "SELECT  fechaCierre_id, Presupuesto, FechaDesde, HoraDesde, FechaHasta, HoraHasta, TotalImporte, AmortizacionAVencer, InteresesAVencer FROM FechasCierre";
                 DataSet ds = new DataSet();
 
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
                 MySqlAdapter.SelectCommand.CommandText = sql;
-                MySqlAdapter.Fill(ds, "cobranzas");
+                MySqlAdapter.Fill(ds, "fechasCierre");
                 connection.Close();
                 return ds;
 
@@ -36,5 +36,4 @@ namespace Persistencia
             }
         }
     }
-
 }

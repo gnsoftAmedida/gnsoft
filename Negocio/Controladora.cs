@@ -232,6 +232,21 @@ namespace Negocio
             return incisos;
         }
 
+
+        public DataSet DevolverCobranzas()
+        {
+            Cobranza tmpCobranza = new Cobranza();
+            DataSet cobranzas = tmpCobranza.devolverCobranzas();
+            return cobranzas;
+        }
+
+        public DataSet DevolverCobranzasProvisorias()
+        {
+            CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
+            DataSet cobranzasProvisoria = tmpCobranzaProvisoria.devolverCobranzasProvisorias();
+            return cobranzasProvisoria;
+        }
+
         public DataSet DevolverEmpresa()
         {
             Empresa tmpInciso = new Empresa();
@@ -334,6 +349,13 @@ namespace Negocio
             Plan tmpPlan = new Plan();
             DataSet planes = tmpPlan.devolverPlanes();
             return planes;
+        }
+
+        public DataSet DevolverFechasCierres()
+        {
+            FechaCierre tmpFechaCierre = new FechaCierre();
+            DataSet fechasCierres = tmpFechaCierre.devolverTodos();
+            return fechasCierres;
         }
 
         public DataSet DevolverPlanesActivos()
@@ -786,16 +808,20 @@ namespace Negocio
 
             DataSet parametros = DevolverEmpresa();
             DataSet sociosActivos = DevolverSociosActivos();
-
+            DataSet fechasCierres = DevolverFechasCierres();
+            DataSet cobranzasProvisorias = DevolverCobranzasProvisorias();     
 
             //*****************************
-            // Traer CobranzaProvisoria, Historia, FechasCierre
+            // Traer Historia
             //*****************************
 
 
             CuotaCapital = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][22].ToString());
             Wmora = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][11].ToString());
             WIvaMora = Convert.ToDouble(parametros.Tables["empresas"].Rows[0][10].ToString());
+
+
+
         }
     }
 }

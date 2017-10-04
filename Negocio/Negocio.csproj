@@ -44,6 +44,8 @@
     <Compile Include="Accion.cs" />
     <Compile Include="Controladora.cs" />
     <Compile Include="Cobranza.cs" />
+    <Compile Include="CobranzaProvisoria.cs" />
+    <Compile Include="FechaCierre.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="Departamento.cs" />

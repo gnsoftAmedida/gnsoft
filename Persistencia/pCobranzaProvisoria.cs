@@ -10,7 +10,7 @@ using System.Collections;
 
 namespace Persistencia
 {
-    public class pCobranza : CapaDatos
+    public class pCobranzaProvisoria : CapaDatos
     {
         public DataSet devolverTodas()
         {
@@ -19,13 +19,13 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT cobranza_id, prestamo_id, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer,InteresVencer, aportecapital, socio_id FROM cobranza";
+                string sql = "SELECT cobranzaProvisoria_id, prestamo_id, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer,InteresVencer, socio_id FROM cobranzaProvisoria";
                 DataSet ds = new DataSet();
 
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
                 MySqlAdapter.SelectCommand.CommandText = sql;
-                MySqlAdapter.Fill(ds, "cobranzas");
+                MySqlAdapter.Fill(ds, "cobranzasProvisorias");
                 connection.Close();
                 return ds;
 

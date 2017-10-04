@@ -9,87 +9,77 @@ namespace Negocio
 {
     public class FechaCierre
     {
-        private int plan_id;
-        private int plan_cantCuotas;
-        private double plan_TasaAnualEfectiva;
-        private double plan_IvaSobreIntereses;
-        private int plan_vigencia;
-        private string plan_nombre;
-        private double plan_CuotaCada1000;
 
-        public int Plan_id
+        private int fechaCierre_id;
+        private string presupuesto;
+        private DateTime fechaDesde;
+        private DateTime horaDesde;
+        private DateTime fechaHasta;
+        private DateTime horaHasta;
+        private double totalImporte;
+        private double amortizacionAVencer;
+        private double interesesAVencer;
+
+
+        public int FechaCierre_id
         {
-            get { return plan_id; }
-            set { plan_id = value; }
+            get { return fechaCierre_id; }
+            set { fechaCierre_id = value; }
         }
         
-        public int Plan_cantCuotas
+        public string Presupuesto
         {
-            get { return plan_cantCuotas; }
-            set { plan_cantCuotas = value; }
+            get { return presupuesto; }
+            set { presupuesto = value; }
+        }
+        
+        public DateTime FechaDesde
+        {
+            get { return fechaDesde; }
+            set { fechaDesde = value; }
+        }
+        
+        public DateTime HoraDesde
+        {
+            get { return horaDesde; }
+            set { horaDesde = value; }
+        }
+
+        public DateTime FechaHasta
+        {
+            get { return fechaHasta; }
+            set { fechaHasta = value; }
+        }
+
+        public DateTime HoraHasta
+        {
+            get { return horaHasta; }
+            set { horaHasta = value; }
+        }
+        
+        public double TotalImporte
+        {
+            get { return totalImporte; }
+            set { totalImporte = value; }
         }
        
-        public double Plan_TasaAnualEfectiva
+        public double AmortizacionAVencer
         {
-            get { return plan_TasaAnualEfectiva; }
-            set { plan_TasaAnualEfectiva = value; }
-        }
-
-        public double Plan_IvaSobreIntereses
-        {
-            get { return plan_IvaSobreIntereses; }
-            set { plan_IvaSobreIntereses = value; }
-        }
-      
-        public int Plan_vigencia
-        {
-            get { return plan_vigencia; }
-            set { plan_vigencia = value; }
-        }
-    
-        public string Plan_nombre
-        {
-            get { return plan_nombre; }
-            set { plan_nombre = value; }
+            get { return amortizacionAVencer; }
+            set { amortizacionAVencer = value; }
         }
        
-        public double Plan_CuotaCada1000
+        public double InteresesAVencer
         {
-            get { return plan_CuotaCada1000; }
-            set { plan_CuotaCada1000 = value; }
+            get { return interesesAVencer; }
+            set { InteresesAVencer = value; }
         }
 
-        public DataSet devolverPlanes()
+        public DataSet devolverTodos()
         {
-            pPlan tmpPlan = new pPlan();
-            DataSet planes = tmpPlan.devolverTodos();
-            return planes;
-        }
-
-        public DataSet devolverActivos()
-        {
-            pPlan tmpPlan = new pPlan();
-            DataSet planes = tmpPlan.devolverActivos();
-            return planes;
-        }
-
-        public void Guardar()
-        {
-            pPlan tmpPlan = new pPlan();
-
-            tmpPlan.GuardarPlan(Plan_cantCuotas, Plan_TasaAnualEfectiva, Plan_IvaSobreIntereses, Plan_vigencia, Plan_nombre, Plan_CuotaCada1000);
-        }
-
-        public void eliminar()
-        {
-            pPlan tmpPlan = new pPlan();
-            tmpPlan.eliminarPlan(this.Plan_id);
-        }
-
-        public void modificarPlan()
-        {
-            pPlan tmpPlan = new pPlan();
-            tmpPlan.modificarPlan(Plan_id, Plan_cantCuotas, Plan_TasaAnualEfectiva, Plan_IvaSobreIntereses, Plan_vigencia, Plan_nombre, Plan_CuotaCada1000);
+            pFechaCierre tmpFechaCierre = new pFechaCierre();
+            DataSet fechasCierres = tmpFechaCierre.devolverTodos();
+            return fechasCierres;
         }
     }
 }
