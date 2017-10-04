@@ -9,10 +9,11 @@ namespace Negocio
 {
     public class Cobranza
     {
-        private int cobranza_id; 
+        private int cobranza_id;
         private Prestamo prestamo;
-        private int prestamo_id; //Pongo nro prestamo para facilitar la migración     
-        private Socio socio; 
+        private int prestamo_id; //Pongo nro prestamo para facilitar la migración    
+        private int socio_id;
+        private Socio socio;
         private string socio_nro; //Pongo la cédula para facilitar la migración
         private double tasa;
         private double porcentajeiva;
@@ -55,6 +56,12 @@ namespace Negocio
         {
             get { return prestamo_id; }
             set { prestamo_id = value; }
+        }
+
+        public int Socio_id
+        {
+            get { return socio_id; }
+            set { socio_id = value; }
         }
 
         public double Monteopedido
@@ -127,6 +134,13 @@ namespace Negocio
         {
             get { return interesCuota; }
             set { interesCuota = value; }
+        }
+
+        public DataSet devolverCobranzas()
+        {
+            pCobranza tmpCobranza = new pCobranza();
+            DataSet cobranzas = tmpCobranza.devolverTodas();
+            return cobranzas;
         }
 
         public void Guardar()

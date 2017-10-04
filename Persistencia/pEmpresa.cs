@@ -18,7 +18,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT empresa_nombre, empresa_sigla,  empresa_direccion,  empresa_dpto,  empresa_codigoPostal,  empresa_tel,  empresa_fax,  empresa_rut,  empresa_aporte,  empresa_MaxUnidad,  empresa_iva,  empresa_intMora,  empresa_mail,  empresa_presidente,  empresa_tesorero,empresa_secretario,  empresa_primerVocal,  empresa_segundoVocal,  empresa_fechaEleccion FROM empresa";
+                string sql = "SELECT empresa_nombre, empresa_sigla,  empresa_direccion,  empresa_dpto,  empresa_codigoPostal,  empresa_tel,  empresa_fax,  empresa_rut,  empresa_aporte,  empresa_MaxUnidad,  empresa_iva,  empresa_intMora,  empresa_mail,  empresa_presidente,  empresa_tesorero, empresa_secretario,  empresa_primerVocal,  empresa_segundoVocal,  empresa_fechaEleccion, empresa_cierreBalance, empresa_usuarioCierre, empresa_cierreEjercicio, empresa_aporteCapital, empresa_cierrePresupuestoAnterior, empresa_horaCierreAnterior, empresa_cierrePresupuestoActual, empresa_horacierreactual, empresa_vtoPresupuestoActual FROM empresa";
                 DataSet ds = new DataSet();
 
                 connection.Open();
