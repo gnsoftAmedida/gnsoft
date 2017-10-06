@@ -816,6 +816,7 @@ namespace Negocio
             int cantidadCuotas;
             double montoPedido;
             int id_cobranza;
+            double importeCuota;
 
             DateTime fechaVto = this.VtoPto(DateTime.Today);
             DateTime fechaCierre = DateTime.Today;
@@ -831,11 +832,9 @@ namespace Negocio
             // Traer Historia
             //*****************************
 
-
             CuotaCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][22].ToString());
             Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
             WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
-
 
             this.eliminarAmortizacionVencerCeroCobranza();
 
@@ -843,7 +842,6 @@ namespace Negocio
             {
                 for (int i = 0; i < dsCobranzas.Tables["cobranzas"].Rows.Count; i++)
                 {
-
                     id_cobranza = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][0].ToString());
                     CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString()) + 1;
                     Wiva = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][4].ToString()); // Porcentaje iva
@@ -851,24 +849,40 @@ namespace Negocio
                     cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
                     montoPedido = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][5].ToString());
                     amo_cuota = AmortCuota(tasa, CuotasVan, cantidadCuotas, montoPedido);
+                    importeCuota = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][8].ToString());
 
                     if (Wiva != 0)
                     {
-                        /*       InteresCuota = Format((RsCobranza!ImporteCuota - amo_cuota) / ((Wiva / 100) + 1), "##,##0.00")
-                               RsCobranza!InteresCuota = InteresCuota
-                               IvaCuota = Format(RsCobranza!ImporteCuota - amo_cuota - InteresCuota, "##,##0.00")
-                               RsCobranza!IvaCuota = IvaCuota
-                         * */
+                        InteresCuota = Convert.ToDouble(Strings.Format(((importeCuota - amo_cuota) / ((Wiva / 100) + 1)), "##,##0.00"));
+                        IvaCuota = Convert.ToDouble(Strings.Format(importeCuota - amo_cuota - InteresCuota, "##,##0.00"));
                     }
                     else
                     {
-                        /*  InteresCuota = RsCobranza!ImporteCuota - amo_cuota
-                          RsCobranza!InteresCuota = InteresCuota
-                          RsCobranza!IvaCuota = 0
-                         * */
+                        InteresCuota = importeCuota - amo_cuota;
+                        IvaCuota = 0;
                     }
+                    amo_vencer = AmortVencer(tasa, cantidadCuotas, CuotasVan, importeCuota);
+                    int_vencer = IntVencer(importeCuota, cantidadCuotas, CuotasVan, amo_vencer);
 
+                    //****************************
+                    // ACTUALIZAR CADA UNA DE LAS COBRANZAS
                 }
+
+
+                if (dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows.Count; i++)
+                    {
+
+                    }
+                }
+
+                /*
+                                 ' incorporo los nuevos prestamos
+                        If RsCobranzaProvisoria.RecordCount > 0 Then
+                          RsCobranzaProvisoria.MoveFirst
+        
+                */
             }
         }
     }
