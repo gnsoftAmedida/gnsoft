@@ -42,6 +42,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CapaDatos.cs" />
+    <Compile Include="pCobranzaProvisoria.cs" />
+    <Compile Include="pFechaCierre.cs" />
+    <Compile Include="pCobranza.cs" />
     <Compile Include="pEmpresa.cs" />
     <Compile Include="pPrestamo.cs" />
     <Compile Include="pAccion.cs" />

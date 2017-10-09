@@ -140,6 +140,13 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet devolverSociosActivos()
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.devolverActivos();
+            return socios;
+        }
+        
         public DataSet buscarSociosPorCampo(string campo, string valor)
         {
             pSocio tmpSocio = new pSocio();

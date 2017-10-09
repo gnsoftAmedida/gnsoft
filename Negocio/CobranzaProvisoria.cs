@@ -7,9 +7,9 @@ using System.Data;
 
 namespace Negocio
 {
-    public class Cobranza
+    public class CobranzaProvisoria
     {
-        private int cobranza_id;
+        private int cobranzaProvisoria_id;
         private Prestamo prestamo;
         private int prestamo_id; //Pongo nro prestamo para facilitar la migración    
         private int socio_id;
@@ -26,12 +26,11 @@ namespace Negocio
         private double ivaCuota;
         private double amortizacionVencer;
         private double interesesVencer;
-        private double aporteCapital;
 
         public int Cobranza_ID
         {
-            get { return cobranza_id; }
-            set { cobranza_id = value; }
+            get { return cobranzaProvisoria_id; }
+            set { cobranzaProvisoria_id = value; }
         }
 
         public Prestamo Prestamo
@@ -123,30 +122,17 @@ namespace Negocio
             get { return ivaCuota; }
             set { ivaCuota = value; }
         }
-
-        public double AporteCapital
-        {
-            get { return aporteCapital; }
-            set { aporteCapital = value; }
-        }
-
         public double InteresCuota
         {
             get { return interesCuota; }
             set { interesCuota = value; }
         }
 
-        public DataSet devolverCobranzas()
+        public DataSet devolverCobranzasProvisorias()
         {
-            pCobranza tmpCobranza = new pCobranza();
-            DataSet cobranzas = tmpCobranza.devolverTodas();
-            return cobranzas;
-        }
-
-        public void eliminarAmortizacionVencerCero()
-        {
-            pCobranza tmpCobranza = new pCobranza();
-            tmpCobranza.eliminarAmortizacionVencerCero();
+            pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();
+            DataSet cobranzasProvisorias = tmpCobranzaProvisoria.devolverTodas();
+            return cobranzasProvisorias;
         }
     }
 }
