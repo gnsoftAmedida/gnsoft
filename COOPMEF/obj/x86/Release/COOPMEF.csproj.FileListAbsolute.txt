@@ -77,6 +77,7 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.csproj.R
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmAgenda.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmMantOficinas.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmAltaUsuario.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmCierreMes.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmConsultaLogs.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmModificarEvento.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmMantenimientoInciso.resources

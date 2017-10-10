@@ -787,6 +787,11 @@ namespace Negocio
             return prestamoActivo;
         }
 
+        public string presupuesto()
+        {
+            return Microsoft.VisualBasic.Strings.Mid(VtoPto(DateTime.Today).Date.ToString("dd/MM/yyyy"), 4);
+        }
+
         public void cierre()
         {
             double CuotaCapital;
@@ -817,6 +822,8 @@ namespace Negocio
             double montoPedido;
             int id_cobranza;
             double importeCuota;
+            bool estaEnCobranza = false;
+            DataSet dsCobranzasActualizadas;
 
             DateTime fechaVto = this.VtoPto(DateTime.Today);
             DateTime fechaCierre = DateTime.Today;
@@ -829,7 +836,7 @@ namespace Negocio
             DataSet dsCobranzas = DevolverCobranzas();
 
             //*****************************
-            // Traer Historia
+            // Traer Historia y Excedidos
             //*****************************
 
             CuotaCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][22].ToString());
@@ -869,20 +876,205 @@ namespace Negocio
                 }
 
 
+
+                //Incorporando los nuevos préstamos
                 if (dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows.Count > 0)
                 {
                     for (int i = 0; i < dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows.Count; i++)
                     {
 
+                        for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
+                        {
+                            if (dsCobranzas.Tables["cobranzasProvisorias"].Rows[i][2].ToString() == dsCobranzas.Tables["cobranzas"].Rows[i][2].ToString())
+                            {
+                                //****************************
+                                //hacer update de cobranza de de las cobranzas provisorias 
+                                //****************************
+                                estaEnCobranza = true;
+
+                            }
+                        }
+
+                        if (!estaEnCobranza)
+                        {
+                            //****************************
+                            //hago insert en cobranza de las cobranzas provisorias
+                            //****************************
+                        }
+
+
                     }
                 }
 
-                /*
-                                 ' incorporo los nuevos prestamos
-                        If RsCobranzaProvisoria.RecordCount > 0 Then
-                          RsCobranzaProvisoria.MoveFirst
-        
-                */
+
+
+                //agrego todos los socios tengan o no prestamos que no
+                //hayan sido dados de baja
+
+                estaEnCobranza = false;
+
+                if (dsSociosActivos.Tables["socio"].Rows.Count > 0)
+                {
+                    for (int i = 0; !estaEnCobranza && i < dsSociosActivos.Tables["socio"].Rows.Count; i++)
+                    {
+
+                        if (dsSociosActivos.Tables["socio"].Rows[i][3].ToString() == dsCobranzas.Tables["cobranzas"].Rows[i][2].ToString())
+                        {
+
+                            //****************************
+                            //hago update en cobranza de los socios (que no hayan sido dado de baja)
+                            //****************************
+
+                            // Agregar RsCobranza!aportecapital = CuotaCapital
+                            estaEnCobranza = true;
+                        }
+                    }
+
+                    if (!estaEnCobranza)
+                    {
+                        //****************************
+                        //hago insert en cobranza de los socios (que no hayan sido dado de baja)
+                        //****************************
+
+                        // Agregar RsCobranza!aportecapital = CuotaCapital
+                    }
+                }
+
+
+                //***************************************************
+                // ACTUALIZO PARAMETROS (Actualizar tabla empresa)
+                //***************************************************
+
+                Microsoft.VisualBasic.Strings.Mid(fechaVto.Date.ToString(), 4);
+                //mejor usar función presupuesto
+
+                /*  RsParametros!cierrepresupuestoanterior = RsParametros!cierrepresupuestoactual
+                  RsParametros!horacierreanterior = RsParametros!horacierreactual
+                  RsParametros!cierrepresupuestoactual = FechaCierre
+                  RsParametros!horacierreactual = HoraCierre
+                  RsParametros!vtopresupuestoactual = FechaVto
+                  RsParametros!usuariocierre = Wusuario
+         */
+
+
+                //***************************************************
+                // ACTUALIZO FECHAS CIERRES  ( HACER Sum(importecuota+aportecapital) )
+                //***************************************************
+
+                /*      
+               RsFechasDeCierres!Presupuesto = Mid(FechaVto, 4)
+               RsFechasDeCierres!FechaDesde = RsParametros!cierrepresupuestoanterior
+               RsFechasDeCierres!horadesde = RsParametros!horacierreanterior
+               RsFechasDeCierres!FechaHasta = FechaCierre
+               RsFechasDeCierres!horahasta = HoraCierr
+         
+                 
+                 ImporteTotal = RsCobranza!a_1
+                 TotalAmortizacion = RsCobranza!b_1
+                 TotalIntereses = RsCobranza!c_1
+         
+         
+                 RsFechasDeCierres!TotalImporte = ImporteTotal
+                 RsFechasDeCierres!amortizacionavencer = TotalAmortizacion
+                 RsFechasDeCierres!interesesavencer = TotalIntereses
+         
+                 */
+
+
+
+                // *************
+                // ACTUALIZAR HISTORIA
+                //
+
+
+                dsCobranzasActualizadas = DevolverCobranzas();
+
+                if (dsCobranzasActualizadas.Tables["cobranzas"].Rows.Count > 0)
+                {
+                    for (int i = 0; i < dsCobranzasActualizadas.Tables["cobranzas"].Rows.Count; i++)
+                    {
+                        // Por cada cobranza agrego un registro en el histórico
+
+                        /*     RsHistoria.AddNew
+                                 RsHistoria!Presupuesto = Mid(FechaVto, 4)
+                                 RsHistoria!numeroprestamo = RsCobranza!numeroprestamo
+                                 RsHistoria!cedula = RsCobranza!cedula
+                                 RsHistoria!tasa = RsCobranza!tasa
+                                 RsHistoria!porcentajeiva = RsCobranza!porcentajeiva
+                                 RsHistoria!montopedido = RsCobranza!montopedido
+                                 RsHistoria!CantidadCuotas = RsCobranza!CantidadCuotas
+                                 RsHistoria!nrodecuotas = RsCobranza!nrodecuotas
+                                 RsHistoria!ImporteCuota = RsCobranza!ImporteCuota
+                                 RsHistoria!amortizacioncuota = RsCobranza!amortizacioncuota
+                                 RsHistoria!InteresCuota = RsCobranza!InteresCuota
+                                 RsHistoria!IvaCuota = RsCobranza!IvaCuota
+                                 RsHistoria!amortizacionvencer = RsCobranza!amortizacionvencer
+                                 RsHistoria!interesvencer = RsCobranza!interesvencer
+                                 RsHistoria!aportecapital = RsCobranza!aportecapital
+                         
+                                  RsHistoria!numerocobro = RsSocios!numerocobro
+                              
+                                  RsHistoria!inciso = RsSocios!inciso
+                                  RsHistoria!Oficina = RsSocios!Oficina
+                                                  */
+
+                        //******
+                        // En la misma recorrida del histórico actualizo los excedidos.
+                          //*************************************
+
+                        /*     Busqueda = "select * from excedidos where cedula=" & "'" & RsCobranza!cedula & "'"
+                           Busqueda = Busqueda & "and importepagado=0"
+             
+                             
+                           If RsExcedidos.RecordCount > 0 Then
+                              RsHistoria!Excedido = RsExcedidos!aretener - RsExcedidos!retenido
+                  
+                    
+                  
+                              If (RsExcedidos!aretener - RsExcedidos!retenido) > RsExcedidos!aportecapital Then
+                                 'Modificado 14/10/09 redondeo a dos decimales
+                     
+                                 Mora = Format(Pago_Mora(RsExcedidos!aretener - RsExcedidos!retenido - RsExcedidos!aportecapital, RsExcedidos!Presupuesto, Wmora, FechaVto), "###,###,##0.00")
+                                 ' Agregado 14/10/09 iva sobre la mora
+                                 IvaMora = Format(Mora * (WIvaMora / 100), "###,###,##0.00")
+                              Else
+                                 Mora = 0
+                              End If
+                  
+                              RsHistoria!Mora = Mora
+                  
+                              'agregado 14/10/09 grabar el iva de la mora en historia
+                              If Mora <> 0 Then
+                                RsHistoria!IvaMora = IvaMora
+                              End If
+                  
+                              RsExcedidos.Edit
+                              RsExcedidos!fechadepago = Date
+                              RsExcedidos!importepagado = (RsExcedidos!aretener - RsExcedidos!retenido) + Mora
+                              RsExcedidos!presupuestodelpago = Mid(FechaVto, 4)
+
+                              RsExcedidos.Update
+
+                           End If
+               
+                           RsHistoria.Update
+               
+               
+                           RsCobranza.MoveNext
+                           PrgBarCierre.Value = PrgBarCierre.Value + 1
+               
+                        Wend
+                      End If
+                     */
+
+
+                        // **************Vaciar la tabla cobranza privosoria*****************
+           // BaseDatos.Execute "DELETE * FROM  cobranzaprovisoria;"
+ 
+
+                    }
+                }
+
             }
         }
     }

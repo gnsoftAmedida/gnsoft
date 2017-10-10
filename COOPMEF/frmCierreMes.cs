@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Microsoft.VisualBasic;
 
 namespace COOPMEF
 {
@@ -40,7 +41,7 @@ namespace COOPMEF
             this.lblHoraPresupuestoUltimo.Text = horaPresupuestoUltimo.ToString("HH:mm");
             this.lblFechaVencimientoPresupuesto.Text = fechaVencimientoPresupuesto.ToString("dd/MM/yyyy");
 
-            //this.lblFechaCierre.Text = empresa.
+            this.lblFechaCierre.Text = empresa.presupuesto();
         }
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
