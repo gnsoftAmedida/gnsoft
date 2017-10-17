@@ -35,13 +35,6 @@ namespace Persistencia
             }
         }
 
-        /*  RsParametros!cierrepresupuestoanterior = RsParametros!cierrepresupuestoactual
-  RsParametros!horacierreanterior = RsParametros!horacierreactual
-  RsParametros!cierrepresupuestoactual = FechaCierre
-  RsParametros!horacierreactual = HoraCierre
-  RsParametros!vtopresupuestoactual = FechaVto
-  RsParametros!usuariocierre = Wusuario
-*/
         public void modificarParametrosCierreEmpresa(DateTime empresa_cierrePresupuestoAnterior, DateTime empresa_horaCierreAnterior, DateTime empresa_cierrePresupuestoActual, DateTime empresa_horacierreactual, DateTime empresa_vtoPresupuestoActual, String empresa_usuarioCierre)
         {
             MySqlConnection connection = conectar();

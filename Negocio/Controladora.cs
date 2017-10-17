@@ -859,6 +859,21 @@ namespace Negocio
             tmpCobranza.GuardarCobranza();
         }
 
+        public void GuardarFechaCierre(String Presupuesto, DateTime FechaDesde, DateTime HoraDesde, DateTime FechaHasta, DateTime HoraHasta, Double TotalImporte, Double AmortizacionAVencer, Double InteresesAVencer)
+        {
+            FechaCierre tmpFechaCierre = new FechaCierre();
+            tmpFechaCierre.Presupuesto = Presupuesto;
+            tmpFechaCierre.FechaDesde = FechaDesde;
+            tmpFechaCierre.HoraDesde = HoraDesde;
+            tmpFechaCierre.FechaHasta = FechaHasta;
+            tmpFechaCierre.HoraHasta = HoraHasta;
+            tmpFechaCierre.TotalImporte = TotalImporte;
+            tmpFechaCierre.AmortizacionAVencer = AmortizacionAVencer;
+            tmpFechaCierre.InteresesAVencer = InteresesAVencer;
+
+            tmpFechaCierre.GuardarFechaCierre();
+        }
+
         public void modificarParametrosCierreEmpresa(DateTime empresa_cierrePresupuestoAnterior, DateTime empresa_horaCierreAnterior, DateTime empresa_cierrePresupuestoActual, DateTime empresa_horacierreactual, DateTime empresa_vtoPresupuestoActual, String empresa_usuarioCierre)
         {
             Empresa tmpEmpresa = new Empresa();
@@ -1036,13 +1051,18 @@ namespace Negocio
                 DateTime empresa_vtoPresupuestoActual = fechaVto;
                 String empresa_usuarioCierre = Utilidades.UsuarioLogueado.Alias;
 
+                // Ver si esto lo bajo por los parametros
                 modificarParametrosCierreEmpresa(empresa_cierrePresupuestoAnterior, empresa_horaCierreAnterior, empresa_cierrePresupuestoActual, empresa_horacierreactual, empresa_vtoPresupuestoActual, empresa_usuarioCierre);
 
-              
                 //***************************************************
                 // ACTUALIZO FECHAS CIERRES  ( HACER Sum(importecuota+aportecapital) )
                 //***************************************************
 
+            //    GuardarFechaCierre(presupuesto, Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString()), Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()), empresa_horaCierreAnterior, fechaCierre, horaCierre);
+
+                
+         //    String Presupuesto, DateTime FechaDesde, DateTime HoraDesde, DateTime FechaHasta, DateTime HoraHasta, Double TotalImporte, Double AmortizacionAVencer, Double InteresesAVencer
+             
                 /*      
                RsFechasDeCierres!Presupuesto = Mid(FechaVto, 4)
                RsFechasDeCierres!FechaDesde = RsParametros!cierrepresupuestoanterior

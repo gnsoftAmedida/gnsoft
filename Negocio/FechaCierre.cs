@@ -75,6 +75,12 @@ namespace Negocio
             set { InteresesAVencer = value; }
         }
 
+        public void GuardarFechaCierre()
+        {
+            pFechaCierre tmpFechaCierre = new pFechaCierre();
+            tmpFechaCierre.GuardarFechaCierre(Presupuesto, FechaDesde, HoraDesde, FechaHasta, HoraHasta, TotalImporte, AmortizacionAVencer, InteresesAVencer);           
+        }
+
         public DataSet devolverTodos()
         {
             pFechaCierre tmpFechaCierre = new pFechaCierre();
