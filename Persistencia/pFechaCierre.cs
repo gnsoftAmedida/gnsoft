@@ -12,6 +12,42 @@ namespace Persistencia
 {
     public class pFechaCierre : CapaDatos
     {
+        public void GuardarFechaCierre(String Presupuesto, DateTime FechaDesde, DateTime HoraDesde, DateTime FechaHasta, DateTime HoraHasta, Double TotalImporte, Double AmortizacionAVencer, Double InteresesAVencer)
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            string sql;
+            sql = "INSERT INTO fechascierre (Presupuesto, FechaDesde, HoraDesde, FechaHasta, HoraHasta, TotalImporte, AmortizacionAVencer, InteresesAVencer) VALUES ('" + Presupuesto + "', '" + FechaDesde.ToString("yyyy/MM/dd hh mm ss") + "', '" + HoraDesde.ToString("yyyy/MM/dd hh mm ss") + "','" + FechaHasta.ToString("yyyy/MM/dd hh mm ss") + "','" + HoraHasta.ToString("yyyy/MM/dd hh mm ss") + "', '" + TotalImporte + "', '" + AmortizacionAVencer + "','" + InteresesAVencer + "');" + "Select last_insert_id()";
+                                                                                                                                                                          
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                MySqlAdapter.InsertCommand = connection.CreateCommand();
+                MySqlAdapter.InsertCommand.Transaction = transaction;
+                MySqlAdapter.InsertCommand.CommandText = sql;
+                MySqlAdapter.InsertCommand.ExecuteNonQuery();
+                transaction.Commit();
+                connection.Close();
+            }
+
+            catch (MySqlException ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+
+                switch (ex.Number)
+                {
+                    case 1406:
+                        MisExcepciones ep = new MisExcepciones("Datos muy largos");
+                        throw ep;
+                }
+            }
+        }
+
         public DataSet devolverTodos()
         {
             try
