@@ -154,5 +154,12 @@ namespace Negocio
             pCobranza tmpCobranza = new pCobranza();
             tmpCobranza.modificarCobranza(Cobranza_ID, Prestamo_id, Socio_nro, Tasa, Porcentajeiva, Monteopedido, Cantidadcuotas, NroDeCuotas, Importecuota, AmortizacionCuota, InteresCuota, IvaCuota, amortizacionVencer, InteresesVencer, AporteCapital, Socio_id);
         }
+
+        public void GuardarCobranza()
+        {
+            pCobranza tmpCobranza = new pCobranza();
+            tmpCobranza.GuardarCobranza(Prestamo_id, Socio_nro, Tasa, Porcentajeiva, Monteopedido, Cantidadcuotas, NroDeCuotas, Importecuota, AmortizacionCuota, InteresCuota, IvaCuota, amortizacionVencer, InteresesVencer, AporteCapital, Socio_id);
+                                                                                                                                   
+        }
     }
 }

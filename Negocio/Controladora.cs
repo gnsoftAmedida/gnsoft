@@ -825,6 +825,29 @@ namespace Negocio
             tmpCobranza.modificarCobranza();
         }
 
+        public void guardarCobranza(int parPrestamo_id, String parCedula, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, double parAporteCapital, int parSocio_id)
+        {
+            Cobranza tmpCobranza = new Cobranza();
+
+            tmpCobranza.Prestamo_id = parPrestamo_id;
+            tmpCobranza.Socio_nro = parCedula;
+            tmpCobranza.Tasa = parTasa;
+            tmpCobranza.Porcentajeiva = parPorcentajeiva;
+            tmpCobranza.Monteopedido = parMontopedido;
+            tmpCobranza.Cantidadcuotas = parCantidadcuotas;
+            tmpCobranza.NroDeCuotas = parNrodecuotas;
+            tmpCobranza.Importecuota = parImportecuota;
+            tmpCobranza.AmortizacionCuota = parAmortizacioncuota;
+            tmpCobranza.InteresCuota = parInteresCuota;
+            tmpCobranza.IvaCuota = parIvaCuota;
+            tmpCobranza.AmortizacionVencer = parAmortizacionVencer;
+            tmpCobranza.InteresesVencer = parInteresVencer;
+            tmpCobranza.AporteCapital = parAporteCapital;
+            tmpCobranza.Socio_id = parSocio_id;
+
+            tmpCobranza.GuardarCobranza();
+        }
+
 
         public void cierre()
         {
@@ -898,7 +921,7 @@ namespace Negocio
                     cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
                     importeCuota = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][8].ToString());
                     aporteCapital = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][14].ToString());
-                     socio_id = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString());
+                    socio_id = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString());
 
                     amo_cuota = AmortCuota(tasa, CuotasVan, cantidadCuotas, montoPedido);
 
@@ -923,31 +946,39 @@ namespace Negocio
                 {
                     for (int i = 0; i < dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows.Count; i++)
                     {
+                        int id_cobranzaProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][0].ToString());
+                        int id_prestamoProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][1].ToString());
+                        String cedulaProvisorio = Convert.ToString(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][2].ToString());
+                        double tasaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][3].ToString());
+                        double WivaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][4].ToString());
+                        double montoPedidoProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][5].ToString());
+                        int CuotasVanProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][6].ToString());
+                        int cantidadCuotasProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][7].ToString());
+                        double importeCuotaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][8].ToString());
+                        double amo_cuotaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][9].ToString());
+                        double InteresCuotaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][10].ToString());
+                        double IvaCuotaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][11].ToString());
+                        double amo_vencerProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][12].ToString());
+                        double int_vencerProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][13].ToString());
+                        double aporteCapitalProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][14].ToString());
+                        int socio_idProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString());
+
 
                         for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                         {
-                            if (dsCobranzas.Tables["cobranzasProvisorias"].Rows[i][2].ToString() == dsCobranzas.Tables["cobranzas"].Rows[i][2].ToString())
+                            if (Convert.ToInt32(dsCobranzas.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString()))
                             {
-                                //****************************
-                                //hacer update de cobranza de de las cobranzas provisorias 
-                                //****************************
+                                modificarCobranza(id_cobranzaProvisorio, id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, CuotasVanProvisorio, cantidadCuotasProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
                                 estaEnCobranza = true;
-
                             }
                         }
 
                         if (!estaEnCobranza)
                         {
-                            //****************************
-                            //hago insert en cobranza de las cobranzas provisorias
-                            //****************************
+                            guardarCobranza(id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, CuotasVanProvisorio, cantidadCuotasProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
                         }
-
-
                     }
                 }
-
-
 
                 //agrego todos los socios tengan o no prestamos que no
                 //hayan sido dados de baja
