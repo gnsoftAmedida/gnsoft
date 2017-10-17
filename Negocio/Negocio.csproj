@@ -47,6 +47,7 @@
     <Compile Include="CobranzaProvisoria.cs" />
     <Compile Include="FechaCierre.cs" />
     <Compile Include="Empresa.cs" />
+    <Compile Include="Historia.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Evento.cs" />
