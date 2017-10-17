@@ -30,6 +30,49 @@ namespace Negocio
         private string empresa_segundoVocal;
         private DateTime empresa_fechaEleccion;
 
+        private DateTime empresa_cierrePresupuestoAnterior;
+        private DateTime empresa_horaCierreAnterior;
+        private DateTime empresa_cierrePresupuestoActual;
+        private DateTime empresa_horacierreactual;
+        private DateTime empresa_vtoPresupuestoActual;
+        private String empresa_usuarioCierre;
+
+        public DateTime Empresa_cierrePresupuestoAnterior
+        {
+            get { return empresa_cierrePresupuestoAnterior; }
+            set { empresa_cierrePresupuestoAnterior = value; }
+        }
+
+        public DateTime Empresa_horaCierreAnterior
+        {
+            get { return empresa_horaCierreAnterior; }
+            set { empresa_horaCierreAnterior = value; }
+        }
+
+        public DateTime Empresa_cierrePresupuestoActual
+        {
+            get { return empresa_cierrePresupuestoActual; }
+            set { empresa_cierrePresupuestoActual = value; }
+        }
+
+        public DateTime Empresa_horacierreactual
+        {
+            get { return empresa_horacierreactual; }
+            set { empresa_horacierreactual = value; }
+        }
+
+        public DateTime Empresa_vtoPresupuestoActual
+        {
+            get { return empresa_vtoPresupuestoActual; }
+            set { empresa_vtoPresupuestoActual = value; }
+        }
+
+        public String Empresa_usuarioCierre
+        {
+            get { return empresa_usuarioCierre; }
+            set { empresa_usuarioCierre = value; }
+        }
+
         public int Empresa_id { get; set; }
         public string Empresa_sigla { get; set; }
         public string Empresa_nombre { get; set; }
@@ -54,8 +97,8 @@ namespace Negocio
         public void Guardar()
         {
             pEmpresa tmpEmpresa = new pEmpresa();
-            tmpEmpresa.GuardarEmpresa( Empresa_nombre,  Empresa_sigla,  Empresa_direccion,  Empresa_departamento,  Empresa_codigoPostal,  Empresa__telefono,  Empresa_fax,  Empresa_rut,  Empresa_aporte,  Empresa_MaxUnidad,  Empresa_iva,  Empresa_intMora,  Empresa_mail,  Empresa_presidente,  Empresa__tesorero,
-             Empresa_secretario,  Empresa_primerVocal,  Empresa_segundoVocal,  Empresa_fechaEleccion);
+            tmpEmpresa.GuardarEmpresa(Empresa_nombre, Empresa_sigla, Empresa_direccion, Empresa_departamento, Empresa_codigoPostal, Empresa__telefono, Empresa_fax, Empresa_rut, Empresa_aporte, Empresa_MaxUnidad, Empresa_iva, Empresa_intMora, Empresa_mail, Empresa_presidente, Empresa__tesorero,
+             Empresa_secretario, Empresa_primerVocal, Empresa_segundoVocal, Empresa_fechaEleccion);
         }
 
         public DataSet devolverEmpresa()
@@ -65,10 +108,10 @@ namespace Negocio
             return empresas;
         }
 
-
+        public void modificarParametrosCierreEmpresa()
+        {
+            pEmpresa tmpEmpresa = new pEmpresa();
+            tmpEmpresa.modificarParametrosCierreEmpresa(Empresa_cierrePresupuestoAnterior, Empresa_horaCierreAnterior, Empresa_cierrePresupuestoActual, Empresa_horacierreactual, Empresa_vtoPresupuestoActual, Empresa_usuarioCierre);
+        }
     }
-
-    
-
-        
 }

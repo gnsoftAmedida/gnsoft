@@ -859,6 +859,19 @@ namespace Negocio
             tmpCobranza.GuardarCobranza();
         }
 
+        public void modificarParametrosCierreEmpresa(DateTime empresa_cierrePresupuestoAnterior, DateTime empresa_horaCierreAnterior, DateTime empresa_cierrePresupuestoActual, DateTime empresa_horacierreactual, DateTime empresa_vtoPresupuestoActual, String empresa_usuarioCierre)
+        {
+            Empresa tmpEmpresa = new Empresa();
+
+            tmpEmpresa.Empresa_cierrePresupuestoAnterior = empresa_cierrePresupuestoAnterior;
+            tmpEmpresa.Empresa_horaCierreAnterior = empresa_horaCierreAnterior;
+            tmpEmpresa.Empresa_cierrePresupuestoActual = empresa_cierrePresupuestoActual;
+            tmpEmpresa.Empresa_horacierreactual = empresa_horacierreactual;
+            tmpEmpresa.Empresa_vtoPresupuestoActual = empresa_vtoPresupuestoActual;
+            tmpEmpresa.Empresa_usuarioCierre = empresa_usuarioCierre;
+
+            tmpEmpresa.modificarParametrosCierreEmpresa();
+        }
 
         public void cierre()
         {
@@ -1016,23 +1029,16 @@ namespace Negocio
                     }
                 }
 
+                DateTime empresa_cierrePresupuestoAnterior = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString()); // Cierre fecha presupuesto actual
+                DateTime empresa_horaCierreAnterior = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()); // Cierre hora presupuesto actual
+                DateTime empresa_cierrePresupuestoActual = fechaCierre;
+                DateTime empresa_horacierreactual = horaCierre;
+                DateTime empresa_vtoPresupuestoActual = fechaVto;
+                String empresa_usuarioCierre = Utilidades.UsuarioLogueado.Alias;
 
-                //***************************************************
-                // ACTUALIZO PARAMETROS (Actualizar tabla empresa)
-                //***************************************************
+                modificarParametrosCierreEmpresa(empresa_cierrePresupuestoAnterior, empresa_horaCierreAnterior, empresa_cierrePresupuestoActual, empresa_horacierreactual, empresa_vtoPresupuestoActual, empresa_usuarioCierre);
 
-                Microsoft.VisualBasic.Strings.Mid(fechaVto.Date.ToString(), 4);
-                //mejor usar función presupuesto
-
-                /*  RsParametros!cierrepresupuestoanterior = RsParametros!cierrepresupuestoactual
-                  RsParametros!horacierreanterior = RsParametros!horacierreactual
-                  RsParametros!cierrepresupuestoactual = FechaCierre
-                  RsParametros!horacierreactual = HoraCierre
-                  RsParametros!vtopresupuestoactual = FechaVto
-                  RsParametros!usuariocierre = Wusuario
-         */
-
-
+              
                 //***************************************************
                 // ACTUALIZO FECHAS CIERRES  ( HACER Sum(importecuota+aportecapital) )
                 //***************************************************
