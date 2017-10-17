@@ -799,6 +799,17 @@ namespace Negocio
             return Microsoft.VisualBasic.Strings.Mid(VtoPto(DateTime.Today).Date.ToString("dd/MM/yyyy"), 4);
         }
 
+        public void agregarAporteCapitalCobranza(int parCobranza_id, double parAporteCapital)
+        {
+            Cobranza tmpCobranza = new Cobranza();
+            if (parCobranza_id == 0)
+                throw new Exception("Id del cobranza no puede ser 0");
+
+            tmpCobranza.Cobranza_ID = parCobranza_id;
+            tmpCobranza.AporteCapital = parAporteCapital;
+            tmpCobranza.agregarAporteCapitalCobranza();
+        }
+
         public void modificarCobranza(int parCobranza_id, int parPrestamo_id, String parCedula, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, double parAporteCapital, int parSocio_id)
         {
             Cobranza tmpCobranza = new Cobranza();
@@ -982,33 +993,26 @@ namespace Negocio
 
                 //agrego todos los socios tengan o no prestamos que no
                 //hayan sido dados de baja
-
                 estaEnCobranza = false;
 
                 if (dsSociosActivos.Tables["socio"].Rows.Count > 0)
                 {
-                    for (int i = 0; !estaEnCobranza && i < dsSociosActivos.Tables["socio"].Rows.Count; i++)
+                    for (int i = 0; i < dsSociosActivos.Tables["socio"].Rows.Count; i++)
                     {
 
-                        if (dsSociosActivos.Tables["socio"].Rows[i][3].ToString() == dsCobranzas.Tables["cobranzas"].Rows[i][2].ToString())
+                        for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                         {
-
-                            //****************************
-                            //hago update en cobranza de los socios (que no hayan sido dado de baja)
-                            //****************************
-
-                            // Agregar RsCobranza!aportecapital = CuotaCapital
-                            estaEnCobranza = true;
+                            if (dsSociosActivos.Tables["socio"].Rows[i][0].ToString() == dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString())
+                            {
+                                agregarAporteCapitalCobranza(Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString()), CuotaCapital);
+                                estaEnCobranza = true;
+                            }
                         }
-                    }
 
-                    if (!estaEnCobranza)
-                    {
-                        //****************************
-                        //hago insert en cobranza de los socios (que no hayan sido dado de baja)
-                        //****************************
-
-                        // Agregar RsCobranza!aportecapital = CuotaCapital
+                        if (!estaEnCobranza)
+                        {
+                            guardarCobranza(0, dsSociosActivos.Tables["cobranzas"].Rows[i][3].ToString(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, CuotaCapital, Convert.ToInt32(dsSociosActivos.Tables["cobranzas"].Rows[i][0].ToString()));
+                        }
                     }
                 }
 
