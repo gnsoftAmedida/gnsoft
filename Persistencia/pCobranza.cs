@@ -183,6 +183,30 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverTotales()
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT Sum(importecuota+aportecapital) AS [a_1], sum(amortizacionvencer) as [b_1], sum(interesvencer) as [c_1] from cobranza ";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "totalesCobranzas");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataSet devolverTodas()
         {
             try

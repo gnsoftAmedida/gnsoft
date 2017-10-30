@@ -136,6 +136,13 @@ namespace Negocio
             set { interesCuota = value; }
         }
 
+        public DataSet devolverTotales()
+        {
+            pCobranza tmpCobranza = new pCobranza();
+            DataSet cobranzas = tmpCobranza.devolverTotales();
+            return cobranzas;
+        }
+
         public DataSet devolverCobranzas()
         {
             pCobranza tmpCobranza = new pCobranza();

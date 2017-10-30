@@ -888,6 +888,13 @@ namespace Negocio
             tmpEmpresa.modificarParametrosCierreEmpresa();
         }
 
+        public DataSet devolverTotalesCobranzas()
+        {
+            Cobranza tmpCobranza = new Cobranza();
+            DataSet totalesCobranza = tmpCobranza.devolverCobranzas();
+            return totalesCobranza;
+        }
+
         public void cierre()
         {
             double CuotaCapital;
@@ -1051,16 +1058,26 @@ namespace Negocio
                 DateTime empresa_vtoPresupuestoActual = fechaVto;
                 String empresa_usuarioCierre = Utilidades.UsuarioLogueado.Alias;
 
-                // Ver si esto lo bajo por los parametros
+                
                 modificarParametrosCierreEmpresa(empresa_cierrePresupuestoAnterior, empresa_horaCierreAnterior, empresa_cierrePresupuestoActual, empresa_horacierreactual, empresa_vtoPresupuestoActual, empresa_usuarioCierre);
 
                 //***************************************************
                 // ACTUALIZO FECHAS CIERRES  ( HACER Sum(importecuota+aportecapital) )
                 //***************************************************
 
-            //    GuardarFechaCierre(presupuesto, Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString()), Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()), empresa_horaCierreAnterior, fechaCierre, horaCierre);
 
-                
+                DateTime fecha_desde = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString());
+                DateTime hora_desde = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString());
+                String presupuesto_ = presupuesto();
+                              
+                DataSet totalesCobranza = devolverTotalesCobranzas();
+          
+                Double totalImporteCobranzas = Convert.ToDouble(totalesCobranza.Tables["totalesCobranzas"].Rows[0][1].ToString());
+                Double totalAmortizacionVencer = Convert.ToDouble(totalesCobranza.Tables["totalesCobranzas"].Rows[0][2].ToString());
+                Double interesesVencer = Convert.ToDouble(totalesCobranza.Tables["totalesCobranzas"].Rows[0][3].ToString());
+
+                GuardarFechaCierre(presupuesto_, fecha_desde, hora_desde, empresa_cierrePresupuestoActual, empresa_horacierreactual, totalImporteCobranzas, totalAmortizacionVencer, interesesVencer);
+
          //    String Presupuesto, DateTime FechaDesde, DateTime HoraDesde, DateTime FechaHasta, DateTime HoraHasta, Double TotalImporte, Double AmortizacionAVencer, Double InteresesAVencer
              
                 /*      
