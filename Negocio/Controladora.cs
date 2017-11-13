@@ -232,13 +232,44 @@ namespace Negocio
             return historias;
         }
 
+        public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
+            double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
+            double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, string _Inciso, string _oficina, double _excedido, double _mora,
+            double _IvaMora, int socio_id)
+        {
+            Historia tmpHistoria = new Historia();
+
+            tmpHistoria._Presupuesto = _Presupuesto;
+            tmpHistoria._NumeroPrestamo = _NumeroPrestamo;
+            tmpHistoria._cedula = _cedula;
+            tmpHistoria._tasa = _tasa;
+            tmpHistoria._porcentajeiva = _porcentajeiva;
+            tmpHistoria._montopedido = _montopedido;
+            tmpHistoria._cantidadcuotas = _cantidadcuotas;
+            tmpHistoria._nrodecuotas = _nrodecuotas;
+            tmpHistoria._importecuota = _importecuota;
+            tmpHistoria._AmortizacionCuota = _AmortizacionCuota;
+            tmpHistoria._InteresCuota = _InteresCuota;
+            tmpHistoria._IvaCuota = _IvaCuota;
+            tmpHistoria._AmortizacionVencer = _AmortizacionVencer;
+            tmpHistoria._InteresVencer = _InteresVencer;
+            tmpHistoria._aportecapital = _aportecapital;
+            tmpHistoria._numerocobro = _numerocobro;
+            tmpHistoria._Inciso = _Inciso;
+            tmpHistoria._oficina = _oficina;
+            tmpHistoria._excedido = _excedido;
+            tmpHistoria._mora = _mora;
+            tmpHistoria._IvaMora = _IvaMora;
+            tmpHistoria._socio_id = socio_id;
+            tmpHistoria.Guardar();
+        }
+
         public DataSet DevolverIncisos()
         {
             Inciso tmpInciso = new Inciso();
             DataSet incisos = tmpInciso.devolverIncisos();
             return incisos;
         }
-
 
         public DataSet DevolverCobranzas()
         {
@@ -1058,7 +1089,7 @@ namespace Negocio
                 DateTime empresa_vtoPresupuestoActual = fechaVto;
                 String empresa_usuarioCierre = Utilidades.UsuarioLogueado.Alias;
 
-                
+
                 modificarParametrosCierreEmpresa(empresa_cierrePresupuestoAnterior, empresa_horaCierreAnterior, empresa_cierrePresupuestoActual, empresa_horacierreactual, empresa_vtoPresupuestoActual, empresa_usuarioCierre);
 
                 //***************************************************
@@ -1069,9 +1100,9 @@ namespace Negocio
                 DateTime fecha_desde = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString());
                 DateTime hora_desde = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString());
                 String presupuesto_ = presupuesto();
-                              
+
                 DataSet totalesCobranza = devolverTotalesCobranzas();
-          
+
                 Double totalImporteCobranzas = Convert.ToDouble(totalesCobranza.Tables["totalesCobranzas"].Rows[0][1].ToString());
                 Double totalAmortizacionVencer = Convert.ToDouble(totalesCobranza.Tables["totalesCobranzas"].Rows[0][2].ToString());
                 Double interesesVencer = Convert.ToDouble(totalesCobranza.Tables["totalesCobranzas"].Rows[0][3].ToString());
@@ -1089,47 +1120,50 @@ namespace Negocio
                 {
                     for (int i = 0; i < dsCobranzasActualizadas.Tables["cobranzas"].Rows.Count; i++)
                     {
-                        // Por cada cobranza agrego un registro en el histórico
 
-/*
+                        // Por cada cobranza agrego un registro en el histórico                
+                        String _Presupuesto = presupuesto_;
+                        int _NumeroPrestamo = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][1].ToString()); //1
+                        String _cedula = Convert.ToString(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][2].ToString()); //2
+                        Double _tasa = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][3].ToString()); //3
+                        Double _porcentajeiva = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][4].ToString()); //4
+                        Double _montopedido = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][5].ToString()); //5
+                        int _cantidadcuotas = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][6].ToString()); //6
+                        int _nrodecuotas = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][7].ToString()); //7
+                        Double _importecuota = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][8].ToString()); //8
+                        Double _AmortizacionCuota = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][9].ToString()); //9
+                        Double _InteresCuota = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][10].ToString()); //10
+                        Double _IvaCuota = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][11].ToString()); //11
+                        Double _AmortizacionVencer = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][12].ToString()); //12
+                        Double _InteresVencer = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][13].ToString());//13
+                        Double _aportecapital = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][14].ToString()); //14
+                        int _socio_id = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][14].ToString());
 
-                        id_cobranza = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][0].ToString());
-                        id_prestamo = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][1].ToString());
-                        cedula = dsCobranzas.Tables["cobranzas"].Rows[i][2].ToString();
-                        tasa = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][3].ToString());
-                        Wiva = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][4].ToString()); // Porcentaje ivaç
-                        montoPedido = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][5].ToString());
-                        CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString()) + 1;
-                        cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
-                        importeCuota = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][8].ToString());
-                        aporteCapital = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][14].ToString());
-                        socio_id = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString());
-*/
+                        if (dsSociosActivos.Tables["socio"].Rows.Count > 0)
+                        {
+                            for (int p = 0; p < dsSociosActivos.Tables["socio"].Rows.Count; i++)
+                            {
+                                if (dsSociosActivos.Tables["socio"].Rows[i][0].ToString() == _socio_id.ToString())
+                                {
+                                    int _Inciso = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][11].ToString());
+                                    int _oficina = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][11].ToString());
+                                    string _numerocobro = dsSociosActivos.Tables["socio"].Rows[i][4].ToString();
+                                }
+                            }
+                        }
+
+
+                        /*  _excedido
+                    _mora
+                _IvaMora
+        */
+
+                        //   GuardarHistoria();
 
 
 
-                        /*     RsHistoria.AddNew
-                                 RsHistoria!Presupuesto = Mid(FechaVto, 4)
-                                 RsHistoria!numeroprestamo = RsCobranza!numeroprestamo
-                                 RsHistoria!cedula = RsCobranza!cedula
-                                 RsHistoria!tasa = RsCobranza!tasa
-                                 RsHistoria!porcentajeiva = RsCobranza!porcentajeiva
-                                 RsHistoria!montopedido = RsCobranza!montopedido
-                                 RsHistoria!CantidadCuotas = RsCobranza!CantidadCuotas
-                                 RsHistoria!nrodecuotas = RsCobranza!nrodecuotas
-                                 RsHistoria!ImporteCuota = RsCobranza!ImporteCuota
-                                 RsHistoria!amortizacioncuota = RsCobranza!amortizacioncuota
-                                 RsHistoria!InteresCuota = RsCobranza!InteresCuota
-                                 RsHistoria!IvaCuota = RsCobranza!IvaCuota
-                                 RsHistoria!amortizacionvencer = RsCobranza!amortizacionvencer
-                                 RsHistoria!interesvencer = RsCobranza!interesvencer
-                                 RsHistoria!aportecapital = RsCobranza!aportecapital
-                         
-                                  RsHistoria!numerocobro = RsSocios!numerocobro
-                              
-                                  RsHistoria!inciso = RsSocios!inciso
-                                  RsHistoria!Oficina = RsSocios!Oficina
-                                                  */
+                        
+                        /*     
 
                         //******
                         // En la misma recorrida del histórico actualizo los excedidos.

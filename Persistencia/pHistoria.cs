@@ -20,7 +20,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT historia_id,Presupuesto, NumeroPrestamo, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas,nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota, AmortizacionVencer, InteresVencer,aportecapital,numerocobro,Inciso,oficina,excedido,mora,IvaMora FROM historia";
+                string sql = "SELECT historia_id,Presupuesto, NumeroPrestamo, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas,nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota, AmortizacionVencer, InteresVencer,aportecapital,numerocobro,Inciso,oficina,excedido,mora,IvaMora,socio_id FROM historia";
                 DataSet ds = new DataSet();
 
                 connection.Open();
@@ -87,7 +87,7 @@ namespace Persistencia
         public void modificarHistoria(int Id, string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa,double _porcentajeiva,
             double _montopedido,double _cantidadcuotas, double _nrodecuotas,double _importecuota,double _AmortizacionCuota,double _InteresCuota,double _IvaCuota,
             double _AmortizacionVencer,double _InteresVencer,double _aportecapital,string _numerocobro,string _Inciso,string _oficina,double _excedido,double _mora,
-            double _IvaMora)
+            double _IvaMora, int _socio_id)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
@@ -96,7 +96,7 @@ namespace Persistencia
             try
             {
 
-                string sql = "Update historia set Presupuesto = '" + _Presupuesto + "', NumeroPrestamo = '" + _NumeroPrestamo + "',cedula = '" + _cedula + "', tasa = '" + _tasa + "', porcentajeiva = '" + _porcentajeiva + "', montopedido = '" + _montopedido + "', cantidadcuotas = '" + _cantidadcuotas + "', nrodecuotas = '" + _nrodecuotas + "', importecuota = '" + _importecuota + "', AmortizacionCuota = '" + _AmortizacionCuota + "', InteresCuota = '" + _InteresCuota + "', IvaCuota = '" + _IvaCuota + "',  AmortizacionVencer = '" + _AmortizacionVencer + "', InteresVencer = '" + _InteresVencer + "', aportecapital = '" + _aportecapital + "' , numerocobro = '" + _numerocobro + "', Inciso = '" + _Inciso + "', oficina = '" + _oficina + "', excedido = '" + _excedido + "', mora = '" + _mora + "', IvaMora = '" + _IvaMora + "'WHERE historia_id =" + Id;
+                string sql = "Update historia set Presupuesto = '" + _Presupuesto + "', NumeroPrestamo = '" + _NumeroPrestamo + "',cedula = '" + _cedula + "', tasa = '" + _tasa + "', porcentajeiva = '" + _porcentajeiva + "', montopedido = '" + _montopedido + "', cantidadcuotas = '" + _cantidadcuotas + "', nrodecuotas = '" + _nrodecuotas + "', importecuota = '" + _importecuota + "', AmortizacionCuota = '" + _AmortizacionCuota + "', InteresCuota = '" + _InteresCuota + "', IvaCuota = '" + _IvaCuota + "',  AmortizacionVencer = '" + _AmortizacionVencer + "', InteresVencer = '" + _InteresVencer + "', aportecapital = '" + _aportecapital + "' , numerocobro = '" + _numerocobro + "', Inciso = '" + _Inciso + "', oficina = '" + _oficina + "', excedido = '" + _excedido + "', mora = '" + _mora + "', IvaMora = '" + _IvaMora + "', socio_id='" + _socio_id + "' WHERE historia_id =" + Id;
                            
                 connection.Open();
                 transaction = connection.BeginTransaction();
@@ -121,14 +121,14 @@ namespace Persistencia
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
             double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
             double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, string _Inciso, string _oficina, double _excedido, double _mora,
-            double _IvaMora)
+            double _IvaMora, int _socio_id)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO historia (Presupuesto, NumeroPrestamo, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas,nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota, AmortizacionVencer, InteresVencer,aportecapital,numerocobro,Inciso,oficina,excedido,mora,IvaMora) VALUES ('" + _Presupuesto + "','" + _NumeroPrestamo + "','" + _cedula + "','" + _tasa + "','" + _porcentajeiva + "','" + _montopedido + "','" + _cantidadcuotas + "','" + _nrodecuotas + "','" + _importecuota + "','" + _AmortizacionCuota + "' ,'" + _InteresCuota + "','" + _IvaCuota + "','" + _AmortizacionVencer + "','" + _InteresVencer + "','" + _aportecapital + "','" + _numerocobro + "','" + _Inciso + "','" + _oficina + "','" + _excedido + "','" + _mora + "','" + _IvaMora + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO historia (Presupuesto, NumeroPrestamo, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas,nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota, AmortizacionVencer, InteresVencer,aportecapital,numerocobro,Inciso,oficina,excedido,mora,IvaMora,socio_id) VALUES ('" + _Presupuesto + "','" + _NumeroPrestamo + "','" + _cedula + "','" + _tasa + "','" + _porcentajeiva + "','" + _montopedido + "','" + _cantidadcuotas + "','" + _nrodecuotas + "','" + _importecuota + "','" + _AmortizacionCuota + "' ,'" + _InteresCuota + "','" + _IvaCuota + "','" + _AmortizacionVencer + "','" + _InteresVencer + "','" + _aportecapital + "','" + _numerocobro + "','" + _Inciso + "','" + _oficina + "','" + _excedido + "','" + _mora + "','" + _IvaMora + "','" + _socio_id + "');" + "Select last_insert_id()";
 
             try
             {
@@ -166,12 +166,5 @@ namespace Persistencia
                 throw ex;
             }
         }
-
-
-
-
-
-
-
     }
 }

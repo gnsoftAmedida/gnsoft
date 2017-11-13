@@ -31,6 +31,7 @@ namespace Negocio
         private double excedido;
         private double mora;
         private double IvaMora;
+        private int socio_id;
 
         public int _historia_id { get; set; }
         public string _Presupuesto { get; set; }
@@ -54,13 +55,14 @@ namespace Negocio
         public double _excedido { get; set; }
         public double _mora { get; set; }
         public double _IvaMora { get; set; }
-
+        public int _socio_id { get; set; }
+     
         public void Guardar()
         {
             pHistoria tmpHistoria = new pHistoria();
             tmpHistoria.GuardarHistoria(_Presupuesto, _NumeroPrestamo, _cedula, _tasa, _porcentajeiva, _montopedido, _cantidadcuotas,
                 _nrodecuotas, _importecuota, _AmortizacionCuota, _InteresCuota, _IvaCuota, _AmortizacionVencer, _InteresVencer,
-                _aportecapital,_numerocobro,_Inciso,_oficina,_excedido,_mora,_IvaMora);
+                _aportecapital, _numerocobro, _Inciso, _oficina, _excedido, _mora, _IvaMora, _socio_id);
         }
 
         public DataSet devolverHistoria()
@@ -81,7 +83,7 @@ namespace Negocio
             pHistoria tmpHistoria = new pHistoria();
             tmpHistoria.modificarHistoria(_historia_id, _Presupuesto, _NumeroPrestamo, _cedula, _tasa, _porcentajeiva, _montopedido, _cantidadcuotas,
                 _nrodecuotas, _importecuota, _AmortizacionCuota, _InteresCuota, _IvaCuota, _AmortizacionVencer, _InteresVencer,
-                _aportecapital, _numerocobro, _Inciso, _oficina, _excedido, _mora, _IvaMora);
+                _aportecapital, _numerocobro, _Inciso, _oficina, _excedido, _mora, _IvaMora, _socio_id);
         }
     }
 }
