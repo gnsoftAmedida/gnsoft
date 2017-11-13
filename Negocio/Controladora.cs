@@ -1078,33 +1078,10 @@ namespace Negocio
 
                 GuardarFechaCierre(presupuesto_, fecha_desde, hora_desde, empresa_cierrePresupuestoActual, empresa_horacierreactual, totalImporteCobranzas, totalAmortizacionVencer, interesesVencer);
 
-         //    String Presupuesto, DateTime FechaDesde, DateTime HoraDesde, DateTime FechaHasta, DateTime HoraHasta, Double TotalImporte, Double AmortizacionAVencer, Double InteresesAVencer
-             
-                /*      
-               RsFechasDeCierres!Presupuesto = Mid(FechaVto, 4)
-               RsFechasDeCierres!FechaDesde = RsParametros!cierrepresupuestoanterior
-               RsFechasDeCierres!horadesde = RsParametros!horacierreanterior
-               RsFechasDeCierres!FechaHasta = FechaCierre
-               RsFechasDeCierres!horahasta = HoraCierr
-         
-                 
-                 ImporteTotal = RsCobranza!a_1
-                 TotalAmortizacion = RsCobranza!b_1
-                 TotalIntereses = RsCobranza!c_1
-         
-         
-                 RsFechasDeCierres!TotalImporte = ImporteTotal
-                 RsFechasDeCierres!amortizacionavencer = TotalAmortizacion
-                 RsFechasDeCierres!interesesavencer = TotalIntereses
-         
-                 */
-
-
 
                 // *************
                 // ACTUALIZAR HISTORIA
                 //
-
 
                 dsCobranzasActualizadas = DevolverCobranzas();
 
@@ -1113,6 +1090,23 @@ namespace Negocio
                     for (int i = 0; i < dsCobranzasActualizadas.Tables["cobranzas"].Rows.Count; i++)
                     {
                         // Por cada cobranza agrego un registro en el histórico
+
+/*
+
+                        id_cobranza = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][0].ToString());
+                        id_prestamo = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][1].ToString());
+                        cedula = dsCobranzas.Tables["cobranzas"].Rows[i][2].ToString();
+                        tasa = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][3].ToString());
+                        Wiva = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][4].ToString()); // Porcentaje ivaç
+                        montoPedido = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][5].ToString());
+                        CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString()) + 1;
+                        cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
+                        importeCuota = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][8].ToString());
+                        aporteCapital = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][14].ToString());
+                        socio_id = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString());
+*/
+
+
 
                         /*     RsHistoria.AddNew
                                  RsHistoria!Presupuesto = Mid(FechaVto, 4)
