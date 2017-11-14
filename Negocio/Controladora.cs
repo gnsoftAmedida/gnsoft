@@ -960,25 +960,15 @@ namespace Negocio
         {
             double CuotaCapital;
             double amo_cuota;
-            double int_cuota;
             double amo_vencer;
             double int_vencer;
             int CuotasVan;
-            DateTime FechaVto;
-            DateTime FechaCierre;
-            DateTime HoraCierre;
-            double ImporteTotal;
-            double TotalAmortizacion;
-            double TotalIntereses;
-            int ProgresoBarra;
             double Wmora;
             double Wiva;
             double InteresCuota;
             double IvaCuota;
-            double Mora;
 
             double WIvaMora; //contiene el porcentaje
-            double IvaMora; //va a contener el resultado del iva sobre la mora
 
             // AGREGADOS POR NICO
             double tasa;
@@ -996,17 +986,11 @@ namespace Negocio
             DateTime fechaVto = this.VtoPto(DateTime.Today);
             DateTime fechaCierre = DateTime.Today;
             DateTime horaCierre = DateTime.Now;
-
             DataSet dsParametros = DevolverEmpresa();
             DataSet dsSociosActivos = DevolverSociosActivos();
             DataSet dsFechasCierres = DevolverFechasCierres();
             DataSet dsCobranzasProvisorias = DevolverCobranzasProvisorias();
             DataSet dsCobranzas = DevolverCobranzas();
-
-
-            //*****************************
-            // Traer Historia y Excedidos
-            //*****************************
 
             CuotaCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][22].ToString());
             Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
@@ -1070,7 +1054,6 @@ namespace Negocio
                         double aporteCapitalProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][14].ToString());
                         int socio_idProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString());
 
-
                         for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                         {
                             if (Convert.ToInt32(dsCobranzas.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString()))
@@ -1119,14 +1102,11 @@ namespace Negocio
                 DateTime empresa_vtoPresupuestoActual = fechaVto;
                 String empresa_usuarioCierre = Utilidades.UsuarioLogueado.Alias;
 
-
                 modificarParametrosCierreEmpresa(empresa_cierrePresupuestoAnterior, empresa_horaCierreAnterior, empresa_cierrePresupuestoActual, empresa_horacierreactual, empresa_vtoPresupuestoActual, empresa_usuarioCierre);
 
                 //***************************************************
                 // ACTUALIZO FECHAS CIERRES  ( HACER Sum(importecuota+aportecapital) )
                 //***************************************************
-
-
                 DateTime fecha_desde = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString());
                 DateTime hora_desde = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString());
                 String presupuesto_ = presupuesto();
@@ -1139,10 +1119,9 @@ namespace Negocio
 
                 GuardarFechaCierre(presupuesto_, fecha_desde, hora_desde, empresa_cierrePresupuestoActual, empresa_horacierreactual, totalImporteCobranzas, totalAmortizacionVencer, interesesVencer);
 
-
                 // *************
                 // ACTUALIZAR HISTORIA
-                //
+                // *************
 
                 dsCobranzasActualizadas = DevolverCobranzas();
 
@@ -1150,7 +1129,6 @@ namespace Negocio
                 {
                     for (int i = 0; i < dsCobranzasActualizadas.Tables["cobranzas"].Rows.Count; i++)
                     {
-
                         // Por cada cobranza agrego un registro en el histórico                
                         String _Presupuesto = presupuesto_;
                         int _NumeroPrestamo = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][1].ToString()); //1
@@ -1210,7 +1188,6 @@ namespace Negocio
                         //************************************
                         // En la misma recorrida del histórico actualizo los excedidos.
                         //*************************************
-
                         DataSet dsExcedidosSinPago = devolverExcedidosSinPago(_socio_id);
 
                         if (dsExcedidosSinPago.Tables["excedidosSinPago"].Rows.Count > 0)
