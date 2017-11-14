@@ -194,6 +194,16 @@ namespace Negocio
             tmpInciso.modificarInciso();
         }
 
+        public void actualizarExcedidoCierre(int idExcedido, DateTime fechadepago, double importepagado, String presupuestodelpago)
+        {
+            Excedidos tmpExcedido = new Excedidos();
+            tmpExcedido._idExcedido = idExcedido;
+            tmpExcedido._fechadepago = fechadepago;
+            tmpExcedido._importepagado = importepagado;
+            tmpExcedido._presupuestodelpago = presupuestodelpago;
+            tmpExcedido.actualizarExcedidoCierre();
+        }
+
         public void modificarOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto, int idOficina)
         {
             Oficina tmpOficina = new Oficina();
@@ -234,7 +244,7 @@ namespace Negocio
 
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
             double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
-            double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, string _Inciso, string _oficina, double _excedido, double _mora,
+            double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, int _Inciso, int _oficina, double _excedido, double _mora,
             double _IvaMora, int socio_id)
         {
             Historia tmpHistoria = new Historia();
@@ -319,6 +329,14 @@ namespace Negocio
             DataSet socios = tmpSocio.devolverSocios();
             return socios;
         }
+
+        public DataSet devolverSocioId(int id_socio)
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socioId = tmpSocio.devolverSocioId(id_socio);
+            return socioId;
+        }
+
 
         public DataSet DevolverSociosActivos()
         {
@@ -524,6 +542,11 @@ namespace Negocio
             return tmpEvento.devolverEventosEntreFechas(fechaDesde, fechaHasta);
         }
 
+        public void VaciarTablaCobranzaProvisoria()
+        {
+            CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
+            tmpCobranzaProvisoria.devolverCobranzasProvisorias();
+        }
 
         public void AltaSocio(int socioActivo, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
             string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
@@ -926,6 +949,13 @@ namespace Negocio
             return totalesCobranza;
         }
 
+        public DataSet devolverExcedidosSinPago(int id_socio)
+        {
+            Excedidos tmpExcedido = new Excedidos();
+            DataSet tmpExcedidos = tmpExcedido.devolverExcedidos();
+            return tmpExcedidos;
+        }
+
         public void cierre()
         {
             double CuotaCapital;
@@ -1139,89 +1169,93 @@ namespace Negocio
                         Double _aportecapital = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][14].ToString()); //14
                         int _socio_id = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][14].ToString());
 
-                        if (dsSociosActivos.Tables["socio"].Rows.Count > 0)
+                        string _numerocobro = "";
+                        int _Inciso = 0;
+                        int _oficina = 0;
+
+                        Historia tmpHistoria = new Historia();
+                        tmpHistoria._Presupuesto = _Presupuesto;
+                        tmpHistoria._NumeroPrestamo = _NumeroPrestamo;
+                        tmpHistoria._cedula = _cedula;
+                        tmpHistoria._tasa = _tasa;
+                        tmpHistoria._porcentajeiva = _porcentajeiva;
+                        tmpHistoria._montopedido = _montopedido;
+                        tmpHistoria._cantidadcuotas = _cantidadcuotas;
+                        tmpHistoria._nrodecuotas = _nrodecuotas;
+                        tmpHistoria._importecuota = _importecuota;
+                        tmpHistoria._AmortizacionCuota = _AmortizacionCuota;
+                        tmpHistoria._InteresCuota = _InteresCuota;
+                        tmpHistoria._IvaCuota = _IvaCuota;
+                        tmpHistoria._AmortizacionVencer = _AmortizacionVencer;
+                        tmpHistoria._InteresVencer = _InteresVencer;
+                        tmpHistoria._aportecapital = _aportecapital;
+                        tmpHistoria._socio_id = _socio_id;
+
+                        DataSet dsSocioID = devolverSocioId(_socio_id);
+
+                        if (dsSocioID.Tables["socioPorId"].Rows.Count > 0)
                         {
-                            for (int p = 0; p < dsSociosActivos.Tables["socio"].Rows.Count; i++)
-                            {
-                                if (dsSociosActivos.Tables["socio"].Rows[i][0].ToString() == _socio_id.ToString())
-                                {
-                                    int _Inciso = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][11].ToString());
-                                    int _oficina = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][11].ToString());
-                                    string _numerocobro = dsSociosActivos.Tables["socio"].Rows[i][4].ToString();
-                                }
-                            }
+                            _Inciso = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[0][12].ToString());
+                            _oficina = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[0][11].ToString());
+                            _numerocobro = dsSociosActivos.Tables["socio"].Rows[0][4].ToString();
                         }
 
+                        if (dsSocioID.Tables["socioPorId"].Rows.Count > 0)
+                        {
+                            tmpHistoria._numerocobro = _numerocobro;
+                            tmpHistoria._Inciso = _Inciso;
+                            tmpHistoria._oficina = _oficina;
+                        }
 
-                        /*  _excedido
-                    _mora
-                _IvaMora
-        */
-
-                        //   GuardarHistoria();
-
-
-
-                        
-                        /*     
-
-                        //******
+                        //************************************
                         // En la misma recorrida del histórico actualizo los excedidos.
                         //*************************************
 
-                        /*     Busqueda = "select * from excedidos where cedula=" & "'" & RsCobranza!cedula & "'"
-                           Busqueda = Busqueda & "and importepagado=0"
-             
-                             
-                           If RsExcedidos.RecordCount > 0 Then
-                              RsHistoria!Excedido = RsExcedidos!aretener - RsExcedidos!retenido
-                  
-                    
-                  
-                              If (RsExcedidos!aretener - RsExcedidos!retenido) > RsExcedidos!aportecapital Then
-                                 'Modificado 14/10/09 redondeo a dos decimales
-                     
-                                 Mora = Format(Pago_Mora(RsExcedidos!aretener - RsExcedidos!retenido - RsExcedidos!aportecapital, RsExcedidos!Presupuesto, Wmora, FechaVto), "###,###,##0.00")
-                                 ' Agregado 14/10/09 iva sobre la mora
-                                 IvaMora = Format(Mora * (WIvaMora / 100), "###,###,##0.00")
-                              Else
-                                 Mora = 0
-                              End If
-                  
-                              RsHistoria!Mora = Mora
-                  
-                              'agregado 14/10/09 grabar el iva de la mora en historia
-                              If Mora <> 0 Then
-                                RsHistoria!IvaMora = IvaMora
-                              End If
-                  
-                              RsExcedidos.Edit
-                              RsExcedidos!fechadepago = Date
-                              RsExcedidos!importepagado = (RsExcedidos!aretener - RsExcedidos!retenido) + Mora
-                              RsExcedidos!presupuestodelpago = Mid(FechaVto, 4)
+                        DataSet dsExcedidosSinPago = devolverExcedidosSinPago(_socio_id);
 
-                              RsExcedidos.Update
+                        if (dsExcedidosSinPago.Tables["excedidosSinPago"].Rows.Count > 0)
+                        {
+                            int id_exedido = Convert.ToInt32(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][0].ToString());
+                            double aRetener = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][3].ToString());
+                            double retenido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][4].ToString());
+                            double aporteCapitalExcedido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[i][8].ToString());
+                            double _excedido = aRetener - retenido;
+                            double moraExcedido = 0;
+                            double ivaMoraExcedido = 0;
 
-                           End If
-               
-                           RsHistoria.Update
-               
-               
-                           RsCobranza.MoveNext
-                           PrgBarCierre.Value = PrgBarCierre.Value + 1
-               
-                        Wend
-                      End If
-                     */
+                            tmpHistoria._excedido = _excedido;
 
+                            if ((aRetener - retenido) > aporteCapitalExcedido)
+                            {
+                                moraExcedido = Convert.ToDouble(Strings.Format(Pago_Mora(aRetener - retenido - aporteCapitalExcedido, _Presupuesto, Wmora, fechaVto.ToString("dd/MM/yyyy")), "###,###,##0.00"));
+
+                                ivaMoraExcedido = Convert.ToDouble(Strings.Format(moraExcedido * (WIvaMora / 100), "###,###,##0.00"));
+                            }
+                            else
+                            {
+                                moraExcedido = 0;
+                            }
+
+                            if (dsExcedidosSinPago.Tables["excedidosSinPago"].Rows.Count > 0)
+                            {
+                                tmpHistoria._mora = moraExcedido;
+                                if (moraExcedido != 0)
+                                {
+                                    tmpHistoria._IvaMora = ivaMoraExcedido;
+                                }
+                            }
+
+                            double importePagadoExcedido = (aRetener - retenido) + moraExcedido;
+
+                            actualizarExcedidoCierre(id_exedido, DateTime.Today, importePagadoExcedido, presupuesto_);
+                        }
+
+                        tmpHistoria.Guardar();
 
                         // **************Vaciar la tabla cobranza privosoria*****************
-                        // BaseDatos.Execute "DELETE * FROM  cobranzaprovisoria;"
-
-
+                        DevolverCobranzasProvisorias();
                     }
                 }
-
             }
         }
     }

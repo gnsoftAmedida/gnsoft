@@ -26,8 +26,8 @@ namespace Negocio
         private double InteresVencer;
         private double aportecapital;
         private string numerocobro;
-        private string Inciso;
-        private string oficina;
+        private int Inciso;
+        private int oficina;
         private double excedido;
         private double mora;
         private double IvaMora;
@@ -50,8 +50,8 @@ namespace Negocio
         public double _InteresVencer { get; set; }
         public double _aportecapital { get; set; }
         public string _numerocobro { get; set; }
-        public string _Inciso { get; set; }
-        public string _oficina { get; set; }
+        public int _Inciso { get; set; }
+        public int _oficina { get; set; }
         public double _excedido { get; set; }
         public double _mora { get; set; }
         public double _IvaMora { get; set; }

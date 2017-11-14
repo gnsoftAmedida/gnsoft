@@ -36,6 +36,44 @@ namespace Persistencia
             }
         }
 
+        public void VaciarTablaCobranzaProvisoria()
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+            string sql = "DELETE FROM cobranzaprovisoria";
+
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                MySqlAdapter.UpdateCommand = connection.CreateCommand();
+                MySqlAdapter.UpdateCommand.Transaction = transaction;
+
+                MySqlAdapter.UpdateCommand.CommandText = sql;
+                MySqlAdapter.UpdateCommand.ExecuteNonQuery();
+                transaction.Commit();
+                connection.Close();
+
+            }
+            catch (MySqlException ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+
+                switch (ex.Number)
+                {
+                    case 1406:
+                        MisExcepciones ep = new MisExcepciones("Datos muy largos");
+                        throw ep;
+                    case 1451:
+                        //revisar siguiente línea  //  GINO
+                        MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten cobranzas pendientes ");
+                        throw fk;
+                }
+            }
+        }
+
         //método agregado el 11/10/17 por Gino
         public void eliminarCobranzaProvisoria(int Id)
         {

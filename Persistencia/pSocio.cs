@@ -58,6 +58,30 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverSocio(int id_socio)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT * FROM socio where socio_id='" + id_socio + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "socioPorId");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataSet devolverActivos()
         {
             try

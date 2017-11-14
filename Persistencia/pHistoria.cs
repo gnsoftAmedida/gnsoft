@@ -86,7 +86,7 @@ namespace Persistencia
 
         public void modificarHistoria(int Id, string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa,double _porcentajeiva,
             double _montopedido,double _cantidadcuotas, double _nrodecuotas,double _importecuota,double _AmortizacionCuota,double _InteresCuota,double _IvaCuota,
-            double _AmortizacionVencer,double _InteresVencer,double _aportecapital,string _numerocobro,string _Inciso,string _oficina,double _excedido,double _mora,
+            double _AmortizacionVencer,double _InteresVencer,double _aportecapital,string _numerocobro,int _Inciso,int _oficina,double _excedido,double _mora,
             double _IvaMora, int _socio_id)
         {
             MySqlConnection connection = conectar();
@@ -120,7 +120,7 @@ namespace Persistencia
 
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
             double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
-            double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, string _Inciso, string _oficina, double _excedido, double _mora,
+            double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, int _Inciso, int _oficina, double _excedido, double _mora,
             double _IvaMora, int _socio_id)
         {
             MySqlConnection connection = conectar();

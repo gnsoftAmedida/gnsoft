@@ -128,6 +128,12 @@ namespace Negocio
             set { interesCuota = value; }
         }
 
+        public void VaciarTablaCobranzaProvisoria()
+        {
+            pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();
+            tmpCobranzaProvisoria.VaciarTablaCobranzaProvisoria();
+        }
+
         public DataSet devolverCobranzasProvisorias()
         {
             pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();
