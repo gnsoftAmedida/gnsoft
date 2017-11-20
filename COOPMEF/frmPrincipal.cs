@@ -30,6 +30,7 @@ namespace COOPMEF
 
         // ############################ VARIABLES PRESTAMO ############################
         int cantidadCuotas = 0;
+        double ivaSobreIntereses = 0;
         double tasaAnualEfectivaSinIVA = 0;
         double iva = 0;
         double totalDeuda = 0;
@@ -42,6 +43,7 @@ namespace COOPMEF
         double tasaAnteriorPrestamo;
         int nro_prestamoAnterior;
         double montoAnterior;
+        bool excedido;
         //#############################################################################
 
         public frmPrincipal()
@@ -1500,11 +1502,25 @@ namespace COOPMEF
         public void cargarPlanPrestamos(object sender, EventArgs e)
         {
             cargarPlanPrestamoSocio();
+
+        }
+
+        private Boolean estaExcedido()
+        {
+
+            if (!(idSocioSeleccionado == 0))
+            {
+                DataSet dsExcedidosSinPago = empresa.devolverExcedidosSinPago(idSocioSeleccionado);
+                if (dsExcedidosSinPago.Tables["excedidosSinPago"].Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
 
         public void cargarPlanPrestamoSocio()
         {
-
             if (tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabPrestamo"])
             {
                 //Cargar combo préstamos
@@ -1515,52 +1531,96 @@ namespace COOPMEF
 
                 if (!(idSocioSeleccionado == 0))
                 {
-                    dsPrestamoActivo = empresa.devolverPrestamoActivoSocio(idSocioSeleccionado);
-
-                    if (dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows.Count == 1)
+                    excedido = estaExcedido();
+                    if (!excedido)
                     {
-                        MessageBox.Show("El usuario tiene deuda pendiente", "Atención", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                        // busco primero en cobranza provisoria para ver si no tiene ningun
+                        // prestamo que haya hecho recien y que no se haya mandado a retener.
+                        DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
+                        DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
 
-                        txtNroPréstamo.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][1].ToString();
-                        txtCuotas.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][13].ToString();
-                        txtPagas.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][14].ToString();
-                        txtTasa.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][6].ToString();
-                        txtMonto.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][5].ToString();
-                        txtImporteCuotaPendiente.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][8].ToString();
-                        txtAmortización.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][11].ToString();
-                        txtInteresesAVencer.Text = dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][12].ToString();
+                        if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count == 0)
+                        {
+                            //0 si recien ha ingresado es en el que caso en que se le
+                            //haga el alta al socio y ya haya operado
+                            if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count == 0)
+                            {
+                                txtNroPréstamo.Text = "0";
+                                txtCuotas.Text = "0";
+                                txtPagas.Text = "0";
+                                txtTasa.Text = "0";
+                                txtMonto.Text = "0";
+                                txtImporteCuotaPendiente.Text = "0";
+                                txtAmortización.Text = "0";
+                                txtInteresesAVencer.Text = "0";
+                                cuotaAnteriorPrestamo = 0;
+                                tasaAnteriorPrestamo = 0;
+                                nro_prestamoAnterior = 0;
+                                montoAnterior = 0;
 
-                        cuotaAnteriorPrestamo = Convert.ToDouble(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][8].ToString());
-                        tasaAnteriorPrestamo = Convert.ToDouble(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][6].ToString());
-                        nro_prestamoAnterior = Convert.ToInt32(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][0].ToString());
-                        montoAnterior = Convert.ToDouble(dsPrestamoActivo.Tables["prestamoActivoSocio"].Rows[0][5].ToString());
-                        txtTotalDeuda.Text = montoAnterior.ToString();
+                                /* si si tiene pero lo termina ese mes
+                                   o puede ser que tampoco haya tenido pero amortizacion
+                                   a vencer va a aparecer en 0
+                                */
+                            }
+                            else
+                            {
+
+
+                                txtNroPréstamo.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString();
+                                txtCuotas.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString();
+                                txtPagas.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString();
+                                txtTasa.Text = String.Format(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][3].ToString(), "##0.00");
+                                txtMonto.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][5].ToString();
+                                txtImporteCuotaPendiente.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][8].ToString();
+                                txtAmortización.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][9].ToString();
+                                txtInteresesAVencer.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][13].ToString();
+
+                                cuotaAnteriorPrestamo = Convert.ToDouble(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][8].ToString());
+                                tasaAnteriorPrestamo = Convert.ToDouble(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][3].ToString());
+                                nro_prestamoAnterior = Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString());
+                                montoAnterior = Convert.ToDouble(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][5].ToString());
+                                txtTotalDeuda.Text = montoAnterior.ToString();
+
+                                if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString()) != 0)
+                                {
+                                    if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString()) < Math.Abs(Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString())) / 2)
+                                    {
+                                        MessageBox.Show("El prestamo no tiene más del 50% de cuotas pagas.");
+                                    }
+                                }
+                            }
+                        }
+                        else
+                        {
+
+                            cuotaAnteriorPrestamo = Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString());
+                            tasaAnteriorPrestamo = Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][3].ToString());
+                            nro_prestamoAnterior = Convert.ToInt32(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][1].ToString());
+                            montoAnterior = Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString());
+                            txtTotalDeuda.Text = montoAnterior.ToString();
+
+                            txtNroPréstamo.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][1].ToString();
+                            txtCuotas.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString();
+                            txtPagas.Text = 0.ToString();
+                            txtTasa.Text = String.Format(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][3].ToString(), "##0.00");
+                            txtMonto.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString();
+                            txtImporteCuotaPendiente.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString();
+                            txtAmortización.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][9].ToString();
+                            txtInteresesAVencer.Text = Convert.ToString((Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString()) * Convert.ToInt32(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString())) - montoAnterior);
+                        }
                     }
                     else
                     {
-                        txtNroPréstamo.Text = "0";
-                        txtCuotas.Text = "0";
-                        txtPagas.Text = "0";
-                        txtTasa.Text = "0";
-                        txtMonto.Text = "0";
-                        txtImporteCuotaPendiente.Text = "0";
-                        txtAmortización.Text = "0";
-                        txtInteresesAVencer.Text = "0";
-                        cuotaAnteriorPrestamo = 0;
-                        tasaAnteriorPrestamo = 0;
-                        nro_prestamoAnterior = 0;
-                        montoAnterior = 0;
-
+                        MessageBox.Show("El Socio tiene deudas pendientes. No puede operar hasta cancelar la totalidad de la misma.");
                     }
                 }
-            }
-            else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabBusqueda"]))
-            {
-                this.buscarCampo();
+                else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabBusqueda"]))
+                {
+                    this.buscarCampo();
+                }
             }
         }
-
-
 
         private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
@@ -1576,12 +1636,12 @@ namespace COOPMEF
                     if (esDecimal(txtNuevoImporte.Text.Replace(".", ",")))
                     {
                         int index = this.cmbPlanPréstamo.SelectedIndex;
-                        int idPrestamo = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString());
+                        int idPlanPrestamo = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString());
 
 
                         for (int i = 0; i < dsPlanes.Tables["planprestamo"].Rows.Count; i++)
                         {
-                            if (idPrestamo == Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][0].ToString()))
+                            if (idPlanPrestamo == Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][0].ToString()))
                             {
                                 cantidadCuotas = Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[i][1].ToString());
                                 tasaAnualEfectivaSinIVA = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[i][2].ToString());
@@ -1597,7 +1657,6 @@ namespace COOPMEF
                             }
                         }
 
-
                         tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
 
                         txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + montoAnterior);
@@ -1609,7 +1668,6 @@ namespace COOPMEF
                         txtImporteCuota.Text = cuota.ToString();
 
                         prestamoCorrecto = true;
-
 
                     }
                     else
@@ -1682,10 +1740,16 @@ namespace COOPMEF
 
                         double interesesVencer = empresa.IntVencer(cuota, cantidadCuotas, 0, amortizacionVencer);
 
-                        //(Socio.Socio_id,  Socio_nro, Fecha, Hora, Monteopedido, Tasa,Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+                       
+                        int idPrestamo = empresa.AltaPrestamo(tmpSocio, nro_socio, DateTime.Now, DateTime.Now, totalDeuda, tasaConIva, cantidadCuotas, cuota, nro_prestamoAnterior, montoAnterior, amortizacionVencer, interesesVencer, cantidadCuotas, 0, cuotaAnteriorPrestamo, tasaAnteriorPrestamo, 0);
+                       
+                        double amorticacionCuota = empresa.AmortCuota(tasaConIva,1,cantidadCuotas,totalDeuda);
 
+                        double interesCuota = Convert.ToDouble((cuota - amorticacionCuota) / tasaConIva);
+                        double ivaCuota = cuota - amorticacionCuota - interesCuota;
 
-                        empresa.AltaPrestamo(tmpSocio, nro_socio, DateTime.Now, DateTime.Now, totalDeuda, tasaConIva, cantidadCuotas, cuota, nro_prestamoAnterior, montoAnterior, amortizacionVencer, interesesVencer, cantidadCuotas, 0, cuotaAnteriorPrestamo, tasaAnteriorPrestamo, 0);
+                        empresa.GuardarCobranzaProvisoria(idPrestamo, tasaConIva, tasaAnualEfectivaSinIVA, totalDeuda, cantidadCuotas, 1, cuota, amorticacionCuota, interesCuota, ivaCuota, amortizacionVencer, interesesVencer, idSocioSeleccionado);
+
 
                         MessageBox.Show("Préstamo Ingresado Correctamente");
 
@@ -1722,7 +1786,7 @@ namespace COOPMEF
         {
             ParámetrosDelSistema ps = new ParámetrosDelSistema();
             ps.Show();
-            
+
         }
 
         private void dgvSociosCampo_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -1737,7 +1801,7 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -1745,6 +1809,7 @@ namespace COOPMEF
             frmCierreMes frmCierre = new frmCierreMes();
             frmCierre.Show();
         }
+
     }
 }
 

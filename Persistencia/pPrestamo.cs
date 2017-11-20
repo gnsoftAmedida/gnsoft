@@ -45,7 +45,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "UPDATE prestamo SET anulado = 1 WHERE prestamo_id = " + nroPrestamo ;
+            string sql = "UPDATE prestamo SET anulado = 1 WHERE prestamo_id = " + nroPrestamo;
 
             try
             {
@@ -93,7 +93,7 @@ namespace Persistencia
         }
 
 
-        public void GuardarPrestamo(int id_socio,
+        public int GuardarPrestamo(int id_socio,
                                     string socio_nro,
                                     DateTime fecha,
                                     DateTime hora,
@@ -129,7 +129,9 @@ namespace Persistencia
                 MySqlAdapter.InsertCommand.CommandText = sql;
                 MySqlAdapter.InsertCommand.ExecuteNonQuery();
                 transaction.Commit();
+                int id = Convert.ToInt32(MySqlAdapter.InsertCommand.ExecuteScalar());
                 connection.Close();
+                return id;
             }
 
             catch (Exception ex)

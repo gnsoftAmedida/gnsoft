@@ -150,6 +150,13 @@ namespace Negocio
             return cobranzas;
         }
 
+        public DataSet devolverCobranzaSocio(int parametro_socio_id)
+        {
+            pCobranza tmpCobranza = new pCobranza();
+            DataSet cobranzaSocio = tmpCobranza.devolverCobranzaSocio(parametro_socio_id);
+            return cobranzaSocio;
+        }
+
         public void eliminarAmortizacionVencerCero()
         {
             pCobranza tmpCobranza = new pCobranza();

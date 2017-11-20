@@ -136,10 +136,10 @@ namespace Negocio
             set { anulado = value; }
         }
 
-        public void Guardar()
+        public int Guardar()
         {
             pPrestamo tmpPrestamo = new pPrestamo();
-            tmpPrestamo.GuardarPrestamo(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
+            return tmpPrestamo.GuardarPrestamo(Socio.Socio_id, Socio_nro, Fecha, Hora, Monteopedido, Tasa, Cantidadcuotas, Importecuota, NumeroPrestamoAnt, MontopedidoAnt, AmortizacionVencer, InteresesVencer, CuotasPactadas, CuotasPagadas, CuotaAnt, Tasaanterior, Anulado);
         }
 
         public DataSet devolverPrestamoActivoSocio(int idSocio)

@@ -36,6 +36,28 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverCobranzaProvisoriaSocio(int parametro_socio_id)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT cobranzaProvisoria_id, prestamo_id, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer,InteresVencer, socio_id FROM cobranzaProvisoria where socio_id=" + parametro_socio_id;
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "cobranzasProvisoriasSocio");
+                connection.Close();
+                return ds;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void VaciarTablaCobranzaProvisoria()
         {
             MySqlConnection connection = conectar();
@@ -145,14 +167,14 @@ namespace Persistencia
         }
 
         //método agregado el 11/10/17 por Gino
-        public void GuardarCobranzaProvisoria(int parCobranza_id, int parPrestamo_id, String parCedula, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, double parAporteCapital, String parSocio_id)
+        public void GuardarCobranzaProvisoria(int parPrestamo_id, String parCedula, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, int parSocio_id)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO cobranzaprovisoria (prestamo_id, cedula , tasa , porcentajeiva , montopedido, cantidadcuotas, nrodecuotas, importecuotas, AmortizacionCuota, InteresCuota , IvaCuota , AmortizacionVencer , InteresVencer , aportecapital, socio_id ) VALUES ('" + parPrestamo_id + "', '" + parCedula + "', '" + parTasa + "','" + parPorcentajeiva + "','" + parMontopedido + "', '" + parCantidadcuotas + "', '" + parNrodecuotas + "','" + parImportecuota + "','" + parAmortizacioncuota + "','" + parInteresCuota + "','" + parIvaCuota + "', '" + parAmortizacionVencer + "', '" + parInteresVencer + "','" + parAporteCapital + "','" + parSocio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO cobranzaprovisoria (prestamo_id, cedula , tasa , porcentajeiva , montopedido, cantidadcuotas, nrodecuotas, importecuotas, AmortizacionCuota, InteresCuota , IvaCuota , AmortizacionVencer , InteresVencer , socio_id ) VALUES ('" + parPrestamo_id + "', '" + parCedula + "', '" + parTasa + "','" + parPorcentajeiva + "','" + parMontopedido + "', '" + parCantidadcuotas + "', '" + parNrodecuotas + "','" + parImportecuota + "','" + parAmortizacioncuota + "','" + parInteresCuota + "','" + parIvaCuota + "', '" + parAmortizacionVencer + "', '" + parInteresVencer + "','" +  parSocio_id + "');" + "Select last_insert_id()";
 
             try
             {

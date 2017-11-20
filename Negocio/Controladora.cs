@@ -595,7 +595,7 @@ namespace Negocio
         }
 
         //********************************************* PRESTAMOS***********************************
-        public void AltaPrestamo(Socio socio,
+        public int AltaPrestamo(Socio socio,
                                  string socio_nro,
                                  DateTime fecha,
                                  DateTime hora,
@@ -639,7 +639,7 @@ namespace Negocio
                 tmpPrestamo.anularPrestamo(tmpPrestamo.NumeroPrestamoAnt);
             }
 
-            tmpPrestamo.Guardar();
+            return tmpPrestamo.Guardar();
         }
 
         public DateTime VtoPrimerCuota(DateTime Fecha)
@@ -848,6 +848,17 @@ namespace Negocio
             return prestamoActivo;
         }
 
+        public DataSet devolverCobranzaProvisoriaSocio(int parametro_socio_id)
+        {
+            CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
+            return tmpCobranzaProvisoria.devolverCobranzaProvisoriaSocio(parametro_socio_id);
+        }
+
+        public DataSet devolverCobranzaSocio(int parametro_socio_id)
+        {
+            Cobranza tmpCobranzaProvisoria = new Cobranza();
+            return tmpCobranzaProvisoria.devolverCobranzaSocio(parametro_socio_id);
+        }
         public string presupuesto()
         {
             return Microsoft.VisualBasic.Strings.Mid(VtoPto(DateTime.Today).Date.ToString("dd/MM/yyyy"), 4);
@@ -890,6 +901,28 @@ namespace Negocio
             tmpCobranza.modificarCobranza();
         }
 
+        public void GuardarCobranzaProvisoria(int parPrestamo_id, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, int parSocio_id)
+        {
+            CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
+
+            tmpCobranzaProvisoria.Prestamo_id = parPrestamo_id;
+           // tmpCobranzaProvisoria.Socio_nro = parCedula;
+            tmpCobranzaProvisoria.Tasa = parTasa;
+            tmpCobranzaProvisoria.Porcentajeiva = parPorcentajeiva;
+            tmpCobranzaProvisoria.Monteopedido = parMontopedido;
+            tmpCobranzaProvisoria.Cantidadcuotas = parCantidadcuotas;
+            tmpCobranzaProvisoria.NroDeCuotas = parNrodecuotas;
+            tmpCobranzaProvisoria.Importecuota = parImportecuota;
+            tmpCobranzaProvisoria.AmortizacionCuota = parAmortizacioncuota;
+            tmpCobranzaProvisoria.InteresCuota = parInteresCuota;
+            tmpCobranzaProvisoria.IvaCuota = parIvaCuota;
+            tmpCobranzaProvisoria.AmortizacionVencer = parAmortizacionVencer;
+            tmpCobranzaProvisoria.InteresesVencer = parInteresVencer;
+            tmpCobranzaProvisoria.Socio_id = parSocio_id;
+
+            tmpCobranzaProvisoria.GuardarCobranzaProvisoria();
+        }
+        
         public void guardarCobranza(int parPrestamo_id, String parCedula, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, double parAporteCapital, int parSocio_id)
         {
             Cobranza tmpCobranza = new Cobranza();
@@ -952,7 +985,7 @@ namespace Negocio
         public DataSet devolverExcedidosSinPago(int id_socio)
         {
             Excedidos tmpExcedido = new Excedidos();
-            DataSet tmpExcedidos = tmpExcedido.devolverExcedidos();
+            DataSet tmpExcedidos = tmpExcedido.devolverExcedidosSinPago(id_socio);
             return tmpExcedidos;
         }
 

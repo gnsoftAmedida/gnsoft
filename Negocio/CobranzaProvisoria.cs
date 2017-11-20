@@ -140,5 +140,18 @@ namespace Negocio
             DataSet cobranzasProvisorias = tmpCobranzaProvisoria.devolverTodas();
             return cobranzasProvisorias;
         }
+
+        public DataSet devolverCobranzaProvisoriaSocio(int parametro_socio_id)
+        {
+            pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();
+            DataSet cobranzaProvisoriaSocio = tmpCobranzaProvisoria.devolverCobranzaProvisoriaSocio(parametro_socio_id);
+            return cobranzaProvisoriaSocio;
+        }
+
+        public void GuardarCobranzaProvisoria()
+        {
+            pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();
+            tmpCobranzaProvisoria.GuardarCobranzaProvisoria(Prestamo_id, Socio_nro, Tasa, Porcentajeiva, Monteopedido, Cantidadcuotas, NroDeCuotas, Importecuota, AmortizacionCuota, InteresCuota, IvaCuota, amortizacionVencer, InteresesVencer, Socio_id);
+        }
     }
 }
