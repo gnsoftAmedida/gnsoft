@@ -548,6 +548,12 @@ namespace Negocio
             tmpCobranzaProvisoria.devolverCobranzasProvisorias();
         }
 
+        public void eliminarCobranzaProvisoria(int Id)
+        {
+            CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
+            tmpCobranzaProvisoria.eliminarCobranzaProvisoria(Id);
+        }
+
         public void AltaSocio(int socioActivo, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
             string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
         {
@@ -634,10 +640,11 @@ namespace Negocio
             tmpPrestamo.Anulado = anulado;
 
 
-            if (!(tmpPrestamo.NumeroPrestamoAnt == 0))
-            {
-                tmpPrestamo.anularPrestamo(tmpPrestamo.NumeroPrestamoAnt);
-            }
+            /*    if (!(tmpPrestamo.NumeroPrestamoAnt == 0))
+                {
+                    tmpPrestamo.anularPrestamo(tmpPrestamo.NumeroPrestamoAnt);
+                }
+           */
 
             return tmpPrestamo.Guardar();
         }
@@ -901,12 +908,12 @@ namespace Negocio
             tmpCobranza.modificarCobranza();
         }
 
-        public void GuardarCobranzaProvisoria(int parPrestamo_id, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, int parSocio_id)
+        public void GuardarCobranzaProvisoria(int parPrestamo_id, string parCedula, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, int parSocio_id)
         {
             CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
 
             tmpCobranzaProvisoria.Prestamo_id = parPrestamo_id;
-           // tmpCobranzaProvisoria.Socio_nro = parCedula;
+            tmpCobranzaProvisoria.Socio_nro = parCedula;
             tmpCobranzaProvisoria.Tasa = parTasa;
             tmpCobranzaProvisoria.Porcentajeiva = parPorcentajeiva;
             tmpCobranzaProvisoria.Monteopedido = parMontopedido;
@@ -922,7 +929,7 @@ namespace Negocio
 
             tmpCobranzaProvisoria.GuardarCobranzaProvisoria();
         }
-        
+
         public void guardarCobranza(int parPrestamo_id, String parCedula, double parTasa, double parPorcentajeiva, double parMontopedido, int parCantidadcuotas, int parNrodecuotas, double parImportecuota, double parAmortizacioncuota, double parInteresCuota, double parIvaCuota, double parAmortizacionVencer, double parInteresVencer, double parAporteCapital, int parSocio_id)
         {
             Cobranza tmpCobranza = new Cobranza();

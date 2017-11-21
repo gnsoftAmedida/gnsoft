@@ -85,7 +85,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula + "', aretener = '" + aretener + "', retenido = '" + retenido + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital + "', socio_id ='" + socio_id + "' WHERE excedido_id =" + idExcedido;
+            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula + "', aretener = '" + aretener.ToString().Replace(",", ".") + "', retenido = '" + retenido.ToString().Replace(",", ".") + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital.ToString().Replace(",", ".") + "', socio_id ='" + socio_id + "' WHERE excedido_id =" + idExcedido;
 
             try
             {
@@ -116,7 +116,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido,  fechadepago,  importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula + "','" + aretener + "','" + retenido + "','" + fechadepago + "','" + importepagado + "','" + presupuestodelpago + "','" + aportecapital + "','" + socio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido,  fechadepago,  importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula + "','" + aretener.ToString().Replace(",", ".") + "','" + retenido.ToString().Replace(",", ".") + "','" + fechadepago + "','" + importepagado.ToString().Replace(",", ".") + "','" + presupuestodelpago + "','" + aportecapital.ToString().Replace(",", ".") + "','" + socio_id + "');" + "Select last_insert_id()";
 
             try
             {

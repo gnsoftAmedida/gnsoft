@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSolicitu" targetNamespace="http://tempuri.org/dsSolicitu.xsd" xmlns:mstns="http://tempuri.org/dsSolicitu.xsd" xmlns="http://tempuri.org/dsSolicitu.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSolicitu" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSolicitu" msprop:Generator_UserDSName="dsSolicitu">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="solicitud" msprop:Generator_TableClassName="solicitudDataTable" msprop:Generator_TableVarName="tablesolicitud" msprop:Generator_RowChangedName="solicitudRowChanged" msprop:Generator_TablePropName="solicitud" msprop:Generator_RowDeletingName="solicitudRowDeleting" msprop:Generator_RowChangingName="solicitudRowChanging" msprop:Generator_RowEvHandlerName="solicitudRowChangeEventHandler" msprop:Generator_RowDeletedName="solicitudRowDeleted" msprop:Generator_RowClassName="solicitudRow" msprop:Generator_UserTableName="solicitud" msprop:Generator_RowEvArgName="solicitudRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="numeroCobro" msprop:Generator_ColumnVarNameInTable="columnnumeroCobro" msprop:Generator_ColumnPropNameInRow="numeroCobro" msprop:Generator_ColumnPropNameInTable="numeroCobroColumn" msprop:Generator_UserColumnName="numeroCobro" type="xs:string" minOccurs="0" />
+              <xs:element name="unidadEjecutora" msprop:Generator_ColumnVarNameInTable="columnunidadEjecutora" msprop:Generator_ColumnPropNameInRow="unidadEjecutora" msprop:Generator_ColumnPropNameInTable="unidadEjecutoraColumn" msprop:Generator_UserColumnName="unidadEjecutora" type="xs:string" minOccurs="0" />
+              <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:string" minOccurs="0" />
+              <xs:element name="apellidos" msprop:Generator_ColumnVarNameInTable="columnapellidos" msprop:Generator_ColumnPropNameInRow="apellidos" msprop:Generator_ColumnPropNameInTable="apellidosColumn" msprop:Generator_UserColumnName="apellidos" type="xs:string" minOccurs="0" />
+              <xs:element name="nombres" msprop:Generator_ColumnVarNameInTable="columnnombres" msprop:Generator_ColumnPropNameInRow="nombres" msprop:Generator_ColumnPropNameInTable="nombresColumn" msprop:Generator_UserColumnName="nombres" type="xs:string" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidadCuotas" msprop:Generator_ColumnVarNameInTable="columncantidadCuotas" msprop:Generator_ColumnPropNameInRow="cantidadCuotas" msprop:Generator_ColumnPropNameInTable="cantidadCuotasColumn" msprop:Generator_UserColumnName="cantidadCuotas" type="xs:string" minOccurs="0" />
+              <xs:element name="saldoAnterior" msprop:Generator_ColumnVarNameInTable="columnsaldoAnterior" msprop:Generator_ColumnPropNameInRow="saldoAnterior" msprop:Generator_ColumnPropNameInTable="saldoAnteriorColumn" msprop:Generator_UserColumnName="saldoAnterior" type="xs:string" minOccurs="0" />
+              <xs:element name="saldoIntereses" msprop:Generator_ColumnVarNameInTable="columnsaldoIntereses" msprop:Generator_ColumnPropNameInRow="saldoIntereses" msprop:Generator_ColumnPropNameInTable="saldoInteresesColumn" msprop:Generator_UserColumnName="saldoIntereses" type="xs:string" minOccurs="0" />
+              <xs:element name="cuotaAnual" msprop:Generator_ColumnVarNameInTable="columncuotaAnual" msprop:Generator_ColumnPropNameInRow="cuotaAnual" msprop:Generator_ColumnPropNameInTable="cuotaAnualColumn" msprop:Generator_UserColumnName="cuotaAnual" type="xs:string" minOccurs="0" />
+              <xs:element name="capitalOtorgado" msprop:Generator_ColumnVarNameInTable="columncapitalOtorgado" msprop:Generator_ColumnPropNameInRow="capitalOtorgado" msprop:Generator_ColumnPropNameInTable="capitalOtorgadoColumn" msprop:Generator_UserColumnName="capitalOtorgado" type="xs:string" minOccurs="0" />
+              <xs:element name="totalCapital" msprop:Generator_ColumnVarNameInTable="columntotalCapital" msprop:Generator_ColumnPropNameInRow="totalCapital" msprop:Generator_ColumnPropNameInTable="totalCapitalColumn" msprop:Generator_UserColumnName="totalCapital" type="xs:string" minOccurs="0" />
+              <xs:element name="cuotaAnterior" msprop:Generator_ColumnVarNameInTable="columncuotaAnterior" msprop:Generator_ColumnPropNameInRow="cuotaAnterior" msprop:Generator_ColumnPropNameInTable="cuotaAnteriorColumn" msprop:Generator_UserColumnName="cuotaAnterior" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

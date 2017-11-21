@@ -141,6 +141,12 @@ namespace Negocio
             return cobranzasProvisorias;
         }
 
+        public void eliminarCobranzaProvisoria(int Id)
+        {
+            pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();
+            tmpCobranzaProvisoria.eliminarCobranzaProvisoria(Id);
+        }
+
         public DataSet devolverCobranzaProvisoriaSocio(int parametro_socio_id)
         {
             pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();

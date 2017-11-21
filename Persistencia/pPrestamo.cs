@@ -127,9 +127,10 @@ namespace Persistencia
                 MySqlAdapter.InsertCommand = connection.CreateCommand();
                 MySqlAdapter.InsertCommand.Transaction = transaction;
                 MySqlAdapter.InsertCommand.CommandText = sql;
-                MySqlAdapter.InsertCommand.ExecuteNonQuery();
-                transaction.Commit();
                 int id = Convert.ToInt32(MySqlAdapter.InsertCommand.ExecuteScalar());
+              //  MySqlAdapter.InsertCommand.ExecuteNonQuery();
+                transaction.Commit();
+                
                 connection.Close();
                 return id;
             }
