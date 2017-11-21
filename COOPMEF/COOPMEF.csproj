@@ -115,6 +115,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEventos.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsSolicitud.cs">
+      <DependentUpon>dsSolicitud.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsSolicitud.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSolicitud.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -219,6 +228,12 @@
       <DependentUpon>reporteEventos.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\solicitudPrestamo.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>solicitudPrestamo.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <EmbeddedResource Include="frmAgenda.resx">
       <DependentUpon>frmAgenda.cs</DependentUpon>
     </EmbeddedResource>
@@ -284,6 +299,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reporteEventos.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\solicitudPrestamo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>solicitudPrestamo.cs</LastGenOutput>
+    </EmbeddedResource>
     <None Include="app.config" />
     <None Include="CrystalDataSets\dsEventos.xsc">
       <DependentUpon>dsEventos.xsd</DependentUpon>
@@ -295,6 +314,17 @@
     </None>
     <None Include="CrystalDataSets\dsEventos.xss">
       <DependentUpon>dsEventos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsSolicitud.xsc">
+      <DependentUpon>dsSolicitud.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsSolicitud.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSolicitud.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsSolicitud.xss">
+      <DependentUpon>dsSolicitud.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

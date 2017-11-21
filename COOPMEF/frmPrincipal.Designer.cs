@@ -1190,8 +1190,8 @@
             // 
             // btnGuardarPrestamo
             // 
-            this.btnGuardarPrestamo.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             resources.ApplyResources(this.btnGuardarPrestamo, "btnGuardarPrestamo");
+            this.btnGuardarPrestamo.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             this.btnGuardarPrestamo.Name = "btnGuardarPrestamo";
             this.btnGuardarPrestamo.UseVisualStyleBackColor = true;
             this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click_1);
@@ -1788,6 +1788,7 @@
             this.btnSolicitar.Image = global::COOPMEF.Properties.Resources.print;
             this.btnSolicitar.Name = "btnSolicitar";
             this.btnSolicitar.UseVisualStyleBackColor = true;
+            this.btnSolicitar.Click += new System.EventHandler(this.btnSolicitar_Click);
             // 
             // frmPrincipal
             // 

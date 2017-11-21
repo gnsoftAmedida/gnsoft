@@ -10,6 +10,7 @@ using Negocio;
 using Logs;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
+using COOPMEF.CrystalDataSets;
 
 
 namespace COOPMEF
@@ -47,6 +48,9 @@ namespace COOPMEF
         bool exitiaProvisoria;
         int id_cobranzaProvisoria;
         //#############################################################################
+
+        private System.Data.DataSet eventosDataSet;
+        private dsSolicitu DE = new dsSolicitu();
 
         public frmPrincipal()
         {
@@ -1770,6 +1774,8 @@ namespace COOPMEF
 
                         MessageBox.Show("Préstamo Ingresado Correctamente");
 
+                        btnSolicitar.Enabled = false;
+                        btnGuardarPrestamo.Enabled = false;
                         txtNuevoImporte.Text = "";
                         prestamoCorrecto = false;
                         txtImporteCuota.Text = "0.00";
@@ -1825,6 +1831,15 @@ namespace COOPMEF
         {
             frmCierreMes frmCierre = new frmCierreMes();
             frmCierre.Show();
+        }
+
+        private void btnSolicitar_Click(object sender, EventArgs e)
+        {
+            DE.solicitud.Rows.Add("numeroCobro", "unidadEjecutora", lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, txtMonto.Text, totalDeuda, cuotaAnteriorPrestamo);   
+            frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
+            reporte.ShowDialog();
+            DE.solicitud.Rows.Clear();
+            btnGuardarPrestamo.Enabled = true;
         }
 
     }

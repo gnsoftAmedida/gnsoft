@@ -26,6 +26,15 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = reporteEventos;
             }
+
+            if (tipo.Equals("SOLICITUD_PRESTAMO"))
+            {
+                COOPMEF.Reportes.solicitudPrestamo reporteSolicitudPrestamo = new COOPMEF.Reportes.solicitudPrestamo();
+
+                reporteSolicitudPrestamo.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = reporteSolicitudPrestamo;
+            }
         }
 
         private void frmVerReportes_Load(object sender, EventArgs e)
