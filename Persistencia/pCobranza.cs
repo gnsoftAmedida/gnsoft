@@ -56,7 +56,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update cobranza set aportecapital = '" + parAporteCapital + "' WHERE cobranza_id =" + parCobranza_id;
+            string sql = "Update cobranza set aportecapital = '" + parAporteCapital.ToString().Replace(",", ".") + "' WHERE cobranza_id =" + parCobranza_id;
 
             try
             {
@@ -87,7 +87,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update cobranza set prestamo_id = '" + parPrestamo_id + "', cedula = '" + parCedula + "', tasa = '" + parTasa + "', porcentajeiva = '" + parPorcentajeiva + "', montopedido = '" + parMontopedido + "', cantidadcuotas = '" + parCantidadcuotas + "', nrodecuotas = '" + parNrodecuotas + "', importecuotas = '" + parImportecuota + "', AmortizacionCuota = '" + parAmortizacioncuota + "', InteresCuota = '" + parInteresCuota + "', IvaCuota = '" + parIvaCuota + "', AmortizacionVencer = '" + parAmortizacionVencer + "', InteresVencer = '" + parInteresVencer + "', aportecapital = '" + parAporteCapital + "', socio_id = '" + parSocio_id + "' WHERE cobranza_id =" + parCobranza_id;
+            string sql = "Update cobranza set prestamo_id = '" + parPrestamo_id + "', cedula = '" + parCedula + "', tasa = '" + parTasa.ToString().Replace(",", ".") + "', porcentajeiva = '" + parPorcentajeiva.ToString().Replace(",", ".") + "', montopedido = '" + parMontopedido.ToString().Replace(",", ".") + "', cantidadcuotas = '" + parCantidadcuotas + "', nrodecuotas = '" + parNrodecuotas + "', importecuotas = '" + parImportecuota.ToString().Replace(",", ".") + "', AmortizacionCuota = '" + parAmortizacioncuota.ToString().Replace(",", ".") + "', InteresCuota = '" + parInteresCuota.ToString().Replace(",", ".") + "', IvaCuota = '" + parIvaCuota.ToString().Replace(",", ".") + "', AmortizacionVencer = '" + parAmortizacionVencer.ToString().Replace(",", ".") + "', InteresVencer = '" + parInteresVencer.ToString().Replace(",", ".") + "', aportecapital = '" + parAporteCapital.ToString().Replace(",", ".") + "', socio_id = '" + parSocio_id + "' WHERE cobranza_id =" + parCobranza_id;
 
             try
             {
@@ -118,7 +118,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO cobranza (prestamo_id, cedula , tasa , porcentajeiva , montopedido, cantidadcuotas, nrodecuotas, importecuotas, AmortizacionCuota, InteresCuota , IvaCuota , AmortizacionVencer , InteresVencer , aportecapital, socio_id ) VALUES ('" + parPrestamo_id + "', '" + parCedula + "', '" + parTasa + "','" + parPorcentajeiva + "','" + parMontopedido + "', '" + parCantidadcuotas + "', '" + parNrodecuotas + "','" + parImportecuota + "','" + parAmortizacioncuota + "','" + parInteresCuota + "','" + parIvaCuota + "', '" + parAmortizacionVencer + "', '" + parInteresVencer + "','" + parAporteCapital + "','" + parSocio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO cobranza (prestamo_id, cedula , tasa , porcentajeiva , montopedido, cantidadcuotas, nrodecuotas, importecuotas, AmortizacionCuota, InteresCuota , IvaCuota , AmortizacionVencer , InteresVencer , aportecapital, socio_id ) VALUES ('" + parPrestamo_id + "', '" + parCedula + "', '" + parTasa.ToString().Replace(",", ".") + "','" + parPorcentajeiva.ToString().Replace(",", ".") + "','" + parMontopedido.ToString().Replace(",", ".") + "', '" + parCantidadcuotas + "', '" + parNrodecuotas + "','" + parImportecuota.ToString().Replace(",", ".") + "','" + parAmortizacioncuota.ToString().Replace(",", ".") + "','" + parInteresCuota.ToString().Replace(",", ".") + "','" + parIvaCuota.ToString().Replace(",", ".") + "', '" + parAmortizacionVencer.ToString().Replace(",", ".") + "', '" + parInteresVencer.ToString().Replace(",", ".") + "','" + parAporteCapital.ToString().Replace(",", ".") + "','" + parSocio_id + "');" + "Select last_insert_id()";
 
             try
             {

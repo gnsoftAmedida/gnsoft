@@ -247,6 +247,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.btnSolicitar = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -1175,6 +1176,7 @@
             // tabPrestamo
             // 
             this.tabPrestamo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPrestamo.Controls.Add(this.btnSolicitar);
             this.tabPrestamo.Controls.Add(this.btnGuardarPrestamo);
             this.tabPrestamo.Controls.Add(this.btnSalirPrestamo);
             this.tabPrestamo.Controls.Add(this.btnCancelarPrestamo);
@@ -1780,6 +1782,13 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // btnSolicitar
+            // 
+            resources.ApplyResources(this.btnSolicitar, "btnSolicitar");
+            this.btnSolicitar.Image = global::COOPMEF.Properties.Resources.print;
+            this.btnSolicitar.Name = "btnSolicitar";
+            this.btnSolicitar.UseVisualStyleBackColor = true;
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2062,6 +2071,7 @@
         private System.Windows.Forms.Label lblErrorFechas;
         private System.Windows.Forms.MaskedTextBox txtBusqueda;
         private System.Windows.Forms.ToolStripMenuItem parámetrosDelSistemaToolStripMenuItem;
+        private System.Windows.Forms.Button btnSolicitar;
     }
 }
 
