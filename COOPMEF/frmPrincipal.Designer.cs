@@ -150,13 +150,14 @@
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dgvDeuda = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.txtRetenidoIngExc = new System.Windows.Forms.TextBox();
+            this.txtARetenerIngExc = new System.Windows.Forms.TextBox();
+            this.txtPresupuestoIngExc = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
             this.label26 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPrestamo = new System.Windows.Forms.TabPage();
+            this.btnSolicitar = new System.Windows.Forms.Button();
             this.btnGuardarPrestamo = new System.Windows.Forms.Button();
             this.btnSalirPrestamo = new System.Windows.Forms.Button();
             this.btnCancelarPrestamo = new System.Windows.Forms.Button();
@@ -247,7 +248,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.btnSolicitar = new System.Windows.Forms.Button();
+            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -1113,6 +1114,7 @@
             // 
             this.tabCobranza.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabCobranza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabCobranza.Controls.Add(this.btnGuardarIngExcedidos);
             this.tabCobranza.Controls.Add(this.groupBox8);
             this.tabCobranza.Controls.Add(this.groupBox7);
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
@@ -1133,9 +1135,9 @@
             // 
             // groupBox7
             // 
-            this.groupBox7.Controls.Add(this.textBox6);
-            this.groupBox7.Controls.Add(this.textBox5);
-            this.groupBox7.Controls.Add(this.textBox4);
+            this.groupBox7.Controls.Add(this.txtRetenidoIngExc);
+            this.groupBox7.Controls.Add(this.txtARetenerIngExc);
+            this.groupBox7.Controls.Add(this.txtPresupuestoIngExc);
             this.groupBox7.Controls.Add(this.label27);
             this.groupBox7.Controls.Add(this.label26);
             this.groupBox7.Controls.Add(this.label10);
@@ -1143,20 +1145,20 @@
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
             // 
-            // textBox6
+            // txtRetenidoIngExc
             // 
-            resources.ApplyResources(this.textBox6, "textBox6");
-            this.textBox6.Name = "textBox6";
+            resources.ApplyResources(this.txtRetenidoIngExc, "txtRetenidoIngExc");
+            this.txtRetenidoIngExc.Name = "txtRetenidoIngExc";
             // 
-            // textBox5
+            // txtARetenerIngExc
             // 
-            resources.ApplyResources(this.textBox5, "textBox5");
-            this.textBox5.Name = "textBox5";
+            resources.ApplyResources(this.txtARetenerIngExc, "txtARetenerIngExc");
+            this.txtARetenerIngExc.Name = "txtARetenerIngExc";
             // 
-            // textBox4
+            // txtPresupuestoIngExc
             // 
-            resources.ApplyResources(this.textBox4, "textBox4");
-            this.textBox4.Name = "textBox4";
+            resources.ApplyResources(this.txtPresupuestoIngExc, "txtPresupuestoIngExc");
+            this.txtPresupuestoIngExc.Name = "txtPresupuestoIngExc";
             // 
             // label27
             // 
@@ -1187,6 +1189,14 @@
             this.tabPrestamo.Controls.Add(this.lblObs);
             resources.ApplyResources(this.tabPrestamo, "tabPrestamo");
             this.tabPrestamo.Name = "tabPrestamo";
+            // 
+            // btnSolicitar
+            // 
+            resources.ApplyResources(this.btnSolicitar, "btnSolicitar");
+            this.btnSolicitar.Image = global::COOPMEF.Properties.Resources.print;
+            this.btnSolicitar.Name = "btnSolicitar";
+            this.btnSolicitar.UseVisualStyleBackColor = true;
+            this.btnSolicitar.Click += new System.EventHandler(this.btnSolicitar_Click);
             // 
             // btnGuardarPrestamo
             // 
@@ -1782,13 +1792,13 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // btnSolicitar
+            // btnGuardarIngExcedidos
             // 
-            resources.ApplyResources(this.btnSolicitar, "btnSolicitar");
-            this.btnSolicitar.Image = global::COOPMEF.Properties.Resources.print;
-            this.btnSolicitar.Name = "btnSolicitar";
-            this.btnSolicitar.UseVisualStyleBackColor = true;
-            this.btnSolicitar.Click += new System.EventHandler(this.btnSolicitar_Click);
+            this.btnGuardarIngExcedidos.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
+            resources.ApplyResources(this.btnGuardarIngExcedidos, "btnGuardarIngExcedidos");
+            this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
+            this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
+            this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
             // 
             // frmPrincipal
             // 
@@ -1932,9 +1942,9 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
         private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox7;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox txtRetenidoIngExc;
+        private System.Windows.Forms.TextBox txtARetenerIngExc;
+        private System.Windows.Forms.TextBox txtPresupuestoIngExc;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label10;
@@ -2073,6 +2083,7 @@
         private System.Windows.Forms.MaskedTextBox txtBusqueda;
         private System.Windows.Forms.ToolStripMenuItem parámetrosDelSistemaToolStripMenuItem;
         private System.Windows.Forms.Button btnSolicitar;
+        private System.Windows.Forms.Button btnGuardarIngExcedidos;
     }
 }
 

@@ -173,6 +173,30 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverExcedidosPorCIyPresupuesto(string ci, string presupuesto)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT * FROM excedidos where cedula='" + ci + "' and presupuesto=presupuesto";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "excedidosPorCIyPresupuesto");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public DataSet devolverTodos()
         {
