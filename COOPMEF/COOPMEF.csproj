@@ -222,6 +222,12 @@
       <DependentUpon>frmParametrosDelSistema.cs</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Reportes\valePrestamo.cs">
+      <DependentUpon>valePrestamo.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reportes\reporteEventos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -295,6 +301,10 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="Reportes\valePrestamo.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>valePrestamo.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteEventos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reporteEventos.cs</LastGenOutput>

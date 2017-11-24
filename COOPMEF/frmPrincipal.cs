@@ -1774,6 +1774,13 @@ namespace COOPMEF
 
                         MessageBox.Show("Préstamo Ingresado Correctamente");
 
+                     // *****************Imprimir Vale
+                        DE.solicitud.Rows.Add("numeroCobro", "unidadEjecutora", lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
+                        frmVerReportes reporte = new frmVerReportes(DE, "VALE_PRESTAMO");
+                        reporte.ShowDialog();
+                        DE.solicitud.Rows.Clear();
+                    //******************************
+
                         btnSolicitar.Enabled = false;
                         btnGuardarPrestamo.Enabled = false;
                         txtNuevoImporte.Text = "";
