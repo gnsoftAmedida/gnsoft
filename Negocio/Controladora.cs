@@ -601,6 +601,254 @@ namespace Negocio
         }
 
         //********************************************* PRESTAMOS***********************************
+        public string ESCNUM(string numero)
+        {
+            /*        '============================================================
+                       FUNCION QUE CONVIERTE UN NUMERO DE SU FORMATO NATURAL A ESE
+                       NUMERO EN LETRAS
+                       SINTAXIS >> ESCNUM(NUMERO A CONVERTIR) <<
+                       EL NUMERO A CONVERTIR PUEDE SER HASTA 999.999.999,99
+                     ============================================================
+            */
+
+            string[] R = new string[18];
+            string[] S = new string[10];
+            string[] T = new string[11];
+            string[] c = new string[18];
+
+            String cont_n, VEC_P = "", a, b, retorna;
+            Int32 M, N, P, i, Decim;
+            Boolean SinEntero = true;
+
+
+            R[1] = "UN ";
+            R[2] = "DOS ";
+            R[3] = "TRES ";
+            R[4] = "CUATRO ";
+            R[5] = "CINCO ";
+            R[6] = "SEIS ";
+            R[7] = "SIETE ";
+            R[8] = "OCHO ";
+            R[9] = "NUEVE ";
+            R[10] = "DIEZ ";
+            R[11] = "ONCE ";
+            R[12] = "DOCE ";
+            R[13] = "TRECE ";
+            R[14] = "CATORCE ";
+            R[15] = "QUINCE ";
+            R[16] = "UNO ";
+            R[17] = "MIL ";
+            R[18] = "VEINTE ";
+            S[1] = "CIENTO ";
+            S[2] = "DOSCIENTOS ";
+            S[3] = "TRESCIENTOS ";
+            S[4] = "CUATROCIENTOS ";
+            S[5] = "QUINIENTOS ";
+            S[6] = "SEISCIENTOS ";
+            S[7] = "SETECIENTOS ";
+            S[8] = "OCHOCIENTOS ";
+            S[9] = "NOVECIENTOS ";
+            S[10] = "CIEN ";
+            T[1] = "DIECI";
+            T[2] = "VEINTI";
+            T[3] = "TREINTA ";
+            T[4] = "CUARENTA ";
+            T[5] = "CINCUENTA ";
+            T[6] = "SESENTA ";
+            T[7] = "SETENTA ";
+            T[8] = "OCHENTA ";
+            T[9] = "NOVENTA ";
+            T[10] = "MILLONES ";
+            T[11] = "MILLON ";
+
+            M = 0; //  DECENAS DE MILLONES
+            N = 0; //  DECENAS DE MILES
+            P = 0; //  DECENAS
+            i = 0;
+
+            cont_n = String.Format(numero, "000000000.00");
+
+            for (i = 1; i <= 9; i++)
+            {
+                c[i] = Convert.ToString(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, i, 1)));
+            }
+
+            M = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 2, 2)));
+            N = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 5, 2)));
+            P = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 8, 2)));
+            Decim = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 11, 2)));
+
+            if (c[1] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[1]);
+
+                if ((c[1] == "1") && (M == 0))
+                {
+                    VEC_P = VEC_P + S[10];
+                }
+                else
+                {
+                    VEC_P = VEC_P + S[i];
+                }
+            }
+
+            if (M != 0)
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[2]);
+                if (M < 16)
+                {
+                    VEC_P = VEC_P + R[M];
+                }
+                else if (M == 20)
+                {
+                    VEC_P = VEC_P + R[18];
+                }
+                else
+                {
+                    VEC_P = VEC_P + T[i];
+                }
+            }
+
+
+            if (c[3] == "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[3]);
+                if ((M > 15) && (M < 30))
+                {
+                    VEC_P = VEC_P + R[i];
+                }
+                else if (M > 30)
+                {
+                    VEC_P = VEC_P + "Y " + R[i];
+                }
+            }
+
+            if ((c[1] != "0") || (M != 0))
+            {
+                SinEntero = false;
+                if ((c[1] == "0") && (M == 1))
+                {
+                    VEC_P = VEC_P + T[11];
+                }
+                else
+                {
+                    VEC_P = VEC_P + T[10];
+                }
+            }
+
+            /*          if c(4) <> 0 Then
+               SinEntero = False
+               i = c(4)
+               If c(4) = 1 And N = 0 Then
+                  VEC_P = VEC_P + S(10)
+               Else
+                  VEC_P = VEC_P + S(i)
+               End If
+            End If
+
+ */
+
+            return "";
+        }
+
+
+        /*   
+    
+
+    
+
+    
+       
+          
+    
+
+    
+           If N <> 0 Then
+              SinEntero = False
+              i = c(5)
+              If N < 16 Then
+                 VEC_P = VEC_P + R(N)
+              ElseIf N = 20 Then
+                 VEC_P = VEC_P + R(18)
+              Else
+                 VEC_P = VEC_P + T(i)
+              End If
+           End If
+    
+           If c(6) <> 0 Then
+              SinEntero = False
+              i = c(6)
+              If N > 15 And N < 30 Then
+                 VEC_P = VEC_P + R(i)
+              ElseIf N > 30 Then
+                 VEC_P = VEC_P + "Y " + R(i)
+              End If
+           End If
+    
+           If c(4) <> 0 Or N <> 0 Then
+              SinEntero = False
+              VEC_P = VEC_P + R(17)
+           End If
+    
+           If c(7) <> 0 Then
+              SinEntero = False
+              i = c(7)
+              If c(7) = 1 And P = 0 Then
+                 VEC_P = VEC_P + S(10)
+              Else
+                 VEC_P = VEC_P + S(i)
+              End If
+           End If
+    
+           If P <> 0 Then
+              SinEntero = False
+              i = c(8)
+              If P < 16 Then
+                 VEC_P = VEC_P + R(P)
+              ElseIf P = 20 Then
+                 VEC_P = VEC_P + R(18)
+              Else
+                 VEC_P = VEC_P + T(i)
+              End If
+           End If
+    
+           If c(9) <> 0 Then
+              SinEntero = False
+              i = c(9)
+              If P > 15 And P < 30 Then
+                 VEC_P = VEC_P + R(i)
+              ElseIf P > 30 Then
+                 VEC_P = VEC_P + "Y " + R(i)
+              End If
+           End If
+    
+           If c(7) <> 0 Or P <> 0 Then
+              SinEntero = False
+              If c(9) = 1 And P <> 11 Then
+                 VEC_P = Trim(VEC_P) + "O "
+              End If
+           End If
+    
+           If SinEntero Then
+               VEC_P = "CERO "
+           End If
+    
+           a = Mid(VEC_P, 1, 1)
+           b = LCase(Mid(VEC_P, 2, Len(VEC_P) - 1))
+    
+           If Decim = 0 Then
+             retorna = RTrim(a) & b & ".-"
+           Else
+             retorna = RTrim(a) & b & "con " & Decim & "/100.-"
+           End If
+    
+           ESCNUM = retorna
+
+       End Function
+         * */
         public int AltaPrestamo(Socio socio,
                                  string socio_nro,
                                  DateTime fecha,
