@@ -996,6 +996,13 @@ namespace Negocio
             return tmpExcedidos;
         }
 
+        public DataSet devolverExcedidosPorCIyPresupuesto(string ci, string presupuesto)
+        {
+            Excedidos tmpExcedido = new Excedidos();
+            DataSet tmpExcedidos2 = tmpExcedido.devolverExcedidosPorCIyPresupuesto(ci, presupuesto);
+            return tmpExcedidos2;
+        }
+
         public void cierre()
         {
             double CuotaCapital;

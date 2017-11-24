@@ -62,6 +62,13 @@ namespace Negocio
             return tmpExcedido.devolverExcedidosSinPago(id_socio);
         }
 
+        public DataSet devolverExcedidosPorCIyPresupuesto(string ci, string presupuesto)
+        {
+            pExcedidos tmpExcedido = new pExcedidos();
+            return tmpExcedido.devolverExcedidosPorCIyPresupuesto(ci, presupuesto);
+        }
+
+
         public void actualizarExcedidoCierre()
         {
             pExcedidos tmpExcedido = new pExcedidos();

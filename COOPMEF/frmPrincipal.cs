@@ -1842,6 +1842,55 @@ namespace COOPMEF
             btnGuardarPrestamo.Enabled = true;
         }
 
+        private void btnGuardarIngExcedidos_Click(object sender, EventArgs e)
+        {
+           
+      
+   //If Val(LblARetener) <= Val(TxtRetenido) Then
+   //   MsgBox "Importe Retenido no es Correcto.", vbOKOnly + vbInformation, Me.Caption
+   //   CmdGrabar.Enabled = False
+   //   TxtRetenido.SetFocus
+   //   Exit Sub
+   //End If
+
+       if (Convert.ToDouble(txtARetenerIngExc) <= Convert.ToDouble(txtRetenidoIngExc))
+           MessageBox.Show("Importe Retenido no es Correcto.");
+
+    DataSet dsExcedidosPorCIyPrespuesto = empresa.devolverExcedidosPorCIyPresupuesto(this.txtCI.Text,txtPresupuestoIngExc.Text);
+                if (dsExcedidosPorCIyPrespuesto.Tables["excedidosPorCIyPresupuesto"].Rows.Count > 0)
+                {}
+   //Busqueda = "select * from excedidos where cedula=" & "'" & TxtCedula & "'"
+   //Busqueda = Busqueda & "and presupuesto=" & "'" & TxtPresupuesto & "'"
+   //Set RsExcedidos = BaseDatos.OpenRecordset(Busqueda, dbOpenDynaset, dbConsistent)
+   
+   //If RsExcedidos.RecordCount > 0 Then
+   //   If RsExcedidos!importepagado = 0 Then
+   //      RsExcedidos.Edit
+//      Else
+//         MsgBox "La Deuda ya fue Cancelada con el" & Chr(13) & _
+//         "Presupuesto del mes de " & RsExcedidos!presupuestodelpago, vbOKOnly + vbInformation, Me.Caption
+//         CmdGrabar.Enabled = False
+//         TxtCedula.SetFocus
+//         Exit Sub
+//      End If
+//   Else
+//      RsExcedidos.AddNew
+//   End If
+//   RsExcedidos!Presupuesto = TxtPresupuesto
+//   RsExcedidos!cedula = TxtCedula
+//   RsExcedidos!aportecapital = RsHistoria!aportecapital
+//   RsExcedidos!aretener = LblARetener
+//   RsExcedidos!retenido = TxtRetenido
+//   RsExcedidos.Update
+//   CmdGrabar.Enabled = False
+//   TxtCedula.SetFocus
+//   TxtPresupuesto.SetFocus
+   
+   
+//End Sub
+
+        }
+
     }
 }
 
