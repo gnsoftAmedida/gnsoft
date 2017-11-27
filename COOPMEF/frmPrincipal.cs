@@ -51,6 +51,7 @@ namespace COOPMEF
 
         private System.Data.DataSet eventosDataSet;
         private dsSolicitu DE = new dsSolicitu();
+        private dsVale DV = new dsVale();
 
         public frmPrincipal()
         {
@@ -1777,8 +1778,8 @@ namespace COOPMEF
                         double montoIntereses = ((cuota * cantidadCuotas) - totalDeuda) / (1 + (iva / 100));
 
                      // *****************Imprimir Vale
-                        DE.solicitud.Rows.Add(totalDeuda, lblNumeroSocio.Text, cantidadCuotas, cuota, tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses, cuota * cantidadCuotas, montoIntereses, empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), lblApellidos.Text + " " + lblNombre.Text, "agregar nro cobro", idPrestamo, "nombre unidad", "Presupuesto", "cuota en letras", "imoprte cuota en letras", "vencimiento primer cuota");
-                        frmVerReportes reporte = new frmVerReportes(DE, "VALE_PRESTAMO");
+                        DV.vale.Rows.Add(totalDeuda, lblNumeroSocio.Text, cantidadCuotas, cuota, tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses, cuota * cantidadCuotas, montoIntereses, empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), lblApellidos.Text + " " + lblNombre.Text, "agregar nro cobro", idPrestamo, "nombre unidad", "Presupuesto", "cuota en letras", "imoprte cuota en letras", "vencimiento primer cuota");
+                        frmVerReportes reporte = new frmVerReportes(DV, "VALE_PRESTAMO");
 
                         reporte.ShowDialog();
                         DE.solicitud.Rows.Clear();
