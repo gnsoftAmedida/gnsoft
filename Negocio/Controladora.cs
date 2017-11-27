@@ -739,133 +739,144 @@ namespace Negocio
                 }
             }
 
-            /*          if c(4) <> 0 Then
-               SinEntero = False
-               i = c(4)
-               If c(4) = 1 And N = 0 Then
-                  VEC_P = VEC_P + S(10)
-               Else
-                  VEC_P = VEC_P + S(i)
-               End If
-            End If
+            if (c[4] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[4]);
+                if ((c[4] == "1") && (N == 0))
+                {
+                    VEC_P = VEC_P + S[10];
+                }
+                VEC_P = VEC_P + S[i];
+            }
 
- */
+            if (N != 0)
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[5]);
+                if (N < 16)
+                {
+                    VEC_P = VEC_P + R[N];
+                }
+                else if (N == 20)
+                {
+                    VEC_P = VEC_P + R[18];
+                }
+                VEC_P = VEC_P + T[i];
+            }
 
-            return "";
+            if (c[6] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[6]);
+                if ((N > 15) && (N < 30))
+                {
+                    VEC_P = VEC_P + R[i];
+                }
+                else if (N > 30)
+                {
+                    VEC_P = VEC_P + "Y " + R[i];
+                }
+            }
+
+            if ((c[4] != "0") || (N != 0))
+            {
+                SinEntero = false;
+                VEC_P = VEC_P + R[17];
+            }
+
+            if (c[7] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[7]);
+                if ((c[7] == "1") && (P == 0))
+                {
+                    VEC_P = VEC_P + S[10];
+                }
+                else
+                {
+                    VEC_P = VEC_P + S[i];
+                }
+            }
+
+            if (P != 0)
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[8]);
+                if (P < 16)
+                {
+                    VEC_P = VEC_P + R[P];
+                }
+                else if (P == 20)
+                {
+                    VEC_P = VEC_P + R[18];
+                }
+                else
+                {
+                    VEC_P = VEC_P + T[i];
+                }
+            }
+
+            if (c[9] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[9]);
+                if ((P > 15) && (P < 30))
+                {
+                    VEC_P = VEC_P + R[i];
+                }
+                else if (P > 30)
+                {
+                    VEC_P = VEC_P + "Y " + R[i];
+                }
+            }
+
+            if ((c[7] != "0") || (P != 0))
+            {
+                SinEntero = false;
+                if ((c[9] == "1") && (P != 11))
+                {
+                    VEC_P = Microsoft.VisualBasic.Strings.Trim(VEC_P) + "O ";
+                }
+            }
+
+            if (SinEntero)
+            {
+                VEC_P = "CERO ";
+            }
+
+            a = Microsoft.VisualBasic.Strings.Mid(VEC_P, 1, 1);
+            b = Microsoft.VisualBasic.Strings.LCase(Microsoft.VisualBasic.Strings.Mid(VEC_P, 2, Microsoft.VisualBasic.Strings.Len(VEC_P) - 1));
+
+            if (Decim == 0)
+            {
+                retorna = Microsoft.VisualBasic.Strings.RTrim(a) + b + ".-";
+            }
+            retorna = Microsoft.VisualBasic.Strings.RTrim(a) + b + "con " + Decim + "/100.-";
+
+            return retorna;
         }
 
 
-        /*   
-    
 
-    
 
-    
-       
-          
-    
-
-    
-           If N <> 0 Then
-              SinEntero = False
-              i = c(5)
-              If N < 16 Then
-                 VEC_P = VEC_P + R(N)
-              ElseIf N = 20 Then
-                 VEC_P = VEC_P + R(18)
-              Else
-                 VEC_P = VEC_P + T(i)
-              End If
-           End If
-    
-           If c(6) <> 0 Then
-              SinEntero = False
-              i = c(6)
-              If N > 15 And N < 30 Then
-                 VEC_P = VEC_P + R(i)
-              ElseIf N > 30 Then
-                 VEC_P = VEC_P + "Y " + R(i)
-              End If
-           End If
-    
-           If c(4) <> 0 Or N <> 0 Then
-              SinEntero = False
-              VEC_P = VEC_P + R(17)
-           End If
-    
-           If c(7) <> 0 Then
-              SinEntero = False
-              i = c(7)
-              If c(7) = 1 And P = 0 Then
-                 VEC_P = VEC_P + S(10)
-              Else
-                 VEC_P = VEC_P + S(i)
-              End If
-           End If
-    
-           If P <> 0 Then
-              SinEntero = False
-              i = c(8)
-              If P < 16 Then
-                 VEC_P = VEC_P + R(P)
-              ElseIf P = 20 Then
-                 VEC_P = VEC_P + R(18)
-              Else
-                 VEC_P = VEC_P + T(i)
-              End If
-           End If
-    
-           If c(9) <> 0 Then
-              SinEntero = False
-              i = c(9)
-              If P > 15 And P < 30 Then
-                 VEC_P = VEC_P + R(i)
-              ElseIf P > 30 Then
-                 VEC_P = VEC_P + "Y " + R(i)
-              End If
-           End If
-    
-           If c(7) <> 0 Or P <> 0 Then
-              SinEntero = False
-              If c(9) = 1 And P <> 11 Then
-                 VEC_P = Trim(VEC_P) + "O "
-              End If
-           End If
-    
-           If SinEntero Then
-               VEC_P = "CERO "
-           End If
-    
-           a = Mid(VEC_P, 1, 1)
-           b = LCase(Mid(VEC_P, 2, Len(VEC_P) - 1))
-    
-           If Decim = 0 Then
-             retorna = RTrim(a) & b & ".-"
-           Else
-             retorna = RTrim(a) & b & "con " & Decim & "/100.-"
-           End If
-    
-           ESCNUM = retorna
-
-       End Function
-         * */
         public int AltaPrestamo(Socio socio,
-                                 string socio_nro,
-                                 DateTime fecha,
-                                 DateTime hora,
-                                 double monteopedido,
-                                 double tasa,
-                                 int cantidadcuotas,
-                                 double importecuota,
-                                 int numeroPrestamoAnt,
-                                 double montopedidoAnt,
-                                 double amortizacionVencer,
-                                 double interesesVencer,
-                                 int cuotasPactadas,
-                                 int cuotasPagadas,
-                                 double cuotaAnt,
-                                 double tasaanterior,
-                                 int anulado)
+                      string socio_nro,
+                      DateTime fecha,
+                      DateTime hora,
+                      double monteopedido,
+                      double tasa,
+                      int cantidadcuotas,
+                      double importecuota,
+                      int numeroPrestamoAnt,
+                      double montopedidoAnt,
+                      double amortizacionVencer,
+                      double interesesVencer,
+                      int cuotasPactadas,
+                      int cuotasPagadas,
+                      double cuotaAnt,
+                      double tasaanterior,
+                      int anulado)
         {
 
             Prestamo tmpPrestamo = new Prestamo();
