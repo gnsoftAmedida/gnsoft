@@ -1775,8 +1775,9 @@ namespace COOPMEF
                         MessageBox.Show("Préstamo Ingresado Correctamente");
 
                      // *****************Imprimir Vale
-                        DE.solicitud.Rows.Add("numeroCobro", "unidadEjecutora", lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
+                        DE.solicitud.Rows.Add("numeroCobro", empresa.ESCNUM(Convert.ToString(totalDeuda)), lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
                         frmVerReportes reporte = new frmVerReportes(DE, "VALE_PRESTAMO");
+
                         reporte.ShowDialog();
                         DE.solicitud.Rows.Clear();
                     //******************************
@@ -1831,7 +1832,7 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
-
+           MessageBox.Show( empresa.ESCNUM(txtBusqueda.Text));
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)

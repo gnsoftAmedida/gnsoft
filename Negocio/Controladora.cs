@@ -611,10 +611,10 @@ namespace Negocio
                      ============================================================
             */
 
-            string[] R = new string[18];
-            string[] S = new string[10];
-            string[] T = new string[11];
-            string[] c = new string[18];
+            string[] R = new string[19];
+            string[] S = new string[11];
+            string[] T = new string[12];
+            string[] c = new string[19];
 
             String cont_n, VEC_P = "", a, b, retorna;
             Int32 M, N, P, i, Decim;
@@ -666,7 +666,7 @@ namespace Negocio
             P = 0; //  DECENAS
             i = 0;
 
-            cont_n = String.Format(numero, "000000000.00");
+            cont_n = Convert.ToDouble(numero).ToString("000000000.00");
 
             for (i = 1; i <= 9; i++)
             {
@@ -710,7 +710,6 @@ namespace Negocio
                     VEC_P = VEC_P + T[i];
                 }
             }
-
 
             if (c[3] == "0")
             {
@@ -856,9 +855,6 @@ namespace Negocio
 
             return retorna;
         }
-
-
-
 
         public int AltaPrestamo(Socio socio,
                       string socio_nro,
