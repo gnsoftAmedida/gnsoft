@@ -601,23 +601,278 @@ namespace Negocio
         }
 
         //********************************************* PRESTAMOS***********************************
+        public string ESCNUM(string numero)
+        {
+            /*        '============================================================
+                       FUNCION QUE CONVIERTE UN NUMERO DE SU FORMATO NATURAL A ESE
+                       NUMERO EN LETRAS
+                       SINTAXIS >> ESCNUM(NUMERO A CONVERTIR) <<
+                       EL NUMERO A CONVERTIR PUEDE SER HASTA 999.999.999,99
+                     ============================================================
+            */
+
+            string[] R = new string[19];
+            string[] S = new string[11];
+            string[] T = new string[12];
+            string[] c = new string[19];
+
+            String cont_n, VEC_P = "", a, b, retorna;
+            Int32 M, N, P, i, Decim;
+            Boolean SinEntero = true;
+
+
+            R[1] = "UN ";
+            R[2] = "DOS ";
+            R[3] = "TRES ";
+            R[4] = "CUATRO ";
+            R[5] = "CINCO ";
+            R[6] = "SEIS ";
+            R[7] = "SIETE ";
+            R[8] = "OCHO ";
+            R[9] = "NUEVE ";
+            R[10] = "DIEZ ";
+            R[11] = "ONCE ";
+            R[12] = "DOCE ";
+            R[13] = "TRECE ";
+            R[14] = "CATORCE ";
+            R[15] = "QUINCE ";
+            R[16] = "UNO ";
+            R[17] = "MIL ";
+            R[18] = "VEINTE ";
+            S[1] = "CIENTO ";
+            S[2] = "DOSCIENTOS ";
+            S[3] = "TRESCIENTOS ";
+            S[4] = "CUATROCIENTOS ";
+            S[5] = "QUINIENTOS ";
+            S[6] = "SEISCIENTOS ";
+            S[7] = "SETECIENTOS ";
+            S[8] = "OCHOCIENTOS ";
+            S[9] = "NOVECIENTOS ";
+            S[10] = "CIEN ";
+            T[1] = "DIECI";
+            T[2] = "VEINTI";
+            T[3] = "TREINTA ";
+            T[4] = "CUARENTA ";
+            T[5] = "CINCUENTA ";
+            T[6] = "SESENTA ";
+            T[7] = "SETENTA ";
+            T[8] = "OCHENTA ";
+            T[9] = "NOVENTA ";
+            T[10] = "MILLONES ";
+            T[11] = "MILLON ";
+
+            M = 0; //  DECENAS DE MILLONES
+            N = 0; //  DECENAS DE MILES
+            P = 0; //  DECENAS
+            i = 0;
+
+            cont_n = Convert.ToDouble(numero).ToString("000000000.00");
+
+            for (i = 1; i <= 9; i++)
+            {
+                c[i] = Convert.ToString(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, i, 1)));
+            }
+
+            M = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 2, 2)));
+            N = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 5, 2)));
+            P = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 8, 2)));
+            Decim = Convert.ToInt32(Microsoft.VisualBasic.Conversion.Val(Microsoft.VisualBasic.Strings.Mid(cont_n, 11, 2)));
+
+            if (c[1] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[1]);
+
+                if ((c[1] == "1") && (M == 0))
+                {
+                    VEC_P = VEC_P + S[10];
+                }
+                else
+                {
+                    VEC_P = VEC_P + S[i];
+                }
+            }
+
+            if (M != 0)
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[2]);
+                if (M < 16)
+                {
+                    VEC_P = VEC_P + R[M];
+                }
+                else if (M == 20)
+                {
+                    VEC_P = VEC_P + R[18];
+                }
+                else
+                {
+                    VEC_P = VEC_P + T[i];
+                }
+            }
+
+            if (c[3] == "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[3]);
+                if ((M > 15) && (M < 30))
+                {
+                    VEC_P = VEC_P + R[i];
+                }
+                else if (M > 30)
+                {
+                    VEC_P = VEC_P + "Y " + R[i];
+                }
+            }
+
+            if ((c[1] != "0") || (M != 0))
+            {
+                SinEntero = false;
+                if ((c[1] == "0") && (M == 1))
+                {
+                    VEC_P = VEC_P + T[11];
+                }
+                else
+                {
+                    VEC_P = VEC_P + T[10];
+                }
+            }
+
+            if (c[4] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[4]);
+                if ((c[4] == "1") && (N == 0))
+                {
+                    VEC_P = VEC_P + S[10];
+                }
+                VEC_P = VEC_P + S[i];
+            }
+
+            if (N != 0)
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[5]);
+                if (N < 16)
+                {
+                    VEC_P = VEC_P + R[N];
+                }
+                else if (N == 20)
+                {
+                    VEC_P = VEC_P + R[18];
+                }
+                VEC_P = VEC_P + T[i];
+            }
+
+            if (c[6] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[6]);
+                if ((N > 15) && (N < 30))
+                {
+                    VEC_P = VEC_P + R[i];
+                }
+                else if (N > 30)
+                {
+                    VEC_P = VEC_P + "Y " + R[i];
+                }
+            }
+
+            if ((c[4] != "0") || (N != 0))
+            {
+                SinEntero = false;
+                VEC_P = VEC_P + R[17];
+            }
+
+            if (c[7] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[7]);
+                if ((c[7] == "1") && (P == 0))
+                {
+                    VEC_P = VEC_P + S[10];
+                }
+                else
+                {
+                    VEC_P = VEC_P + S[i];
+                }
+            }
+
+            if (P != 0)
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[8]);
+                if (P < 16)
+                {
+                    VEC_P = VEC_P + R[P];
+                }
+                else if (P == 20)
+                {
+                    VEC_P = VEC_P + R[18];
+                }
+                else
+                {
+                    VEC_P = VEC_P + T[i];
+                }
+            }
+
+            if (c[9] != "0")
+            {
+                SinEntero = false;
+                i = Convert.ToInt32(c[9]);
+                if ((P > 15) && (P < 30))
+                {
+                    VEC_P = VEC_P + R[i];
+                }
+                else if (P > 30)
+                {
+                    VEC_P = VEC_P + "Y " + R[i];
+                }
+            }
+
+            if ((c[7] != "0") || (P != 0))
+            {
+                SinEntero = false;
+                if ((c[9] == "1") && (P != 11))
+                {
+                    VEC_P = Microsoft.VisualBasic.Strings.Trim(VEC_P) + "O ";
+                }
+            }
+
+            if (SinEntero)
+            {
+                VEC_P = "CERO ";
+            }
+
+            a = Microsoft.VisualBasic.Strings.Mid(VEC_P, 1, 1);
+            b = Microsoft.VisualBasic.Strings.LCase(Microsoft.VisualBasic.Strings.Mid(VEC_P, 2, Microsoft.VisualBasic.Strings.Len(VEC_P) - 1));
+
+            if (Decim == 0)
+            {
+                retorna = Microsoft.VisualBasic.Strings.RTrim(a) + b + ".-";
+            }
+            retorna = Microsoft.VisualBasic.Strings.RTrim(a) + b + "con " + Decim + "/100.-";
+
+            return retorna;
+        }
+
         public int AltaPrestamo(Socio socio,
-                                 string socio_nro,
-                                 DateTime fecha,
-                                 DateTime hora,
-                                 double monteopedido,
-                                 double tasa,
-                                 int cantidadcuotas,
-                                 double importecuota,
-                                 int numeroPrestamoAnt,
-                                 double montopedidoAnt,
-                                 double amortizacionVencer,
-                                 double interesesVencer,
-                                 int cuotasPactadas,
-                                 int cuotasPagadas,
-                                 double cuotaAnt,
-                                 double tasaanterior,
-                                 int anulado)
+                      string socio_nro,
+                      DateTime fecha,
+                      DateTime hora,
+                      double monteopedido,
+                      double tasa,
+                      int cantidadcuotas,
+                      double importecuota,
+                      int numeroPrestamoAnt,
+                      double montopedidoAnt,
+                      double amortizacionVencer,
+                      double interesesVencer,
+                      int cuotasPactadas,
+                      int cuotasPagadas,
+                      double cuotaAnt,
+                      double tasaanterior,
+                      int anulado)
         {
 
             Prestamo tmpPrestamo = new Prestamo();

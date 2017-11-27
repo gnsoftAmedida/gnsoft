@@ -147,6 +147,7 @@
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabCobranza = new System.Windows.Forms.TabPage();
+            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dgvDeuda = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -248,7 +249,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -1120,6 +1120,14 @@
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
             this.tabCobranza.Name = "tabCobranza";
             // 
+            // btnGuardarIngExcedidos
+            // 
+            this.btnGuardarIngExcedidos.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
+            resources.ApplyResources(this.btnGuardarIngExcedidos, "btnGuardarIngExcedidos");
+            this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
+            this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
+            this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
+            // 
             // groupBox8
             // 
             this.groupBox8.Controls.Add(this.dgvDeuda);
@@ -1791,14 +1799,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
-            // 
-            // btnGuardarIngExcedidos
-            // 
-            this.btnGuardarIngExcedidos.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
-            resources.ApplyResources(this.btnGuardarIngExcedidos, "btnGuardarIngExcedidos");
-            this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
-            this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
-            this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
             // 
             // frmPrincipal
             // 
