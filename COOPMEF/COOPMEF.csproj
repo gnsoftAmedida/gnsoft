@@ -124,6 +124,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSolicitud.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsVale.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsVale.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAgenda.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -335,6 +340,17 @@
     </None>
     <None Include="CrystalDataSets\dsSolicitud.xss">
       <DependentUpon>dsSolicitud.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsVale.xsc">
+      <DependentUpon>dsVale.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsVale.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsVale.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsVale.xss">
+      <DependentUpon>dsVale.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

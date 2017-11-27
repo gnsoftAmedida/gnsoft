@@ -1772,10 +1772,12 @@ namespace COOPMEF
                             exitiaProvisoria = false;
                         }
 
-                        MessageBox.Show("Préstamo Ingresado Correctamente");
+
+                       ivaSobreIntereses = ((cuota * cantidadCuotas) - totalDeuda) / (1 + (iva / 100)) * (iva / 100);
+                        double montoIntereses = ((cuota * cantidadCuotas) - totalDeuda) / (1 + (iva / 100));
 
                      // *****************Imprimir Vale
-                        DE.solicitud.Rows.Add("numeroCobro", empresa.ESCNUM(Convert.ToString(totalDeuda)), lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
+                        DE.solicitud.Rows.Add(totalDeuda, lblNumeroSocio.Text, cantidadCuotas, cuota, tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses, cuota * cantidadCuotas, montoIntereses, empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), lblApellidos.Text + " " + lblNombre.Text, "agregar nro cobro", idPrestamo, "nombre unidad", "Presupuesto", "cuota en letras", "imoprte cuota en letras", "vencimiento primer cuota");
                         frmVerReportes reporte = new frmVerReportes(DE, "VALE_PRESTAMO");
 
                         reporte.ShowDialog();
@@ -1832,7 +1834,7 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
-           MessageBox.Show( empresa.ESCNUM(txtBusqueda.Text));
+        
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
