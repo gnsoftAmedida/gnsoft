@@ -12,7 +12,6 @@ using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
 using COOPMEF.CrystalDataSets;
 
-
 namespace COOPMEF
 {
     public partial class frmPrincipal : Form
@@ -689,7 +688,7 @@ namespace COOPMEF
             bool formatoCiOK = true;
             int resultado;
 
-            if (int.TryParse(nro_socio, out resultado))
+            if (int.TryParse(nro_socio.Replace(".", "").Replace(",", "").Replace("-", ""), out resultado))
             {
                 if (resultado.ToString().Length >= 7)
                 {
@@ -1776,9 +1775,14 @@ namespace COOPMEF
 
                        ivaSobreIntereses = ((cuota * cantidadCuotas) - totalDeuda) / (1 + (iva / 100)) * (iva / 100);
                         double montoIntereses = ((cuota * cantidadCuotas) - totalDeuda) / (1 + (iva / 100));
+            
+                        DataSet dsParametros = empresa.DevolverEmpresa();
+                        String FechaPrimerCuota = empresa.VtoPrimerCuota(Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString())).ToString("dd/MM/yyyy");
+                        DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15);
+                        
 
                      // *****************Imprimir Vale
-                        DV.vale.Rows.Add(totalDeuda, lblNumeroSocio.Text, cantidadCuotas, cuota, tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses, cuota * cantidadCuotas, montoIntereses, empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), lblApellidos.Text + " " + lblNombre.Text, "agregar nro cobro", idPrestamo, "nombre unidad", "Presupuesto", "cuota en letras", "imoprte cuota en letras", "vencimiento primer cuota");
+                        DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota,DateTime.Today.ToLongDateString());
                         frmVerReportes reporte = new frmVerReportes(DV, "VALE_PRESTAMO");
 
                         reporte.ShowDialog();
@@ -1835,7 +1839,7 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
-        
+
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -1846,7 +1850,7 @@ namespace COOPMEF
 
         private void btnSolicitar_Click(object sender, EventArgs e)
         {
-            DE.solicitud.Rows.Add("numeroCobro", "unidadEjecutora", lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);   
+            DE.solicitud.Rows.Add("numeroCobro", "unidadEjecutora", lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
             frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
             reporte.ShowDialog();
             DE.solicitud.Rows.Clear();
@@ -1872,6 +1876,7 @@ namespace COOPMEF
                         dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][3] = txtARetenerIngExc.Text;
                         dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][4] = txtRetenidoIngExc.Text;
                         dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][8] = dsHistoria.Tables["tmpHistorias"].Rows[0][15].ToString();
+
                     }
                     else
                         MessageBox.Show("La deuda ya fué cancelada con el presupuesto " + dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][7].ToString());
@@ -1880,7 +1885,7 @@ namespace COOPMEF
                     //Agrego un excedido nuevo??
                 }
             }
-                
+
         }
     }
 }

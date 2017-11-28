@@ -851,8 +851,10 @@ namespace Negocio
             {
                 retorna = Microsoft.VisualBasic.Strings.RTrim(a) + b + ".-";
             }
-            retorna = Microsoft.VisualBasic.Strings.RTrim(a) + b + "con " + Decim + "/100.-";
-
+            else
+            {
+                retorna = Microsoft.VisualBasic.Strings.RTrim(a) + b + "con " + Decim + "/100.-";
+            }
             return retorna;
         }
 
@@ -1126,6 +1128,10 @@ namespace Negocio
             return Microsoft.VisualBasic.Strings.Mid(VtoPto(DateTime.Today).Date.ToString("dd/MM/yyyy"), 4);
         }
 
+        public string presupuestoFecha(DateTime fecha)
+        {
+            return Microsoft.VisualBasic.Strings.Mid(VtoPto(fecha).Date.ToString("dd/MM/yyyy"), 4);
+        }
         public void agregarAporteCapitalCobranza(int parCobranza_id, double parAporteCapital)
         {
             Cobranza tmpCobranza = new Cobranza();
@@ -1263,8 +1269,8 @@ namespace Negocio
             Historia tmpHistoria = new Historia();
             DataSet tmpHistorias = tmpHistoria.devolverHistoria(ci, presupuesto);
             return tmpHistorias;
-        
-        
+
+
         }
 
         public void cierre()
@@ -1541,7 +1547,7 @@ namespace Negocio
                         tmpHistoria.Guardar();
 
                         // **************Vaciar la tabla cobranza privosoria*****************
-                        DevolverCobranzasProvisorias();
+                        VaciarTablaCobranzaProvisoria();
                     }
                 }
             }

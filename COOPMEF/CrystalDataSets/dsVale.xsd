@@ -12,7 +12,7 @@
   <xs:element name="dsVale" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsVale" msprop:Generator_UserDSName="dsVale">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="vale" msprop:Generator_TableClassName="valeDataTable" msprop:Generator_TableVarName="tablevale" msprop:Generator_TablePropName="vale" msprop:Generator_RowDeletingName="valeRowDeleting" msprop:Generator_RowChangingName="valeRowChanging" msprop:Generator_RowEvHandlerName="valeRowChangeEventHandler" msprop:Generator_RowDeletedName="valeRowDeleted" msprop:Generator_UserTableName="vale" msprop:Generator_RowChangedName="valeRowChanged" msprop:Generator_RowEvArgName="valeRowChangeEvent" msprop:Generator_RowClassName="valeRow">
+        <xs:element name="vale" msprop:Generator_TableClassName="valeDataTable" msprop:Generator_TableVarName="tablevale" msprop:Generator_RowChangedName="valeRowChanged" msprop:Generator_TablePropName="vale" msprop:Generator_RowDeletingName="valeRowDeleting" msprop:Generator_RowChangingName="valeRowChanging" msprop:Generator_RowEvHandlerName="valeRowChangeEventHandler" msprop:Generator_RowDeletedName="valeRowDeleted" msprop:Generator_RowClassName="valeRow" msprop:Generator_UserTableName="vale" msprop:Generator_RowEvArgName="valeRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="capitalPrestado" msprop:Generator_ColumnVarNameInTable="columncapitalPrestado" msprop:Generator_ColumnPropNameInRow="capitalPrestado" msprop:Generator_ColumnPropNameInTable="capitalPrestadoColumn" msprop:Generator_UserColumnName="capitalPrestado" type="xs:string" minOccurs="0" />
@@ -33,6 +33,7 @@
               <xs:element name="CuotaEnLetras" msprop:Generator_ColumnVarNameInTable="columnCuotaEnLetras" msprop:Generator_ColumnPropNameInRow="CuotaEnLetras" msprop:Generator_ColumnPropNameInTable="CuotaEnLetrasColumn" msprop:Generator_UserColumnName="CuotaEnLetras" type="xs:string" minOccurs="0" />
               <xs:element name="ImporteCuotaEnLetras" msprop:Generator_ColumnVarNameInTable="columnImporteCuotaEnLetras" msprop:Generator_ColumnPropNameInRow="ImporteCuotaEnLetras" msprop:Generator_ColumnPropNameInTable="ImporteCuotaEnLetrasColumn" msprop:Generator_UserColumnName="ImporteCuotaEnLetras" type="xs:string" minOccurs="0" />
               <xs:element name="VtoPrimerCuota" msprop:Generator_ColumnVarNameInTable="columnVtoPrimerCuota" msprop:Generator_ColumnPropNameInRow="VtoPrimerCuota" msprop:Generator_ColumnPropNameInTable="VtoPrimerCuotaColumn" msprop:Generator_UserColumnName="VtoPrimerCuota" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaActual" msprop:Generator_ColumnVarNameInTable="columnfechaActual" msprop:Generator_ColumnPropNameInRow="fechaActual" msprop:Generator_ColumnPropNameInTable="fechaActualColumn" msprop:Generator_UserColumnName="fechaActual" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
