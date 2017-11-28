@@ -68,6 +68,10 @@ namespace Negocio
             return tmpExcedido.devolverExcedidosPorCIyPresupuesto(ci, presupuesto);
         }
 
+        
+
+
+
 
         public void actualizarExcedidoCierre()
         {
