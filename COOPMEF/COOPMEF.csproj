@@ -106,6 +106,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CancelacionAnticipadaDePrestmos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CancelacionAnticipadaDePrestmos.Designer.cs">
+      <DependentUpon>CancelacionAnticipadaDePrestmos.cs</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsEventos.cs">
       <DependentUpon>dsEventos.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -128,6 +134,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsVale.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
     <Compile Include="frmAgenda.cs">
       <SubType>Form</SubType>
@@ -245,6 +257,9 @@
       <DependentUpon>solicitudPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="CancelacionAnticipadaDePrestmos.resx">
+      <DependentUpon>CancelacionAnticipadaDePrestmos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAgenda.resx">
       <DependentUpon>frmAgenda.cs</DependentUpon>
     </EmbeddedResource>
