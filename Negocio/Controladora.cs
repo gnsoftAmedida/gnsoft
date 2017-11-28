@@ -1258,6 +1258,15 @@ namespace Negocio
             return tmpExcedidos2;
         }
 
+        public DataSet devolverHistoria(string ci, string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet tmpHistorias = tmpHistoria.devolverHistoria(ci, presupuesto);
+            return tmpHistorias;
+        
+        
+        }
+
         public void cierre()
         {
             double CuotaCapital;

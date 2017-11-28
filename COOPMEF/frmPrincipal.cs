@@ -1855,53 +1855,33 @@ namespace COOPMEF
 
         private void btnGuardarIngExcedidos_Click(object sender, EventArgs e)
         {
-           
-      
-   //If Val(LblARetener) <= Val(TxtRetenido) Then
-   //   MsgBox "Importe Retenido no es Correcto.", vbOKOnly + vbInformation, Me.Caption
-   //   CmdGrabar.Enabled = False
-   //   TxtRetenido.SetFocus
-   //   Exit Sub
-   //End If
 
-       if (Convert.ToDouble(txtARetenerIngExc) <= Convert.ToDouble(txtRetenidoIngExc))
-           MessageBox.Show("Importe Retenido no es Correcto.");
+            if (Convert.ToDouble(txtARetenerIngExc.Text) <= Convert.ToDouble(txtRetenidoIngExc.Text))
+                MessageBox.Show("Importe Retenido no es Correcto.");
 
-    DataSet dsExcedidosPorCIyPrespuesto = empresa.devolverExcedidosPorCIyPresupuesto(this.txtCI.Text,txtPresupuestoIngExc.Text);
-                if (dsExcedidosPorCIyPrespuesto.Tables["excedidosPorCIyPresupuesto"].Rows.Count > 0)
-                {}
-   //Busqueda = "select * from excedidos where cedula=" & "'" & TxtCedula & "'"
-   //Busqueda = Busqueda & "and presupuesto=" & "'" & TxtPresupuesto & "'"
-   //Set RsExcedidos = BaseDatos.OpenRecordset(Busqueda, dbOpenDynaset, dbConsistent)
-   
-   //If RsExcedidos.RecordCount > 0 Then
-   //   If RsExcedidos!importepagado = 0 Then
-   //      RsExcedidos.Edit
-//      Else
-//         MsgBox "La Deuda ya fue Cancelada con el" & Chr(13) & _
-//         "Presupuesto del mes de " & RsExcedidos!presupuestodelpago, vbOKOnly + vbInformation, Me.Caption
-//         CmdGrabar.Enabled = False
-//         TxtCedula.SetFocus
-//         Exit Sub
-//      End If
-//   Else
-//      RsExcedidos.AddNew
-//   End If
-//   RsExcedidos!Presupuesto = TxtPresupuesto
-//   RsExcedidos!cedula = TxtCedula
-//   RsExcedidos!aportecapital = RsHistoria!aportecapital
-//   RsExcedidos!aretener = LblARetener
-//   RsExcedidos!retenido = TxtRetenido
-//   RsExcedidos.Update
-//   CmdGrabar.Enabled = False
-//   TxtCedula.SetFocus
-//   TxtPresupuesto.SetFocus
-   
-   
-//End Sub
-
+            DataSet dsExcedidosPorCIyPresupuesto = empresa.devolverExcedidosPorCIyPresupuesto(this.txtCI.Text, txtPresupuestoIngExc.Text);
+            DataSet dsHistoria = empresa.devolverHistoria(this.txtCI.Text, txtPresupuestoIngExc.Text);
+            if (dsExcedidosPorCIyPresupuesto != null)
+            {
+                if (dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows.Count > 0)
+                    if (Convert.ToDouble(dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][6].ToString()) == 0)
+                    {//consulto por importe pagado
+                        //Edito
+                        dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][1] = txtPresupuestoIngExc.Text;
+                        dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][2] = txtNroSocio.Text; //cedula
+                        dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][3] = txtARetenerIngExc.Text;
+                        dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][4] = txtRetenidoIngExc.Text;
+                        dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][8] = dsHistoria.Tables["tmpHistorias"].Rows[0][15].ToString();
+                    }
+                    else
+                        MessageBox.Show("La deuda ya fué cancelada con el presupuesto " + dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][7].ToString());
+                else
+                {
+                    //Agrego un excedido nuevo??
+                }
+            }
+                
         }
-
     }
 }
 

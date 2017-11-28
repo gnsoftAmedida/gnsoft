@@ -72,6 +72,12 @@ namespace Negocio
             return historias;
         }
 
+        public DataSet devolverHistoria(string ci, string presupuesto)
+        {
+            pHistoria tmpHistoria = new pHistoria();
+            return tmpHistoria.devolverHistoria(ci, presupuesto);
+        }
+
         public void eliminar()
         {
             pHistoria tmpHistoria = new pHistoria();
