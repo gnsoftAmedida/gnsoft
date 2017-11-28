@@ -315,6 +315,8 @@ namespace COOPMEF.CrystalDataSets {
             
             private global::System.Data.DataColumn columnVtoPrimerCuota;
             
+            private global::System.Data.DataColumn columnfechaActual;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public valeDataTable() {
@@ -494,6 +496,14 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn fechaActualColumn {
+                get {
+                    return this.columnfechaActual;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -547,7 +557,8 @@ namespace COOPMEF.CrystalDataSets {
                         string Presupuesto, 
                         string CuotaEnLetras, 
                         string ImporteCuotaEnLetras, 
-                        string VtoPrimerCuota) {
+                        string VtoPrimerCuota, 
+                        string fechaActual) {
                 valeRow rowvaleRow = ((valeRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         capitalPrestado,
@@ -567,7 +578,8 @@ namespace COOPMEF.CrystalDataSets {
                         Presupuesto,
                         CuotaEnLetras,
                         ImporteCuotaEnLetras,
-                        VtoPrimerCuota};
+                        VtoPrimerCuota,
+                        fechaActual};
                 rowvaleRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowvaleRow);
                 return rowvaleRow;
@@ -608,6 +620,7 @@ namespace COOPMEF.CrystalDataSets {
                 this.columnCuotaEnLetras = base.Columns["CuotaEnLetras"];
                 this.columnImporteCuotaEnLetras = base.Columns["ImporteCuotaEnLetras"];
                 this.columnVtoPrimerCuota = base.Columns["VtoPrimerCuota"];
+                this.columnfechaActual = base.Columns["fechaActual"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -649,6 +662,8 @@ namespace COOPMEF.CrystalDataSets {
                 base.Columns.Add(this.columnImporteCuotaEnLetras);
                 this.columnVtoPrimerCuota = new global::System.Data.DataColumn("VtoPrimerCuota", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnVtoPrimerCuota);
+                this.columnfechaActual = new global::System.Data.DataColumn("fechaActual", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfechaActual);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -1079,6 +1094,22 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fechaActual {
+                get {
+                    try {
+                        return ((string)(this[this.tablevale.fechaActualColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fechaActual\' in table \'vale\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablevale.fechaActualColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IscapitalPrestadoNull() {
                 return this.IsNull(this.tablevale.capitalPrestadoColumn);
             }
@@ -1291,6 +1322,18 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetVtoPrimerCuotaNull() {
                 this[this.tablevale.VtoPrimerCuotaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfechaActualNull() {
+                return this.IsNull(this.tablevale.fechaActualColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfechaActualNull() {
+                this[this.tablevale.fechaActualColumn] = global::System.Convert.DBNull;
             }
         }
         

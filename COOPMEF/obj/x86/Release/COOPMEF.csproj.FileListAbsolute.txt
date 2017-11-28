@@ -96,3 +96,4 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.csproj.G
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\gsw\COOPMEF.resources.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.exe
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.CancelacionAnticipadaDePrestmos.resources
