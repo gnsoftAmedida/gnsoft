@@ -68,6 +68,12 @@ namespace Negocio
             return tmpExcedido.devolverExcedidosPorCIyPresupuesto(ci, presupuesto);
         }
 
+        public DataSet devolverExcedidosPorCI(string ci)
+        {
+            pExcedidos tmpExcedido = new pExcedidos();
+            return tmpExcedido.devolverExcedidosPorCI(ci);
+        }
+
         
 
 
