@@ -1782,7 +1782,7 @@ namespace COOPMEF
                         
 
                      // *****************Imprimir Vale
-                        DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota,DateTime.Today.ToLongDateString());
+                        DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, empresa.presupuestoFecha(FechaVto), "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota, DateTime.Today.ToLongDateString());
                         frmVerReportes reporte = new frmVerReportes(DV, "VALE_PRESTAMO");
 
                         reporte.ShowDialog();

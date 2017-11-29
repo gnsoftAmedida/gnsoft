@@ -761,7 +761,10 @@ namespace Negocio
                 {
                     VEC_P = VEC_P + R[18];
                 }
-                VEC_P = VEC_P + T[i];
+                else
+                {
+                    VEC_P = VEC_P + T[i];
+                }
             }
 
             if (c[6] != "0")
