@@ -1267,6 +1267,13 @@ namespace Negocio
             return tmpExcedidos2;
         }
 
+        public DataSet devolverExcedidosPorCI(string ci)
+        {
+            Excedidos tmpExcedido = new Excedidos();
+            DataSet tmpExcedidos2 = tmpExcedido.devolverExcedidosPorCI(ci);
+            return tmpExcedidos2;
+        }
+
         public DataSet devolverHistoria(string ci, string presupuesto)
         {
             Historia tmpHistoria = new Historia();

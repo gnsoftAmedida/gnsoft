@@ -1119,6 +1119,7 @@
             this.tabCobranza.Controls.Add(this.groupBox7);
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
             this.tabCobranza.Name = "tabCobranza";
+            this.tabCobranza.Click += new System.EventHandler(this.tabCobranza_Click);
             // 
             // btnGuardarIngExcedidos
             // 
