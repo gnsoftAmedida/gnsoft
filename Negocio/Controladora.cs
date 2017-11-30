@@ -829,7 +829,7 @@ namespace Negocio
                 }
                 else if (P > 30)
                 {
-                    VEC_P = VEC_P + "Y " + R[i];
+                    VEC_P = VEC_P + "Y " + R[i];    
                 }
             }
 

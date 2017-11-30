@@ -1850,7 +1850,7 @@ namespace COOPMEF
 
         private void btnSolicitar_Click(object sender, EventArgs e)
         {
-            DE.solicitud.Rows.Add("numeroCobro", "unidadEjecutora", lblNumeroSocio.Text, lblApellidosSocio.Text, lblNombreSocio.Text, Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
+            DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim() , lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
             frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
             reporte.ShowDialog();
             DE.solicitud.Rows.Clear();
@@ -1931,6 +1931,12 @@ namespace COOPMEF
             //}
 
         }
+
+            private void toolStripMenuItem14_Click(object sender, EventArgs e)
+            {
+                CancelacionAnticipadaDePrestmos frmCancelacion = new CancelacionAnticipadaDePrestmos(idSocioSeleccionado);
+                frmCancelacion.Show();
+            }
     }
 }
 

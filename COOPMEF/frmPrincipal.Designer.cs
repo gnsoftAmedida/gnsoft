@@ -406,6 +406,7 @@
             // 
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
             resources.ApplyResources(this.toolStripMenuItem14, "toolStripMenuItem14");
+            this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
             // 
             // toolStripMenuItem15
             // 
