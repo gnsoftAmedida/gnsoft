@@ -249,6 +249,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label41 = new System.Windows.Forms.Label();
+            this.txtSaldoIngExc = new System.Windows.Forms.TextBox();
+            this.txtMoraIngExc = new System.Windows.Forms.TextBox();
+            this.txtTotalIngExc = new System.Windows.Forms.TextBox();
+            this.btnCalcularIngExc = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -1115,6 +1123,7 @@
             // 
             this.tabCobranza.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabCobranza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabCobranza.Controls.Add(this.btnCalcularIngExc);
             this.tabCobranza.Controls.Add(this.btnGuardarIngExcedidos);
             this.tabCobranza.Controls.Add(this.groupBox8);
             this.tabCobranza.Controls.Add(this.groupBox7);
@@ -1145,6 +1154,13 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.txtTotalIngExc);
+            this.groupBox7.Controls.Add(this.txtMoraIngExc);
+            this.groupBox7.Controls.Add(this.txtSaldoIngExc);
+            this.groupBox7.Controls.Add(this.label41);
+            this.groupBox7.Controls.Add(this.label40);
+            this.groupBox7.Controls.Add(this.label39);
+            this.groupBox7.Controls.Add(this.label38);
             this.groupBox7.Controls.Add(this.txtRetenidoIngExc);
             this.groupBox7.Controls.Add(this.txtARetenerIngExc);
             this.groupBox7.Controls.Add(this.txtPresupuestoIngExc);
@@ -1802,6 +1818,49 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // label38
+            // 
+            resources.ApplyResources(this.label38, "label38");
+            this.label38.Name = "label38";
+            // 
+            // label39
+            // 
+            resources.ApplyResources(this.label39, "label39");
+            this.label39.Name = "label39";
+            // 
+            // label40
+            // 
+            resources.ApplyResources(this.label40, "label40");
+            this.label40.Name = "label40";
+            // 
+            // label41
+            // 
+            resources.ApplyResources(this.label41, "label41");
+            this.label41.Name = "label41";
+            // 
+            // txtSaldoIngExc
+            // 
+            resources.ApplyResources(this.txtSaldoIngExc, "txtSaldoIngExc");
+            this.txtSaldoIngExc.Name = "txtSaldoIngExc";
+            // 
+            // txtMoraIngExc
+            // 
+            resources.ApplyResources(this.txtMoraIngExc, "txtMoraIngExc");
+            this.txtMoraIngExc.Name = "txtMoraIngExc";
+            // 
+            // txtTotalIngExc
+            // 
+            resources.ApplyResources(this.txtTotalIngExc, "txtTotalIngExc");
+            this.txtTotalIngExc.Name = "txtTotalIngExc";
+            // 
+            // btnCalcularIngExc
+            // 
+            this.btnCalcularIngExc.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
+            resources.ApplyResources(this.btnCalcularIngExc, "btnCalcularIngExc");
+            this.btnCalcularIngExc.Name = "btnCalcularIngExc";
+            this.btnCalcularIngExc.UseVisualStyleBackColor = true;
+            this.btnCalcularIngExc.Click += new System.EventHandler(this.btnCalcularIngExc_Click);
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2086,6 +2145,14 @@
         private System.Windows.Forms.ToolStripMenuItem parámetrosDelSistemaToolStripMenuItem;
         private System.Windows.Forms.Button btnSolicitar;
         private System.Windows.Forms.Button btnGuardarIngExcedidos;
+        private System.Windows.Forms.TextBox txtTotalIngExc;
+        private System.Windows.Forms.TextBox txtMoraIngExc;
+        private System.Windows.Forms.TextBox txtSaldoIngExc;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button btnCalcularIngExc;
     }
 }
 

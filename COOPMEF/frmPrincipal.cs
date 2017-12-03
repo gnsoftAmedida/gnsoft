@@ -1860,20 +1860,6 @@ namespace COOPMEF
         private void btnGuardarIngExcedidos_Click(object sender, EventArgs e)
         {
 
-
-
-
-            //        if (Convert.ToDouble(dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][6].ToString()) == 0)
-            //        {//consulto por importe pagado
-            //            //Edito
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][1] = txtPresupuestoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][2] = txtNroSocio.Text; //cedula
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][3] = txtARetenerIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][4] = txtRetenidoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][8] = dsHistoria.Tables["tmpHistorias"].Rows[0][15].ToString();
-
-            //        }
-
             if (Convert.ToDouble(txtARetenerIngExc.Text) <= Convert.ToDouble(txtRetenidoIngExc.Text))
                 MessageBox.Show("Importe Retenido no es Correcto.");
             else
@@ -1891,51 +1877,54 @@ namespace COOPMEF
 
             }
         }
-            private void tabCobranza_Click(object sender, EventArgs e)
-        {
-            DataSet dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
-            
-            if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count > 0)
+        private void tabCobranza_Click(object sender, EventArgs e)
             {
-
-
-                txtARetenerIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][3].ToString();
-                txtRetenidoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
-                txtPresupuestoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
-        
-        }
-
-
-
-            //DataSet dsExcedidosPorCIyPresupuesto = empresa.devolverExcedidosPorCIyPresupuesto(this.txtCI.Text, txtPresupuestoIngExc.Text);
-            //DataSet dsHistoria = empresa.devolverHistoria(this.txtCI.Text, txtPresupuestoIngExc.Text);
-            //if (dsExcedidosPorCIyPresupuesto != null)
-            //{
-            //    if (dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows.Count > 0)
-            //        if (Convert.ToDouble(dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][6].ToString()) == 0)
-            //        {//consulto por importe pagado
-            //            //Edito
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][1] = txtPresupuestoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][2] = txtNroSocio.Text; //cedula
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][3] = txtARetenerIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][4] = txtRetenidoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][8] = dsHistoria.Tables["tmpHistorias"].Rows[0][15].ToString();
-
-            //        }
-            //        else
-            //            MessageBox.Show("La deuda ya fué cancelada con el presupuesto " + dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][7].ToString());
-            //    else
-            //    {
-            //        //Agrego un excedido nuevo??
-            //    }
-            //}
-
+           
         }
 
             private void toolStripMenuItem14_Click(object sender, EventArgs e)
             {
                 CancelacionAnticipadaDePrestmos frmCancelacion = new CancelacionAnticipadaDePrestmos(idSocioSeleccionado);
                 frmCancelacion.Show();
+            }
+
+            private void calcularMoraYSaldos() {
+                DataSet dsParametros = empresa.DevolverEmpresa();
+                Double Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
+                Double WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
+                Double aporteCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][8].ToString());
+
+                Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
+                //Wmora = RsParametros!Mora * (1 + (RsParametros!Iva / 100))
+                Double porcentajeMora = (Wmora * (1+ WIvaMora / 100));
+                Double mora = (saldo - aporteCapital)*porcentajeMora/100;
+
+                txtSaldoIngExc.Text = saldo.ToString();
+                txtMoraIngExc.Text = mora.ToString();
+                txtTotalIngExc.Text = (saldo + mora).ToString();
+            
+            
+            }
+
+            private void btnCalcularIngExc_Click(object sender, EventArgs e)
+            {
+
+                DataSet dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
+
+
+                if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count > 0)
+                {
+
+
+                    txtARetenerIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][3].ToString();
+                    txtRetenidoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
+                    txtPresupuestoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
+
+                    calcularMoraYSaldos();
+                }
+                else
+                    calcularMoraYSaldos();
+
             }
     }
 }
