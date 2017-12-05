@@ -11,6 +11,8 @@ using Logs;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
 using COOPMEF.CrystalDataSets;
+using System.Data;
+using System.Collections;
 
 namespace COOPMEF
 {
@@ -67,6 +69,8 @@ namespace COOPMEF
 
             dsIncisos = empresa.DevolverIncisos();
 
+            
+
             cmbBusqueda.SelectedIndex = 0;
 
             pantallaInicialSocio();
@@ -75,6 +79,10 @@ namespace COOPMEF
 
             // Trampa para generar columnas en el datagridview
             socioPorCampo("socio_nro", "A");
+
+            txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
+            txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
+            txtNroDeCobro.Text = dsSocios.Tables["socios"].Rows[0][4].ToString();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -498,6 +506,8 @@ namespace COOPMEF
 
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
+            //////////////////
+            txtIncisoCobExcedidos.Text = cmbInciso.Text;
 
         }
 
@@ -1250,6 +1260,9 @@ namespace COOPMEF
                 this.txtApellidos.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
                 this.txtNroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
                 this.txtNroCobro.Text = dgvSociosCampo.Rows[index].Cells["socio_nroCobro"].Value.ToString();
+                ////////
+                txtNroDeCobro.Text = dgvSociosCampo.Rows[index].Cells["socio_nroCobro"].Value.ToString();
+
                 this.dtpFechaNac.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
                 this.dtpFechaIng.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
@@ -1274,6 +1287,8 @@ namespace COOPMEF
                     if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
                     {
                         this.cmbInciso.SelectedIndex = i;
+                        //////
+                        
                     }
 
                 }
@@ -1888,20 +1903,26 @@ namespace COOPMEF
                 frmCancelacion.Show();
             }
 
-            private void calcularMoraYSaldos() {
+            private Double calcularMoraYSaldos(Double saldo, string _presupuesto) {
                 DataSet dsParametros = empresa.DevolverEmpresa();
                 Double Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
                 Double WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
-                Double aporteCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][8].ToString());
+                Double aporteCapitalExcedido = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][8].ToString());
+                //string _Presupuesto = txtPresupuestoIngExc.Text;
 
-                Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
+                //Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
                 //Wmora = RsParametros!Mora * (1 + (RsParametros!Iva / 100))
                 Double porcentajeMora = (Wmora * (1+ WIvaMora / 100));
-                Double mora = (saldo - aporteCapital)*porcentajeMora/100;
+                //Double mora = (saldo - aporteCapital)*porcentajeMora/100;
 
-                txtSaldoIngExc.Text = saldo.ToString();
-                txtMoraIngExc.Text = mora.ToString();
-                txtTotalIngExc.Text = (saldo + mora).ToString();
+                DateTime fechaVto = empresa.VtoPto(DateTime.Today);
+                Double mora = Convert.ToDouble((empresa.Pago_Mora(saldo - aporteCapitalExcedido, _presupuesto, Wmora, fechaVto.ToString("dd/MM/yyyy"))));
+
+                return mora;
+
+                //txtSaldoIngExc.Text = saldo.ToString();
+                //txtMoraIngExc.Text = mora.ToString();
+                //txtTotalIngExc.Text = (saldo + mora).ToString();
             
             
             }
@@ -1920,10 +1941,47 @@ namespace COOPMEF
                     txtRetenidoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
                     txtPresupuestoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
 
-                    calcularMoraYSaldos();
+                    Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
+                    string _Presupuesto = txtPresupuestoIngExc.Text;
+
+                    
+                    txtSaldoIngExc.Text = saldo.ToString();
+                    Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
+                    txtMoraIngExc.Text = mora.ToString();
+                    txtTotalIngExc.Text = (saldo + mora).ToString();
                 }
-                else
-                    calcularMoraYSaldos();
+                //else
+                //    calcularMoraYSaldos();
+                else MessageBox.Show("La persona no se encuentra excedida");
+
+            }
+
+            private void btnCalcularCobranza_Click(object sender, EventArgs e)
+            {
+                DataSet dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
+
+
+                if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count > 0)
+                {
+
+
+                    txtARetener.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][3].ToString();
+                    txtRetenido.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
+                    txtPresupuesto.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
+                    Double saldo = Convert.ToDouble(txtARetener.Text) - Convert.ToDouble(txtRetenido.Text);
+                    string _Presupuesto = txtPresupuesto.Text;
+                    Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
+                    txtSaldo.Text = saldo.ToString();
+                    txtMora.Text = mora.ToString();
+                    txtTotal.Text = (saldo + mora).ToString();
+                }
+                //else
+                //    calcularMoraYSaldos();
+                else MessageBox.Show("La persona no se encuentra excedida");
+            }
+
+            private void groupBox1_Enter(object sender, EventArgs e)
+            {
 
             }
     }
