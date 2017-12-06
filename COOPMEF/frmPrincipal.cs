@@ -1794,7 +1794,8 @@ namespace COOPMEF
                         DataSet dsParametros = empresa.DevolverEmpresa();
                         String FechaPrimerCuota = empresa.VtoPrimerCuota(Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString())).ToString("dd/MM/yyyy");
                         DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15);
-                        
+
+                        cargarPlanPrestamoSocio();
 
                      // *****************Imprimir Vale
                         DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, empresa.presupuestoFecha(FechaVto), "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota, DateTime.Today.ToLongDateString());
@@ -1809,7 +1810,7 @@ namespace COOPMEF
                         txtNuevoImporte.Text = "";
                         prestamoCorrecto = false;
                         txtImporteCuota.Text = "0.00";
-                        cargarPlanPrestamoSocio();
+                        
                     }
                 }
                 else
@@ -1910,13 +1911,13 @@ namespace COOPMEF
                 Double aporteCapitalExcedido = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][8].ToString());
                 //string _Presupuesto = txtPresupuestoIngExc.Text;
 
-                //Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
+               // Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
                 //Wmora = RsParametros!Mora * (1 + (RsParametros!Iva / 100))
                 Double porcentajeMora = (Wmora * (1+ WIvaMora / 100));
                 //Double mora = (saldo - aporteCapital)*porcentajeMora/100;
 
                 DateTime fechaVto = empresa.VtoPto(DateTime.Today);
-                Double mora = Convert.ToDouble((empresa.Pago_Mora(saldo - aporteCapitalExcedido, _presupuesto, Wmora, fechaVto.ToString("dd/MM/yyyy"))));
+                Double mora = Convert.ToDouble((empresa.Pago_Mora(saldo - aporteCapitalExcedido, _presupuesto, porcentajeMora, fechaVto.ToString("dd/MM/yyyy"))));
 
                 return mora;
 
@@ -1947,8 +1948,8 @@ namespace COOPMEF
                     
                     txtSaldoIngExc.Text = saldo.ToString();
                     Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
-                    txtMoraIngExc.Text = mora.ToString();
-                    txtTotalIngExc.Text = (saldo + mora).ToString();
+                    txtMoraIngExc.Text = mora.ToString("###,###,##0.00");
+                    txtTotalIngExc.Text = (saldo + mora).ToString("###,###,##0.00");
                 }
                 //else
                 //    calcularMoraYSaldos();

@@ -1017,7 +1017,10 @@ namespace Negocio
             // tasa = tasa / 100; //ejemp. 160 / 100 = 1.60
             // tasa = Math.Pow(tasa, (1 / 12)) - 1; //esta es la tasa mensual;
 
-            TasaDeCobro = Math.Pow(TasaDeCobro, CantidadDias / 360);
+            TasaDeCobro = Xmora + 100;
+            TasaDeCobro = TasaDeCobro / 100;
+
+            TasaDeCobro = Math.Pow(TasaDeCobro, Convert.ToDouble(Decimal.Divide(CantidadDias,360)));
             TasaDeCobro = TasaDeCobro - 1;
             Pago_Mora = Importe * TasaDeCobro;
 
