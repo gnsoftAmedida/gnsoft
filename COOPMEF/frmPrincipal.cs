@@ -1425,6 +1425,14 @@ namespace COOPMEF
             int index = dgvSociosCampo.CurrentRow.Index;
             int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
 
+            //Reseteo los campos de ingreso de excedidos
+            txtARetenerIngExc.Text = "";
+            txtRetenidoIngExc.Text = "";
+            txtPresupuestoIngExc.Text = "";
+            txtSaldoIngExc.Text = "";
+            txtMoraIngExc.Text = "";
+            txtTotalIngExc.Text = "";
+
             // Resteo variables préstamo
             txtNuevoImporte.Text = "";
             prestamoCorrecto = false;
