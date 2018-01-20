@@ -1880,7 +1880,7 @@ namespace COOPMEF
             DE.solicitud.Rows.Clear();
             btnGuardarPrestamo.Enabled = true;
         }
-
+        DataSet dsExcedidosPorCI;
         private void btnGuardarIngExcedidos_Click(object sender, EventArgs e)
         {
 
@@ -1894,8 +1894,18 @@ namespace COOPMEF
                 ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text);
                 ex._presupuesto = txtPresupuestoIngExc.Text;
                 ex._cedula = txtNroSocio.Text;
-                ex.Guardar();
-                MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
+                if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count <= 0)
+                {
+                    ex.Guardar();
+                    MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
+                }
+                else
+                {
+                    ex._idExcedido = Convert.ToInt32(dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][0].ToString());
+                    ex.modificarExcedido();
+                    MessageBox.Show("El valor retenido fue actualizado correctamente");
+                }
+                
 
 
 
@@ -1935,11 +1945,11 @@ namespace COOPMEF
             
             
             }
-
+            //DataSet dsExcedidosPorCI;
             private void btnCalcularIngExc_Click(object sender, EventArgs e)
             {
 
-                DataSet dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
+                dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
 
 
                 if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count > 0)
