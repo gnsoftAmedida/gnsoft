@@ -205,7 +205,6 @@
             this.lblObs = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCalcularCobranza = new System.Windows.Forms.Button();
-            this.btnGuardarCobranza = new System.Windows.Forms.Button();
             this.btnSalirCobranza = new System.Windows.Forms.Button();
             this.btnImprimirCobranza = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -257,6 +256,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.btnPagarCobranza = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -646,6 +647,7 @@
             this.lblErrorG.Controls.Add(this.btnNuevoSocio);
             resources.ApplyResources(this.lblErrorG, "lblErrorG");
             this.lblErrorG.Name = "lblErrorG";
+            this.lblErrorG.Click += new System.EventHandler(this.lblErrorG_Click);
             // 
             // btnCancelarSocio
             // 
@@ -1163,6 +1165,7 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label42);
             this.groupBox7.Controls.Add(this.txtTotalIngExc);
             this.groupBox7.Controls.Add(this.txtMoraIngExc);
             this.groupBox7.Controls.Add(this.txtSaldoIngExc);
@@ -1184,16 +1187,19 @@
             // 
             resources.ApplyResources(this.txtTotalIngExc, "txtTotalIngExc");
             this.txtTotalIngExc.Name = "txtTotalIngExc";
+            this.txtTotalIngExc.ReadOnly = true;
             // 
             // txtMoraIngExc
             // 
             resources.ApplyResources(this.txtMoraIngExc, "txtMoraIngExc");
             this.txtMoraIngExc.Name = "txtMoraIngExc";
+            this.txtMoraIngExc.ReadOnly = true;
             // 
             // txtSaldoIngExc
             // 
             resources.ApplyResources(this.txtSaldoIngExc, "txtSaldoIngExc");
             this.txtSaldoIngExc.Name = "txtSaldoIngExc";
+            this.txtSaldoIngExc.ReadOnly = true;
             // 
             // label41
             // 
@@ -1507,8 +1513,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.btnPagarCobranza);
             this.tabPage1.Controls.Add(this.btnCalcularCobranza);
-            this.tabPage1.Controls.Add(this.btnGuardarCobranza);
             this.tabPage1.Controls.Add(this.btnSalirCobranza);
             this.tabPage1.Controls.Add(this.btnImprimirCobranza);
             this.tabPage1.Controls.Add(this.groupBox10);
@@ -1518,19 +1524,11 @@
             // 
             // btnCalcularCobranza
             // 
-            this.btnCalcularCobranza.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
             resources.ApplyResources(this.btnCalcularCobranza, "btnCalcularCobranza");
+            this.btnCalcularCobranza.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
             this.btnCalcularCobranza.Name = "btnCalcularCobranza";
             this.btnCalcularCobranza.UseVisualStyleBackColor = true;
             this.btnCalcularCobranza.Click += new System.EventHandler(this.btnCalcularCobranza_Click);
-            // 
-            // btnGuardarCobranza
-            // 
-            this.btnGuardarCobranza.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
-            resources.ApplyResources(this.btnGuardarCobranza, "btnGuardarCobranza");
-            this.btnGuardarCobranza.Name = "btnGuardarCobranza";
-            this.btnGuardarCobranza.UseVisualStyleBackColor = true;
-            this.btnGuardarCobranza.Click += new System.EventHandler(this.btnGuardarCobranza_Click);
             // 
             // btnSalirCobranza
             // 
@@ -1538,6 +1536,7 @@
             resources.ApplyResources(this.btnSalirCobranza, "btnSalirCobranza");
             this.btnSalirCobranza.Name = "btnSalirCobranza";
             this.btnSalirCobranza.UseVisualStyleBackColor = true;
+            this.btnSalirCobranza.Click += new System.EventHandler(this.btnSalirCobranza_Click);
             // 
             // btnImprimirCobranza
             // 
@@ -1545,6 +1544,7 @@
             resources.ApplyResources(this.btnImprimirCobranza, "btnImprimirCobranza");
             this.btnImprimirCobranza.Name = "btnImprimirCobranza";
             this.btnImprimirCobranza.UseVisualStyleBackColor = true;
+            this.btnImprimirCobranza.Click += new System.EventHandler(this.btnImprimirCobranza_Click);
             // 
             // groupBox10
             // 
@@ -1863,6 +1863,19 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // btnPagarCobranza
+            // 
+            this.btnPagarCobranza.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
+            resources.ApplyResources(this.btnPagarCobranza, "btnPagarCobranza");
+            this.btnPagarCobranza.Name = "btnPagarCobranza";
+            this.btnPagarCobranza.UseVisualStyleBackColor = true;
+            this.btnPagarCobranza.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label42
+            // 
+            resources.ApplyResources(this.label42, "label42");
+            this.label42.Name = "label42";
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2088,7 +2101,6 @@
         private System.Windows.Forms.Button btnSalirPrestamo;
         private System.Windows.Forms.Button btnCancelarPrestamo;
         private System.Windows.Forms.Button btnCalcularCobranza;
-        private System.Windows.Forms.Button btnGuardarCobranza;
         private System.Windows.Forms.Button btnSalirCobranza;
         private System.Windows.Forms.Button btnImprimirCobranza;
         private System.Windows.Forms.Button btnBuscar;
@@ -2155,6 +2167,8 @@
         private System.Windows.Forms.Label label39;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnCalcularIngExc;
+        private System.Windows.Forms.Button btnPagarCobranza;
+        private System.Windows.Forms.Label label42;
     }
 }
 

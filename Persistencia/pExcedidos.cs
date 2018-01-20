@@ -17,7 +17,7 @@ namespace Persistencia
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-            string sql = "DELETE FROM excedidos WHERE excedido_id = '" + Id + "'";
+            string sql = "DELETE FROM excedidos WHERE excedidos_id = '" + Id + "'";
 
             try
             {
