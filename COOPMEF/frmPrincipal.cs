@@ -11,6 +11,8 @@ using Logs;
 using System.Text.RegularExpressions;
 using Microsoft.VisualBasic;
 using COOPMEF.CrystalDataSets;
+using System.Data;
+using System.Collections;
 
 namespace COOPMEF
 {
@@ -67,6 +69,8 @@ namespace COOPMEF
 
             dsIncisos = empresa.DevolverIncisos();
 
+            
+
             cmbBusqueda.SelectedIndex = 0;
 
             pantallaInicialSocio();
@@ -75,6 +79,10 @@ namespace COOPMEF
 
             // Trampa para generar columnas en el datagridview
             socioPorCampo("socio_nro", "A");
+
+            txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
+            txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
+            txtNroDeCobro.Text = dsSocios.Tables["socios"].Rows[0][4].ToString();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -498,6 +506,8 @@ namespace COOPMEF
 
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
+            //////////////////
+            txtIncisoCobExcedidos.Text = cmbInciso.Text;
 
         }
 
@@ -1250,6 +1260,9 @@ namespace COOPMEF
                 this.txtApellidos.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
                 this.txtNroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
                 this.txtNroCobro.Text = dgvSociosCampo.Rows[index].Cells["socio_nroCobro"].Value.ToString();
+                ////////
+                txtNroDeCobro.Text = dgvSociosCampo.Rows[index].Cells["socio_nroCobro"].Value.ToString();
+
                 this.dtpFechaNac.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
                 this.dtpFechaIng.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
@@ -1274,6 +1287,8 @@ namespace COOPMEF
                     if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
                     {
                         this.cmbInciso.SelectedIndex = i;
+                        //////
+                        
                     }
 
                 }
@@ -1410,6 +1425,14 @@ namespace COOPMEF
             int index = dgvSociosCampo.CurrentRow.Index;
             int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
 
+            //Reseteo los campos de ingreso de excedidos
+            txtARetenerIngExc.Text = "";
+            txtRetenidoIngExc.Text = "";
+            txtPresupuestoIngExc.Text = "";
+            txtSaldoIngExc.Text = "";
+            txtMoraIngExc.Text = "";
+            txtTotalIngExc.Text = "";
+
             // Resteo variables préstamo
             txtNuevoImporte.Text = "";
             prestamoCorrecto = false;
@@ -1434,6 +1457,9 @@ namespace COOPMEF
         {
 
             seleccionarSocioYllenarDataGrid();
+            calcularSaldoMorayTotal();
+            llenarCamposDeCobranzaExcedidos();
+
 
 
 
@@ -1779,7 +1805,8 @@ namespace COOPMEF
                         DataSet dsParametros = empresa.DevolverEmpresa();
                         String FechaPrimerCuota = empresa.VtoPrimerCuota(Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString())).ToString("dd/MM/yyyy");
                         DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15);
-                        
+
+                        cargarPlanPrestamoSocio();
 
                      // *****************Imprimir Vale
                         DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, empresa.presupuestoFecha(FechaVto), "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota, DateTime.Today.ToLongDateString());
@@ -1794,7 +1821,7 @@ namespace COOPMEF
                         txtNuevoImporte.Text = "";
                         prestamoCorrecto = false;
                         txtImporteCuota.Text = "0.00";
-                        cargarPlanPrestamoSocio();
+                        
                     }
                 }
                 else
@@ -1857,85 +1884,251 @@ namespace COOPMEF
             btnGuardarPrestamo.Enabled = true;
         }
 
+        private bool hayCamposVaciosEnIngresoExcedidos() {
+            return (txtRetenidoIngExc.Text == "" || txtARetenerIngExc.Text == "" || txtPresupuestoIngExc.Text == "");
+        
+        
+        }
+        DataSet dsExcedidosPorCI;
         private void btnGuardarIngExcedidos_Click(object sender, EventArgs e)
         {
-
-
-
-
-            //        if (Convert.ToDouble(dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][6].ToString()) == 0)
-            //        {//consulto por importe pagado
-            //            //Edito
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][1] = txtPresupuestoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][2] = txtNroSocio.Text; //cedula
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][3] = txtARetenerIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][4] = txtRetenidoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][8] = dsHistoria.Tables["tmpHistorias"].Rows[0][15].ToString();
-
-            //        }
+            if(!hayCamposVaciosEnIngresoExcedidos()){
 
             if (Convert.ToDouble(txtARetenerIngExc.Text) <= Convert.ToDouble(txtRetenidoIngExc.Text))
                 MessageBox.Show("Importe Retenido no es Correcto.");
             else
             {
-
+                
                 Excedidos ex = new Excedidos();
                 ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text);
                 ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text);
                 ex._presupuesto = txtPresupuestoIngExc.Text;
                 ex._cedula = txtNroSocio.Text;
-                ex.Guardar();
-                MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
-
-
+                int filas = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count;
+                if ( filas<= 0)
+                {
+                    ex.Guardar();
+                    MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
+                    llenarCamposDeCobranzaExcedidos();
+                    //btnCalcularCobranza.Enabled = true;
+                    //btnPagarCobranza.Enabled = true;
+                    //btnImprimirCobranza.Enabled = true;
+                }
+                else
+                {
+                    ex._idExcedido = Convert.ToInt32(dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][0].ToString());
+                    ex.modificarExcedido();
+                    MessageBox.Show("El valor retenido fue actualizado correctamente");
+                    llenarCamposDeCobranzaExcedidos();
+                }
+                calcularSaldoMorayTotal();
+                
 
             }
+
+            }else
+                MessageBox.Show("Debe ingresar los campos requeridos");
         }
-            private void tabCobranza_Click(object sender, EventArgs e)
-        {
-            DataSet dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
-            
-            if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count > 0)
+        private void tabCobranza_Click(object sender, EventArgs e)
             {
-
-
-                txtARetenerIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][3].ToString();
-                txtRetenidoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
-                txtPresupuestoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
-        
-        }
-
-
-
-            //DataSet dsExcedidosPorCIyPresupuesto = empresa.devolverExcedidosPorCIyPresupuesto(this.txtCI.Text, txtPresupuestoIngExc.Text);
-            //DataSet dsHistoria = empresa.devolverHistoria(this.txtCI.Text, txtPresupuestoIngExc.Text);
-            //if (dsExcedidosPorCIyPresupuesto != null)
-            //{
-            //    if (dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows.Count > 0)
-            //        if (Convert.ToDouble(dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][6].ToString()) == 0)
-            //        {//consulto por importe pagado
-            //            //Edito
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][1] = txtPresupuestoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][2] = txtNroSocio.Text; //cedula
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][3] = txtARetenerIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][4] = txtRetenidoIngExc.Text;
-            //            dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][8] = dsHistoria.Tables["tmpHistorias"].Rows[0][15].ToString();
-
-            //        }
-            //        else
-            //            MessageBox.Show("La deuda ya fué cancelada con el presupuesto " + dsExcedidosPorCIyPresupuesto.Tables["tmpExcedidos2"].Rows[0][7].ToString());
-            //    else
-            //    {
-            //        //Agrego un excedido nuevo??
-            //    }
-            //}
-
+           
         }
 
             private void toolStripMenuItem14_Click(object sender, EventArgs e)
             {
                 CancelacionAnticipadaDePrestmos frmCancelacion = new CancelacionAnticipadaDePrestmos(idSocioSeleccionado);
                 frmCancelacion.Show();
+            }
+
+            private Double calcularMoraYSaldos(Double saldo, string _presupuesto) {
+                DataSet dsParametros = empresa.DevolverEmpresa();
+                Double Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
+                Double WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
+                Double aporteCapitalExcedido = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][8].ToString());
+                //string _Presupuesto = txtPresupuestoIngExc.Text;
+
+               // Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
+                //Wmora = RsParametros!Mora * (1 + (RsParametros!Iva / 100))
+                Double porcentajeMora = (Wmora * (1+ WIvaMora / 100));
+                //Double mora = (saldo - aporteCapital)*porcentajeMora/100;
+
+                DateTime fechaVto = empresa.VtoPto(DateTime.Today);
+                Double mora = Convert.ToDouble((empresa.Pago_Mora(saldo - aporteCapitalExcedido, _presupuesto, porcentajeMora, fechaVto.ToString("dd/MM/yyyy"))));
+
+                return mora;
+
+                //txtSaldoIngExc.Text = saldo.ToString();
+                //txtMoraIngExc.Text = mora.ToString();
+                //txtTotalIngExc.Text = (saldo + mora).ToString();
+            
+            
+            }
+            //DataSet dsExcedidosPorCI;
+
+        private void calcularSaldoMorayTotal(){
+            limpiarPantallaIngresoDeExcedidos();
+
+                dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
+
+
+                if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count > 0)
+                {
+
+
+                    txtARetenerIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][3].ToString();
+                    txtRetenidoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
+                    txtPresupuestoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
+
+                    Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
+                    string _Presupuesto = txtPresupuestoIngExc.Text;
+
+
+                    txtSaldoIngExc.Text = saldo.ToString();
+                    Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
+                    txtMoraIngExc.Text = mora.ToString("###,###,##0.00");
+                    txtTotalIngExc.Text = (saldo + mora).ToString("###,###,##0.00");
+                }
+                //else
+                //    calcularMoraYSaldos();
+
+                else
+                {
+                    
+                    //MessageBox.Show("La persona no se encuentra excedida");
+                    limpiarPantallaIngresoDeExcedidos();
+                }
+        }
+            private void btnCalcularIngExc_Click(object sender, EventArgs e)
+            {
+
+                calcularSaldoMorayTotal();
+
+            }
+
+            private void limpiarPantallaDeCobranza() {
+                txtARetener.Text = "";
+                txtRetenido.Text = "";
+                txtPresupuesto.Text = "";                
+                txtSaldo.Text = "";
+                txtMora.Text = "";
+                txtTotal.Text = "";
+            
+            }
+
+            private void limpiarPantallaIngresoDeExcedidos() { 
+
+                txtARetenerIngExc.Text="";
+                txtRetenidoIngExc.Text = "";
+                txtPresupuestoIngExc.Text = "";
+                txtSaldoIngExc.Text = "";
+                txtMoraIngExc.Text = "";
+                txtTotalIngExc.Text = "";
+            
+            
+            }
+            private void llenarCamposDeCobranzaExcedidos() {
+                limpiarPantallaDeCobranza();
+                DataSet dsExcedidosPorCI = empresa.devolverExcedidosPorCI(txtNroSocio.Text);
+
+
+                if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count > 0)
+                {
+                    //btnPagarCobranza.Enabled = true;
+                    //btnImprimirCobranza.Enabled = true;
+
+
+                    txtARetener.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][3].ToString();
+                    txtRetenido.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
+                    txtPresupuesto.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
+                    Double saldo = Convert.ToDouble(txtARetener.Text) - Convert.ToDouble(txtRetenido.Text);
+                    string _Presupuesto = txtPresupuesto.Text;
+                    Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
+                    txtSaldo.Text = saldo.ToString();
+                    txtMora.Text = mora.ToString("###,###,##0.00");
+                    txtTotal.Text = (saldo + mora).ToString("###,###,##0.00");
+                }
+                //else
+                //    calcularMoraYSaldos();
+                else
+                {
+                    limpiarPantallaDeCobranza();
+                    //MessageBox.Show("La persona no se encuentra excedida");
+                }
+            }
+            private void btnCalcularCobranza_Click(object sender, EventArgs e)
+            {
+                llenarCamposDeCobranzaExcedidos();
+                //btnPagarCobranza.Enabled = true;
+                //btnImprimirCobranza.Enabled = true;
+
+            }
+
+            private void groupBox1_Enter(object sender, EventArgs e)
+            {
+
+            }
+
+            private void lblErrorG_Click(object sender, EventArgs e)
+            {
+
+            }
+
+            private void button1_Click(object sender, EventArgs e)
+            {
+                if (txtARetener.Text != "")
+                {
+                    string message = "¿Está seguro que va a pagar la totalidad de la deuda?";
+                    string caption = "Pago";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons);
+
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+
+
+                        Excedidos ex = new Excedidos();
+                        ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text);
+                        ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text);
+                        ex._presupuesto = txtPresupuestoIngExc.Text;
+                        ex._cedula = txtNroSocio.Text;
+                        if (dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count <= 0)
+                        {
+                            //ex.Guardar();
+                            MessageBox.Show("La persona ingresada no esta Excedida");
+                        }
+                        else
+                        {
+                            ex._idExcedido = Convert.ToInt32(dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][0].ToString());
+                            ex.eliminar();
+                            MessageBox.Show("Deuda saldada");
+                            //btnPagarCobranza.Enabled = false;
+                            //btnImprimirCobranza.Enabled = false;
+                            limpiarPantallaIngresoDeExcedidos();
+                            limpiarPantallaDeCobranza();
+                        }
+                    }
+                }
+                else
+                    MessageBox.Show("No hay deudas pendientes para pagar");
+            }
+
+            private void btnSalirCobranza_Click(object sender, EventArgs e)
+            {
+                this.Close();
+            }
+
+            private void btnImprimirCobranza_Click(object sender, EventArgs e)
+            {
+                if (txtARetener.Text != "") 
+                    MessageBox.Show("Se manda a imprimir el doc");
+                else  
+                    MessageBox.Show("No hay deudas para imprimir");
+
+                
+            
+                
+                
             }
     }
 }

@@ -147,10 +147,18 @@
             this.button7 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabCobranza = new System.Windows.Forms.TabPage();
+            this.btnCalcularIngExc = new System.Windows.Forms.Button();
             this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.dgvDeuda = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
+            this.txtTotalIngExc = new System.Windows.Forms.TextBox();
+            this.txtMoraIngExc = new System.Windows.Forms.TextBox();
+            this.txtSaldoIngExc = new System.Windows.Forms.TextBox();
+            this.label41 = new System.Windows.Forms.Label();
+            this.label40 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
+            this.label38 = new System.Windows.Forms.Label();
             this.txtRetenidoIngExc = new System.Windows.Forms.TextBox();
             this.txtARetenerIngExc = new System.Windows.Forms.TextBox();
             this.txtPresupuestoIngExc = new System.Windows.Forms.TextBox();
@@ -197,7 +205,6 @@
             this.lblObs = new System.Windows.Forms.Label();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.btnCalcularCobranza = new System.Windows.Forms.Button();
-            this.btnGuardarCobranza = new System.Windows.Forms.Button();
             this.btnSalirCobranza = new System.Windows.Forms.Button();
             this.btnImprimirCobranza = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
@@ -205,7 +212,7 @@
             this.txtARetener = new System.Windows.Forms.TextBox();
             this.txtRetenido = new System.Windows.Forms.TextBox();
             this.txtTotal = new System.Windows.Forms.TextBox();
-            this.txtInteres = new System.Windows.Forms.TextBox();
+            this.txtMora = new System.Windows.Forms.TextBox();
             this.txtSaldo = new System.Windows.Forms.TextBox();
             this.label33 = new System.Windows.Forms.Label();
             this.label32 = new System.Windows.Forms.Label();
@@ -219,8 +226,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.groupBox9 = new System.Windows.Forms.GroupBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.txtOficinaIngExcedidos = new System.Windows.Forms.TextBox();
-            this.txtIncisoIngExcedidos = new System.Windows.Forms.TextBox();
+            this.txtOficinaCobExcedidos = new System.Windows.Forms.TextBox();
+            this.txtIncisoCobExcedidos = new System.Windows.Forms.TextBox();
             this.label16 = new System.Windows.Forms.Label();
             this.txtNroDeCobro = new System.Windows.Forms.TextBox();
             this.txtCI = new System.Windows.Forms.TextBox();
@@ -249,6 +256,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.btnPagarCobranza = new System.Windows.Forms.Button();
+            this.label42 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -638,6 +647,7 @@
             this.lblErrorG.Controls.Add(this.btnNuevoSocio);
             resources.ApplyResources(this.lblErrorG, "lblErrorG");
             this.lblErrorG.Name = "lblErrorG";
+            this.lblErrorG.Click += new System.EventHandler(this.lblErrorG_Click);
             // 
             // btnCancelarSocio
             // 
@@ -713,6 +723,7 @@
             resources.ApplyResources(this.groupBox1, "groupBox1");
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
+            this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
             // lblErrorFechas
             // 
@@ -1115,12 +1126,21 @@
             // 
             this.tabCobranza.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabCobranza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.tabCobranza.Controls.Add(this.btnCalcularIngExc);
             this.tabCobranza.Controls.Add(this.btnGuardarIngExcedidos);
             this.tabCobranza.Controls.Add(this.groupBox8);
             this.tabCobranza.Controls.Add(this.groupBox7);
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
             this.tabCobranza.Name = "tabCobranza";
             this.tabCobranza.Click += new System.EventHandler(this.tabCobranza_Click);
+            // 
+            // btnCalcularIngExc
+            // 
+            this.btnCalcularIngExc.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
+            resources.ApplyResources(this.btnCalcularIngExc, "btnCalcularIngExc");
+            this.btnCalcularIngExc.Name = "btnCalcularIngExc";
+            this.btnCalcularIngExc.UseVisualStyleBackColor = true;
+            this.btnCalcularIngExc.Click += new System.EventHandler(this.btnCalcularIngExc_Click);
             // 
             // btnGuardarIngExcedidos
             // 
@@ -1145,6 +1165,14 @@
             // 
             // groupBox7
             // 
+            this.groupBox7.Controls.Add(this.label42);
+            this.groupBox7.Controls.Add(this.txtTotalIngExc);
+            this.groupBox7.Controls.Add(this.txtMoraIngExc);
+            this.groupBox7.Controls.Add(this.txtSaldoIngExc);
+            this.groupBox7.Controls.Add(this.label41);
+            this.groupBox7.Controls.Add(this.label40);
+            this.groupBox7.Controls.Add(this.label39);
+            this.groupBox7.Controls.Add(this.label38);
             this.groupBox7.Controls.Add(this.txtRetenidoIngExc);
             this.groupBox7.Controls.Add(this.txtARetenerIngExc);
             this.groupBox7.Controls.Add(this.txtPresupuestoIngExc);
@@ -1154,6 +1182,44 @@
             resources.ApplyResources(this.groupBox7, "groupBox7");
             this.groupBox7.Name = "groupBox7";
             this.groupBox7.TabStop = false;
+            // 
+            // txtTotalIngExc
+            // 
+            resources.ApplyResources(this.txtTotalIngExc, "txtTotalIngExc");
+            this.txtTotalIngExc.Name = "txtTotalIngExc";
+            this.txtTotalIngExc.ReadOnly = true;
+            // 
+            // txtMoraIngExc
+            // 
+            resources.ApplyResources(this.txtMoraIngExc, "txtMoraIngExc");
+            this.txtMoraIngExc.Name = "txtMoraIngExc";
+            this.txtMoraIngExc.ReadOnly = true;
+            // 
+            // txtSaldoIngExc
+            // 
+            resources.ApplyResources(this.txtSaldoIngExc, "txtSaldoIngExc");
+            this.txtSaldoIngExc.Name = "txtSaldoIngExc";
+            this.txtSaldoIngExc.ReadOnly = true;
+            // 
+            // label41
+            // 
+            resources.ApplyResources(this.label41, "label41");
+            this.label41.Name = "label41";
+            // 
+            // label40
+            // 
+            resources.ApplyResources(this.label40, "label40");
+            this.label40.Name = "label40";
+            // 
+            // label39
+            // 
+            resources.ApplyResources(this.label39, "label39");
+            this.label39.Name = "label39";
+            // 
+            // label38
+            // 
+            resources.ApplyResources(this.label38, "label38");
+            this.label38.Name = "label38";
             // 
             // txtRetenidoIngExc
             // 
@@ -1447,8 +1513,8 @@
             // tabPage1
             // 
             this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPage1.Controls.Add(this.btnPagarCobranza);
             this.tabPage1.Controls.Add(this.btnCalcularCobranza);
-            this.tabPage1.Controls.Add(this.btnGuardarCobranza);
             this.tabPage1.Controls.Add(this.btnSalirCobranza);
             this.tabPage1.Controls.Add(this.btnImprimirCobranza);
             this.tabPage1.Controls.Add(this.groupBox10);
@@ -1458,18 +1524,11 @@
             // 
             // btnCalcularCobranza
             // 
-            this.btnCalcularCobranza.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
             resources.ApplyResources(this.btnCalcularCobranza, "btnCalcularCobranza");
+            this.btnCalcularCobranza.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
             this.btnCalcularCobranza.Name = "btnCalcularCobranza";
             this.btnCalcularCobranza.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardarCobranza
-            // 
-            this.btnGuardarCobranza.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
-            resources.ApplyResources(this.btnGuardarCobranza, "btnGuardarCobranza");
-            this.btnGuardarCobranza.Name = "btnGuardarCobranza";
-            this.btnGuardarCobranza.UseVisualStyleBackColor = true;
-            this.btnGuardarCobranza.Click += new System.EventHandler(this.btnGuardarCobranza_Click);
+            this.btnCalcularCobranza.Click += new System.EventHandler(this.btnCalcularCobranza_Click);
             // 
             // btnSalirCobranza
             // 
@@ -1477,6 +1536,7 @@
             resources.ApplyResources(this.btnSalirCobranza, "btnSalirCobranza");
             this.btnSalirCobranza.Name = "btnSalirCobranza";
             this.btnSalirCobranza.UseVisualStyleBackColor = true;
+            this.btnSalirCobranza.Click += new System.EventHandler(this.btnSalirCobranza_Click);
             // 
             // btnImprimirCobranza
             // 
@@ -1484,6 +1544,7 @@
             resources.ApplyResources(this.btnImprimirCobranza, "btnImprimirCobranza");
             this.btnImprimirCobranza.Name = "btnImprimirCobranza";
             this.btnImprimirCobranza.UseVisualStyleBackColor = true;
+            this.btnImprimirCobranza.Click += new System.EventHandler(this.btnImprimirCobranza_Click);
             // 
             // groupBox10
             // 
@@ -1500,7 +1561,7 @@
             this.groupBox12.Controls.Add(this.txtARetener);
             this.groupBox12.Controls.Add(this.txtRetenido);
             this.groupBox12.Controls.Add(this.txtTotal);
-            this.groupBox12.Controls.Add(this.txtInteres);
+            this.groupBox12.Controls.Add(this.txtMora);
             this.groupBox12.Controls.Add(this.txtSaldo);
             this.groupBox12.Controls.Add(this.label33);
             this.groupBox12.Controls.Add(this.label32);
@@ -1526,10 +1587,10 @@
             resources.ApplyResources(this.txtTotal, "txtTotal");
             this.txtTotal.Name = "txtTotal";
             // 
-            // txtInteres
+            // txtMora
             // 
-            resources.ApplyResources(this.txtInteres, "txtInteres");
-            this.txtInteres.Name = "txtInteres";
+            resources.ApplyResources(this.txtMora, "txtMora");
+            this.txtMora.Name = "txtMora";
             // 
             // txtSaldo
             // 
@@ -1596,8 +1657,8 @@
             // groupBox9
             // 
             this.groupBox9.Controls.Add(this.label29);
-            this.groupBox9.Controls.Add(this.txtOficinaIngExcedidos);
-            this.groupBox9.Controls.Add(this.txtIncisoIngExcedidos);
+            this.groupBox9.Controls.Add(this.txtOficinaCobExcedidos);
+            this.groupBox9.Controls.Add(this.txtIncisoCobExcedidos);
             this.groupBox9.Controls.Add(this.label16);
             this.groupBox9.Controls.Add(this.txtNroDeCobro);
             this.groupBox9.Controls.Add(this.txtCI);
@@ -1612,15 +1673,15 @@
             resources.ApplyResources(this.label29, "label29");
             this.label29.Name = "label29";
             // 
-            // txtOficinaIngExcedidos
+            // txtOficinaCobExcedidos
             // 
-            resources.ApplyResources(this.txtOficinaIngExcedidos, "txtOficinaIngExcedidos");
-            this.txtOficinaIngExcedidos.Name = "txtOficinaIngExcedidos";
+            resources.ApplyResources(this.txtOficinaCobExcedidos, "txtOficinaCobExcedidos");
+            this.txtOficinaCobExcedidos.Name = "txtOficinaCobExcedidos";
             // 
-            // txtIncisoIngExcedidos
+            // txtIncisoCobExcedidos
             // 
-            resources.ApplyResources(this.txtIncisoIngExcedidos, "txtIncisoIngExcedidos");
-            this.txtIncisoIngExcedidos.Name = "txtIncisoIngExcedidos";
+            resources.ApplyResources(this.txtIncisoCobExcedidos, "txtIncisoCobExcedidos");
+            this.txtIncisoCobExcedidos.Name = "txtIncisoCobExcedidos";
             // 
             // label16
             // 
@@ -1802,6 +1863,19 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // btnPagarCobranza
+            // 
+            this.btnPagarCobranza.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
+            resources.ApplyResources(this.btnPagarCobranza, "btnPagarCobranza");
+            this.btnPagarCobranza.Name = "btnPagarCobranza";
+            this.btnPagarCobranza.UseVisualStyleBackColor = true;
+            this.btnPagarCobranza.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label42
+            // 
+            resources.ApplyResources(this.label42, "label42");
+            this.label42.Name = "label42";
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -1958,15 +2032,15 @@
         private System.Windows.Forms.Label lblNroDeCobro;
         private System.Windows.Forms.Label label29;
         private System.Windows.Forms.GroupBox groupBox9;
-        private System.Windows.Forms.TextBox txtOficinaIngExcedidos;
-        private System.Windows.Forms.TextBox txtIncisoIngExcedidos;
+        private System.Windows.Forms.TextBox txtOficinaCobExcedidos;
+        private System.Windows.Forms.TextBox txtIncisoCobExcedidos;
         private System.Windows.Forms.TextBox txtNroDeCobro;
         private System.Windows.Forms.GroupBox groupBox10;
         private System.Windows.Forms.GroupBox groupBox12;
         private System.Windows.Forms.TextBox txtARetener;
         private System.Windows.Forms.TextBox txtRetenido;
         private System.Windows.Forms.TextBox txtTotal;
-        private System.Windows.Forms.TextBox txtInteres;
+        private System.Windows.Forms.TextBox txtMora;
         private System.Windows.Forms.TextBox txtSaldo;
         private System.Windows.Forms.Label label33;
         private System.Windows.Forms.Label label32;
@@ -2027,7 +2101,6 @@
         private System.Windows.Forms.Button btnSalirPrestamo;
         private System.Windows.Forms.Button btnCancelarPrestamo;
         private System.Windows.Forms.Button btnCalcularCobranza;
-        private System.Windows.Forms.Button btnGuardarCobranza;
         private System.Windows.Forms.Button btnSalirCobranza;
         private System.Windows.Forms.Button btnImprimirCobranza;
         private System.Windows.Forms.Button btnBuscar;
@@ -2086,6 +2159,16 @@
         private System.Windows.Forms.ToolStripMenuItem parámetrosDelSistemaToolStripMenuItem;
         private System.Windows.Forms.Button btnSolicitar;
         private System.Windows.Forms.Button btnGuardarIngExcedidos;
+        private System.Windows.Forms.TextBox txtTotalIngExc;
+        private System.Windows.Forms.TextBox txtMoraIngExc;
+        private System.Windows.Forms.TextBox txtSaldoIngExc;
+        private System.Windows.Forms.Label label41;
+        private System.Windows.Forms.Label label40;
+        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Label label38;
+        private System.Windows.Forms.Button btnCalcularIngExc;
+        private System.Windows.Forms.Button btnPagarCobranza;
+        private System.Windows.Forms.Label label42;
     }
 }
 

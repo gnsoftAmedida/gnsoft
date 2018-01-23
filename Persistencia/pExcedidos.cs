@@ -17,7 +17,7 @@ namespace Persistencia
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-            string sql = "DELETE FROM excedidos WHERE excedido_id = '" + Id + "'";
+            string sql = "DELETE FROM excedidos WHERE excedidos_id = '" + Id + "'";
 
             try
             {
@@ -85,7 +85,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula + "', aretener = '" + aretener.ToString().Replace(",", ".") + "', retenido = '" + retenido.ToString().Replace(",", ".") + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital.ToString().Replace(",", ".") + "', socio_id ='" + socio_id + "' WHERE excedido_id =" + idExcedido;
+            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula + "', aretener = '" + aretener.ToString().Replace(",", ".") + "', retenido = '" + retenido.ToString().Replace(",", ".") + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital.ToString().Replace(",", ".") + "', socio_id ='" + socio_id + "' WHERE excedidos_id =" + idExcedido;
 
             try
             {
