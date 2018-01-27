@@ -69,7 +69,7 @@ namespace COOPMEF
 
             dsIncisos = empresa.DevolverIncisos();
 
-            
+            dsOficinas = empresa.DevolverOficinas();
 
             cmbBusqueda.SelectedIndex = 0;
 
@@ -80,10 +80,7 @@ namespace COOPMEF
             // Trampa para generar columnas en el datagridview
             socioPorCampo("socio_nro", "A");
 
-            //txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
-            //txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
-            //txtNroDeCobro.Text = dsSocios.Tables["socios"].Rows[0][4].ToString();
-            //txtCI.Text = dsSocios.Tables["socios"].Rows[0][3].ToString();
+            
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -726,7 +723,7 @@ namespace COOPMEF
 
             bool formatoMailOK = true;
             Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
-            if (!regex.IsMatch(txtEmail.Text))
+            if (!regex.IsMatch(txtEmail.Text)) 
             {
                 this.lblEmailFormatoInvalido.Visible = true;
                 this.lblFormatoInvalido.Visible = true;
@@ -1232,10 +1229,7 @@ namespace COOPMEF
             }
 
             activarAltaSocio();
-            //this.btnNuevoSocio.Enabled = true;
-            //this.btnEditarSocio.Enabled = true;
-            //this.btnVerMasSocio.Enabled = true;
-            //this.btnEliminarSocio.Enabled = true;
+            
         }
 
         private void seleccionarSocio()
@@ -1294,17 +1288,7 @@ namespace COOPMEF
 
                 }
 
-                /*          for (int i = 0; i < dsOficinas.Tables["oficinas"].Rows.Count; i++)
-                {
-                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_oficinaId"].Value.ToString()) == Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[i][0].ToString()))
-                    {
-                        this.cmbOficina.SelectedIndex = i;
-                    }
-
-                }
-*/
-
-
+                
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
@@ -1456,14 +1440,16 @@ namespace COOPMEF
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
         {
-            txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
-            txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
-            txtNroDeCobro.Text = dsSocios.Tables["socios"].Rows[0][4].ToString();
-            txtCI.Text = dsSocios.Tables["socios"].Rows[0][3].ToString();
-
+            
             seleccionarSocioYllenarDataGrid();
             calcularSaldoMorayTotal();
             llenarCamposDeCobranzaExcedidos();
+
+
+            txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
+            txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
+            txtNroDeCobro.Text = dsSocios.Tables["socio"].Rows[0][4].ToString();
+            txtCI.Text = dsSocios.Tables["socio"].Rows[0][3].ToString();
 
 
 
@@ -1897,39 +1883,63 @@ namespace COOPMEF
         DataSet dsExcedidosPorCI;
         private void btnGuardarIngExcedidos_Click(object sender, EventArgs e)
         {
+
+            //bool txtSoloNumeros = true;
+            //Regex regex = new Regex("/^[0-9]+$/");
+            Regex regex = new Regex("^[0-9]*$");
+            if (!regex.IsMatch(txtARetenerIngExc.Text) || ( !regex.IsMatch(txtRetenidoIngExc.Text)) )
+            {
+                MessageBox.Show("Retenido o a_Retener deben ser numéricos");
+                calcularSaldoMorayTotal();
+            }
+            else
+
+
             if(!hayCamposVaciosEnIngresoExcedidos()){
 
-            if (Convert.ToDouble(txtARetenerIngExc.Text) <= Convert.ToDouble(txtRetenidoIngExc.Text))
-                MessageBox.Show("Importe Retenido no es Correcto.");
-            else
-            {
-                
-                Excedidos ex = new Excedidos();
-                ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text);
-                ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text);
-                ex._presupuesto = txtPresupuestoIngExc.Text;
-                ex._cedula = txtNroSocio.Text;
-                int filas = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count;
-                if ( filas<= 0)
+
+
+                if (Convert.ToDouble(txtARetenerIngExc.Text) <= Convert.ToDouble(txtRetenidoIngExc.Text))
                 {
-                    ex.Guardar();
-                    MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
-                    llenarCamposDeCobranzaExcedidos();
-                    //btnCalcularCobranza.Enabled = true;
-                    //btnPagarCobranza.Enabled = true;
-                    //btnImprimirCobranza.Enabled = true;
+                    MessageBox.Show("El importe Retenido debe ser menor que el de a_Retener.");
+                    calcularSaldoMorayTotal();
                 }
                 else
-                {
-                    ex._idExcedido = Convert.ToInt32(dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][0].ToString());
-                    ex.modificarExcedido();
-                    MessageBox.Show("El valor retenido fue actualizado correctamente");
-                    llenarCamposDeCobranzaExcedidos();
-                }
-                calcularSaldoMorayTotal();
-                
+                    if (retenidoActual > Convert.ToDouble(txtRetenidoIngExc.Text))
+                    {
+                        MessageBox.Show("El importe Retenido debe ser mayor a lo que ya se habia retenido");
+                        calcularSaldoMorayTotal();
+                    }
 
-            }
+                    else
+                    {
+
+                        Excedidos ex = new Excedidos();
+                        ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text);
+                        ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text);
+                        ex._presupuesto = txtPresupuestoIngExc.Text;
+                        ex._cedula = txtNroSocio.Text;
+                        int filas = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count;
+                        if (filas <= 0)
+                        {
+                            ex.Guardar();
+                            MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
+                            llenarCamposDeCobranzaExcedidos();
+                            //btnCalcularCobranza.Enabled = true;
+                            //btnPagarCobranza.Enabled = true;
+                            //btnImprimirCobranza.Enabled = true;
+                        }
+                        else
+                        {
+                            ex._idExcedido = Convert.ToInt32(dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][0].ToString());
+                            ex.modificarExcedido();
+                            MessageBox.Show("El valor retenido fue actualizado correctamente");
+                            llenarCamposDeCobranzaExcedidos();
+                        }
+                        calcularSaldoMorayTotal();
+
+
+                    }
 
             }else
                 MessageBox.Show("Debe ingresar los campos requeridos");
@@ -1969,7 +1979,7 @@ namespace COOPMEF
             
             }
             //DataSet dsExcedidosPorCI;
-
+        double retenidoActual = 0;
         private void calcularSaldoMorayTotal(){
             limpiarPantallaIngresoDeExcedidos();
 
@@ -1983,6 +1993,8 @@ namespace COOPMEF
                     txtARetenerIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][3].ToString();
                     txtRetenidoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][4].ToString();
                     txtPresupuestoIngExc.Text = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows[0][1].ToString();
+
+                    retenidoActual = Convert.ToDouble(txtRetenidoIngExc.Text);
 
                     Double saldo = Convert.ToDouble(txtARetenerIngExc.Text) - Convert.ToDouble(txtRetenidoIngExc.Text);
                     string _Presupuesto = txtPresupuestoIngExc.Text;
@@ -2133,6 +2145,21 @@ namespace COOPMEF
                 
             
                 
+                
+            }
+
+            private void button1_Click_1(object sender, EventArgs e)
+            {
+                if (rbtnNo.Checked)
+                {
+                    txtMora.Text = "0";
+                    txtTotal.Text = txtSaldoIngExc.Text;
+                }
+                else{
+                    txtMora.Text = txtMoraIngExc.Text;
+                    txtTotal.Text = txtTotalIngExc.Text;
+
+                }
                 
             }
     }

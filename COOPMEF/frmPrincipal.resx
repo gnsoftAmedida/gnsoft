@@ -714,18 +714,6 @@
   <data name="&gt;&gt;tabEstado.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;btnCalcularIngExc.Name" xml:space="preserve">
-    <value>btnCalcularIngExc</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularIngExc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularIngExc.Parent" xml:space="preserve">
-    <value>tabCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularIngExc.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="&gt;&gt;btnGuardarIngExcedidos.Name" xml:space="preserve">
     <value>btnGuardarIngExcedidos</value>
   </data>
@@ -736,7 +724,7 @@
     <value>tabCobranza</value>
   </data>
   <data name="&gt;&gt;btnGuardarIngExcedidos.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;groupBox8.Name" xml:space="preserve">
     <value>groupBox8</value>
@@ -748,7 +736,7 @@
     <value>tabCobranza</value>
   </data>
   <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
     <value>groupBox7</value>
@@ -760,7 +748,7 @@
     <value>tabCobranza</value>
   </data>
   <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="tabCobranza.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -963,42 +951,6 @@
   <data name="&gt;&gt;btnPagarCobranza.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
-  <data name="btnCalcularCobranza.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnCalcularCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnCalcularCobranza.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCalcularCobranza.Location" type="System.Drawing.Point, System.Drawing">
-    <value>754, 182</value>
-  </data>
-  <data name="btnCalcularCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnCalcularCobranza.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 39</value>
-  </data>
-  <data name="btnCalcularCobranza.TabIndex" type="System.Int32, mscorlib">
-    <value>24</value>
-  </data>
-  <data name="btnCalcularCobranza.Text" xml:space="preserve">
-    <value>    Cargar</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularCobranza.Name" xml:space="preserve">
-    <value>btnCalcularCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularCobranza.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularCobranza.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="btnSalirCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -1030,7 +982,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;btnSalirCobranza.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="btnImprimirCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -1063,7 +1015,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;btnImprimirCobranza.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
   </data>
   <data name="&gt;&gt;txtARetener.Name" xml:space="preserve">
     <value>txtARetener</value>
@@ -1215,6 +1167,57 @@
   <data name="&gt;&gt;groupBox12.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btnActualizarIntereses.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnActualizarIntereses.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnActualizarIntereses.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 79</value>
+  </data>
+  <data name="btnActualizarIntereses.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnActualizarIntereses.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 29</value>
+  </data>
+  <data name="btnActualizarIntereses.TabIndex" type="System.Int32, mscorlib">
+    <value>26</value>
+  </data>
+  <data name="btnActualizarIntereses.Text" xml:space="preserve">
+    <value>Actualizar</value>
+  </data>
+  <data name="&gt;&gt;btnActualizarIntereses.Name" xml:space="preserve">
+    <value>btnActualizarIntereses</value>
+  </data>
+  <data name="&gt;&gt;btnActualizarIntereses.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnActualizarIntereses.Parent" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;btnActualizarIntereses.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="rbtnSI.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbtnSI.Location" type="System.Drawing.Point, System.Drawing">
+    <value>9, 47</value>
+  </data>
+  <data name="rbtnSI.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="rbtnSI.Size" type="System.Drawing.Size, System.Drawing">
+    <value>45, 24</value>
+  </data>
+  <data name="rbtnSI.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="rbtnSI.Text" xml:space="preserve">
+    <value>Si</value>
+  </data>
   <data name="&gt;&gt;rbtnSI.Name" xml:space="preserve">
     <value>rbtnSI</value>
   </data>
@@ -1225,7 +1228,25 @@
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;rbtnSI.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="rbtnNo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="rbtnNo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>93, 47</value>
+  </data>
+  <data name="rbtnNo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="rbtnNo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>51, 24</value>
+  </data>
+  <data name="rbtnNo.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
+  </data>
+  <data name="rbtnNo.Text" xml:space="preserve">
+    <value>No</value>
   </data>
   <data name="&gt;&gt;rbtnNo.Name" xml:space="preserve">
     <value>rbtnNo</value>
@@ -1237,7 +1258,7 @@
     <value>groupBox11</value>
   </data>
   <data name="&gt;&gt;rbtnNo.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>2</value>
   </data>
   <data name="groupBox11.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 178</value>
@@ -1249,7 +1270,7 @@
     <value>4, 4, 4, 4</value>
   </data>
   <data name="groupBox11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>163, 103</value>
+    <value>161, 116</value>
   </data>
   <data name="groupBox11.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -1268,6 +1289,9 @@
   </data>
   <data name="&gt;&gt;groupBox11.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="txtPresupuesto.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="txtPresupuesto.Location" type="System.Drawing.Point, System.Drawing">
     <value>28, 86</value>
@@ -1354,7 +1378,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>3</value>
   </data>
   <data name="&gt;&gt;label29.Name" xml:space="preserve">
     <value>label29</value>
@@ -1480,7 +1504,7 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>4</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 29</value>
@@ -4455,39 +4479,6 @@
   <data name="&gt;&gt;dataGridView2.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="btnCalcularIngExc.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnCalcularIngExc.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCalcularIngExc.Location" type="System.Drawing.Point, System.Drawing">
-    <value>754, 384</value>
-  </data>
-  <data name="btnCalcularIngExc.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnCalcularIngExc.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 39</value>
-  </data>
-  <data name="btnCalcularIngExc.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="btnCalcularIngExc.Text" xml:space="preserve">
-    <value>    Deshacer</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularIngExc.Name" xml:space="preserve">
-    <value>btnCalcularIngExc</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularIngExc.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularIngExc.Parent" xml:space="preserve">
-    <value>tabCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnCalcularIngExc.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
   <data name="btnGuardarIngExcedidos.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
   </data>
@@ -4495,7 +4486,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnGuardarIngExcedidos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>754, 439</value>
+    <value>754, 422</value>
   </data>
   <data name="btnGuardarIngExcedidos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -4519,7 +4510,7 @@
     <value>tabCobranza</value>
   </data>
   <data name="&gt;&gt;btnGuardarIngExcedidos.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>0</value>
   </data>
   <data name="&gt;&gt;dgvDeuda.Name" xml:space="preserve">
     <value>dgvDeuda</value>
@@ -4561,7 +4552,7 @@
     <value>tabCobranza</value>
   </data>
   <data name="&gt;&gt;groupBox8.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>1</value>
   </data>
   <data name="dgvDeuda.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 27</value>
@@ -4783,7 +4774,43 @@
     <value>tabCobranza</value>
   </data>
   <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>2</value>
+  </data>
+  <data name="label42.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label42.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 7.8pt, style=Italic</value>
+  </data>
+  <data name="label42.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label42.Location" type="System.Drawing.Point, System.Drawing">
+    <value>146, 105</value>
+  </data>
+  <data name="label42.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 0, 4, 0</value>
+  </data>
+  <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 17</value>
+  </data>
+  <data name="label42.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="label42.Text" xml:space="preserve">
+    <value>"Ej: 12/2017"</value>
+  </data>
+  <data name="&gt;&gt;label42.Name" xml:space="preserve">
+    <value>label42</value>
+  </data>
+  <data name="&gt;&gt;label42.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label42.Parent" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
+    <value>0</value>
   </data>
   <data name="txtTotalIngExc.Location" type="System.Drawing.Point, System.Drawing">
     <value>517, 225</value>
@@ -6609,6 +6636,9 @@
   <data name="&gt;&gt;lblObs.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
+  <data name="txtARetener.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="txtARetener.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 30</value>
   </data>
@@ -6632,6 +6662,9 @@
   </data>
   <data name="&gt;&gt;txtARetener.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="txtRetenido.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="txtRetenido.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 68</value>
@@ -6657,6 +6690,9 @@
   <data name="&gt;&gt;txtRetenido.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="txtTotal.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="txtTotal.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 194</value>
   </data>
@@ -6681,6 +6717,9 @@
   <data name="&gt;&gt;txtTotal.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="txtMora.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="txtMora.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 154</value>
   </data>
@@ -6704,6 +6743,9 @@
   </data>
   <data name="&gt;&gt;txtMora.ZOrder" xml:space="preserve">
     <value>3</value>
+  </data>
+  <data name="txtSaldo.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="txtSaldo.Location" type="System.Drawing.Point, System.Drawing">
     <value>212, 111</value>
@@ -6894,72 +6936,6 @@
   <data name="&gt;&gt;label28.ZOrder" xml:space="preserve">
     <value>9</value>
   </data>
-  <data name="rbtnSI.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rbtnSI.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rbtnSI.Location" type="System.Drawing.Point, System.Drawing">
-    <value>9, 47</value>
-  </data>
-  <data name="rbtnSI.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="rbtnSI.Size" type="System.Drawing.Size, System.Drawing">
-    <value>45, 24</value>
-  </data>
-  <data name="rbtnSI.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="rbtnSI.Text" xml:space="preserve">
-    <value>Si</value>
-  </data>
-  <data name="&gt;&gt;rbtnSI.Name" xml:space="preserve">
-    <value>rbtnSI</value>
-  </data>
-  <data name="&gt;&gt;rbtnSI.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbtnSI.Parent" xml:space="preserve">
-    <value>groupBox11</value>
-  </data>
-  <data name="&gt;&gt;rbtnSI.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="rbtnNo.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="rbtnNo.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="rbtnNo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>93, 47</value>
-  </data>
-  <data name="rbtnNo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="rbtnNo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 24</value>
-  </data>
-  <data name="rbtnNo.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="rbtnNo.Text" xml:space="preserve">
-    <value>No</value>
-  </data>
-  <data name="&gt;&gt;rbtnNo.Name" xml:space="preserve">
-    <value>rbtnNo</value>
-  </data>
-  <data name="&gt;&gt;rbtnNo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.RadioButton, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;rbtnNo.Parent" xml:space="preserve">
-    <value>groupBox11</value>
-  </data>
-  <data name="&gt;&gt;rbtnNo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
   <data name="label29.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -6993,6 +6969,9 @@
   <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="txtOficinaCobExcedidos.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="txtOficinaCobExcedidos.Location" type="System.Drawing.Point, System.Drawing">
     <value>579, 69</value>
   </data>
@@ -7016,6 +6995,9 @@
   </data>
   <data name="&gt;&gt;txtOficinaCobExcedidos.ZOrder" xml:space="preserve">
     <value>1</value>
+  </data>
+  <data name="txtIncisoCobExcedidos.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="txtIncisoCobExcedidos.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 69</value>
@@ -7074,6 +7056,9 @@
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="txtNroDeCobro.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
   <data name="txtNroDeCobro.Location" type="System.Drawing.Point, System.Drawing">
     <value>579, 30</value>
   </data>
@@ -7097,6 +7082,9 @@
   </data>
   <data name="&gt;&gt;txtNroDeCobro.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="txtCI.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
   </data>
   <data name="txtCI.Location" type="System.Drawing.Point, System.Drawing">
     <value>72, 30</value>
@@ -8180,42 +8168,6 @@
   </data>
   <data name="&gt;&gt;btnOtrosDatos.Type" xml:space="preserve">
     <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="label42.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label42.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 7.8pt, style=Italic</value>
-  </data>
-  <data name="label42.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="label42.Location" type="System.Drawing.Point, System.Drawing">
-    <value>146, 105</value>
-  </data>
-  <data name="label42.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 0, 4, 0</value>
-  </data>
-  <data name="label42.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 17</value>
-  </data>
-  <data name="label42.TabIndex" type="System.Int32, mscorlib">
-    <value>13</value>
-  </data>
-  <data name="label42.Text" xml:space="preserve">
-    <value>"Ej: 12/2017"</value>
-  </data>
-  <data name="&gt;&gt;label42.Name" xml:space="preserve">
-    <value>label42</value>
-  </data>
-  <data name="&gt;&gt;label42.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label42.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;label42.ZOrder" xml:space="preserve">
-    <value>0</value>
   </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
