@@ -80,9 +80,10 @@ namespace COOPMEF
             // Trampa para generar columnas en el datagridview
             socioPorCampo("socio_nro", "A");
 
-            txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
-            txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
-            txtNroDeCobro.Text = dsSocios.Tables["socios"].Rows[0][4].ToString();
+            //txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
+            //txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
+            //txtNroDeCobro.Text = dsSocios.Tables["socios"].Rows[0][4].ToString();
+            //txtCI.Text = dsSocios.Tables["socios"].Rows[0][3].ToString();
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -1455,6 +1456,10 @@ namespace COOPMEF
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
         {
+            txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
+            txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
+            txtNroDeCobro.Text = dsSocios.Tables["socios"].Rows[0][4].ToString();
+            txtCI.Text = dsSocios.Tables["socios"].Rows[0][3].ToString();
 
             seleccionarSocioYllenarDataGrid();
             calcularSaldoMorayTotal();
