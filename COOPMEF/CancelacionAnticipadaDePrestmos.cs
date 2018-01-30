@@ -7,6 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Microsoft.VisualBasic;
+using COOPMEF.CrystalDataSets;
+
 
 namespace COOPMEF
 {
@@ -14,6 +17,7 @@ namespace COOPMEF
     {
         private int idSocioSeleccionado;
         private Controladora empresa = Controladora.Instance;
+        private dsCancelacion DE = new dsCancelacion();
 
         public CancelacionAnticipadaDePrestmos(int pIdSocioSeleccionado)
         {
@@ -50,11 +54,22 @@ namespace COOPMEF
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 MessageBox.Show("Préstamo cancelado");
+
+
+
+                DE.cancelacion.Rows.Add("parametro 1 ", "parametro 2", "parametro 3", "parametro 4");
+                frmVerReportes reporte = new frmVerReportes(DE, "CANCELACION");
+                reporte.ShowDialog();
+                DE.cancelacion.Rows.Clear();               
             }
         }
 
         private void CancelacionAnticipadaDePrestmos_Load(object sender, EventArgs e)
         {
+            cargaPrestamosCancelacion();
+        }
+
+        private void cargaPrestamosCancelacion() {
             DataSet socioSeleccionado = empresa.buscarSociosPorCampo("socio_id", this.idSocioSeleccionado.ToString());
 
             if (socioSeleccionado.Tables["socios"].Rows.Count > 0)
@@ -65,6 +80,7 @@ namespace COOPMEF
 
                 DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
                 DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
+                DataSet dsParametros = empresa.DevolverEmpresa();
 
 
                 if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count == 0)
@@ -74,7 +90,7 @@ namespace COOPMEF
                     //haga el alta al socio y ya haya operado
                     if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count > 0)
                     {
-                       
+
                         txtNroPrestamoCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString();
                         txtCuotasPactadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString();
                         txtCuotasPagadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString();
@@ -84,24 +100,44 @@ namespace COOPMEF
                         txtAmortizacionAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString();
                         txtInteresesAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][13].ToString();
 
-                         if (Convert.ToDouble(txtAmortizacionAVencerCA.Text) != 0){
-                         txtAPagarPorCajaCA.Text = txtAmortizacionAVencerCA.Text;
-                         }
-         /*               If RsCobranza!amortizacionvencer <> 0 Then
-               LblAPagar = RsCobranza!amortizacionvencer
-               FechaVto = RsParametros!vtopresupuestoactual + 15
-               LblPresupuesto.Caption = Mid(FechaVto, 4)
-      */
+                        if (Convert.ToDouble(txtAmortizacionAVencerCA.Text) != 0)
+                        {
+                            txtAPagarPorCajaCA.Text = txtAmortizacionAVencerCA.Text;
+
+                            DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15);
+                            txtPresupuestoDeCancelacion.Text = empresa.formatoFechaMid4(FechaVto);
+                        }
+                        else
+                        {
+                            if (Convert.ToInt32(txtNroPrestamoCA.Text) != 0)
+                            {
+                                MessageBox.Show("El Préstamo queda cancelado a partir del vencimiento del presupuesto del mes" + Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15).ToString().Substring(4, 2) + "/" + Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15).ToString().Substring(7));
+                            }
+                            else
+                            {
+                                MessageBox.Show("El Socio no tiene Préstamos");
+                            }
+
+
+                        }
+
+
+                        /*               If RsCobranza!amortizacionvencer <> 0 Then
+                              LblAPagar = RsCobranza!amortizacionvencer
+                              FechaVto = RsParametros!vtopresupuestoactual + 15
+                              LblPresupuesto.Caption = Mid(FechaVto, 4)
+                     */
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("El Socio no tiene Préstamos");
 
                     }
                 }
                 else
                 {
 
-
-                    /*         id_cobranzaProvisoria = Convert.ToInt32(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][0].ToString());
-                             exitiaProvisoria = true;
-                                               */
                     txtNroPrestamoCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][1].ToString();
                     txtCuotasPactadasCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString();
                     txtCuotasPagadasCA.Text = 0.ToString();
@@ -113,8 +149,9 @@ namespace COOPMEF
                     double CalculotxtInteresesAVencer = (Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString()) * Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString())) - Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString());
                     txtInteresesAVencerCA.Text = Convert.ToString(CalculotxtInteresesAVencer);
 
-                }
+                    MessageBox.Show("No puede realizar la cancelación. Debe Anular el Presente Préstamo");
 
+                }
             }
         }
     }

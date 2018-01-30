@@ -220,6 +220,7 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
+            this.btnActualizarIntereses = new System.Windows.Forms.Button();
             this.rbtnSI = new System.Windows.Forms.RadioButton();
             this.rbtnNo = new System.Windows.Forms.RadioButton();
             this.txtPresupuesto = new System.Windows.Forms.TextBox();
@@ -256,7 +257,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.btnActualizarIntereses = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -1625,6 +1625,13 @@
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.TabStop = false;
             // 
+            // btnActualizarIntereses
+            // 
+            resources.ApplyResources(this.btnActualizarIntereses, "btnActualizarIntereses");
+            this.btnActualizarIntereses.Name = "btnActualizarIntereses";
+            this.btnActualizarIntereses.UseVisualStyleBackColor = true;
+            this.btnActualizarIntereses.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // rbtnSI
             // 
             this.rbtnSI.Checked = true;
@@ -1857,13 +1864,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
-            // 
-            // btnActualizarIntereses
-            // 
-            resources.ApplyResources(this.btnActualizarIntereses, "btnActualizarIntereses");
-            this.btnActualizarIntereses.Name = "btnActualizarIntereses";
-            this.btnActualizarIntereses.UseVisualStyleBackColor = true;
-            this.btnActualizarIntereses.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmPrincipal
             // 
