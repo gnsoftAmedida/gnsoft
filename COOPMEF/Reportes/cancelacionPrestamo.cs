@@ -16,14 +16,14 @@ namespace COOPMEF.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class solicitudPrestamo : ReportClass {
+    public class cancelacionPrestamo : ReportClass {
         
-        public solicitudPrestamo() {
+        public cancelacionPrestamo() {
         }
         
         public override string ResourceName {
             get {
-                return "solicitudPrestamo.rpt";
+                return "cancelacionPrestamo.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace COOPMEF.Reportes {
         
         public override string FullResourceName {
             get {
-                return "COOPMEF.Reportes.solicitudPrestamo.rpt";
+                return "COOPMEF.Reportes.cancelacionPrestamo.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace COOPMEF.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedsolicitudPrestamo : Component, ICachedReport {
+    public class CachedcancelacionPrestamo : Component, ICachedReport {
         
-        public CachedsolicitudPrestamo() {
+        public CachedcancelacionPrestamo() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace COOPMEF.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            solicitudPrestamo rpt = new solicitudPrestamo();
+            cancelacionPrestamo rpt = new cancelacionPrestamo();
             rpt.Site = this.Site;
             return rpt;
         }

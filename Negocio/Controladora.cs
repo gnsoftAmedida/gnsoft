@@ -1129,6 +1129,12 @@ namespace Negocio
             Cobranza tmpCobranzaProvisoria = new Cobranza();
             return tmpCobranzaProvisoria.devolverCobranzaSocio(parametro_socio_id);
         }
+
+        public string formatoFechaMid4(DateTime fecha)
+        {
+            return Microsoft.VisualBasic.Strings.Mid((fecha).Date.ToString("dd/MM/yyyy"), 4);
+        }
+
         public string presupuesto()
         {
             return Microsoft.VisualBasic.Strings.Mid(VtoPto(DateTime.Today).Date.ToString("dd/MM/yyyy"), 4);

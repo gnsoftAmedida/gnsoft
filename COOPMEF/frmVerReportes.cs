@@ -44,6 +44,16 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = reporteValePrestamo;
             }
+
+            if (tipo.Equals("CANCELACION"))
+            {
+                COOPMEF.Reportes.cancelacionPrestamo reporteCancelacion = new COOPMEF.Reportes.cancelacionPrestamo();
+
+                reporteCancelacion.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = reporteCancelacion;
+            }
+
         }
 
         private void frmVerReportes_Load(object sender, EventArgs e)
