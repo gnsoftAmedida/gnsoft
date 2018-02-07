@@ -18,6 +18,8 @@ namespace COOPMEF
         private int idSocioSeleccionado;
         private Controladora empresa = Controladora.Instance;
         private dsCancelacion DE = new dsCancelacion();
+        private int idCobranza = 0;
+        private bool sePuedeCancelar = false;
 
         public CancelacionAnticipadaDePrestmos(int pIdSocioSeleccionado)
         {
@@ -53,23 +55,34 @@ namespace COOPMEF
 
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
+
+                empresa.guardarCancelacion(Convert.ToInt32(txtNroPrestamoCA.Text), Convert.ToInt32(txtCuotasPactadasCA.Text), Convert.ToInt32(txtCuotasPagadasCA.Text), Convert.ToDouble(txtTasAnualEfecCA.Text), Convert.ToDouble(txtMontoDelValeCA.Text), Convert.ToDouble(txtImporteCuotaCA.Text), Convert.ToDouble(txtAmortizacionAVencerCA.Text), Convert.ToDouble(txtInteresesAVencerCA.Text), txtPresupuestoDeCancelacion.Text, txtCiCA.Text, Utilidades.UsuarioLogueado.Alias.ToString(), DateTime.Today, idSocioSeleccionado);
+
+                empresa.cancelarCobranza(idCobranza);
+
                 MessageBox.Show("Préstamo cancelado");
-
-
-
-                DE.cancelacion.Rows.Add("parametro 1 ", "parametro 2", "parametro 3", "parametro 4");
-                frmVerReportes reporte = new frmVerReportes(DE, "CANCELACION");
-                reporte.ShowDialog();
-                DE.cancelacion.Rows.Clear();               
             }
+
+            btnGuardarSocio.Enabled = false;
         }
 
         private void CancelacionAnticipadaDePrestmos_Load(object sender, EventArgs e)
         {
             cargaPrestamosCancelacion();
+
+            if (sePuedeCancelar)
+            {
+                btnImprimirCobranza.Enabled = true;
+            }
+            else
+            {
+                //cambiar a false. Es solo para prueba
+                btnImprimirCobranza.Enabled = true;
+            }
         }
 
-        private void cargaPrestamosCancelacion() {
+        private void cargaPrestamosCancelacion()
+        {
             DataSet socioSeleccionado = empresa.buscarSociosPorCampo("socio_id", this.idSocioSeleccionado.ToString());
 
             if (socioSeleccionado.Tables["socios"].Rows.Count > 0)
@@ -82,15 +95,11 @@ namespace COOPMEF
                 DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
                 DataSet dsParametros = empresa.DevolverEmpresa();
 
-
                 if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count == 0)
                 {
-                    //             exitiaProvisoria = false;
-                    //0 si recien ha ingresado es en el que caso en que se le
-                    //haga el alta al socio y ya haya operado
                     if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count > 0)
                     {
-
+                        idCobranza = Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][0].ToString());
                         txtNroPrestamoCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString();
                         txtCuotasPactadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString();
                         txtCuotasPagadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString();
@@ -106,33 +115,26 @@ namespace COOPMEF
 
                             DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15);
                             txtPresupuestoDeCancelacion.Text = empresa.formatoFechaMid4(FechaVto);
+                            sePuedeCancelar = true;
                         }
                         else
                         {
                             if (Convert.ToInt32(txtNroPrestamoCA.Text) != 0)
                             {
                                 MessageBox.Show("El Préstamo queda cancelado a partir del vencimiento del presupuesto del mes" + Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15).ToString().Substring(4, 2) + "/" + Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15).ToString().Substring(7));
+                                sePuedeCancelar = false;
                             }
                             else
                             {
                                 MessageBox.Show("El Socio no tiene Préstamos");
+                                sePuedeCancelar = false;
                             }
-
-
                         }
-
-
-                        /*               If RsCobranza!amortizacionvencer <> 0 Then
-                              LblAPagar = RsCobranza!amortizacionvencer
-                              FechaVto = RsParametros!vtopresupuestoactual + 15
-                              LblPresupuesto.Caption = Mid(FechaVto, 4)
-                     */
-
                     }
                     else
                     {
                         MessageBox.Show("El Socio no tiene Préstamos");
-
+                        sePuedeCancelar = false;
                     }
                 }
                 else
@@ -150,9 +152,19 @@ namespace COOPMEF
                     txtInteresesAVencerCA.Text = Convert.ToString(CalculotxtInteresesAVencer);
 
                     MessageBox.Show("No puede realizar la cancelación. Debe Anular el Presente Préstamo");
-
+                    sePuedeCancelar = false;
                 }
             }
+        }
+
+        private void btnImprimirCobranza_Click(object sender, EventArgs e)
+        {
+            btnGuardarSocio.Enabled = true;
+
+            DE.cancelacion.Rows.Add(txtCiCA.Text, txtNroCobroCA.Text, txtOficinaCA.Text + "/" + txtIncisoCA.Text, txtApeNomCA.Text, txtNroPrestamoCA.Text, txtCuotasPactadasCA.Text, txtCuotasPagadasCA.Text, txtAmortizacionAVencerCA.Text, txtInteresesAVencerCA.Text, txtPresupuestoDeCancelacion.Text, DateTime.Today, Utilidades.UsuarioLogueado.Alias.ToString(),"( " +  empresa.ESCNUM(txtAmortizacionAVencerCA.Text) + " )");
+            frmVerReportes reporte = new frmVerReportes(DE, "CANCELACION");
+            reporte.ShowDialog();
+            DE.cancelacion.Rows.Clear();
         }
     }
 }

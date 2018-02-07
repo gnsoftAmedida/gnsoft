@@ -312,6 +312,7 @@
             this.txtPresupuestoDeCancelacion.Location = new System.Drawing.Point(110, 92);
             this.txtPresupuestoDeCancelacion.Margin = new System.Windows.Forms.Padding(2);
             this.txtPresupuestoDeCancelacion.Name = "txtPresupuestoDeCancelacion";
+            this.txtPresupuestoDeCancelacion.ReadOnly = true;
             this.txtPresupuestoDeCancelacion.Size = new System.Drawing.Size(69, 20);
             this.txtPresupuestoDeCancelacion.TabIndex = 6;
             // 
@@ -320,6 +321,7 @@
             this.txtAPagarPorCajaCA.Location = new System.Drawing.Point(110, 28);
             this.txtAPagarPorCajaCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtAPagarPorCajaCA.Name = "txtAPagarPorCajaCA";
+            this.txtAPagarPorCajaCA.ReadOnly = true;
             this.txtAPagarPorCajaCA.Size = new System.Drawing.Size(69, 20);
             this.txtAPagarPorCajaCA.TabIndex = 5;
             // 
@@ -441,6 +443,7 @@
             // 
             // btnGuardarSocio
             // 
+            this.btnGuardarSocio.Enabled = false;
             this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             this.btnGuardarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
@@ -476,6 +479,7 @@
             this.btnImprimirCobranza.TabIndex = 41;
             this.btnImprimirCobranza.Text = "     Imprimir";
             this.btnImprimirCobranza.UseVisualStyleBackColor = true;
+            this.btnImprimirCobranza.Click += new System.EventHandler(this.btnImprimirCobranza_Click);
             // 
             // CancelacionAnticipadaDePrestmos
             // 

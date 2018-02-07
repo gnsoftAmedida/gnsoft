@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using Persistencia;
+using System.Data;
 
 namespace Negocio
 {
@@ -19,7 +21,7 @@ namespace Negocio
         private double interesesVencer;
         private int socio_id;
         private Socio socio;
-        private string socio_nro;
+        private String socio_nro;
         private String presupuesto;
         private String usuario;
         private DateTime fechaCancelacion;
@@ -96,7 +98,7 @@ namespace Negocio
             set { socio = value; }
         }
 
-        public string Socio_nro
+        public String Socio_nro
         {
             get { return socio_nro; }
             set { socio_nro = value; }
@@ -120,12 +122,10 @@ namespace Negocio
             set { fechaCancelacion = value; }
         }
 
-        public void GuardarCobranza()
+        public void GuardarCancelacion()
         {
-           /* pCobranza tmpCobranza = new pCobranza();
-            tmpCobranza.GuardarCobranza(Prestamo_id, Socio_nro, Tasa, Porcentajeiva, Monteopedido, Cantidadcuotas, NroDeCuotas, Importecuota, AmortizacionCuota, InteresCuota, IvaCuota, amortizacionVencer, InteresesVencer, AporteCapital, Socio_id);
-            * */
+            pCancelacion tmpCancelacion = new pCancelacion();
+            tmpCancelacion.GuardarCancelacion(Prestamo_id, Cuotaspactadas, Cuotaspagadas, Tasa, MontoVale, Importecuota, AmortizacionVencer, InteresesVencer, Presupuesto, Socio_nro, Usuario, FechaCancelacion, Socio_id);
         }
-
     }
 }
