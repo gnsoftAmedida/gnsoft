@@ -829,7 +829,7 @@ namespace Negocio
                 }
                 else if (P > 30)
                 {
-                    VEC_P = VEC_P + "Y " + R[i];    
+                    VEC_P = VEC_P + "Y " + R[i];
                 }
             }
 
@@ -1020,7 +1020,7 @@ namespace Negocio
             TasaDeCobro = Xmora + 100;
             TasaDeCobro = TasaDeCobro / 100;
 
-            TasaDeCobro = Math.Pow(TasaDeCobro, Convert.ToDouble(Decimal.Divide(CantidadDias,360)));
+            TasaDeCobro = Math.Pow(TasaDeCobro, Convert.ToDouble(Decimal.Divide(CantidadDias, 360)));
             TasaDeCobro = TasaDeCobro - 1;
             Pago_Mora = Importe * TasaDeCobro;
 
@@ -1224,6 +1224,34 @@ namespace Negocio
             tmpCobranza.Socio_id = parSocio_id;
 
             tmpCobranza.GuardarCobranza();
+        }
+
+        public void guardarCancelacion(int parNumeroPrestamo, int parCuotasPactadas, int parCuotasPagadas, double parTasa, double parMontoVale, double parImporteCuota, double parAmortizacionVencer, double parInteresesVencer, String parPresupuesto, String parSocioNumero, String parUsuario, DateTime FechaCancelacion, int socio_id)
+        {
+            Cancelacion tmpCancelacion = new Cancelacion();
+
+            tmpCancelacion.Prestamo_id = parNumeroPrestamo;
+            tmpCancelacion.Cuotaspactadas = parCuotasPactadas;
+            tmpCancelacion.Cuotaspagadas = parCuotasPagadas;
+            tmpCancelacion.Tasa = parTasa;
+            tmpCancelacion.MontoVale = parMontoVale;
+            tmpCancelacion.Importecuota = parImporteCuota;
+            tmpCancelacion.AmortizacionVencer = parAmortizacionVencer;
+            tmpCancelacion.InteresesVencer = parInteresesVencer;
+            tmpCancelacion.Presupuesto = parPresupuesto;
+            tmpCancelacion.Socio_nro = parSocioNumero;
+            tmpCancelacion.Usuario = parUsuario;
+            tmpCancelacion.FechaCancelacion = FechaCancelacion;
+            tmpCancelacion.Socio_id = socio_id;
+
+            tmpCancelacion.GuardarCancelacion();
+        }
+
+        public void cancelarCobranza(int idcobranza)
+        {
+            Cobranza tmpCobranza = new Cobranza();
+            tmpCobranza.Cobranza_ID = idcobranza;
+            tmpCobranza.cancelarCobranza();
         }
 
         public void GuardarFechaCierre(String Presupuesto, DateTime FechaDesde, DateTime HoraDesde, DateTime FechaHasta, DateTime HoraHasta, Double TotalImporte, Double AmortizacionAVencer, Double InteresesAVencer)

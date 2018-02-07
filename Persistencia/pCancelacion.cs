@@ -12,7 +12,7 @@ namespace Persistencia
 {
     public class pCancelacion : CapaDatos
     {
-        public void GuardarCancelacion(int parNumeroPrestamo, int parCuotasPactadas, int parCuotasPagadas, double parTasa, double parMontoVale, double parImporteCuota, double parAmortizacionVencer, double parInteresesVencer, String parPresupuesto, int parSocioNumero, String parUsuario, DateTime FechaCancelacion, int socio_id)
+        public void GuardarCancelacion(int parNumeroPrestamo, int parCuotasPactadas, int parCuotasPagadas, double parTasa, double parMontoVale, double parImporteCuota, double parAmortizacionVencer, double parInteresesVencer, String parPresupuesto, String parSocioNumero, String parUsuario, DateTime FechaCancelacion, int socio_id)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;

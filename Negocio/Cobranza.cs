@@ -169,6 +169,12 @@ namespace Negocio
             tmpCobranza.modificarCobranza(Cobranza_ID, Prestamo_id, Socio_nro, Tasa, Porcentajeiva, Monteopedido, Cantidadcuotas, NroDeCuotas, Importecuota, AmortizacionCuota, InteresCuota, IvaCuota, amortizacionVencer, InteresesVencer, AporteCapital, Socio_id);
         }
 
+        public void cancelarCobranza()
+        {
+            pCobranza tmpCobranza = new pCobranza();
+            tmpCobranza.cancelarCobranza(Cobranza_ID);
+        }
+
         public void GuardarCobranza()
         {
             pCobranza tmpCobranza = new pCobranza();

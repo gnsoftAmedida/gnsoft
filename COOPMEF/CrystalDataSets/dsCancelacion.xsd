@@ -12,7 +12,7 @@
   <xs:element name="dsCancelacion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCancelacion" msprop:Generator_UserDSName="dsCancelacion">
     <xs:complexType>
       <xs:choice minOccurs="0" maxOccurs="unbounded">
-        <xs:element name="cancelacion" msprop:Generator_TableClassName="cancelacionDataTable" msprop:Generator_TableVarName="tablecancelacion" msprop:Generator_TablePropName="cancelacion" msprop:Generator_RowDeletingName="cancelacionRowDeleting" msprop:Generator_RowChangingName="cancelacionRowChanging" msprop:Generator_RowEvHandlerName="cancelacionRowChangeEventHandler" msprop:Generator_RowDeletedName="cancelacionRowDeleted" msprop:Generator_UserTableName="cancelacion" msprop:Generator_RowChangedName="cancelacionRowChanged" msprop:Generator_RowEvArgName="cancelacionRowChangeEvent" msprop:Generator_RowClassName="cancelacionRow">
+        <xs:element name="cancelacion" msprop:Generator_TableClassName="cancelacionDataTable" msprop:Generator_TableVarName="tablecancelacion" msprop:Generator_RowChangedName="cancelacionRowChanged" msprop:Generator_TablePropName="cancelacion" msprop:Generator_RowDeletingName="cancelacionRowDeleting" msprop:Generator_RowChangingName="cancelacionRowChanging" msprop:Generator_RowEvHandlerName="cancelacionRowChangeEventHandler" msprop:Generator_RowDeletedName="cancelacionRowDeleted" msprop:Generator_RowClassName="cancelacionRow" msprop:Generator_UserTableName="cancelacion" msprop:Generator_RowEvArgName="cancelacionRowChangeEvent">
           <xs:complexType>
             <xs:sequence>
               <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:string" minOccurs="0" />
@@ -27,6 +27,7 @@
               <xs:element name="presupuesto" msprop:Generator_ColumnVarNameInTable="columnpresupuesto" msprop:Generator_ColumnPropNameInRow="presupuesto" msprop:Generator_ColumnPropNameInTable="presupuestoColumn" msprop:Generator_UserColumnName="presupuesto" type="xs:string" minOccurs="0" />
               <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
               <xs:element name="usuario" msprop:Generator_ColumnVarNameInTable="columnusuario" msprop:Generator_ColumnPropNameInRow="usuario" msprop:Generator_ColumnPropNameInTable="usuarioColumn" msprop:Generator_UserColumnName="usuario" type="xs:string" minOccurs="0" />
+              <xs:element name="amortizacionVencerLetras" msprop:Generator_ColumnVarNameInTable="columnamortizacionVencerLetras" msprop:Generator_ColumnPropNameInRow="amortizacionVencerLetras" msprop:Generator_ColumnPropNameInTable="amortizacionVencerLetrasColumn" msprop:Generator_UserColumnName="amortizacionVencerLetras" type="xs:string" minOccurs="0" />
             </xs:sequence>
           </xs:complexType>
         </xs:element>
