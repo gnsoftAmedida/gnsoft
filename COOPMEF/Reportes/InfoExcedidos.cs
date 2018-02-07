@@ -16,14 +16,14 @@ namespace COOPMEF.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class valePrestamo : ReportClass {
+    public class InfoExcedidos : ReportClass {
         
-        public valePrestamo() {
+        public InfoExcedidos() {
         }
         
         public override string ResourceName {
             get {
-                return "valePrestamo.rpt";
+                return "InfoExcedidos.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace COOPMEF.Reportes {
         
         public override string FullResourceName {
             get {
-                return "COOPMEF.Reportes.valePrestamo.rpt";
+                return "COOPMEF.Reportes.InfoExcedidos.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace COOPMEF.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedvalePrestamo : Component, ICachedReport {
+    public class CachedInfoExcedidos : Component, ICachedReport {
         
-        public CachedvalePrestamo() {
+        public CachedInfoExcedidos() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace COOPMEF.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            valePrestamo rpt = new valePrestamo();
+            InfoExcedidos rpt = new InfoExcedidos();
             rpt.Site = this.Site;
             return rpt;
         }

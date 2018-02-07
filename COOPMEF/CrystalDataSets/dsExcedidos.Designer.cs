@@ -20,17 +20,17 @@ namespace COOPMEF.CrystalDataSets {
     [global::System.ComponentModel.DesignerCategoryAttribute("code")]
     [global::System.ComponentModel.ToolboxItem(true)]
     [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedDataSetSchema")]
-    [global::System.Xml.Serialization.XmlRootAttribute("dsSolicitu")]
+    [global::System.Xml.Serialization.XmlRootAttribute("dsExcedidos")]
     [global::System.ComponentModel.Design.HelpKeywordAttribute("vs.data.DataSet")]
-    public partial class dsSolicitu : global::System.Data.DataSet {
+    public partial class dsExcedidos : global::System.Data.DataSet {
         
-        private solicitudDataTable tablesolicitud;
+        private ExcedidoDataTable tableExcedido;
         
         private global::System.Data.SchemaSerializationMode _schemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public dsSolicitu() {
+        public dsExcedidos() {
             this.BeginInit();
             this.InitClass();
             global::System.ComponentModel.CollectionChangeEventHandler schemaChangedHandler = new global::System.ComponentModel.CollectionChangeEventHandler(this.SchemaChanged);
@@ -41,7 +41,7 @@ namespace COOPMEF.CrystalDataSets {
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        protected dsSolicitu(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+        protected dsExcedidos(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                 base(info, context, false) {
             if ((this.IsBinarySerialized(info, context) == true)) {
                 this.InitVars(false);
@@ -54,8 +54,8 @@ namespace COOPMEF.CrystalDataSets {
             if ((this.DetermineSchemaSerializationMode(info, context) == global::System.Data.SchemaSerializationMode.IncludeSchema)) {
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXmlSchema(new global::System.Xml.XmlTextReader(new global::System.IO.StringReader(strSchema)));
-                if ((ds.Tables["solicitud"] != null)) {
-                    base.Tables.Add(new solicitudDataTable(ds.Tables["solicitud"]));
+                if ((ds.Tables["Excedido"] != null)) {
+                    base.Tables.Add(new ExcedidoDataTable(ds.Tables["Excedido"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -79,9 +79,9 @@ namespace COOPMEF.CrystalDataSets {
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         [global::System.ComponentModel.Browsable(false)]
         [global::System.ComponentModel.DesignerSerializationVisibility(global::System.ComponentModel.DesignerSerializationVisibility.Content)]
-        public solicitudDataTable solicitud {
+        public ExcedidoDataTable Excedido {
             get {
-                return this.tablesolicitud;
+                return this.tableExcedido;
             }
         }
         
@@ -127,7 +127,7 @@ namespace COOPMEF.CrystalDataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public override global::System.Data.DataSet Clone() {
-            dsSolicitu cln = ((dsSolicitu)(base.Clone()));
+            dsExcedidos cln = ((dsExcedidos)(base.Clone()));
             cln.InitVars();
             cln.SchemaSerializationMode = this.SchemaSerializationMode;
             return cln;
@@ -152,8 +152,8 @@ namespace COOPMEF.CrystalDataSets {
                 this.Reset();
                 global::System.Data.DataSet ds = new global::System.Data.DataSet();
                 ds.ReadXml(reader);
-                if ((ds.Tables["solicitud"] != null)) {
-                    base.Tables.Add(new solicitudDataTable(ds.Tables["solicitud"]));
+                if ((ds.Tables["Excedido"] != null)) {
+                    base.Tables.Add(new ExcedidoDataTable(ds.Tables["Excedido"]));
                 }
                 this.DataSetName = ds.DataSetName;
                 this.Prefix = ds.Prefix;
@@ -188,10 +188,10 @@ namespace COOPMEF.CrystalDataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         internal void InitVars(bool initTable) {
-            this.tablesolicitud = ((solicitudDataTable)(base.Tables["solicitud"]));
+            this.tableExcedido = ((ExcedidoDataTable)(base.Tables["Excedido"]));
             if ((initTable == true)) {
-                if ((this.tablesolicitud != null)) {
-                    this.tablesolicitud.InitVars();
+                if ((this.tableExcedido != null)) {
+                    this.tableExcedido.InitVars();
                 }
             }
         }
@@ -199,18 +199,18 @@ namespace COOPMEF.CrystalDataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         private void InitClass() {
-            this.DataSetName = "dsSolicitu";
+            this.DataSetName = "dsExcedidos";
             this.Prefix = "";
-            this.Namespace = "http://tempuri.org/dsSolicitu.xsd";
+            this.Namespace = "http://tempuri.org/dsExcedidos.xsd";
             this.EnforceConstraints = true;
             this.SchemaSerializationMode = global::System.Data.SchemaSerializationMode.IncludeSchema;
-            this.tablesolicitud = new solicitudDataTable();
-            base.Tables.Add(this.tablesolicitud);
+            this.tableExcedido = new ExcedidoDataTable();
+            base.Tables.Add(this.tableExcedido);
         }
         
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        private bool ShouldSerializesolicitud() {
+        private bool ShouldSerializeExcedido() {
             return false;
         }
         
@@ -225,7 +225,7 @@ namespace COOPMEF.CrystalDataSets {
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
         public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedDataSetSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
-            dsSolicitu ds = new dsSolicitu();
+            dsExcedidos ds = new dsExcedidos();
             global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
             global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
             global::System.Xml.Schema.XmlSchemaAny any = new global::System.Xml.Schema.XmlSchemaAny();
@@ -270,45 +270,29 @@ namespace COOPMEF.CrystalDataSets {
         }
         
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public delegate void solicitudRowChangeEventHandler(object sender, solicitudRowChangeEvent e);
+        public delegate void ExcedidoRowChangeEventHandler(object sender, ExcedidoRowChangeEvent e);
         
         /// <summary>
         ///Represents the strongly named DataTable class.
         ///</summary>
         [global::System.Serializable()]
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
-        public partial class solicitudDataTable : global::System.Data.TypedTableBase<solicitudRow> {
+        public partial class ExcedidoDataTable : global::System.Data.TypedTableBase<ExcedidoRow> {
             
-            private global::System.Data.DataColumn columnnumeroCobro;
+            private global::System.Data.DataColumn columnA_retener;
             
-            private global::System.Data.DataColumn columnunidadEjecutora;
+            private global::System.Data.DataColumn columnRetenido;
             
-            private global::System.Data.DataColumn columncedula;
+            private global::System.Data.DataColumn columnSaldo;
             
-            private global::System.Data.DataColumn columnapellidos;
+            private global::System.Data.DataColumn columnInterés;
             
-            private global::System.Data.DataColumn columnnombres;
-            
-            private global::System.Data.DataColumn columnmonto;
-            
-            private global::System.Data.DataColumn columncantidadCuotas;
-            
-            private global::System.Data.DataColumn columnsaldoAnterior;
-            
-            private global::System.Data.DataColumn columnsaldoIntereses;
-            
-            private global::System.Data.DataColumn columncuotaAnual;
-            
-            private global::System.Data.DataColumn columncapitalOtorgado;
-            
-            private global::System.Data.DataColumn columntotalCapital;
-            
-            private global::System.Data.DataColumn columncuotaAnterior;
+            private global::System.Data.DataColumn columnTotal;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public solicitudDataTable() {
-                this.TableName = "solicitud";
+            public ExcedidoDataTable() {
+                this.TableName = "Excedido";
                 this.BeginInit();
                 this.InitClass();
                 this.EndInit();
@@ -316,7 +300,7 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal solicitudDataTable(global::System.Data.DataTable table) {
+            internal ExcedidoDataTable(global::System.Data.DataTable table) {
                 this.TableName = table.TableName;
                 if ((table.CaseSensitive != table.DataSet.CaseSensitive)) {
                     this.CaseSensitive = table.CaseSensitive;
@@ -333,112 +317,48 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            protected solicitudDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
+            protected ExcedidoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn numeroCobroColumn {
+            public global::System.Data.DataColumn A_retenerColumn {
                 get {
-                    return this.columnnumeroCobro;
+                    return this.columnA_retener;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn unidadEjecutoraColumn {
+            public global::System.Data.DataColumn RetenidoColumn {
                 get {
-                    return this.columnunidadEjecutora;
+                    return this.columnRetenido;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cedulaColumn {
+            public global::System.Data.DataColumn SaldoColumn {
                 get {
-                    return this.columncedula;
+                    return this.columnSaldo;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn apellidosColumn {
+            public global::System.Data.DataColumn InterésColumn {
                 get {
-                    return this.columnapellidos;
+                    return this.columnInterés;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn nombresColumn {
+            public global::System.Data.DataColumn TotalColumn {
                 get {
-                    return this.columnnombres;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn montoColumn {
-                get {
-                    return this.columnmonto;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cantidadCuotasColumn {
-                get {
-                    return this.columncantidadCuotas;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn saldoAnteriorColumn {
-                get {
-                    return this.columnsaldoAnterior;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn saldoInteresesColumn {
-                get {
-                    return this.columnsaldoIntereses;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cuotaAnualColumn {
-                get {
-                    return this.columncuotaAnual;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn capitalOtorgadoColumn {
-                get {
-                    return this.columncapitalOtorgado;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn totalCapitalColumn {
-                get {
-                    return this.columntotalCapital;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn cuotaAnteriorColumn {
-                get {
-                    return this.columncuotaAnterior;
+                    return this.columnTotal;
                 }
             }
             
@@ -453,57 +373,49 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public solicitudRow this[int index] {
+            public ExcedidoRow this[int index] {
                 get {
-                    return ((solicitudRow)(this.Rows[index]));
+                    return ((ExcedidoRow)(this.Rows[index]));
                 }
             }
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event solicitudRowChangeEventHandler solicitudRowChanging;
+            public event ExcedidoRowChangeEventHandler ExcedidoRowChanging;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event solicitudRowChangeEventHandler solicitudRowChanged;
+            public event ExcedidoRowChangeEventHandler ExcedidoRowChanged;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event solicitudRowChangeEventHandler solicitudRowDeleting;
+            public event ExcedidoRowChangeEventHandler ExcedidoRowDeleting;
             
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public event solicitudRowChangeEventHandler solicitudRowDeleted;
+            public event ExcedidoRowChangeEventHandler ExcedidoRowDeleted;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void AddsolicitudRow(solicitudRow row) {
+            public void AddExcedidoRow(ExcedidoRow row) {
                 this.Rows.Add(row);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public solicitudRow AddsolicitudRow(string numeroCobro, string unidadEjecutora, string cedula, string apellidos, string nombres, string monto, string cantidadCuotas, string saldoAnterior, string saldoIntereses, string cuotaAnual, string capitalOtorgado, string totalCapital, string cuotaAnterior) {
-                solicitudRow rowsolicitudRow = ((solicitudRow)(this.NewRow()));
+            public ExcedidoRow AddExcedidoRow(string A_retener, string Retenido, string Saldo, string Interés, string Total) {
+                ExcedidoRow rowExcedidoRow = ((ExcedidoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        numeroCobro,
-                        unidadEjecutora,
-                        cedula,
-                        apellidos,
-                        nombres,
-                        monto,
-                        cantidadCuotas,
-                        saldoAnterior,
-                        saldoIntereses,
-                        cuotaAnual,
-                        capitalOtorgado,
-                        totalCapital,
-                        cuotaAnterior};
-                rowsolicitudRow.ItemArray = columnValuesArray;
-                this.Rows.Add(rowsolicitudRow);
-                return rowsolicitudRow;
+                        A_retener,
+                        Retenido,
+                        Saldo,
+                        Interés,
+                        Total};
+                rowExcedidoRow.ItemArray = columnValuesArray;
+                this.Rows.Add(rowExcedidoRow);
+                return rowExcedidoRow;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public override global::System.Data.DataTable Clone() {
-                solicitudDataTable cln = ((solicitudDataTable)(base.Clone()));
+                ExcedidoDataTable cln = ((ExcedidoDataTable)(base.Clone()));
                 cln.InitVars();
                 return cln;
             }
@@ -511,82 +423,58 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataTable CreateInstance() {
-                return new solicitudDataTable();
+                return new ExcedidoDataTable();
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnnumeroCobro = base.Columns["numeroCobro"];
-                this.columnunidadEjecutora = base.Columns["unidadEjecutora"];
-                this.columncedula = base.Columns["cedula"];
-                this.columnapellidos = base.Columns["apellidos"];
-                this.columnnombres = base.Columns["nombres"];
-                this.columnmonto = base.Columns["monto"];
-                this.columncantidadCuotas = base.Columns["cantidadCuotas"];
-                this.columnsaldoAnterior = base.Columns["saldoAnterior"];
-                this.columnsaldoIntereses = base.Columns["saldoIntereses"];
-                this.columncuotaAnual = base.Columns["cuotaAnual"];
-                this.columncapitalOtorgado = base.Columns["capitalOtorgado"];
-                this.columntotalCapital = base.Columns["totalCapital"];
-                this.columncuotaAnterior = base.Columns["cuotaAnterior"];
+                this.columnA_retener = base.Columns["A retener"];
+                this.columnRetenido = base.Columns["Retenido"];
+                this.columnSaldo = base.Columns["Saldo"];
+                this.columnInterés = base.Columns["Interés"];
+                this.columnTotal = base.Columns["Total"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnnumeroCobro = new global::System.Data.DataColumn("numeroCobro", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnumeroCobro);
-                this.columnunidadEjecutora = new global::System.Data.DataColumn("unidadEjecutora", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnunidadEjecutora);
-                this.columncedula = new global::System.Data.DataColumn("cedula", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncedula);
-                this.columnapellidos = new global::System.Data.DataColumn("apellidos", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnapellidos);
-                this.columnnombres = new global::System.Data.DataColumn("nombres", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnnombres);
-                this.columnmonto = new global::System.Data.DataColumn("monto", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnmonto);
-                this.columncantidadCuotas = new global::System.Data.DataColumn("cantidadCuotas", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncantidadCuotas);
-                this.columnsaldoAnterior = new global::System.Data.DataColumn("saldoAnterior", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsaldoAnterior);
-                this.columnsaldoIntereses = new global::System.Data.DataColumn("saldoIntereses", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsaldoIntereses);
-                this.columncuotaAnual = new global::System.Data.DataColumn("cuotaAnual", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncuotaAnual);
-                this.columncapitalOtorgado = new global::System.Data.DataColumn("capitalOtorgado", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncapitalOtorgado);
-                this.columntotalCapital = new global::System.Data.DataColumn("totalCapital", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columntotalCapital);
-                this.columncuotaAnterior = new global::System.Data.DataColumn("cuotaAnterior", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columncuotaAnterior);
+                this.columnA_retener = new global::System.Data.DataColumn("A retener", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnA_retener);
+                this.columnRetenido = new global::System.Data.DataColumn("Retenido", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnRetenido);
+                this.columnSaldo = new global::System.Data.DataColumn("Saldo", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSaldo);
+                this.columnInterés = new global::System.Data.DataColumn("Interés", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnInterés);
+                this.columnTotal = new global::System.Data.DataColumn("Total", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnTotal);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public solicitudRow NewsolicitudRow() {
-                return ((solicitudRow)(this.NewRow()));
+            public ExcedidoRow NewExcedidoRow() {
+                return ((ExcedidoRow)(this.NewRow()));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Data.DataRow NewRowFromBuilder(global::System.Data.DataRowBuilder builder) {
-                return new solicitudRow(builder);
+                return new ExcedidoRow(builder);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override global::System.Type GetRowType() {
-                return typeof(solicitudRow);
+                return typeof(ExcedidoRow);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanged(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanged(e);
-                if ((this.solicitudRowChanged != null)) {
-                    this.solicitudRowChanged(this, new solicitudRowChangeEvent(((solicitudRow)(e.Row)), e.Action));
+                if ((this.ExcedidoRowChanged != null)) {
+                    this.ExcedidoRowChanged(this, new ExcedidoRowChangeEvent(((ExcedidoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -594,8 +482,8 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowChanging(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowChanging(e);
-                if ((this.solicitudRowChanging != null)) {
-                    this.solicitudRowChanging(this, new solicitudRowChangeEvent(((solicitudRow)(e.Row)), e.Action));
+                if ((this.ExcedidoRowChanging != null)) {
+                    this.ExcedidoRowChanging(this, new ExcedidoRowChangeEvent(((ExcedidoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -603,8 +491,8 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleted(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleted(e);
-                if ((this.solicitudRowDeleted != null)) {
-                    this.solicitudRowDeleted(this, new solicitudRowChangeEvent(((solicitudRow)(e.Row)), e.Action));
+                if ((this.ExcedidoRowDeleted != null)) {
+                    this.ExcedidoRowDeleted(this, new ExcedidoRowChangeEvent(((ExcedidoRow)(e.Row)), e.Action));
                 }
             }
             
@@ -612,14 +500,14 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             protected override void OnRowDeleting(global::System.Data.DataRowChangeEventArgs e) {
                 base.OnRowDeleting(e);
-                if ((this.solicitudRowDeleting != null)) {
-                    this.solicitudRowDeleting(this, new solicitudRowChangeEvent(((solicitudRow)(e.Row)), e.Action));
+                if ((this.ExcedidoRowDeleting != null)) {
+                    this.ExcedidoRowDeleting(this, new ExcedidoRowChangeEvent(((ExcedidoRow)(e.Row)), e.Action));
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void RemovesolicitudRow(solicitudRow row) {
+            public void RemoveExcedidoRow(ExcedidoRow row) {
                 this.Rows.Remove(row);
             }
             
@@ -628,7 +516,7 @@ namespace COOPMEF.CrystalDataSets {
             public static global::System.Xml.Schema.XmlSchemaComplexType GetTypedTableSchema(global::System.Xml.Schema.XmlSchemaSet xs) {
                 global::System.Xml.Schema.XmlSchemaComplexType type = new global::System.Xml.Schema.XmlSchemaComplexType();
                 global::System.Xml.Schema.XmlSchemaSequence sequence = new global::System.Xml.Schema.XmlSchemaSequence();
-                dsSolicitu ds = new dsSolicitu();
+                dsExcedidos ds = new dsExcedidos();
                 global::System.Xml.Schema.XmlSchemaAny any1 = new global::System.Xml.Schema.XmlSchemaAny();
                 any1.Namespace = "http://www.w3.org/2001/XMLSchema";
                 any1.MinOccurs = new decimal(0);
@@ -646,7 +534,7 @@ namespace COOPMEF.CrystalDataSets {
                 type.Attributes.Add(attribute1);
                 global::System.Xml.Schema.XmlSchemaAttribute attribute2 = new global::System.Xml.Schema.XmlSchemaAttribute();
                 attribute2.Name = "tableTypeName";
-                attribute2.FixedValue = "solicitudDataTable";
+                attribute2.FixedValue = "ExcedidoDataTable";
                 type.Attributes.Add(attribute2);
                 type.Particle = sequence;
                 global::System.Xml.Schema.XmlSchema dsSchema = ds.GetSchemaSerializable();
@@ -690,379 +578,155 @@ namespace COOPMEF.CrystalDataSets {
         /// <summary>
         ///Represents strongly named DataRow class.
         ///</summary>
-        public partial class solicitudRow : global::System.Data.DataRow {
+        public partial class ExcedidoRow : global::System.Data.DataRow {
             
-            private solicitudDataTable tablesolicitud;
+            private ExcedidoDataTable tableExcedido;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            internal solicitudRow(global::System.Data.DataRowBuilder rb) : 
+            internal ExcedidoRow(global::System.Data.DataRowBuilder rb) : 
                     base(rb) {
-                this.tablesolicitud = ((solicitudDataTable)(this.Table));
+                this.tableExcedido = ((ExcedidoDataTable)(this.Table));
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string numeroCobro {
+            public string A_retener {
                 get {
                     try {
-                        return ((string)(this[this.tablesolicitud.numeroCobroColumn]));
+                        return ((string)(this[this.tableExcedido.A_retenerColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'numeroCobro\' in table \'solicitud\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'A retener\' in table \'Excedido\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesolicitud.numeroCobroColumn] = value;
+                    this[this.tableExcedido.A_retenerColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string unidadEjecutora {
+            public string Retenido {
                 get {
                     try {
-                        return ((string)(this[this.tablesolicitud.unidadEjecutoraColumn]));
+                        return ((string)(this[this.tableExcedido.RetenidoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'unidadEjecutora\' in table \'solicitud\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Retenido\' in table \'Excedido\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesolicitud.unidadEjecutoraColumn] = value;
+                    this[this.tableExcedido.RetenidoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string cedula {
+            public string Saldo {
                 get {
                     try {
-                        return ((string)(this[this.tablesolicitud.cedulaColumn]));
+                        return ((string)(this[this.tableExcedido.SaldoColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cedula\' in table \'solicitud\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Saldo\' in table \'Excedido\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesolicitud.cedulaColumn] = value;
+                    this[this.tableExcedido.SaldoColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string apellidos {
+            public string Interés {
                 get {
                     try {
-                        return ((string)(this[this.tablesolicitud.apellidosColumn]));
+                        return ((string)(this[this.tableExcedido.InterésColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'apellidos\' in table \'solicitud\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Interés\' in table \'Excedido\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesolicitud.apellidosColumn] = value;
+                    this[this.tableExcedido.InterésColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string nombres {
+            public string Total {
                 get {
                     try {
-                        return ((string)(this[this.tablesolicitud.nombresColumn]));
+                        return ((string)(this[this.tableExcedido.TotalColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'nombres\' in table \'solicitud\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'Total\' in table \'Excedido\' is DBNull.", e);
                     }
                 }
                 set {
-                    this[this.tablesolicitud.nombresColumn] = value;
+                    this[this.tableExcedido.TotalColumn] = value;
                 }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string monto {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.montoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'monto\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.montoColumn] = value;
-                }
+            public bool IsA_retenerNull() {
+                return this.IsNull(this.tableExcedido.A_retenerColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string cantidadCuotas {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.cantidadCuotasColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cantidadCuotas\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.cantidadCuotasColumn] = value;
-                }
+            public void SetA_retenerNull() {
+                this[this.tableExcedido.A_retenerColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string saldoAnterior {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.saldoAnteriorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'saldoAnterior\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.saldoAnteriorColumn] = value;
-                }
+            public bool IsRetenidoNull() {
+                return this.IsNull(this.tableExcedido.RetenidoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string saldoIntereses {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.saldoInteresesColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'saldoIntereses\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.saldoInteresesColumn] = value;
-                }
+            public void SetRetenidoNull() {
+                this[this.tableExcedido.RetenidoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string cuotaAnual {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.cuotaAnualColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cuotaAnual\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.cuotaAnualColumn] = value;
-                }
+            public bool IsSaldoNull() {
+                return this.IsNull(this.tableExcedido.SaldoColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string capitalOtorgado {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.capitalOtorgadoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'capitalOtorgado\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.capitalOtorgadoColumn] = value;
-                }
+            public void SetSaldoNull() {
+                this[this.tableExcedido.SaldoColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string totalCapital {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.totalCapitalColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'totalCapital\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.totalCapitalColumn] = value;
-                }
+            public bool IsInterésNull() {
+                return this.IsNull(this.tableExcedido.InterésColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string cuotaAnterior {
-                get {
-                    try {
-                        return ((string)(this[this.tablesolicitud.cuotaAnteriorColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'cuotaAnterior\' in table \'solicitud\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablesolicitud.cuotaAnteriorColumn] = value;
-                }
+            public void SetInterésNull() {
+                this[this.tableExcedido.InterésColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnumeroCobroNull() {
-                return this.IsNull(this.tablesolicitud.numeroCobroColumn);
+            public bool IsTotalNull() {
+                return this.IsNull(this.tableExcedido.TotalColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnumeroCobroNull() {
-                this[this.tablesolicitud.numeroCobroColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsunidadEjecutoraNull() {
-                return this.IsNull(this.tablesolicitud.unidadEjecutoraColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetunidadEjecutoraNull() {
-                this[this.tablesolicitud.unidadEjecutoraColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscedulaNull() {
-                return this.IsNull(this.tablesolicitud.cedulaColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcedulaNull() {
-                this[this.tablesolicitud.cedulaColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsapellidosNull() {
-                return this.IsNull(this.tablesolicitud.apellidosColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetapellidosNull() {
-                this[this.tablesolicitud.apellidosColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsnombresNull() {
-                return this.IsNull(this.tablesolicitud.nombresColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetnombresNull() {
-                this[this.tablesolicitud.nombresColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IsmontoNull() {
-                return this.IsNull(this.tablesolicitud.montoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetmontoNull() {
-                this[this.tablesolicitud.montoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscantidadCuotasNull() {
-                return this.IsNull(this.tablesolicitud.cantidadCuotasColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcantidadCuotasNull() {
-                this[this.tablesolicitud.cantidadCuotasColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IssaldoAnteriorNull() {
-                return this.IsNull(this.tablesolicitud.saldoAnteriorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetsaldoAnteriorNull() {
-                this[this.tablesolicitud.saldoAnteriorColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IssaldoInteresesNull() {
-                return this.IsNull(this.tablesolicitud.saldoInteresesColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetsaldoInteresesNull() {
-                this[this.tablesolicitud.saldoInteresesColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscuotaAnualNull() {
-                return this.IsNull(this.tablesolicitud.cuotaAnualColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcuotaAnualNull() {
-                this[this.tablesolicitud.cuotaAnualColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscapitalOtorgadoNull() {
-                return this.IsNull(this.tablesolicitud.capitalOtorgadoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcapitalOtorgadoNull() {
-                this[this.tablesolicitud.capitalOtorgadoColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IstotalCapitalNull() {
-                return this.IsNull(this.tablesolicitud.totalCapitalColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SettotalCapitalNull() {
-                this[this.tablesolicitud.totalCapitalColumn] = global::System.Convert.DBNull;
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool IscuotaAnteriorNull() {
-                return this.IsNull(this.tablesolicitud.cuotaAnteriorColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void SetcuotaAnteriorNull() {
-                this[this.tablesolicitud.cuotaAnteriorColumn] = global::System.Convert.DBNull;
+            public void SetTotalNull() {
+                this[this.tableExcedido.TotalColumn] = global::System.Convert.DBNull;
             }
         }
         
@@ -1070,22 +734,22 @@ namespace COOPMEF.CrystalDataSets {
         ///Row event argument class
         ///</summary>
         [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-        public class solicitudRowChangeEvent : global::System.EventArgs {
+        public class ExcedidoRowChangeEvent : global::System.EventArgs {
             
-            private solicitudRow eventRow;
+            private ExcedidoRow eventRow;
             
             private global::System.Data.DataRowAction eventAction;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public solicitudRowChangeEvent(solicitudRow row, global::System.Data.DataRowAction action) {
+            public ExcedidoRowChangeEvent(ExcedidoRow row, global::System.Data.DataRowAction action) {
                 this.eventRow = row;
                 this.eventAction = action;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public solicitudRow Row {
+            public ExcedidoRow Row {
                 get {
                     return this.eventRow;
                 }
