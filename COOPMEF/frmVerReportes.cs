@@ -54,6 +54,15 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = reporteCancelacion;
             }
 
+            if (tipo.Equals("EXCEDIDO"))
+            {
+                COOPMEF.Reportes.InfoExcedidos reporteCobranzaExcedidos = new COOPMEF.Reportes.InfoExcedidos();
+
+                reporteCobranzaExcedidos.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = reporteCobranzaExcedidos;
+            }
+
         }
 
         private void frmVerReportes_Load(object sender, EventArgs e)

@@ -53,6 +53,7 @@ namespace COOPMEF
         private System.Data.DataSet eventosDataSet;
         private dsSolicitu DE = new dsSolicitu();
         private dsVale DV = new dsVale();
+        private dsExcedidos DEx = new dsExcedidos();
 
         public frmPrincipal()
         {
@@ -2127,8 +2128,14 @@ namespace COOPMEF
 
         private void btnImprimirCobranza_Click(object sender, EventArgs e)
         {
+            
             if (txtARetener.Text != "")
-                MessageBox.Show("Se manda a imprimir el doc");
+            {
+               // MessageBox.Show("Se manda a imprimir el doc");
+                DEx.Excedido.Rows.Add(txtARetener.Text, txtRetenido.Text, txtSaldo.Text,txtMora.Text, txtTotal.Text);
+                frmVerReportes reporte = new frmVerReportes(DEx, "EXCEDIDO");
+                reporte.ShowDialog();
+            }
             else
                 MessageBox.Show("No hay deudas para imprimir");
 
