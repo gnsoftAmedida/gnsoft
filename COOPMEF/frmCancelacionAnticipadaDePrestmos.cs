@@ -13,7 +13,7 @@ using COOPMEF.CrystalDataSets;
 
 namespace COOPMEF
 {
-    public partial class CancelacionAnticipadaDePrestmos : Form
+    public partial class frmCancelacionAnticipadaDePrestmos : Form
     {
         private int idSocioSeleccionado;
         private Controladora empresa = Controladora.Instance;
@@ -21,7 +21,7 @@ namespace COOPMEF
         private int idCobranza = 0;
         private bool sePuedeCancelar = false;
 
-        public CancelacionAnticipadaDePrestmos(int pIdSocioSeleccionado)
+        public frmCancelacionAnticipadaDePrestmos(int pIdSocioSeleccionado)
         {
             this.idSocioSeleccionado = pIdSocioSeleccionado;
             InitializeComponent();
@@ -77,7 +77,7 @@ namespace COOPMEF
             else
             {
                 //cambiar a false. Es solo para prueba
-                btnImprimirCobranza.Enabled = true;
+                btnImprimirCobranza.Enabled = false;
             }
         }
 

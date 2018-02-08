@@ -19,7 +19,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
                 //faltaría agregar el parámetro aportecapital ya que fue agregado a la BD el 11/10 por Gino
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT cobranzaProvisoria_id, prestamo_id, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer,InteresVencer, socio_id FROM cobranzaProvisoria";
+                string sql = "SELECT cobranzaProvisoria_id, prestamo_id, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer,InteresVencer, aportecapital, socio_id FROM cobranzaProvisoria";
                 DataSet ds = new DataSet();
 
                 connection.Open();

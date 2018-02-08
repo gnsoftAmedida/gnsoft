@@ -1937,7 +1937,7 @@ namespace COOPMEF
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            CancelacionAnticipadaDePrestmos frmCancelacion = new CancelacionAnticipadaDePrestmos(idSocioSeleccionado);
+            frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado);
             frmCancelacion.Show();
         }
 

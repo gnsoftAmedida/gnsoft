@@ -1,6 +1,6 @@
 ﻿namespace COOPMEF
 {
-    partial class CancelacionAnticipadaDePrestmos
+    partial class frmCancelacionAnticipadaDePrestmos
     {
         /// <summary>
         /// Required designer variable.

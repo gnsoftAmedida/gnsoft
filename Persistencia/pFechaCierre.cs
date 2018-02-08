@@ -19,7 +19,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO fechascierre (Presupuesto, FechaDesde, HoraDesde, FechaHasta, HoraHasta, TotalImporte, AmortizacionAVencer, InteresesAVencer) VALUES ('" + Presupuesto + "', '" + FechaDesde.ToString("yyyy/MM/dd hh mm ss") + "', '" + HoraDesde.ToString("yyyy/MM/dd hh mm ss") + "','" + FechaHasta.ToString("yyyy/MM/dd hh mm ss") + "','" + HoraHasta.ToString("yyyy/MM/dd hh mm ss") + "', '" + TotalImporte + "', '" + AmortizacionAVencer + "','" + InteresesAVencer + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO fechascierre (Presupuesto, FechaDesde, HoraDesde, FechaHasta, HoraHasta, TotalImporte, AmortizacionAVencer, InteresesAVencer) VALUES ('" + Presupuesto + "', '" + FechaDesde.ToString("yyyy/MM/dd hh:mm:ss") + "', '" + HoraDesde.ToString("yyyy/MM/dd hh:mm:ss") + "','" + FechaHasta.ToString("yyyy/MM/dd hh:mm:ss") + "','" + HoraHasta.ToString("yyyy/MM/dd hh:mm:ss") + "', '" + TotalImporte.ToString().Replace(",", ".") + "', '" + AmortizacionAVencer.ToString().Replace(",", ".") + "','" + InteresesAVencer.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
                                                                                                                                                                           
             try
             {
