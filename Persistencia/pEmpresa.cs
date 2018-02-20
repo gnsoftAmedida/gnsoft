@@ -43,8 +43,8 @@ namespace Persistencia
 
             string sql;
 
-            sql = "Update empresa set empresa_cierrePresupuestoAnterior='" + empresa_cierrePresupuestoAnterior.ToString("yyyy/MM/dd hh:mm:ss") + "', empresa_horaCierreAnterior='" + empresa_horaCierreAnterior.ToString("yyyy/MM/dd hh:mm:ss") + "',  empresa_cierrePresupuestoActual='" + empresa_cierrePresupuestoActual.ToString("yyyy/MM/dd hh:mm:ss") + "',  empresa_vtoPresupuestoActual='" + empresa_vtoPresupuestoActual.ToString("yyyy/MM/dd hh:mm:ss") + "',  empresa_usuarioCierre='" + empresa_usuarioCierre + "' WHERE idEmpresa = " + 1;
-
+            sql = "Update empresa set empresa_horacierreactual ='" + empresa_horacierreactual.ToString("yyyy/MM/dd hh:mm:ss") + "', empresa_cierrePresupuestoAnterior='" + empresa_cierrePresupuestoAnterior.ToString("yyyy/MM/dd hh:mm:ss") + "', empresa_horaCierreAnterior='" + empresa_horaCierreAnterior.ToString("yyyy/MM/dd hh:mm:ss") + "',  empresa_cierrePresupuestoActual='" + empresa_cierrePresupuestoActual.ToString("yyyy/MM/dd hh:mm:ss") + "',  empresa_vtoPresupuestoActual='" + empresa_vtoPresupuestoActual.ToString("yyyy/MM/dd hh:mm:ss") + "',  empresa_usuarioCierre='" + empresa_usuarioCierre + "' WHERE idEmpresa = " + 1;
+           
             try
             {
                 connection.Open();

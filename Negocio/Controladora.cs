@@ -1354,13 +1354,15 @@ namespace Negocio
             DataSet dsSociosActivos = DevolverSociosActivos();
             DataSet dsFechasCierres = DevolverFechasCierres();
             DataSet dsCobranzasProvisorias = DevolverCobranzasProvisorias();
-            DataSet dsCobranzas = DevolverCobranzas();
+
 
             CuotaCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][22].ToString());
             Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
             WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
 
             this.eliminarAmortizacionVencerCeroCobranza();
+
+            DataSet dsCobranzas = DevolverCobranzas();
 
             if (dsCobranzas.Tables["cobranzas"].Rows.Count > 0)
             {
@@ -1463,8 +1465,8 @@ namespace Negocio
                 }
             }
 
-            DateTime empresa_cierrePresupuestoAnterior = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString()); // Cierre fecha presupuesto actual
-            DateTime empresa_horaCierreAnterior = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()); // Cierre hora presupuesto actual
+            DateTime empresa_cierrePresupuestoAnterior = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][25].ToString()); // Cierre fecha presupuesto actual
+            DateTime empresa_horaCierreAnterior = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][26].ToString()); // Cierre hora presupuesto actual
             DateTime empresa_cierrePresupuestoActual = fechaCierre;
             DateTime empresa_horacierreactual = horaCierre;
             DateTime empresa_vtoPresupuestoActual = fechaVto;
