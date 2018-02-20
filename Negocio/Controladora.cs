@@ -1374,8 +1374,8 @@ namespace Negocio
                     tasa = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][3].ToString());
                     Wiva = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][4].ToString()); // Porcentaje ivaç
                     montoPedido = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][5].ToString());
-                    CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString()) + 1;
-                    cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString());
+                    CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString()) + 1;
+                    cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
                     importeCuota = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][8].ToString());
                     aporteCapital = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][14].ToString());
                     socio_id = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString());
@@ -1422,9 +1422,9 @@ namespace Negocio
 
                     for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                     {
-                        if (Convert.ToInt32(dsCobranzas.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString()))
+                        if (Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][15].ToString()))
                         {
-                            modificarCobranza(id_cobranzaProvisorio, id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, CuotasVanProvisorio, cantidadCuotasProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
+                            modificarCobranza(Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][0].ToString()), id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, CuotasVanProvisorio, cantidadCuotasProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
                             estaEnCobranza = true;
                         }
                     }
