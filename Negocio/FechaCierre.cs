@@ -72,7 +72,7 @@ namespace Negocio
         public double InteresesAVencer
         {
             get { return interesesAVencer; }
-            set { InteresesAVencer = value; }
+            set { interesesAVencer = value; }
         }
 
         public void GuardarFechaCierre()

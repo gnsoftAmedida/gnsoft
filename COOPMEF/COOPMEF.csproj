@@ -106,11 +106,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CancelacionAnticipadaDePrestmos.cs">
+    <Compile Include="frmCancelacionAnticipadaDePrestmos.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CancelacionAnticipadaDePrestmos.Designer.cs">
-      <DependentUpon>CancelacionAnticipadaDePrestmos.cs</DependentUpon>
+    <Compile Include="frmCancelacionAnticipadaDePrestmos.Designer.cs">
+      <DependentUpon>frmCancelacionAnticipadaDePrestmos.cs</DependentUpon>
     </Compile>
     <Compile Include="CrystalDataSets\dsCancelacion.cs">
       <DependentUpon>dsCancelacion.xsd</DependentUpon>
@@ -129,6 +129,20 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsEventos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsExcedidos.cs">
+      <DependentUpon>dsExcedidos.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsExcedidos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsExcedidos.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsPrueba.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPrueba.xsd</DependentUpon>
     </Compile>
     <Compile Include="CrystalDataSets\dsSolicitud.cs">
       <DependentUpon>dsSolicitud.xsd</DependentUpon>
@@ -248,6 +262,24 @@
       <DependentUpon>cancelacionPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\CRPrueba.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CRPrueba.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\CrystalReport1.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\InfoExcedidos.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InfoExcedidos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\valePrestamo.cs">
       <DependentUpon>valePrestamo.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -266,8 +298,8 @@
       <DependentUpon>solicitudPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <EmbeddedResource Include="CancelacionAnticipadaDePrestmos.resx">
-      <DependentUpon>CancelacionAnticipadaDePrestmos.cs</DependentUpon>
+    <EmbeddedResource Include="frmCancelacionAnticipadaDePrestmos.resx">
+      <DependentUpon>frmCancelacionAnticipadaDePrestmos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmAgenda.resx">
       <DependentUpon>frmAgenda.cs</DependentUpon>
@@ -334,6 +366,18 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cancelacionPrestamo.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CRPrueba.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CRPrueba.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\CrystalReport1.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\InfoExcedidos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InfoExcedidos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\valePrestamo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>valePrestamo.cs</LastGenOutput>
@@ -368,6 +412,28 @@
     </None>
     <None Include="CrystalDataSets\dsEventos.xss">
       <DependentUpon>dsEventos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsExcedidos.xsc">
+      <DependentUpon>dsExcedidos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsExcedidos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsExcedidos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsExcedidos.xss">
+      <DependentUpon>dsExcedidos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPrueba.xsc">
+      <DependentUpon>dsPrueba.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPrueba.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPrueba.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsPrueba.xss">
+      <DependentUpon>dsPrueba.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsSolicitud.xsc">
       <DependentUpon>dsSolicitud.xsd</DependentUpon>
