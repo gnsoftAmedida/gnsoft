@@ -56,6 +56,7 @@ namespace COOPMEF
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 empresa.cierre();
+                MessageBox.Show("Cierre efecutado correctamente");
             }
         }
 

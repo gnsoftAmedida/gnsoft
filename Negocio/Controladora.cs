@@ -545,7 +545,7 @@ namespace Negocio
         public void VaciarTablaCobranzaProvisoria()
         {
             CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
-            tmpCobranzaProvisoria.devolverCobranzasProvisorias();
+            tmpCobranzaProvisoria.VaciarTablaCobranzaProvisoria();
         }
 
         public void eliminarCobranzaProvisoria(int Id)
