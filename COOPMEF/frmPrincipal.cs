@@ -1407,35 +1407,37 @@ namespace COOPMEF
 
 
             }
+            else
+            {
 
-            int index = dgvSociosCampo.CurrentRow.Index;
-            int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
+                int index = dgvSociosCampo.CurrentRow.Index;
+                int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
 
-            //Reseteo los campos de ingreso de excedidos
-            txtARetenerIngExc.Text = "";
-            txtRetenidoIngExc.Text = "";
-            txtPresupuestoIngExc.Text = "";
-            txtSaldoIngExc.Text = "";
-            txtMoraIngExc.Text = "";
-            txtTotalIngExc.Text = "";
+                //Reseteo los campos de ingreso de excedidos
+                txtARetenerIngExc.Text = "";
+                txtRetenidoIngExc.Text = "";
+                txtPresupuestoIngExc.Text = "";
+                txtSaldoIngExc.Text = "";
+                txtMoraIngExc.Text = "";
+                txtTotalIngExc.Text = "";
 
-            // Resteo variables préstamo
-            txtNuevoImporte.Text = "";
-            prestamoCorrecto = false;
-            txtImporteCuota.Text = "0.00";
+                // Resteo variables préstamo
+                txtNuevoImporte.Text = "";
+                prestamoCorrecto = false;
+                txtImporteCuota.Text = "0.00";
 
-            //int estadoActual = definirEstado();
-            //dejarPantallaComoAlInicio();
-            desactivarAltaSocio();
-            cambiarBotonBajaAlta(estadoActual);
-            definirEstado();
-            borrarErroresNuevoSocio();
-            this.btnEditarSocio.Enabled = true;
-            this.btnEliminarSocio.Enabled = true;
-            this.btnVerMasSocio.Enabled = true;
-            this.btnCancelarSocio.Enabled = true;
+                //int estadoActual = definirEstado();
+                //dejarPantallaComoAlInicio();
+                desactivarAltaSocio();
+                cambiarBotonBajaAlta(estadoActual);
+                definirEstado();
+                borrarErroresNuevoSocio();
+                this.btnEditarSocio.Enabled = true;
+                this.btnEliminarSocio.Enabled = true;
+                this.btnVerMasSocio.Enabled = true;
+                this.btnCancelarSocio.Enabled = true;
 
-
+            }
 
         }
 
@@ -2128,11 +2130,11 @@ namespace COOPMEF
 
         private void btnImprimirCobranza_Click(object sender, EventArgs e)
         {
-            
+
             if (txtARetener.Text != "")
             {
-               // MessageBox.Show("Se manda a imprimir el doc");
-                DEx.Excedido.Rows.Add(txtARetener.Text, txtRetenido.Text, txtSaldo.Text,txtMora.Text, txtTotal.Text);
+                // MessageBox.Show("Se manda a imprimir el doc");
+                DEx.Excedido.Rows.Add(txtARetener.Text, txtRetenido.Text, txtSaldo.Text, txtMora.Text, txtTotal.Text);
                 frmVerReportes reporte = new frmVerReportes(DEx, "EXCEDIDO");
                 reporte.ShowDialog();
             }
@@ -2158,6 +2160,11 @@ namespace COOPMEF
                 txtTotal.Text = txtTotalIngExc.Text;
 
             }
+
+        }
+
+        private void tabPrestamo_Click(object sender, EventArgs e)
+        {
 
         }
     }

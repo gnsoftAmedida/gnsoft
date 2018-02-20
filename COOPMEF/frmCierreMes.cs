@@ -23,6 +23,11 @@ namespace COOPMEF
 
         private void frmCierreMes_Load(object sender, EventArgs e)
         {
+            inicio();
+        }
+
+        private void inicio() {
+
             DataSet dsEmpresas = empresa.DevolverEmpresa();
             DateTime fechaPresupuestoAnterior = Convert.ToDateTime(dsEmpresas.Tables["empresas"].Rows[0][23].ToString().ToString());
             DateTime horaPresupuestoAnterior = Convert.ToDateTime(dsEmpresas.Tables["empresas"].Rows[0][24].ToString().ToString());
@@ -35,10 +40,10 @@ namespace COOPMEF
 
 
             this.lblFechaPresupuestoAnterior.Text = fechaPresupuestoAnterior.ToString("dd/MM/yyyy");
-            this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.ToString("HH:mm");
+            this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.AddHours(12).ToString("HH:mm:ss");
 
             this.lblFechaPresupuestoUltimo.Text = fechaPresupuestoUltimo.ToString("dd/MM/yyyy");
-            this.lblHoraPresupuestoUltimo.Text = horaPresupuestoUltimo.ToString("HH:mm");
+            this.lblHoraPresupuestoUltimo.Text = horaPresupuestoUltimo.AddHours(12).ToString("HH:mm:ss");
             this.lblFechaVencimientoPresupuesto.Text = fechaVencimientoPresupuesto.ToString("dd/MM/yyyy");
 
             this.lblFechaCierre.Text = empresa.presupuesto();
@@ -56,6 +61,8 @@ namespace COOPMEF
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 empresa.cierre();
+                MessageBox.Show("Cierre efecutado correctamente");
+                inicio();
             }
         }
 

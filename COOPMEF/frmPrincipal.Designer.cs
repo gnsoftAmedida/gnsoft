@@ -1260,6 +1260,7 @@
             this.tabPrestamo.Controls.Add(this.lblObs);
             resources.ApplyResources(this.tabPrestamo, "tabPrestamo");
             this.tabPrestamo.Name = "tabPrestamo";
+            this.tabPrestamo.Click += new System.EventHandler(this.tabPrestamo_Click);
             // 
             // btnSolicitar
             // 
