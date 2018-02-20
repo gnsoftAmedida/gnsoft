@@ -1372,8 +1372,8 @@ namespace Negocio
                     tasa = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][3].ToString());
                     Wiva = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][4].ToString()); // Porcentaje ivaç
                     montoPedido = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][5].ToString());
-                    CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString()) + 1;
-                    cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
+                    CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString()) + 1;
+                    cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString());
                     importeCuota = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][8].ToString());
                     aporteCapital = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][14].ToString());
                     socio_id = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString());
@@ -1438,16 +1438,18 @@ namespace Negocio
             //hayan sido dados de baja
             estaEnCobranza = false;
 
+            DataSet dsCobranzasIncorporarAporte = DevolverCobranzas();
+
             if (dsSociosActivos.Tables["socio"].Rows.Count > 0)
             {
                 for (int i = 0; i < dsSociosActivos.Tables["socio"].Rows.Count; i++)
                 {
 
-                    for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
+                    for (int j = 0; !estaEnCobranza && j < dsCobranzasIncorporarAporte.Tables["cobranzas"].Rows.Count; j++)
                     {
-                        if (dsSociosActivos.Tables["socio"].Rows[i][0].ToString() == dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString())
+                        if (dsSociosActivos.Tables["socio"].Rows[i][0].ToString() == dsCobranzasIncorporarAporte.Tables["cobranzas"].Rows[j][15].ToString())
                         {
-                            agregarAporteCapitalCobranza(Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString()), CuotaCapital);
+                            agregarAporteCapitalCobranza(Convert.ToInt32(dsCobranzasIncorporarAporte.Tables["cobranzas"].Rows[i][0].ToString()), CuotaCapital);
                             estaEnCobranza = true;
                         }
                     }
@@ -1455,7 +1457,9 @@ namespace Negocio
                     if (!estaEnCobranza)
                     {
                         guardarCobranza(0, dsSociosActivos.Tables["socio"].Rows[i][3].ToString(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, CuotaCapital, Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][0].ToString()));
+                      
                     }
+                    estaEnCobranza = false;
                 }
             }
 
@@ -1594,9 +1598,11 @@ namespace Negocio
                     tmpHistoria.Guardar();
 
                     // **************Vaciar la tabla cobranza privosoria*****************
-                    VaciarTablaCobranzaProvisoria();
+                  
                 }
+              
             }
+            VaciarTablaCobranzaProvisoria();
         }
     }
 }
