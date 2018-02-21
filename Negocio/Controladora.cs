@@ -1374,8 +1374,8 @@ namespace Negocio
                     tasa = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][3].ToString());
                     Wiva = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][4].ToString()); // Porcentaje ivaç
                     montoPedido = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][5].ToString());
-                    CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString()) + 1;
-                    cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString());
+                    CuotasVan = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][7].ToString()) + 1;
+                    cantidadCuotas = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][6].ToString());
                     importeCuota = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][8].ToString());
                     aporteCapital = Convert.ToDouble(dsCobranzas.Tables["cobranzas"].Rows[i][14].ToString());
                     socio_id = Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[i][15].ToString());
@@ -1395,7 +1395,7 @@ namespace Negocio
                     amo_vencer = AmortVencer(tasa, cantidadCuotas, CuotasVan, importeCuota);
                     int_vencer = IntVencer(importeCuota, cantidadCuotas, CuotasVan, amo_vencer);
 
-                    modificarCobranza(id_cobranza, id_prestamo, cedula, tasa, Wiva, montoPedido, CuotasVan, cantidadCuotas, importeCuota, amo_cuota, InteresCuota, IvaCuota, amo_vencer, int_vencer, aporteCapital, socio_id);
+                    modificarCobranza(id_cobranza, id_prestamo, cedula, tasa, Wiva, montoPedido, cantidadCuotas, CuotasVan, importeCuota, amo_cuota, InteresCuota, IvaCuota, amo_vencer, int_vencer, aporteCapital, socio_id);
                 }
             }
             //Incorporando los nuevos préstamos
@@ -1409,8 +1409,8 @@ namespace Negocio
                     double tasaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][3].ToString());
                     double WivaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][4].ToString());
                     double montoPedidoProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][5].ToString());
-                    int CuotasVanProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][6].ToString());
-                    int cantidadCuotasProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][7].ToString());
+                    int CuotasVanProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][7].ToString());
+                    int cantidadCuotasProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][6].ToString());
                     double importeCuotaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][8].ToString());
                     double amo_cuotaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][9].ToString());
                     double InteresCuotaProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][10].ToString());
@@ -1424,14 +1424,14 @@ namespace Negocio
                     {
                         if (Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][15].ToString()))
                         {
-                            modificarCobranza(Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][0].ToString()), id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, CuotasVanProvisorio, cantidadCuotasProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
+                            modificarCobranza(Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][0].ToString()), id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, cantidadCuotasProvisorio, CuotasVanProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
                             estaEnCobranza = true;
                         }
                     }
 
                     if (!estaEnCobranza)
                     {
-                        guardarCobranza(id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, CuotasVanProvisorio, cantidadCuotasProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
+                        guardarCobranza(id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, cantidadCuotasProvisorio, CuotasVanProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
                     }
                 }
             }
@@ -1451,7 +1451,7 @@ namespace Negocio
                     {
                         if (dsSociosActivos.Tables["socio"].Rows[i][0].ToString() == dsCobranzasIncorporarAporte.Tables["cobranzas"].Rows[j][15].ToString())
                         {
-                            agregarAporteCapitalCobranza(Convert.ToInt32(dsCobranzasIncorporarAporte.Tables["cobranzas"].Rows[i][0].ToString()), CuotaCapital);
+                            agregarAporteCapitalCobranza(Convert.ToInt32(dsCobranzasIncorporarAporte.Tables["cobranzas"].Rows[j][0].ToString()), CuotaCapital);
                             estaEnCobranza = true;
                         }
                     }

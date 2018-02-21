@@ -1614,7 +1614,7 @@ namespace COOPMEF
                             txtTasa.Text = String.Format(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][3].ToString(), "##0.00");
                             txtMonto.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString();
                             txtImporteCuotaPendiente.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString();
-                            txtAmortización.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][12].ToString();
+                            txtAmortización.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString();
 
                             double CalculotxtInteresesAVencer = (Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString()) * Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString())) - Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString());
                             txtInteresesAVencer.Text = Convert.ToString(CalculotxtInteresesAVencer);
@@ -1672,7 +1672,7 @@ namespace COOPMEF
 
                         tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
 
-                        txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + montoAnterior);
+                        txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtAmortización.Text.Replace(".", ",")));
 
                         totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
 
@@ -1752,9 +1752,9 @@ namespace COOPMEF
                         Socio tmpSocio = new Socio();
                         tmpSocio.Socio_id = this.idSocioSeleccionado;
 
-                        double amortizacionVencer = empresa.AmortVencer(tasaConIva, cantidadCuotas, 0, cuota);
+                        double amortizacionVencer = empresa.AmortVencer(tasaConIva, cantidadCuotas, 1, cuota);
 
-                        double interesesVencer = empresa.IntVencer(cuota, cantidadCuotas, 0, amortizacionVencer);
+                        double interesesVencer = empresa.IntVencer(cuota, cantidadCuotas, 1, amortizacionVencer);
 
 
                         int idPrestamo = empresa.AltaPrestamo(tmpSocio, nro_socio, DateTime.Now, DateTime.Now, totalDeuda, tasaConIva, cantidadCuotas, cuota, nro_prestamoAnterior, montoAnterior, amortizacionVencer, interesesVencer, cantidadCuotas, 0, cuotaAnteriorPrestamo, tasaAnteriorPrestamo, 0);
@@ -2134,7 +2134,7 @@ namespace COOPMEF
             if (txtARetener.Text != "")
             {
                 // MessageBox.Show("Se manda a imprimir el doc");
-                DEx.Excedido.Rows.Add(txtARetener.Text, txtRetenido.Text, txtSaldo.Text, txtMora.Text, txtTotal.Text);
+                DEx.Excedido.Rows.Add(txtCI.Text, txtARetener.Text, txtRetenido.Text, txtSaldo.Text, txtMora.Text, txtTotal.Text);
                 frmVerReportes reporte = new frmVerReportes(DEx, "EXCEDIDO");
                 reporte.ShowDialog();
             }
