@@ -1230,6 +1230,7 @@
             // 
             resources.ApplyResources(this.txtPresupuestoIngExc, "txtPresupuestoIngExc");
             this.txtPresupuestoIngExc.Name = "txtPresupuestoIngExc";
+            this.txtPresupuestoIngExc.Leave += new System.EventHandler(this.txtPresupuestoIngExc_Leave);
             // 
             // label27
             // 

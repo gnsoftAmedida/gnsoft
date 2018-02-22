@@ -53,7 +53,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update excedidos set fechadepago = '" + fechadepago + "', importepagado = '" + importepagado + "', presupuestodelpago = '" + presupuestodelpago + "' WHERE excedido_id =" + idExcedido;
+            string sql = "Update excedidos set fechadepago = '" + fechadepago.ToString("yyyy/MM/dd") + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "' WHERE excedidos_id =" + idExcedido;
 
             try
             {

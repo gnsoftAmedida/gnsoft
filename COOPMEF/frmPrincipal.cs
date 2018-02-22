@@ -1452,8 +1452,8 @@ namespace COOPMEF
         private void cargarPantallas()
         {
             seleccionarSocioYllenarDataGrid();
-            calcularSaldoMorayTotal();
-            llenarCamposDeCobranzaExcedidos();
+            //calcularSaldoMorayTotal();
+            //llenarCamposDeCobranzaExcedidos();
 
             txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
             txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
@@ -1538,6 +1538,7 @@ namespace COOPMEF
                 if (!(idSocioSeleccionado == 0))
                 {
                     excedido = estaExcedido();
+
                     if (!excedido)
                     {
                         // busco primero en cobranza provisoria para ver si no tiene ningun
@@ -1906,6 +1907,8 @@ namespace COOPMEF
                             ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text);
                             ex._presupuesto = txtPresupuestoIngExc.Text;
                             ex._cedula = txtNroSocio.Text;
+                            ex._socio_id = this.idSocioSeleccionado;
+
                             int filas = dsExcedidosPorCI.Tables["excedidosPorCI"].Rows.Count;
                             if (filas <= 0)
                             {
@@ -2166,6 +2169,85 @@ namespace COOPMEF
         private void tabPrestamo_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void cargarARetener()
+        {
+
+            DataSet historiaID_Presupuesto = empresa.devolverHistoriaPorIDyPresupuesto(idSocioSeleccionado, this.txtPresupuestoIngExc.Text);
+
+            if (historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows.Count > 0)
+            {
+
+                double importeCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][9].ToString());
+                double aporteCapital = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][15].ToString());
+                double excedido = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][19].ToString());
+                double mora = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][20].ToString());
+                double ivaMora = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][21].ToString());
+                double ivaCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][12].ToString());
+                double total = importeCuota + aporteCapital + excedido + mora + ivaMora + ivaCuota;
+                txtARetenerIngExc.Text = total.ToString();
+
+            }
+
+
+            /*
+      
+  If RsHistoria.RecordCount > 0 Then
+    LblARetener = RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora ''+ RsHistoria!IvaCuota
+  Else
+    MsgBox "Los Datos no son Correctos.", vbOKOnly + vbInformation, Me.Caption
+    Vaciar
+    TxtCedula.SetFocus
+    Exit Sub
+  End If
+     * */
+        }
+
+        private void txtPresupuestoIngExc_Leave(object sender, EventArgs e)
+        {
+            int anioActual;
+            int anioPresup;
+            bool anioBien = false;
+
+            if (txtPresupuestoIngExc.Text.Length == 7)
+            {
+                anioActual = DateTime.Today.Year;
+                anioPresup = Convert.ToInt32(this.txtPresupuestoIngExc.Text.Substring(3, 4));
+
+                if (anioActual != anioPresup)
+                {
+                    string message = "El año ingresado no se corresponde con el año en curso. ¿Continúa?";
+                    string caption = "Excedidos";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons);
+
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+
+                        anioBien = true;
+                    }
+                }
+                else
+                {
+                    anioBien = true;
+                }
+
+                if (anioBien)
+                {
+                    txtRetenido.Focus();
+                    cargarARetener();
+                }
+                else
+                {
+                    txtPresupuesto.Clear();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Formato de presupuesto incorrecto");
+            }
         }
     }
 }

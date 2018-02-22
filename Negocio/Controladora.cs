@@ -242,6 +242,13 @@ namespace Negocio
             return historias;
         }
 
+        public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverHistoriaPorIDyPresupuesto(idSocio, presupuesto);
+            return historias;
+        }
+
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
             double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
             double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, int _Inciso, int _oficina, double _excedido, double _mora,
@@ -1459,7 +1466,7 @@ namespace Negocio
                     if (!estaEnCobranza)
                     {
                         guardarCobranza(0, dsSociosActivos.Tables["socio"].Rows[i][3].ToString(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, CuotaCapital, Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][0].ToString()));
-                      
+
                     }
                     estaEnCobranza = false;
                 }
@@ -1515,7 +1522,7 @@ namespace Negocio
                     Double _AmortizacionVencer = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][12].ToString()); //12
                     Double _InteresVencer = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][13].ToString());//13
                     Double _aportecapital = Convert.ToDouble(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][14].ToString()); //14
-                    int _socio_id = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][14].ToString());
+                    int _socio_id = Convert.ToInt32(dsCobranzasActualizadas.Tables["cobranzas"].Rows[i][15].ToString());
 
                     string _numerocobro = "";
                     int _Inciso = 0;
@@ -1600,9 +1607,9 @@ namespace Negocio
                     tmpHistoria.Guardar();
 
                     // **************Vaciar la tabla cobranza privosoria*****************
-                  
+
                 }
-              
+
             }
             VaciarTablaCobranzaProvisoria();
         }

@@ -104,7 +104,6 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Utilidades.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\bin\x64\Release\Persistencia.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.csprojResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.csproj.ResolveComReference.cache
-C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.CancelacionAnticipadaDePrestmos.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmAgenda.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmMantOficinas.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmAltaUsuario.resources
@@ -127,3 +126,4 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.csproj.G
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\gsw\COOPMEF.resources.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.exe
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x64\Release\COOPMEF.frmCancelacionAnticipadaDePrestmos.resources
