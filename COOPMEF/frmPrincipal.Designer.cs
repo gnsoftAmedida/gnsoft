@@ -1225,6 +1225,7 @@
             // 
             resources.ApplyResources(this.txtARetenerIngExc, "txtARetenerIngExc");
             this.txtARetenerIngExc.Name = "txtARetenerIngExc";
+            this.txtARetenerIngExc.ReadOnly = true;
             // 
             // txtPresupuestoIngExc
             // 

@@ -42,7 +42,7 @@ namespace Persistencia
                     case 1406:
                         MisExcepciones ep = new MisExcepciones("Datos muy largos");
                         throw ep;
-                    
+
                 }
             }
         }
@@ -145,9 +145,9 @@ namespace Persistencia
             }
         }
 
-       /*  Busqueda = "select * from excedidos where cedula=" & "'" & RsCobranza!cedula & "'"
-                           Busqueda = Busqueda & "and importepagado=0"
-         */
+        /*  Busqueda = "select * from excedidos where cedula=" & "'" & RsCobranza!cedula & "'"
+                            Busqueda = Busqueda & "and importepagado=0"
+          */
 
         public DataSet devolverExcedidosSinPago(int id_socio)
         {
@@ -173,20 +173,20 @@ namespace Persistencia
             }
         }
 
-        public DataSet devolverExcedidosPorCIyPresupuesto(string ci, string presupuesto)
+        public DataSet devolverExcedidosPorSocioIdyPresupuesto(int idSocio, string presupuesto)
         {
             try
             {
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT * FROM excedidos where cedula='" + ci + "' and presupuesto=presupuesto";
+                string sql = "SELECT * FROM excedidos where socio_id='" + idSocio + "' and presupuesto='" + presupuesto + "'";
                 DataSet ds = new DataSet();
 
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
                 MySqlAdapter.SelectCommand.CommandText = sql;
-                MySqlAdapter.Fill(ds, "excedidosPorCIyPresupuesto");
+                MySqlAdapter.Fill(ds, "excedidosPorSocioIdyPresupuesto");
                 connection.Close();
                 return ds;
 
@@ -197,31 +197,31 @@ namespace Persistencia
             }
         }
 
-        public DataSet devolverExcedidosPorCI(string ci)
-        {
-            try
-            {
-                MySqlConnection connection = conectar();
+        /*  public DataSet devolverExcedidosPorCI(string ci)
+          {
+              try
+              {
+                  MySqlConnection connection = conectar();
 
-                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT * FROM excedidos where cedula='" + ci + "'";
-                DataSet ds = new DataSet();
+                  MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                  string sql = "SELECT * FROM excedidos where cedula='" + ci + "'";
+                  DataSet ds = new DataSet();
 
-                connection.Open();
-                MySqlAdapter.SelectCommand = connection.CreateCommand();
-                MySqlAdapter.SelectCommand.CommandText = sql;
-                MySqlAdapter.Fill(ds, "excedidosPorCI");
-                connection.Close();
-                return ds;
+                  connection.Open();
+                  MySqlAdapter.SelectCommand = connection.CreateCommand();
+                  MySqlAdapter.SelectCommand.CommandText = sql;
+                  MySqlAdapter.Fill(ds, "excedidosPorCI");
+                  connection.Close();
+                  return ds;
 
-            }
-            catch (Exception ex)
-            {
-                throw ex;
-            }
-        }
+              }
+              catch (Exception ex)
+              {
+                  throw ex;
+              }
+          }
+  */
 
-        
         public DataSet devolverTodos()
         {
             try

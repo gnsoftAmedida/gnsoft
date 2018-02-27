@@ -1304,20 +1304,20 @@ namespace Negocio
             return tmpExcedidos;
         }
 
-        public DataSet devolverExcedidosPorCIyPresupuesto(string ci, string presupuesto)
+        public DataSet devolverExcedidosPorSocioIdyPresupuesto(int idSocio, string presupuesto)
         {
             Excedidos tmpExcedido = new Excedidos();
-            DataSet tmpExcedidos2 = tmpExcedido.devolverExcedidosPorCIyPresupuesto(ci, presupuesto);
+            DataSet tmpExcedidos2 = tmpExcedido.devolverExcedidosPorSocioIdyPresupuesto(idSocio, presupuesto);
             return tmpExcedidos2;
         }
 
-        public DataSet devolverExcedidosPorCI(string ci)
-        {
-            Excedidos tmpExcedido = new Excedidos();
-            DataSet tmpExcedidos2 = tmpExcedido.devolverExcedidosPorCI(ci);
-            return tmpExcedidos2;
-        }
-
+        /*     public DataSet devolverExcedidosPorCI(string ci)
+             {
+                 Excedidos tmpExcedido = new Excedidos();
+                 DataSet tmpExcedidos2 = tmpExcedido.devolverExcedidosPorCI(ci);
+                 return tmpExcedidos2;
+             }
+       */
         public DataSet devolverHistoria(string ci, string presupuesto)
         {
             Historia tmpHistoria = new Historia();
@@ -1572,7 +1572,7 @@ namespace Negocio
                         int id_exedido = Convert.ToInt32(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][0].ToString());
                         double aRetener = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][3].ToString());
                         double retenido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][4].ToString());
-                        double aporteCapitalExcedido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[i][8].ToString());
+                        double aporteCapitalExcedido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][8].ToString());
                         double _excedido = aRetener - retenido;
                         double moraExcedido = 0;
                         double ivaMoraExcedido = 0;
