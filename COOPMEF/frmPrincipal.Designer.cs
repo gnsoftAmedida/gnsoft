@@ -148,8 +148,6 @@
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabCobranza = new System.Windows.Forms.TabPage();
             this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.dgvDeuda = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label42 = new System.Windows.Forms.Label();
             this.txtTotalIngExc = new System.Windows.Forms.TextBox();
@@ -203,7 +201,7 @@
             this.lblOficina = new System.Windows.Forms.Label();
             this.lblInciso = new System.Windows.Forms.Label();
             this.lblObs = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabCobranzaExcedidos = new System.Windows.Forms.TabPage();
             this.btnPagarCobranza = new System.Windows.Forms.Button();
             this.btnSalirCobranza = new System.Windows.Forms.Button();
             this.btnImprimirCobranza = new System.Windows.Forms.Button();
@@ -220,7 +218,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.btnActualizarIntereses = new System.Windows.Forms.Button();
             this.rbtnSI = new System.Windows.Forms.RadioButton();
             this.rbtnNo = new System.Windows.Forms.RadioButton();
             this.txtPresupuesto = new System.Windows.Forms.TextBox();
@@ -269,14 +266,12 @@
             this.tabEstado.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.tabCobranza.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeuda)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.tabPrestamo.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabCobranzaExcedidos.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -572,7 +567,7 @@
             this.tbcPestanas.Controls.Add(this.tabEstado);
             this.tbcPestanas.Controls.Add(this.tabCobranza);
             this.tbcPestanas.Controls.Add(this.tabPrestamo);
-            this.tbcPestanas.Controls.Add(this.tabPage1);
+            this.tbcPestanas.Controls.Add(this.tabCobranzaExcedidos);
             resources.ApplyResources(this.tbcPestanas, "tbcPestanas");
             this.tbcPestanas.Name = "tbcPestanas";
             this.tbcPestanas.SelectedIndex = 0;
@@ -1126,7 +1121,6 @@
             this.tabCobranza.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabCobranza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabCobranza.Controls.Add(this.btnGuardarIngExcedidos);
-            this.tabCobranza.Controls.Add(this.groupBox8);
             this.tabCobranza.Controls.Add(this.groupBox7);
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
             this.tabCobranza.Name = "tabCobranza";
@@ -1139,19 +1133,6 @@
             this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
             this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
             this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.dgvDeuda);
-            resources.ApplyResources(this.groupBox8, "groupBox8");
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.TabStop = false;
-            // 
-            // dgvDeuda
-            // 
-            this.dgvDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dgvDeuda, "dgvDeuda");
-            this.dgvDeuda.Name = "dgvDeuda";
             // 
             // groupBox7
             // 
@@ -1508,16 +1489,16 @@
             resources.ApplyResources(this.lblObs, "lblObs");
             this.lblObs.Name = "lblObs";
             // 
-            // tabPage1
+            // tabCobranzaExcedidos
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.btnPagarCobranza);
-            this.tabPage1.Controls.Add(this.btnSalirCobranza);
-            this.tabPage1.Controls.Add(this.btnImprimirCobranza);
-            this.tabPage1.Controls.Add(this.groupBox10);
-            this.tabPage1.Controls.Add(this.groupBox9);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
+            this.tabCobranzaExcedidos.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabCobranzaExcedidos.Controls.Add(this.btnPagarCobranza);
+            this.tabCobranzaExcedidos.Controls.Add(this.btnSalirCobranza);
+            this.tabCobranzaExcedidos.Controls.Add(this.btnImprimirCobranza);
+            this.tabCobranzaExcedidos.Controls.Add(this.groupBox10);
+            this.tabCobranzaExcedidos.Controls.Add(this.groupBox9);
+            resources.ApplyResources(this.tabCobranzaExcedidos, "tabCobranzaExcedidos");
+            this.tabCobranzaExcedidos.Name = "tabCobranzaExcedidos";
             // 
             // btnPagarCobranza
             // 
@@ -1621,19 +1602,11 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.btnActualizarIntereses);
             this.groupBox11.Controls.Add(this.rbtnSI);
             this.groupBox11.Controls.Add(this.rbtnNo);
             resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.TabStop = false;
-            // 
-            // btnActualizarIntereses
-            // 
-            resources.ApplyResources(this.btnActualizarIntereses, "btnActualizarIntereses");
-            this.btnActualizarIntereses.Name = "btnActualizarIntereses";
-            this.btnActualizarIntereses.UseVisualStyleBackColor = true;
-            this.btnActualizarIntereses.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // rbtnSI
             // 
@@ -1642,6 +1615,7 @@
             this.rbtnSI.Name = "rbtnSI";
             this.rbtnSI.TabStop = true;
             this.rbtnSI.UseVisualStyleBackColor = true;
+            this.rbtnSI.CheckedChanged += new System.EventHandler(this.rbtnSI_CheckedChanged);
             // 
             // rbtnNo
             // 
@@ -1900,8 +1874,6 @@
             this.tabEstado.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.tabCobranza.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeuda)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.tabPrestamo.ResumeLayout(false);
@@ -1912,7 +1884,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.tabCobranzaExcedidos.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -2007,7 +1979,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
-        private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txtRetenidoIngExc;
         private System.Windows.Forms.TextBox txtARetenerIngExc;
@@ -2015,8 +1986,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dgvDeuda;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabCobranzaExcedidos;
         private System.Windows.Forms.TextBox txtCI;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label25;
@@ -2158,7 +2128,6 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnPagarCobranza;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Button btnActualizarIntereses;
     }
 }
 
