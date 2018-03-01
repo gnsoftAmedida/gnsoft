@@ -121,13 +121,18 @@ namespace COOPMEF
                         {
                             if (Convert.ToInt32(txtNroPrestamoCA.Text) != 0)
                             {
-                                MessageBox.Show("El Préstamo queda cancelado a partir del vencimiento del presupuesto del mes" + Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15).ToString().Substring(4, 2) + "/" + Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15).ToString().Substring(7));
+                                string anio = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15).ToString().Substring(6,4);
+                                string mes = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15).ToString().Substring(3, 2);
+                              
+                                MessageBox.Show("El Préstamo queda cancelado a partir del vencimiento del presupuesto del mes " + mes + "/" + anio);
                                 sePuedeCancelar = false;
+                                this.Close();                            
                             }
                             else
                             {
                                 MessageBox.Show("El Socio no tiene Préstamos");
                                 sePuedeCancelar = false;
+                                this.Close();
                             }
                         }
                     }
@@ -135,6 +140,7 @@ namespace COOPMEF
                     {
                         MessageBox.Show("El Socio no tiene Préstamos");
                         sePuedeCancelar = false;
+                        this.Close();
                     }
                 }
                 else
@@ -153,6 +159,7 @@ namespace COOPMEF
 
                     MessageBox.Show("No puede realizar la cancelación. Debe Anular el Presente Préstamo");
                     sePuedeCancelar = false;
+                    this.Close();
                 }
             }
         }
@@ -161,7 +168,7 @@ namespace COOPMEF
         {
             btnGuardarSocio.Enabled = true;
 
-            DE.cancelacion.Rows.Add(txtCiCA.Text, txtNroCobroCA.Text, txtOficinaCA.Text + "/" + txtIncisoCA.Text, txtApeNomCA.Text, txtNroPrestamoCA.Text, txtCuotasPactadasCA.Text, txtCuotasPagadasCA.Text, txtAmortizacionAVencerCA.Text, txtInteresesAVencerCA.Text, txtPresupuestoDeCancelacion.Text, DateTime.Today, Utilidades.UsuarioLogueado.Alias.ToString(),"( " +  empresa.ESCNUM(txtAmortizacionAVencerCA.Text) + " )");
+            DE.cancelacion.Rows.Add(txtCiCA.Text, txtNroCobroCA.Text, txtOficinaCA.Text + "/" + txtIncisoCA.Text, txtApeNomCA.Text, txtNroPrestamoCA.Text, txtCuotasPactadasCA.Text, txtCuotasPagadasCA.Text, txtAmortizacionAVencerCA.Text, txtInteresesAVencerCA.Text, txtPresupuestoDeCancelacion.Text, DateTime.Today, Utilidades.UsuarioLogueado.Alias.ToString(), "( " + empresa.ESCNUM(txtAmortizacionAVencerCA.Text) + " )");
             frmVerReportes reporte = new frmVerReportes(DE, "CANCELACION");
             reporte.ShowDialog();
             DE.cancelacion.Rows.Clear();

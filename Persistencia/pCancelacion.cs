@@ -19,7 +19,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO cobranza (NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, Presupuesto, SocioNumero, Usuario, FechaCancelacion, socio_id ) VALUES ('" + parNumeroPrestamo + "', '" + parCuotasPactadas + "', '" + parCuotasPagadas + "', '" + parTasa.ToString().Replace(",", ".") + "', '" + parMontoVale.ToString().Replace(",", ".") + "', '" + parImporteCuota.ToString().Replace(",", ".") + "', '" + parAmortizacionVencer.ToString().Replace(",", ".") + "', '" + parInteresesVencer.ToString().Replace(",", ".") + "', '" + parPresupuesto + "', '" + parSocioNumero + "', '" + parUsuario + "', '" + FechaCancelacion + "', '" + socio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO cancelacion (NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, Presupuesto, SocioNumero, Usuario, FechaCancelacion, socio_id ) VALUES ('" + parNumeroPrestamo + "', '" + parCuotasPactadas + "', '" + parCuotasPagadas + "', '" + parTasa.ToString().Replace(",", ".") + "', '" + parMontoVale.ToString().Replace(",", ".") + "', '" + parImporteCuota.ToString().Replace(",", ".") + "', '" + parAmortizacionVencer.ToString().Replace(",", ".") + "', '" + parInteresesVencer.ToString().Replace(",", ".") + "', '" + parPresupuesto + "', '" + parSocioNumero + "', '" + parUsuario + "', '" + FechaCancelacion.ToString("yyyy/MM/dd") + "', '" + socio_id + "');" + "Select last_insert_id()";
 
             try
             {

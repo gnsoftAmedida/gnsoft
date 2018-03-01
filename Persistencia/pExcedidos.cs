@@ -23,11 +23,11 @@ namespace Persistencia
             {
                 connection.Open();
                 transaction = connection.BeginTransaction();
-                MySqlAdapter.UpdateCommand = connection.CreateCommand();
-                MySqlAdapter.UpdateCommand.Transaction = transaction;
+                MySqlAdapter.DeleteCommand = connection.CreateCommand();
+                MySqlAdapter.DeleteCommand.Transaction = transaction;
 
-                MySqlAdapter.UpdateCommand.CommandText = sql;
-                MySqlAdapter.UpdateCommand.ExecuteNonQuery();
+                MySqlAdapter.DeleteCommand.CommandText = sql;
+                MySqlAdapter.DeleteCommand.ExecuteNonQuery();
                 transaction.Commit();
                 connection.Close();
 
