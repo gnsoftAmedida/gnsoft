@@ -254,6 +254,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -297,6 +298,8 @@
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.anulaciónToolStripMenuItem});
             resources.ApplyResources(this.archivoToolStripMenuItem, "archivoToolStripMenuItem");
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             // 
@@ -1320,6 +1323,7 @@
             // 
             resources.ApplyResources(this.txtNuevoImporte, "txtNuevoImporte");
             this.txtNuevoImporte.Name = "txtNuevoImporte";
+            this.txtNuevoImporte.ReadOnly = true;
             this.txtNuevoImporte.Leave += new System.EventHandler(this.txtNuevoImporte_Leave);
             // 
             // label17
@@ -1842,6 +1846,12 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // anulaciónToolStripMenuItem
+            // 
+            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
+            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
+            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2128,6 +2138,7 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnPagarCobranza;
         private System.Windows.Forms.Label label42;
+        private System.Windows.Forms.ToolStripMenuItem anulaciónToolStripMenuItem;
     }
 }
 

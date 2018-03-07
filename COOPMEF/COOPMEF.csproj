@@ -106,6 +106,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="frmAnulacionPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnulacionPrestamo.Designer.cs">
+      <DependentUpon>frmAnulacionPrestamo.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCancelacionAnticipadaDePrestmos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -298,6 +304,9 @@
       <DependentUpon>solicitudPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="frmAnulacionPrestamo.resx">
+      <DependentUpon>frmAnulacionPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCancelacionAnticipadaDePrestmos.resx">
       <DependentUpon>frmCancelacionAnticipadaDePrestmos.cs</DependentUpon>
     </EmbeddedResource>

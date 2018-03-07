@@ -66,6 +66,20 @@ namespace COOPMEF
             btnGuardarSocio.Enabled = false;
         }
 
+        private Boolean estaExcedido()
+        {
+
+            if (!(idSocioSeleccionado == 0))
+            {
+                DataSet dsExcedidosSinPago = empresa.devolverExcedidosSinPago(idSocioSeleccionado);
+                if (dsExcedidosSinPago.Tables["excedidosSinPago"].Rows.Count > 0)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
+
         private void CancelacionAnticipadaDePrestmos_Load(object sender, EventArgs e)
         {
             cargaPrestamosCancelacion();
@@ -87,80 +101,98 @@ namespace COOPMEF
 
             if (socioSeleccionado.Tables["socios"].Rows.Count > 0)
             {
-                this.txtApeNomCA.Text = socioSeleccionado.Tables["socios"].Rows[0][3].ToString().Trim() + "," + socioSeleccionado.Tables["socios"].Rows[0][2].ToString().Trim();
-                this.txtCiCA.Text = socioSeleccionado.Tables["socios"].Rows[0][1].ToString();
-                this.txtNroCobroCA.Text = socioSeleccionado.Tables["socios"].Rows[0][4].ToString();
+                bool excedido = estaExcedido();
 
-                DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
-                DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
-                DataSet dsParametros = empresa.DevolverEmpresa();
-
-                if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count == 0)
+                if (!excedido)
                 {
-                    if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count > 0)
+
+                    this.txtApeNomCA.Text = socioSeleccionado.Tables["socios"].Rows[0][3].ToString().Trim() + "," + socioSeleccionado.Tables["socios"].Rows[0][2].ToString().Trim();
+                    this.txtCiCA.Text = socioSeleccionado.Tables["socios"].Rows[0][1].ToString();
+                    this.txtNroCobroCA.Text = socioSeleccionado.Tables["socios"].Rows[0][4].ToString();
+
+                    DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
+                    DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
+                    DataSet dsParametros = empresa.DevolverEmpresa();
+
+                    if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count == 0)
                     {
-                        idCobranza = Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][0].ToString());
-                        txtNroPrestamoCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString();
-                        txtCuotasPactadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString();
-                        txtCuotasPagadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString();
-                        txtTasAnualEfecCA.Text = String.Format(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][3].ToString(), "##0.00");
-                        txtMontoDelValeCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][5].ToString();
-                        txtImporteCuotaCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][8].ToString();
-                        txtAmortizacionAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString();
-                        txtInteresesAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][13].ToString();
-
-                        if (Convert.ToDouble(txtAmortizacionAVencerCA.Text) != 0)
+                        if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count > 0)
                         {
-                            txtAPagarPorCajaCA.Text = txtAmortizacionAVencerCA.Text;
+                            idCobranza = Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][0].ToString());
+                            txtNroPrestamoCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString();
+                            txtCuotasPactadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString();
+                            txtCuotasPagadasCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString();
+                            txtTasAnualEfecCA.Text = String.Format(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][3].ToString(), "##0.00");
+                            txtMontoDelValeCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][5].ToString();
+                            txtImporteCuotaCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][8].ToString();
+                            txtAmortizacionAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString();
+                            txtInteresesAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][13].ToString();
 
-                            DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15);
-                            txtPresupuestoDeCancelacion.Text = empresa.formatoFechaMid4(FechaVto);
-                            sePuedeCancelar = true;
-                        }
-                        else
-                        {
-                            if (Convert.ToInt32(txtNroPrestamoCA.Text) != 0)
+                            if (Convert.ToDouble(txtAmortizacionAVencerCA.Text) != 0)
                             {
-                                string anio = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15).ToString().Substring(6,4);
-                                string mes = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15).ToString().Substring(3, 2);
-                              
-                                MessageBox.Show("El Préstamo queda cancelado a partir del vencimiento del presupuesto del mes " + mes + "/" + anio);
-                                sePuedeCancelar = false;
-                                this.Close();                            
+                                txtAPagarPorCajaCA.Text = txtAmortizacionAVencerCA.Text;
+
+                                DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15);
+                                txtPresupuestoDeCancelacion.Text = empresa.formatoFechaMid4(FechaVto);
+                                sePuedeCancelar = true;
                             }
                             else
                             {
-                                MessageBox.Show("El Socio no tiene Préstamos");
-                                sePuedeCancelar = false;
-                                this.Close();
+                                if (Convert.ToInt32(txtNroPrestamoCA.Text) != 0)
+                                {
+                                    string anio = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15).ToString().Substring(6, 4);
+                                    string mes = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15).ToString().Substring(3, 2);
+
+                                    MessageBox.Show("El Préstamo queda cancelado a partir del vencimiento del presupuesto del mes " + mes + "/" + anio);
+                                    sePuedeCancelar = false;
+                                    this.Close();
+                                }
+                                else
+                                {
+                                    MessageBox.Show("El Socio no tiene Préstamos");
+                                    sePuedeCancelar = false;
+                                    this.Close();
+                                }
                             }
+                        }
+                        else
+                        {
+                            MessageBox.Show("El Socio no tiene Préstamos");
+                            sePuedeCancelar = false;
+                            this.Close();
                         }
                     }
                     else
                     {
-                        MessageBox.Show("El Socio no tiene Préstamos");
+
+                        txtNroPrestamoCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][1].ToString();
+                        txtCuotasPactadasCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString();
+                        txtCuotasPagadasCA.Text = 0.ToString();
+                        txtTasAnualEfecCA.Text = String.Format(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][3].ToString(), "##0.00");
+                        txtMontoDelValeCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString();
+                        txtImporteCuotaCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString();
+                        txtAmortizacionAVencerCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][12].ToString();
+
+                        double CalculotxtInteresesAVencer = (Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString()) * Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString())) - Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString());
+                        txtInteresesAVencerCA.Text = Convert.ToString(CalculotxtInteresesAVencer);
+
+                        MessageBox.Show("No puede realizar la cancelación. Debe Anular el Presente Préstamo");
                         sePuedeCancelar = false;
                         this.Close();
                     }
+
                 }
                 else
                 {
-
-                    txtNroPrestamoCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][1].ToString();
-                    txtCuotasPactadasCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString();
-                    txtCuotasPagadasCA.Text = 0.ToString();
-                    txtTasAnualEfecCA.Text = String.Format(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][3].ToString(), "##0.00");
-                    txtMontoDelValeCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString();
-                    txtImporteCuotaCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString();
-                    txtAmortizacionAVencerCA.Text = dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][12].ToString();
-
-                    double CalculotxtInteresesAVencer = (Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][6].ToString()) * Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][8].ToString())) - Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString());
-                    txtInteresesAVencerCA.Text = Convert.ToString(CalculotxtInteresesAVencer);
-
-                    MessageBox.Show("No puede realizar la cancelación. Debe Anular el Presente Préstamo");
+                    MessageBox.Show("No puede realizar la cancelación. Debe cancelar la deuda pendiente como excedido");
                     sePuedeCancelar = false;
                     this.Close();
                 }
+            }
+            else {
+                MessageBox.Show("Debe seleccionar un socio para poder cancelar");
+                sePuedeCancelar = false;
+                this.Close();
             }
         }
 

@@ -1538,12 +1538,17 @@ namespace COOPMEF
                 this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
                 this.cmbPlanPréstamo.ValueMember = "plan_id";
 
+                txtNuevoImporte.Clear();
+                txtTotalDeuda.Text = "0.00";
+                btnSolicitar.Enabled = false;
+
                 if (!(idSocioSeleccionado == 0))
                 {
                     excedido = estaExcedido();
 
                     if (!excedido)
                     {
+                        txtNuevoImporte.ReadOnly = false;
                         // busco primero en cobranza provisoria para ver si no tiene ningun
                         // prestamo que haya hecho recien y que no se haya mandado a retener.
                         DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
@@ -1627,6 +1632,7 @@ namespace COOPMEF
                     else
                     {
                         MessageBox.Show("El Socio tiene deudas pendientes. No puede operar hasta cancelar la totalidad de la misma.");
+                        txtNuevoImporte.ReadOnly = true;
                     }
                 }
             }
@@ -1885,7 +1891,18 @@ namespace COOPMEF
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
             frmCierreMes frmCierre = new frmCierreMes();
-            frmCierre.Show();
+            frmCierre.ShowDialog();
+
+
+            /*  string tabSeleccionado = tbcPestanas.SelectedTab.Name;
+
+              tbcPestanas.SelectedTab = tbcPestanas.TabPages[tabSeleccionado];
+             * 
+             * */
+
+            cargarPlanPrestamoSocio();
+
+
             limpiarPantallaIngresoDeExcedidos();
             limpiarPantallaDeCobranza();
         }
@@ -1974,8 +1991,16 @@ namespace COOPMEF
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado);
-            frmCancelacion.Show();
+            if (idSocioSeleccionado > 0)
+            {
+                frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado);
+                frmCancelacion.ShowDialog();
+                cargarPlanPrestamoSocio();
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un socio para poder cancelar");
+            }
         }
 
         private Double calcularMoraYSaldos(Double saldo, string _presupuesto)
@@ -2081,7 +2106,7 @@ namespace COOPMEF
             {
 
                 txtPresupuesto.Text = dsExcedidosSocioIdPresupuesto.Tables[tabla].Rows[0][1].ToString();
-                txtARetener.Text = String.Format(dsExcedidosSocioIdPresupuesto.Tables[tabla].Rows[0][3].ToString(),"##0.00");
+                txtARetener.Text = String.Format(dsExcedidosSocioIdPresupuesto.Tables[tabla].Rows[0][3].ToString(), "##0.00");
                 txtRetenido.Text = String.Format(dsExcedidosSocioIdPresupuesto.Tables[tabla].Rows[0][4].ToString(), "##0.00");
 
                 Double saldo = Convert.ToDouble(txtARetener.Text) - Convert.ToDouble(txtRetenido.Text);
@@ -2301,6 +2326,13 @@ Agregar emisión
                 txtMora.Text = tmpMora.ToString("###,###,##0.00");
                 txtTotal.Text = (tmpMora + tmpSaldo).ToString("###,###,##0.00");
             }
+        }
+
+        private void anulaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmAnulacionPrestamo frmAnulacion = new frmAnulacionPrestamo();
+            frmAnulacion.ShowDialog();
+            cargarPlanPrestamoSocio();
         }
     }
 }
