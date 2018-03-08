@@ -202,6 +202,34 @@ namespace Persistencia
                 connection.Close();
             }
 
+
+            catch (MySqlException ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+
+                switch (ex.Number)
+                {
+                    case 1406:
+                        MisExcepciones ep = new MisExcepciones("Datos muy largos");
+                        throw ep;
+
+                    case 1062:
+                        MisExcepciones es = new MisExcepciones("Ya exíste un socio registrado con ese documento");
+                        throw es;
+
+                    case 1451:
+                        MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten prestamos asociadas ");
+                        throw fk;
+                }
+
+                MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
+                throw eg;
+            }
+
+
+
+
             catch (Exception ex)
             {
                 transaction.Rollback();
@@ -231,6 +259,30 @@ namespace Persistencia
                 MySqlAdapter.InsertCommand.ExecuteNonQuery();
                 transaction.Commit();
                 connection.Close();
+            }
+
+            catch (MySqlException ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+
+                switch (ex.Number)
+                {
+                    case 1406:
+                        MisExcepciones ep = new MisExcepciones("Datos muy largos");
+                        throw ep;
+
+                    case 1062:
+                        MisExcepciones es = new MisExcepciones("Ya exíste un socio con registrado con ese documento");
+                        throw es;
+
+                    case 1451:
+                        MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten prestamos asociadas ");
+                        throw fk;
+                }
+
+                MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
+                throw eg;
             }
 
            

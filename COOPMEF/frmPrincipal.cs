@@ -64,16 +64,25 @@ namespace COOPMEF
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
+        private void cargarIncisosOficinas()
+        {
+            dsIncisos = empresa.DevolverIncisos();
+            dsOficinas = empresa.DevolverOficinas();
+
+            this.cmbInciso.DataSource = dsIncisos.Tables["incisos"];
+            this.cmbInciso.DisplayMember = "inciso_abreviatura";
+            this.cmbInciso.ValueMember = "inciso_id";
+            this.cmbInciso.Enabled = true;
+            this.cmbInciso.SelectedIndex = 0;
+        }
 
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             dsAccionesPermitidas = empresa.DevolverAccionesXUsuario(Utilidades.UsuarioLogueado.IdUsuario);
 
+            cargarIncisosOficinas();
+
             dsSocios = empresa.DevolverSocios();
-
-            dsIncisos = empresa.DevolverIncisos();
-
-            dsOficinas = empresa.DevolverOficinas();
 
             cmbBusqueda.SelectedIndex = 0;
 
@@ -345,6 +354,7 @@ namespace COOPMEF
         {
             frmMantOficinas mantOficina = new frmMantOficinas();
             mantOficina.ShowDialog();
+            cargarIncisosOficinas();
 
         }
 
@@ -354,6 +364,7 @@ namespace COOPMEF
             {
                 frmMantenimientoInciso minciso = new frmMantenimientoInciso();
                 minciso.ShowDialog();
+                cargarIncisosOficinas();
             }
             //else
             //{
@@ -494,17 +505,14 @@ namespace COOPMEF
             lblYaExisteSocio.Visible = false;
             lblYaExisteTel.Visible = false;
 
+            lblEstadoActivo.Visible = false;
+            lblEstadoDeBaja.Visible = false;
+
             //for (int i = 18; i < 100; i++) this.cmbEdad.Items.Add(i);
 
             //this.cmbEdad.SelectedIndex = 0;
 
             this.cmbEstadoCivil.SelectedIndex = 0;
-
-            this.cmbInciso.DataSource = dsIncisos.Tables["incisos"];
-            this.cmbInciso.DisplayMember = "inciso_abreviatura";
-            this.cmbInciso.ValueMember = "inciso_id";
-            this.cmbInciso.Enabled = true;
-            this.cmbInciso.SelectedIndex = 0;
 
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
@@ -778,7 +786,7 @@ namespace COOPMEF
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
-                    empresa.AltaSocio(socioActivo, socioNro.Replace(".", "").Replace(",", "").Replace("-", "").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
@@ -831,7 +839,7 @@ namespace COOPMEF
                 bool formatoCiOK = true;
                 int resultado;
 
-                if (int.TryParse(nro_socio, out resultado))
+                if (int.TryParse(nro_socio.Replace(".", "").Replace(",", "").Replace("-", ""), out resultado))
                 {
                     if (resultado.ToString().Length >= 7)
                     {
@@ -893,7 +901,7 @@ namespace COOPMEF
                         // agregro estado_civil para que guarde el texto y no numeros en la BD
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
 
-                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(".", "").Replace(",", "").Replace("-", "").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
 
 
                         //*******
@@ -1223,7 +1231,12 @@ namespace COOPMEF
         {
             if (!(dgvSociosCampo.CurrentRow == null))
             {
+                //   pantallaInicialSocio();
+                //desactivarAltaSocio();
                 seleccionarSocioYllenarDataGrid();
+                desactivarAltaSocio();
+                btnNuevoSocio.Enabled = true;
+                borrarErroresNuevoSocio();
                 //btnNuevoSocio.Enabled = true;
             }
             else
@@ -1231,9 +1244,6 @@ namespace COOPMEF
                 pantallaInicialSocio();
                 btnNuevoSocio.Enabled = true;
             }
-
-            activarAltaSocio();
-
         }
 
         private void seleccionarSocio()
@@ -1270,6 +1280,10 @@ namespace COOPMEF
                 if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals(0))
                     rBtnActivo.Checked = true;
                 else rBtnPasivo.Checked = true;
+
+
+                int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
+                cambiarEstado(estadoActual);
 
                 if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals("M"))
                     rbtnMasculino.Checked = true;
@@ -1407,6 +1421,8 @@ namespace COOPMEF
                 //int index = dgvSociosCampo.CurrentRow.Index;
                 //int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
                 //cambiarBotonBajaAlta(estadoActual);
+
+
 
                 limpiarPantallaIngresoDeExcedidos();
             }
@@ -1657,9 +1673,7 @@ namespace COOPMEF
 
         private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)
         {
-            //Ver si se rompe algo si lo sacamos 29/01/2018
-            //cargarDatosGralesDesdeDataGrid();
-            cargarPantallas();
+
         }
 
         private void CalcularImporteCuota()
@@ -2333,6 +2347,18 @@ Agregar emisión
             frmAnulacionPrestamo frmAnulacion = new frmAnulacionPrestamo();
             frmAnulacion.ShowDialog();
             cargarPlanPrestamoSocio();
+        }
+
+        private void dgvSociosCampo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
+
+        private void dgvSociosCampo_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            //Ver si se rompe algo si lo sacamos 29/01/2018
+            //cargarDatosGralesDesdeDataGrid();
+            cargarPantallas();
         }
     }
 }

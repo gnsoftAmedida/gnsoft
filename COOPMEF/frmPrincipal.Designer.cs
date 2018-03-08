@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -254,7 +255,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -302,6 +302,12 @@
             this.anulaciónToolStripMenuItem});
             resources.ApplyResources(this.archivoToolStripMenuItem, "archivoToolStripMenuItem");
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            // 
+            // anulaciónToolStripMenuItem
+            // 
+            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
+            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
+            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
             // 
             // verToolStripMenuItem
             // 
@@ -595,6 +601,8 @@
             this.dgvSociosCampo.Name = "dgvSociosCampo";
             this.dgvSociosCampo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellClick);
             this.dgvSociosCampo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentClick);
+            this.dgvSociosCampo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentDoubleClick);
+            this.dgvSociosCampo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellDoubleClick);
             this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
             // 
             // btnSalirPlan
@@ -1845,12 +1853,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
-            // 
-            // anulaciónToolStripMenuItem
-            // 
-            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
-            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
-            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
