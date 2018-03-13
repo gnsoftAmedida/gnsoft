@@ -112,6 +112,12 @@
     <Compile Include="frmAnulacionPrestamo.Designer.cs">
       <DependentUpon>frmAnulacionPrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBanco.Designer.cs">
+      <DependentUpon>frmBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCancelacionAnticipadaDePrestmos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -306,6 +312,9 @@
     </Compile>
     <EmbeddedResource Include="frmAnulacionPrestamo.resx">
       <DependentUpon>frmAnulacionPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBanco.resx">
+      <DependentUpon>frmBanco.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCancelacionAnticipadaDePrestmos.resx">
       <DependentUpon>frmCancelacionAnticipadaDePrestmos.cs</DependentUpon>

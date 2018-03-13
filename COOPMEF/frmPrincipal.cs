@@ -2360,6 +2360,12 @@ Agregar emisión
             //cargarDatosGralesDesdeDataGrid();
             cargarPantallas();
         }
+
+        private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmBanco frmTmpBanco = new frmBanco();
+            frmTmpBanco.ShowDialog();
+        }
     }
 }
 
