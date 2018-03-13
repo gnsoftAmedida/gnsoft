@@ -2366,6 +2366,18 @@ Agregar emisión
             frmBanco frmTmpBanco = new frmBanco();
             frmTmpBanco.ShowDialog();
         }
+
+        private void ingresoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmMovimientosBancarios frmTmpMovimientos = new frmMovimientosBancarios();
+            frmTmpMovimientos.ShowDialog();
+
+        }
+
+        private void rBtnPasivo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

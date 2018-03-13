@@ -36,7 +36,7 @@ namespace COOPMEF
         public void pantallaInicial()
         {
             this.cmbBusqueda.DataSource = dsBancos.Tables["bancos"];
-            this.cmbBusqueda.DisplayMember = "nombrebanco";
+            this.cmbBusqueda.DisplayMember = "mostrarse";
             this.cmbBusqueda.ValueMember = "codigobanco";
             this.cmbBusqueda.SelectedIndex = -1;
             this.cmbBusqueda.Enabled = true;

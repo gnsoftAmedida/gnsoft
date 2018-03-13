@@ -260,19 +260,31 @@
     <value>Cobranza</value>
   </data>
   <data name="mantenimientoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>199, 24</value>
+    <value>208, 24</value>
   </data>
   <data name="mantenimientoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mantenimiento</value>
+    <value>Mantenimientos</value>
+  </data>
+  <data name="ingresoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>140, 24</value>
+  </data>
+  <data name="ingresoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ingreso</value>
+  </data>
+  <data name="movimientosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 24</value>
+  </data>
+  <data name="movimientosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Movimientos</value>
   </data>
   <data name="bancoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 9.75pt</value>
   </data>
   <data name="bancoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>73, 24</value>
+    <value>82, 24</value>
   </data>
   <data name="bancoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Banco</value>
+    <value>Bancos</value>
   </data>
   <data name="toolStripMenuItemAgenda.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
@@ -6496,9 +6508,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
@@ -6643,6 +6652,24 @@
   <data name="&gt;&gt;bancoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;mantenimientoToolStripMenuItem.Name" xml:space="preserve">
+    <value>mantenimientoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;mantenimientoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;movimientosToolStripMenuItem.Name" xml:space="preserve">
+    <value>movimientosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;movimientosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ingresoToolStripMenuItem.Name" xml:space="preserve">
+    <value>ingresoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ingresoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;calendarioToolStripMenuItem.Name" xml:space="preserve">
     <value>calendarioToolStripMenuItem</value>
   </data>
@@ -6749,12 +6776,6 @@
     <value>ayudaToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;mantenimientoToolStripMenuItem.Name" xml:space="preserve">
-    <value>mantenimientoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;mantenimientoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

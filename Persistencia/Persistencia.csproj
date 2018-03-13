@@ -50,6 +50,7 @@
     <Compile Include="pCobranza.cs" />
     <Compile Include="pEmpresa.cs" />
     <Compile Include="pHistoria.cs" />
+    <Compile Include="pMovimiento.cs" />
     <Compile Include="pPrestamo.cs" />
     <Compile Include="pAccion.cs" />
     <Compile Include="pDepartamento.cs" />

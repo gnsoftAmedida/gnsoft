@@ -35,7 +35,18 @@
             this.btnEditarBanco = new System.Windows.Forms.Button();
             this.btnNuevoBanco = new System.Windows.Forms.Button();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
+            this.cmbMonedaBanco = new System.Windows.Forms.ComboBox();
+            this.txtCuentaBanco = new System.Windows.Forms.TextBox();
+            this.txtFaxBanco = new System.Windows.Forms.TextBox();
+            this.txtDireccionBanco = new System.Windows.Forms.TextBox();
+            this.txtTelefonoBanco = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
+            this.lblCuentaBanco = new System.Windows.Forms.Label();
+            this.lblTelfonoBanco = new System.Windows.Forms.Label();
+            this.lblDireccionBanco = new System.Windows.Forms.Label();
             this.lblAgenciaBanco = new System.Windows.Forms.Label();
             this.lblCodigoBanco = new System.Windows.Forms.Label();
             this.lblNombreBanco = new System.Windows.Forms.Label();
@@ -47,17 +58,6 @@
             this.label31 = new System.Windows.Forms.Label();
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
-            this.txtCuentaBanco = new System.Windows.Forms.TextBox();
-            this.txtFaxBanco = new System.Windows.Forms.TextBox();
-            this.txtDireccionBanco = new System.Windows.Forms.TextBox();
-            this.txtTelefonoBanco = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.cmbMonedaBanco = new System.Windows.Forms.ComboBox();
-            this.lblDireccionBanco = new System.Windows.Forms.Label();
-            this.lblTelfonoBanco = new System.Windows.Forms.Label();
-            this.lblCuentaBanco = new System.Windows.Forms.Label();
             this.groupBox12.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -180,6 +180,89 @@
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Mantenimiento de Bancos";
             // 
+            // cmbMonedaBanco
+            // 
+            this.cmbMonedaBanco.FormattingEnabled = true;
+            this.cmbMonedaBanco.Items.AddRange(new object[] {
+            "Dólares",
+            "Pesos"});
+            this.cmbMonedaBanco.Location = new System.Drawing.Point(360, 297);
+            this.cmbMonedaBanco.Name = "cmbMonedaBanco";
+            this.cmbMonedaBanco.Size = new System.Drawing.Size(139, 26);
+            this.cmbMonedaBanco.TabIndex = 43;
+            // 
+            // txtCuentaBanco
+            // 
+            this.txtCuentaBanco.Location = new System.Drawing.Point(213, 297);
+            this.txtCuentaBanco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCuentaBanco.MaxLength = 45;
+            this.txtCuentaBanco.Name = "txtCuentaBanco";
+            this.txtCuentaBanco.Size = new System.Drawing.Size(139, 26);
+            this.txtCuentaBanco.TabIndex = 42;
+            // 
+            // txtFaxBanco
+            // 
+            this.txtFaxBanco.Location = new System.Drawing.Point(360, 253);
+            this.txtFaxBanco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtFaxBanco.MaxLength = 45;
+            this.txtFaxBanco.Name = "txtFaxBanco";
+            this.txtFaxBanco.Size = new System.Drawing.Size(139, 26);
+            this.txtFaxBanco.TabIndex = 41;
+            // 
+            // txtDireccionBanco
+            // 
+            this.txtDireccionBanco.Location = new System.Drawing.Point(213, 203);
+            this.txtDireccionBanco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtDireccionBanco.MaxLength = 250;
+            this.txtDireccionBanco.Name = "txtDireccionBanco";
+            this.txtDireccionBanco.Size = new System.Drawing.Size(229, 26);
+            this.txtDireccionBanco.TabIndex = 39;
+            // 
+            // txtTelefonoBanco
+            // 
+            this.txtTelefonoBanco.Location = new System.Drawing.Point(213, 252);
+            this.txtTelefonoBanco.Margin = new System.Windows.Forms.Padding(4);
+            this.txtTelefonoBanco.MaxLength = 45;
+            this.txtTelefonoBanco.Name = "txtTelefonoBanco";
+            this.txtTelefonoBanco.Size = new System.Drawing.Size(139, 26);
+            this.txtTelefonoBanco.TabIndex = 40;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(24, 297);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(160, 22);
+            this.label2.TabIndex = 36;
+            this.label2.Text = "Nº Cuenta / Mon.";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(24, 257);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(139, 22);
+            this.label3.TabIndex = 36;
+            this.label3.Text = "Teléfono / FAX";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(24, 207);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(97, 22);
+            this.label4.TabIndex = 37;
+            this.label4.Text = "Dirección";
+            // 
             // lblErrorGenerico
             // 
             this.lblErrorGenerico.AutoSize = true;
@@ -191,6 +274,42 @@
             this.lblErrorGenerico.Size = new System.Drawing.Size(49, 16);
             this.lblErrorGenerico.TabIndex = 30;
             this.lblErrorGenerico.Text = "label2";
+            // 
+            // lblCuentaBanco
+            // 
+            this.lblCuentaBanco.AutoSize = true;
+            this.lblCuentaBanco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblCuentaBanco.ForeColor = System.Drawing.Color.Red;
+            this.lblCuentaBanco.Location = new System.Drawing.Point(507, 302);
+            this.lblCuentaBanco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCuentaBanco.Name = "lblCuentaBanco";
+            this.lblCuentaBanco.Size = new System.Drawing.Size(49, 16);
+            this.lblCuentaBanco.TabIndex = 30;
+            this.lblCuentaBanco.Text = "label2";
+            // 
+            // lblTelfonoBanco
+            // 
+            this.lblTelfonoBanco.AutoSize = true;
+            this.lblTelfonoBanco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTelfonoBanco.ForeColor = System.Drawing.Color.Red;
+            this.lblTelfonoBanco.Location = new System.Drawing.Point(507, 258);
+            this.lblTelfonoBanco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblTelfonoBanco.Name = "lblTelfonoBanco";
+            this.lblTelfonoBanco.Size = new System.Drawing.Size(49, 16);
+            this.lblTelfonoBanco.TabIndex = 30;
+            this.lblTelfonoBanco.Text = "label2";
+            // 
+            // lblDireccionBanco
+            // 
+            this.lblDireccionBanco.AutoSize = true;
+            this.lblDireccionBanco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblDireccionBanco.ForeColor = System.Drawing.Color.Red;
+            this.lblDireccionBanco.Location = new System.Drawing.Point(450, 208);
+            this.lblDireccionBanco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblDireccionBanco.Name = "lblDireccionBanco";
+            this.lblDireccionBanco.Size = new System.Drawing.Size(49, 16);
+            this.lblDireccionBanco.TabIndex = 30;
+            this.lblDireccionBanco.Text = "label2";
             // 
             // lblAgenciaBanco
             // 
@@ -256,7 +375,7 @@
             this.cmbBusqueda.Location = new System.Drawing.Point(212, 50);
             this.cmbBusqueda.Margin = new System.Windows.Forms.Padding(4);
             this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(272, 28);
+            this.cmbBusqueda.Size = new System.Drawing.Size(380, 28);
             this.cmbBusqueda.TabIndex = 0;
             this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 
@@ -313,125 +432,6 @@
             this.label28.Size = new System.Drawing.Size(68, 22);
             this.label28.TabIndex = 0;
             this.label28.Text = "Banco";
-            // 
-            // txtCuentaBanco
-            // 
-            this.txtCuentaBanco.Location = new System.Drawing.Point(213, 297);
-            this.txtCuentaBanco.Margin = new System.Windows.Forms.Padding(4);
-            this.txtCuentaBanco.MaxLength = 45;
-            this.txtCuentaBanco.Name = "txtCuentaBanco";
-            this.txtCuentaBanco.Size = new System.Drawing.Size(139, 26);
-            this.txtCuentaBanco.TabIndex = 42;
-            // 
-            // txtFaxBanco
-            // 
-            this.txtFaxBanco.Location = new System.Drawing.Point(360, 253);
-            this.txtFaxBanco.Margin = new System.Windows.Forms.Padding(4);
-            this.txtFaxBanco.MaxLength = 45;
-            this.txtFaxBanco.Name = "txtFaxBanco";
-            this.txtFaxBanco.Size = new System.Drawing.Size(139, 26);
-            this.txtFaxBanco.TabIndex = 41;
-            // 
-            // txtDireccionBanco
-            // 
-            this.txtDireccionBanco.Location = new System.Drawing.Point(213, 203);
-            this.txtDireccionBanco.Margin = new System.Windows.Forms.Padding(4);
-            this.txtDireccionBanco.MaxLength = 250;
-            this.txtDireccionBanco.Name = "txtDireccionBanco";
-            this.txtDireccionBanco.Size = new System.Drawing.Size(229, 26);
-            this.txtDireccionBanco.TabIndex = 39;
-            // 
-            // txtTelefonoBanco
-            // 
-            this.txtTelefonoBanco.Location = new System.Drawing.Point(213, 252);
-            this.txtTelefonoBanco.Margin = new System.Windows.Forms.Padding(4);
-            this.txtTelefonoBanco.MaxLength = 45;
-            this.txtTelefonoBanco.Name = "txtTelefonoBanco";
-            this.txtTelefonoBanco.Size = new System.Drawing.Size(139, 26);
-            this.txtTelefonoBanco.TabIndex = 40;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label3.Location = new System.Drawing.Point(24, 257);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(139, 22);
-            this.label3.TabIndex = 36;
-            this.label3.Text = "Teléfono / FAX";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label4.Location = new System.Drawing.Point(24, 207);
-            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(97, 22);
-            this.label4.TabIndex = 37;
-            this.label4.Text = "Dirección";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(24, 297);
-            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(160, 22);
-            this.label2.TabIndex = 36;
-            this.label2.Text = "Nº Cuenta / Mon.";
-            // 
-            // cmbMonedaBanco
-            // 
-            this.cmbMonedaBanco.FormattingEnabled = true;
-            this.cmbMonedaBanco.Items.AddRange(new object[] {
-            "Dólares",
-            "Pesos"});
-            this.cmbMonedaBanco.Location = new System.Drawing.Point(360, 297);
-            this.cmbMonedaBanco.Name = "cmbMonedaBanco";
-            this.cmbMonedaBanco.Size = new System.Drawing.Size(139, 26);
-            this.cmbMonedaBanco.TabIndex = 43;
-            // 
-            // lblDireccionBanco
-            // 
-            this.lblDireccionBanco.AutoSize = true;
-            this.lblDireccionBanco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblDireccionBanco.ForeColor = System.Drawing.Color.Red;
-            this.lblDireccionBanco.Location = new System.Drawing.Point(450, 208);
-            this.lblDireccionBanco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblDireccionBanco.Name = "lblDireccionBanco";
-            this.lblDireccionBanco.Size = new System.Drawing.Size(49, 16);
-            this.lblDireccionBanco.TabIndex = 30;
-            this.lblDireccionBanco.Text = "label2";
-            // 
-            // lblTelfonoBanco
-            // 
-            this.lblTelfonoBanco.AutoSize = true;
-            this.lblTelfonoBanco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTelfonoBanco.ForeColor = System.Drawing.Color.Red;
-            this.lblTelfonoBanco.Location = new System.Drawing.Point(507, 258);
-            this.lblTelfonoBanco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblTelfonoBanco.Name = "lblTelfonoBanco";
-            this.lblTelfonoBanco.Size = new System.Drawing.Size(49, 16);
-            this.lblTelfonoBanco.TabIndex = 30;
-            this.lblTelfonoBanco.Text = "label2";
-            // 
-            // lblCuentaBanco
-            // 
-            this.lblCuentaBanco.AutoSize = true;
-            this.lblCuentaBanco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblCuentaBanco.ForeColor = System.Drawing.Color.Red;
-            this.lblCuentaBanco.Location = new System.Drawing.Point(507, 302);
-            this.lblCuentaBanco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.lblCuentaBanco.Name = "lblCuentaBanco";
-            this.lblCuentaBanco.Size = new System.Drawing.Size(49, 16);
-            this.lblCuentaBanco.TabIndex = 30;
-            this.lblCuentaBanco.Text = "label2";
             // 
             // frmBanco
             // 

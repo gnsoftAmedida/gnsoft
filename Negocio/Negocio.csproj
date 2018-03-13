@@ -51,6 +51,7 @@
     <Compile Include="FechaCierre.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Historia.cs" />
+    <Compile Include="Movimiento.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Evento.cs" />
