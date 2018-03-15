@@ -79,7 +79,7 @@ namespace Negocio
         public void Guardar()
         {
             pMovimiento tmpMovimiento = new pMovimiento();
-            tmpMovimiento.GuardarMovimiento(fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto);
+            tmpMovimiento.GuardarMovimiento(fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, Saldo);
         }
 
     }

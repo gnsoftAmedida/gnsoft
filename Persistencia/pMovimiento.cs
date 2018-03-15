@@ -16,7 +16,7 @@ namespace Persistencia
         //movimiento, fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, saldo, concepto
 
 
-        public void GuardarMovimiento(DateTime fecha, int codigobanco, string numerocta, string numerodocumento, string debehaber, Double importe, string concepto)
+        public void GuardarMovimiento(DateTime fecha, int codigobanco, string numerocta, string numerodocumento, string debehaber, Double importe, string concepto, Double saldo)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
@@ -24,7 +24,7 @@ namespace Persistencia
                                                           
 
             string sql;
-            sql = "INSERT INTO movimientos (fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto) VALUES ('" + fecha.ToString("yyyy/MM/dd hh:mm:ss") + "','" + codigobanco + "','" + numerocta + "','" + numerodocumento + "','" + debehaber + "','" + importe.ToString().Replace(",", ".") + "','" + concepto + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO movimientos (fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, saldo) VALUES ('" + fecha.ToString("yyyy/MM/dd hh:mm:ss") + "','" + codigobanco + "','" + numerocta + "','" + numerodocumento + "','" + debehaber + "','" + importe.ToString().Replace(",", ".") + "','" + concepto + "','" + saldo.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
 
             try
             {

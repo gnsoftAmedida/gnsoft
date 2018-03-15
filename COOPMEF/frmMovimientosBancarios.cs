@@ -30,6 +30,7 @@ namespace COOPMEF
 
         public void pantallaInicial()
         {
+            dsBancos = empresa.DevolverBancos();
             this.cmbBancos.DataSource = dsBancos.Tables["bancos"];
             this.cmbBancos.DisplayMember = "mostrarse";
             this.cmbBancos.ValueMember = "codigobanco";
@@ -124,21 +125,25 @@ namespace COOPMEF
                     if (index != -1)
                     {
 
-
                         int codigoBanco = Convert.ToInt32(dsBancos.Tables["bancos"].Rows[index][0].ToString());
                         string numeroCuenta = dsBancos.Tables["bancos"].Rows[index][6].ToString();
                         string debeHaber;
+                        double saldo = Convert.ToDouble(dsBancos.Tables["bancos"].Rows[index][8].ToString());
+                        int factorMultiplicador = 1;
 
                         if (rbtCheque.Checked)
                         {
                             debeHaber = "Cheque";
+                            factorMultiplicador = - factorMultiplicador;
                         }
                         else
                         {
                             debeHaber = "Deposito";
                         }
 
-                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text), txtConcepto.Text);
+                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text), txtConcepto.Text, saldo);
+
+                        empresa.actualizarSaldo(codigoBanco, saldo + factorMultiplicador * (Convert.ToDouble(txtImporte.Text)));
 
                         MessageBox.Show("Movimiento ingresado correctamente");
                         pantallaInicial();

@@ -91,7 +91,7 @@ namespace Persistencia
             }
         }
 
-        public void modificarBanco(int codigobanco, string nombrebanco, string agenciabanco, string direccionbanco, string telefonobanco, string faxbanco, string numerocta, string moneda, Double saldo)
+        public void actualizarSaldo(int codigobanco, Double saldo)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
@@ -100,7 +100,7 @@ namespace Persistencia
             try
             {
 
-                string sql = "Update banco set nombrebanco = '" + nombrebanco + "', agenciabanco = '" + agenciabanco + "', direccionbanco = '" + direccionbanco + "', telefonobanco = '" + telefonobanco + "', faxbanco = '" + faxbanco + "', numerocta = '" + numerocta + "', moneda = '" + moneda + "', saldo = '" + saldo + "'  WHERE codigobanco =" + codigobanco;
+                string sql = "Update banco set saldo = '" + saldo.ToString().Replace(",", ".") + "'  WHERE codigobanco =" + codigobanco;
 
                 connection.Open();
                 transaction = connection.BeginTransaction();
@@ -122,15 +122,46 @@ namespace Persistencia
             }
         }
 
-        public void GuardarBanco(string nombrebanco, string agenciabanco, string direccionbanco, string telefonobanco, string faxbanco, string numerocta, string moneda, Double saldo)
+
+        public void modificarBanco(int codigobanco, string nombrebanco, string agenciabanco, string direccionbanco, string telefonobanco, string faxbanco, string numerocta, string moneda)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
+            try
+            {
 
+                string sql = "Update banco set nombrebanco = '" + nombrebanco + "', agenciabanco = '" + agenciabanco + "', direccionbanco = '" + direccionbanco + "', telefonobanco = '" + telefonobanco + "', faxbanco = '" + faxbanco + "', numerocta = '" + numerocta + "', moneda = '" + moneda + "'  WHERE codigobanco =" + codigobanco;
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                MySqlAdapter.UpdateCommand = connection.CreateCommand();
+                MySqlAdapter.UpdateCommand.Transaction = transaction;
+
+                MySqlAdapter.UpdateCommand.CommandText = sql;
+                MySqlAdapter.UpdateCommand.ExecuteNonQuery();
+
+                transaction.Commit();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+                throw ex;
+            }
+        }
+
+        public void GuardarBanco(string nombrebanco, string agenciabanco, string direccionbanco, string telefonobanco, string faxbanco, string numerocta, string moneda)
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+            
             string sql;
-            sql = "INSERT INTO banco (nombrebanco, agenciabanco, direccionbanco, telefonobanco, faxbanco, numerocta, moneda, saldo) VALUES ('" + nombrebanco + "','" + agenciabanco + "','" + direccionbanco + "','" + telefonobanco + "','" + faxbanco + "','" + numerocta + "','" + moneda + "','" + saldo + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO banco (nombrebanco, agenciabanco, direccionbanco, telefonobanco, faxbanco, numerocta, moneda) VALUES ('" + nombrebanco + "','" + agenciabanco + "','" + direccionbanco + "','" + telefonobanco + "','" + faxbanco + "','" + numerocta + "','" + moneda + "');" + "Select last_insert_id()";
 
             try
             {

@@ -90,7 +90,7 @@ namespace COOPMEF
             this.cmbBusqueda.SelectedIndex = -1;
 
             this.txtCodigoBanco.Clear();
-            this.txtCodigoBanco.Enabled = true;
+            this.txtCodigoBanco.Enabled = false;
 
             this.txtNombreBanco.Clear();
             this.txtNombreBanco.Enabled = true;
@@ -183,13 +183,6 @@ namespace COOPMEF
             bool valido = true;
 
             // Control de campos obligatorios 
-            if (this.txtCodigoBanco.Text.Trim() == "")
-            {
-                this.lblCodigoBanco.Visible = true;
-                this.lblCodigoBanco.Text = "Campo obligatorio";
-                valido = false;
-            }
-
             if (this.txtNombreBanco.Text.Trim() == "")
             {
                 this.lblNombreBanco.Visible = true;

@@ -82,10 +82,16 @@ namespace Negocio
             return bancos;
         }
 
+        public void actualizarSaldo()
+        {
+            pBanco tmpBanco = new pBanco();
+            tmpBanco.actualizarSaldo(Codigobanco, Saldo);
+        }
+
         public void Guardar()
         {
             pBanco tmpBanco = new pBanco();
-            tmpBanco.GuardarBanco(Nombrebanco, Agenciabanco, Direccionbanco, Telefonobanco, Faxbanco, Numerocta, Moneda, Saldo);
+            tmpBanco.GuardarBanco(Nombrebanco, Agenciabanco, Direccionbanco, Telefonobanco, Faxbanco, Numerocta, Moneda);
         }
 
         public void eliminar()
@@ -97,7 +103,7 @@ namespace Negocio
         public void modificarBanco()
         {
             pBanco tmpBanco = new pBanco();
-            tmpBanco.modificarBanco(Codigobanco, Nombrebanco, Agenciabanco, Direccionbanco, Telefonobanco, Faxbanco, Numerocta, Moneda, Saldo);
+            tmpBanco.modificarBanco(Codigobanco, Nombrebanco, Agenciabanco, Direccionbanco, Telefonobanco, Faxbanco, Numerocta, Moneda);
         }
     }
 }

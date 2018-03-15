@@ -139,7 +139,14 @@ namespace Negocio
             tmpBanco.Guardar();
         }
 
-        public void AltaMovimiento(DateTime fecha, int codigobanco, string numerocta, string numerodocumento, string debehaber, Double importe, string concepto)
+        public void actualizarSaldo(int codigobanco, Double saldo) {
+            Banco tmpBanco = new Banco();
+            tmpBanco.Codigobanco = codigobanco;
+            tmpBanco.Saldo = saldo;
+            tmpBanco.actualizarSaldo();
+        }
+
+        public void AltaMovimiento(DateTime fecha, int codigobanco, string numerocta, string numerodocumento, string debehaber, Double importe, string concepto, Double saldo)
         {
             Movimiento tmpMovimiento = new Movimiento();
             tmpMovimiento.Fecha = fecha;
@@ -149,6 +156,7 @@ namespace Negocio
             tmpMovimiento.Debehaber = debehaber;
             tmpMovimiento.Importe = importe;
             tmpMovimiento.Concepto = concepto;
+            tmpMovimiento.Saldo = saldo;
             
             tmpMovimiento.Guardar();
         }

@@ -2378,6 +2378,12 @@ Agregar emisión
         {
 
         }
+
+        private void consultaRápidaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmConsultaSaldosBancarios frmConsulta = new frmConsultaSaldosBancarios();
+            frmConsulta.ShowDialog();
+        }
     }
 }
 
