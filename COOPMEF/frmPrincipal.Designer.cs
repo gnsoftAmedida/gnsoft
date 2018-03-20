@@ -56,6 +56,7 @@
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaRápidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAgenda = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -77,6 +78,10 @@
             this.tbcPestanas = new System.Windows.Forms.TabControl();
             this.tabBusqueda = new System.Windows.Forms.TabPage();
             this.dgvSociosCampo = new System.Windows.Forms.DataGridView();
+            this.btnSalirPlan = new System.Windows.Forms.Button();
+            this.button8 = new System.Windows.Forms.Button();
+            this.btnCancelarBusqueda = new System.Windows.Forms.Button();
+            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.lblErrorG = new System.Windows.Forms.TabPage();
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
@@ -87,6 +92,8 @@
             this.lblFechaNac = new System.Windows.Forms.Label();
             this.lblNroSocioFormatoInvalido = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
+            this.lblEstadoDeBaja = new System.Windows.Forms.Label();
+            this.lblEstadoActivo = new System.Windows.Forms.Label();
             this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
             this.lblFormatoInvalido = new System.Windows.Forms.Label();
             this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
@@ -134,9 +141,18 @@
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNombres = new System.Windows.Forms.Label();
             this.lblNroSocio = new System.Windows.Forms.Label();
+            this.btnSalir = new System.Windows.Forms.Button();
+            this.btnVerMasSocio = new System.Windows.Forms.Button();
+            this.btnGuardarSocio = new System.Windows.Forms.Button();
+            this.btnEliminarSocio = new System.Windows.Forms.Button();
+            this.btnEditarSocio = new System.Windows.Forms.Button();
+            this.btnNuevoSocio = new System.Windows.Forms.Button();
             this.tabEstado = new System.Windows.Forms.TabPage();
+            this.btnNuevoPrestamo = new System.Windows.Forms.Button();
+            this.button7 = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.tabCobranza = new System.Windows.Forms.TabPage();
+            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label42 = new System.Windows.Forms.Label();
             this.txtTotalIngExc = new System.Windows.Forms.TextBox();
@@ -153,6 +169,10 @@
             this.label26 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPrestamo = new System.Windows.Forms.TabPage();
+            this.btnSolicitar = new System.Windows.Forms.Button();
+            this.btnGuardarPrestamo = new System.Windows.Forms.Button();
+            this.btnSalirPrestamo = new System.Windows.Forms.Button();
+            this.btnCancelarPrestamo = new System.Windows.Forms.Button();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.cmbPlanPréstamo = new System.Windows.Forms.ComboBox();
@@ -187,6 +207,9 @@
             this.lblInciso = new System.Windows.Forms.Label();
             this.lblObs = new System.Windows.Forms.Label();
             this.tabCobranzaExcedidos = new System.Windows.Forms.TabPage();
+            this.btnPagarCobranza = new System.Windows.Forms.Button();
+            this.btnSalirCobranza = new System.Windows.Forms.Button();
+            this.btnImprimirCobranza = new System.Windows.Forms.Button();
             this.groupBox10 = new System.Windows.Forms.GroupBox();
             this.groupBox12 = new System.Windows.Forms.GroupBox();
             this.txtARetener = new System.Windows.Forms.TextBox();
@@ -215,6 +238,7 @@
             this.label25 = new System.Windows.Forms.Label();
             this.cmbBusquedaPrincipal = new System.Windows.Forms.GroupBox();
             this.txtBusqueda = new System.Windows.Forms.MaskedTextBox();
+            this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.label7 = new System.Windows.Forms.Label();
@@ -233,32 +257,10 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.btnBuscar = new System.Windows.Forms.Button();
             this.button9 = new System.Windows.Forms.Button();
-            this.btnSalirPlan = new System.Windows.Forms.Button();
-            this.button8 = new System.Windows.Forms.Button();
-            this.btnCancelarBusqueda = new System.Windows.Forms.Button();
-            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
-            this.lblEstadoDeBaja = new System.Windows.Forms.Label();
-            this.lblEstadoActivo = new System.Windows.Forms.Label();
-            this.btnSalir = new System.Windows.Forms.Button();
-            this.btnVerMasSocio = new System.Windows.Forms.Button();
-            this.btnGuardarSocio = new System.Windows.Forms.Button();
-            this.btnEliminarSocio = new System.Windows.Forms.Button();
-            this.btnEditarSocio = new System.Windows.Forms.Button();
-            this.btnNuevoSocio = new System.Windows.Forms.Button();
-            this.btnNuevoPrestamo = new System.Windows.Forms.Button();
-            this.button7 = new System.Windows.Forms.Button();
-            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
-            this.btnSolicitar = new System.Windows.Forms.Button();
-            this.btnGuardarPrestamo = new System.Windows.Forms.Button();
-            this.btnSalirPrestamo = new System.Windows.Forms.Button();
-            this.btnCancelarPrestamo = new System.Windows.Forms.Button();
-            this.btnPagarCobranza = new System.Windows.Forms.Button();
-            this.btnSalirCobranza = new System.Windows.Forms.Button();
-            this.btnImprimirCobranza = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.consultaRápidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadYPromedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -446,7 +448,8 @@
             this.bancoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.mantenimientoToolStripMenuItem,
             this.movimientosToolStripMenuItem,
-            this.consultaRápidaToolStripMenuItem});
+            this.consultaRápidaToolStripMenuItem,
+            this.informesToolStripMenuItem});
             resources.ApplyResources(this.bancoToolStripMenuItem, "bancoToolStripMenuItem");
             this.bancoToolStripMenuItem.Name = "bancoToolStripMenuItem";
             // 
@@ -459,7 +462,8 @@
             // movimientosToolStripMenuItem
             // 
             this.movimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.ingresoToolStripMenuItem});
+            this.ingresoToolStripMenuItem,
+            this.cantidadYPromedioToolStripMenuItem});
             this.movimientosToolStripMenuItem.Name = "movimientosToolStripMenuItem";
             resources.ApplyResources(this.movimientosToolStripMenuItem, "movimientosToolStripMenuItem");
             // 
@@ -468,6 +472,12 @@
             this.ingresoToolStripMenuItem.Name = "ingresoToolStripMenuItem";
             resources.ApplyResources(this.ingresoToolStripMenuItem, "ingresoToolStripMenuItem");
             this.ingresoToolStripMenuItem.Click += new System.EventHandler(this.ingresoToolStripMenuItem_Click);
+            // 
+            // consultaRápidaToolStripMenuItem
+            // 
+            this.consultaRápidaToolStripMenuItem.Name = "consultaRápidaToolStripMenuItem";
+            resources.ApplyResources(this.consultaRápidaToolStripMenuItem, "consultaRápidaToolStripMenuItem");
+            this.consultaRápidaToolStripMenuItem.Click += new System.EventHandler(this.consultaRápidaToolStripMenuItem_Click);
             // 
             // calendarioToolStripMenuItem
             // 
@@ -632,6 +642,38 @@
             this.dgvSociosCampo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellDoubleClick);
             this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
             // 
+            // btnSalirPlan
+            // 
+            this.btnSalirPlan.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
+            resources.ApplyResources(this.btnSalirPlan, "btnSalirPlan");
+            this.btnSalirPlan.Name = "btnSalirPlan";
+            this.btnSalirPlan.UseVisualStyleBackColor = true;
+            this.btnSalirPlan.Click += new System.EventHandler(this.btnSalirPlan_Click);
+            // 
+            // button8
+            // 
+            this.button8.ForeColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button8.Image = global::COOPMEF.Properties.Resources._1486107592_search_16;
+            resources.ApplyResources(this.button8, "button8");
+            this.button8.Name = "button8";
+            this.button8.UseVisualStyleBackColor = true;
+            // 
+            // btnCancelarBusqueda
+            // 
+            this.btnCancelarBusqueda.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
+            resources.ApplyResources(this.btnCancelarBusqueda, "btnCancelarBusqueda");
+            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
+            this.btnCancelarBusqueda.UseVisualStyleBackColor = true;
+            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
+            // 
+            // btnSeleccionarSocio
+            // 
+            this.btnSeleccionarSocio.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            resources.ApplyResources(this.btnSeleccionarSocio, "btnSeleccionarSocio");
+            this.btnSeleccionarSocio.Name = "btnSeleccionarSocio";
+            this.btnSeleccionarSocio.UseVisualStyleBackColor = true;
+            this.btnSeleccionarSocio.Click += new System.EventHandler(this.btnSeleccionarSocio_Click);
+            // 
             // lblErrorG
             // 
             this.lblErrorG.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -753,6 +795,18 @@
             // 
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
+            // 
+            // lblEstadoDeBaja
+            // 
+            resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
+            this.lblEstadoDeBaja.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
+            this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
+            // 
+            // lblEstadoActivo
+            // 
+            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
+            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            this.lblEstadoActivo.Name = "lblEstadoActivo";
             // 
             // lblEmailFormatoInvalido
             // 
@@ -1033,6 +1087,54 @@
             resources.ApplyResources(this.lblNroSocio, "lblNroSocio");
             this.lblNroSocio.Name = "lblNroSocio";
             // 
+            // btnSalir
+            // 
+            this.btnSalir.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
+            resources.ApplyResources(this.btnSalir, "btnSalir");
+            this.btnSalir.Name = "btnSalir";
+            this.btnSalir.UseVisualStyleBackColor = true;
+            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
+            // 
+            // btnVerMasSocio
+            // 
+            this.btnVerMasSocio.Image = global::COOPMEF.Properties.Resources._1486535135_document;
+            resources.ApplyResources(this.btnVerMasSocio, "btnVerMasSocio");
+            this.btnVerMasSocio.Name = "btnVerMasSocio";
+            this.btnVerMasSocio.UseVisualStyleBackColor = true;
+            this.btnVerMasSocio.Click += new System.EventHandler(this.btnVerMasSocio_Click);
+            // 
+            // btnGuardarSocio
+            // 
+            this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
+            resources.ApplyResources(this.btnGuardarSocio, "btnGuardarSocio");
+            this.btnGuardarSocio.Name = "btnGuardarSocio";
+            this.btnGuardarSocio.UseVisualStyleBackColor = true;
+            this.btnGuardarSocio.Click += new System.EventHandler(this.btnGuardarSocio_Click);
+            // 
+            // btnEliminarSocio
+            // 
+            this.btnEliminarSocio.Image = global::COOPMEF.Properties.Resources.delete16;
+            resources.ApplyResources(this.btnEliminarSocio, "btnEliminarSocio");
+            this.btnEliminarSocio.Name = "btnEliminarSocio";
+            this.btnEliminarSocio.UseVisualStyleBackColor = true;
+            this.btnEliminarSocio.Click += new System.EventHandler(this.btnEliminarSocio_Click);
+            // 
+            // btnEditarSocio
+            // 
+            this.btnEditarSocio.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
+            resources.ApplyResources(this.btnEditarSocio, "btnEditarSocio");
+            this.btnEditarSocio.Name = "btnEditarSocio";
+            this.btnEditarSocio.UseVisualStyleBackColor = true;
+            this.btnEditarSocio.Click += new System.EventHandler(this.btnEditarSocio_Click);
+            // 
+            // btnNuevoSocio
+            // 
+            this.btnNuevoSocio.Image = global::COOPMEF.Properties.Resources._1486109530_new_file;
+            resources.ApplyResources(this.btnNuevoSocio, "btnNuevoSocio");
+            this.btnNuevoSocio.Name = "btnNuevoSocio";
+            this.btnNuevoSocio.UseVisualStyleBackColor = true;
+            this.btnNuevoSocio.Click += new System.EventHandler(this.btnNuevoSocio_Click);
+            // 
             // tabEstado
             // 
             this.tabEstado.BackColor = System.Drawing.Color.WhiteSmoke;
@@ -1041,6 +1143,21 @@
             this.tabEstado.Controls.Add(this.dataGridView2);
             resources.ApplyResources(this.tabEstado, "tabEstado");
             this.tabEstado.Name = "tabEstado";
+            // 
+            // btnNuevoPrestamo
+            // 
+            this.btnNuevoPrestamo.Image = global::COOPMEF.Properties.Resources._1486109530_new_file;
+            resources.ApplyResources(this.btnNuevoPrestamo, "btnNuevoPrestamo");
+            this.btnNuevoPrestamo.Name = "btnNuevoPrestamo";
+            this.btnNuevoPrestamo.UseVisualStyleBackColor = true;
+            this.btnNuevoPrestamo.Click += new System.EventHandler(this.btnNuevoPrestamo_Click_1);
+            // 
+            // button7
+            // 
+            resources.ApplyResources(this.button7, "button7");
+            this.button7.Image = global::COOPMEF.Properties.Resources._1486256648_personal_loan;
+            this.button7.Name = "button7";
+            this.button7.UseVisualStyleBackColor = true;
             // 
             // dataGridView2
             // 
@@ -1057,6 +1174,14 @@
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
             this.tabCobranza.Name = "tabCobranza";
             this.tabCobranza.Click += new System.EventHandler(this.tabCobranza_Click);
+            // 
+            // btnGuardarIngExcedidos
+            // 
+            this.btnGuardarIngExcedidos.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
+            resources.ApplyResources(this.btnGuardarIngExcedidos, "btnGuardarIngExcedidos");
+            this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
+            this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
+            this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
             // 
             // groupBox7
             // 
@@ -1168,6 +1293,38 @@
             resources.ApplyResources(this.tabPrestamo, "tabPrestamo");
             this.tabPrestamo.Name = "tabPrestamo";
             this.tabPrestamo.Click += new System.EventHandler(this.tabPrestamo_Click);
+            // 
+            // btnSolicitar
+            // 
+            resources.ApplyResources(this.btnSolicitar, "btnSolicitar");
+            this.btnSolicitar.Image = global::COOPMEF.Properties.Resources.print;
+            this.btnSolicitar.Name = "btnSolicitar";
+            this.btnSolicitar.UseVisualStyleBackColor = true;
+            this.btnSolicitar.Click += new System.EventHandler(this.btnSolicitar_Click);
+            // 
+            // btnGuardarPrestamo
+            // 
+            resources.ApplyResources(this.btnGuardarPrestamo, "btnGuardarPrestamo");
+            this.btnGuardarPrestamo.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
+            this.btnGuardarPrestamo.Name = "btnGuardarPrestamo";
+            this.btnGuardarPrestamo.UseVisualStyleBackColor = true;
+            this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click_1);
+            // 
+            // btnSalirPrestamo
+            // 
+            this.btnSalirPrestamo.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
+            resources.ApplyResources(this.btnSalirPrestamo, "btnSalirPrestamo");
+            this.btnSalirPrestamo.Name = "btnSalirPrestamo";
+            this.btnSalirPrestamo.UseVisualStyleBackColor = true;
+            this.btnSalirPrestamo.Click += new System.EventHandler(this.btnSalirPrestamo_Click);
+            // 
+            // btnCancelarPrestamo
+            // 
+            this.btnCancelarPrestamo.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
+            resources.ApplyResources(this.btnCancelarPrestamo, "btnCancelarPrestamo");
+            this.btnCancelarPrestamo.Name = "btnCancelarPrestamo";
+            this.btnCancelarPrestamo.UseVisualStyleBackColor = true;
+            this.btnCancelarPrestamo.Click += new System.EventHandler(this.btnCancelarPrestamo_Click);
             // 
             // txtObs
             // 
@@ -1393,6 +1550,30 @@
             resources.ApplyResources(this.tabCobranzaExcedidos, "tabCobranzaExcedidos");
             this.tabCobranzaExcedidos.Name = "tabCobranzaExcedidos";
             // 
+            // btnPagarCobranza
+            // 
+            this.btnPagarCobranza.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
+            resources.ApplyResources(this.btnPagarCobranza, "btnPagarCobranza");
+            this.btnPagarCobranza.Name = "btnPagarCobranza";
+            this.btnPagarCobranza.UseVisualStyleBackColor = true;
+            this.btnPagarCobranza.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // btnSalirCobranza
+            // 
+            this.btnSalirCobranza.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out1;
+            resources.ApplyResources(this.btnSalirCobranza, "btnSalirCobranza");
+            this.btnSalirCobranza.Name = "btnSalirCobranza";
+            this.btnSalirCobranza.UseVisualStyleBackColor = true;
+            this.btnSalirCobranza.Click += new System.EventHandler(this.btnSalirCobranza_Click);
+            // 
+            // btnImprimirCobranza
+            // 
+            this.btnImprimirCobranza.Image = global::COOPMEF.Properties.Resources.print;
+            resources.ApplyResources(this.btnImprimirCobranza, "btnImprimirCobranza");
+            this.btnImprimirCobranza.Name = "btnImprimirCobranza";
+            this.btnImprimirCobranza.UseVisualStyleBackColor = true;
+            this.btnImprimirCobranza.Click += new System.EventHandler(this.btnImprimirCobranza_Click);
+            // 
             // groupBox10
             // 
             this.groupBox10.Controls.Add(this.groupBox12);
@@ -1570,6 +1751,15 @@
             resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
             this.txtBusqueda.Name = "txtBusqueda";
             // 
+            // btnBuscar
+            // 
+            this.btnBuscar.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.btnBuscar.Image = global::COOPMEF.Properties.Resources._1486108741_Search;
+            resources.ApplyResources(this.btnBuscar, "btnBuscar");
+            this.btnBuscar.Name = "btnBuscar";
+            this.btnBuscar.UseVisualStyleBackColor = true;
+            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
+            // 
             // cmbBusqueda
             // 
             this.cmbBusqueda.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1686,15 +1876,6 @@
             resources.ApplyResources(this.label8, "label8");
             this.label8.Name = "label8";
             // 
-            // btnBuscar
-            // 
-            this.btnBuscar.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.btnBuscar.Image = global::COOPMEF.Properties.Resources._1486108741_Search;
-            resources.ApplyResources(this.btnBuscar, "btnBuscar");
-            this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.UseVisualStyleBackColor = true;
-            this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click_1);
-            // 
             // button9
             // 
             resources.ApplyResources(this.button9, "button9");
@@ -1702,177 +1883,6 @@
             this.button9.Image = global::COOPMEF.Properties.Resources.logo_chico;
             this.button9.Name = "button9";
             this.button9.UseVisualStyleBackColor = true;
-            // 
-            // btnSalirPlan
-            // 
-            this.btnSalirPlan.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
-            resources.ApplyResources(this.btnSalirPlan, "btnSalirPlan");
-            this.btnSalirPlan.Name = "btnSalirPlan";
-            this.btnSalirPlan.UseVisualStyleBackColor = true;
-            this.btnSalirPlan.Click += new System.EventHandler(this.btnSalirPlan_Click);
-            // 
-            // button8
-            // 
-            this.button8.ForeColor = System.Drawing.SystemColors.MenuHighlight;
-            this.button8.Image = global::COOPMEF.Properties.Resources._1486107592_search_16;
-            resources.ApplyResources(this.button8, "button8");
-            this.button8.Name = "button8";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // btnCancelarBusqueda
-            // 
-            this.btnCancelarBusqueda.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
-            resources.ApplyResources(this.btnCancelarBusqueda, "btnCancelarBusqueda");
-            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
-            this.btnCancelarBusqueda.UseVisualStyleBackColor = true;
-            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
-            // 
-            // btnSeleccionarSocio
-            // 
-            this.btnSeleccionarSocio.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
-            resources.ApplyResources(this.btnSeleccionarSocio, "btnSeleccionarSocio");
-            this.btnSeleccionarSocio.Name = "btnSeleccionarSocio";
-            this.btnSeleccionarSocio.UseVisualStyleBackColor = true;
-            this.btnSeleccionarSocio.Click += new System.EventHandler(this.btnSeleccionarSocio_Click);
-            // 
-            // lblEstadoDeBaja
-            // 
-            resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
-            this.lblEstadoDeBaja.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
-            this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
-            // 
-            // lblEstadoActivo
-            // 
-            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
-            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
-            this.lblEstadoActivo.Name = "lblEstadoActivo";
-            // 
-            // btnSalir
-            // 
-            this.btnSalir.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
-            resources.ApplyResources(this.btnSalir, "btnSalir");
-            this.btnSalir.Name = "btnSalir";
-            this.btnSalir.UseVisualStyleBackColor = true;
-            this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click_1);
-            // 
-            // btnVerMasSocio
-            // 
-            this.btnVerMasSocio.Image = global::COOPMEF.Properties.Resources._1486535135_document;
-            resources.ApplyResources(this.btnVerMasSocio, "btnVerMasSocio");
-            this.btnVerMasSocio.Name = "btnVerMasSocio";
-            this.btnVerMasSocio.UseVisualStyleBackColor = true;
-            this.btnVerMasSocio.Click += new System.EventHandler(this.btnVerMasSocio_Click);
-            // 
-            // btnGuardarSocio
-            // 
-            this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
-            resources.ApplyResources(this.btnGuardarSocio, "btnGuardarSocio");
-            this.btnGuardarSocio.Name = "btnGuardarSocio";
-            this.btnGuardarSocio.UseVisualStyleBackColor = true;
-            this.btnGuardarSocio.Click += new System.EventHandler(this.btnGuardarSocio_Click);
-            // 
-            // btnEliminarSocio
-            // 
-            this.btnEliminarSocio.Image = global::COOPMEF.Properties.Resources.delete16;
-            resources.ApplyResources(this.btnEliminarSocio, "btnEliminarSocio");
-            this.btnEliminarSocio.Name = "btnEliminarSocio";
-            this.btnEliminarSocio.UseVisualStyleBackColor = true;
-            this.btnEliminarSocio.Click += new System.EventHandler(this.btnEliminarSocio_Click);
-            // 
-            // btnEditarSocio
-            // 
-            this.btnEditarSocio.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
-            resources.ApplyResources(this.btnEditarSocio, "btnEditarSocio");
-            this.btnEditarSocio.Name = "btnEditarSocio";
-            this.btnEditarSocio.UseVisualStyleBackColor = true;
-            this.btnEditarSocio.Click += new System.EventHandler(this.btnEditarSocio_Click);
-            // 
-            // btnNuevoSocio
-            // 
-            this.btnNuevoSocio.Image = global::COOPMEF.Properties.Resources._1486109530_new_file;
-            resources.ApplyResources(this.btnNuevoSocio, "btnNuevoSocio");
-            this.btnNuevoSocio.Name = "btnNuevoSocio";
-            this.btnNuevoSocio.UseVisualStyleBackColor = true;
-            this.btnNuevoSocio.Click += new System.EventHandler(this.btnNuevoSocio_Click);
-            // 
-            // btnNuevoPrestamo
-            // 
-            this.btnNuevoPrestamo.Image = global::COOPMEF.Properties.Resources._1486109530_new_file;
-            resources.ApplyResources(this.btnNuevoPrestamo, "btnNuevoPrestamo");
-            this.btnNuevoPrestamo.Name = "btnNuevoPrestamo";
-            this.btnNuevoPrestamo.UseVisualStyleBackColor = true;
-            this.btnNuevoPrestamo.Click += new System.EventHandler(this.btnNuevoPrestamo_Click_1);
-            // 
-            // button7
-            // 
-            resources.ApplyResources(this.button7, "button7");
-            this.button7.Image = global::COOPMEF.Properties.Resources._1486256648_personal_loan;
-            this.button7.Name = "button7";
-            this.button7.UseVisualStyleBackColor = true;
-            // 
-            // btnGuardarIngExcedidos
-            // 
-            this.btnGuardarIngExcedidos.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
-            resources.ApplyResources(this.btnGuardarIngExcedidos, "btnGuardarIngExcedidos");
-            this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
-            this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
-            this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
-            // 
-            // btnSolicitar
-            // 
-            resources.ApplyResources(this.btnSolicitar, "btnSolicitar");
-            this.btnSolicitar.Image = global::COOPMEF.Properties.Resources.print;
-            this.btnSolicitar.Name = "btnSolicitar";
-            this.btnSolicitar.UseVisualStyleBackColor = true;
-            this.btnSolicitar.Click += new System.EventHandler(this.btnSolicitar_Click);
-            // 
-            // btnGuardarPrestamo
-            // 
-            resources.ApplyResources(this.btnGuardarPrestamo, "btnGuardarPrestamo");
-            this.btnGuardarPrestamo.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
-            this.btnGuardarPrestamo.Name = "btnGuardarPrestamo";
-            this.btnGuardarPrestamo.UseVisualStyleBackColor = true;
-            this.btnGuardarPrestamo.Click += new System.EventHandler(this.btnGuardarPrestamo_Click_1);
-            // 
-            // btnSalirPrestamo
-            // 
-            this.btnSalirPrestamo.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
-            resources.ApplyResources(this.btnSalirPrestamo, "btnSalirPrestamo");
-            this.btnSalirPrestamo.Name = "btnSalirPrestamo";
-            this.btnSalirPrestamo.UseVisualStyleBackColor = true;
-            this.btnSalirPrestamo.Click += new System.EventHandler(this.btnSalirPrestamo_Click);
-            // 
-            // btnCancelarPrestamo
-            // 
-            this.btnCancelarPrestamo.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
-            resources.ApplyResources(this.btnCancelarPrestamo, "btnCancelarPrestamo");
-            this.btnCancelarPrestamo.Name = "btnCancelarPrestamo";
-            this.btnCancelarPrestamo.UseVisualStyleBackColor = true;
-            this.btnCancelarPrestamo.Click += new System.EventHandler(this.btnCancelarPrestamo_Click);
-            // 
-            // btnPagarCobranza
-            // 
-            this.btnPagarCobranza.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
-            resources.ApplyResources(this.btnPagarCobranza, "btnPagarCobranza");
-            this.btnPagarCobranza.Name = "btnPagarCobranza";
-            this.btnPagarCobranza.UseVisualStyleBackColor = true;
-            this.btnPagarCobranza.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // btnSalirCobranza
-            // 
-            this.btnSalirCobranza.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out1;
-            resources.ApplyResources(this.btnSalirCobranza, "btnSalirCobranza");
-            this.btnSalirCobranza.Name = "btnSalirCobranza";
-            this.btnSalirCobranza.UseVisualStyleBackColor = true;
-            this.btnSalirCobranza.Click += new System.EventHandler(this.btnSalirCobranza_Click);
-            // 
-            // btnImprimirCobranza
-            // 
-            this.btnImprimirCobranza.Image = global::COOPMEF.Properties.Resources.print;
-            resources.ApplyResources(this.btnImprimirCobranza, "btnImprimirCobranza");
-            this.btnImprimirCobranza.Name = "btnImprimirCobranza";
-            this.btnImprimirCobranza.UseVisualStyleBackColor = true;
-            this.btnImprimirCobranza.Click += new System.EventHandler(this.btnImprimirCobranza_Click);
             // 
             // btnOtrosDatos
             // 
@@ -1882,11 +1892,16 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // consultaRápidaToolStripMenuItem
+            // informesToolStripMenuItem
             // 
-            this.consultaRápidaToolStripMenuItem.Name = "consultaRápidaToolStripMenuItem";
-            resources.ApplyResources(this.consultaRápidaToolStripMenuItem, "consultaRápidaToolStripMenuItem");
-            this.consultaRápidaToolStripMenuItem.Click += new System.EventHandler(this.consultaRápidaToolStripMenuItem_Click);
+            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            resources.ApplyResources(this.informesToolStripMenuItem, "informesToolStripMenuItem");
+            // 
+            // cantidadYPromedioToolStripMenuItem
+            // 
+            this.cantidadYPromedioToolStripMenuItem.Name = "cantidadYPromedioToolStripMenuItem";
+            resources.ApplyResources(this.cantidadYPromedioToolStripMenuItem, "cantidadYPromedioToolStripMenuItem");
+            this.cantidadYPromedioToolStripMenuItem.Click += new System.EventHandler(this.cantidadYPromedioToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -2179,6 +2194,8 @@
         private System.Windows.Forms.ToolStripMenuItem movimientosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem consultaRápidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cantidadYPromedioToolStripMenuItem;
     }
 }
 

@@ -188,6 +188,12 @@
     <Compile Include="frmAltaUsuario.Designer.cs">
       <DependentUpon>frmAltaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCantidadMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCantidadMovimientos.Designer.cs">
+      <DependentUpon>frmCantidadMovimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCierreMes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +345,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmAltaUsuario.resx">
       <DependentUpon>frmAltaUsuario.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmCantidadMovimientos.resx">
+      <DependentUpon>frmCantidadMovimientos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmCierreMes.resx">
       <DependentUpon>frmCierreMes.cs</DependentUpon>

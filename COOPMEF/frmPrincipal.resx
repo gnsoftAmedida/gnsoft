@@ -266,10 +266,16 @@
     <value>Mantenimientos</value>
   </data>
   <data name="ingresoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 24</value>
+    <value>250, 24</value>
   </data>
   <data name="ingresoToolStripMenuItem.Text" xml:space="preserve">
     <value>Ingreso</value>
+  </data>
+  <data name="cantidadYPromedioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>250, 24</value>
+  </data>
+  <data name="cantidadYPromedioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cantidad y Promedio</value>
   </data>
   <data name="movimientosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>214, 24</value>
@@ -282,6 +288,12 @@
   </data>
   <data name="consultaRápidaToolStripMenuItem.Text" xml:space="preserve">
     <value>Consulta Rápida</value>
+  </data>
+  <data name="informesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>214, 24</value>
+  </data>
+  <data name="informesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Informes</value>
   </data>
   <data name="bancoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 9.75pt</value>
@@ -6514,9 +6526,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
@@ -6679,6 +6688,12 @@
   <data name="&gt;&gt;ingresoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;consultaRápidaToolStripMenuItem.Name" xml:space="preserve">
+    <value>consultaRápidaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;consultaRápidaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;calendarioToolStripMenuItem.Name" xml:space="preserve">
     <value>calendarioToolStripMenuItem</value>
   </data>
@@ -6787,10 +6802,16 @@
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;consultaRápidaToolStripMenuItem.Name" xml:space="preserve">
-    <value>consultaRápidaToolStripMenuItem</value>
+  <data name="&gt;&gt;informesToolStripMenuItem.Name" xml:space="preserve">
+    <value>informesToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;consultaRápidaToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;informesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cantidadYPromedioToolStripMenuItem.Name" xml:space="preserve">
+    <value>cantidadYPromedioToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;cantidadYPromedioToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

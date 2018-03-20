@@ -287,6 +287,13 @@ namespace Negocio
             return usuarios;
         }
 
+        public DataSet movimientosPromedio(int codigoBancoConsulta, int diaDesde, int diaHasta, int mes, int anio)
+        {
+            Movimiento tmpMovimiento = new Movimiento();
+            DataSet consulta = tmpMovimiento.movimientosPromedio(codigoBancoConsulta, diaDesde, diaHasta, mes, anio);
+            return consulta;
+        }
+
         public DataSet DevolverHistoria()
         {
             Historia tmpHistoria = new Historia();

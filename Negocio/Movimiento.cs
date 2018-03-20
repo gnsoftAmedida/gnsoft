@@ -76,6 +76,14 @@ namespace Negocio
             set { concepto = value; }
         }
 
+
+        public DataSet movimientosPromedio(int codigoBancoConsulta, int diaDesde, int diaHasta, int mes, int anio)
+        {
+            pMovimiento tmpMovimiento = new pMovimiento();
+            DataSet consulta = tmpMovimiento.movimientosPromedio(codigoBancoConsulta, diaDesde, diaHasta, mes, anio);
+            return consulta;
+        }
+
         public void Guardar()
         {
             pMovimiento tmpMovimiento = new pMovimiento();

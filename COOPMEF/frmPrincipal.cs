@@ -2384,6 +2384,12 @@ Agregar emisión
             frmConsultaSaldosBancarios frmConsulta = new frmConsultaSaldosBancarios();
             frmConsulta.ShowDialog();
         }
+
+        private void cantidadYPromedioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCantidadMovimientos frmTmpCantidad = new frmCantidadMovimientos();
+            frmTmpCantidad.ShowDialog();
+        }
     }
 }
 

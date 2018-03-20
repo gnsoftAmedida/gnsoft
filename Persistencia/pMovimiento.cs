@@ -12,16 +12,37 @@ namespace Persistencia
 {
     public class pMovimiento : CapaDatos
     {
-      
+
         //movimiento, fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, saldo, concepto
 
+        public DataSet movimientosPromedio(int codigoBancoConsulta, int diaDesde, int diaHasta, int mes, int anio)
+        {
+            MySqlConnection connection = conectar();
+
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+    
+            //Ver condición de que la tabla debeHaber tenga valor "Cheque" en migración
+            //string sql = "SELECT count(debeHaber), count(movimiento), AVG(saldo) FROM movimientos where codigobanco = '" + codigoBancoConsulta + "' and fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "'";
+
+
+            string sql = "SELECT count(debeHaber), AVG(saldo) FROM movimientos where codigobanco = '" + codigoBancoConsulta + "' and fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Deposito' union SELECT count(debeHaber), AVG(saldo) FROM movimientos where codigobanco = '" + codigoBancoConsulta + "' and fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Cheque'";
+
+            DataSet ds= new DataSet();
+
+            connection.Open();
+            MySqlAdapter.SelectCommand = connection.CreateCommand();
+            MySqlAdapter.SelectCommand.CommandText = sql;
+            MySqlAdapter.Fill(ds, "consultaMovimiento");
+            connection.Close();
+            return ds;
+        }
 
         public void GuardarMovimiento(DateTime fecha, int codigobanco, string numerocta, string numerodocumento, string debehaber, Double importe, string concepto, Double saldo)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                                                          
+
 
             string sql;
             sql = "INSERT INTO movimientos (fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, saldo) VALUES ('" + fecha.ToString("yyyy/MM/dd hh:mm:ss") + "','" + codigobanco + "','" + numerocta + "','" + numerodocumento + "','" + debehaber + "','" + importe.ToString().Replace(",", ".") + "','" + concepto + "','" + saldo.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
