@@ -56,7 +56,9 @@
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadYPromedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.consultaRápidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAgenda = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -147,10 +149,10 @@
             this.btnEliminarSocio = new System.Windows.Forms.Button();
             this.btnEditarSocio = new System.Windows.Forms.Button();
             this.btnNuevoSocio = new System.Windows.Forms.Button();
-            this.tabEstado = new System.Windows.Forms.TabPage();
+            this.tabHistorial = new System.Windows.Forms.TabPage();
             this.btnNuevoPrestamo = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvHistoria = new System.Windows.Forms.DataGridView();
             this.tabCobranza = new System.Windows.Forms.TabPage();
             this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
@@ -259,8 +261,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cantidadYPromedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.btnExcedido = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -270,8 +271,8 @@
             this.groupBox1.SuspendLayout();
             this.gBoxEstado.SuspendLayout();
             this.gBoxSexo.SuspendLayout();
-            this.tabEstado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabHistorial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoria)).BeginInit();
             this.tabCobranza.SuspendLayout();
             this.groupBox7.SuspendLayout();
             this.tabPrestamo.SuspendLayout();
@@ -473,11 +474,22 @@
             resources.ApplyResources(this.ingresoToolStripMenuItem, "ingresoToolStripMenuItem");
             this.ingresoToolStripMenuItem.Click += new System.EventHandler(this.ingresoToolStripMenuItem_Click);
             // 
+            // cantidadYPromedioToolStripMenuItem
+            // 
+            this.cantidadYPromedioToolStripMenuItem.Name = "cantidadYPromedioToolStripMenuItem";
+            resources.ApplyResources(this.cantidadYPromedioToolStripMenuItem, "cantidadYPromedioToolStripMenuItem");
+            this.cantidadYPromedioToolStripMenuItem.Click += new System.EventHandler(this.cantidadYPromedioToolStripMenuItem_Click);
+            // 
             // consultaRápidaToolStripMenuItem
             // 
             this.consultaRápidaToolStripMenuItem.Name = "consultaRápidaToolStripMenuItem";
             resources.ApplyResources(this.consultaRápidaToolStripMenuItem, "consultaRápidaToolStripMenuItem");
             this.consultaRápidaToolStripMenuItem.Click += new System.EventHandler(this.consultaRápidaToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem
+            // 
+            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            resources.ApplyResources(this.informesToolStripMenuItem, "informesToolStripMenuItem");
             // 
             // calendarioToolStripMenuItem
             // 
@@ -610,7 +622,7 @@
             // 
             this.tbcPestanas.Controls.Add(this.tabBusqueda);
             this.tbcPestanas.Controls.Add(this.lblErrorG);
-            this.tbcPestanas.Controls.Add(this.tabEstado);
+            this.tbcPestanas.Controls.Add(this.tabHistorial);
             this.tbcPestanas.Controls.Add(this.tabCobranza);
             this.tbcPestanas.Controls.Add(this.tabPrestamo);
             this.tbcPestanas.Controls.Add(this.tabCobranzaExcedidos);
@@ -1135,14 +1147,14 @@
             this.btnNuevoSocio.UseVisualStyleBackColor = true;
             this.btnNuevoSocio.Click += new System.EventHandler(this.btnNuevoSocio_Click);
             // 
-            // tabEstado
+            // tabHistorial
             // 
-            this.tabEstado.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabEstado.Controls.Add(this.btnNuevoPrestamo);
-            this.tabEstado.Controls.Add(this.button7);
-            this.tabEstado.Controls.Add(this.dataGridView2);
-            resources.ApplyResources(this.tabEstado, "tabEstado");
-            this.tabEstado.Name = "tabEstado";
+            this.tabHistorial.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabHistorial.Controls.Add(this.btnNuevoPrestamo);
+            this.tabHistorial.Controls.Add(this.button7);
+            this.tabHistorial.Controls.Add(this.dgvHistoria);
+            resources.ApplyResources(this.tabHistorial, "tabHistorial");
+            this.tabHistorial.Name = "tabHistorial";
             // 
             // btnNuevoPrestamo
             // 
@@ -1154,16 +1166,16 @@
             // 
             // button7
             // 
-            resources.ApplyResources(this.button7, "button7");
             this.button7.Image = global::COOPMEF.Properties.Resources._1486256648_personal_loan;
+            resources.ApplyResources(this.button7, "button7");
             this.button7.Name = "button7";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgvHistoria
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dataGridView2, "dataGridView2");
-            this.dataGridView2.Name = "dataGridView2";
+            this.dgvHistoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dgvHistoria, "dgvHistoria");
+            this.dgvHistoria.Name = "dgvHistoria";
             // 
             // tabCobranza
             // 
@@ -1775,6 +1787,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnExcedido);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.lblTelefonoSocio);
@@ -1892,16 +1905,12 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
-            // informesToolStripMenuItem
+            // btnExcedido
             // 
-            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
-            resources.ApplyResources(this.informesToolStripMenuItem, "informesToolStripMenuItem");
-            // 
-            // cantidadYPromedioToolStripMenuItem
-            // 
-            this.cantidadYPromedioToolStripMenuItem.Name = "cantidadYPromedioToolStripMenuItem";
-            resources.ApplyResources(this.cantidadYPromedioToolStripMenuItem, "cantidadYPromedioToolStripMenuItem");
-            this.cantidadYPromedioToolStripMenuItem.Click += new System.EventHandler(this.cantidadYPromedioToolStripMenuItem_Click);
+            this.btnExcedido.Image = global::COOPMEF.Properties.Resources._1486107579_delete_16;
+            resources.ApplyResources(this.btnExcedido, "btnExcedido");
+            this.btnExcedido.Name = "btnExcedido";
+            this.btnExcedido.UseVisualStyleBackColor = true;
             // 
             // frmPrincipal
             // 
@@ -1932,8 +1941,8 @@
             this.gBoxEstado.PerformLayout();
             this.gBoxSexo.ResumeLayout(false);
             this.gBoxSexo.PerformLayout();
-            this.tabEstado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabHistorial.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoria)).EndInit();
             this.tabCobranza.ResumeLayout(false);
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
@@ -1982,11 +1991,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TabPage tabEstado;
+        private System.Windows.Forms.TabPage tabHistorial;
         private System.Windows.Forms.ToolStripMenuItem mToolStripMenuItem;
         private System.Windows.Forms.TabPage tabCobranza;
         private System.Windows.Forms.TabPage tabPrestamo;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvHistoria;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -2196,6 +2205,7 @@
         private System.Windows.Forms.ToolStripMenuItem consultaRápidaToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cantidadYPromedioToolStripMenuItem;
+        private System.Windows.Forms.Button btnExcedido;
     }
 }
 

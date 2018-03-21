@@ -300,11 +300,18 @@ namespace Negocio
             DataSet historias = tmpHistoria.devolverHistoria();
             return historias;
         }
-
+      
         public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
         {
             Historia tmpHistoria = new Historia();
             DataSet historias = tmpHistoria.devolverHistoriaPorIDyPresupuesto(idSocio, presupuesto);
+            return historias;
+        }
+
+        public DataSet devolverHistoriaPorIdSocio(int idSocio)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverHistoriaPorIdSocio(idSocio);
             return historias;
         }
 

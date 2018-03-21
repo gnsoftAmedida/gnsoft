@@ -1245,7 +1245,17 @@ namespace COOPMEF
                 btnNuevoSocio.Enabled = true;
             }
         }
-
+        private void marcarExcedido()
+        {
+            if (this.estaExcedido())
+            {
+                this.btnExcedido.Visible = true;
+            }
+            else
+            {
+                this.btnExcedido.Visible = false;
+            }
+        }
         private void seleccionarSocio()
         {
             int index = dgvSociosCampo.CurrentRow.Index;
@@ -1255,6 +1265,7 @@ namespace COOPMEF
 
             if (index != -1)
             {
+                marcarExcedido();
 
                 lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
                 lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
@@ -1470,6 +1481,7 @@ namespace COOPMEF
 
         private void cargarPantallas()
         {
+
             seleccionarSocioYllenarDataGrid();
             //calcularSaldoMorayTotal();
             //llenarCamposDeCobranzaExcedidos();
@@ -1656,6 +1668,10 @@ namespace COOPMEF
             {
                 this.buscarCampo();
             }
+            else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabHistorial"]))
+            {
+                cargarPantallaHistoria();
+            }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabCobranzaExcedidos"]))
             {
                 if (!(idSocioSeleccionado == 0))
@@ -1669,6 +1685,49 @@ namespace COOPMEF
                     }
                 }
             }
+        }
+
+
+        private void cargarPantallaHistoria()
+        {
+            DataSet dsHistoria = empresa.devolverHistoriaPorIdSocio(idSocioSeleccionado);
+
+            dgvHistoria.DataSource = dsHistoria.Tables["historiasIdSocio"];
+
+            dgvHistoria.RowHeadersVisible = false;
+            dgvHistoria.ReadOnly = true;
+            dgvHistoria.MultiSelect = false;
+            dgvHistoria.ReadOnly = true;
+            dgvHistoria.AllowDrop = false;
+            dgvHistoria.AllowUserToAddRows = false;
+            dgvHistoria.AllowUserToDeleteRows = false;
+            dgvHistoria.AllowUserToResizeColumns = false;
+            dgvHistoria.AllowUserToResizeRows = false;
+            dgvHistoria.AllowUserToOrderColumns = false;
+            dgvHistoria.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
+            dgvHistoria.BackgroundColor = BackColor;
+            dgvHistoria.BorderStyle = BorderStyle.None;
+
+            dgvHistoria.Columns["Presupuesto"].HeaderText = "Presupuesto";
+            dgvHistoria.Columns["Presupuesto"].Width = 120;
+
+            dgvHistoria.Columns["NumeroPrestamo"].HeaderText = "Nº Préstamo";
+            dgvHistoria.Columns["NumeroPrestamo"].Width = 120;
+
+            dgvHistoria.Columns["montopedido"].HeaderText = "Monto";
+            dgvHistoria.Columns["montopedido"].Width = 120;
+
+            dgvHistoria.Columns["cantidadcuotas"].HeaderText = "Cuotas";
+            dgvHistoria.Columns["cantidadcuotas"].Width = 120;
+
+            dgvHistoria.Columns["nrocuotas"].HeaderText = "Nro Cuota";
+            dgvHistoria.Columns["nrocuotas"].Width = 120;
+
+            dgvHistoria.Columns["importecuota"].HeaderText = "Importe Cuota";
+            dgvHistoria.Columns["importecuota"].Width = 120;
+
+            dgvHistoria.Columns["tasa"].HeaderText = "Tasa";
+            dgvHistoria.Columns["tasa"].Width = 120;
         }
 
         private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -1980,6 +2039,7 @@ namespace COOPMEF
                             {
                                 ex.Guardar();
                                 MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
+                                marcarExcedido();
                             }
                             else
                             {
