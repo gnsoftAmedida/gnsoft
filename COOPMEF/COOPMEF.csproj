@@ -200,6 +200,12 @@
     <Compile Include="frmCierreMes.Designer.cs">
       <DependentUpon>frmCierreMes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCompracionDeTasas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompracionDeTasas.Designer.cs">
+      <DependentUpon>frmCompracionDeTasas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaLogs.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -211,6 +217,18 @@
     </Compile>
     <Compile Include="frmConsultaSaldosBancarios.Designer.cs">
       <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDistribucionDeUtilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDistribucionDeUtilidades.Designer.cs">
+      <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLiquidacionDeUtilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLiquidacionDeUtilidades.Designer.cs">
+      <DependentUpon>frmLiquidacionDeUtilidades.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificarEvento.cs">
       <SubType>Form</SubType>
@@ -352,11 +370,20 @@
     <EmbeddedResource Include="frmCierreMes.resx">
       <DependentUpon>frmCierreMes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCompracionDeTasas.resx">
+      <DependentUpon>frmCompracionDeTasas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaLogs.resx">
       <DependentUpon>frmConsultaLogs.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaSaldosBancarios.resx">
       <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDistribucionDeUtilidades.resx">
+      <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLiquidacionDeUtilidades.resx">
+      <DependentUpon>frmLiquidacionDeUtilidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarEvento.resx">
       <DependentUpon>frmModificarEvento.cs</DependentUpon>
