@@ -243,6 +243,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExcedido = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblTelefonoSocio = new System.Windows.Forms.Label();
@@ -261,7 +262,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.btnExcedido = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -342,6 +342,7 @@
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -1808,6 +1809,13 @@
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
             // 
+            // btnExcedido
+            // 
+            this.btnExcedido.Image = global::COOPMEF.Properties.Resources._1486107579_delete_16;
+            resources.ApplyResources(this.btnExcedido, "btnExcedido");
+            this.btnExcedido.Name = "btnExcedido";
+            this.btnExcedido.UseVisualStyleBackColor = true;
+            // 
             // label7
             // 
             resources.ApplyResources(this.label7, "label7");
@@ -1904,13 +1912,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
-            // 
-            // btnExcedido
-            // 
-            this.btnExcedido.Image = global::COOPMEF.Properties.Resources._1486107579_delete_16;
-            resources.ApplyResources(this.btnExcedido, "btnExcedido");
-            this.btnExcedido.Name = "btnExcedido";
-            this.btnExcedido.UseVisualStyleBackColor = true;
             // 
             // frmPrincipal
             // 

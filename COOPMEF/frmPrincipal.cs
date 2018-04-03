@@ -2450,6 +2450,17 @@ Agregar emisión
             frmCantidadMovimientos frmTmpCantidad = new frmCantidadMovimientos();
             frmTmpCantidad.ShowDialog();
         }
+
+        private void cierreMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            frmInformeCierre frmTmpInformeCierre = new frmInformeCierre();
+            frmTmpInformeCierre.ShowDialog();
+        }
     }
 }
 

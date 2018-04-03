@@ -106,6 +106,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalDataSets\dsHistorico.cs">
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsHistorico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAnulacionPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -224,6 +233,12 @@
     <Compile Include="frmDistribucionDeUtilidades.Designer.cs">
       <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInformeCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeCierre.Designer.cs">
+      <DependentUpon>frmInformeCierre.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLiquidacionDeUtilidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -310,6 +325,12 @@
       <DependentUpon>cancelacionPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\cierreMes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>cierreMes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\CRPrueba.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -382,6 +403,9 @@
     <EmbeddedResource Include="frmDistribucionDeUtilidades.resx">
       <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeCierre.resx">
+      <DependentUpon>frmInformeCierre.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmLiquidacionDeUtilidades.resx">
       <DependentUpon>frmLiquidacionDeUtilidades.cs</DependentUpon>
     </EmbeddedResource>
@@ -438,6 +462,10 @@
     <EmbeddedResource Include="Reportes\cancelacionPrestamo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cancelacionPrestamo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\cierreMes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>cierreMes.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CRPrueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -496,6 +524,17 @@
     </None>
     <None Include="CrystalDataSets\dsExcedidos.xss">
       <DependentUpon>dsExcedidos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsHistorico.xsc">
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsHistorico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHistorico.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsHistorico.xss">
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsPrueba.xsc">
       <DependentUpon>dsPrueba.xsd</DependentUpon>

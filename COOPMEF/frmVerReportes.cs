@@ -26,7 +26,7 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = reporteEventos;
             }
-            
+
             if (tipo.Equals("SOLICITUD_PRESTAMO"))
             {
                 COOPMEF.Reportes.solicitudPrestamo reporteSolicitudPrestamo = new COOPMEF.Reportes.solicitudPrestamo();
@@ -63,6 +63,15 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = reporteCobranzaExcedidos;
             }
 
+            //Reporte Cierre
+            if (tipo.Equals("CIERRE"))
+            {
+                COOPMEF.Reportes.cierreMes reporteCierreMes = new COOPMEF.Reportes.cierreMes();
+
+                reporteCierreMes.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = reporteCierreMes;
+            }
         }
 
         private void frmVerReportes_Load(object sender, EventArgs e)
