@@ -187,7 +187,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO socio (socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email,socio_activo) VALUES ('" + Tsocio_nombre + "','" + Tsocio_apellido + "','" + Tsocio_nro + "','" + Tsocio_nroCobro + "','" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "','" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "','" + Tsocio_estadoCivil + "','" + Tsocio_sexo + "','" + Tsocio_estado + "','" + Tsocio_edad + "','" + Tsocio_oficinaId + "','" + Tsocio_incisoId + "','" + Tsocio_tel + "','" + Tsocio_direccion + "','" + Tsocio_email + "','" + Tsocio_activo + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO socio (socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email,socio_activo) VALUES ('" + Tsocio_nombre.Replace("'", "") + "','" + Tsocio_apellido.Replace("'", "") + "','" + Tsocio_nro + "','" + Tsocio_nroCobro.Replace("'", "") + "','" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "','" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "','" + Tsocio_estadoCivil + "','" + Tsocio_sexo + "','" + Tsocio_estado + "','" + Tsocio_edad + "','" + Tsocio_oficinaId + "','" + Tsocio_incisoId + "','" + Tsocio_tel.Replace("'", "") + "','" + Tsocio_direccion.Replace("'", "") + "','" + Tsocio_email.Replace("'", "") + "','" + Tsocio_activo + "');" + "Select last_insert_id()";
 
             try
             {
@@ -246,7 +246,7 @@ namespace Persistencia
 
             string sql;
 
-            sql = "Update socio set socio_nombre ='" + Tsocio_nombre + "', socio_nro  ='" + socio_nro  + "', socio_apellido ='" + Tsocio_apellido + "', socio_nroCobro ='" + Tsocio_nroCobro + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel + "', socio_direccion='" + Tsocio_direccion + "', socio_email='" + Tsocio_email + "'WHERE socio_id =" + Tsocio_id;
+            sql = "Update socio set socio_nombre ='" + Tsocio_nombre.Replace("'", "") + "', socio_nro  ='" + socio_nro + "', socio_apellido ='" + Tsocio_apellido.Replace("'", "") + "', socio_nroCobro ='" + Tsocio_nroCobro.Replace("'", "") + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel.Replace("'", "") + "', socio_direccion='" + Tsocio_direccion.Replace("'", "") + "', socio_email='" + Tsocio_email.Replace("'", "") + "'WHERE socio_id =" + Tsocio_id;
 
             try
             {

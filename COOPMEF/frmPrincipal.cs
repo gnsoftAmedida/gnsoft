@@ -1049,46 +1049,85 @@ namespace COOPMEF
                 {
                     campo = "socio_nro";
 
+
                     if (this.txtBusqueda.Text.Replace(" ", "").Length == 11)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 11);
+                    }
+
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 10)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 9);
+                    }
+
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 9)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 8);
+                    }
+
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 8)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 7);
+                    }
+
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 7)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 5);
+                    }
+
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 6)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 4);
+                    }
+
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 5)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 3);
+                    }
+
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 4)
+                    {
+                        valor = this.txtBusqueda.Text.Substring(0, 1);
+                    }
+                    else
                     {
                         valor = this.txtBusqueda.Text;
                     }
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Replace("-", "").Replace(",", "").Length == 1)
-                    {
-                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "").Replace(",", "");
-                    }
 
-                    else
-                    {
-                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "");
-                    }
+                    /*    if (this.txtBusqueda.Text.Replace(" ", "").Length == 11)
+                        {
+                            valor = this.txtBusqueda.Text;
+                        }
+                        else if (this.txtBusqueda.Text.Replace(" ", "").Replace("-", "").Replace(",", "").Length == 1)
+                        {
+                            valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "").Replace(",", "");
+                        }
 
-                    /*  else if (this.txtBusqueda.Text.Replace(" ", "").Replace("-", "").Replace(",", "").Length < 5)
-                    {
-                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "").Replace(",", "").Substring(0,4);
-                    }
-                     * */
+                        else
+                        {
+                            valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "");
+                        }
+    */
+
 
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Apellido")
                 {
                     campo = "socio_apellido";
-                    valor = this.txtBusqueda.Text;
+                    valor = this.txtBusqueda.Text.Replace("'","");
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Nombre")
                 {
                     campo = "socio_nombre";
-                    valor = this.txtBusqueda.Text;
+                    valor = this.txtBusqueda.Text.Replace("'", "");
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Dirección")
                 {
                     campo = "socio_direccion";
-                    valor = this.txtBusqueda.Text;
+                    valor = this.txtBusqueda.Text.Replace("'", "");
                 }
 
-
-
-                socioPorCampo(campo, valor);
+                socioPorCampo(campo, valor.Replace(",","."));
             }
         }
 
