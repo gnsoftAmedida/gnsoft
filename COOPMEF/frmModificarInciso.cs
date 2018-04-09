@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -180,6 +181,11 @@ namespace COOPMEF
 
                         MessageBox.Show("Oficina modificada correctamente");
 
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Modificar Inciso " + this.txtNombreInciso.Text);
+
+              
+
                         //Cargo Incisos
                         dsIncisos = empresa.DevolverIncisos();
                         pantallaInicial();
@@ -252,6 +258,10 @@ namespace COOPMEF
 
                     MessageBox.Show("Inciso creado correctamente");
 
+
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Nuevo Inciso " + this.txtNombreInciso.Text);
+
                     //Cargo Incisos
                     dsIncisos = empresa.DevolverIncisos();
                     pantallaInicial();
@@ -305,6 +315,10 @@ namespace COOPMEF
                     empresa.bajaInciso(Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString()));
 
                     MessageBox.Show("Inciso eliminado correctamente");
+
+
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Eliminar Inciso " + this.txtNombreInciso.Text);
 
                     //Cargo Incisos
                     dsIncisos = empresa.DevolverIncisos();

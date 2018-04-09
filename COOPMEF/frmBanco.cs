@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -138,6 +139,12 @@ namespace COOPMEF
 
                     MessageBox.Show("Banco eliminado correctamente");
 
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Eliminar banco " + this.txtNombreBanco.Text);
+
+              
+
+
                     //Cargo Incisos
                     dsBancos = empresa.DevolverBancos();
                     pantallaInicial();
@@ -239,6 +246,9 @@ namespace COOPMEF
 
                     MessageBox.Show("Banco creado correctamente");
 
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Alta banco " + this.txtNombreBanco.Text);
+
                     //Cargo Incisos
                     dsBancos = empresa.DevolverBancos();
                     pantallaInicial();
@@ -331,6 +341,9 @@ namespace COOPMEF
                         empresa.modificarBanco(this.txtNombreBanco.Text, this.txtAgenciaBanco.Text, this.txtDireccionBanco.Text, this.txtTelefonoBanco.Text, this.txtFaxBanco.Text, this.txtCuentaBanco.Text, this.cmbMonedaBanco.Text, Convert.ToInt32(dsBancos.Tables["bancos"].Rows[index][0].ToString()));
 
                         MessageBox.Show("Banco modificado correctamente");
+
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Edición banco " + this.txtNombreBanco.Text);
 
                         //Cargo Banco
                         dsBancos = empresa.DevolverBancos();

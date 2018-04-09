@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Negocio;
 using Microsoft.VisualBasic;
 using COOPMEF.CrystalDataSets;
+using Logs;
 
 
 namespace COOPMEF
@@ -61,6 +62,10 @@ namespace COOPMEF
                 empresa.cancelarCobranza(idCobranza);
 
                 MessageBox.Show("Préstamo cancelado");
+
+                RegistroSLogs registroLogs = new RegistroSLogs();
+                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cancelación anticipada préstamo " + this.txtCiCA.Text);
+              
             }
 
             btnGuardarSocio.Enabled = false;

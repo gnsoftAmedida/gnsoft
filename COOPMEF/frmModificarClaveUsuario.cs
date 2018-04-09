@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -91,6 +92,11 @@ namespace COOPMEF
                 ValidarCamposObligatoriosVacios();
                 empresa.ModificarClaveUsuario(idUsuario, txtClaveAnterior.Text, txtClaveNueva.Text);
                 mensaje = "Contraseña modificada correctamente";
+
+                RegistroSLogs registroLogs = new RegistroSLogs();
+                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Modificación clave usuario");
+
+              
                 salir = true;
             }
             catch (Exception ex)

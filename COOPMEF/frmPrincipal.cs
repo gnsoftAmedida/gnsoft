@@ -791,6 +791,11 @@ namespace COOPMEF
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
                     MessageBox.Show("Socio creado correctamente");
+
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Alta Socio Nro " + socioNro.Replace(",", "."));
+
+
                     desactivarAltaSocio();
                     borrarErroresNuevoSocio();
 
@@ -913,6 +918,9 @@ namespace COOPMEF
 
                         MessageBox.Show("Socio modificado correctamente");
 
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Edición Socio Nro " + socioNro.Replace(",", "."));
+
                         this.btnNuevoSocio.Enabled = true;
 
                         //Cargo Socios
@@ -998,6 +1006,10 @@ namespace COOPMEF
 
                         empresa.bajaSocio(idSocioSeleccionado, ref estadoActual);
                         MessageBox.Show("Estado del socio actualizado correctamente");
+
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Baja Socio Nro " + txtNroSocio.Text.Replace(",", "."));
+
                         cambiarEstado(estadoActual);
                         cambiarBotonBajaAlta(estadoActual);
                         desactivarAltaSocio();
@@ -1943,6 +1955,9 @@ namespace COOPMEF
                         DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, empresa.presupuestoFecha(FechaVto), "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota, DateTime.Today.ToLongDateString());
                         frmVerReportes reporte = new frmVerReportes(DV, "VALE_PRESTAMO");
 
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Nuevo Préstamo Socio Nro " + txtNroSocio.Text.Replace(",", "."));
+
                         reporte.ShowDialog();
                         DE.solicitud.Rows.Clear();
                         //******************************
@@ -2079,6 +2094,9 @@ namespace COOPMEF
                                 ex.Guardar();
                                 MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
                                 marcarExcedido();
+                                RegistroSLogs registroLogs = new RegistroSLogs();
+                                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Socio ingresado como excedido " + txtNroSocio.Text.Replace(",", "."));
+
                             }
                             else
                             {
@@ -2282,8 +2300,6 @@ namespace COOPMEF
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
-
-
                     Excedidos ex = new Excedidos();
                     ex._aretener = Convert.ToDouble(txtARetener.Text);
                     ex._retenido = Convert.ToDouble(txtRetenido.Text);
@@ -2302,6 +2318,10 @@ namespace COOPMEF
                         ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
                         ex.eliminar();
                         MessageBox.Show("Deuda saldada");
+
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cobranza excedido Socio Nro " + txtNroSocio.Text.Replace(",", "."));
+
                         //btnPagarCobranza.Enabled = false;
                         //btnImprimirCobranza.Enabled = false;
                         limpiarPantallaIngresoDeExcedidos();

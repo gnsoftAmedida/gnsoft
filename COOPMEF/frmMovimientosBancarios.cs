@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -146,6 +147,10 @@ namespace COOPMEF
                         empresa.actualizarSaldo(codigoBanco, saldo + factorMultiplicador * (Convert.ToDouble(txtImporte.Text)));
 
                         MessageBox.Show("Movimiento ingresado correctamente");
+
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Movimiento bancario ingresado para Banco " + codigoBanco + " Nro Cta " +  numeroCuenta);
+
                         pantallaInicial();
                     }
                     else

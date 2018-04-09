@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -103,6 +104,10 @@ namespace COOPMEF
                     {
                         empresa.eliminarCobranzaProvisoria(idCobranzaProvisoria);
                         MessageBox.Show("Préstamo anulado correctamente");
+
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Anulación préstamo " + dgvPrestamosSinLiquidar.Rows[index].Cells["cedula"].Value);
+
                         cargarPantalla();
                     }
                 }

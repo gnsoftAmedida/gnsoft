@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -48,6 +49,11 @@ namespace COOPMEF
                     fecha = dtpFecha.Value;
                     empresa.modificarEvento(fecha, txtDescripcion.Text, this.id);
                     mensaje = "Evento modificado correctamente";
+
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Evento modificado");
+
+              
                 }
             }
             catch (Exception ex)

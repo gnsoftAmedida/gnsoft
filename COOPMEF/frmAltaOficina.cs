@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Negocio;
 using System.Text.RegularExpressions;
+using Logs;
 
 namespace COOPMEF
 {
@@ -172,6 +173,9 @@ namespace COOPMEF
                     empresa.bajaOficina(Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[index][0].ToString()));
 
                     MessageBox.Show("Oficina eliminada correctamente");
+
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Eliminar oficina " + txtNombre.Text.Replace("'",""));
 
                     //Cargo Oficinas
                     dsOficinas = empresa.DevolverOficinas();
@@ -355,11 +359,15 @@ namespace COOPMEF
                         int id_departamento = Convert.ToInt32(dsDepartamentos.Tables["departamentos"].Rows[this.cmbDepartamento.SelectedIndex][0].ToString());
                         int index = this.cmbOficinas.SelectedIndex;
 
-                        empresa.modificarOficina(txtCodigo.Text, txtNombre.Text, txtAbreviatura.Text, txtDireccion.Text, id_inciso, id_departamento, txtCodigoPostal.Text, txtTelefono.Text, txtEmail.Text, txtNombreContacto.Text, Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[index][0].ToString()));
+                        empresa.modificarOficina(txtCodigo.Text.Replace("'", ""), txtNombre.Text.Replace("'", ""), txtAbreviatura.Text.Replace("'", ""), txtDireccion.Text.Replace("'", ""), id_inciso, id_departamento, txtCodigoPostal.Text.Replace("'", ""), txtTelefono.Text.Replace("'", ""), txtEmail.Text.Replace("'", ""), txtNombreContacto.Text.Replace("'", ""), Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[index][0].ToString()));
 
                         MessageBox.Show("Oficina creada correctamente");
 
-                        //Cargo Incisos
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Editar oficina " + txtNombre.Text.Replace("'", ""));
+
+
+                        //Cargo Oficinas
                         dsOficinas = empresa.DevolverOficinas();
                         pantallaInicial();
                     }
@@ -462,11 +470,14 @@ namespace COOPMEF
                     int id_inciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[this.cmbIncisos.SelectedIndex][0].ToString());
                     int id_departamento = Convert.ToInt32(dsDepartamentos.Tables["departamentos"].Rows[this.cmbDepartamento.SelectedIndex][0].ToString());
 
-                    empresa.AltaOficina(txtCodigo.Text, txtNombre.Text, txtAbreviatura.Text, txtDireccion.Text, id_inciso, id_departamento, txtCodigoPostal.Text, txtTelefono.Text, txtEmail.Text, txtNombreContacto.Text);
+                    empresa.AltaOficina(txtCodigo.Text.Replace("'", ""), txtNombre.Text.Replace("'", ""), txtAbreviatura.Text.Replace("'", ""), txtDireccion.Text.Replace("'", ""), id_inciso, id_departamento, txtCodigoPostal.Text, txtTelefono.Text, txtEmail.Text, txtNombreContacto.Text);
 
                     MessageBox.Show("Oficina creada correctamente");
 
-                    //Cargo Incisos
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Alta nueva oficina " + txtNombre.Text.Replace("'",""));
+
+                    //Cargo Oficinas
                     dsOficinas = empresa.DevolverOficinas();
                     pantallaInicial();
                 }
