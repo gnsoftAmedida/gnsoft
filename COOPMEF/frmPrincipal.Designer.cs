@@ -1225,11 +1225,13 @@
             // 
             resources.ApplyResources(this.txtARetenerIngExc, "txtARetenerIngExc");
             this.txtARetenerIngExc.Name = "txtARetenerIngExc";
+            this.txtARetenerIngExc.ReadOnly = true;
             // 
             // txtPresupuestoIngExc
             // 
             resources.ApplyResources(this.txtPresupuestoIngExc, "txtPresupuestoIngExc");
             this.txtPresupuestoIngExc.Name = "txtPresupuestoIngExc";
+            this.txtPresupuestoIngExc.Leave += new System.EventHandler(this.txtPresupuestoIngExc_Leave);
             // 
             // label27
             // 

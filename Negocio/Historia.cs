@@ -56,7 +56,7 @@ namespace Negocio
         public double _mora { get; set; }
         public double _IvaMora { get; set; }
         public int _socio_id { get; set; }
-     
+
         public void Guardar()
         {
             pHistoria tmpHistoria = new pHistoria();
@@ -70,6 +70,12 @@ namespace Negocio
             pHistoria tmpHistoria = new pHistoria();
             DataSet historias = tmpHistoria.devolverTodos();
             return historias;
+        }
+
+        public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
+        {
+            pHistoria tmpHistoria = new pHistoria();
+            return tmpHistoria.devolverHistoriaPorIDyPresupuesto(idSocio, presupuesto);
         }
 
         public DataSet devolverHistoria(string ci, string presupuesto)

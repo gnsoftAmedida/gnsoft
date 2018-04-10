@@ -62,28 +62,23 @@ namespace Negocio
             return tmpExcedido.devolverExcedidosSinPago(id_socio);
         }
 
-        public DataSet devolverExcedidosPorCIyPresupuesto(string ci, string presupuesto)
+        /*      public DataSet devolverExcedidosPorCI(string ci)
+              {
+                  pExcedidos tmpExcedido = new pExcedidos();
+                  return tmpExcedido.devolverExcedidosPorCI(ci);
+              }
+      */
+
+        public DataSet devolverExcedidosPorSocioIdyPresupuesto(int idSocio, string presupuesto)
         {
             pExcedidos tmpExcedido = new pExcedidos();
-            return tmpExcedido.devolverExcedidosPorCIyPresupuesto(ci, presupuesto);
+            return tmpExcedido.devolverExcedidosPorSocioIdyPresupuesto(idSocio, presupuesto);
         }
-
-        public DataSet devolverExcedidosPorCI(string ci)
-        {
-            pExcedidos tmpExcedido = new pExcedidos();
-            return tmpExcedido.devolverExcedidosPorCI(ci);
-        }
-
-        
-
-
-
 
         public void actualizarExcedidoCierre()
         {
             pExcedidos tmpExcedido = new pExcedidos();
             tmpExcedido.actualizarExcedidoCierre(_idExcedido, _fechadepago, _importepagado, _presupuestodelpago);
         }
-        
     }
 }

@@ -279,6 +279,8 @@ namespace COOPMEF.CrystalDataSets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class ExcedidoDataTable : global::System.Data.TypedTableBase<ExcedidoRow> {
             
+            private global::System.Data.DataColumn columnSocio;
+            
             private global::System.Data.DataColumn columnA_retener;
             
             private global::System.Data.DataColumn columnRetenido;
@@ -320,6 +322,14 @@ namespace COOPMEF.CrystalDataSets {
             protected ExcedidoDataTable(global::System.Runtime.Serialization.SerializationInfo info, global::System.Runtime.Serialization.StreamingContext context) : 
                     base(info, context) {
                 this.InitVars();
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn SocioColumn {
+                get {
+                    return this.columnSocio;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -399,9 +409,10 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public ExcedidoRow AddExcedidoRow(string A_retener, string Retenido, string Saldo, string Interés, string Total) {
+            public ExcedidoRow AddExcedidoRow(string Socio, string A_retener, string Retenido, string Saldo, string Interés, string Total) {
                 ExcedidoRow rowExcedidoRow = ((ExcedidoRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
+                        Socio,
                         A_retener,
                         Retenido,
                         Saldo,
@@ -429,6 +440,7 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
+                this.columnSocio = base.Columns["Socio"];
                 this.columnA_retener = base.Columns["A retener"];
                 this.columnRetenido = base.Columns["Retenido"];
                 this.columnSaldo = base.Columns["Saldo"];
@@ -439,6 +451,8 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
+                this.columnSocio = new global::System.Data.DataColumn("Socio", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnSocio);
                 this.columnA_retener = new global::System.Data.DataColumn("A retener", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnA_retener);
                 this.columnRetenido = new global::System.Data.DataColumn("Retenido", typeof(string), null, global::System.Data.MappingType.Element);
@@ -591,6 +605,22 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string Socio {
+                get {
+                    try {
+                        return ((string)(this[this.tableExcedido.SocioColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'Socio\' in table \'Excedido\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tableExcedido.SocioColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public string A_retener {
                 get {
                     try {
@@ -667,6 +697,18 @@ namespace COOPMEF.CrystalDataSets {
                 set {
                     this[this.tableExcedido.TotalColumn] = value;
                 }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsSocioNull() {
+                return this.IsNull(this.tableExcedido.SocioColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetSocioNull() {
+                this[this.tableExcedido.SocioColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
