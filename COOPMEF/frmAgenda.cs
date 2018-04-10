@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -73,6 +74,10 @@ namespace COOPMEF
                     fecha = dtpFecha.Value;
                     empresa.guardarEvento(fecha, txtDescripcion.Text);
                     mensaje = "Evento ingresado correctamente";
+
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Ingreso evento en agenda");
+
                 }
             }
             catch (Exception ex)
@@ -118,6 +123,8 @@ namespace COOPMEF
                             int idEvento = (int)dgvEventos.Rows[index].Cells["evento_id"].Value;
                             empresa.BajaEvento(idEvento);
 
+                              RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Eliminar evento en agenda");
 
                             DateTime fecha = cloEventos.SelectionEnd.Date;
                             this.cargarEventos(fecha);

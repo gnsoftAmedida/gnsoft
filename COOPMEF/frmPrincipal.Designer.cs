@@ -31,6 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmPrincipal));
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -52,6 +53,12 @@
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.ingresoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cantidadYPromedioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.consultaRápidaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAgenda = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -142,14 +149,12 @@
             this.btnEliminarSocio = new System.Windows.Forms.Button();
             this.btnEditarSocio = new System.Windows.Forms.Button();
             this.btnNuevoSocio = new System.Windows.Forms.Button();
-            this.tabEstado = new System.Windows.Forms.TabPage();
+            this.tabHistorial = new System.Windows.Forms.TabPage();
             this.btnNuevoPrestamo = new System.Windows.Forms.Button();
             this.button7 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dgvHistoria = new System.Windows.Forms.DataGridView();
             this.tabCobranza = new System.Windows.Forms.TabPage();
             this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
-            this.groupBox8 = new System.Windows.Forms.GroupBox();
-            this.dgvDeuda = new System.Windows.Forms.DataGridView();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.label42 = new System.Windows.Forms.Label();
             this.txtTotalIngExc = new System.Windows.Forms.TextBox();
@@ -203,7 +208,7 @@
             this.lblOficina = new System.Windows.Forms.Label();
             this.lblInciso = new System.Windows.Forms.Label();
             this.lblObs = new System.Windows.Forms.Label();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabCobranzaExcedidos = new System.Windows.Forms.TabPage();
             this.btnPagarCobranza = new System.Windows.Forms.Button();
             this.btnSalirCobranza = new System.Windows.Forms.Button();
             this.btnImprimirCobranza = new System.Windows.Forms.Button();
@@ -220,7 +225,6 @@
             this.label30 = new System.Windows.Forms.Label();
             this.label28 = new System.Windows.Forms.Label();
             this.groupBox11 = new System.Windows.Forms.GroupBox();
-            this.btnActualizarIntereses = new System.Windows.Forms.Button();
             this.rbtnSI = new System.Windows.Forms.RadioButton();
             this.rbtnNo = new System.Windows.Forms.RadioButton();
             this.txtPresupuesto = new System.Windows.Forms.TextBox();
@@ -239,6 +243,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.btnExcedido = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.lblTelefonoSocio = new System.Windows.Forms.Label();
@@ -266,17 +271,15 @@
             this.groupBox1.SuspendLayout();
             this.gBoxEstado.SuspendLayout();
             this.gBoxSexo.SuspendLayout();
-            this.tabEstado.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            this.tabHistorial.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoria)).BeginInit();
             this.tabCobranza.SuspendLayout();
-            this.groupBox8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeuda)).BeginInit();
             this.groupBox7.SuspendLayout();
             this.tabPrestamo.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox4.SuspendLayout();
-            this.tabPage1.SuspendLayout();
+            this.tabCobranzaExcedidos.SuspendLayout();
             this.groupBox10.SuspendLayout();
             this.groupBox12.SuspendLayout();
             this.groupBox11.SuspendLayout();
@@ -302,8 +305,16 @@
             // archivoToolStripMenuItem
             // 
             this.archivoToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.anulaciónToolStripMenuItem});
             resources.ApplyResources(this.archivoToolStripMenuItem, "archivoToolStripMenuItem");
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            // 
+            // anulaciónToolStripMenuItem
+            // 
+            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
+            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
+            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
             // 
             // verToolStripMenuItem
             // 
@@ -331,6 +342,7 @@
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
@@ -435,8 +447,50 @@
             // bancoToolStripMenuItem
             // 
             this.bancoToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
+            this.bancoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.mantenimientoToolStripMenuItem,
+            this.movimientosToolStripMenuItem,
+            this.consultaRápidaToolStripMenuItem,
+            this.informesToolStripMenuItem});
             resources.ApplyResources(this.bancoToolStripMenuItem, "bancoToolStripMenuItem");
             this.bancoToolStripMenuItem.Name = "bancoToolStripMenuItem";
+            // 
+            // mantenimientoToolStripMenuItem
+            // 
+            this.mantenimientoToolStripMenuItem.Name = "mantenimientoToolStripMenuItem";
+            resources.ApplyResources(this.mantenimientoToolStripMenuItem, "mantenimientoToolStripMenuItem");
+            this.mantenimientoToolStripMenuItem.Click += new System.EventHandler(this.mantenimientoToolStripMenuItem_Click);
+            // 
+            // movimientosToolStripMenuItem
+            // 
+            this.movimientosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.ingresoToolStripMenuItem,
+            this.cantidadYPromedioToolStripMenuItem});
+            this.movimientosToolStripMenuItem.Name = "movimientosToolStripMenuItem";
+            resources.ApplyResources(this.movimientosToolStripMenuItem, "movimientosToolStripMenuItem");
+            // 
+            // ingresoToolStripMenuItem
+            // 
+            this.ingresoToolStripMenuItem.Name = "ingresoToolStripMenuItem";
+            resources.ApplyResources(this.ingresoToolStripMenuItem, "ingresoToolStripMenuItem");
+            this.ingresoToolStripMenuItem.Click += new System.EventHandler(this.ingresoToolStripMenuItem_Click);
+            // 
+            // cantidadYPromedioToolStripMenuItem
+            // 
+            this.cantidadYPromedioToolStripMenuItem.Name = "cantidadYPromedioToolStripMenuItem";
+            resources.ApplyResources(this.cantidadYPromedioToolStripMenuItem, "cantidadYPromedioToolStripMenuItem");
+            this.cantidadYPromedioToolStripMenuItem.Click += new System.EventHandler(this.cantidadYPromedioToolStripMenuItem_Click);
+            // 
+            // consultaRápidaToolStripMenuItem
+            // 
+            this.consultaRápidaToolStripMenuItem.Name = "consultaRápidaToolStripMenuItem";
+            resources.ApplyResources(this.consultaRápidaToolStripMenuItem, "consultaRápidaToolStripMenuItem");
+            this.consultaRápidaToolStripMenuItem.Click += new System.EventHandler(this.consultaRápidaToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem
+            // 
+            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            resources.ApplyResources(this.informesToolStripMenuItem, "informesToolStripMenuItem");
             // 
             // calendarioToolStripMenuItem
             // 
@@ -569,10 +623,10 @@
             // 
             this.tbcPestanas.Controls.Add(this.tabBusqueda);
             this.tbcPestanas.Controls.Add(this.lblErrorG);
-            this.tbcPestanas.Controls.Add(this.tabEstado);
+            this.tbcPestanas.Controls.Add(this.tabHistorial);
             this.tbcPestanas.Controls.Add(this.tabCobranza);
             this.tbcPestanas.Controls.Add(this.tabPrestamo);
-            this.tbcPestanas.Controls.Add(this.tabPage1);
+            this.tbcPestanas.Controls.Add(this.tabCobranzaExcedidos);
             resources.ApplyResources(this.tbcPestanas, "tbcPestanas");
             this.tbcPestanas.Name = "tbcPestanas";
             this.tbcPestanas.SelectedIndex = 0;
@@ -597,6 +651,8 @@
             this.dgvSociosCampo.Name = "dgvSociosCampo";
             this.dgvSociosCampo.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellClick);
             this.dgvSociosCampo.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentClick);
+            this.dgvSociosCampo.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellContentDoubleClick);
+            this.dgvSociosCampo.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosCampo_CellDoubleClick);
             this.dgvSociosCampo.ColumnHeaderMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.dgvSociosCampo_ColumnHeaderMouseClick);
             // 
             // btnSalirPlan
@@ -914,6 +970,7 @@
             this.rBtnPasivo.Name = "rBtnPasivo";
             this.rBtnPasivo.TabStop = true;
             this.rBtnPasivo.UseVisualStyleBackColor = true;
+            this.rBtnPasivo.CheckedChanged += new System.EventHandler(this.rBtnPasivo_CheckedChanged);
             // 
             // rBtnActivo
             // 
@@ -1091,14 +1148,14 @@
             this.btnNuevoSocio.UseVisualStyleBackColor = true;
             this.btnNuevoSocio.Click += new System.EventHandler(this.btnNuevoSocio_Click);
             // 
-            // tabEstado
+            // tabHistorial
             // 
-            this.tabEstado.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabEstado.Controls.Add(this.btnNuevoPrestamo);
-            this.tabEstado.Controls.Add(this.button7);
-            this.tabEstado.Controls.Add(this.dataGridView2);
-            resources.ApplyResources(this.tabEstado, "tabEstado");
-            this.tabEstado.Name = "tabEstado";
+            this.tabHistorial.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabHistorial.Controls.Add(this.btnNuevoPrestamo);
+            this.tabHistorial.Controls.Add(this.button7);
+            this.tabHistorial.Controls.Add(this.dgvHistoria);
+            resources.ApplyResources(this.tabHistorial, "tabHistorial");
+            this.tabHistorial.Name = "tabHistorial";
             // 
             // btnNuevoPrestamo
             // 
@@ -1110,23 +1167,22 @@
             // 
             // button7
             // 
-            resources.ApplyResources(this.button7, "button7");
             this.button7.Image = global::COOPMEF.Properties.Resources._1486256648_personal_loan;
+            resources.ApplyResources(this.button7, "button7");
             this.button7.Name = "button7";
             this.button7.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dgvHistoria
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dataGridView2, "dataGridView2");
-            this.dataGridView2.Name = "dataGridView2";
+            this.dgvHistoria.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            resources.ApplyResources(this.dgvHistoria, "dgvHistoria");
+            this.dgvHistoria.Name = "dgvHistoria";
             // 
             // tabCobranza
             // 
             this.tabCobranza.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabCobranza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.tabCobranza.Controls.Add(this.btnGuardarIngExcedidos);
-            this.tabCobranza.Controls.Add(this.groupBox8);
             this.tabCobranza.Controls.Add(this.groupBox7);
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
             this.tabCobranza.Name = "tabCobranza";
@@ -1139,19 +1195,6 @@
             this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
             this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
             this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
-            // 
-            // groupBox8
-            // 
-            this.groupBox8.Controls.Add(this.dgvDeuda);
-            resources.ApplyResources(this.groupBox8, "groupBox8");
-            this.groupBox8.Name = "groupBox8";
-            this.groupBox8.TabStop = false;
-            // 
-            // dgvDeuda
-            // 
-            this.dgvDeuda.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dgvDeuda, "dgvDeuda");
-            this.dgvDeuda.Name = "dgvDeuda";
             // 
             // groupBox7
             // 
@@ -1339,6 +1382,7 @@
             // 
             resources.ApplyResources(this.txtNuevoImporte, "txtNuevoImporte");
             this.txtNuevoImporte.Name = "txtNuevoImporte";
+            this.txtNuevoImporte.ReadOnly = true;
             this.txtNuevoImporte.Leave += new System.EventHandler(this.txtNuevoImporte_Leave);
             // 
             // label17
@@ -1508,16 +1552,16 @@
             resources.ApplyResources(this.lblObs, "lblObs");
             this.lblObs.Name = "lblObs";
             // 
-            // tabPage1
+            // tabCobranzaExcedidos
             // 
-            this.tabPage1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabPage1.Controls.Add(this.btnPagarCobranza);
-            this.tabPage1.Controls.Add(this.btnSalirCobranza);
-            this.tabPage1.Controls.Add(this.btnImprimirCobranza);
-            this.tabPage1.Controls.Add(this.groupBox10);
-            this.tabPage1.Controls.Add(this.groupBox9);
-            resources.ApplyResources(this.tabPage1, "tabPage1");
-            this.tabPage1.Name = "tabPage1";
+            this.tabCobranzaExcedidos.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabCobranzaExcedidos.Controls.Add(this.btnPagarCobranza);
+            this.tabCobranzaExcedidos.Controls.Add(this.btnSalirCobranza);
+            this.tabCobranzaExcedidos.Controls.Add(this.btnImprimirCobranza);
+            this.tabCobranzaExcedidos.Controls.Add(this.groupBox10);
+            this.tabCobranzaExcedidos.Controls.Add(this.groupBox9);
+            resources.ApplyResources(this.tabCobranzaExcedidos, "tabCobranzaExcedidos");
+            this.tabCobranzaExcedidos.Name = "tabCobranzaExcedidos";
             // 
             // btnPagarCobranza
             // 
@@ -1621,19 +1665,11 @@
             // 
             // groupBox11
             // 
-            this.groupBox11.Controls.Add(this.btnActualizarIntereses);
             this.groupBox11.Controls.Add(this.rbtnSI);
             this.groupBox11.Controls.Add(this.rbtnNo);
             resources.ApplyResources(this.groupBox11, "groupBox11");
             this.groupBox11.Name = "groupBox11";
             this.groupBox11.TabStop = false;
-            // 
-            // btnActualizarIntereses
-            // 
-            resources.ApplyResources(this.btnActualizarIntereses, "btnActualizarIntereses");
-            this.btnActualizarIntereses.Name = "btnActualizarIntereses";
-            this.btnActualizarIntereses.UseVisualStyleBackColor = true;
-            this.btnActualizarIntereses.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // rbtnSI
             // 
@@ -1642,6 +1678,7 @@
             this.rbtnSI.Name = "rbtnSI";
             this.rbtnSI.TabStop = true;
             this.rbtnSI.UseVisualStyleBackColor = true;
+            this.rbtnSI.CheckedChanged += new System.EventHandler(this.rbtnSI_CheckedChanged);
             // 
             // rbtnNo
             // 
@@ -1751,6 +1788,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.btnExcedido);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.lblTelefonoSocio);
@@ -1770,6 +1808,13 @@
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            // 
+            // btnExcedido
+            // 
+            this.btnExcedido.Image = global::COOPMEF.Properties.Resources._1486107579_delete_16;
+            resources.ApplyResources(this.btnExcedido, "btnExcedido");
+            this.btnExcedido.Name = "btnExcedido";
+            this.btnExcedido.UseVisualStyleBackColor = true;
             // 
             // label7
             // 
@@ -1897,11 +1942,9 @@
             this.gBoxEstado.PerformLayout();
             this.gBoxSexo.ResumeLayout(false);
             this.gBoxSexo.PerformLayout();
-            this.tabEstado.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            this.tabHistorial.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvHistoria)).EndInit();
             this.tabCobranza.ResumeLayout(false);
-            this.groupBox8.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.dgvDeuda)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.tabPrestamo.ResumeLayout(false);
@@ -1912,7 +1955,7 @@
             this.groupBox5.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
-            this.tabPage1.ResumeLayout(false);
+            this.tabCobranzaExcedidos.ResumeLayout(false);
             this.groupBox10.ResumeLayout(false);
             this.groupBox10.PerformLayout();
             this.groupBox12.ResumeLayout(false);
@@ -1949,11 +1992,11 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TabPage tabEstado;
+        private System.Windows.Forms.TabPage tabHistorial;
         private System.Windows.Forms.ToolStripMenuItem mToolStripMenuItem;
         private System.Windows.Forms.TabPage tabCobranza;
         private System.Windows.Forms.TabPage tabPrestamo;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dgvHistoria;
         private System.Windows.Forms.GroupBox groupBox5;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label13;
@@ -2007,7 +2050,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
-        private System.Windows.Forms.GroupBox groupBox8;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txtRetenidoIngExc;
         private System.Windows.Forms.TextBox txtARetenerIngExc;
@@ -2015,8 +2057,7 @@
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.Label label26;
         private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.DataGridView dgvDeuda;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabCobranzaExcedidos;
         private System.Windows.Forms.TextBox txtCI;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.Label label25;
@@ -2158,7 +2199,14 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnPagarCobranza;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.Button btnActualizarIntereses;
+        private System.Windows.Forms.ToolStripMenuItem anulaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem movimientosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem ingresoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem consultaRápidaToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cantidadYPromedioToolStripMenuItem;
+        private System.Windows.Forms.Button btnExcedido;
     }
 }
 

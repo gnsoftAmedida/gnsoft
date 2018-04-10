@@ -9,6 +9,7 @@ using System.Windows.Forms;
 using Negocio;
 using System.Text.RegularExpressions;
 using System.Collections;
+using Logs;
 
 namespace COOPMEF
 {
@@ -117,6 +118,10 @@ namespace COOPMEF
 
                 empresa.AltaUsuario(txtAlias.Text, txtClave.Text, txtCorreo.Text, txtTelefono.Text, acciones);
                 mensaje = "Usuario ingresado correctamente";
+
+                RegistroSLogs registroLogs = new RegistroSLogs();
+                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Alta de usuario " + txtAlias.Text.Replace("'", ""));
+
                 salir = true;
             }
             catch (Exception ex)

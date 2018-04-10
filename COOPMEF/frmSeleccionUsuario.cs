@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -119,6 +120,10 @@ namespace COOPMEF
 
                                 mensaje = "Contraseña modificada correctamente. \n" +
                                             "Su nueva contraseña es: " + claveNueva;
+
+                                RegistroSLogs registroLogs = new RegistroSLogs();
+                                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Reseteo contraseña Usuario " + dataGridUsuarios.Rows[index].Cells["usuario_alias"].Value);
+
                             }
                             else
                             {
@@ -158,6 +163,10 @@ namespace COOPMEF
                             int index = dataGridUsuarios.CurrentRow.Index;
                             int idUsuario = (int)dataGridUsuarios.Rows[index].Cells["usuario_id"].Value;
                             empresa.BajaUsuario(idUsuario);
+
+                            RegistroSLogs registroLogs = new RegistroSLogs();
+                            registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Baja Usuario " + dataGridUsuarios.Rows[index].Cells["usuario_alias"].Value);
+
                             mensaje = "Usuario eliminado";
                             salir = true;
                         }

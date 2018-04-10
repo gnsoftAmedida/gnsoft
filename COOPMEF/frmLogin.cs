@@ -24,46 +24,46 @@ namespace COOPMEF
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-          frmPrincipal  principal = new frmPrincipal();
+        /*  frmPrincipal  principal = new frmPrincipal();
           this.Close();
             principal.ShowDialog();
-            
-         
-           
+            */
 
-                 //string mensaje = "";
-                 //try
-                 //{
-                 //    ValidarCamposVacios();
-                 //    empresa.LoguearUsuario(txtUsuario.Text, txtClave.Text);
-                 //    this.Visible = false;
 
-                 //    if (this.validarLicencia())
-                 //    {
-                 //        if (this.validarVencimiento())
-                 //        {
-                 //            RegistroSLogs registroLogs = new RegistroSLogs();
-                 //            registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Ingreso al sistema");
 
-                 //            frmPrincipal principal = new frmPrincipal();
-                 //            principal.ShowDialog();
-                 //            this.Close();
-                 //        }
-                 //        else
-                 //        {
-                 //            MessageBox.Show("Licencia vencida, consulte con su proveedor");
-                 //        }
-                 //    }
-                 //    else
-                 //    {
-                 //        MessageBox.Show("Licencia inválida, consulte con su proveedor");
-                 //    }
-                 //}
-                 //catch (Exception ex)
-                 //{
-                 //    mensaje = ex.Message;
-                 //    MessageBox.Show(mensaje);
-                 //} 
+            string mensaje = "";
+            try
+            {
+                ValidarCamposVacios();
+                empresa.LoguearUsuario(txtUsuario.Text.Replace("'", ""), txtClave.Text.Replace("'", ""));
+                this.Visible = false;
+
+              //  if (this.validarLicencia())
+              //  {
+                    if (this.validarVencimiento())
+                    {
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Ingreso al sistema");
+
+                        frmPrincipal principal = new frmPrincipal();
+                        principal.ShowDialog();
+                        this.Close();
+                    }
+                    else
+                    {
+                        MessageBox.Show("Licencia vencida, consulte con su proveedor");
+                    }
+         //       }
+          //      else
+               // {
+            //        MessageBox.Show("Licencia inválida, consulte con su proveedor");
+              //  }
+            }
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                MessageBox.Show(mensaje);
+            } 
         } 
 
         private bool validarLicencia()

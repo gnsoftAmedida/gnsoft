@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Accion.cs" />
+    <Compile Include="Banco.cs" />
     <Compile Include="Cancelacion.cs" />
     <Compile Include="Controladora.cs" />
     <Compile Include="Cobranza.cs" />
@@ -50,6 +51,7 @@
     <Compile Include="FechaCierre.cs" />
     <Compile Include="Empresa.cs" />
     <Compile Include="Historia.cs" />
+    <Compile Include="Movimiento.cs" />
     <Compile Include="Prestamo.cs" />
     <Compile Include="Departamento.cs" />
     <Compile Include="Evento.cs" />

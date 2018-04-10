@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 
 namespace COOPMEF
@@ -287,6 +288,9 @@ namespace COOPMEF
                         empresa.ModificarPlan(Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString()), Convert.ToInt32(txtBoxCantCuotas.Text), Convert.ToDouble(txtBoxTasaAnualSinIVA.Text.Replace(".", ",")), Convert.ToDouble(txtBoxIVA.Text.Replace(".", ",")), vigencia, texBoxNombrePlan.Text, CuotaCada1000);
                         MessageBox.Show("Plan modificado correctamente");
 
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Modificar Plan de Préstamos " + texBoxNombrePlan.Text);
+
                         //Cargo Planes
                         dsPlanes = empresa.DevolverPlanes();
                         pantallaInicial();
@@ -396,6 +400,9 @@ namespace COOPMEF
 
                     MessageBox.Show("Plan creado correctamente");
 
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Alta Plan de Préstamos " + texBoxNombrePlan.Text);
+
                     //Cargo planes
                     dsPlanes = empresa.DevolverPlanes();
                     pantallaInicial();
@@ -438,6 +445,9 @@ namespace COOPMEF
                         empresa.bajaPlan(Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString()));
 
                         MessageBox.Show("Plan eliminado correctamente");
+
+                        RegistroSLogs registroLogs = new RegistroSLogs();
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Baja Plan de Préstamos " + texBoxNombrePlan.Text);
 
                         //Cargo Planes
                         dsPlanes = empresa.DevolverPlanes();

@@ -106,6 +106,27 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalDataSets\dsHistorico.cs">
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsHistorico.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmAnulacionPrestamo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmAnulacionPrestamo.Designer.cs">
+      <DependentUpon>frmAnulacionPrestamo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmBanco.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmBanco.Designer.cs">
+      <DependentUpon>frmBanco.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCancelacionAnticipadaDePrestmos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -176,17 +197,53 @@
     <Compile Include="frmAltaUsuario.Designer.cs">
       <DependentUpon>frmAltaUsuario.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCantidadMovimientos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCantidadMovimientos.Designer.cs">
+      <DependentUpon>frmCantidadMovimientos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCierreMes.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmCierreMes.Designer.cs">
       <DependentUpon>frmCierreMes.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCompracionDeTasas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCompracionDeTasas.Designer.cs">
+      <DependentUpon>frmCompracionDeTasas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmConsultaLogs.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="frmConsultaLogs.Designer.cs">
       <DependentUpon>frmConsultaLogs.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmConsultaSaldosBancarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmConsultaSaldosBancarios.Designer.cs">
+      <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmDistribucionDeUtilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDistribucionDeUtilidades.Designer.cs">
+      <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmInformeCierre.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformeCierre.Designer.cs">
+      <DependentUpon>frmInformeCierre.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmLiquidacionDeUtilidades.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmLiquidacionDeUtilidades.Designer.cs">
+      <DependentUpon>frmLiquidacionDeUtilidades.cs</DependentUpon>
     </Compile>
     <Compile Include="frmModificarEvento.cs">
       <SubType>Form</SubType>
@@ -199,6 +256,12 @@
     </Compile>
     <Compile Include="frmModificarInciso.Designer.cs">
       <DependentUpon>frmModificarInciso.cs</DependentUpon>
+    </Compile>
+    <Compile Include="frmMovimientosBancarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmMovimientosBancarios.Designer.cs">
+      <DependentUpon>frmMovimientosBancarios.cs</DependentUpon>
     </Compile>
     <Compile Include="frmPlanDePrestamo.cs">
       <SubType>Form</SubType>
@@ -268,10 +331,10 @@
       <DependentUpon>CRPrueba.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\CrystalReport1.cs">
+    <Compile Include="Reportes\cierreMes.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>CrystalReport1.rpt</DependentUpon>
+      <DependentUpon>cierreMes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\InfoExcedidos.cs">
@@ -298,6 +361,12 @@
       <DependentUpon>solicitudPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="frmAnulacionPrestamo.resx">
+      <DependentUpon>frmAnulacionPrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmBanco.resx">
+      <DependentUpon>frmBanco.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCancelacionAnticipadaDePrestmos.resx">
       <DependentUpon>frmCancelacionAnticipadaDePrestmos.cs</DependentUpon>
     </EmbeddedResource>
@@ -310,17 +379,38 @@
     <EmbeddedResource Include="frmAltaUsuario.resx">
       <DependentUpon>frmAltaUsuario.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCantidadMovimientos.resx">
+      <DependentUpon>frmCantidadMovimientos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCierreMes.resx">
       <DependentUpon>frmCierreMes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCompracionDeTasas.resx">
+      <DependentUpon>frmCompracionDeTasas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmConsultaLogs.resx">
       <DependentUpon>frmConsultaLogs.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmConsultaSaldosBancarios.resx">
+      <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDistribucionDeUtilidades.resx">
+      <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformeCierre.resx">
+      <DependentUpon>frmInformeCierre.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmLiquidacionDeUtilidades.resx">
+      <DependentUpon>frmLiquidacionDeUtilidades.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarEvento.resx">
       <DependentUpon>frmModificarEvento.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarInciso.resx">
       <DependentUpon>frmModificarInciso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmMovimientosBancarios.resx">
+      <DependentUpon>frmMovimientosBancarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPlanDePrestamo.resx">
       <DependentUpon>frmPlanDePrestamo.cs</DependentUpon>
@@ -345,6 +435,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmVerReportes.resx">
       <DependentUpon>frmVerReportes.cs</DependentUpon>
@@ -370,9 +461,9 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRPrueba.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\CrystalReport1.rpt">
+    <EmbeddedResource Include="Reportes\cierreMes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>CrystalReport1.cs</LastGenOutput>
+      <LastGenOutput>cierreMes.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\InfoExcedidos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -423,6 +514,17 @@
     </None>
     <None Include="CrystalDataSets\dsExcedidos.xss">
       <DependentUpon>dsExcedidos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsHistorico.xsc">
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsHistorico.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHistorico.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsHistorico.xss">
+      <DependentUpon>dsHistorico.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsPrueba.xsc">
       <DependentUpon>dsPrueba.xsd</DependentUpon>

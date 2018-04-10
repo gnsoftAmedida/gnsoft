@@ -16,14 +16,14 @@ namespace COOPMEF.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class CrystalReport1 : ReportClass {
+    public class cierreMes : ReportClass {
         
-        public CrystalReport1() {
+        public cierreMes() {
         }
         
         public override string ResourceName {
             get {
-                return "CrystalReport1.rpt";
+                return "cierreMes.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace COOPMEF.Reportes {
         
         public override string FullResourceName {
             get {
-                return "COOPMEF.Reportes.CrystalReport1.rpt";
+                return "COOPMEF.Reportes.cierreMes.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace COOPMEF.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedCrystalReport1 : Component, ICachedReport {
+    public class CachedcierreMes : Component, ICachedReport {
         
-        public CachedCrystalReport1() {
+        public CachedcierreMes() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace COOPMEF.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            CrystalReport1 rpt = new CrystalReport1();
+            cierreMes rpt = new cierreMes();
             rpt.Site = this.Site;
             return rpt;
         }

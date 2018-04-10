@@ -8,6 +8,7 @@ using System.Text;
 using System.Windows.Forms;
 using Negocio;
 using Microsoft.VisualBasic;
+using Logs;
 
 namespace COOPMEF
 {
@@ -61,7 +62,12 @@ namespace COOPMEF
             if (result == System.Windows.Forms.DialogResult.Yes)
             {
                 empresa.cierre();
-                MessageBox.Show("Cierre efecutado correctamente");
+                MessageBox.Show("Cierre efectuado correctamente");
+
+                RegistroSLogs registroLogs = new RegistroSLogs();
+                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cierre mes " + this.lblFechaCierre.Text);
+
+             
                 inicio();
             }
         }

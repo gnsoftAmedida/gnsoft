@@ -126,6 +126,41 @@ namespace Negocio
             tmpInciso.Guardar();
         }
 
+        public void AltaBanco(string nombrebanco, string agenciabanco, string direccionbanco, string telefonobanco, string faxbanco, string numerocta, string moneda)
+        {
+            Banco tmpBanco = new Banco();
+            tmpBanco.Nombrebanco = nombrebanco;
+            tmpBanco.Agenciabanco = agenciabanco;
+            tmpBanco.Direccionbanco = direccionbanco;
+            tmpBanco.Telefonobanco = telefonobanco;
+            tmpBanco.Faxbanco = faxbanco;
+            tmpBanco.Numerocta = numerocta;
+            tmpBanco.Moneda = moneda;
+            tmpBanco.Guardar();
+        }
+
+        public void actualizarSaldo(int codigobanco, Double saldo) {
+            Banco tmpBanco = new Banco();
+            tmpBanco.Codigobanco = codigobanco;
+            tmpBanco.Saldo = saldo;
+            tmpBanco.actualizarSaldo();
+        }
+
+        public void AltaMovimiento(DateTime fecha, int codigobanco, string numerocta, string numerodocumento, string debehaber, Double importe, string concepto, Double saldo)
+        {
+            Movimiento tmpMovimiento = new Movimiento();
+            tmpMovimiento.Fecha = fecha;
+            tmpMovimiento.Codigobanco = codigobanco;
+            tmpMovimiento.Numerocta = numerocta;
+            tmpMovimiento.Numerodocumento = numerodocumento;
+            tmpMovimiento.Debehaber = debehaber;
+            tmpMovimiento.Importe = importe;
+            tmpMovimiento.Concepto = concepto;
+            tmpMovimiento.Saldo = saldo;
+            
+            tmpMovimiento.Guardar();
+        }
+
         public void AltaOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto)
         {
             Oficina tmpOficina = new Oficina();
@@ -194,6 +229,23 @@ namespace Negocio
             tmpInciso.modificarInciso();
         }
 
+        public void modificarBanco(string nombrebanco, string agenciabanco, string direccionbanco, string telefonobanco, string faxbanco, string numerocta, string moneda, int codigobanco)
+        {
+            Banco tmpBanco = new Banco();
+            if (codigobanco == 0)
+                throw new Exception("Id del banco no puede ser 0");
+
+            tmpBanco.Nombrebanco = nombrebanco;
+            tmpBanco.Agenciabanco = agenciabanco;
+            tmpBanco.Direccionbanco = direccionbanco;
+            tmpBanco.Telefonobanco = telefonobanco;
+            tmpBanco.Faxbanco = faxbanco;
+            tmpBanco.Numerocta = numerocta;
+            tmpBanco.Moneda = moneda;
+            tmpBanco.Codigobanco = codigobanco;
+            tmpBanco.modificarBanco();
+        }
+
         public void actualizarExcedidoCierre(int idExcedido, DateTime fechadepago, double importepagado, String presupuestodelpago)
         {
             Excedidos tmpExcedido = new Excedidos();
@@ -235,17 +287,31 @@ namespace Negocio
             return usuarios;
         }
 
+        public DataSet movimientosPromedio(int codigoBancoConsulta, int diaDesde, int diaHasta, int mes, int anio)
+        {
+            Movimiento tmpMovimiento = new Movimiento();
+            DataSet consulta = tmpMovimiento.movimientosPromedio(codigoBancoConsulta, diaDesde, diaHasta, mes, anio);
+            return consulta;
+        }
+
         public DataSet DevolverHistoria()
         {
             Historia tmpHistoria = new Historia();
             DataSet historias = tmpHistoria.devolverHistoria();
             return historias;
         }
-
+      
         public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
         {
             Historia tmpHistoria = new Historia();
             DataSet historias = tmpHistoria.devolverHistoriaPorIDyPresupuesto(idSocio, presupuesto);
+            return historias;
+        }
+
+        public DataSet devolverHistoriaPorIdSocio(int idSocio)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverHistoriaPorIdSocio(idSocio);
             return historias;
         }
 
@@ -286,6 +352,13 @@ namespace Negocio
             Inciso tmpInciso = new Inciso();
             DataSet incisos = tmpInciso.devolverIncisos();
             return incisos;
+        }
+
+        public DataSet DevolverBancos()
+        {
+            Banco tmpBanco = new Banco();
+            DataSet bancos = tmpBanco.devolverBancos();
+            return bancos;
         }
 
         public DataSet DevolverCobranzas()
@@ -400,10 +473,20 @@ namespace Negocio
         {
             Inciso tmpInciso = new Inciso();
             if (idInciso == 0)
-                throw new Exception("Id del usuario no puede ser 0");
+                throw new Exception("Id del inciso no puede ser 0");
 
             tmpInciso.Inciso_id = idInciso;
             tmpInciso.eliminar();
+        }
+
+        public void bajaBanco(int codigoBanco)
+        {
+            Banco tmpBanco = new Banco();
+            if (codigoBanco == 0)
+                throw new Exception("Id del banco no puede ser 0");
+
+            tmpBanco.Codigobanco = codigoBanco;
+            tmpBanco.eliminar();
         }
 
         public void bajaOficina(int idOficina)

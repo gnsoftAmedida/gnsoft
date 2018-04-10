@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Logs;
 
 namespace COOPMEF
 {
@@ -127,6 +128,10 @@ namespace COOPMEF
                 DateTime fechaEleccion = Convert.ToDateTime(dtpFechaEleccion.Value);
                 empresa.AltaEmpresa(txtNombreCoop.Text, txtSiglaCoop.Text, txtDirecciónCoop.Text, txtDeptoCoop.Text, txtCodPostal.Text, txtTelCoop.Text, txtFaxCoop.Text, txtRUTCoop.Text, Convert.ToInt32(txtAporteCoop.Text), Convert.ToInt32(txtMaxUnidCoop.Text), Convert.ToInt32(txtIVACoop.Text), Convert.ToInt32(txtInteresMoraCoop.Text), txtEmailCoop.Text, txtPresidenteCoop.Text, txtTesoreroCoop.Text, txtSecretarioCoop.Text, txtPrimerVocalCoop.Text, txtSegVocalCoop.Text, fechaEleccion);
                 MessageBox.Show("Los datos de la empresa han sido actualizados");
+
+                RegistroSLogs registroLogs = new RegistroSLogs();
+                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Parámetros Empresa Modificados");
+
                 this.Close();
             }else
                 MessageBox.Show("Falta cargar datos obligatorios * o los mismos no tienen el formato correcto ");

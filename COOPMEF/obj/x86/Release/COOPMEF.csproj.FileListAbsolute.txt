@@ -97,3 +97,5 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\gsw\COOPMEF.reso
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.exe
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmCancelacionAnticipadaDePrestmos.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmAnulacionPrestamo.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Release\COOPMEF.frmBanco.resources
