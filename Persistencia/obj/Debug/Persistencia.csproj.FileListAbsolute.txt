@@ -26,3 +26,10 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Utilidades.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Utilidades.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Persistencia.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Persistencia.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Utilidades.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Persistencia\bin\Debug\Utilidades.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Persistencia\obj\Debug\Persistencia.pdb

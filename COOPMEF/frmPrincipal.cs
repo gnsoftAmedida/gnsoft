@@ -26,6 +26,7 @@ namespace COOPMEF
         DataSet dsIncisos;
         DataSet dsOficinas;
         private int idSocioSeleccionado = 0;
+
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
         private bool estaVaciaDataGrid = true; // variable para que al hacer clic en el datagrid sin hacer una búsqueda antes, no se caiga.
@@ -389,6 +390,17 @@ namespace COOPMEF
 
         }
 
+        private void borrarTextNuevoSocio()
+        {
+            this.txtNroSocio.Clear();
+            this.txtNroCobro.Clear();
+            this.txtNombres.Clear();
+            this.txtApellidos.Clear();
+            this.txtTelefono.Clear();
+            this.txtDireccion.Clear();
+            this.txtEmail.Clear();
+        }
+
         private void btnNuevoSocio_Click(object sender, EventArgs e)
         {
             limpiarDatosGralesDeSocio();
@@ -403,55 +415,28 @@ namespace COOPMEF
             this.nuevo = true;
 
 
+            borrarTextNuevoSocio();
+  
 
-            this.txtNroSocio.Clear();
             this.txtNroSocio.Enabled = true;
-
-            this.txtNroCobro.Clear();
             this.txtNroCobro.Enabled = true;
-
-            this.txtNombres.Clear();
             this.txtNombres.Enabled = true;
-
-            this.txtApellidos.Clear();
             this.txtApellidos.Enabled = true;
-
-
             this.dtpFechaNac.Enabled = true;
-
             this.dtpFechaIng.Enabled = true;
-
-
             this.cmbEstadoCivil.Enabled = true;
-
             this.rbtnMasculino.Enabled = true;
             this.rbtnFemenino.Enabled = true;
-
             this.rBtnActivo.Enabled = true;
             this.rBtnPasivo.Enabled = true;
-
-
-            //this.cmbEdad.Enabled = true;
-
-
             this.cmbOficina.Enabled = true;
             this.cmbInciso.Enabled = true;
-
-
-            this.txtTelefono.Clear();
             this.txtTelefono.Enabled = true;
-
-            this.txtDireccion.Clear();
             this.txtDireccion.Enabled = true;
-
-            this.txtEmail.Clear();
             this.txtEmail.Enabled = true;
-
-
             this.btnEditarSocio.Enabled = false;
             this.btnEliminarSocio.Enabled = false;
             this.btnVerMasSocio.Enabled = false;
-
             this.btnGuardarSocio.Enabled = true;
             this.btnSalir.Enabled = true;
 
@@ -792,6 +777,12 @@ namespace COOPMEF
                     //******
                     MessageBox.Show("Socio creado correctamente");
 
+                    txtBusqueda.Text = socioNro;
+                    cmbBusqueda.SelectedItem = "Documento";
+                    buscarSocio();
+                    seleccionarSocioBotonClick();
+
+
                     RegistroSLogs registroLogs = new RegistroSLogs();
                     registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Alta Socio Nro " + socioNro.Replace(",", "."));
 
@@ -978,20 +969,6 @@ namespace COOPMEF
             if (idSocioSeleccionado != 0)
             {
 
-                int estadoActual = devolverEstadoSocio();
-                nuevo = false;
-                activarAltaSocio();
-                this.btnNuevoSocio.Enabled = false;
-                this.btnEditarSocio.Enabled = false;
-                this.btnVerMasSocio.Enabled = false;
-
-                this.btnGuardarSocio.Enabled = true;
-                this.btnSalir.Enabled = true;
-
-                this.lblErrorGenerico.Visible = false;
-                string nroSocio = this.txtNroSocio.Text;
-
-
                 string message = "¿Está seguro de que desea cambiar de estado al socio?";
                 string caption = "Estado Socio";
                 MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -1004,6 +981,20 @@ namespace COOPMEF
                     try
                     {
 
+                        int estadoActual = devolverEstadoSocio();
+                        nuevo = false;
+                        activarAltaSocio();
+                        this.btnNuevoSocio.Enabled = false;
+                        this.btnEditarSocio.Enabled = false;
+                        this.btnVerMasSocio.Enabled = false;
+
+                        this.btnGuardarSocio.Enabled = true;
+                        this.btnSalir.Enabled = true;
+
+                        this.lblErrorGenerico.Visible = false;
+                        string nroSocio = this.txtNroSocio.Text;
+
+
                         empresa.bajaSocio(idSocioSeleccionado, ref estadoActual);
                         MessageBox.Show("Estado del socio actualizado correctamente");
 
@@ -1013,15 +1004,17 @@ namespace COOPMEF
                         cambiarEstado(estadoActual);
                         cambiarBotonBajaAlta(estadoActual);
                         desactivarAltaSocio();
-                        btnEliminarSocio.Enabled = false;
+                        btnEliminarSocio.Enabled = true;
                         btnGuardarSocio.Enabled = false;
                         //se agrega 31/8
                         btnCancelarSocio.Enabled = false;
                         this.btnNuevoSocio.Enabled = true;
-
+                        
                         //Cargo Planes
                         //dsPlanes = empresa.DevolverPlanes();
                         //pantallaInicialSocio();
+
+                        cancelar();
                     }
                     catch (Exception ex)
                     {
@@ -1029,6 +1022,11 @@ namespace COOPMEF
                         this.lblErrorGenerico.Text = ex.Message;
                     }
                 }
+               // else {
+                 //   cancelar();
+                
+                //}
+
             }
             else
             {
@@ -1039,6 +1037,11 @@ namespace COOPMEF
 
 
         private void btnBuscar_Click_1(object sender, EventArgs e)
+        {
+            buscarSocio();
+        }
+
+        private void buscarSocio()
         {
             this.buscarCampo();
             estaVaciaDataGrid = false;
@@ -1126,7 +1129,7 @@ namespace COOPMEF
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Apellido")
                 {
                     campo = "socio_apellido";
-                    valor = this.txtBusqueda.Text.Replace("'","");
+                    valor = this.txtBusqueda.Text.Replace("'", "");
                 }
                 else if (this.cmbBusqueda.SelectedItem.ToString() == "Nombre")
                 {
@@ -1139,7 +1142,7 @@ namespace COOPMEF
                     valor = this.txtBusqueda.Text.Replace("'", "");
                 }
 
-                socioPorCampo(campo, valor.Replace(",","."));
+                socioPorCampo(campo, valor.Replace(",", "."));
             }
         }
 
@@ -1280,21 +1283,60 @@ namespace COOPMEF
 
         private void btnCancelarSocio_Click(object sender, EventArgs e)
         {
+
+            cancelar();
+
+
+        }
+
+        private void cancelar() {
+
+            desactivarAltaSocio();
+
             if (!(dgvSociosCampo.CurrentRow == null))
             {
                 //   pantallaInicialSocio();
                 //desactivarAltaSocio();
-                seleccionarSocioYllenarDataGrid();
-                desactivarAltaSocio();
+
+                DataSet tmpsocio = empresa.buscarSociosPorCampo("socio_id", idSocioSeleccionado.ToString());
+
+                cmbBusqueda.SelectedItem = "Documento";
+                txtBusqueda.Text = tmpsocio.Tables["socios"].Rows[0][1].ToString();
+                buscarSocio();
+                seleccionarSocioBotonClick();
+
+
                 btnNuevoSocio.Enabled = true;
                 borrarErroresNuevoSocio();
                 //btnNuevoSocio.Enabled = true;
+
+
+                this.btnEditarSocio.Enabled = true;
+                this.btnEliminarSocio.Enabled = true;
+                this.btnVerMasSocio.Enabled = true;
+
+                //   this.btnGuardarSocio.Enabled = true;
+
+
             }
             else
             {
+                borrarTextNuevoSocio();
                 pantallaInicialSocio();
+                limpiarDatosGralesDeSocio();
+
                 btnNuevoSocio.Enabled = true;
+
+
+                this.btnEditarSocio.Enabled = false;
+                this.btnEliminarSocio.Enabled = false;
+                this.btnVerMasSocio.Enabled = false;
+
+                this.btnGuardarSocio.Enabled = false;
             }
+
+
+        
         }
         private void marcarExcedido()
         {
@@ -1317,6 +1359,11 @@ namespace COOPMEF
             if (index != -1)
             {
                 marcarExcedido();
+
+                this.btnEditarSocio.Enabled = true;
+                this.btnEliminarSocio.Enabled = true;
+                this.btnVerMasSocio.Enabled = true;
+                this.btnCancelarSocio.Enabled = true;
 
                 lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
                 lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
@@ -1346,6 +1393,7 @@ namespace COOPMEF
 
                 int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
                 cambiarEstado(estadoActual);
+                cambiarBotonBajaAlta(estadoActual);
 
                 if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals("M"))
                     rbtnMasculino.Checked = true;
@@ -1524,6 +1572,12 @@ namespace COOPMEF
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
         {
+            seleccionarSocioBotonClick();
+        }
+
+        private void seleccionarSocioBotonClick()
+        {
+
             if (!estaVaciaDataGrid)
             {
                 cargarPantallas();

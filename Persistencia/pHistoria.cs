@@ -173,7 +173,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT Presupuesto, NumeroPrestamo, montopedido, cantidadcuotas, nrocuotas, importecuota, tasa FROM historia where socio_id='" + idSocio + "'";
+                string sql = "SELECT Presupuesto, NumeroPrestamo, montopedido, cantidadcuotas, nrocuotas, importecuota, tasa FROM historia where socio_id='" + idSocio + "'" + " and NumeroPrestamo != '0' ";
                 DataSet ds = new DataSet();
 
                 connection.Open();

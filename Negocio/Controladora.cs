@@ -1633,9 +1633,9 @@ namespace Negocio
 
                     if (dsSocioID.Tables["socioPorId"].Rows.Count > 0)
                     {
-                        _Inciso = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[0][12].ToString());
-                        _oficina = Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[0][11].ToString());
-                        _numerocobro = dsSociosActivos.Tables["socio"].Rows[0][4].ToString();
+                        _Inciso = Convert.ToInt32(dsSocioID.Tables["socioPorId"].Rows[0][12].ToString());
+                        _oficina = Convert.ToInt32(dsSocioID.Tables["socioPorId"].Rows[0][11].ToString());
+                        _numerocobro = dsSocioID.Tables["socioPorId"].Rows[0][4].ToString();
                     }
 
                     if (dsSocioID.Tables["socioPorId"].Rows.Count > 0)
