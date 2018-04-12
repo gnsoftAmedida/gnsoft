@@ -1956,7 +1956,7 @@ namespace COOPMEF
 
         private void btnGuardarPrestamo_Click_1(object sender, EventArgs e)
         {
-            if (!(idSocioSeleccionado == 0))
+                if (!(idSocioSeleccionado == 0))
             {
                 if (prestamoCorrecto)
                 {
@@ -1978,7 +1978,7 @@ namespace COOPMEF
                         double interesesVencer = empresa.IntVencer(cuota, cantidadCuotas, 1, amortizacionVencer);
 
 
-                        int idPrestamo = empresa.AltaPrestamo(tmpSocio, nro_socio, DateTime.Now, DateTime.Now, totalDeuda, tasaConIva, cantidadCuotas, cuota, nro_prestamoAnterior, montoAnterior, amortizacionVencer, interesesVencer, cantidadCuotas, 0, cuotaAnteriorPrestamo, tasaAnteriorPrestamo, 0);
+                        int idPrestamo = empresa.AltaPrestamo(tmpSocio, nro_socio, DateTime.Now, DateTime.Now, totalDeuda, tasaConIva, cantidadCuotas, cuota, nro_prestamoAnterior, montoAnterior, Convert.ToDouble(txtAmortización.Text.Replace(".", ",")), Convert.ToDouble(txtInteresesAVencer.Text.Replace(".", ",")), Convert.ToInt32(txtCuotas.Text.Replace(".", ",")), Convert.ToInt32(txtPagas.Text.Replace(".", ",")), cuotaAnteriorPrestamo, tasaAnteriorPrestamo, 0);
 
                         double amorticacionCuota = empresa.AmortCuota(tasaConIva, 1, cantidadCuotas, totalDeuda);
 

@@ -189,7 +189,7 @@ namespace Persistencia
                 throw ex;
             }
         }
-        /* 
+       
               public DataSet devolverCierrePresupuesto(string presupuesto)
               {
                try
@@ -197,7 +197,7 @@ namespace Persistencia
                       MySqlConnection connection = conectar();
 
                       MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                      string sql = "SELECT h.numerocobro, s.cedula, p.fecha, h.montopedido,            NumeroPrestamo, montopedido, cantidadcuotas, nrocuotas, importecuota, tasa FROM historia h, socio s, oficina o, inciso i, prestamo p where socio_id='" + idSocio + "'";
+                      string sql = "SELECT * FROM historia h, prestamo p where h.NumeroPrestamo = p.prestamo_id h.Presupuesto ='" + presupuesto + "' and h.nrocuotas = 1";
                       DataSet ds = new DataSet();
 
                       connection.Open();
@@ -214,7 +214,7 @@ namespace Persistencia
                   }
    
               }
-        * */
+        
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
             double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
             double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, int _Inciso, int _oficina, double _excedido, double _mora,
