@@ -93,9 +93,9 @@
             this.groupBox1.Controls.Add(this.txtPresupuestoIngExc);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Location = new System.Drawing.Point(11, 7);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(226, 76);
             this.groupBox1.TabIndex = 19;
             this.groupBox1.TabStop = false;
@@ -108,9 +108,9 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnActualizar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmInformePrestamo";
-            this.Text = "Informe Préstamos Presupuesto";
+            this.Text = "Listado de Préstamos Otorgados";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

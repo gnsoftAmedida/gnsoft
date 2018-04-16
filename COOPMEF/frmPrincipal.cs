@@ -2571,6 +2571,11 @@ Agregar emisión
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("En construcción");
+        }
+
+        private void resumenDePréstamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
             frmInformePrestamo frmTmpInformeCierre = new frmInformePrestamo();
             frmTmpInformeCierre.ShowDialog();
         }

@@ -262,6 +262,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -306,7 +308,8 @@
             // 
             this.archivoToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.anulaciónToolStripMenuItem});
+            this.anulaciónToolStripMenuItem,
+            this.informesToolStripMenuItem1});
             resources.ApplyResources(this.archivoToolStripMenuItem, "archivoToolStripMenuItem");
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
             // 
@@ -1913,6 +1916,19 @@
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
             // 
+            // informesToolStripMenuItem1
+            // 
+            this.informesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resumenDePréstamosToolStripMenuItem});
+            this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
+            resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
+            // 
+            // resumenDePréstamosToolStripMenuItem
+            // 
+            this.resumenDePréstamosToolStripMenuItem.Name = "resumenDePréstamosToolStripMenuItem";
+            resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
+            this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2207,6 +2223,8 @@
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cantidadYPromedioToolStripMenuItem;
         private System.Windows.Forms.Button btnExcedido;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem resumenDePréstamosToolStripMenuItem;
     }
 }
 
