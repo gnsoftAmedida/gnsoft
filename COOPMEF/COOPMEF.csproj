@@ -106,14 +106,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrystalDataSets\dsHistorico.cs">
-      <DependentUpon>dsHistorico.xsd</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="CrystalDataSets\dsHistorico.Designer.cs">
+    <Compile Include="CrystalDataSets\dsPrestamosCierre.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>dsHistorico.xsd</DependentUpon>
+      <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>
     </Compile>
     <Compile Include="frmAnulacionPrestamo.cs">
       <SubType>Form</SubType>
@@ -233,11 +229,11 @@
     <Compile Include="frmDistribucionDeUtilidades.Designer.cs">
       <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
     </Compile>
-    <Compile Include="frmInformeCierre.cs">
+    <Compile Include="frmInformePrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="frmInformeCierre.Designer.cs">
-      <DependentUpon>frmInformeCierre.cs</DependentUpon>
+    <Compile Include="frmInformePrestamo.Designer.cs">
+      <DependentUpon>frmInformePrestamo.cs</DependentUpon>
     </Compile>
     <Compile Include="frmLiquidacionDeUtilidades.cs">
       <SubType>Form</SubType>
@@ -331,16 +327,16 @@
       <DependentUpon>CRPrueba.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="Reportes\cierreMes.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>cierreMes.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
     <Compile Include="Reportes\InfoExcedidos.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InfoExcedidos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\reportePrestamosPresupuesto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reportePrestamosPresupuesto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\valePrestamo.cs">
@@ -397,8 +393,8 @@
     <EmbeddedResource Include="frmDistribucionDeUtilidades.resx">
       <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="frmInformeCierre.resx">
-      <DependentUpon>frmInformeCierre.cs</DependentUpon>
+    <EmbeddedResource Include="frmInformePrestamo.resx">
+      <DependentUpon>frmInformePrestamo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLiquidacionDeUtilidades.resx">
       <DependentUpon>frmLiquidacionDeUtilidades.cs</DependentUpon>
@@ -461,13 +457,13 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CRPrueba.cs</LastGenOutput>
     </EmbeddedResource>
-    <EmbeddedResource Include="Reportes\cierreMes.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>cierreMes.cs</LastGenOutput>
-    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\InfoExcedidos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InfoExcedidos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportePrestamosPresupuesto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportePrestamosPresupuesto.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\valePrestamo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -515,16 +511,16 @@
     <None Include="CrystalDataSets\dsExcedidos.xss">
       <DependentUpon>dsExcedidos.xsd</DependentUpon>
     </None>
-    <None Include="CrystalDataSets\dsHistorico.xsc">
-      <DependentUpon>dsHistorico.xsd</DependentUpon>
+    <None Include="CrystalDataSets\dsPrestamosCierre.xsc">
+      <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>
     </None>
-    <None Include="CrystalDataSets\dsHistorico.xsd">
+    <None Include="CrystalDataSets\dsPrestamosCierre.xsd">
       <SubType>Designer</SubType>
       <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>dsHistorico.Designer.cs</LastGenOutput>
+      <LastGenOutput>dsPrestamosCierre.Designer.cs</LastGenOutput>
     </None>
-    <None Include="CrystalDataSets\dsHistorico.xss">
-      <DependentUpon>dsHistorico.xsd</DependentUpon>
+    <None Include="CrystalDataSets\dsPrestamosCierre.xss">
+      <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsPrueba.xsc">
       <DependentUpon>dsPrueba.xsd</DependentUpon>

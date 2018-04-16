@@ -2571,7 +2571,7 @@ Agregar emisión
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            frmInformeCierre frmTmpInformeCierre = new frmInformeCierre();
+            frmInformePrestamo frmTmpInformeCierre = new frmInformePrestamo();
             frmTmpInformeCierre.ShowDialog();
         }
     }

@@ -506,6 +506,13 @@ namespace Negocio
             return planes;
         }
 
+        public DataSet devolverPrestamosOtorgadosPresupuesto(string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverPrestamosOtorgadosPresupuesto(presupuesto);
+            return historias;
+        }
+
         public DataSet DevolverFechasCierres()
         {
             FechaCierre tmpFechaCierre = new FechaCierre();
