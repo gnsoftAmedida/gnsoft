@@ -64,13 +64,13 @@ namespace COOPMEF
             }
 
             //Reporte Cierre
-            if (tipo.Equals("CIERRE"))
+            if (tipo.Equals("PRESTAMOS_PRESUPUESTO"))
             {
-                COOPMEF.Reportes.cierreMes reporteCierreMes = new COOPMEF.Reportes.cierreMes();
+                COOPMEF.Reportes.reportePrestamosPresupuesto reportePrestamosTmp = new COOPMEF.Reportes.reportePrestamosPresupuesto();
 
-                reporteCierreMes.SetDataSource(DS);
+                reportePrestamosTmp.SetDataSource(DS);
 
-                this.crystalReportViewer1.ReportSource = reporteCierreMes;
+                this.crystalReportViewer1.ReportSource = reportePrestamosTmp;
             }
         }
 

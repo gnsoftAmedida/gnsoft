@@ -189,21 +189,21 @@ namespace Persistencia
                 throw ex;
             }
         }
-        /* 
-              public DataSet devolverCierrePresupuesto(string presupuesto)
+       
+              public DataSet devolverPrestamosOtorgadosPresupuesto(string presupuesto)
               {
                try
                   {
                       MySqlConnection connection = conectar();
 
                       MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                      string sql = "SELECT h.numerocobro, s.cedula, p.fecha, h.montopedido,            NumeroPrestamo, montopedido, cantidadcuotas, nrocuotas, importecuota, tasa FROM historia h, socio s, oficina o, inciso i, prestamo p where socio_id='" + idSocio + "'";
+                      string sql = "SELECT h.numerocobro, h.cedula, p.fecha, h.NumeroPrestamo, (p.monteopedido - p.AmortizacionVencer), p.AmortizacionVencer, h.montopedido, h.InteresVencer, p.interesesVencer, h.InteresVencer - p.interesesVencer, CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM historia h, prestamo p, oficina o, inciso i where h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.NumeroPrestamo = p.prestamo_id and h.Presupuesto ='" + presupuesto + "' and h.nrocuotas = 1";
                       DataSet ds = new DataSet();
 
                       connection.Open();
                       MySqlAdapter.SelectCommand = connection.CreateCommand();
                       MySqlAdapter.SelectCommand.CommandText = sql;
-                      MySqlAdapter.Fill(ds, "historiasIdSocio");
+                      MySqlAdapter.Fill(ds, "prestamosOtorgadosPresupuesto");
                       connection.Close();
                       return ds;
 
@@ -214,7 +214,7 @@ namespace Persistencia
                   }
    
               }
-        * */
+        
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
             double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
             double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, int _Inciso, int _oficina, double _excedido, double _mora,

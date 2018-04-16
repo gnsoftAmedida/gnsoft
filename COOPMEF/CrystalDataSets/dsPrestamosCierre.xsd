@@ -1,0 +1,37 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPrestamosCierre" targetNamespace="http://tempuri.org/dsPrestamosCierre.xsd" xmlns:mstns="http://tempuri.org/dsPrestamosCierre.xsd" xmlns="http://tempuri.org/dsPrestamosCierre.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPrestamosCierre" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPrestamosCierre" msprop:Generator_UserDSName="dsPrestamosCierre">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="PrestamosPresupuseto" msprop:Generator_TableClassName="PrestamosPresupusetoDataTable" msprop:Generator_TableVarName="tablePrestamosPresupuseto" msprop:Generator_TablePropName="PrestamosPresupuseto" msprop:Generator_RowDeletingName="PrestamosPresupusetoRowDeleting" msprop:Generator_RowChangingName="PrestamosPresupusetoRowChanging" msprop:Generator_RowEvHandlerName="PrestamosPresupusetoRowChangeEventHandler" msprop:Generator_RowDeletedName="PrestamosPresupusetoRowDeleted" msprop:Generator_UserTableName="PrestamosPresupuseto" msprop:Generator_RowChangedName="PrestamosPresupusetoRowChanged" msprop:Generator_RowEvArgName="PrestamosPresupusetoRowChangeEvent" msprop:Generator_RowClassName="PrestamosPresupusetoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="numerocobro" msprop:Generator_ColumnVarNameInTable="columnnumerocobro" msprop:Generator_ColumnPropNameInRow="numerocobro" msprop:Generator_ColumnPropNameInTable="numerocobroColumn" msprop:Generator_UserColumnName="numerocobro" type="xs:string" minOccurs="0" />
+              <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="NumeroPrestamo" msprop:Generator_ColumnVarNameInTable="columnNumeroPrestamo" msprop:Generator_ColumnPropNameInRow="NumeroPrestamo" msprop:Generator_ColumnPropNameInTable="NumeroPrestamoColumn" msprop:Generator_UserColumnName="NumeroPrestamo" type="xs:string" minOccurs="0" />
+              <xs:element name="monto" msprop:Generator_ColumnVarNameInTable="columnmonto" msprop:Generator_ColumnPropNameInRow="monto" msprop:Generator_ColumnPropNameInTable="montoColumn" msprop:Generator_UserColumnName="monto" type="xs:string" minOccurs="0" />
+              <xs:element name="saldoAnterior" msprop:Generator_ColumnVarNameInTable="columnsaldoAnterior" msprop:Generator_ColumnPropNameInRow="saldoAnterior" msprop:Generator_ColumnPropNameInTable="saldoAnteriorColumn" msprop:Generator_UserColumnName="saldoAnterior" type="xs:string" minOccurs="0" />
+              <xs:element name="total" msprop:Generator_ColumnVarNameInTable="columntotal" msprop:Generator_ColumnPropNameInRow="total" msprop:Generator_ColumnPropNameInTable="totalColumn" msprop:Generator_UserColumnName="total" type="xs:string" minOccurs="0" />
+              <xs:element name="totalIntereses" msprop:Generator_ColumnVarNameInTable="columntotalIntereses" msprop:Generator_ColumnPropNameInRow="totalIntereses" msprop:Generator_ColumnPropNameInTable="totalInteresesColumn" msprop:Generator_UserColumnName="totalIntereses" type="xs:string" minOccurs="0" />
+              <xs:element name="interesesDeducidos" msprop:Generator_ColumnVarNameInTable="columninteresesDeducidos" msprop:Generator_ColumnPropNameInRow="interesesDeducidos" msprop:Generator_ColumnPropNameInTable="interesesDeducidosColumn" msprop:Generator_UserColumnName="interesesDeducidos" type="xs:string" minOccurs="0" />
+              <xs:element name="saldoIntereses" msprop:Generator_ColumnVarNameInTable="columnsaldoIntereses" msprop:Generator_ColumnPropNameInRow="saldoIntereses" msprop:Generator_ColumnPropNameInTable="saldoInteresesColumn" msprop:Generator_UserColumnName="saldoIntereses" type="xs:string" minOccurs="0" />
+              <xs:element name="inciso" msprop:Generator_ColumnVarNameInTable="columninciso" msprop:Generator_ColumnPropNameInRow="inciso" msprop:Generator_ColumnPropNameInTable="incisoColumn" msprop:Generator_UserColumnName="inciso" type="xs:string" minOccurs="0" />
+              <xs:element name="oficina" msprop:Generator_ColumnVarNameInTable="columnoficina" msprop:Generator_ColumnPropNameInRow="oficina" msprop:Generator_ColumnPropNameInTable="oficinaColumn" msprop:Generator_UserColumnName="oficina" type="xs:string" minOccurs="0" />
+              <xs:element name="presupuesto" msprop:Generator_ColumnVarNameInTable="columnpresupuesto" msprop:Generator_ColumnPropNameInRow="presupuesto" msprop:Generator_ColumnPropNameInTable="presupuestoColumn" msprop:Generator_UserColumnName="presupuesto" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
