@@ -21,10 +21,14 @@ namespace COOPMEF
         private dsCancelacion DE = new dsCancelacion();
         private int idCobranza = 0;
         private bool sePuedeCancelar = false;
+        private string oficina = "";
+        private string inciso = "";
 
-        public frmCancelacionAnticipadaDePrestmos(int pIdSocioSeleccionado)
+        public frmCancelacionAnticipadaDePrestmos(int pIdSocioSeleccionado, string incisoTMP, string oficinaTMP)
         {
             this.idSocioSeleccionado = pIdSocioSeleccionado;
+            this.oficina = oficinaTMP;
+            this.inciso = incisoTMP;
             InitializeComponent();
         }
 
@@ -65,7 +69,7 @@ namespace COOPMEF
 
                 RegistroSLogs registroLogs = new RegistroSLogs();
                 registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cancelación anticipada préstamo " + this.txtCiCA.Text);
-              
+
             }
 
             btnGuardarSocio.Enabled = false;
@@ -132,12 +136,14 @@ namespace COOPMEF
                             txtImporteCuotaCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][8].ToString();
                             txtAmortizacionAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString();
                             txtInteresesAVencerCA.Text = dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][13].ToString();
+                            txtOficinaCA.Text = oficina;
+                            txtIncisoCA.Text = inciso;
 
                             if (Convert.ToDouble(txtAmortizacionAVencerCA.Text) != 0)
                             {
                                 txtAPagarPorCajaCA.Text = txtAmortizacionAVencerCA.Text;
 
-                                DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][29].ToString()).AddDays(15);
+                                DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15);
                                 txtPresupuestoDeCancelacion.Text = empresa.formatoFechaMid4(FechaVto);
                                 sePuedeCancelar = true;
                             }
@@ -194,7 +200,8 @@ namespace COOPMEF
                     this.Close();
                 }
             }
-            else {
+            else
+            {
                 MessageBox.Show("Debe seleccionar un socio para poder cancelar");
                 sePuedeCancelar = false;
                 this.Close();
@@ -209,6 +216,11 @@ namespace COOPMEF
             frmVerReportes reporte = new frmVerReportes(DE, "CANCELACION");
             reporte.ShowDialog();
             DE.cancelacion.Rows.Clear();
+        }
+
+        private void btnCancelarBusqueda_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }

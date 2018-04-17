@@ -32,6 +32,8 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -85,9 +87,9 @@
             this.btnCancelarBusqueda = new System.Windows.Forms.Button();
             this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.lblErrorG = new System.Windows.Forms.TabPage();
+            this.txtMostrarDetalles = new System.Windows.Forms.TextBox();
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.lblErrorFechas = new System.Windows.Forms.Label();
             this.lblFechaIng = new System.Windows.Forms.Label();
@@ -262,14 +264,11 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).BeginInit();
             this.lblErrorG.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.gBoxEstado.SuspendLayout();
             this.gBoxSexo.SuspendLayout();
@@ -318,6 +317,19 @@
             this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
             resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
             this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem1
+            // 
+            this.informesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resumenDePréstamosToolStripMenuItem});
+            this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
+            resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
+            // 
+            // resumenDePréstamosToolStripMenuItem
+            // 
+            this.resumenDePréstamosToolStripMenuItem.Name = "resumenDePréstamosToolStripMenuItem";
+            resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
+            this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click);
             // 
             // verToolStripMenuItem
             // 
@@ -693,9 +705,9 @@
             // lblErrorG
             // 
             this.lblErrorG.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblErrorG.Controls.Add(this.txtMostrarDetalles);
             this.lblErrorG.Controls.Add(this.btnCancelarSocio);
             this.lblErrorG.Controls.Add(this.lblErrorGenerico);
-            this.lblErrorG.Controls.Add(this.dataGridView3);
             this.lblErrorG.Controls.Add(this.groupBox1);
             this.lblErrorG.Controls.Add(this.btnSalir);
             this.lblErrorG.Controls.Add(this.btnVerMasSocio);
@@ -706,6 +718,12 @@
             resources.ApplyResources(this.lblErrorG, "lblErrorG");
             this.lblErrorG.Name = "lblErrorG";
             this.lblErrorG.Click += new System.EventHandler(this.lblErrorG_Click);
+            // 
+            // txtMostrarDetalles
+            // 
+            resources.ApplyResources(this.txtMostrarDetalles, "txtMostrarDetalles");
+            this.txtMostrarDetalles.Name = "txtMostrarDetalles";
+            this.txtMostrarDetalles.ReadOnly = true;
             // 
             // btnCancelarSocio
             // 
@@ -719,12 +737,6 @@
             resources.ApplyResources(this.lblErrorGenerico, "lblErrorGenerico");
             this.lblErrorGenerico.ForeColor = System.Drawing.Color.Red;
             this.lblErrorGenerico.Name = "lblErrorGenerico";
-            // 
-            // dataGridView3
-            // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            resources.ApplyResources(this.dataGridView3, "dataGridView3");
-            this.dataGridView3.Name = "dataGridView3";
             // 
             // groupBox1
             // 
@@ -1121,8 +1133,8 @@
             // 
             // btnGuardarSocio
             // 
-            this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             resources.ApplyResources(this.btnGuardarSocio, "btnGuardarSocio");
+            this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             this.btnGuardarSocio.Name = "btnGuardarSocio";
             this.btnGuardarSocio.UseVisualStyleBackColor = true;
             this.btnGuardarSocio.Click += new System.EventHandler(this.btnGuardarSocio_Click);
@@ -1914,20 +1926,6 @@
             resources.ApplyResources(this.btnOtrosDatos, "btnOtrosDatos");
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
-            this.btnOtrosDatos.Click += new System.EventHandler(this.btnOtrosDatos_Click);
-            // 
-            // informesToolStripMenuItem1
-            // 
-            this.informesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resumenDePréstamosToolStripMenuItem});
-            this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
-            resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
-            // 
-            // resumenDePréstamosToolStripMenuItem
-            // 
-            this.resumenDePréstamosToolStripMenuItem.Name = "resumenDePréstamosToolStripMenuItem";
-            resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
-            this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -1951,7 +1949,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvSociosCampo)).EndInit();
             this.lblErrorG.ResumeLayout(false);
             this.lblErrorG.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.gBoxEstado.ResumeLayout(false);
@@ -2122,7 +2119,6 @@
         private System.Windows.Forms.Button btnEliminarSocio;
         private System.Windows.Forms.Button btnEditarSocio;
         private System.Windows.Forms.Button btnNuevoSocio;
-        private System.Windows.Forms.DataGridView dataGridView3;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.Label label23;
@@ -2225,6 +2221,7 @@
         private System.Windows.Forms.Button btnExcedido;
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem resumenDePréstamosToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtMostrarDetalles;
     }
 }
 

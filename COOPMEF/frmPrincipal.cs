@@ -125,20 +125,6 @@ namespace COOPMEF
             }
         }
 
-        private void btnOtrosDatos_Click(object sender, EventArgs e)
-        {
-            if (this.dataGridView3.Visible == true)
-            {
-                this.dataGridView3.Visible = false;
-                this.btnOtrosDatos.Text = "  Ver más";
-            }
-            else
-            {
-                this.dataGridView3.Visible = true;
-                this.btnOtrosDatos.Text = "     Ver menos";
-            }
-        }
-
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             string message = "¿Está seguro que desea salir de la aplicación?";
@@ -208,8 +194,6 @@ namespace COOPMEF
             return false;
         }
 
-
-
         private void desactivarAltaSocio()
         {
             this.txtNroSocio.Enabled = false;
@@ -226,9 +210,8 @@ namespace COOPMEF
             this.cmbEstadoCivil.Enabled = false;
             this.gBoxEstado.Enabled = false;
             this.gBoxSexo.Enabled = false;
-
+            this.txtMostrarDetalles.ReadOnly = true;
         }
-
 
         private void activarAltaSocio()
         {
@@ -247,6 +230,8 @@ namespace COOPMEF
             this.cmbEstadoCivil.Enabled = true;
             this.gBoxEstado.Enabled = true;
             this.gBoxSexo.Enabled = true;
+            this.txtMostrarDetalles.ReadOnly = false;
+
         }
 
         private void resetearContraseñasToolStripMenuItem_Click(object sender, EventArgs e)
@@ -322,16 +307,22 @@ namespace COOPMEF
 
         private void btnVerMasSocio_Click(object sender, EventArgs e)
         {
-            if (this.dataGridView3.Visible == true)
+            verDetalles();
+        }
+
+        private void verDetalles()
+        {
+            if (this.txtMostrarDetalles.Visible == true)
             {
-                this.dataGridView3.Visible = false;
+                this.txtMostrarDetalles.Visible = false;
                 this.btnVerMasSocio.Text = "  Ver más";
             }
             else
             {
-                this.dataGridView3.Visible = true;
+                this.txtMostrarDetalles.Visible = true;
                 this.btnVerMasSocio.Text = "     Ver menos";
             }
+
         }
 
         private void btnSalirPrestamo_Click(object sender, EventArgs e)
@@ -399,6 +390,7 @@ namespace COOPMEF
             this.txtTelefono.Clear();
             this.txtDireccion.Clear();
             this.txtEmail.Clear();
+            this.txtMostrarDetalles.Clear();
         }
 
         private void btnNuevoSocio_Click(object sender, EventArgs e)
@@ -416,7 +408,7 @@ namespace COOPMEF
 
 
             borrarTextNuevoSocio();
-  
+
 
             this.txtNroSocio.Enabled = true;
             this.txtNroCobro.Enabled = true;
@@ -436,10 +428,10 @@ namespace COOPMEF
             this.txtEmail.Enabled = true;
             this.btnEditarSocio.Enabled = false;
             this.btnEliminarSocio.Enabled = false;
-            this.btnVerMasSocio.Enabled = false;
+            this.btnVerMasSocio.Enabled = true;
             this.btnGuardarSocio.Enabled = true;
+            this.btnCancelarSocio.Enabled = true;
             this.btnSalir.Enabled = true;
-
             this.lblErrorGenerico.Visible = false;
         }
 
@@ -502,7 +494,7 @@ namespace COOPMEF
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
             //////////////////
-            txtIncisoCobExcedidos.Text = cmbInciso.Text;
+          //  txtIncisoCobExcedidos.Text = cmbInciso.SelectedItem.ToString(); 
 
         }
 
@@ -771,7 +763,7 @@ namespace COOPMEF
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
-                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtMostrarDetalles.Text.Replace("'", ""));
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
@@ -790,10 +782,15 @@ namespace COOPMEF
                     desactivarAltaSocio();
                     borrarErroresNuevoSocio();
 
+                    // verDetalles();
 
                     //Cargo Socios
                     dsSocios = empresa.DevolverSocios();
 
+
+                    btnGuardarSocio.Enabled = false;
+                    btnCancelarSocio.Enabled = false;
+                    btnEliminarSocio.Enabled = true;
                 }
                 catch (Exception ex)
                 {
@@ -897,7 +894,7 @@ namespace COOPMEF
                         // agregro estado_civil para que guarde el texto y no numeros en la BD
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
 
-                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text);
+                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtMostrarDetalles.Text.Replace("'", ""));
 
 
                         //*******
@@ -918,6 +915,10 @@ namespace COOPMEF
                         dsSocios = empresa.DevolverSocios();
                         borrarErroresNuevoSocio();
                         desactivarAltaSocio();
+
+                        btnGuardarSocio.Enabled = false;
+                        btnCancelarSocio.Enabled = false;
+                        btnEliminarSocio.Enabled = true;
                     }
                     catch (Exception ex)
                     {
@@ -1009,7 +1010,7 @@ namespace COOPMEF
                         //se agrega 31/8
                         btnCancelarSocio.Enabled = false;
                         this.btnNuevoSocio.Enabled = true;
-                        
+
                         //Cargo Planes
                         //dsPlanes = empresa.DevolverPlanes();
                         //pantallaInicialSocio();
@@ -1022,9 +1023,9 @@ namespace COOPMEF
                         this.lblErrorGenerico.Text = ex.Message;
                     }
                 }
-               // else {
-                 //   cancelar();
-                
+                // else {
+                //   cancelar();
+
                 //}
 
             }
@@ -1182,6 +1183,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_edad"].Visible = false;
             dgvSociosCampo.Columns["socio_activo"].Visible = false;
             dgvSociosCampo.Columns["socio_tel"].Visible = false;
+            dgvSociosCampo.Columns["socio_detalles"].Visible = false;
 
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
             dgvSociosCampo.Columns["socio_nro"].Width = 150;
@@ -1267,18 +1269,26 @@ namespace COOPMEF
 
         private void btnEditarSocio_Click(object sender, EventArgs e)
         {
-            nuevo = false;
-            activarAltaSocio();
-            this.btnNuevoSocio.Enabled = false;
-            this.btnEliminarSocio.Enabled = false;
-            this.btnVerMasSocio.Enabled = false;
+            if (this.idSocioSeleccionado != 0)
+            {
+                nuevo = false;
+                activarAltaSocio();
+                this.btnNuevoSocio.Enabled = false;
+                this.btnEliminarSocio.Enabled = false;
+                this.btnVerMasSocio.Enabled = true;
 
-            this.btnGuardarSocio.Enabled = true;
-            this.btnSalir.Enabled = true;
-            this.btnCancelarSocio.Enabled = true;
+                this.btnGuardarSocio.Enabled = true;
+                this.btnSalir.Enabled = true;
+                this.btnCancelarSocio.Enabled = true;
 
-            this.lblErrorGenerico.Visible = false;
+                this.lblErrorGenerico.Visible = false;
 
+                this.txtMostrarDetalles.ReadOnly = false;
+            }
+            else
+            {
+                MessageBox.Show("Debe seleccionar un socio antes de intentar editarlo");
+            }
         }
 
         private void btnCancelarSocio_Click(object sender, EventArgs e)
@@ -1289,7 +1299,8 @@ namespace COOPMEF
 
         }
 
-        private void cancelar() {
+        private void cancelar()
+        {
 
             desactivarAltaSocio();
 
@@ -1332,11 +1343,11 @@ namespace COOPMEF
                 this.btnEliminarSocio.Enabled = false;
                 this.btnVerMasSocio.Enabled = false;
 
-                this.btnGuardarSocio.Enabled = false;
             }
 
+            this.btnGuardarSocio.Enabled = false;
 
-        
+
         }
         private void marcarExcedido()
         {
@@ -1358,6 +1369,16 @@ namespace COOPMEF
 
             if (index != -1)
             {
+
+                desactivarAltaSocio();
+
+                btnGuardarSocio.Enabled = false;
+                btnCancelarSocio.Enabled = false;                
+                btnEliminarSocio.Enabled = true;
+                btnNuevoSocio.Enabled = true;
+
+                borrarErroresNuevoSocio();
+
                 marcarExcedido();
 
                 this.btnEditarSocio.Enabled = true;
@@ -1416,11 +1437,16 @@ namespace COOPMEF
 
                 }
 
+                this.cmbOficina.Enabled = false;
 
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
+                this.txtMostrarDetalles.Text = dgvSociosCampo.Rows[index].Cells["socio_detalles"].Value.ToString();
+
+
             }
+
             tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
 
         }
@@ -1564,7 +1590,7 @@ namespace COOPMEF
                 this.btnEditarSocio.Enabled = true;
                 this.btnEliminarSocio.Enabled = true;
                 this.btnVerMasSocio.Enabled = true;
-                this.btnCancelarSocio.Enabled = true;
+
 
             }
 
@@ -1590,7 +1616,8 @@ namespace COOPMEF
             seleccionarSocioYllenarDataGrid();
             //calcularSaldoMorayTotal();
             //llenarCamposDeCobranzaExcedidos();
-
+            txtInciso.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
+            txtOficina.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
             txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
             txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
             txtNroDeCobro.Text = dsSocios.Tables["socio"].Rows[0][4].ToString();
@@ -1956,7 +1983,7 @@ namespace COOPMEF
 
         private void btnGuardarPrestamo_Click_1(object sender, EventArgs e)
         {
-                if (!(idSocioSeleccionado == 0))
+            if (!(idSocioSeleccionado == 0))
             {
                 if (prestamoCorrecto)
                 {
@@ -2178,7 +2205,7 @@ namespace COOPMEF
         {
             if (idSocioSeleccionado > 0)
             {
-                frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado);
+                frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado, txtInciso.Text, txtOficina.Text);
                 frmCancelacion.ShowDialog();
                 cargarPlanPrestamoSocio();
             }
