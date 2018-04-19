@@ -552,6 +552,933 @@
   <data name="&gt;&gt;tabBusqueda.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="&gt;&gt;txtMostrarDetalles.Name" xml:space="preserve">
+    <value>txtMostrarDetalles</value>
+  </data>
+  <data name="&gt;&gt;txtMostrarDetalles.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtMostrarDetalles.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;txtMostrarDetalles.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarSocio.Name" xml:space="preserve">
+    <value>btnCancelarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarSocio.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;lblErrorGenerico.Name" xml:space="preserve">
+    <value>lblErrorGenerico</value>
+  </data>
+  <data name="&gt;&gt;lblErrorGenerico.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblErrorGenerico.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;lblErrorGenerico.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Name" xml:space="preserve">
+    <value>btnSalir</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.Name" xml:space="preserve">
+    <value>btnVerMasSocio</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.Name" xml:space="preserve">
+    <value>btnGuardarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.Name" xml:space="preserve">
+    <value>btnEliminarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.Name" xml:space="preserve">
+    <value>btnEditarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.Name" xml:space="preserve">
+    <value>btnNuevoSocio</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="lblErrorG.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="lblErrorG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblErrorG.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="lblErrorG.Size" type="System.Drawing.Size, System.Drawing">
+    <value>939, 580</value>
+  </data>
+  <data name="lblErrorG.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="lblErrorG.Text" xml:space="preserve">
+    <value>Socio</value>
+  </data>
+  <data name="&gt;&gt;lblErrorG.Name" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;lblErrorG.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblErrorG.Parent" xml:space="preserve">
+    <value>tbcPestanas</value>
+  </data>
+  <data name="&gt;&gt;lblErrorG.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoPrestamo.Name" xml:space="preserve">
+    <value>btnNuevoPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoPrestamo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoPrestamo.Parent" xml:space="preserve">
+    <value>tabHistorial</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoPrestamo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;button7.Name" xml:space="preserve">
+    <value>button7</value>
+  </data>
+  <data name="&gt;&gt;button7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
+    <value>tabHistorial</value>
+  </data>
+  <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoria.Name" xml:space="preserve">
+    <value>dgvHistoria</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoria.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoria.Parent" xml:space="preserve">
+    <value>tabHistorial</value>
+  </data>
+  <data name="&gt;&gt;dgvHistoria.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="tabHistorial.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="tabHistorial.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabHistorial.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabHistorial.Size" type="System.Drawing.Size, System.Drawing">
+    <value>939, 580</value>
+  </data>
+  <data name="tabHistorial.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabHistorial.Text" xml:space="preserve">
+    <value>Historial</value>
+  </data>
+  <data name="&gt;&gt;tabHistorial.Name" xml:space="preserve">
+    <value>tabHistorial</value>
+  </data>
+  <data name="&gt;&gt;tabHistorial.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabHistorial.Parent" xml:space="preserve">
+    <value>tbcPestanas</value>
+  </data>
+  <data name="&gt;&gt;tabHistorial.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarIngExcedidos.Name" xml:space="preserve">
+    <value>btnGuardarIngExcedidos</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarIngExcedidos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarIngExcedidos.Parent" xml:space="preserve">
+    <value>tabCobranza</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarIngExcedidos.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
+    <value>groupBox7</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
+    <value>tabCobranza</value>
+  </data>
+  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="tabCobranza.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="tabCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabCobranza.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabCobranza.Size" type="System.Drawing.Size, System.Drawing">
+    <value>939, 580</value>
+  </data>
+  <data name="tabCobranza.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="tabCobranza.Text" xml:space="preserve">
+    <value>Ingreso de excedidos</value>
+  </data>
+  <data name="&gt;&gt;tabCobranza.Name" xml:space="preserve">
+    <value>tabCobranza</value>
+  </data>
+  <data name="&gt;&gt;tabCobranza.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabCobranza.Parent" xml:space="preserve">
+    <value>tbcPestanas</value>
+  </data>
+  <data name="&gt;&gt;tabCobranza.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;btnSolicitar.Name" xml:space="preserve">
+    <value>btnSolicitar</value>
+  </data>
+  <data name="&gt;&gt;btnSolicitar.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSolicitar.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnSolicitar.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarPrestamo.Name" xml:space="preserve">
+    <value>btnGuardarPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarPrestamo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarPrestamo.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarPrestamo.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPrestamo.Name" xml:space="preserve">
+    <value>btnSalirPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPrestamo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPrestamo.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPrestamo.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarPrestamo.Name" xml:space="preserve">
+    <value>btnCancelarPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarPrestamo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarPrestamo.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarPrestamo.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtObs.Name" xml:space="preserve">
+    <value>txtObs</value>
+  </data>
+  <data name="&gt;&gt;txtObs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtObs.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;txtObs.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
+    <value>groupBox4</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="&gt;&gt;lblObs.Name" xml:space="preserve">
+    <value>lblObs</value>
+  </data>
+  <data name="&gt;&gt;lblObs.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblObs.Parent" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;lblObs.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="tabPrestamo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="tabPrestamo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabPrestamo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabPrestamo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>939, 580</value>
+  </data>
+  <data name="tabPrestamo.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="tabPrestamo.Text" xml:space="preserve">
+    <value>Préstamo</value>
+  </data>
+  <data name="&gt;&gt;tabPrestamo.Name" xml:space="preserve">
+    <value>tabPrestamo</value>
+  </data>
+  <data name="&gt;&gt;tabPrestamo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPrestamo.Parent" xml:space="preserve">
+    <value>tbcPestanas</value>
+  </data>
+  <data name="&gt;&gt;tabPrestamo.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnPagarCobranza.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnPagarCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnPagarCobranza.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnPagarCobranza.Location" type="System.Drawing.Point, System.Drawing">
+    <value>755, 241</value>
+  </data>
+  <data name="btnPagarCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnPagarCobranza.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 39</value>
+  </data>
+  <data name="btnPagarCobranza.TabIndex" type="System.Int32, mscorlib">
+    <value>25</value>
+  </data>
+  <data name="btnPagarCobranza.Text" xml:space="preserve">
+    <value>Pagar</value>
+  </data>
+  <data name="&gt;&gt;btnPagarCobranza.Name" xml:space="preserve">
+    <value>btnPagarCobranza</value>
+  </data>
+  <data name="&gt;&gt;btnPagarCobranza.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnPagarCobranza.Parent" xml:space="preserve">
+    <value>tabCobranzaExcedidos</value>
+  </data>
+  <data name="&gt;&gt;btnPagarCobranza.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnSalirCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSalirCobranza.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSalirCobranza.Location" type="System.Drawing.Point, System.Drawing">
+    <value>755, 412</value>
+  </data>
+  <data name="btnSalirCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnSalirCobranza.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 39</value>
+  </data>
+  <data name="btnSalirCobranza.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="btnSalirCobranza.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
+  <data name="&gt;&gt;btnSalirCobranza.Name" xml:space="preserve">
+    <value>btnSalirCobranza</value>
+  </data>
+  <data name="&gt;&gt;btnSalirCobranza.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSalirCobranza.Parent" xml:space="preserve">
+    <value>tabCobranzaExcedidos</value>
+  </data>
+  <data name="&gt;&gt;btnSalirCobranza.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="btnImprimirCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnImprimirCobranza.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnImprimirCobranza.Location" type="System.Drawing.Point, System.Drawing">
+    <value>755, 297</value>
+  </data>
+  <data name="btnImprimirCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnImprimirCobranza.Size" type="System.Drawing.Size, System.Drawing">
+    <value>135, 39</value>
+  </data>
+  <data name="btnImprimirCobranza.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnImprimirCobranza.Text" xml:space="preserve">
+    <value>     Imprimir</value>
+  </data>
+  <data name="&gt;&gt;btnImprimirCobranza.Name" xml:space="preserve">
+    <value>btnImprimirCobranza</value>
+  </data>
+  <data name="&gt;&gt;btnImprimirCobranza.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnImprimirCobranza.Parent" xml:space="preserve">
+    <value>tabCobranzaExcedidos</value>
+  </data>
+  <data name="&gt;&gt;btnImprimirCobranza.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Name" xml:space="preserve">
+    <value>groupBox12</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;groupBox12.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
+    <value>groupBox11</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.Parent" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;groupBox11.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtPresupuesto.Name" xml:space="preserve">
+    <value>txtPresupuesto</value>
+  </data>
+  <data name="&gt;&gt;txtPresupuesto.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtPresupuesto.Parent" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;txtPresupuesto.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label15.Name" xml:space="preserve">
+    <value>label15</value>
+  </data>
+  <data name="&gt;&gt;label15.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 171</value>
+  </data>
+  <data name="groupBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
+    <value>703, 314</value>
+  </data>
+  <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
+    <value>15</value>
+  </data>
+  <data name="groupBox10.Text" xml:space="preserve">
+    <value>Deuda</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Name" xml:space="preserve">
+    <value>groupBox10</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.Parent" xml:space="preserve">
+    <value>tabCobranzaExcedidos</value>
+  </data>
+  <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;label29.Name" xml:space="preserve">
+    <value>label29</value>
+  </data>
+  <data name="&gt;&gt;label29.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label29.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;txtOficinaCobExcedidos.Name" xml:space="preserve">
+    <value>txtOficinaCobExcedidos</value>
+  </data>
+  <data name="&gt;&gt;txtOficinaCobExcedidos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtOficinaCobExcedidos.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;txtOficinaCobExcedidos.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;txtIncisoCobExcedidos.Name" xml:space="preserve">
+    <value>txtIncisoCobExcedidos</value>
+  </data>
+  <data name="&gt;&gt;txtIncisoCobExcedidos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtIncisoCobExcedidos.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;txtIncisoCobExcedidos.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;label16.Name" xml:space="preserve">
+    <value>label16</value>
+  </data>
+  <data name="&gt;&gt;label16.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;txtNroDeCobro.Name" xml:space="preserve">
+    <value>txtNroDeCobro</value>
+  </data>
+  <data name="&gt;&gt;txtNroDeCobro.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtNroDeCobro.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;txtNroDeCobro.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="&gt;&gt;txtCI.Name" xml:space="preserve">
+    <value>txtCI</value>
+  </data>
+  <data name="&gt;&gt;txtCI.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;txtCI.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;txtCI.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="&gt;&gt;lblNroDeCobro.Name" xml:space="preserve">
+    <value>lblNroDeCobro</value>
+  </data>
+  <data name="&gt;&gt;lblNroDeCobro.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;lblNroDeCobro.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;lblNroDeCobro.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;label25.Name" xml:space="preserve">
+    <value>label25</value>
+  </data>
+  <data name="&gt;&gt;label25.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label25.Parent" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 26</value>
+  </data>
+  <data name="groupBox9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
+    <value>868, 116</value>
+  </data>
+  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
+    <value>14</value>
+  </data>
+  <data name="groupBox9.Text" xml:space="preserve">
+    <value>Datos del socio</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
+    <value>groupBox9</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
+    <value>tabCobranzaExcedidos</value>
+  </data>
+  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="tabCobranzaExcedidos.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 29</value>
+  </data>
+  <data name="tabCobranzaExcedidos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabCobranzaExcedidos.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tabCobranzaExcedidos.Size" type="System.Drawing.Size, System.Drawing">
+    <value>939, 580</value>
+  </data>
+  <data name="tabCobranzaExcedidos.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="tabCobranzaExcedidos.Text" xml:space="preserve">
+    <value>Cobranza de excedidos</value>
+  </data>
+  <data name="&gt;&gt;tabCobranzaExcedidos.Name" xml:space="preserve">
+    <value>tabCobranzaExcedidos</value>
+  </data>
+  <data name="&gt;&gt;tabCobranzaExcedidos.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabCobranzaExcedidos.Parent" xml:space="preserve">
+    <value>tbcPestanas</value>
+  </data>
+  <data name="&gt;&gt;tabCobranzaExcedidos.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="tbcPestanas.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="tbcPestanas.Location" type="System.Drawing.Point, System.Drawing">
+    <value>24, 234</value>
+  </data>
+  <data name="tbcPestanas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="tbcPestanas.Size" type="System.Drawing.Size, System.Drawing">
+    <value>947, 613</value>
+  </data>
+  <data name="tbcPestanas.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;tbcPestanas.Name" xml:space="preserve">
+    <value>tbcPestanas</value>
+  </data>
+  <data name="&gt;&gt;tbcPestanas.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tbcPestanas.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;tbcPestanas.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="dgvSociosCampo.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 121</value>
+  </data>
+  <data name="dgvSociosCampo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="dgvSociosCampo.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 302</value>
+  </data>
+  <data name="dgvSociosCampo.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.Name" xml:space="preserve">
+    <value>dgvSociosCampo</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.Parent" xml:space="preserve">
+    <value>tabBusqueda</value>
+  </data>
+  <data name="&gt;&gt;dgvSociosCampo.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnSalirPlan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSalirPlan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSalirPlan.Location" type="System.Drawing.Point, System.Drawing">
+    <value>551, 446</value>
+  </data>
+  <data name="btnSalirPlan.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnSalirPlan.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 41</value>
+  </data>
+  <data name="btnSalirPlan.TabIndex" type="System.Int32, mscorlib">
+    <value>36</value>
+  </data>
+  <data name="btnSalirPlan.Text" xml:space="preserve">
+    <value>     Salir</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPlan.Name" xml:space="preserve">
+    <value>btnSalirPlan</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPlan.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPlan.Parent" xml:space="preserve">
+    <value>tabBusqueda</value>
+  </data>
+  <data name="&gt;&gt;btnSalirPlan.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="button8.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="button8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
+    <value>21, 46</value>
+  </data>
+  <data name="button8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
+    <value>863, 52</value>
+  </data>
+  <data name="button8.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="button8.Text" xml:space="preserve">
+    <value>Resultados encontrados</value>
+  </data>
+  <data name="&gt;&gt;button8.Name" xml:space="preserve">
+    <value>button8</value>
+  </data>
+  <data name="&gt;&gt;button8.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;button8.Parent" xml:space="preserve">
+    <value>tabBusqueda</value>
+  </data>
+  <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="btnCancelarBusqueda.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnCancelarBusqueda.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnCancelarBusqueda.Location" type="System.Drawing.Point, System.Drawing">
+    <value>405, 446</value>
+  </data>
+  <data name="btnCancelarBusqueda.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnCancelarBusqueda.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 41</value>
+  </data>
+  <data name="btnCancelarBusqueda.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="btnCancelarBusqueda.Text" xml:space="preserve">
+    <value>Cancelar</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarBusqueda.Name" xml:space="preserve">
+    <value>btnCancelarBusqueda</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarBusqueda.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarBusqueda.Parent" xml:space="preserve">
+    <value>tabBusqueda</value>
+  </data>
+  <data name="&gt;&gt;btnCancelarBusqueda.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="btnSeleccionarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSeleccionarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSeleccionarSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>260, 446</value>
+  </data>
+  <data name="btnSeleccionarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnSeleccionarSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>137, 41</value>
+  </data>
+  <data name="btnSeleccionarSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="btnSeleccionarSocio.Text" xml:space="preserve">
+    <value>     Seleccionar</value>
+  </data>
+  <data name="&gt;&gt;btnSeleccionarSocio.Name" xml:space="preserve">
+    <value>btnSeleccionarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnSeleccionarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSeleccionarSocio.Parent" xml:space="preserve">
+    <value>tabBusqueda</value>
+  </data>
+  <data name="&gt;&gt;btnSeleccionarSocio.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
   <data name="txtMostrarDetalles.Location" type="System.Drawing.Point, System.Drawing">
     <value>22, 446</value>
   </data>
@@ -1274,768 +2201,6 @@
   </data>
   <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="btnSalir.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSalir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>765, 487</value>
-  </data>
-  <data name="btnSalir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 36</value>
-  </data>
-  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
-    <value>18</value>
-  </data>
-  <data name="btnSalir.Text" xml:space="preserve">
-    <value>     Salir</value>
-  </data>
-  <data name="&gt;&gt;btnSalir.Name" xml:space="preserve">
-    <value>btnSalir</value>
-  </data>
-  <data name="&gt;&gt;btnSalir.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
-    <value>lblErrorG</value>
-  </data>
-  <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="btnVerMasSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnVerMasSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnVerMasSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>765, 287</value>
-  </data>
-  <data name="btnVerMasSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnVerMasSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 37</value>
-  </data>
-  <data name="btnVerMasSocio.TabIndex" type="System.Int32, mscorlib">
-    <value>19</value>
-  </data>
-  <data name="btnVerMasSocio.Text" xml:space="preserve">
-    <value>     Ver más</value>
-  </data>
-  <data name="&gt;&gt;btnVerMasSocio.Name" xml:space="preserve">
-    <value>btnVerMasSocio</value>
-  </data>
-  <data name="&gt;&gt;btnVerMasSocio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnVerMasSocio.Parent" xml:space="preserve">
-    <value>lblErrorG</value>
-  </data>
-  <data name="&gt;&gt;btnVerMasSocio.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="btnGuardarSocio.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="btnGuardarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnGuardarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnGuardarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>765, 422</value>
-  </data>
-  <data name="btnGuardarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnGuardarSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 38</value>
-  </data>
-  <data name="btnGuardarSocio.TabIndex" type="System.Int32, mscorlib">
-    <value>16</value>
-  </data>
-  <data name="btnGuardarSocio.Text" xml:space="preserve">
-    <value>     Guardar</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarSocio.Name" xml:space="preserve">
-    <value>btnGuardarSocio</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarSocio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarSocio.Parent" xml:space="preserve">
-    <value>lblErrorG</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarSocio.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="btnEliminarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnEliminarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnEliminarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>765, 226</value>
-  </data>
-  <data name="btnEliminarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnEliminarSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 37</value>
-  </data>
-  <data name="btnEliminarSocio.TabIndex" type="System.Int32, mscorlib">
-    <value>20</value>
-  </data>
-  <data name="btnEliminarSocio.Text" xml:space="preserve">
-    <value>     Baja</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarSocio.Name" xml:space="preserve">
-    <value>btnEliminarSocio</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarSocio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarSocio.Parent" xml:space="preserve">
-    <value>lblErrorG</value>
-  </data>
-  <data name="&gt;&gt;btnEliminarSocio.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="btnEditarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnEditarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnEditarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>765, 170</value>
-  </data>
-  <data name="btnEditarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnEditarSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 37</value>
-  </data>
-  <data name="btnEditarSocio.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="btnEditarSocio.Text" xml:space="preserve">
-    <value>     Editar</value>
-  </data>
-  <data name="&gt;&gt;btnEditarSocio.Name" xml:space="preserve">
-    <value>btnEditarSocio</value>
-  </data>
-  <data name="&gt;&gt;btnEditarSocio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnEditarSocio.Parent" xml:space="preserve">
-    <value>lblErrorG</value>
-  </data>
-  <data name="&gt;&gt;btnEditarSocio.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="btnNuevoSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnNuevoSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnNuevoSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>765, 112</value>
-  </data>
-  <data name="btnNuevoSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnNuevoSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>128, 37</value>
-  </data>
-  <data name="btnNuevoSocio.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="btnNuevoSocio.Text" xml:space="preserve">
-    <value>    Nuevo</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoSocio.Name" xml:space="preserve">
-    <value>btnNuevoSocio</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoSocio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoSocio.Parent" xml:space="preserve">
-    <value>lblErrorG</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoSocio.ZOrder" xml:space="preserve">
-    <value>9</value>
-  </data>
-  <data name="lblErrorG.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
-  <data name="lblErrorG.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="lblErrorG.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="lblErrorG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>939, 580</value>
-  </data>
-  <data name="lblErrorG.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="lblErrorG.Text" xml:space="preserve">
-    <value>Socio</value>
-  </data>
-  <data name="&gt;&gt;lblErrorG.Name" xml:space="preserve">
-    <value>lblErrorG</value>
-  </data>
-  <data name="&gt;&gt;lblErrorG.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblErrorG.Parent" xml:space="preserve">
-    <value>tbcPestanas</value>
-  </data>
-  <data name="&gt;&gt;lblErrorG.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoPrestamo.Name" xml:space="preserve">
-    <value>btnNuevoPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoPrestamo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoPrestamo.Parent" xml:space="preserve">
-    <value>tabHistorial</value>
-  </data>
-  <data name="&gt;&gt;btnNuevoPrestamo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;button7.Name" xml:space="preserve">
-    <value>button7</value>
-  </data>
-  <data name="&gt;&gt;button7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button7.Parent" xml:space="preserve">
-    <value>tabHistorial</value>
-  </data>
-  <data name="&gt;&gt;button7.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;dgvHistoria.Name" xml:space="preserve">
-    <value>dgvHistoria</value>
-  </data>
-  <data name="&gt;&gt;dgvHistoria.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvHistoria.Parent" xml:space="preserve">
-    <value>tabHistorial</value>
-  </data>
-  <data name="&gt;&gt;dgvHistoria.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="tabHistorial.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
-  <data name="tabHistorial.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabHistorial.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabHistorial.Size" type="System.Drawing.Size, System.Drawing">
-    <value>939, 580</value>
-  </data>
-  <data name="tabHistorial.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="tabHistorial.Text" xml:space="preserve">
-    <value>Historial</value>
-  </data>
-  <data name="&gt;&gt;tabHistorial.Name" xml:space="preserve">
-    <value>tabHistorial</value>
-  </data>
-  <data name="&gt;&gt;tabHistorial.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabHistorial.Parent" xml:space="preserve">
-    <value>tbcPestanas</value>
-  </data>
-  <data name="&gt;&gt;tabHistorial.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarIngExcedidos.Name" xml:space="preserve">
-    <value>btnGuardarIngExcedidos</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarIngExcedidos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarIngExcedidos.Parent" xml:space="preserve">
-    <value>tabCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarIngExcedidos.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.Name" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.Parent" xml:space="preserve">
-    <value>tabCobranza</value>
-  </data>
-  <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="tabCobranza.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
-  <data name="tabCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabCobranza.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabCobranza.Size" type="System.Drawing.Size, System.Drawing">
-    <value>939, 580</value>
-  </data>
-  <data name="tabCobranza.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="tabCobranza.Text" xml:space="preserve">
-    <value>Ingreso de excedidos</value>
-  </data>
-  <data name="&gt;&gt;tabCobranza.Name" xml:space="preserve">
-    <value>tabCobranza</value>
-  </data>
-  <data name="&gt;&gt;tabCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabCobranza.Parent" xml:space="preserve">
-    <value>tbcPestanas</value>
-  </data>
-  <data name="&gt;&gt;tabCobranza.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;btnSolicitar.Name" xml:space="preserve">
-    <value>btnSolicitar</value>
-  </data>
-  <data name="&gt;&gt;btnSolicitar.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSolicitar.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnSolicitar.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarPrestamo.Name" xml:space="preserve">
-    <value>btnGuardarPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarPrestamo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarPrestamo.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnGuardarPrestamo.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPrestamo.Name" xml:space="preserve">
-    <value>btnSalirPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPrestamo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPrestamo.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPrestamo.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarPrestamo.Name" xml:space="preserve">
-    <value>btnCancelarPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarPrestamo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarPrestamo.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarPrestamo.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtObs.Name" xml:space="preserve">
-    <value>txtObs</value>
-  </data>
-  <data name="&gt;&gt;txtObs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtObs.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;txtObs.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Name" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;lblObs.Name" xml:space="preserve">
-    <value>lblObs</value>
-  </data>
-  <data name="&gt;&gt;lblObs.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblObs.Parent" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;lblObs.ZOrder" xml:space="preserve">
-    <value>8</value>
-  </data>
-  <data name="tabPrestamo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
-  <data name="tabPrestamo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabPrestamo.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabPrestamo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>939, 580</value>
-  </data>
-  <data name="tabPrestamo.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="tabPrestamo.Text" xml:space="preserve">
-    <value>Préstamo</value>
-  </data>
-  <data name="&gt;&gt;tabPrestamo.Name" xml:space="preserve">
-    <value>tabPrestamo</value>
-  </data>
-  <data name="&gt;&gt;tabPrestamo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabPrestamo.Parent" xml:space="preserve">
-    <value>tbcPestanas</value>
-  </data>
-  <data name="&gt;&gt;tabPrestamo.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.Name" xml:space="preserve">
-    <value>btnPagarCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.Name" xml:space="preserve">
-    <value>btnSalirCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.Name" xml:space="preserve">
-    <value>btnImprimirCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Name" xml:space="preserve">
-    <value>groupBox10</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="tabCobranzaExcedidos.Location" type="System.Drawing.Point, System.Drawing">
-    <value>4, 29</value>
-  </data>
-  <data name="tabCobranzaExcedidos.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabCobranzaExcedidos.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tabCobranzaExcedidos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>939, 580</value>
-  </data>
-  <data name="tabCobranzaExcedidos.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="tabCobranzaExcedidos.Text" xml:space="preserve">
-    <value>Cobranza de excedidos</value>
-  </data>
-  <data name="&gt;&gt;tabCobranzaExcedidos.Name" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;tabCobranzaExcedidos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tabCobranzaExcedidos.Parent" xml:space="preserve">
-    <value>tbcPestanas</value>
-  </data>
-  <data name="&gt;&gt;tabCobranzaExcedidos.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="tbcPestanas.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Microsoft Sans Serif, 9.75pt</value>
-  </data>
-  <data name="tbcPestanas.Location" type="System.Drawing.Point, System.Drawing">
-    <value>24, 234</value>
-  </data>
-  <data name="tbcPestanas.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="tbcPestanas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>947, 613</value>
-  </data>
-  <data name="tbcPestanas.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tbcPestanas.Name" xml:space="preserve">
-    <value>tbcPestanas</value>
-  </data>
-  <data name="&gt;&gt;tbcPestanas.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TabControl, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbcPestanas.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;tbcPestanas.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="dgvSociosCampo.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 121</value>
-  </data>
-  <data name="dgvSociosCampo.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="dgvSociosCampo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>863, 302</value>
-  </data>
-  <data name="dgvSociosCampo.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.Name" xml:space="preserve">
-    <value>dgvSociosCampo</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataGridView, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.Parent" xml:space="preserve">
-    <value>tabBusqueda</value>
-  </data>
-  <data name="&gt;&gt;dgvSociosCampo.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnSalirPlan.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSalirPlan.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSalirPlan.Location" type="System.Drawing.Point, System.Drawing">
-    <value>551, 446</value>
-  </data>
-  <data name="btnSalirPlan.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnSalirPlan.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 41</value>
-  </data>
-  <data name="btnSalirPlan.TabIndex" type="System.Int32, mscorlib">
-    <value>36</value>
-  </data>
-  <data name="btnSalirPlan.Text" xml:space="preserve">
-    <value>     Salir</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPlan.Name" xml:space="preserve">
-    <value>btnSalirPlan</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPlan.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPlan.Parent" xml:space="preserve">
-    <value>tabBusqueda</value>
-  </data>
-  <data name="&gt;&gt;btnSalirPlan.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="button8.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="button8.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="button8.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 46</value>
-  </data>
-  <data name="button8.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="button8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>863, 52</value>
-  </data>
-  <data name="button8.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="button8.Text" xml:space="preserve">
-    <value>Resultados encontrados</value>
-  </data>
-  <data name="&gt;&gt;button8.Name" xml:space="preserve">
-    <value>button8</value>
-  </data>
-  <data name="&gt;&gt;button8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button8.Parent" xml:space="preserve">
-    <value>tabBusqueda</value>
-  </data>
-  <data name="&gt;&gt;button8.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="btnCancelarBusqueda.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnCancelarBusqueda.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnCancelarBusqueda.Location" type="System.Drawing.Point, System.Drawing">
-    <value>405, 446</value>
-  </data>
-  <data name="btnCancelarBusqueda.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnCancelarBusqueda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 41</value>
-  </data>
-  <data name="btnCancelarBusqueda.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="btnCancelarBusqueda.Text" xml:space="preserve">
-    <value>Cancelar</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarBusqueda.Name" xml:space="preserve">
-    <value>btnCancelarBusqueda</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarBusqueda.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarBusqueda.Parent" xml:space="preserve">
-    <value>tabBusqueda</value>
-  </data>
-  <data name="&gt;&gt;btnCancelarBusqueda.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="btnSeleccionarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSeleccionarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSeleccionarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>260, 446</value>
-  </data>
-  <data name="btnSeleccionarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnSeleccionarSocio.Size" type="System.Drawing.Size, System.Drawing">
-    <value>137, 41</value>
-  </data>
-  <data name="btnSeleccionarSocio.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="btnSeleccionarSocio.Text" xml:space="preserve">
-    <value>     Seleccionar</value>
-  </data>
-  <data name="&gt;&gt;btnSeleccionarSocio.Name" xml:space="preserve">
-    <value>btnSeleccionarSocio</value>
-  </data>
-  <data name="&gt;&gt;btnSeleccionarSocio.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSeleccionarSocio.Parent" xml:space="preserve">
-    <value>tabBusqueda</value>
-  </data>
-  <data name="&gt;&gt;btnSeleccionarSocio.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="lblErrorFechas.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -3791,6 +3956,207 @@
   </data>
   <data name="&gt;&gt;lblNroSocio.ZOrder" xml:space="preserve">
     <value>49</value>
+  </data>
+  <data name="btnSalir.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnSalir.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 487</value>
+  </data>
+  <data name="btnSalir.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 36</value>
+  </data>
+  <data name="btnSalir.TabIndex" type="System.Int32, mscorlib">
+    <value>18</value>
+  </data>
+  <data name="btnSalir.Text" xml:space="preserve">
+    <value>     Salir</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Name" xml:space="preserve">
+    <value>btnSalir</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnSalir.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="btnVerMasSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnVerMasSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnVerMasSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 287</value>
+  </data>
+  <data name="btnVerMasSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnVerMasSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 37</value>
+  </data>
+  <data name="btnVerMasSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>19</value>
+  </data>
+  <data name="btnVerMasSocio.Text" xml:space="preserve">
+    <value>     Ver más</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.Name" xml:space="preserve">
+    <value>btnVerMasSocio</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnVerMasSocio.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="btnGuardarSocio.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="btnGuardarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnGuardarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnGuardarSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 422</value>
+  </data>
+  <data name="btnGuardarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnGuardarSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 38</value>
+  </data>
+  <data name="btnGuardarSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>16</value>
+  </data>
+  <data name="btnGuardarSocio.Text" xml:space="preserve">
+    <value>     Guardar</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.Name" xml:space="preserve">
+    <value>btnGuardarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnGuardarSocio.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="btnEliminarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnEliminarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEliminarSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 226</value>
+  </data>
+  <data name="btnEliminarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnEliminarSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 37</value>
+  </data>
+  <data name="btnEliminarSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>20</value>
+  </data>
+  <data name="btnEliminarSocio.Text" xml:space="preserve">
+    <value>     Baja</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.Name" xml:space="preserve">
+    <value>btnEliminarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnEliminarSocio.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="btnEditarSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnEditarSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnEditarSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 170</value>
+  </data>
+  <data name="btnEditarSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnEditarSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 37</value>
+  </data>
+  <data name="btnEditarSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>21</value>
+  </data>
+  <data name="btnEditarSocio.Text" xml:space="preserve">
+    <value>     Editar</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.Name" xml:space="preserve">
+    <value>btnEditarSocio</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnEditarSocio.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="btnNuevoSocio.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
+    <value>MiddleLeft</value>
+  </data>
+  <data name="btnNuevoSocio.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnNuevoSocio.Location" type="System.Drawing.Point, System.Drawing">
+    <value>765, 112</value>
+  </data>
+  <data name="btnNuevoSocio.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>4, 4, 4, 4</value>
+  </data>
+  <data name="btnNuevoSocio.Size" type="System.Drawing.Size, System.Drawing">
+    <value>128, 37</value>
+  </data>
+  <data name="btnNuevoSocio.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="btnNuevoSocio.Text" xml:space="preserve">
+    <value>    Nuevo</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.Name" xml:space="preserve">
+    <value>btnNuevoSocio</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.Parent" xml:space="preserve">
+    <value>lblErrorG</value>
+  </data>
+  <data name="&gt;&gt;btnNuevoSocio.ZOrder" xml:space="preserve">
+    <value>9</value>
   </data>
   <data name="btnNuevoPrestamo.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
     <value>MiddleLeft</value>
@@ -5973,183 +6339,6 @@
   <data name="&gt;&gt;lblObs.ZOrder" xml:space="preserve">
     <value>8</value>
   </data>
-  <data name="btnPagarCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnPagarCobranza.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnPagarCobranza.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 241</value>
-  </data>
-  <data name="btnPagarCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnPagarCobranza.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 39</value>
-  </data>
-  <data name="btnPagarCobranza.TabIndex" type="System.Int32, mscorlib">
-    <value>25</value>
-  </data>
-  <data name="btnPagarCobranza.Text" xml:space="preserve">
-    <value>Pagar</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.Name" xml:space="preserve">
-    <value>btnPagarCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;btnPagarCobranza.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnSalirCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnSalirCobranza.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnSalirCobranza.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 412</value>
-  </data>
-  <data name="btnSalirCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnSalirCobranza.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 39</value>
-  </data>
-  <data name="btnSalirCobranza.TabIndex" type="System.Int32, mscorlib">
-    <value>22</value>
-  </data>
-  <data name="btnSalirCobranza.Text" xml:space="preserve">
-    <value>Salir</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.Name" xml:space="preserve">
-    <value>btnSalirCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;btnSalirCobranza.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="btnImprimirCobranza.ImageAlign" type="System.Drawing.ContentAlignment, System.Drawing">
-    <value>MiddleLeft</value>
-  </data>
-  <data name="btnImprimirCobranza.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnImprimirCobranza.Location" type="System.Drawing.Point, System.Drawing">
-    <value>755, 297</value>
-  </data>
-  <data name="btnImprimirCobranza.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="btnImprimirCobranza.Size" type="System.Drawing.Size, System.Drawing">
-    <value>135, 39</value>
-  </data>
-  <data name="btnImprimirCobranza.TabIndex" type="System.Int32, mscorlib">
-    <value>21</value>
-  </data>
-  <data name="btnImprimirCobranza.Text" xml:space="preserve">
-    <value>     Imprimir</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.Name" xml:space="preserve">
-    <value>btnImprimirCobranza</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;btnImprimirCobranza.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;groupBox12.Name" xml:space="preserve">
-    <value>groupBox12</value>
-  </data>
-  <data name="&gt;&gt;groupBox12.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox12.Parent" xml:space="preserve">
-    <value>groupBox10</value>
-  </data>
-  <data name="&gt;&gt;groupBox12.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.Name" xml:space="preserve">
-    <value>groupBox11</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.Parent" xml:space="preserve">
-    <value>groupBox10</value>
-  </data>
-  <data name="&gt;&gt;groupBox11.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtPresupuesto.Name" xml:space="preserve">
-    <value>txtPresupuesto</value>
-  </data>
-  <data name="&gt;&gt;txtPresupuesto.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtPresupuesto.Parent" xml:space="preserve">
-    <value>groupBox10</value>
-  </data>
-  <data name="&gt;&gt;txtPresupuesto.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label15.Name" xml:space="preserve">
-    <value>label15</value>
-  </data>
-  <data name="&gt;&gt;label15.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label15.Parent" xml:space="preserve">
-    <value>groupBox10</value>
-  </data>
-  <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="groupBox10.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 171</value>
-  </data>
-  <data name="groupBox10.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox10.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>703, 314</value>
-  </data>
-  <data name="groupBox10.TabIndex" type="System.Int32, mscorlib">
-    <value>15</value>
-  </data>
-  <data name="groupBox10.Text" xml:space="preserve">
-    <value>Deuda</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Name" xml:space="preserve">
-    <value>groupBox10</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;groupBox10.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="&gt;&gt;txtARetener.Name" xml:space="preserve">
     <value>txtARetener</value>
   </data>
@@ -6304,7 +6493,7 @@
     <value>False</value>
   </data>
   <data name="txtARetener.Location" type="System.Drawing.Point, System.Drawing">
-    <value>212, 30</value>
+    <value>212, 33</value>
   </data>
   <data name="txtARetener.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
@@ -6773,132 +6962,6 @@
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
     <value>3</value>
-  </data>
-  <data name="&gt;&gt;label29.Name" xml:space="preserve">
-    <value>label29</value>
-  </data>
-  <data name="&gt;&gt;label29.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label29.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;label29.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;txtOficinaCobExcedidos.Name" xml:space="preserve">
-    <value>txtOficinaCobExcedidos</value>
-  </data>
-  <data name="&gt;&gt;txtOficinaCobExcedidos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtOficinaCobExcedidos.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;txtOficinaCobExcedidos.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;txtIncisoCobExcedidos.Name" xml:space="preserve">
-    <value>txtIncisoCobExcedidos</value>
-  </data>
-  <data name="&gt;&gt;txtIncisoCobExcedidos.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtIncisoCobExcedidos.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;txtIncisoCobExcedidos.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;label16.Name" xml:space="preserve">
-    <value>label16</value>
-  </data>
-  <data name="&gt;&gt;label16.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label16.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;txtNroDeCobro.Name" xml:space="preserve">
-    <value>txtNroDeCobro</value>
-  </data>
-  <data name="&gt;&gt;txtNroDeCobro.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtNroDeCobro.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;txtNroDeCobro.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;txtCI.Name" xml:space="preserve">
-    <value>txtCI</value>
-  </data>
-  <data name="&gt;&gt;txtCI.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;txtCI.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;txtCI.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;lblNroDeCobro.Name" xml:space="preserve">
-    <value>lblNroDeCobro</value>
-  </data>
-  <data name="&gt;&gt;lblNroDeCobro.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;lblNroDeCobro.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;lblNroDeCobro.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;label25.Name" xml:space="preserve">
-    <value>label25</value>
-  </data>
-  <data name="&gt;&gt;label25.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label25.Parent" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;label25.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="groupBox9.Location" type="System.Drawing.Point, System.Drawing">
-    <value>21, 26</value>
-  </data>
-  <data name="groupBox9.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox9.Padding" type="System.Windows.Forms.Padding, System.Windows.Forms">
-    <value>4, 4, 4, 4</value>
-  </data>
-  <data name="groupBox9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>868, 116</value>
-  </data>
-  <data name="groupBox9.TabIndex" type="System.Int32, mscorlib">
-    <value>14</value>
-  </data>
-  <data name="groupBox9.Text" xml:space="preserve">
-    <value>Datos del socio</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Name" xml:space="preserve">
-    <value>groupBox9</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.Parent" xml:space="preserve">
-    <value>tabCobranzaExcedidos</value>
-  </data>
-  <data name="&gt;&gt;groupBox9.ZOrder" xml:space="preserve">
-    <value>4</value>
   </data>
   <data name="label29.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>

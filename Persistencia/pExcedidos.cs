@@ -172,7 +172,7 @@ namespace Persistencia
                 throw ex;
             }
         }
-
+        
         public DataSet devolverExcedidosPorSocioIdyPresupuesto(int idSocio, string presupuesto)
         {
             try

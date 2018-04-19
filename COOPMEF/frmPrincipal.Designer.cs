@@ -1580,8 +1580,8 @@
             // 
             // btnPagarCobranza
             // 
-            this.btnPagarCobranza.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
             resources.ApplyResources(this.btnPagarCobranza, "btnPagarCobranza");
+            this.btnPagarCobranza.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
             this.btnPagarCobranza.Name = "btnPagarCobranza";
             this.btnPagarCobranza.UseVisualStyleBackColor = true;
             this.btnPagarCobranza.Click += new System.EventHandler(this.button1_Click);
