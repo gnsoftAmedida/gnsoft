@@ -2315,8 +2315,8 @@ namespace COOPMEF
             {
 
 
-                txtARetenerIngExc.Text = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][3].ToString();
-                txtRetenidoIngExc.Text = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][4].ToString();
+                txtARetenerIngExc.Text = Convert.ToDouble(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][3].ToString()).ToString("###,###,##0.00");
+                txtRetenidoIngExc.Text = Convert.ToDouble(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][4].ToString()).ToString("###,###,##0.00");
                 txtPresupuestoIngExc.Text = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][1].ToString();
 
                 retenidoActual = Convert.ToDouble(txtRetenidoIngExc.Text);
@@ -2325,7 +2325,7 @@ namespace COOPMEF
                 string _Presupuesto = txtPresupuestoIngExc.Text;
 
 
-                txtSaldoIngExc.Text = saldo.ToString();
+                txtSaldoIngExc.Text = Convert.ToDouble(saldo.ToString()).ToString("###,###,##0.00");
                 Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
                 txtMoraIngExc.Text = mora.ToString("###,###,##0.00");
                 txtTotalIngExc.Text = (saldo + mora).ToString("###,###,##0.00");
@@ -2523,8 +2523,8 @@ Agregar emisión
                 double ivaMora = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][21].ToString());
                 double ivaCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][12].ToString());
                 double total = importeCuota + aporteCapital + excedido + mora + ivaMora + ivaCuota;
-                txtARetenerIngExc.Text = total.ToString();
-
+                txtARetenerIngExc.Text = total.ToString("###,###,##0.00");
+                
                 calcularSaldoMorayTotal();
 
                 if (excedidoSocioPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count > 0)

@@ -139,7 +139,8 @@ namespace Negocio
             tmpBanco.Guardar();
         }
 
-        public void actualizarSaldo(int codigobanco, Double saldo) {
+        public void actualizarSaldo(int codigobanco, Double saldo)
+        {
             Banco tmpBanco = new Banco();
             tmpBanco.Codigobanco = codigobanco;
             tmpBanco.Saldo = saldo;
@@ -157,7 +158,7 @@ namespace Negocio
             tmpMovimiento.Importe = importe;
             tmpMovimiento.Concepto = concepto;
             tmpMovimiento.Saldo = saldo;
-            
+
             tmpMovimiento.Guardar();
         }
 
@@ -300,7 +301,7 @@ namespace Negocio
             DataSet historias = tmpHistoria.devolverHistoria();
             return historias;
         }
-      
+
         public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
         {
             Historia tmpHistoria = new Historia();
@@ -1415,8 +1416,12 @@ namespace Negocio
             Historia tmpHistoria = new Historia();
             DataSet tmpHistorias = tmpHistoria.devolverHistoria(ci, presupuesto);
             return tmpHistorias;
+        }
 
-
+        public bool cierreEfectuado(String presupuesto)
+        {
+            FechaCierre tmpCierre = new FechaCierre();
+            return tmpCierre.cierreEfectuado(presupuesto);
         }
 
         public void cierre()

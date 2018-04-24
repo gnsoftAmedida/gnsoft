@@ -27,7 +27,8 @@ namespace COOPMEF
             inicio();
         }
 
-        private void inicio() {
+        private void inicio()
+        {
 
             DataSet dsEmpresas = empresa.DevolverEmpresa();
             DateTime fechaPresupuestoAnterior = Convert.ToDateTime(dsEmpresas.Tables["empresas"].Rows[0][23].ToString().ToString());
@@ -53,22 +54,28 @@ namespace COOPMEF
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
         {
 
-            string message = "¿Está seguro de que desea realizar el cierre mensual?";
-            string caption = "Cierre Mes";
-            MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-            DialogResult result;
-            result = MessageBox.Show(message, caption, buttons);
-
-            if (result == System.Windows.Forms.DialogResult.Yes)
+            if (!(empresa.cierreEfectuado(empresa.presupuesto())))
             {
-                empresa.cierre();
-                MessageBox.Show("Cierre efectuado correctamente");
+                string message = "¿Está seguro de que desea realizar el cierre mensual?";
+                string caption = "Cierre Mes";
+                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                DialogResult result;
+                result = MessageBox.Show(message, caption, buttons);
 
-                RegistroSLogs registroLogs = new RegistroSLogs();
-                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cierre mes " + this.lblFechaCierre.Text);
+                if (result == System.Windows.Forms.DialogResult.Yes)
+                {
+                    empresa.cierre();
+                    MessageBox.Show("Cierre efectuado correctamente");
 
-             
-                inicio();
+                    RegistroSLogs registroLogs = new RegistroSLogs();
+                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cierre mes " + this.lblFechaCierre.Text);
+
+                    inicio();
+                }
+            }
+            else
+            {
+                MessageBox.Show("El cierre para el presupuesto " + empresa.presupuesto() + " ya fué realizado");
             }
         }
 

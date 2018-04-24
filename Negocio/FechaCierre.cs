@@ -81,6 +81,11 @@ namespace Negocio
             tmpFechaCierre.GuardarFechaCierre(Presupuesto, FechaDesde, HoraDesde, FechaHasta, HoraHasta, TotalImporte, AmortizacionAVencer, InteresesAVencer);           
         }
 
+        public Boolean cierreEfectuado(String presupuesto) {
+            pFechaCierre tmpFechaCierre = new pFechaCierre();
+            return tmpFechaCierre.cierreEfectuado(presupuesto);
+        }
+
         public DataSet devolverTodos()
         {
             pFechaCierre tmpFechaCierre = new pFechaCierre();
