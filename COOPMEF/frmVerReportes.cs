@@ -62,11 +62,21 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = reporteCobranzaExcedidos;
             }
-
-            //Reporte Cierre
+            
+            
             if (tipo.Equals("PRESTAMOS_PRESUPUESTO"))
             {
                 COOPMEF.Reportes.reportePrestamosPresupuesto reportePrestamosTmp = new COOPMEF.Reportes.reportePrestamosPresupuesto();
+
+                reportePrestamosTmp.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = reportePrestamosTmp;
+            }
+
+            //Reporte Cierre
+            if (tipo.Equals("PRESUPUESTO_MES"))
+            {
+                COOPMEF.Reportes.reporte_presupuesto_mes reportePrestamosTmp = new COOPMEF.Reportes.reporte_presupuesto_mes();
 
                 reportePrestamosTmp.SetDataSource(DS);
 

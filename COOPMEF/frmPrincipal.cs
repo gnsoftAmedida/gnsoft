@@ -2524,7 +2524,7 @@ Agregar emisión
                 double ivaCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][12].ToString());
                 double total = importeCuota + aporteCapital + excedido + mora + ivaMora + ivaCuota;
                 txtARetenerIngExc.Text = total.ToString("###,###,##0.00");
-                
+
                 calcularSaldoMorayTotal();
 
                 if (excedidoSocioPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count > 0)
@@ -2662,7 +2662,8 @@ Agregar emisión
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("En construcción");
+            frmInformePresupuesto frmInformePresupuestoTMP = new frmInformePresupuesto();
+            frmInformePresupuestoTMP.ShowDialog();
         }
 
         private void resumenDePréstamosToolStripMenuItem_Click(object sender, EventArgs e)

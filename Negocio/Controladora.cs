@@ -514,6 +514,13 @@ namespace Negocio
             return historias;
         }
 
+        public DataSet devolverPresupuestoDelMes(string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverPresupuestoDelMes(presupuesto);
+            return historias;
+        }
+
         public DataSet DevolverFechasCierres()
         {
             FechaCierre tmpFechaCierre = new FechaCierre();

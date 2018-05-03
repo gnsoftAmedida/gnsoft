@@ -79,6 +79,13 @@ namespace Negocio
             return historias;
         }
 
+        public DataSet devolverPresupuestoDelMes(string presupuesto)
+        {
+            pHistoria tmpHistoria = new pHistoria();
+            DataSet historias = tmpHistoria.devolverPresupuestoDelMes(presupuesto);
+            return historias;
+        }
+
         public DataSet devolverHistoriaPorIdSocio(int idSocio)
         {
             pHistoria tmpHistoria = new pHistoria();

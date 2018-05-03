@@ -142,6 +142,34 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverPresupuestoDelMes(string presupuesto)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+                // apellidos nombres 
+
+                string sql = "SELECT s.socio_apellido, s.socio_nombre, h.numerocobro, h.cantidadcuotas, h.nrocuotas, h.AmortizacionCuota, h.InteresCuota, (h.InteresCuota * (h.porcentajeiva / 100)), h.aportecapital, h.excedido, h.mora, h.ivaMora, (h.excedido + h.mora + h.ivaMora + h.aportecapital), h.AmortizacionVencer, h.InteresVencer, (h.InteresVencer * (h.porcentajeiva / 100)), CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM historia h, oficina o, inciso i, socio s where h.socio_id = s.socio_id and h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.Presupuesto ='" + presupuesto + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "presupuestoMes");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
         {
             try
