@@ -130,6 +130,14 @@ namespace Negocio
             set { socio_activo = value; }
         }
 
+        private string detalles;
+
+        public string Detalles
+        {
+            get { return detalles; }
+            set { detalles = value; }
+        }
+
 
 
 
@@ -164,13 +172,13 @@ namespace Negocio
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
+            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles);
         }
 
         public void ModificarSocio()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
+            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles);
         }
 
         public void eliminar(ref int estadoActual)

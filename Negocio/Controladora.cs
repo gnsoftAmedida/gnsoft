@@ -139,7 +139,8 @@ namespace Negocio
             tmpBanco.Guardar();
         }
 
-        public void actualizarSaldo(int codigobanco, Double saldo) {
+        public void actualizarSaldo(int codigobanco, Double saldo)
+        {
             Banco tmpBanco = new Banco();
             tmpBanco.Codigobanco = codigobanco;
             tmpBanco.Saldo = saldo;
@@ -157,7 +158,7 @@ namespace Negocio
             tmpMovimiento.Importe = importe;
             tmpMovimiento.Concepto = concepto;
             tmpMovimiento.Saldo = saldo;
-            
+
             tmpMovimiento.Guardar();
         }
 
@@ -300,7 +301,7 @@ namespace Negocio
             DataSet historias = tmpHistoria.devolverHistoria();
             return historias;
         }
-      
+
         public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
         {
             Historia tmpHistoria = new Historia();
@@ -513,6 +514,13 @@ namespace Negocio
             return historias;
         }
 
+        public DataSet devolverPresupuestoDelMes(string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverPresupuestoDelMes(presupuesto);
+            return historias;
+        }
+
         public DataSet DevolverFechasCierres()
         {
             FechaCierre tmpFechaCierre = new FechaCierre();
@@ -652,7 +660,7 @@ namespace Negocio
         }
 
         public void AltaSocio(int socioActivo, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
-            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
+            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, String mostrarDetalles)
         {
             Socio tmpSocio = new Socio();
             tmpSocio.Socio_nro = NroSocio;
@@ -671,11 +679,12 @@ namespace Negocio
             tmpSocio.Socio_direccion = direccion;
             tmpSocio.Socio_email = email;
             tmpSocio.Socio_activo = socioActivo;
+            tmpSocio.Detalles = mostrarDetalles;
             tmpSocio.Guardar();
         }
 
         public void EditarSocio(int Tsocio_id, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
-            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email)
+            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, string detalles)
         {
             Socio tmpSocio = new Socio();
             tmpSocio.Socio_nro = NroSocio;
@@ -694,6 +703,7 @@ namespace Negocio
             tmpSocio.Socio_direccion = direccion;
             tmpSocio.Socio_email = email;
             tmpSocio.Socio_id = Tsocio_id;
+            tmpSocio.Detalles = detalles;
             tmpSocio.ModificarSocio();
         }
 
@@ -1413,8 +1423,12 @@ namespace Negocio
             Historia tmpHistoria = new Historia();
             DataSet tmpHistorias = tmpHistoria.devolverHistoria(ci, presupuesto);
             return tmpHistorias;
+        }
 
-
+        public bool cierreEfectuado(String presupuesto)
+        {
+            FechaCierre tmpCierre = new FechaCierre();
+            return tmpCierre.cierreEfectuado(presupuesto);
         }
 
         public void cierre()

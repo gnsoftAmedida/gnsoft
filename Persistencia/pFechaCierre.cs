@@ -20,7 +20,7 @@ namespace Persistencia
 
             string sql;
             sql = "INSERT INTO fechascierre (Presupuesto, FechaDesde, HoraDesde, FechaHasta, HoraHasta, TotalImporte, AmortizacionAVencer, InteresesAVencer) VALUES ('" + Presupuesto + "', '" + FechaDesde.ToString("yyyy/MM/dd hh:mm:ss") + "', '" + HoraDesde.ToString("yyyy/MM/dd hh:mm:ss") + "','" + FechaHasta.ToString("yyyy/MM/dd hh:mm:ss") + "','" + HoraHasta.ToString("yyyy/MM/dd hh:mm:ss") + "', '" + TotalImporte.ToString().Replace(",", ".") + "', '" + AmortizacionAVencer.ToString().Replace(",", ".") + "','" + InteresesAVencer.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
-                                                                                                                                                                          
+
             try
             {
                 connection.Open();
@@ -45,6 +45,30 @@ namespace Persistencia
                         MisExcepciones ep = new MisExcepciones("Datos muy largos");
                         throw ep;
                 }
+            }
+        }
+
+        public Boolean cierreEfectuado(String presupuesto)
+        {
+            MySqlConnection connection = conectar();
+
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+            string sql = "SELECT * FROM FechasCierre where Presupuesto = '" + presupuesto + "'";
+            DataSet ds = new DataSet();
+
+            connection.Open();
+            MySqlAdapter.SelectCommand = connection.CreateCommand();
+            MySqlAdapter.SelectCommand.CommandText = sql;
+            MySqlAdapter.Fill(ds, "fechasCierre");
+            connection.Close();
+
+            if (ds.Tables["fechasCierre"].Rows.Count > 0)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
             }
         }
 

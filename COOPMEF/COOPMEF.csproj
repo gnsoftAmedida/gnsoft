@@ -111,6 +111,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsPresupuesto.cs">
+      <DependentUpon>dsPresupuesto.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsPresupuesto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPresupuesto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAnulacionPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -235,6 +244,12 @@
     <Compile Include="frmInformePrestamo.Designer.cs">
       <DependentUpon>frmInformePrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmInformePresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmInformePresupuesto.Designer.cs">
+      <DependentUpon>frmInformePresupuesto.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmLiquidacionDeUtilidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -339,6 +354,12 @@
       <DependentUpon>reportePrestamosPresupuesto.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\reporte_presupuesto_mes.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporte_presupuesto_mes.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\valePrestamo.cs">
       <DependentUpon>valePrestamo.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -395,6 +416,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmInformePrestamo.resx">
       <DependentUpon>frmInformePrestamo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmInformePresupuesto.resx">
+      <DependentUpon>frmInformePresupuesto.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmLiquidacionDeUtilidades.resx">
       <DependentUpon>frmLiquidacionDeUtilidades.cs</DependentUpon>
@@ -465,6 +489,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportePrestamosPresupuesto.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporte_presupuesto_mes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporte_presupuesto_mes.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\valePrestamo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>valePrestamo.cs</LastGenOutput>
@@ -521,6 +549,17 @@
     </None>
     <None Include="CrystalDataSets\dsPrestamosCierre.xss">
       <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPresupuesto.xsc">
+      <DependentUpon>dsPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPresupuesto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPresupuesto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsPresupuesto.xss">
+      <DependentUpon>dsPresupuesto.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsPrueba.xsc">
       <DependentUpon>dsPrueba.xsd</DependentUpon>
