@@ -658,7 +658,14 @@ namespace COOPMEF
             this.lblEdadSocio.Text = edadd.ToString();
             this.lblTelefonoSocio.Text = txtTelefono.Text;
 
+            txtInciso.Text = cmbInciso.Text;
+            txtIncisoCobExcedidos.Text = cmbInciso.Text;
 
+            txtOficina.Text = cmbOficina.Text;
+            txtOficinaCobExcedidos.Text = cmbOficina.Text;
+
+            txtNroDeCobro.Text = txtNroCobro.Text;
+            txtCI.Text = txtNroSocio.Text; 
         }
 
         private void nuevoSocio()
@@ -1479,28 +1486,34 @@ namespace COOPMEF
                 else lblEdadSocio.ForeColor = Color.Blue;
                 this.lblEdadSocio.Text = edad.ToString();
 
-                for (int i = 0; i < dsIncisos.Tables["incisos"].Rows.Count; i++)
-                {
-                    if (Convert.ToInt32(dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString()) == Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[i][0].ToString()))
-                    {
-                        this.cmbInciso.SelectedIndex = i;
-                        //////
-
-                    }
-
-                }
+                cmbInciso.SelectedValue = dgvSociosCampo.Rows[index].Cells["socio_incisoId"].Value.ToString();
+                cmbOficina.SelectedValue = dgvSociosCampo.Rows[index].Cells["socio_oficinaId"].Value.ToString();
 
                 this.cmbOficina.Enabled = false;
 
+                txtInciso.Text = cmbInciso.Text;
+                txtIncisoCobExcedidos.Text = cmbInciso.Text;
+
+                txtOficina.Text = cmbOficina.Text;
+                txtOficinaCobExcedidos.Text = cmbOficina.Text;
+             
+                txtNroDeCobro.Text = dgvSociosCampo.Rows[index].Cells["socio_nroCobro"].Value.ToString();
+                txtCI.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
+               
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
                 this.txtMostrarDetalles.Text = dgvSociosCampo.Rows[index].Cells["socio_detalles"].Value.ToString();
-
-
             }
 
             tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
+
+            txtInciso.Text = cmbInciso.Text;
+            txtIncisoCobExcedidos.Text = cmbInciso.Text;
+            
+            txtOficina.Text = cmbOficina.Text;
+            txtOficinaCobExcedidos.Text = cmbOficina.Text;
+
 
         }
 
@@ -1665,16 +1678,7 @@ namespace COOPMEF
 
         private void cargarPantallas()
         {
-
             seleccionarSocioYllenarDataGrid();
-            //calcularSaldoMorayTotal();
-            //llenarCamposDeCobranzaExcedidos();
-            txtInciso.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
-            txtOficina.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
-            txtIncisoCobExcedidos.Text = dsIncisos.Tables["incisos"].Rows[0][3].ToString();
-            txtOficinaCobExcedidos.Text = dsOficinas.Tables["oficinas"].Rows[0][2].ToString();
-            txtNroDeCobro.Text = dsSocios.Tables["socio"].Rows[0][4].ToString();
-            txtCI.Text = dsSocios.Tables["socio"].Rows[0][3].ToString();
         }
 
         private void btnCancelarBusqueda_Click(object sender, EventArgs e)
@@ -1706,7 +1710,8 @@ namespace COOPMEF
                 this.cmbOficina.DataSource = dsOficinasDelInciso.Tables["oficinas"];
                 this.cmbOficina.DisplayMember = "oficina_abreviatura";
                 this.cmbOficina.ValueMember = "oficina_id";
-                this.cmbOficina.Enabled = true;
+                this.cmbOficina.Enabled = true; 
+
             }
             else
             {
