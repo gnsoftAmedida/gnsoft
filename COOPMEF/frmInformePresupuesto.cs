@@ -74,8 +74,8 @@ namespace COOPMEF
                         Double AmortizacionVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][13].ToString());
                         Double InteresVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][14].ToString());
                         Double IvaVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][15].ToString());
-                        String oficina = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][16].ToString();
-                        String Inciso = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][17].ToString();                                               
+                        String oficina = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][17].ToString();
+                        String Inciso = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][16].ToString();                                               
                         String fecha = DateTime.Today.ToShortDateString();
 
                         DE.InformePresupuesto.Rows.Add(socio_apellido, socio_nombre, numerocobro, cantidadcuotas, nrocuotas, AmortizacionCuota, InteresCuota, iva, aportecapital, excedido, mora, ivaMora, totalADescontar, AmortizacionVencer, InteresVencer, IvaVencer, oficina, Inciso, fecha, this.txtPresupuestoIngExc.Text);
