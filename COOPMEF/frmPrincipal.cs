@@ -2741,6 +2741,11 @@ Agregar emisión
         {
             MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
         }
+
+        private void tabHistorial_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

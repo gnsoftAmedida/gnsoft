@@ -125,7 +125,7 @@
     <value>0, 0</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>750, 24</value>
+    <value>736, 24</value>
   </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
@@ -537,7 +537,7 @@
     <value>18, 190</value>
   </data>
   <data name="tbcPestanas.Size" type="System.Drawing.Size, System.Drawing">
-    <value>710, 498</value>
+    <value>710, 435</value>
   </data>
   <data name="tbcPestanas.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -622,7 +622,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabBusqueda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>702, 469</value>
+    <value>702, 406</value>
   </data>
   <data name="tabBusqueda.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
@@ -910,7 +910,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="lblErrorG.Size" type="System.Drawing.Size, System.Drawing">
-    <value>702, 469</value>
+    <value>702, 406</value>
   </data>
   <data name="lblErrorG.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
@@ -943,7 +943,7 @@
     <value>True</value>
   </data>
   <data name="txtMostrarDetalles.Size" type="System.Drawing.Size, System.Drawing">
-    <value>540, 63</value>
+    <value>540, 36</value>
   </data>
   <data name="txtMostrarDetalles.TabIndex" type="System.Int32, mscorlib">
     <value>26</value>
@@ -970,7 +970,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnCancelarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 285</value>
+    <value>574, 207</value>
   </data>
   <data name="btnCancelarSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 31</value>
@@ -3238,7 +3238,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnSalir.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 396</value>
+    <value>574, 318</value>
   </data>
   <data name="btnSalir.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 29</value>
@@ -3268,7 +3268,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnVerMasSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 233</value>
+    <value>574, 155</value>
   </data>
   <data name="btnVerMasSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 30</value>
@@ -3301,7 +3301,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnGuardarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 343</value>
+    <value>574, 265</value>
   </data>
   <data name="btnGuardarSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 31</value>
@@ -3331,7 +3331,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnEliminarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 184</value>
+    <value>574, 106</value>
   </data>
   <data name="btnEliminarSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 30</value>
@@ -3361,7 +3361,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnEditarSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 138</value>
+    <value>574, 60</value>
   </data>
   <data name="btnEditarSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 30</value>
@@ -3391,7 +3391,7 @@
     <value>NoControl</value>
   </data>
   <data name="btnNuevoSocio.Location" type="System.Drawing.Point, System.Drawing">
-    <value>574, 91</value>
+    <value>574, 13</value>
   </data>
   <data name="btnNuevoSocio.Size" type="System.Drawing.Size, System.Drawing">
     <value>96, 30</value>
@@ -3457,7 +3457,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabHistorial.Size" type="System.Drawing.Size, System.Drawing">
-    <value>702, 469</value>
+    <value>702, 406</value>
   </data>
   <data name="tabHistorial.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
@@ -3589,7 +3589,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabCobranza.Size" type="System.Drawing.Size, System.Drawing">
-    <value>702, 469</value>
+    <value>702, 406</value>
   </data>
   <data name="tabCobranza.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
@@ -4315,7 +4315,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabPrestamo.Size" type="System.Drawing.Size, System.Drawing">
-    <value>702, 469</value>
+    <value>702, 406</value>
   </data>
   <data name="tabPrestamo.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
@@ -5731,7 +5731,7 @@
     <value>3, 3, 3, 3</value>
   </data>
   <data name="tabCobranzaExcedidos.Size" type="System.Drawing.Size, System.Drawing">
-    <value>702, 469</value>
+    <value>702, 406</value>
   </data>
   <data name="tabCobranzaExcedidos.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
@@ -7792,7 +7792,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>750, 518</value>
+    <value>736, 628</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8148,6 +8148,12 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
+  </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
+    <value>CenterScreen</value>
   </data>
   <data name="$this.Text" xml:space="preserve">
     <value>COOPMEF</value>
