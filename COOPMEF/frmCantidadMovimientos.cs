@@ -58,11 +58,31 @@ namespace COOPMEF
 
             if (movimientoPro.Tables["consultaMovimiento"].Rows.Count > 1)
             {
+                int depositos = 0;
+                Double promedioDeposito = 0;
+                int cheques = 0;
+                Double PromedioCheques = 0;
 
-                int depositos = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[0][0].ToString());
-                Double promedioDeposito = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[0][1].ToString());
-                int cheques = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[1][0].ToString());
-                Double PromedioCheques = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[1][1].ToString());
+                if (movimientoPro.Tables["consultaMovimiento"].Rows[0][0].ToString() != "")
+                {
+                     depositos = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[0][0].ToString());
+                }
+
+                if (movimientoPro.Tables["consultaMovimiento"].Rows[0][1].ToString() != "")
+                {
+                     promedioDeposito = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[0][1].ToString());
+                }
+
+                if (movimientoPro.Tables["consultaMovimiento"].Rows[1][0].ToString() != "")
+                {
+                     cheques = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[1][0].ToString());
+                }
+
+                if (movimientoPro.Tables["consultaMovimiento"].Rows[1][1].ToString() != "")
+                {
+                     PromedioCheques = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[1][1].ToString());
+                }
+
                 double promedioTotal = (promedioDeposito + PromedioCheques) / 2;
 
                 MessageBox.Show("Depositos: " + depositos + Environment.NewLine + "Cheques: " + cheques + Environment.NewLine + "Total: " + (Convert.ToInt32(depositos) + Convert.ToInt32(cheques)) + Environment.NewLine + "Promedio Mensual: " + promedioTotal + Environment.NewLine + "A la fecha: " + dia + "/" + mes + "/" + anio);

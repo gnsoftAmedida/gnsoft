@@ -57,27 +57,35 @@ namespace COOPMEF
                 {
                     DataSet prestamosPresupuesto = empresa.devolverPrestamosOtorgadosPresupuesto(this.txtPresupuestoIngExc.Text);
 
-                    for (int n = 0; n <= prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows.Count - 1; n++)
+                    if (prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows.Count > 0)
                     {
 
-                        string numerocobro = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][0].ToString();
-                        string cedula = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][1].ToString();
-                        DateTime fecha = Convert.ToDateTime(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][2].ToString());
-                        int NumeroPrestamo = Convert.ToInt32(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][3].ToString());
-                        Double monto = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][4].ToString());
-                        Double saldoAnterior = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][5].ToString());
-                        Double total = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][6].ToString());
-                        Double totalIntereses = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][7].ToString());
-                        Double interesesDeducidos = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][8].ToString());
-                        Double saldoIntereses = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][9].ToString());
-                        String inciso = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][10].ToString();
-                        String oficina = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][11].ToString();
+                        for (int n = 0; n <= prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows.Count - 1; n++)
+                        {
 
-                        DE.PrestamosPresupuseto.Rows.Add(numerocobro, cedula, fecha, NumeroPrestamo, monto, saldoAnterior, total, totalIntereses, interesesDeducidos, saldoIntereses, inciso, oficina, txtPresupuestoIngExc.Text);
+                            string numerocobro = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][0].ToString();
+                            string cedula = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][1].ToString();
+                            DateTime fecha = Convert.ToDateTime(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][2].ToString());
+                            int NumeroPrestamo = Convert.ToInt32(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][3].ToString());
+                            Double monto = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][4].ToString());
+                            Double saldoAnterior = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][5].ToString());
+                            Double total = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][6].ToString());
+                            Double totalIntereses = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][7].ToString());
+                            Double interesesDeducidos = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][8].ToString());
+                            Double saldoIntereses = Convert.ToDouble(prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][9].ToString());
+                            String inciso = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][10].ToString();
+                            String oficina = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][11].ToString();
+
+                            DE.PrestamosPresupuseto.Rows.Add(numerocobro, cedula, fecha, NumeroPrestamo, monto, saldoAnterior, total, totalIntereses, interesesDeducidos, saldoIntereses, inciso, oficina, txtPresupuestoIngExc.Text);
+                        }
+
+                        frmVerReportes reporte = new frmVerReportes(DE, "PRESTAMOS_PRESUPUESTO");
+                        reporte.ShowDialog();
                     }
-
-                    frmVerReportes reporte = new frmVerReportes(DE, "PRESTAMOS_PRESUPUESTO");
-                    reporte.ShowDialog();
+                    else
+                    {
+                        MessageBox.Show("Sin registros");
+                    }
                 }
             }
             else
