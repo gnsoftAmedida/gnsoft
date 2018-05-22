@@ -2676,6 +2676,71 @@ Agregar emisión
             frmInformePrestamo frmTmpInformeCierre = new frmInformePrestamo();
             frmTmpInformeCierre.ShowDialog();
         }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem9_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem10_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem11_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem12_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+        }
+
+        private void toolStripMenuItem13_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
+        }
+
+        private void toolStripMenuItem15_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
+        }
+
+        private void toolStripMenuItem17_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
+        }
+
+        private void toolStripMenuItem18_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
+        }
+
+        private void informesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
+        }
     }
 }
 
