@@ -56,33 +56,40 @@ namespace COOPMEF
                 {
                     DataSet prestamosPresupuesto = empresa.devolverPresupuestoDelMes(this.txtPresupuestoIngExc.Text);
 
-                    for (int n = 0; n <= prestamosPresupuesto.Tables["presupuestoMes"].Rows.Count - 1; n++)
+                    if (prestamosPresupuesto.Tables["presupuestoMes"].Rows.Count > 0)
                     {
-                        string socio_apellido = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][0].ToString();
-                        string socio_nombre = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][1].ToString();
-                        string numerocobro = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][2].ToString();
-                        string cantidadcuotas = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][3].ToString();
-                        string nrocuotas = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][4].ToString();
-                        Double AmortizacionCuota = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][5].ToString());
-                        Double InteresCuota = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][6].ToString());                    
-                        Double iva = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][7].ToString());
-                        Double aportecapital = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][8].ToString());
-                        Double excedido = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][9].ToString());                        
-                        Double mora = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][10].ToString());
-                        Double ivaMora = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][11].ToString());
-                        Double totalADescontar = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][12].ToString());
-                        Double AmortizacionVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][13].ToString());
-                        Double InteresVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][14].ToString());
-                        Double IvaVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][15].ToString());
-                        String oficina = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][17].ToString();
-                        String Inciso = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][16].ToString();                                               
-                        String fecha = DateTime.Today.ToLongDateString();
+                        for (int n = 0; n <= prestamosPresupuesto.Tables["presupuestoMes"].Rows.Count - 1; n++)
+                        {
+                            string socio_apellido = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][0].ToString();
+                            string socio_nombre = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][1].ToString();
+                            string numerocobro = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][2].ToString();
+                            string cantidadcuotas = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][3].ToString();
+                            string nrocuotas = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][4].ToString();
+                            Double AmortizacionCuota = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][5].ToString());
+                            Double InteresCuota = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][6].ToString());
+                            Double iva = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][7].ToString());
+                            Double aportecapital = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][8].ToString());
+                            Double excedido = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][9].ToString());
+                            Double mora = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][10].ToString());
+                            Double ivaMora = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][11].ToString());
+                            Double totalADescontar = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][12].ToString());
+                            Double AmortizacionVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][13].ToString());
+                            Double InteresVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][14].ToString());
+                            Double IvaVencer = Convert.ToDouble(prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][15].ToString());
+                            String oficina = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][17].ToString();
+                            String Inciso = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][16].ToString();
+                            String fecha = DateTime.Today.ToLongDateString();
 
-                        DE.InformePresupuesto.Rows.Add(socio_apellido, socio_nombre, numerocobro, cantidadcuotas, nrocuotas, AmortizacionCuota, InteresCuota, iva, aportecapital, excedido, mora, ivaMora, totalADescontar, AmortizacionVencer, InteresVencer, IvaVencer, oficina, Inciso, fecha, this.txtPresupuestoIngExc.Text);
+                            DE.InformePresupuesto.Rows.Add(socio_apellido, socio_nombre, numerocobro, cantidadcuotas, nrocuotas, AmortizacionCuota, InteresCuota, iva, aportecapital, excedido, mora, ivaMora, totalADescontar, AmortizacionVencer, InteresVencer, IvaVencer, oficina, Inciso, fecha, this.txtPresupuestoIngExc.Text);
+                        }
+
+                        frmVerReportes reporte = new frmVerReportes(DE, "PRESUPUESTO_MES");
+                        reporte.ShowDialog();
                     }
-
-                    frmVerReportes reporte = new frmVerReportes(DE, "PRESUPUESTO_MES");
-                    reporte.ShowDialog();
+                    else
+                    {
+                        MessageBox.Show("Sin registros");
+                    }
                 }
             }
             else

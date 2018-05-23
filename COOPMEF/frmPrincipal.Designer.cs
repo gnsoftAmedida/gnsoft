@@ -1184,6 +1184,7 @@
             this.tabHistorial.Controls.Add(this.dgvHistoria);
             resources.ApplyResources(this.tabHistorial, "tabHistorial");
             this.tabHistorial.Name = "tabHistorial";
+            this.tabHistorial.Click += new System.EventHandler(this.tabHistorial_Click);
             // 
             // btnNuevoPrestamo
             // 
