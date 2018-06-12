@@ -88,7 +88,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT * FROM oficina where inciso_inciso_id =" + idInciso;
+                string sql = "SELECT oficina_id, oficina_codigo, oficina_nombre, oficina_abreviatura, oficina_direccion, inciso_inciso_id, departamento_departamento_id, oficina_codigopostal, oficina_telefono, oficina_email, oficina_nombrecontacto, CONCAT(oficina_codigo , ' - ' , oficina_abreviatura) as mostrar_nombre FROM oficina where inciso_inciso_id =" + idInciso;
                 DataSet ds = new DataSet();
 
                 connection.Open();

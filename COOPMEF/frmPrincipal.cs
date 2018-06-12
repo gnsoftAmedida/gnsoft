@@ -71,7 +71,7 @@ namespace COOPMEF
             dsOficinas = empresa.DevolverOficinas();
 
             this.cmbInciso.DataSource = dsIncisos.Tables["incisos"];
-            this.cmbInciso.DisplayMember = "inciso_abreviatura";
+            this.cmbInciso.DisplayMember = "nombre_completo";
             this.cmbInciso.ValueMember = "inciso_id";
             this.cmbInciso.Enabled = true;
             this.cmbInciso.SelectedIndex = 0;
@@ -203,7 +203,7 @@ namespace COOPMEF
             this.txtTelefono.Enabled = false;
             this.txtDireccion.Enabled = false;
             this.txtEmail.Enabled = false;
-            this.dtpFechaIng.Enabled = false;
+            this.txtPostal.Enabled = false;
             this.dtpFechaNac.Enabled = false;
             this.cmbOficina.Enabled = false;
             this.cmbInciso.Enabled = false;
@@ -222,7 +222,7 @@ namespace COOPMEF
             this.txtTelefono.Enabled = true;
             this.txtDireccion.Enabled = true;
             this.txtEmail.Enabled = true;
-            this.dtpFechaIng.Enabled = true;
+            this.txtPostal.Enabled = true;
             this.dtpFechaNac.Enabled = true;
             //this.cmbEdad.Enabled = true;
             this.cmbOficina.Enabled = true;
@@ -390,6 +390,7 @@ namespace COOPMEF
             this.txtTelefono.Clear();
             this.txtDireccion.Clear();
             this.txtEmail.Clear();
+            this.txtPostal.Clear();
             this.txtMostrarDetalles.Clear();
         }
 
@@ -415,7 +416,6 @@ namespace COOPMEF
             this.txtNombres.Enabled = true;
             this.txtApellidos.Enabled = true;
             this.dtpFechaNac.Enabled = true;
-            this.dtpFechaIng.Enabled = true;
             this.cmbEstadoCivil.Enabled = true;
             this.rbtnMasculino.Enabled = true;
             this.rbtnFemenino.Enabled = true;
@@ -426,6 +426,7 @@ namespace COOPMEF
             this.txtTelefono.Enabled = true;
             this.txtDireccion.Enabled = true;
             this.txtEmail.Enabled = true;
+            this.txtPostal.Enabled = true;
             this.btnEditarSocio.Enabled = false;
             this.btnEliminarSocio.Enabled = false;
             this.btnVerMasSocio.Enabled = true;
@@ -433,6 +434,19 @@ namespace COOPMEF
             this.btnCancelarSocio.Enabled = true;
             this.btnSalir.Enabled = true;
             this.lblErrorGenerico.Visible = false;
+
+            String fecha = empresa.presupuesto();
+
+            if (empresa.cierreEfectuado(fecha))
+            {
+                this.dtpFechaIng.Text = Convert.ToDateTime("01/" + fecha.ToString()).AddMonths(1).ToString();
+            }
+            else
+            {
+                this.dtpFechaIng.Text = DateTime.Today.ToShortDateString();
+            }
+
+            txtNroSocio.Focus();
         }
 
         public void borrarErroresNuevoSocio()
@@ -447,7 +461,6 @@ namespace COOPMEF
             this.lblNombre.Visible = false;
             this.lblApellido.Visible = false;
             this.lblDir.Visible = false;
-            this.lblEmail.Visible = false;
             this.lblErrorGenerico.Visible = false;
             this.lblReferenciaError.Visible = false;
             this.lblNroS.Visible = false;
@@ -471,7 +484,6 @@ namespace COOPMEF
             this.lblNombre.Visible = false;
             this.lblApellido.Visible = false;
             this.lblDir.Visible = false;
-            this.lblEmail.Visible = false;
             this.lblErrorGenerico.Visible = false;
             this.lblReferenciaError.Visible = false;
             this.lblNroS.Visible = false;
@@ -544,12 +556,13 @@ namespace COOPMEF
                 valido = false;
             }
 
-            if (this.txtEmail.Text.Trim() == "")
-            {
-                this.lblEmail.Visible = true;
-                this.lblEmail.Text = "*";
-                valido = false;
-            }
+            /*     if (this.txtEmail.Text.Trim() == "")
+                 {
+                     this.lblEmail.Visible = true;
+                     this.lblEmail.Text = "*";
+                     valido = false;
+                 }
+            */
             this.lblReferenciaError.Text = "* Campo obligatorio";
             if (!valido) this.lblReferenciaError.Visible = true;
 
@@ -665,7 +678,7 @@ namespace COOPMEF
             txtOficinaCobExcedidos.Text = cmbOficina.Text;
 
             txtNroDeCobro.Text = txtNroCobro.Text;
-            txtCI.Text = txtNroSocio.Text; 
+            txtCI.Text = txtNroSocio.Text;
         }
 
         private void nuevoSocio()
@@ -770,7 +783,7 @@ namespace COOPMEF
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
-                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtMostrarDetalles.Text.Replace("'", ""));
+                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, txtMostrarDetalles.Text.Replace("'", ""));
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
@@ -901,7 +914,7 @@ namespace COOPMEF
                         // agregro estado_civil para que guarde el texto y no numeros en la BD
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
 
-                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtMostrarDetalles.Text.Replace("'", ""));
+                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtPostal.Text, txtMostrarDetalles.Text.Replace("'", ""));
 
 
                         //*******
@@ -1331,19 +1344,24 @@ namespace COOPMEF
         {
             if (this.idSocioSeleccionado != 0)
             {
-                nuevo = false;
-                activarAltaSocio();
-                this.btnNuevoSocio.Enabled = false;
-                this.btnEliminarSocio.Enabled = false;
-                this.btnVerMasSocio.Enabled = true;
+                if (devolverEstadoSocio() == 1)
+                {
+                    activarAltaSocio();
+                    this.btnNuevoSocio.Enabled = false;
+                    this.btnEliminarSocio.Enabled = false;
+                    this.btnVerMasSocio.Enabled = true;
 
-                this.btnGuardarSocio.Enabled = true;
-                this.btnSalir.Enabled = true;
-                this.btnCancelarSocio.Enabled = true;
+                    this.btnGuardarSocio.Enabled = true;
+                    this.btnSalir.Enabled = true;
+                    this.btnCancelarSocio.Enabled = true;
 
-                this.lblErrorGenerico.Visible = false;
+                    this.lblErrorGenerico.Visible = false;
 
-                this.txtMostrarDetalles.ReadOnly = false;
+                    this.txtMostrarDetalles.ReadOnly = false;
+                }
+                else {
+                    MessageBox.Show("El socio no se encuentra habilitado");                
+                }
             }
             else
             {
@@ -1449,8 +1467,8 @@ namespace COOPMEF
                 lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
                 lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
                 lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
-                lblFechaNacSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
-                lblFechaIngresoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
+                lblFechaNacSocio.Text = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString()).ToShortDateString();
+                lblFechaIngresoSocio.Text = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString()).ToShortDateString();
                 lblEstadoCivilSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
                 lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
                 lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
@@ -1496,13 +1514,14 @@ namespace COOPMEF
 
                 txtOficina.Text = cmbOficina.Text;
                 txtOficinaCobExcedidos.Text = cmbOficina.Text;
-             
+
                 txtNroDeCobro.Text = dgvSociosCampo.Rows[index].Cells["socio_nroCobro"].Value.ToString();
                 txtCI.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
-               
+
                 this.txtTelefono.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
                 this.txtDireccion.Text = dgvSociosCampo.Rows[index].Cells["socio_direccion"].Value.ToString();
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
+                this.txtPostal.Text = dgvSociosCampo.Rows[index].Cells["socio_postal"].Value.ToString();
                 this.txtMostrarDetalles.Text = dgvSociosCampo.Rows[index].Cells["socio_detalles"].Value.ToString();
             }
 
@@ -1510,7 +1529,7 @@ namespace COOPMEF
 
             txtInciso.Text = cmbInciso.Text;
             txtIncisoCobExcedidos.Text = cmbInciso.Text;
-            
+
             txtOficina.Text = cmbOficina.Text;
             txtOficinaCobExcedidos.Text = cmbOficina.Text;
 
@@ -1591,8 +1610,8 @@ namespace COOPMEF
                     lblNumeroSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nro"].Value.ToString();
                     lblNombreSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
                     lblApellidosSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_apellido"].Value.ToString();
-                    lblFechaNacSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
-                    lblFechaIngresoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
+                    lblFechaNacSocio.Text = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString()).ToShortDateString();
+                    lblFechaIngresoSocio.Text = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString()).ToShortDateString();
                     lblEstadoCivilSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
                     lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
                     lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
@@ -1708,9 +1727,9 @@ namespace COOPMEF
             if (dsOficinasDelInciso.Tables["oficinas"].Rows.Count > 0)
             {
                 this.cmbOficina.DataSource = dsOficinasDelInciso.Tables["oficinas"];
-                this.cmbOficina.DisplayMember = "oficina_abreviatura";
+                this.cmbOficina.DisplayMember = "mostrar_nombre";
                 this.cmbOficina.ValueMember = "oficina_id";
-                this.cmbOficina.Enabled = true; 
+                this.cmbOficina.Enabled = true;
 
             }
             else

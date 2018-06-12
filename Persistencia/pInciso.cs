@@ -19,7 +19,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT inciso_id, inciso_codigo, inciso_nombre, inciso_abreviatura FROM inciso";
+                string sql = "SELECT inciso_id, inciso_codigo, inciso_nombre, inciso_abreviatura, CONCAT(inciso_codigo , ' - ' , inciso_abreviatura) as nombre_completo FROM inciso";
                 DataSet ds = new DataSet();
 
                 connection.Open();

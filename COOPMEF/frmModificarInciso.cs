@@ -179,7 +179,7 @@ namespace COOPMEF
                     {
                         empresa.modificarInciso(txtCodigoInciso.Text, txtNombreInciso.Text, txtRefInciso.Text, Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[index][0].ToString()));
 
-                        MessageBox.Show("Oficina modificada correctamente");
+                        MessageBox.Show("Inciso modificado correctamente");
 
                         RegistroSLogs registroLogs = new RegistroSLogs();
                         registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Modificar Inciso " + this.txtNombreInciso.Text);

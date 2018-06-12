@@ -1255,7 +1255,7 @@ namespace Negocio
         }
 
         public void AltaSocio(int socioActivo, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
-            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, String mostrarDetalles)
+            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, string postal, String mostrarDetalles)
         {
             Socio tmpSocio = new Socio();
             tmpSocio.Socio_nro = NroSocio;
@@ -1275,11 +1275,12 @@ namespace Negocio
             tmpSocio.Socio_email = email;
             tmpSocio.Socio_activo = socioActivo;
             tmpSocio.Detalles = mostrarDetalles;
+            tmpSocio.Socio_postal = postal;
             tmpSocio.Guardar();
         }
 
         public void EditarSocio(int Tsocio_id, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
-            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, string detalles)
+            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, string postal, string detalles)
         {
             Socio tmpSocio = new Socio();
             tmpSocio.Socio_nro = NroSocio;
@@ -1299,6 +1300,7 @@ namespace Negocio
             tmpSocio.Socio_email = email;
             tmpSocio.Socio_id = Tsocio_id;
             tmpSocio.Detalles = detalles;
+            tmpSocio.Socio_postal = postal;
             tmpSocio.ModificarSocio();
         }
 

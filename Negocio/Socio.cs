@@ -138,8 +138,13 @@ namespace Negocio
             set { detalles = value; }
         }
 
+        private string socio_postal;
 
-
+        public string Socio_postal
+        {
+            get { return socio_postal; }
+            set { socio_postal = value; }
+        }
 
         public DataSet devolverSocios()
         {
@@ -172,13 +177,13 @@ namespace Negocio
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles);
+            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, socio_postal ,Detalles);
         }
 
         public void ModificarSocio()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles);
+            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles, socio_postal);
         }
 
         public void eliminar(ref int estadoActual)
@@ -197,7 +202,6 @@ namespace Negocio
 
         public void modificarSocio()
         {
-
             pSocio tmpSocio = new pSocio();
             //tmpSocio.modificarSocio(socio_id, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
         }

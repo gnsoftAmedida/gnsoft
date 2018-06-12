@@ -109,7 +109,6 @@
             this.lblReferenciaError = new System.Windows.Forms.Label();
             this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
-            this.lblEmail = new System.Windows.Forms.Label();
             this.lblDir = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -264,6 +263,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.label43 = new System.Windows.Forms.Label();
+            this.txtPostal = new System.Windows.Forms.TextBox();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -753,6 +754,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.txtPostal);
+            this.groupBox1.Controls.Add(this.label43);
             this.groupBox1.Controls.Add(this.lblErrorFechas);
             this.groupBox1.Controls.Add(this.lblFechaIng);
             this.groupBox1.Controls.Add(this.lblFechaNac);
@@ -771,7 +774,6 @@
             this.groupBox1.Controls.Add(this.lblReferenciaError);
             this.groupBox1.Controls.Add(this.dtpFechaIng);
             this.groupBox1.Controls.Add(this.dtpFechaNac);
-            this.groupBox1.Controls.Add(this.lblEmail);
             this.groupBox1.Controls.Add(this.lblDir);
             this.groupBox1.Controls.Add(this.lblTel);
             this.groupBox1.Controls.Add(this.lblApellido);
@@ -840,13 +842,11 @@
             // lblEstadoDeBaja
             // 
             resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
-            this.lblEstadoDeBaja.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
             this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
             // 
             // lblEstadoActivo
             // 
             resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
-            this.lblEstadoActivo.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
             this.lblEstadoActivo.Name = "lblEstadoActivo";
             // 
             // lblEmailFormatoInvalido
@@ -904,21 +904,17 @@
             // 
             // dtpFechaIng
             // 
-            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaIng.Checked = false;
             resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
+            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             this.dtpFechaIng.Name = "dtpFechaIng";
             // 
             // dtpFechaNac
             // 
+            this.dtpFechaNac.Checked = false;
             this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
             this.dtpFechaNac.Name = "dtpFechaNac";
-            // 
-            // lblEmail
-            // 
-            resources.ApplyResources(this.lblEmail, "lblEmail");
-            this.lblEmail.ForeColor = System.Drawing.Color.Red;
-            this.lblEmail.Name = "lblEmail";
             // 
             // lblDir
             // 
@@ -1941,6 +1937,16 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
+            // label43
+            // 
+            resources.ApplyResources(this.label43, "label43");
+            this.label43.Name = "label43";
+            // 
+            // txtPostal
+            // 
+            resources.ApplyResources(this.txtPostal, "txtPostal");
+            this.txtPostal.Name = "txtPostal";
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2176,7 +2182,6 @@
         private System.Windows.Forms.Button btnSalir;
         private System.Windows.Forms.ToolStripMenuItem planDePréstamosToolStripMenuItem;
         private System.Windows.Forms.Button btnSalirPlan;
-        private System.Windows.Forms.Label lblEmail;
         private System.Windows.Forms.Label lblDir;
         private System.Windows.Forms.Label lblTel;
         private System.Windows.Forms.Label lblApellido;
@@ -2236,6 +2241,8 @@
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem resumenDePréstamosToolStripMenuItem;
         private System.Windows.Forms.TextBox txtMostrarDetalles;
+        private System.Windows.Forms.TextBox txtPostal;
+        private System.Windows.Forms.Label label43;
     }
 }
 

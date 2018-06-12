@@ -20,6 +20,7 @@ namespace COOPMEF
         {
             InitializeComponent();
             this.StartPosition = FormStartPosition.CenterScreen;
+            txtUsuario.Focus();
         }
 
         private void btnLogin_Click(object sender, EventArgs e)
@@ -88,6 +89,11 @@ namespace COOPMEF
         private void btnSalir_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void frmLogin_Load(object sender, EventArgs e)
+        {
+            txtUsuario.Focus();
         }
     }
 }
