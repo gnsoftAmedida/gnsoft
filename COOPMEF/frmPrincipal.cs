@@ -53,6 +53,7 @@ namespace COOPMEF
 
         private System.Data.DataSet eventosDataSet;
         private dsSolicitu DE = new dsSolicitu();
+        private dsSolicitudIngreso DS = new dsSolicitudIngreso();
         private dsVale DV = new dsVale();
         private dsExcedidos DEx = new dsExcedidos();
 
@@ -434,6 +435,7 @@ namespace COOPMEF
             this.btnCancelarSocio.Enabled = true;
             this.btnSalir.Enabled = true;
             this.lblErrorGenerico.Visible = false;
+            this.Solicitud.Enabled = true;
 
             String fecha = empresa.presupuesto();
 
@@ -578,10 +580,10 @@ namespace COOPMEF
             {
                 //Compruebo que no se esté comparando con el mismo
 
-                if ((idSocio) != Convert.ToInt32(dsSocios.Tables["socio"].Rows[i][0].ToString()))
+                if ((idSocio) != Convert.ToInt32(dsSocios.Tables["socios"].Rows[i][0].ToString()))
                 {
 
-                    string numSocioTable = dsSocios.Tables["socio"].Rows[i][3].ToString();
+                    string numSocioTable = dsSocios.Tables["socios"].Rows[i][3].ToString();
                     if (nroSocio == numSocioTable.Replace(",", "").Replace(".", "").Replace("-", "").Trim())
                     {
                         this.lblYaExisteSocio.Visible = true;
@@ -589,7 +591,7 @@ namespace COOPMEF
                         valido = false;
                     }
 
-                    if (nroCobro == dsSocios.Tables["socio"].Rows[i][4].ToString())
+                    if (nroCobro == dsSocios.Tables["socios"].Rows[i][4].ToString())
                     {
                         this.lblYaExisteCobro.Visible = true;
                         this.lblYaExisteCobro.Text = "#";
@@ -960,6 +962,7 @@ namespace COOPMEF
             desactivarAltaSocio();
 
             this.btnEditarSocio.Enabled = true;
+            this.Solicitud.Enabled = false;
             this.btnEliminarSocio.Enabled = true;
             this.btnVerMasSocio.Enabled = true;
             this.btnNuevoSocio.Enabled = true;
@@ -1060,6 +1063,7 @@ namespace COOPMEF
                             activarAltaSocio();
                             this.btnNuevoSocio.Enabled = false;
                             this.btnEditarSocio.Enabled = false;
+                            this.Solicitud.Enabled = false;
                             this.btnVerMasSocio.Enabled = false;
 
                             this.btnGuardarSocio.Enabled = true;
@@ -1126,105 +1130,103 @@ namespace COOPMEF
         {
 
             String campo = "";
+            string valor = "";
 
-            if (this.txtBusqueda.Text.Trim() == "")
+            if (this.cmbBusqueda.SelectedItem.ToString() == "Documento")
             {
-                MessageBox.Show("Debe seleccionar un valor de búsqueda");
-            }
-            else
-            {
-                string valor = "";
-                if (this.cmbBusqueda.SelectedItem.ToString() == "Documento")
+                campo = "socio_nro";
+
+                if (this.txtBusqueda.Text.Replace(" ", "").Length == 11)
                 {
-                    campo = "socio_nro";
+                    valor = this.txtBusqueda.Text.Substring(0, 11);
+                }
 
+                else if (this.txtBusqueda.Text.Replace(" ", "").Length == 10)
+                {
+                    valor = this.txtBusqueda.Text.Substring(0, 9);
+                }
 
-                    if (this.txtBusqueda.Text.Replace(" ", "").Length == 11)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 11);
-                    }
+                else if (this.txtBusqueda.Text.Replace(" ", "").Length == 9)
+                {
+                    valor = this.txtBusqueda.Text.Substring(0, 8);
+                }
 
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 10)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 9);
-                    }
+                else if (this.txtBusqueda.Text.Replace(" ", "").Length == 8)
+                {
+                    valor = this.txtBusqueda.Text.Substring(0, 7);
+                }
 
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 9)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 8);
-                    }
+                else if (this.txtBusqueda.Text.Replace(" ", "").Length == 7)
+                {
+                    valor = this.txtBusqueda.Text.Substring(0, 5);
+                }
 
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 8)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 7);
-                    }
+                else if (this.txtBusqueda.Text.Replace(" ", "").Length == 6)
+                {
+                    valor = this.txtBusqueda.Text.Substring(0, 4);
+                }
 
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 7)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 5);
-                    }
+                else if (this.txtBusqueda.Text.Replace(" ", "").Length == 5)
+                {
+                    valor = this.txtBusqueda.Text.Substring(0, 3);
+                }
 
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 6)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 4);
-                    }
+                else if (this.txtBusqueda.Text.Replace(" ", "").Length == 4)
+                {
+                    valor = this.txtBusqueda.Text.Substring(0, 1);
+                }
+                else
+                {
+                    valor = this.txtBusqueda.Text;
+                }
 
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 5)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 3);
-                    }
-
-                    else if (this.txtBusqueda.Text.Replace(" ", "").Length == 4)
-                    {
-                        valor = this.txtBusqueda.Text.Substring(0, 1);
-                    }
-                    else
+                /*    if (this.txtBusqueda.Text.Replace(" ", "").Length == 11)
                     {
                         valor = this.txtBusqueda.Text;
                     }
+                    else if (this.txtBusqueda.Text.Replace(" ", "").Replace("-", "").Replace(",", "").Length == 1)
+                    {
+                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "").Replace(",", "");
+                    }
 
-                    /*    if (this.txtBusqueda.Text.Replace(" ", "").Length == 11)
-                        {
-                            valor = this.txtBusqueda.Text;
-                        }
-                        else if (this.txtBusqueda.Text.Replace(" ", "").Replace("-", "").Replace(",", "").Length == 1)
-                        {
-                            valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "").Replace(",", "");
-                        }
-
-                        else
-                        {
-                            valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "");
-                        }
-    */
+                    else
+                    {
+                        valor = this.txtBusqueda.Text.Replace("-", "").Replace(" ", "");
+                    }
+*/
 
 
-                }
-                else if (this.cmbBusqueda.SelectedItem.ToString() == "Apellido")
-                {
-                    campo = "socio_apellido";
-                    valor = this.txtBusqueda.Text.Replace("'", "");
-                }
-                else if (this.cmbBusqueda.SelectedItem.ToString() == "Nombre")
-                {
-                    campo = "socio_nombre";
-                    valor = this.txtBusqueda.Text.Replace("'", "");
-                }
-                else if (this.cmbBusqueda.SelectedItem.ToString() == "Dirección")
-                {
-                    campo = "socio_direccion";
-                    valor = this.txtBusqueda.Text.Replace("'", "");
-                }
-
-                socioPorCampo(campo, valor.Replace(",", "."));
             }
+            else if (this.cmbBusqueda.SelectedItem.ToString() == "Apellido")
+            {
+                campo = "socio_apellido";
+                valor = this.txtBusqueda.Text.Replace("'", "");
+            }
+            else if (this.cmbBusqueda.SelectedItem.ToString() == "Nombre")
+            {
+                campo = "socio_nombre";
+                valor = this.txtBusqueda.Text.Replace("'", "");
+            }
+            else if (this.cmbBusqueda.SelectedItem.ToString() == "Dirección")
+            {
+                campo = "socio_direccion";
+                valor = this.txtBusqueda.Text.Replace("'", "");
+            }
+
+            socioPorCampo(campo, valor.Replace(",", "."));
+
         }
 
         private void socioPorCampo(string campo, string valor)
         {
-
-            dsSociosPorCampo = empresa.buscarSociosPorCampo(campo, valor);
-
+            if (valor.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == "")
+            {
+                dsSociosPorCampo = empresa.devolverTodosBusqueda(campo);
+            }
+            else
+            {
+                dsSociosPorCampo = empresa.buscarSociosPorCampo(campo, valor);
+            }
 
             dgvSociosCampo.DataSource = dsSociosPorCampo.Tables["socios"];
 
@@ -1257,6 +1259,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_activo"].Visible = false;
             dgvSociosCampo.Columns["socio_tel"].Visible = false;
             dgvSociosCampo.Columns["socio_detalles"].Visible = false;
+            dgvSociosCampo.Columns["socio_postal"].Visible = false;
 
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
             dgvSociosCampo.Columns["socio_nro"].Width = 150;
@@ -1358,9 +1361,11 @@ namespace COOPMEF
                     this.lblErrorGenerico.Visible = false;
 
                     this.txtMostrarDetalles.ReadOnly = false;
+                    this.nuevo = false;
                 }
-                else {
-                    MessageBox.Show("El socio no se encuentra habilitado");                
+                else
+                {
+                    MessageBox.Show("El socio no se encuentra habilitado");
                 }
             }
             else
@@ -1379,7 +1384,7 @@ namespace COOPMEF
 
         private void cancelar()
         {
-
+            this.nuevo = false;
             desactivarAltaSocio();
 
             if (!(dgvSociosCampo.CurrentRow == null))
@@ -1387,13 +1392,15 @@ namespace COOPMEF
                 //   pantallaInicialSocio();
                 //desactivarAltaSocio();
 
-                DataSet tmpsocio = empresa.buscarSociosPorCampo("socio_id", idSocioSeleccionado.ToString());
+                if (!(idSocioSeleccionado == 0))
+                {
+                    DataSet tmpsocio = empresa.buscarSociosPorCampo("socio_id", idSocioSeleccionado.ToString());
 
-                cmbBusqueda.SelectedItem = "Documento";
-                txtBusqueda.Text = tmpsocio.Tables["socios"].Rows[0][1].ToString();
-                buscarSocio();
-                seleccionarSocioBotonClick();
-
+                    cmbBusqueda.SelectedItem = "Documento";
+                    txtBusqueda.Text = tmpsocio.Tables["socios"].Rows[0][1].ToString();
+                    buscarSocio();
+                    seleccionarSocioBotonClick();
+                }
 
                 btnNuevoSocio.Enabled = true;
                 borrarErroresNuevoSocio();
@@ -1406,7 +1413,7 @@ namespace COOPMEF
 
                 //   this.btnGuardarSocio.Enabled = true;
 
-
+              
             }
             else
             {
@@ -1418,6 +1425,7 @@ namespace COOPMEF
 
 
                 this.btnEditarSocio.Enabled = false;
+                this.Solicitud.Enabled = false;
                 this.btnEliminarSocio.Enabled = false;
                 this.btnVerMasSocio.Enabled = false;
 
@@ -1712,7 +1720,7 @@ namespace COOPMEF
             lblTelefonoSocio.Text = "...";
 
             // Trampa para generar columnas en el datagridview
-            socioPorCampo("socio_nro", "-1");
+            socioPorCampo("socio_nro", "#");
 
         }
 
@@ -1875,7 +1883,10 @@ namespace COOPMEF
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabBusqueda"]))
             {
-                this.buscarCampo();
+                if (!(this.txtBusqueda.Text.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == ""))
+                {
+                    this.buscarCampo();
+                }
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabHistorial"]))
             {
@@ -2764,6 +2775,14 @@ Agregar emisión
         private void tabHistorial_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void Solicitud_Click(object sender, EventArgs e)
+        {
+            DS.SolicitudIngreso.Rows.Add(DateTime.Today.ToShortDateString(), cmbInciso.Text.Trim() + " / " + cmbOficina.Text.Trim());
+            frmVerReportes reporte = new frmVerReportes(DS, "SOLICITUD_INGRESO");
+            reporte.ShowDialog();
+            DS.SolicitudIngreso.Rows.Clear();
         }
     }
 }

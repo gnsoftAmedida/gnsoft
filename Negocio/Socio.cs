@@ -166,7 +166,7 @@ namespace Negocio
             DataSet socioId = tmpSocio.devolverSocio(socio_id);
             return socioId;
         }
-        
+
         public DataSet buscarSociosPorCampo(string campo, string valor)
         {
             pSocio tmpSocio = new pSocio();
@@ -174,10 +174,17 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet devolverTodosBusqueda(string campo)
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.devolverTodosBusqueda(campo);
+            return socios;
+        }
+
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, socio_postal ,Detalles);
+            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, socio_postal, Detalles);
         }
 
         public void ModificarSocio()

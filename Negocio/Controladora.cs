@@ -1006,6 +1006,13 @@ namespace Negocio
             return socios;
         }
 
+          public DataSet devolverTodosBusqueda(string campo)
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socios = tmpSocio.devolverTodosBusqueda(campo);
+            return socios;
+        }
+            
         public DataSet devolverSocioId(int id_socio)
         {
             Socio tmpSocio = new Socio();

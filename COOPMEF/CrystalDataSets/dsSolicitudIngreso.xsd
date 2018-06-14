@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsSolicitudIngreso" targetNamespace="http://tempuri.org/dsSolicitudIngreso.xsd" xmlns:mstns="http://tempuri.org/dsSolicitudIngreso.xsd" xmlns="http://tempuri.org/dsSolicitudIngreso.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsSolicitudIngreso" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsSolicitudIngreso" msprop:Generator_UserDSName="dsSolicitudIngreso">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="SolicitudIngreso" msprop:Generator_TableClassName="SolicitudIngresoDataTable" msprop:Generator_TableVarName="tableSolicitudIngreso" msprop:Generator_TablePropName="SolicitudIngreso" msprop:Generator_RowDeletingName="SolicitudIngresoRowDeleting" msprop:Generator_RowChangingName="SolicitudIngresoRowChanging" msprop:Generator_RowEvHandlerName="SolicitudIngresoRowChangeEventHandler" msprop:Generator_RowDeletedName="SolicitudIngresoRowDeleted" msprop:Generator_UserTableName="SolicitudIngreso" msprop:Generator_RowChangedName="SolicitudIngresoRowChanged" msprop:Generator_RowEvArgName="SolicitudIngresoRowChangeEvent" msprop:Generator_RowClassName="SolicitudIngresoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="inciso_oficina" msprop:Generator_ColumnVarNameInTable="columninciso_oficina" msprop:Generator_ColumnPropNameInRow="inciso_oficina" msprop:Generator_ColumnPropNameInTable="inciso_oficinaColumn" msprop:Generator_UserColumnName="inciso_oficina" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

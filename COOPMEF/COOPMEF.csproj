@@ -120,6 +120,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPresupuesto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsSolicitudIngreso.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSolicitudIngreso.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmAnulacionPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -360,6 +365,12 @@
       <DependentUpon>reporte_presupuesto_mes.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\solicitudIngreso.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>solicitudIngreso.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\valePrestamo.cs">
       <DependentUpon>valePrestamo.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -493,6 +504,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reporte_presupuesto_mes.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\solicitudIngreso.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>solicitudIngreso.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\valePrestamo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>valePrestamo.cs</LastGenOutput>
@@ -582,6 +597,17 @@
     </None>
     <None Include="CrystalDataSets\dsSolicitud.xss">
       <DependentUpon>dsSolicitud.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsSolicitudIngreso.xsc">
+      <DependentUpon>dsSolicitudIngreso.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsSolicitudIngreso.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSolicitudIngreso.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsSolicitudIngreso.xss">
+      <DependentUpon>dsSolicitudIngreso.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsVale.xsc">
       <DependentUpon>dsVale.xsd</DependentUpon>

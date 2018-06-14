@@ -91,6 +91,8 @@
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.txtPostal = new System.Windows.Forms.TextBox();
+            this.label43 = new System.Windows.Forms.Label();
             this.lblErrorFechas = new System.Windows.Forms.Label();
             this.lblFechaIng = new System.Windows.Forms.Label();
             this.lblFechaNac = new System.Windows.Forms.Label();
@@ -263,8 +265,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.label43 = new System.Windows.Forms.Label();
-            this.txtPostal = new System.Windows.Forms.TextBox();
+            this.Solicitud = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -719,6 +720,7 @@
             // lblErrorG
             // 
             this.lblErrorG.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.lblErrorG.Controls.Add(this.Solicitud);
             this.lblErrorG.Controls.Add(this.txtMostrarDetalles);
             this.lblErrorG.Controls.Add(this.btnCancelarSocio);
             this.lblErrorG.Controls.Add(this.lblErrorGenerico);
@@ -809,6 +811,16 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // txtPostal
+            // 
+            resources.ApplyResources(this.txtPostal, "txtPostal");
+            this.txtPostal.Name = "txtPostal";
+            // 
+            // label43
+            // 
+            resources.ApplyResources(this.label43, "label43");
+            this.label43.Name = "label43";
             // 
             // lblErrorFechas
             // 
@@ -1937,15 +1949,12 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // label43
+            // Solicitud
             // 
-            resources.ApplyResources(this.label43, "label43");
-            this.label43.Name = "label43";
-            // 
-            // txtPostal
-            // 
-            resources.ApplyResources(this.txtPostal, "txtPostal");
-            this.txtPostal.Name = "txtPostal";
+            resources.ApplyResources(this.Solicitud, "Solicitud");
+            this.Solicitud.Name = "Solicitud";
+            this.Solicitud.UseVisualStyleBackColor = true;
+            this.Solicitud.Click += new System.EventHandler(this.Solicitud_Click);
             // 
             // frmPrincipal
             // 
@@ -2243,6 +2252,7 @@
         private System.Windows.Forms.TextBox txtMostrarDetalles;
         private System.Windows.Forms.TextBox txtPostal;
         private System.Windows.Forms.Label label43;
+        private System.Windows.Forms.Button Solicitud;
     }
 }
 
