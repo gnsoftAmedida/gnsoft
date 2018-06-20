@@ -584,7 +584,7 @@ namespace COOPMEF
                 {
 
                     string numSocioTable = dsSocios.Tables["socios"].Rows[i][3].ToString();
-                    if (nroSocio == numSocioTable.Replace(",", "").Replace(".", "").Replace("-", "").Trim())
+                    if (nroSocio == numSocioTable.Trim())
                     {
                         this.lblYaExisteSocio.Visible = true;
                         this.lblYaExisteSocio.Text = "#";
@@ -650,15 +650,15 @@ namespace COOPMEF
                 valido = false;
             }
 
-            if (comparaFechaIngMenorHoy > 0)
-            {
+            /*     if (comparaFechaIngMenorHoy > 0)
+                 {
 
-                lblFechaIng.Visible = true;
-                lblErrorFechas.Visible = true;
-                lblErrorFechas.Text = "Fecha de ing > fecha actual";
-                valido = false;
-            }
-
+                     lblFechaIng.Visible = true;
+                     lblErrorFechas.Visible = true;
+                     lblErrorFechas.Text = "Fecha de ing > fecha actual";
+                     valido = false;
+                 }
+                 */
             return valido;
         }
 
@@ -702,7 +702,7 @@ namespace COOPMEF
 
             // Control de duplicado para nroSocio, nroCobro Se hace en memoria y luego a nivel de BD
             //int index = this.cmbBusqueda.SelectedIndex;
-            duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
+            duplicadosOK = controlSociosDuplicados(id_socio, nro_socio.Replace(",", "."), nro_cobro.Replace(",", "."));
 
             bool formatoCiOK = true;
             int resultado;
@@ -733,14 +733,19 @@ namespace COOPMEF
             }
 
             bool formatoMailOK = true;
-            Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
-            if (!regex.IsMatch(txtEmail.Text))
+
+            if (!(txtEmail.Text.Trim() == ""))
             {
-                this.lblEmailFormatoInvalido.Visible = true;
-                this.lblFormatoInvalido.Visible = true;
-                //this.lblEmailFormatoInvalido.Text = "Formato inválido";
-                formatoMailOK = false;
+                Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+                if (!regex.IsMatch(txtEmail.Text))
+                {
+                    this.lblEmailFormatoInvalido.Visible = true;
+                    this.lblFormatoInvalido.Visible = true;
+                    //this.lblEmailFormatoInvalido.Text = "Formato inválido";
+                    formatoMailOK = false;
+                }
             }
+
 
             DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
             DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
@@ -840,13 +845,18 @@ namespace COOPMEF
                 // OJOOOOOO  valido = controlSociosDuplicados();
 
                 bool formatoMailOK = true;
-                Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
-                if (!regex.IsMatch(txtEmail.Text))
+
+                if (!(txtEmail.Text.Trim() == ""))
                 {
-                    this.lblEmailFormatoInvalido.Visible = true;
-                    this.lblFormatoInvalido.Visible = true;
-                    //this.lblEmailFormatoInvalido.Text = "Formato inválido";
-                    formatoMailOK = false;
+
+                    Regex regex = new Regex(@"^(?("")("".+?""@)|(([0-9a-zA-Z]((\.(?!\.))|[-!#\$%&'\*\+/=\?\^`\{\}\|~\w])*)(?<=[0-9a-zA-Z])@))" + @"(?(\[)(\[(\d{1,3}\.){3}\d{1,3}\])|(([0-9a-zA-Z][-\w]*[0-9a-zA-Z]\.)+[a-zA-Z]{2,6}))$");
+                    if (!regex.IsMatch(txtEmail.Text))
+                    {
+                        this.lblEmailFormatoInvalido.Visible = true;
+                        this.lblFormatoInvalido.Visible = true;
+                        //this.lblEmailFormatoInvalido.Text = "Formato inválido";
+                        formatoMailOK = false;
+                    }
                 }
 
                 string nro_socio = this.txtNroSocio.Text;
@@ -884,7 +894,7 @@ namespace COOPMEF
 
                 string nro_cobro = this.txtNroCobro.Text;
 
-                duplicadosOK = controlSociosDuplicados(id_socio, nro_socio, nro_cobro);
+                duplicadosOK = controlSociosDuplicados(id_socio, nro_socio.Replace(",", "."), nro_cobro.Replace(",", "."));
 
                 DateTime fnac = Convert.ToDateTime(dtpFechaNac.Value);
                 DateTime fing = Convert.ToDateTime(dtpFechaIng.Value);
@@ -1413,7 +1423,7 @@ namespace COOPMEF
 
                 //   this.btnGuardarSocio.Enabled = true;
 
-              
+
             }
             else
             {
@@ -1493,18 +1503,31 @@ namespace COOPMEF
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
 
 
-                if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals(0))
+                if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals("Activo"))
+                {
                     rBtnActivo.Checked = true;
-                else rBtnPasivo.Checked = true;
-
+                    rBtnPasivo.Checked = false;
+                }
+                else
+                {
+                    rBtnPasivo.Checked = true;
+                    rBtnActivo.Checked = false;
+                }
 
                 int estadoActual = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
                 cambiarEstado(estadoActual);
                 cambiarBotonBajaAlta(estadoActual);
 
                 if (dgvSociosCampo.Rows[index].Cells["socio_sexo"].Value.ToString().Equals("M"))
+                {
                     rbtnMasculino.Checked = true;
-                else rbtnFemenino.Checked = true;
+                    rbtnFemenino.Checked = false;
+                }
+                else
+                {
+                    rbtnFemenino.Checked = true;
+                    rbtnMasculino.Checked = false;
+                }
 
                 //this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
                 int edad = (int)dgvSociosCampo.Rows[index].Cells["socio_edad"].Value;
