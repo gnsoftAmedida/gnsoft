@@ -12,3 +12,7 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Release\Utilidades.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Release\Utilidades.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Release\Utilidades.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Release\Utilidades.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\bin\Release\Utilidades.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\bin\Release\Utilidades.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\obj\Release\Utilidades.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\obj\Release\Utilidades.pdb

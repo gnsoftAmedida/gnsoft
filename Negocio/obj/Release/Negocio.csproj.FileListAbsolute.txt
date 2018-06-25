@@ -25,3 +25,12 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\bin\Release\Utilidades.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\obj\Release\Negocio.csprojResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\obj\Release\Negocio.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\obj\Release\Negocio.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\bin\Release\Negocio.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\bin\Release\Negocio.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\bin\Release\Persistencia.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\bin\Release\Utilidades.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\bin\Release\Persistencia.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\bin\Release\Utilidades.pdb
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\obj\Release\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\obj\Release\Negocio.dll
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\obj\Release\Negocio.pdb
