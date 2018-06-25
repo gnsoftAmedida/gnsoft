@@ -1906,10 +1906,10 @@ namespace COOPMEF
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabBusqueda"]))
             {
-                if (!(this.txtBusqueda.Text.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == ""))
-                {
+              //  if (!(this.txtBusqueda.Text.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == ""))
+              //  {
                     this.buscarCampo();
-                }
+              //  }
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabHistorial"]))
             {
