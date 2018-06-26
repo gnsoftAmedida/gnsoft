@@ -19,7 +19,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT * FROM departamento";
+                string sql = "SELECT * FROM departamento order by departamento_id asc";
                 DataSet ds = new DataSet();
 
                 connection.Open();

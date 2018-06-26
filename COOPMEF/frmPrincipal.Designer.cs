@@ -87,6 +87,7 @@
             this.btnCancelarBusqueda = new System.Windows.Forms.Button();
             this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.lblErrorG = new System.Windows.Forms.TabPage();
+            this.Solicitud = new System.Windows.Forms.Button();
             this.txtMostrarDetalles = new System.Windows.Forms.TextBox();
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
@@ -97,7 +98,6 @@
             this.lblFechaIng = new System.Windows.Forms.Label();
             this.lblFechaNac = new System.Windows.Forms.Label();
             this.lblNroSocioFormatoInvalido = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
             this.lblEstadoDeBaja = new System.Windows.Forms.Label();
             this.lblEstadoActivo = new System.Windows.Forms.Label();
             this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
@@ -265,7 +265,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.Solicitud = new System.Windows.Forms.Button();
+            this.label44 = new System.Windows.Forms.Label();
+            this.label45 = new System.Windows.Forms.Label();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -735,6 +737,13 @@
             this.lblErrorG.Name = "lblErrorG";
             this.lblErrorG.Click += new System.EventHandler(this.lblErrorG_Click);
             // 
+            // Solicitud
+            // 
+            resources.ApplyResources(this.Solicitud, "Solicitud");
+            this.Solicitud.Name = "Solicitud";
+            this.Solicitud.UseVisualStyleBackColor = true;
+            this.Solicitud.Click += new System.EventHandler(this.Solicitud_Click);
+            // 
             // txtMostrarDetalles
             // 
             resources.ApplyResources(this.txtMostrarDetalles, "txtMostrarDetalles");
@@ -756,15 +765,14 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.cmbDepartamento);
+            this.groupBox1.Controls.Add(this.label44);
+            this.groupBox1.Controls.Add(this.lblErrorFechas);
             this.groupBox1.Controls.Add(this.txtPostal);
             this.groupBox1.Controls.Add(this.label43);
-            this.groupBox1.Controls.Add(this.lblErrorFechas);
             this.groupBox1.Controls.Add(this.lblFechaIng);
             this.groupBox1.Controls.Add(this.lblFechaNac);
             this.groupBox1.Controls.Add(this.lblNroSocioFormatoInvalido);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.lblEstadoDeBaja);
-            this.groupBox1.Controls.Add(this.lblEstadoActivo);
             this.groupBox1.Controls.Add(this.lblEmailFormatoInvalido);
             this.groupBox1.Controls.Add(this.lblFormatoInvalido);
             this.groupBox1.Controls.Add(this.txtNroSocio);
@@ -845,11 +853,6 @@
             resources.ApplyResources(this.lblNroSocioFormatoInvalido, "lblNroSocioFormatoInvalido");
             this.lblNroSocioFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
             this.lblNroSocioFormatoInvalido.Name = "lblNroSocioFormatoInvalido";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
             // 
             // lblEstadoDeBaja
             // 
@@ -1825,6 +1828,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.label45);
             this.groupBox3.Controls.Add(this.btnExcedido);
             this.groupBox3.Controls.Add(this.label7);
             this.groupBox3.Controls.Add(this.label11);
@@ -1833,7 +1837,9 @@
             this.groupBox3.Controls.Add(this.lblApellidosSocio);
             this.groupBox3.Controls.Add(this.lblEdadSocio);
             this.groupBox3.Controls.Add(this.lblFechaIngresoSocio);
+            this.groupBox3.Controls.Add(this.lblEstadoDeBaja);
             this.groupBox3.Controls.Add(this.lblNombreSocio);
+            this.groupBox3.Controls.Add(this.lblEstadoActivo);
             this.groupBox3.Controls.Add(this.lblFechaNacSocio);
             this.groupBox3.Controls.Add(this.lblNumeroSocio);
             this.groupBox3.Controls.Add(this.label1);
@@ -1949,12 +1955,22 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // Solicitud
+            // label44
             // 
-            resources.ApplyResources(this.Solicitud, "Solicitud");
-            this.Solicitud.Name = "Solicitud";
-            this.Solicitud.UseVisualStyleBackColor = true;
-            this.Solicitud.Click += new System.EventHandler(this.Solicitud_Click);
+            resources.ApplyResources(this.label44, "label44");
+            this.label44.Name = "label44";
+            // 
+            // label45
+            // 
+            resources.ApplyResources(this.label45, "label45");
+            this.label45.Name = "label45";
+            // 
+            // cmbDepartamento
+            // 
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbDepartamento, "cmbDepartamento");
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Name = "cmbDepartamento";
             // 
             // frmPrincipal
             // 
@@ -2220,7 +2236,6 @@
         private System.Windows.Forms.Label lblEmailFormatoInvalido;
         private System.Windows.Forms.Label lblFormatoInvalido;
         private System.Windows.Forms.Label lblEstadoDeBaja;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label lblEstadoActivo;
         private System.Windows.Forms.Label lblNroSocioFormatoInvalido;
         private System.Windows.Forms.Label lblFechaIng;
@@ -2253,6 +2268,9 @@
         private System.Windows.Forms.TextBox txtPostal;
         private System.Windows.Forms.Label label43;
         private System.Windows.Forms.Button Solicitud;
+        private System.Windows.Forms.Label label44;
+        private System.Windows.Forms.Label label45;
+        private System.Windows.Forms.ComboBox cmbDepartamento;
     }
 }
 

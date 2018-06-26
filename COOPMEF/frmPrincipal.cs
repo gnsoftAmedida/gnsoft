@@ -21,6 +21,7 @@ namespace COOPMEF
         private Controladora empresa = Controladora.Instance;
         private DataSet dsAccionesPermitidas;
         DataSet dsSocios;
+        DataSet dsDepartamentos;
         DataSet dsPlanes;
         DataSet dsSociosPorCampo;
         DataSet dsIncisos;
@@ -78,11 +79,23 @@ namespace COOPMEF
             this.cmbInciso.SelectedIndex = 0;
         }
 
+        private void cargarDepartamentos()
+        {
+            dsDepartamentos = empresa.DevolverDepartamentos();
+
+            this.cmbDepartamento.DataSource = dsDepartamentos.Tables["departamentos"];
+            this.cmbDepartamento.DisplayMember = "departamento_nombre";
+            this.cmbDepartamento.ValueMember = "departamento_nombre";
+            this.cmbDepartamento.SelectedIndex = 0;
+        }
+
         private void frmPrincipal_Load(object sender, EventArgs e)
         {
             dsAccionesPermitidas = empresa.DevolverAccionesXUsuario(Utilidades.UsuarioLogueado.IdUsuario);
 
             cargarIncisosOficinas();
+
+            cargarDepartamentos();
 
             dsSocios = empresa.DevolverSocios();
 
@@ -209,6 +222,7 @@ namespace COOPMEF
             this.cmbOficina.Enabled = false;
             this.cmbInciso.Enabled = false;
             this.cmbEstadoCivil.Enabled = false;
+            this.cmbDepartamento.Enabled = false;
             this.gBoxEstado.Enabled = false;
             this.gBoxSexo.Enabled = false;
             this.txtMostrarDetalles.ReadOnly = true;
@@ -229,6 +243,7 @@ namespace COOPMEF
             this.cmbOficina.Enabled = true;
             this.cmbInciso.Enabled = true;
             this.cmbEstadoCivil.Enabled = true;
+            this.cmbDepartamento.Enabled = true;
             this.gBoxEstado.Enabled = true;
             this.gBoxSexo.Enabled = true;
             this.txtMostrarDetalles.ReadOnly = false;
@@ -418,6 +433,7 @@ namespace COOPMEF
             this.txtApellidos.Enabled = true;
             this.dtpFechaNac.Enabled = true;
             this.cmbEstadoCivil.Enabled = true;
+            this.cmbDepartamento.Enabled = true;
             this.rbtnMasculino.Enabled = true;
             this.rbtnFemenino.Enabled = true;
             this.rBtnActivo.Enabled = true;
@@ -504,6 +520,8 @@ namespace COOPMEF
             //this.cmbEdad.SelectedIndex = 0;
 
             this.cmbEstadoCivil.SelectedIndex = 0;
+
+            this.cmbDepartamento.SelectedIndex = 0;
 
             this.rbtnMasculino.Checked = true;
             this.rbtnMasculino.Select();
@@ -764,7 +782,9 @@ namespace COOPMEF
                 try
                 {
 
-                    string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
+                    //string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
+
+                 //   string departamento = this.cmbDepartamento.SelectedIndex.ToString();
                     char sexoo = 'F';
                     if (rbtnMasculino.Checked)
                         sexoo = 'M';
@@ -786,11 +806,13 @@ namespace COOPMEF
                     // agregro estado_civil para que guarde el texto y no numeros en la BD
                     string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
 
+                    string departamento = cmbDepartamento.SelectedValue.ToString();
+                    
 
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
-                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, txtMostrarDetalles.Text.Replace("'", ""));
+                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""));
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
@@ -904,7 +926,7 @@ namespace COOPMEF
                 {
                     try
                     {
-                        string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
+                      //  string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
                         char sexoo = 'F';
                         if (rbtnMasculino.Checked)
                             sexoo = 'M';
@@ -925,8 +947,9 @@ namespace COOPMEF
 
                         // agregro estado_civil para que guarde el texto y no numeros en la BD
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
-
-                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtPostal.Text, txtMostrarDetalles.Text.Replace("'", ""));
+                        string departamento = this.cmbDepartamento.SelectedValue.ToString();
+                     
+                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""));
 
 
                         //*******
@@ -1270,6 +1293,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_tel"].Visible = false;
             dgvSociosCampo.Columns["socio_detalles"].Visible = false;
             dgvSociosCampo.Columns["socio_postal"].Visible = false;
+            dgvSociosCampo.Columns["socio_departamento"].Visible = false;
 
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
             dgvSociosCampo.Columns["socio_nro"].Width = 150;
@@ -1502,7 +1526,8 @@ namespace COOPMEF
                 this.dtpFechaIng.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
 
-
+                this.cmbDepartamento.Text = dgvSociosCampo.Rows[index].Cells["socio_departamento"].Value.ToString();
+               
                 if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals("Activo"))
                 {
                     rBtnActivo.Checked = true;
@@ -1906,10 +1931,23 @@ namespace COOPMEF
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabBusqueda"]))
             {
-              //  if (!(this.txtBusqueda.Text.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == ""))
-              //  {
+                //  if (!(this.txtBusqueda.Text.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == ""))
+                //  {
+
+                // Trampa para generar columnas en el datagridview
+                string valor = txtBusqueda.Text;
+
+//                if (valor.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == "")
+//                {
+
+             //       socioPorCampo("socio_nro", "#");
+            
+
+//                }
+                //else {
+
                     this.buscarCampo();
-              //  }
+                //}
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabHistorial"]))
             {

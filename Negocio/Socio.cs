@@ -146,6 +146,14 @@ namespace Negocio
             set { socio_postal = value; }
         }
 
+        private String departamento;
+
+        public String Departamento
+        {
+            get { return departamento; }
+            set { departamento = value; }
+        }
+
         public DataSet devolverSocios()
         {
             pSocio tmpSocio = new pSocio();
@@ -184,13 +192,13 @@ namespace Negocio
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, socio_postal, Detalles);
+            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, socio_postal, Detalles, Departamento);
         }
 
         public void ModificarSocio()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles, socio_postal);
+            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles, socio_postal, Departamento);
         }
 
         public void eliminar(ref int estadoActual)
@@ -207,10 +215,11 @@ namespace Negocio
             tmpSocio.buscarSocio(this.socio_nro);
         }
 
-        public void modificarSocio()
-        {
-            pSocio tmpSocio = new pSocio();
-            //tmpSocio.modificarSocio(socio_id, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
-        }
+        /*    public void modificarSocio()
+            {
+                pSocio tmpSocio = new pSocio();
+                //tmpSocio.modificarSocio(socio_id, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email);
+            }
+        */
     }
 }
