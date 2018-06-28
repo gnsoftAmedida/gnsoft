@@ -1512,7 +1512,8 @@ namespace COOPMEF
                 lblFechaNacSocio.Text = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString()).ToShortDateString();
                 lblFechaIngresoSocio.Text = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString()).ToShortDateString();
                 lblEstadoCivilSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
-                lblEdadSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
+
+                lblEdadSocio.Text = EdadPersona(Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString())).ToString();
                 lblTelefonoSocio.Text = dgvSociosCampo.Rows[index].Cells["socio_tel"].Value.ToString();
 
                 this.txtNombres.Text = dgvSociosCampo.Rows[index].Cells["socio_nombre"].Value.ToString();
@@ -2844,6 +2845,12 @@ Agregar emisión
             frmVerReportes reporte = new frmVerReportes(DS, "SOLICITUD_INGRESO");
             reporte.ShowDialog();
             DS.SolicitudIngreso.Rows.Clear();
+        }
+
+        private void cuadroFranjasEdadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmPadronEdades tmpfrmPadronEdades = new frmPadronEdades();
+            tmpfrmPadronEdades.ShowDialog();
         }
     }
 }

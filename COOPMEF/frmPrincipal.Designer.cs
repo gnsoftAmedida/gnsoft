@@ -92,14 +92,14 @@
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
+            this.label44 = new System.Windows.Forms.Label();
+            this.lblErrorFechas = new System.Windows.Forms.Label();
             this.txtPostal = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.lblErrorFechas = new System.Windows.Forms.Label();
             this.lblFechaIng = new System.Windows.Forms.Label();
             this.lblFechaNac = new System.Windows.Forms.Label();
             this.lblNroSocioFormatoInvalido = new System.Windows.Forms.Label();
-            this.lblEstadoDeBaja = new System.Windows.Forms.Label();
-            this.lblEstadoActivo = new System.Windows.Forms.Label();
             this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
             this.lblFormatoInvalido = new System.Windows.Forms.Label();
             this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
@@ -241,11 +241,14 @@
             this.txtCI = new System.Windows.Forms.TextBox();
             this.lblNroDeCobro = new System.Windows.Forms.Label();
             this.label25 = new System.Windows.Forms.Label();
+            this.lblEstadoDeBaja = new System.Windows.Forms.Label();
+            this.lblEstadoActivo = new System.Windows.Forms.Label();
             this.cmbBusquedaPrincipal = new System.Windows.Forms.GroupBox();
             this.txtBusqueda = new System.Windows.Forms.MaskedTextBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label45 = new System.Windows.Forms.Label();
             this.btnExcedido = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -265,9 +268,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.label44 = new System.Windows.Forms.Label();
-            this.label45 = new System.Windows.Forms.Label();
-            this.cmbDepartamento = new System.Windows.Forms.ComboBox();
+            this.informeDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuadroFranjasEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -542,7 +544,8 @@
             // reportesToolStripMenuItem1
             // 
             this.reportesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.eventosToolStripMenuItem});
+            this.eventosToolStripMenuItem,
+            this.informeDeToolStripMenuItem});
             this.reportesToolStripMenuItem1.Name = "reportesToolStripMenuItem1";
             resources.ApplyResources(this.reportesToolStripMenuItem1, "reportesToolStripMenuItem1");
             // 
@@ -820,6 +823,24 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // cmbDepartamento
+            // 
+            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            resources.ApplyResources(this.cmbDepartamento, "cmbDepartamento");
+            this.cmbDepartamento.FormattingEnabled = true;
+            this.cmbDepartamento.Name = "cmbDepartamento";
+            // 
+            // label44
+            // 
+            resources.ApplyResources(this.label44, "label44");
+            this.label44.Name = "label44";
+            // 
+            // lblErrorFechas
+            // 
+            resources.ApplyResources(this.lblErrorFechas, "lblErrorFechas");
+            this.lblErrorFechas.ForeColor = System.Drawing.Color.Gold;
+            this.lblErrorFechas.Name = "lblErrorFechas";
+            // 
             // txtPostal
             // 
             resources.ApplyResources(this.txtPostal, "txtPostal");
@@ -829,12 +850,6 @@
             // 
             resources.ApplyResources(this.label43, "label43");
             this.label43.Name = "label43";
-            // 
-            // lblErrorFechas
-            // 
-            resources.ApplyResources(this.lblErrorFechas, "lblErrorFechas");
-            this.lblErrorFechas.ForeColor = System.Drawing.Color.Gold;
-            this.lblErrorFechas.Name = "lblErrorFechas";
             // 
             // lblFechaIng
             // 
@@ -853,16 +868,6 @@
             resources.ApplyResources(this.lblNroSocioFormatoInvalido, "lblNroSocioFormatoInvalido");
             this.lblNroSocioFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
             this.lblNroSocioFormatoInvalido.Name = "lblNroSocioFormatoInvalido";
-            // 
-            // lblEstadoDeBaja
-            // 
-            resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
-            this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
-            // 
-            // lblEstadoActivo
-            // 
-            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
-            this.lblEstadoActivo.Name = "lblEstadoActivo";
             // 
             // lblEmailFormatoInvalido
             // 
@@ -1790,6 +1795,16 @@
             resources.ApplyResources(this.label25, "label25");
             this.label25.Name = "label25";
             // 
+            // lblEstadoDeBaja
+            // 
+            resources.ApplyResources(this.lblEstadoDeBaja, "lblEstadoDeBaja");
+            this.lblEstadoDeBaja.Name = "lblEstadoDeBaja";
+            // 
+            // lblEstadoActivo
+            // 
+            resources.ApplyResources(this.lblEstadoActivo, "lblEstadoActivo");
+            this.lblEstadoActivo.Name = "lblEstadoActivo";
+            // 
             // cmbBusquedaPrincipal
             // 
             this.cmbBusquedaPrincipal.Controls.Add(this.txtBusqueda);
@@ -1851,6 +1866,11 @@
             resources.ApplyResources(this.groupBox3, "groupBox3");
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.TabStop = false;
+            // 
+            // label45
+            // 
+            resources.ApplyResources(this.label45, "label45");
+            this.label45.Name = "label45";
             // 
             // btnExcedido
             // 
@@ -1955,22 +1975,18 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // label44
+            // informeDeToolStripMenuItem
             // 
-            resources.ApplyResources(this.label44, "label44");
-            this.label44.Name = "label44";
+            this.informeDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cuadroFranjasEdadToolStripMenuItem});
+            this.informeDeToolStripMenuItem.Name = "informeDeToolStripMenuItem";
+            resources.ApplyResources(this.informeDeToolStripMenuItem, "informeDeToolStripMenuItem");
             // 
-            // label45
+            // cuadroFranjasEdadToolStripMenuItem
             // 
-            resources.ApplyResources(this.label45, "label45");
-            this.label45.Name = "label45";
-            // 
-            // cmbDepartamento
-            // 
-            this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            resources.ApplyResources(this.cmbDepartamento, "cmbDepartamento");
-            this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Name = "cmbDepartamento";
+            this.cuadroFranjasEdadToolStripMenuItem.Name = "cuadroFranjasEdadToolStripMenuItem";
+            resources.ApplyResources(this.cuadroFranjasEdadToolStripMenuItem, "cuadroFranjasEdadToolStripMenuItem");
+            this.cuadroFranjasEdadToolStripMenuItem.Click += new System.EventHandler(this.cuadroFranjasEdadToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -2271,6 +2287,8 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.ComboBox cmbDepartamento;
+        private System.Windows.Forms.ToolStripMenuItem informeDeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cuadroFranjasEdadToolStripMenuItem;
     }
 }
 
