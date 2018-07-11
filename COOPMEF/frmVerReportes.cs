@@ -92,6 +92,15 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = reporteSolicitudIngreso;
             }
 
+            if (tipo.Equals("SOCIOS_INGRESADOS_EN"))
+            {
+                COOPMEF.Reportes.reporteIngresadosEn tmpReporteIngresadosEn = new COOPMEF.Reportes.reporteIngresadosEn();
+
+                tmpReporteIngresadosEn.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteIngresadosEn;
+              
+            }           
         }
 
         private void frmVerReportes_Load(object sender, EventArgs e)

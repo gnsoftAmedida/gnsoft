@@ -2852,6 +2852,12 @@ Agregar emisión
             frmPadronEdades tmpfrmPadronEdades = new frmPadronEdades();
             tmpfrmPadronEdades.ShowDialog();
         }
+
+        private void ingresadosEnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSociosIngresadosEn tmpfrmSociosIngresadosEn = new frmSociosIngresadosEn();
+            tmpfrmSociosIngresadosEn.ShowDialog();
+        }
     }
 }
 

@@ -340,6 +340,12 @@
   <data name="informeDeToolStripMenuItem.Text" xml:space="preserve">
     <value>Informe de Socios por edad</value>
   </data>
+  <data name="ingresadosEnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 24</value>
+  </data>
+  <data name="ingresadosEnToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ingresados en...</value>
+  </data>
   <data name="reportesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
   </data>
@@ -5697,6 +5703,9 @@
   <data name="&gt;&gt;label45.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btnExcedido.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnExcedido.Location" type="System.Drawing.Point, System.Drawing">
     <value>883, 80</value>
   </data>
@@ -6727,6 +6736,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
@@ -6946,6 +6958,18 @@
   <data name="&gt;&gt;eventosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;informeDeToolStripMenuItem.Name" xml:space="preserve">
+    <value>informeDeToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;informeDeToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Name" xml:space="preserve">
+    <value>cuadroFranjasEdadToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;mToolStripMenuItem.Name" xml:space="preserve">
     <value>mToolStripMenuItem</value>
   </data>
@@ -7030,16 +7054,10 @@
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;informeDeToolStripMenuItem.Name" xml:space="preserve">
-    <value>informeDeToolStripMenuItem</value>
+  <data name="&gt;&gt;ingresadosEnToolStripMenuItem.Name" xml:space="preserve">
+    <value>ingresadosEnToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;informeDeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Name" xml:space="preserve">
-    <value>cuadroFranjasEdadToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;ingresadosEnToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

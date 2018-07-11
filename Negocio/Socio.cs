@@ -189,6 +189,13 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet devolverIngresadosEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.devolverIngresadosEntreFechas(fechaInicial, fechaFinal);
+            return socios;
+        }
+        
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();

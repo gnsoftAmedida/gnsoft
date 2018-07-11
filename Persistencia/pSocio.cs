@@ -58,7 +58,28 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverIngresadosEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
 
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre), CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and socio_fechaIngreso between '" + fechaInicial.ToString("yyyy/MM/dd") + "' and '" + fechaFinal.ToString("yyyy/MM/dd") + "'"; 
+                DataSet ds = new DataSet();
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "sociosEntreFechas");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public DataSet devolverTodos()
         {

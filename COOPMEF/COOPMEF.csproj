@@ -120,6 +120,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPresupuesto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsSociosIngresadosEn.cs">
+      <DependentUpon>dsSociosIngresadosEn.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsSociosIngresadosEn.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsSociosIngresadosEn.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsSolicitudIngreso.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -327,6 +336,12 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSociosIngresadosEn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSociosIngresadosEn.Designer.cs">
+      <DependentUpon>frmSociosIngresadosEn.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -357,6 +372,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>InfoExcedidos.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\reporteIngresadosEn.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteIngresadosEn.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\reportePrestamosPresupuesto.cs">
@@ -477,6 +498,9 @@
       <DependentUpon>frmPrincipal.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSociosIngresadosEn.resx">
+      <DependentUpon>frmSociosIngresadosEn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReportes.resx">
       <DependentUpon>frmVerReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -504,6 +528,10 @@
     <EmbeddedResource Include="Reportes\InfoExcedidos.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>InfoExcedidos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteIngresadosEn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteIngresadosEn.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reportePrestamosPresupuesto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -595,6 +623,17 @@
     </None>
     <None Include="CrystalDataSets\dsPrueba.xss">
       <DependentUpon>dsPrueba.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsSociosIngresadosEn.xsc">
+      <DependentUpon>dsSociosIngresadosEn.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsSociosIngresadosEn.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsSociosIngresadosEn.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsSociosIngresadosEn.xss">
+      <DependentUpon>dsSociosIngresadosEn.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsSolicitud.xsc">
       <DependentUpon>dsSolicitud.xsd</DependentUpon>

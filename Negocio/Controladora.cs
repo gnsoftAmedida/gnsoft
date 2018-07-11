@@ -1006,13 +1006,20 @@ namespace Negocio
             return socios;
         }
 
-          public DataSet devolverTodosBusqueda(string campo)
+        public DataSet devolverTodosBusqueda(string campo)
         {
             Socio tmpSocio = new Socio();
             DataSet socios = tmpSocio.devolverTodosBusqueda(campo);
             return socios;
         }
-            
+
+        public DataSet devolverIngresadosEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socios = tmpSocio.devolverIngresadosEntreFechas(fechaInicial, fechaFinal);
+            return socios;
+        }
+
         public DataSet devolverSocioId(int id_socio)
         {
             Socio tmpSocio = new Socio();
@@ -1262,7 +1269,7 @@ namespace Negocio
         }
 
         public void AltaSocio(int socioActivo, string NroSocio, string NroCobro, string Nombres, string Apellidos, DateTime FechaNacimiento, DateTime FechaIngreso,
-            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, string postal, String departamento ,String mostrarDetalles)
+            string EstadoCivil, char sexo, string estado, int edad, int OficinaId, int IncisoId, string tel, string direccion, string email, string postal, String departamento, String mostrarDetalles)
         {
             Socio tmpSocio = new Socio();
             tmpSocio.Socio_nro = NroSocio;
