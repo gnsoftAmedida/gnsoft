@@ -36,22 +36,35 @@
             this.cmbIntervalo = new System.Windows.Forms.ComboBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
             this.btnSalirCobranza = new System.Windows.Forms.Button();
             this.btnGuardarPrestamo = new System.Windows.Forms.Button();
             this.dgvSociosPadron = new System.Windows.Forms.DataGridView();
+            this.col1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.col6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Montevideo = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Franjas = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblSumaTotales = new System.Windows.Forms.Label();
+            this.lblTotalSexoMInterior = new System.Windows.Forms.Label();
+            this.lblTotalSexoFINterior = new System.Windows.Forms.Label();
+            this.lblTotalSexoMMdeo = new System.Windows.Forms.Label();
+            this.lblTotalSexFMdeo = new System.Windows.Forms.Label();
+            this.lblTotalSexoMasc = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotalSexoFem = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvSociosPadron)).BeginInit();
+            this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // label44
@@ -67,6 +80,7 @@
             // 
             // cmbEdadComienzo
             // 
+            this.cmbEdadComienzo.DisplayMember = "1";
             this.cmbEdadComienzo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbEdadComienzo.FormattingEnabled = true;
             this.cmbEdadComienzo.Items.AddRange(new object[] {
@@ -181,6 +195,7 @@
             // 
             // cmbIntervalo
             // 
+            this.cmbIntervalo.DisplayMember = "1";
             this.cmbIntervalo.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbIntervalo.FormattingEnabled = true;
             this.cmbIntervalo.Items.AddRange(new object[] {
@@ -238,6 +253,16 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configuración";
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(153, 43);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(107, 24);
+            this.radioButton2.TabIndex = 65;
+            this.radioButton2.Text = "Histórico";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -249,16 +274,6 @@
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Activos";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(153, 43);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(107, 24);
-            this.radioButton2.TabIndex = 65;
-            this.radioButton2.Text = "Histórico";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -313,10 +328,12 @@
             // 
             this.dgvSociosPadron.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSociosPadron.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Franjas,
-            this.Montevideo,
-            this.Column1,
-            this.Column2});
+            this.col1,
+            this.col2,
+            this.col3,
+            this.col4,
+            this.col5,
+            this.col6});
             this.dgvSociosPadron.Location = new System.Drawing.Point(368, 31);
             this.dgvSociosPadron.Margin = new System.Windows.Forms.Padding(4);
             this.dgvSociosPadron.Name = "dgvSociosPadron";
@@ -324,33 +341,143 @@
             this.dgvSociosPadron.TabIndex = 70;
             this.dgvSociosPadron.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosPadron_CellContentClick);
             // 
+            // col1
+            // 
+            this.col1.HeaderText = "Franjas Edad";
+            this.col1.Name = "col1";
+            // 
+            // col2
+            // 
+            this.col2.HeaderText = "Sexo F (Mdeo)";
+            this.col2.Name = "col2";
+            // 
+            // col3
+            // 
+            this.col3.HeaderText = "Sexo M (Mdeo)";
+            this.col3.Name = "col3";
+            // 
+            // col4
+            // 
+            this.col4.HeaderText = "Sexo F (Interior)";
+            this.col4.Name = "col4";
+            // 
+            // col5
+            // 
+            this.col5.HeaderText = "Sexo M (Interior)";
+            this.col5.Name = "col5";
+            // 
+            // col6
+            // 
+            this.col6.HeaderText = "Total Socios";
+            this.col6.Name = "col6";
+            // 
             // groupBox4
             // 
+            this.groupBox4.Controls.Add(this.label10);
+            this.groupBox4.Controls.Add(this.lblTotalSexoFem);
+            this.groupBox4.Controls.Add(this.label8);
+            this.groupBox4.Controls.Add(this.lblTotalSexoMasc);
+            this.groupBox4.Controls.Add(this.lblTotalSexFMdeo);
+            this.groupBox4.Controls.Add(this.lblTotalSexoMMdeo);
+            this.groupBox4.Controls.Add(this.lblTotalSexoFINterior);
+            this.groupBox4.Controls.Add(this.lblTotalSexoMInterior);
+            this.groupBox4.Controls.Add(this.lblSumaTotales);
+            this.groupBox4.Controls.Add(this.label1);
             this.groupBox4.Location = new System.Drawing.Point(368, 369);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(656, 94);
             this.groupBox4.TabIndex = 71;
             this.groupBox4.TabStop = false;
             // 
-            // Column2
+            // label1
             // 
-            this.Column2.HeaderText = "Sexo M";
-            this.Column2.Name = "Column2";
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(63, 17);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(55, 17);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Totales";
             // 
-            // Column1
+            // lblSumaTotales
             // 
-            this.Column1.HeaderText = "Sexo F";
-            this.Column1.Name = "Column1";
+            this.lblSumaTotales.AutoSize = true;
+            this.lblSumaTotales.Location = new System.Drawing.Point(567, 17);
+            this.lblSumaTotales.Name = "lblSumaTotales";
+            this.lblSumaTotales.Size = new System.Drawing.Size(20, 17);
+            this.lblSumaTotales.TabIndex = 1;
+            this.lblSumaTotales.Text = "...";
             // 
-            // Montevideo
+            // lblTotalSexoMInterior
             // 
-            this.Montevideo.HeaderText = "Montevideo";
-            this.Montevideo.Name = "Montevideo";
+            this.lblTotalSexoMInterior.AutoSize = true;
+            this.lblTotalSexoMInterior.Location = new System.Drawing.Point(470, 18);
+            this.lblTotalSexoMInterior.Name = "lblTotalSexoMInterior";
+            this.lblTotalSexoMInterior.Size = new System.Drawing.Size(20, 17);
+            this.lblTotalSexoMInterior.TabIndex = 2;
+            this.lblTotalSexoMInterior.Text = "...";
             // 
-            // Franjas
+            // lblTotalSexoFINterior
             // 
-            this.Franjas.HeaderText = "Franjas";
-            this.Franjas.Name = "Franjas";
+            this.lblTotalSexoFINterior.AutoSize = true;
+            this.lblTotalSexoFINterior.Location = new System.Drawing.Point(373, 18);
+            this.lblTotalSexoFINterior.Name = "lblTotalSexoFINterior";
+            this.lblTotalSexoFINterior.Size = new System.Drawing.Size(20, 17);
+            this.lblTotalSexoFINterior.TabIndex = 3;
+            this.lblTotalSexoFINterior.Text = "...";
+            // 
+            // lblTotalSexoMMdeo
+            // 
+            this.lblTotalSexoMMdeo.AutoSize = true;
+            this.lblTotalSexoMMdeo.Location = new System.Drawing.Point(273, 18);
+            this.lblTotalSexoMMdeo.Name = "lblTotalSexoMMdeo";
+            this.lblTotalSexoMMdeo.Size = new System.Drawing.Size(20, 17);
+            this.lblTotalSexoMMdeo.TabIndex = 4;
+            this.lblTotalSexoMMdeo.Text = "...";
+            // 
+            // lblTotalSexFMdeo
+            // 
+            this.lblTotalSexFMdeo.AutoSize = true;
+            this.lblTotalSexFMdeo.Location = new System.Drawing.Point(177, 17);
+            this.lblTotalSexFMdeo.Name = "lblTotalSexFMdeo";
+            this.lblTotalSexFMdeo.Size = new System.Drawing.Size(20, 17);
+            this.lblTotalSexFMdeo.TabIndex = 5;
+            this.lblTotalSexFMdeo.Text = "...";
+            // 
+            // lblTotalSexoMasc
+            // 
+            this.lblTotalSexoMasc.AutoSize = true;
+            this.lblTotalSexoMasc.Location = new System.Drawing.Point(567, 64);
+            this.lblTotalSexoMasc.Name = "lblTotalSexoMasc";
+            this.lblTotalSexoMasc.Size = new System.Drawing.Size(20, 17);
+            this.lblTotalSexoMasc.TabIndex = 6;
+            this.lblTotalSexoMasc.Text = "...";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(364, 64);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(140, 17);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Total sexo masculino";
+            // 
+            // lblTotalSexoFem
+            // 
+            this.lblTotalSexoFem.AutoSize = true;
+            this.lblTotalSexoFem.Location = new System.Drawing.Point(273, 64);
+            this.lblTotalSexoFem.Name = "lblTotalSexoFem";
+            this.lblTotalSexoFem.Size = new System.Drawing.Size(20, 17);
+            this.lblTotalSexoFem.TabIndex = 8;
+            this.lblTotalSexoFem.Text = "...";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(63, 63);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(135, 17);
+            this.label10.TabIndex = 9;
+            this.label10.Text = "Total sexo femenino";
             // 
             // frmPadronEdades
             // 
@@ -373,6 +500,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSociosPadron)).EndInit();
+            this.groupBox4.ResumeLayout(false);
+            this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -395,9 +524,21 @@
         private System.Windows.Forms.Button btnGuardarPrestamo;
         private System.Windows.Forms.DataGridView dgvSociosPadron;
         private System.Windows.Forms.GroupBox groupBox4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Franjas;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Montevideo;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn col6;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.Label lblTotalSexoFem;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label lblTotalSexoMasc;
+        private System.Windows.Forms.Label lblTotalSexFMdeo;
+        private System.Windows.Forms.Label lblTotalSexoMMdeo;
+        private System.Windows.Forms.Label lblTotalSexoFINterior;
+        private System.Windows.Forms.Label lblTotalSexoMInterior;
+        private System.Windows.Forms.Label lblSumaTotales;
+        private System.Windows.Forms.Label label1;
     }
 }
