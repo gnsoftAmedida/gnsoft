@@ -1013,10 +1013,24 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet devolverBajasEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socios = tmpSocio.devolverBajasEntreFechas(fechaInicial, fechaFinal);
+            return socios;
+        }
+
         public DataSet devolverIngresadosEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
         {
             Socio tmpSocio = new Socio();
             DataSet socios = tmpSocio.devolverIngresadosEntreFechas(fechaInicial, fechaFinal);
+            return socios;
+        }
+
+        public DataSet devolverSociosSegunEstado(int estado) // 1 = activo 0 = historico o baja
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socios = tmpSocio.devolverSociosSegunEstado(estado);
             return socios;
         }
 

@@ -189,13 +189,27 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet devolverBajasEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.devolverBajasEntreFechas(fechaInicial, fechaFinal);
+            return socios;
+        }
+
         public DataSet devolverIngresadosEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
         {
             pSocio tmpSocio = new pSocio();
             DataSet socios = tmpSocio.devolverIngresadosEntreFechas(fechaInicial, fechaFinal);
             return socios;
         }
-        
+
+        public DataSet devolverSociosSegunEstado(int estado) // 1 = activo 0 = historico o baja
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.devolverSociosSegunEstado(estado);
+            return socios;
+        }
+
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();

@@ -336,6 +336,12 @@
     <Compile Include="frmPrincipal.Designer.cs">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSociosBajaEn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSociosBajaEn.Designer.cs">
+      <DependentUpon>frmSociosBajaEn.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSociosIngresadosEn.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -361,6 +367,24 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cancelacionPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\reporteSocioBajaEn.cs">
+      <DependentUpon>reporteSocioBajaEn.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\socioHistoricos.cs">
+      <DependentUpon>socioHistoricos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\socioActivos.cs">
+      <DependentUpon>socioActivos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reportes\CRPrueba.cs">
       <AutoGen>True</AutoGen>
@@ -498,6 +522,9 @@
       <DependentUpon>frmPrincipal.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSociosBajaEn.resx">
+      <DependentUpon>frmSociosBajaEn.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmSociosIngresadosEn.resx">
       <DependentUpon>frmSociosIngresadosEn.cs</DependentUpon>
     </EmbeddedResource>
@@ -520,6 +547,18 @@
     <EmbeddedResource Include="Reportes\cancelacionPrestamo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cancelacionPrestamo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteSocioBajaEn.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteSocioBajaEn.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\socioHistoricos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>socioHistoricos.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\socioActivos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>socioActivos.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\CRPrueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

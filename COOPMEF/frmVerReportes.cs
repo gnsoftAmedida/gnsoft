@@ -92,6 +92,35 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = reporteSolicitudIngreso;
             }
 
+            if (tipo.Equals("SOCIOS_ACTIVOS"))
+            {
+                COOPMEF.Reportes.socioActivos tmpSocioActivos = new COOPMEF.Reportes.socioActivos();
+
+                tmpSocioActivos.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpSocioActivos;              
+            }
+
+            if (tipo.Equals("SOCIOS_HISTORICOS"))
+            {
+                COOPMEF.Reportes.socioHistoricos tmpsocioHistoricos = new COOPMEF.Reportes.socioHistoricos();
+
+                tmpsocioHistoricos.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpsocioHistoricos;
+              
+            }
+
+            if (tipo.Equals("SOCIOS_BAJA_EN"))
+            {
+                COOPMEF.Reportes.reporteSocioBajaEn tmpReporteSocioBajaEn = new COOPMEF.Reportes.reporteSocioBajaEn();
+
+                tmpReporteSocioBajaEn.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteSocioBajaEn;
+
+            } 
+           
             if (tipo.Equals("SOCIOS_INGRESADOS_EN"))
             {
                 COOPMEF.Reportes.reporteIngresadosEn tmpReporteIngresadosEn = new COOPMEF.Reportes.reporteIngresadosEn();
@@ -100,7 +129,7 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpReporteIngresadosEn;
               
-            }           
+            } 
         }
 
         private void frmVerReportes_Load(object sender, EventArgs e)

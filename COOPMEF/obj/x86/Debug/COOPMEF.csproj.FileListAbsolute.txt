@@ -257,3 +257,4 @@ C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.exe
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.pdb
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmPadronEdades.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosIngresadosEn.resources
+C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosBajaEn.resources

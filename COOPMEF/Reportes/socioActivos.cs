@@ -16,14 +16,14 @@ namespace COOPMEF.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class reporte_presupuesto_mes : ReportClass {
+    public class socioActivos : ReportClass {
         
-        public reporte_presupuesto_mes() {
+        public socioActivos() {
         }
         
         public override string ResourceName {
             get {
-                return "reporte_presupuesto_mes.rpt";
+                return "socioActivos.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace COOPMEF.Reportes {
         
         public override string FullResourceName {
             get {
-                return "COOPMEF.Reportes.reporte_presupuesto_mes.rpt";
+                return "COOPMEF.Reportes.socioActivos.rpt";
             }
             set {
                 // Do nothing
@@ -122,9 +122,9 @@ namespace COOPMEF.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class Cachedreporte_presupuesto_mes : Component, ICachedReport {
+    public class CachedsocioActivos : Component, ICachedReport {
         
-        public Cachedreporte_presupuesto_mes() {
+        public CachedsocioActivos() {
         }
         
         [Browsable(false)]
@@ -161,7 +161,7 @@ namespace COOPMEF.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            reporte_presupuesto_mes rpt = new reporte_presupuesto_mes();
+            socioActivos rpt = new socioActivos();
             rpt.Site = this.Site;
             return rpt;
         }

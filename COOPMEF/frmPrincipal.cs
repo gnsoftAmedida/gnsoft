@@ -19,6 +19,7 @@ namespace COOPMEF
     public partial class frmPrincipal : Form
     {
         private Controladora empresa = Controladora.Instance;
+        private dsSociosIngresadosEn estadoSocios = new dsSociosIngresadosEn();
         private DataSet dsAccionesPermitidas;
         DataSet dsSocios;
         DataSet dsDepartamentos;
@@ -784,7 +785,7 @@ namespace COOPMEF
 
                     //string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
 
-                 //   string departamento = this.cmbDepartamento.SelectedIndex.ToString();
+                    //   string departamento = this.cmbDepartamento.SelectedIndex.ToString();
                     char sexoo = 'F';
                     if (rbtnMasculino.Checked)
                         sexoo = 'M';
@@ -807,7 +808,7 @@ namespace COOPMEF
                     string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
 
                     string departamento = cmbDepartamento.SelectedValue.ToString();
-                    
+
 
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
@@ -926,7 +927,7 @@ namespace COOPMEF
                 {
                     try
                     {
-                      //  string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
+                        //  string estadoCivil = this.cmbEstadoCivil.SelectedIndex.ToString();
                         char sexoo = 'F';
                         if (rbtnMasculino.Checked)
                             sexoo = 'M';
@@ -948,7 +949,7 @@ namespace COOPMEF
                         // agregro estado_civil para que guarde el texto y no numeros en la BD
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
                         string departamento = this.cmbDepartamento.SelectedValue.ToString();
-                     
+
                         empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""));
 
 
@@ -1528,7 +1529,7 @@ namespace COOPMEF
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
 
                 this.cmbDepartamento.Text = dgvSociosCampo.Rows[index].Cells["socio_departamento"].Value.ToString();
-               
+
                 if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals("Activo"))
                 {
                     rBtnActivo.Checked = true;
@@ -1938,16 +1939,16 @@ namespace COOPMEF
                 // Trampa para generar columnas en el datagridview
                 string valor = txtBusqueda.Text;
 
-//                if (valor.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == "")
-//                {
+                //                if (valor.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == "")
+                //                {
 
-             //       socioPorCampo("socio_nro", "#");
-            
+                //       socioPorCampo("socio_nro", "#");
 
-//                }
+
+                //                }
                 //else {
 
-                    this.buscarCampo();
+                this.buscarCampo();
                 //}
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabHistorial"]))
@@ -2857,6 +2858,62 @@ Agregar emisión
         {
             frmSociosIngresadosEn tmpfrmSociosIngresadosEn = new frmSociosIngresadosEn();
             tmpfrmSociosIngresadosEn.ShowDialog();
+        }
+
+        private void activosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            DataSet sociosResultado = empresa.devolverSociosSegunEstado(1);
+            String fechaActual = DateTime.Today.ToShortDateString();
+
+            for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+            {
+                string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+
+                estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+            }
+
+            frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS");
+            reporte.ShowDialog();
+            estadoSocios.Clear();
+        }
+
+        private void históricosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataSet sociosResultado = empresa.devolverSociosSegunEstado(0);
+            String fechaActual = DateTime.Today.ToShortDateString();
+
+            for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+            {
+                string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+
+                estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+            }
+
+            frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_HISTORICOS");
+            reporte.ShowDialog();
+            estadoSocios.Clear();
+        }
+
+        private void dadosDeBajaEnToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSociosBajaEn tmpfrmSociosBajaEn = new frmSociosBajaEn();
+            tmpfrmSociosBajaEn.ShowDialog();
         }
     }
 }

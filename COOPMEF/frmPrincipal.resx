@@ -346,6 +346,30 @@
   <data name="ingresadosEnToolStripMenuItem.Text" xml:space="preserve">
     <value>Ingresados en...</value>
   </data>
+  <data name="dadosDeBajaEnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 24</value>
+  </data>
+  <data name="dadosDeBajaEnToolStripMenuItem.Text" xml:space="preserve">
+    <value>Dados de baja en...</value>
+  </data>
+  <data name="activosToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="activosToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Activos</value>
+  </data>
+  <data name="históricosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 24</value>
+  </data>
+  <data name="históricosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Históricos</value>
+  </data>
+  <data name="padrónToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>303, 24</value>
+  </data>
+  <data name="padrónToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Padrón</value>
+  </data>
   <data name="reportesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>153, 24</value>
   </data>
@@ -6736,9 +6760,6 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
-  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
   <data name="$this.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
     <value>4, 4, 4, 4</value>
   </data>
@@ -6970,6 +6991,30 @@
   <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;ingresadosEnToolStripMenuItem.Name" xml:space="preserve">
+    <value>ingresadosEnToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ingresadosEnToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;padrónToolStripMenuItem1.Name" xml:space="preserve">
+    <value>padrónToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;padrónToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;activosToolStripMenuItem1.Name" xml:space="preserve">
+    <value>activosToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;activosToolStripMenuItem1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;históricosToolStripMenuItem.Name" xml:space="preserve">
+    <value>históricosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;históricosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;mToolStripMenuItem.Name" xml:space="preserve">
     <value>mToolStripMenuItem</value>
   </data>
@@ -7054,10 +7099,10 @@
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ingresadosEnToolStripMenuItem.Name" xml:space="preserve">
-    <value>ingresadosEnToolStripMenuItem</value>
+  <data name="&gt;&gt;dadosDeBajaEnToolStripMenuItem.Name" xml:space="preserve">
+    <value>dadosDeBajaEnToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;ingresadosEnToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;dadosDeBajaEnToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
