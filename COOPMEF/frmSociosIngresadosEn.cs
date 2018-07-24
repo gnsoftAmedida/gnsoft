@@ -29,7 +29,7 @@ namespace COOPMEF
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             int mes = Convert.ToInt32(this.cmbMeses.SelectedIndex + 1);
-            string mesNombre = cmbMeses.SelectedItem.ToString(); ;
+            string mesNombre = cmbMeses.SelectedItem.ToString();
             string anio = cmbAnios.SelectedItem.ToString();
 
             DateTime fechaInicial = Convert.ToDateTime(anio + "-" + mes + "-" + "01");

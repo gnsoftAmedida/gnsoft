@@ -246,6 +246,12 @@
     <Compile Include="frmConsultaSaldosBancarios.Designer.cs">
       <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCumpleanios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCumpleanios.Designer.cs">
+      <DependentUpon>frmCumpleanios.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmDistribucionDeUtilidades.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -348,6 +354,12 @@
     <Compile Include="frmSociosIngresadosEn.Designer.cs">
       <DependentUpon>frmSociosIngresadosEn.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSociosPorDepartamento.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSociosPorDepartamento.Designer.cs">
+      <DependentUpon>frmSociosPorDepartamento.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmVerReportes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -367,6 +379,18 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>cancelacionPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\socioDepartamento.cs">
+      <DependentUpon>socioDepartamento.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\socioCumple.cs">
+      <DependentUpon>socioCumple.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
     </Compile>
     <Compile Include="Reportes\reporteSocioBajaEn.cs">
       <DependentUpon>reporteSocioBajaEn.rpt</DependentUpon>
@@ -473,6 +497,9 @@
     <EmbeddedResource Include="frmConsultaSaldosBancarios.resx">
       <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCumpleanios.resx">
+      <DependentUpon>frmCumpleanios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmDistribucionDeUtilidades.resx">
       <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
     </EmbeddedResource>
@@ -528,6 +555,9 @@
     <EmbeddedResource Include="frmSociosIngresadosEn.resx">
       <DependentUpon>frmSociosIngresadosEn.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmSociosPorDepartamento.resx">
+      <DependentUpon>frmSociosPorDepartamento.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmVerReportes.resx">
       <DependentUpon>frmVerReportes.cs</DependentUpon>
     </EmbeddedResource>
@@ -547,6 +577,14 @@
     <EmbeddedResource Include="Reportes\cancelacionPrestamo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cancelacionPrestamo.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\socioDepartamento.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>socioDepartamento.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\socioCumple.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>socioCumple.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteSocioBajaEn.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -12,7 +12,8 @@ namespace Persistencia
 {
     public class pSocio : CapaDatos
     {
-        public DataSet buscarSociosPorCampo(string campo, string valor) {
+        public DataSet buscarSociosPorCampo(string campo, string valor)
+        {
             try
             {
                 MySqlConnection connection = conectar();
@@ -32,7 +33,7 @@ namespace Persistencia
             {
                 throw ex;
             }
-        
+
         }
 
         public DataSet devolverTodosBusqueda(string campo)
@@ -57,7 +58,7 @@ namespace Persistencia
                 throw ex;
             }
         }
-        
+
         public DataSet devolverBajasEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
         {
             try
@@ -80,6 +81,29 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverCumpleMes(int mes)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, CONCAT(s.socio_direccion, ' [' , s.socio_postal, '-', s.socio_departamento , ']') , s.socio_email, CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre), CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and socio_activo='1' and MONTH(socio_fechaNac) = '" + mes + "'";
+                DataSet ds = new DataSet();
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "sociosCumpleMes");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataSet devolverIngresadosEntreFechas(DateTime fechaInicial, DateTime fechaFinal)
         {
             try
@@ -87,12 +111,35 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre), CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and socio_fechaIngreso between '" + fechaInicial.ToString("yyyy/MM/dd") + "' and '" + fechaFinal.ToString("yyyy/MM/dd") + "'"; 
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre), CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and socio_fechaIngreso between '" + fechaInicial.ToString("yyyy/MM/dd") + "' and '" + fechaFinal.ToString("yyyy/MM/dd") + "'";
                 DataSet ds = new DataSet();
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
                 MySqlAdapter.SelectCommand.CommandText = sql;
                 MySqlAdapter.Fill(ds, "sociosEntreFechas");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataSet listadoSociosDepartamento(String signo, String departamento)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, CONCAT(s.socio_direccion, ' [' , s.socio_postal, '-', s.socio_departamento , ']'), s.socio_email, CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre), CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and socio_activo = '1' and socio_departamento" + signo + "'" + departamento + "'";
+                DataSet ds = new DataSet();
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "sociosDepartamento");
                 connection.Close();
                 return ds;
 
@@ -198,14 +245,24 @@ namespace Persistencia
 
         public void eliminarSocio(int nro, ref int estaActivoOdeBaja)
         {
+            //Para agregar fecha
+            DateTime fechaBaja = DateTime.Today;
 
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
             int nuevoEstado = 0;
-            if (estaActivoOdeBaja == 0) nuevoEstado = 1;
-            estaActivoOdeBaja = nuevoEstado;
-            string sql = "UPDATE socio SET socio_activo = '" + nuevoEstado + "' WHERE socio_id = '" + nro + "'";
+            string sql;
+            if (estaActivoOdeBaja == 0)
+            {
+                nuevoEstado = 1;
+                sql = "UPDATE socio SET socio_activo = '" + nuevoEstado + "', socio_fecha_baja=null WHERE socio_id = '" + nro + "'";
+            }
+            else
+            {
+                estaActivoOdeBaja = nuevoEstado;
+                 sql = "UPDATE socio SET socio_activo = '" + nuevoEstado + "', socio_fecha_baja='" + fechaBaja.ToString("yyyy/MM/dd") + "' WHERE socio_id = '" + nro + "'";
+            }            
 
             try
             {
@@ -337,7 +394,7 @@ namespace Persistencia
 
             string sql;
 
-            sql = "Update socio set socio_nombre ='" + Tsocio_nombre.Replace("'", "") + "', socio_nro  ='" + socio_nro + "', socio_apellido ='" + Tsocio_apellido.Replace("'", "") + "', socio_nroCobro ='" + Tsocio_nroCobro.Replace("'", "") + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel.Replace("'", "") + "', socio_direccion='" + Tsocio_direccion.Replace("'", "") + "', socio_email='" + Tsocio_email.Replace("'", "") + "', socio_detalles='" + detalles + "', socio_postal='" +  postal + "', socio_departamento='" + departamento + "' WHERE socio_id =" + Tsocio_id;
+            sql = "Update socio set socio_nombre ='" + Tsocio_nombre.Replace("'", "") + "', socio_nro  ='" + socio_nro + "', socio_apellido ='" + Tsocio_apellido.Replace("'", "") + "', socio_nroCobro ='" + Tsocio_nroCobro.Replace("'", "") + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel.Replace("'", "") + "', socio_direccion='" + Tsocio_direccion.Replace("'", "") + "', socio_email='" + Tsocio_email.Replace("'", "") + "', socio_detalles='" + detalles + "', socio_postal='" + postal + "', socio_departamento='" + departamento + "' WHERE socio_id =" + Tsocio_id;
 
             try
             {
@@ -376,7 +433,7 @@ namespace Persistencia
                 throw eg;
             }
 
-           
+
             catch (Exception ex)
             {
                 transaction.Rollback();

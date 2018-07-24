@@ -68,9 +68,12 @@
             this.informeDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cuadroFranjasEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresadosEnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.dadosDeBajaEnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.padrónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.activosToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.históricosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cumpleañosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sociosPorDepartamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -274,7 +277,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.dadosDeBajaEnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -553,7 +555,9 @@
             this.informeDeToolStripMenuItem,
             this.ingresadosEnToolStripMenuItem,
             this.dadosDeBajaEnToolStripMenuItem,
-            this.padrónToolStripMenuItem1});
+            this.padrónToolStripMenuItem1,
+            this.cumpleañosToolStripMenuItem,
+            this.sociosPorDepartamentoToolStripMenuItem});
             this.reportesToolStripMenuItem1.Name = "reportesToolStripMenuItem1";
             resources.ApplyResources(this.reportesToolStripMenuItem1, "reportesToolStripMenuItem1");
             // 
@@ -582,6 +586,12 @@
             resources.ApplyResources(this.ingresadosEnToolStripMenuItem, "ingresadosEnToolStripMenuItem");
             this.ingresadosEnToolStripMenuItem.Click += new System.EventHandler(this.ingresadosEnToolStripMenuItem_Click);
             // 
+            // dadosDeBajaEnToolStripMenuItem
+            // 
+            this.dadosDeBajaEnToolStripMenuItem.Name = "dadosDeBajaEnToolStripMenuItem";
+            resources.ApplyResources(this.dadosDeBajaEnToolStripMenuItem, "dadosDeBajaEnToolStripMenuItem");
+            this.dadosDeBajaEnToolStripMenuItem.Click += new System.EventHandler(this.dadosDeBajaEnToolStripMenuItem_Click);
+            // 
             // padrónToolStripMenuItem1
             // 
             this.padrónToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -601,6 +611,18 @@
             this.históricosToolStripMenuItem.Name = "históricosToolStripMenuItem";
             resources.ApplyResources(this.históricosToolStripMenuItem, "históricosToolStripMenuItem");
             this.históricosToolStripMenuItem.Click += new System.EventHandler(this.históricosToolStripMenuItem_Click);
+            // 
+            // cumpleañosToolStripMenuItem
+            // 
+            this.cumpleañosToolStripMenuItem.Name = "cumpleañosToolStripMenuItem";
+            resources.ApplyResources(this.cumpleañosToolStripMenuItem, "cumpleañosToolStripMenuItem");
+            this.cumpleañosToolStripMenuItem.Click += new System.EventHandler(this.cumpleañosToolStripMenuItem_Click);
+            // 
+            // sociosPorDepartamentoToolStripMenuItem
+            // 
+            this.sociosPorDepartamentoToolStripMenuItem.Name = "sociosPorDepartamentoToolStripMenuItem";
+            resources.ApplyResources(this.sociosPorDepartamentoToolStripMenuItem, "sociosPorDepartamentoToolStripMenuItem");
+            this.sociosPorDepartamentoToolStripMenuItem.Click += new System.EventHandler(this.sociosPorDepartamentoToolStripMenuItem_Click);
             // 
             // mToolStripMenuItem
             // 
@@ -2022,12 +2044,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // dadosDeBajaEnToolStripMenuItem
-            // 
-            this.dadosDeBajaEnToolStripMenuItem.Name = "dadosDeBajaEnToolStripMenuItem";
-            resources.ApplyResources(this.dadosDeBajaEnToolStripMenuItem, "dadosDeBajaEnToolStripMenuItem");
-            this.dadosDeBajaEnToolStripMenuItem.Click += new System.EventHandler(this.dadosDeBajaEnToolStripMenuItem_Click);
-            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2334,6 +2350,8 @@
         private System.Windows.Forms.ToolStripMenuItem activosToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem históricosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem dadosDeBajaEnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cumpleañosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sociosPorDepartamentoToolStripMenuItem;
     }
 }
 

@@ -2915,6 +2915,18 @@ Agregar emisión
             frmSociosBajaEn tmpfrmSociosBajaEn = new frmSociosBajaEn();
             tmpfrmSociosBajaEn.ShowDialog();
         }
+
+        private void cumpleañosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCumpleanios tmpfrmCumpleanios = new frmCumpleanios();
+            tmpfrmCumpleanios.ShowDialog();
+        }
+
+        private void sociosPorDepartamentoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSociosPorDepartamento tmpfrmSociosPorDepartamento = new frmSociosPorDepartamento();
+            tmpfrmSociosPorDepartamento.ShowDialog();
+        }
     }
 }
 

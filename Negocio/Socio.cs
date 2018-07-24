@@ -203,6 +203,20 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet listadoSociosDepartamento(String signo, String departamento)
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.listadoSociosDepartamento(signo, departamento);
+            return socios;
+        }
+
+        public DataSet devolverCumpleMes(int mes)
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.devolverCumpleMes(mes);
+            return socios;
+        }
+
         public DataSet devolverSociosSegunEstado(int estado) // 1 = activo 0 = historico o baja
         {
             pSocio tmpSocio = new pSocio();

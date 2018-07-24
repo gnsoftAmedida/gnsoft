@@ -119,15 +119,35 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpReporteSocioBajaEn;
 
+            }
+
+            if (tipo.Equals("SOCIOS_CUMPLE"))
+            {
+                COOPMEF.Reportes.socioCumple tmpsocioCumple = new COOPMEF.Reportes.socioCumple();
+
+                tmpsocioCumple.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpsocioCumple;
+                
+            }
+
+            if (tipo.Equals("SOCIOS_LISTADO_DEPTO"))
+            {
+                COOPMEF.Reportes.socioDepartamento tmpSocioDepartamento = new COOPMEF.Reportes.socioDepartamento();
+
+                tmpSocioDepartamento.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpSocioDepartamento;
+              
             } 
-           
+
             if (tipo.Equals("SOCIOS_INGRESADOS_EN"))
             {
-                COOPMEF.Reportes.reporteIngresadosEn tmpReporteIngresadosEn = new COOPMEF.Reportes.reporteIngresadosEn();
+                COOPMEF.Reportes.socioDepartamento tmpSocioDepartamento = new COOPMEF.Reportes.socioDepartamento();
 
-                tmpReporteIngresadosEn.SetDataSource(DS);
+                tmpSocioDepartamento.SetDataSource(DS);
 
-                this.crystalReportViewer1.ReportSource = tmpReporteIngresadosEn;
+                this.crystalReportViewer1.ReportSource = tmpSocioDepartamento;
               
             } 
         }
