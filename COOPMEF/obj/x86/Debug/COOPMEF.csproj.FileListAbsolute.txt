@@ -260,3 +260,4 @@ C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosI
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosBajaEn.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmCumpleanios.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosPorDepartamento.resources
+C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmGeneracionDiscosRetenciones.resources

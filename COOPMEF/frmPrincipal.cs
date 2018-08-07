@@ -2927,6 +2927,12 @@ Agregar emisión
             frmSociosPorDepartamento tmpfrmSociosPorDepartamento = new frmSociosPorDepartamento();
             tmpfrmSociosPorDepartamento.ShowDialog();
         }
+
+        private void discoParaRetencionesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmGeneracionDiscosRetenciones tmpfrmGeneracionDiscosRetenciones = new frmGeneracionDiscosRetenciones();
+            tmpfrmGeneracionDiscosRetenciones.ShowDialog();
+        }
     }
 }
 
