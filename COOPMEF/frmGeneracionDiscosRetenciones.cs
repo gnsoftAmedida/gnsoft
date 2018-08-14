@@ -94,5 +94,10 @@ namespace COOPMEF
         {
             this.Close();
         }
+
+        private void btnGuardarPlan_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
