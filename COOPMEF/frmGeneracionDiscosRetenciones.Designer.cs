@@ -68,19 +68,19 @@
             // 
             this.cmbUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUnidades.FormattingEnabled = true;
-            this.cmbUnidades.Location = new System.Drawing.Point(82, 32);
+            this.cmbUnidades.Location = new System.Drawing.Point(89, 32);
             this.cmbUnidades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbUnidades.Name = "cmbUnidades";
-            this.cmbUnidades.Size = new System.Drawing.Size(72, 21);
+            this.cmbUnidades.Size = new System.Drawing.Size(65, 21);
             this.cmbUnidades.TabIndex = 5;
             this.cmbUnidades.SelectedIndexChanged += new System.EventHandler(this.cmbUnidades_SelectedIndexChanged);
             // 
             // treeView1
             // 
-            this.treeView1.Location = new System.Drawing.Point(83, 75);
+            this.treeView1.Location = new System.Drawing.Point(89, 75);
             this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.treeView1.Name = "treeView1";
-            this.treeView1.Size = new System.Drawing.Size(171, 90);
+            this.treeView1.Size = new System.Drawing.Size(165, 90);
             this.treeView1.TabIndex = 6;
             // 
             // cmbOficina
@@ -226,21 +226,21 @@
             this.cmbMeses.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbMeses.FormattingEnabled = true;
             this.cmbMeses.Items.AddRange(new object[] {
-            "ENERO",
-            "FEBRERO",
-            "MARZO",
-            "ABRIL",
-            "MAYO",
-            "JUNIO",
-            "JULIO",
-            "AGOSTO",
-            "SEPTIEMBRE",
-            "OCTUBRE",
-            "NOVIEMBRE",
-            "DICIEMBRE"});
-            this.cmbMeses.Location = new System.Drawing.Point(52, 33);
+            "01",
+            "02",
+            "03",
+            "04",
+            "05",
+            "06",
+            "07",
+            "08",
+            "09",
+            "10",
+            "11",
+            "12"});
+            this.cmbMeses.Location = new System.Drawing.Point(80, 33);
             this.cmbMeses.Name = "cmbMeses";
-            this.cmbMeses.Size = new System.Drawing.Size(90, 25);
+            this.cmbMeses.Size = new System.Drawing.Size(62, 25);
             this.cmbMeses.TabIndex = 57;
             // 
             // label2
@@ -256,7 +256,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(19, 36);
+            this.label1.Location = new System.Drawing.Point(37, 36);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(38, 17);

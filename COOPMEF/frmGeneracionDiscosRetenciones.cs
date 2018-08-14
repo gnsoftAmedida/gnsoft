@@ -44,7 +44,9 @@ namespace COOPMEF
                 cmbUnidades.Items.Add(d);
             }
 
-            // cmbUnidades.SelectedIndex = 0;
+            cmbAnios.SelectedIndex = 0;
+            cmbMeses.SelectedIndex = 0;
+            cmbUnidades.SelectedIndex = 0;
         }
 
         private void cmbUnidades_SelectedIndexChanged(object sender, EventArgs e)
@@ -97,7 +99,20 @@ namespace COOPMEF
 
         private void btnGuardarPlan_Click(object sender, EventArgs e)
         {
+            string inciso = cmbInciso.Text;
+            string oficina = cmbOficina.Text;
+            string mes = cmbMeses.Text;
+            string anio = cmbAnios.Text;
 
+            try
+            {
+                string unidad = treeView1.SelectedNode.Text;
+                MessageBox.Show(empresa.generarInterfaces(inciso, oficina, mes, anio, unidad));
+            }
+            catch
+            {
+                MessageBox.Show("Debe seleccionar una unidad de destino para generar la interface");
+            }
         }
     }
 }

@@ -261,3 +261,9 @@ C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosB
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmCumpleanios.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosPorDepartamento.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmGeneracionDiscosRetenciones.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmCumpleanios.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmGeneracionDiscosRetenciones.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmPadronEdades.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosBajaEn.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosIngresadosEn.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSociosPorDepartamento.resources
