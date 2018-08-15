@@ -42,6 +42,7 @@ namespace Negocio
             {
                 cadena2 = cadena2 + "0";
             }
+            
             cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena))) + cadena;
             return cadena2;
         }
@@ -78,7 +79,7 @@ namespace Negocio
             String Control;
             String Busqueda;
             String Mensaje = "";
-            Double Parcial;
+            Double Parcial = 0;
 
             Presupuesto = TxtMes + "/" + TxtAño;
             NombreArchivo = "NoHayCodigos";
@@ -356,15 +357,15 @@ namespace Negocio
 
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
-
-                    string importeCuota = resultado.Tables["interfaz"].Rows[n][3].ToString();
-                    string aportecapital = resultado.Tables["interfaz"].Rows[n][4].ToString();
+                    //Corregido
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
                     string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
-                    string Excedido = resultado.Tables["interfaz"].Rows[n][8].ToString();
-                    string Mora = resultado.Tables["interfaz"].Rows[n][9].ToString();
-                    string IvaMora = resultado.Tables["interfaz"].Rows[n][10].ToString();
-                    string resultadoInter = string.Format(importeCuota + aportecapital + Excedido + Mora + IvaMora, "###,##0"); ;
-                    String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter, 8) + "00";
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());                    
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter.ToString("###,##0"), 8) + "00";
 
                     sw.WriteLine(r);
                 }
@@ -374,23 +375,22 @@ namespace Negocio
             sw = new StreamWriter(unidad + NombreArchivo, true);
 
             //Open "a:\" & NombreArchivo For Output As #Canal
-
-
             //secretaria
             if (Control == "0501")
             {
-
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
+                    //Corregido
                     string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
-                    string importeCuota = resultado.Tables["interfaz"].Rows[n][3].ToString();
-                    string aportecapital = resultado.Tables["interfaz"].Rows[n][4].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
                     string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
-                    string Excedido = resultado.Tables["interfaz"].Rows[n][8].ToString();
-                    string Mora = resultado.Tables["interfaz"].Rows[n][9].ToString();
-                    string IvaMora = resultado.Tables["interfaz"].Rows[n][10].ToString();
-                    string resultadoInter = string.Format(importeCuota + aportecapital + Excedido + Mora + IvaMora, "###,##0"); ;
-                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + this.Padeo(resultadoInter, 6) + "000000";
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + this.Padeo(resultadoInter.ToString("###,##0"), 6) + "000000";
 
                     sw.WriteLine(r);
                 }
@@ -402,50 +402,50 @@ namespace Negocio
             {
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
+                    //Corregido
                     string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
-                    string importeCuota = resultado.Tables["interfaz"].Rows[n][3].ToString();
-                    string aportecapital = resultado.Tables["interfaz"].Rows[n][4].ToString();
+                    double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
                     string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
-                    string Excedido = resultado.Tables["interfaz"].Rows[n][8].ToString();
-                    string Mora = resultado.Tables["interfaz"].Rows[n][9].ToString();
-                    string IvaMora = resultado.Tables["interfaz"].Rows[n][10].ToString();
-                    string resultadoInter = string.Format(importeCuota + aportecapital + Excedido + Mora + IvaMora, "###,##0"); ;
-                    String r = Primero + this.Padeo(numeroCobro, 4) + Padeo((resultadoInter), 5) + "00";
-                    sw.WriteLine(r);
-                }
-
-
-
-
+                    double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;                    
+                    String r = Primero + this.Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("###,##0"), 5) + "00";
+                    sw.WriteLine(r);                   
+                }                
             }
+
             else if (Control == "0505")
             { //DGI
 
 
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
+                    //Corregido
                     string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
-                    string importeCuota = resultado.Tables["interfaz"].Rows[n][3].ToString();
-                    string aportecapital = resultado.Tables["interfaz"].Rows[n][4].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
                     string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
-                    string Excedido = resultado.Tables["interfaz"].Rows[n][8].ToString();
-                    string Mora = resultado.Tables["interfaz"].Rows[n][9].ToString();
-                    string IvaMora = resultado.Tables["interfaz"].Rows[n][10].ToString();
-                    string resultadoInter = string.Format(importeCuota + aportecapital + Excedido + Mora + IvaMora, "###,##0"); ;
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
-
-                    String r = Primero + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Segundo + Padeo(numeroCobro, 5) + cedula + Padeo(resultadoInter, 7) + "00";
+                    String r = Primero + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Segundo + Padeo(numeroCobro, 5) + cedula + Padeo(resultadoInter.ToString("###,##0"), 7) + "00";
 
                     Total = Total + Convert.ToDouble(resultadoInter);
                     CantidadGente = CantidadGente + 1;
 
                     sw.WriteLine(r);
                    
-                }
-                
+                }                
             }
 
+            sw.Flush();
+            sw.Dispose();
             return "Interfaces generadas correctamente";
+          
             //sacar esta línea para seguir
 
 
