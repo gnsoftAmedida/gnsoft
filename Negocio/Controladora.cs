@@ -42,7 +42,7 @@ namespace Negocio
             {
                 cadena2 = cadena2 + "0";
             }
-            cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena.Trim()))) + cadena;
+            cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena))) + cadena;
             return cadena2;
         }
 
@@ -66,12 +66,14 @@ namespace Negocio
 
         public string generarInterfaces(String CboIncisos, String CboOficinas, String TxtMes, String TxtAño, String unidad)
         {
-            String Primero;
+            double Total = 0;
+            int CantidadGente = 0;
+            String Primero = "";
             String NombreArchivo;
             String Presupuesto; // Presupuesto As String * 7
             String Oficina = "";
             String WInciso = "";
-            String Segundo;
+            String Segundo = "0";
             String Tercero;
             String Control;
             String Busqueda;
@@ -79,22 +81,16 @@ namespace Negocio
             Double Parcial;
 
             Presupuesto = TxtMes + "/" + TxtAño;
-
+            NombreArchivo = "NoHayCodigos";
             Parcial = 0;
 
             /* 
    
-           
-             
-             Dim Total As Double, CantidadGente As Integer, Nombre As String
+            
+              Nombre As String
               MesAño As String
            
-   
-             Total = 0
-            
-             CantidadGente = 0
-   
-             NombreArchivo = "NoHayCodigos"
+              
              'Unidad = CboUnidad.Text
                       */
 
@@ -288,60 +284,52 @@ namespace Negocio
 
                 if (Control == "9610")
                 {
+                    //Corregido
                     Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
-                 "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
-                 "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socios.nombres, " +
-                 "socios.apellidos, socios.departamento, socios.ingreso,socios.observaciones " +
-                 "FROM socios INNER JOIN historia on socios.cedula=historia.cedula " +
-                 "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
-                 "AND historia.oficina='03' " + "ORDER BY historia.cedula;";
-
+                        "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
+                        "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
+                        "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
+                        "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
+                        "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
+                        "AND historia.oficina= '03'" +
+                        "ORDER BY historia.cedula;";
                 }
                 else
                 {
                     //Corregido
-                     Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
-                         "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
-                         "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
-                         "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
-                         "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
-                         "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
-                         "AND historia.oficina=" + "'" + Oficina + "'" +
-                         "ORDER BY historia.cedula;";
-
-                 /*   Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
-                    "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
-                    "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socios.nombres, " +
-                    "socios.apellidos, socios.departamento, socios.ingreso,socios.observaciones " +
-                    "FROM socios INNER JOIN historia on socios.cedula=historia.cedula " +
-                    "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
-                    "AND historia.oficina=" + "'" + Oficina + "'" +
-                    "ORDER BY historia.cedula;";
-                  * */
+                    Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
+                        "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
+                        "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
+                        "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
+                        "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
+                        "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
+                        "AND historia.oficina=" + "'" + Oficina + "'" +
+                        "ORDER BY historia.cedula;";
                 }
             }
             else
             {
+                //Corregido
                 Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
-                "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
-                "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socios.nombres, " +
-                "socios.apellidos, socios.departamento,socios.ingreso,socios.observaciones  " +
-                "FROM socios INNER JOIN historia on socios.cedula=historia.cedula " +
-                "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
-                "AND historia.oficina=" + "'" + Oficina + "'" +
-                "ORDER BY historia.cedula;";
+                      "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
+                      "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
+                      "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
+                      "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
+                      "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
+                      "AND historia.oficina=" + "'" + Oficina + "'" +
+                      "ORDER BY historia.cedula;";
             }
 
             if (Control == "1001")
             {
                 Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
-               "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
-               "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socios.nombres, " +
-               "socios.apellidos, socios.departamento,socios.ingreso, socios.observaciones  " +
-               "FROM socios INNER JOIN historia on socios.cedula=historia.cedula " +
-               "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
-               "AND historia.inciso=" + "'" + WInciso + "'" +
-               "ORDER BY historia.cedula;";
+                      "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
+                      "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
+                      "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
+                      "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
+                      "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
+                      "AND historia.inciso = " + "'" + WInciso + "'" +
+                      "ORDER BY historia.cedula;";
             }
 
 
@@ -354,14 +342,13 @@ namespace Negocio
             }
 
 
-
             //NOMBRE DE ARCHIVO Y APERTURA SACARLOS LUEGO.
             if (Microsoft.VisualBasic.Strings.Right(unidad + "Nuevo.txt", 1) != @"\")
             {
                 unidad = unidad + @"\";
             }
 
-            StreamWriter sw = new StreamWriter(unidad, true);
+            StreamWriter sw = new StreamWriter(unidad + "Nuevo.txt", true);
 
             // este if luego ponerlo en el lugar que esta ahora impositiva. NUEVA MODALIDAD A  PARTIR DE MARZO DE 2007
             if (Control == "0505") //DGI
@@ -384,294 +371,336 @@ namespace Negocio
             }
 
 
+            sw = new StreamWriter(unidad + NombreArchivo, true);
+
+            //Open "a:\" & NombreArchivo For Output As #Canal
+
+
+            //secretaria
+            if (Control == "0501")
+            {
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    string importeCuota = resultado.Tables["interfaz"].Rows[n][3].ToString();
+                    string aportecapital = resultado.Tables["interfaz"].Rows[n][4].ToString();
+                    string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    string Excedido = resultado.Tables["interfaz"].Rows[n][8].ToString();
+                    string Mora = resultado.Tables["interfaz"].Rows[n][9].ToString();
+                    string IvaMora = resultado.Tables["interfaz"].Rows[n][10].ToString();
+                    string resultadoInter = string.Format(importeCuota + aportecapital + Excedido + Mora + IvaMora, "###,##0"); ;
+                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + this.Padeo(resultadoInter, 6) + "000000";
+
+                    sw.WriteLine(r);
+                }
+
+
+                //contaduria,Direccion General de Comercio, Registro Civil
+            }
+            else if (Control == "0502" || Control == "0514" || Control == "1121")
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    string importeCuota = resultado.Tables["interfaz"].Rows[n][3].ToString();
+                    string aportecapital = resultado.Tables["interfaz"].Rows[n][4].ToString();
+                    string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    string Excedido = resultado.Tables["interfaz"].Rows[n][8].ToString();
+                    string Mora = resultado.Tables["interfaz"].Rows[n][9].ToString();
+                    string IvaMora = resultado.Tables["interfaz"].Rows[n][10].ToString();
+                    string resultadoInter = string.Format(importeCuota + aportecapital + Excedido + Mora + IvaMora, "###,##0"); ;
+                    String r = Primero + this.Padeo(numeroCobro, 4) + Padeo((resultadoInter), 5) + "00";
+                    sw.WriteLine(r);
+                }
+
+
+
+
+            }
+            else if (Control == "0505")
+            { //DGI
+
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    string importeCuota = resultado.Tables["interfaz"].Rows[n][3].ToString();
+                    string aportecapital = resultado.Tables["interfaz"].Rows[n][4].ToString();
+                    string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    string Excedido = resultado.Tables["interfaz"].Rows[n][8].ToString();
+                    string Mora = resultado.Tables["interfaz"].Rows[n][9].ToString();
+                    string IvaMora = resultado.Tables["interfaz"].Rows[n][10].ToString();
+                    string resultadoInter = string.Format(importeCuota + aportecapital + Excedido + Mora + IvaMora, "###,##0"); ;
+
+
+                    String r = Primero + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Segundo + Padeo(numeroCobro, 5) + cedula + Padeo(resultadoInter, 7) + "00";
+
+                    Total = Total + Convert.ToDouble(resultadoInter);
+                    CantidadGente = CantidadGente + 1;
+
+                    sw.WriteLine(r);
+                   
+                }
+                
+            }
+
             return "Interfaces generadas correctamente";
+            //sacar esta línea para seguir
+
+
 
             /*
-                                     Close #Canal
-    
-                                    'Open "a:\" & NombreArchivo For Output As #Canal
-                                    Open Unidad & NombreArchivo For Output As #Canal
-   
-                                    'secretaria
-                                     If Control = "0501" Then
-                                       RsHistoria.MoveFirst
-                                       While Not RsHistoria.EOF
-                                          Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                          Print #Canal, Primero & Padeo(Mid(RsHistoria!cedula, 1, 7), 15) & Padeo((Parcial), 6) & "000000"
-                                          RsHistoria.MoveNext
-                                       Wend
-      
-                                       'contaduria,Direccion General de Comercio, Registro Civil
-                                    ElseIf Control = "0502" Or Control = "0514" Or Control = "1121" Then
-                                       RsHistoria.MoveFirst
-                                       While Not RsHistoria.EOF
-                                          Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                          Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 4) & Padeo((Parcial), 5) & "00"
-                                          RsHistoria.MoveNext
-                                       Wend
-      
-   
-                                    ElseIf Control = "0505" Then 'DGI
-                                       RsHistoria.MoveFirst
-                                       While Not RsHistoria.EOF
-                                          Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                          Print #Canal, Primero & Mid(Presupuesto, 1, 2) & _
-                                          Mid(Presupuesto, 4) & Segundo & Padeo(RsHistoria!numerocobro, 5) & _
-                                          RsHistoria!cedula & Padeo((Parcial), 7) & "00"
-                                          Total = Total + Parcial
-                                          CantidadGente = CantidadGente + 1
-                                          RsHistoria.MoveNext
-                                       Wend
-                                     ElseIf Control = "0507" Then 'Aduanas
-                                         RsHistoria.MoveFirst
-                                         While Not RsHistoria.EOF
-                                             Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
-                                             Nombre = Mid(Nombre, 1, 30)
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Print #Canal, Padeo(RsHistoria!numerocobro, 5) & "0000000000" & Nombre & Padeo((Parcial), 7) & "00" & "0" & Trim(RsHistoria!cedula)
-                                             RsHistoria.MoveNext
+                                           ElseIf Control = "0507" Then 'Aduanas
+                                               RsHistoria.MoveFirst
+                                               While Not RsHistoria.EOF
+                                                   Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
+                                                   Nombre = Mid(Nombre, 1, 30)
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Print #Canal, Padeo(RsHistoria!numerocobro, 5) & "0000000000" & Nombre & Padeo((Parcial), 7) & "00" & "0" & Trim(RsHistoria!cedula)
+                                                   RsHistoria.MoveNext
 
-                                         Wend
+                                               Wend
         
-                                    ' AGREGADO PARA RETENCIONES DE ENERO DE 2014
-                                     'MINISTERIO DE GANADERIA, AGRICULTURA Y PESCA
-                                     ElseIf Control = "0701" Then
-                                       RsHistoria.MoveFirst
-                                       While Not RsHistoria.EOF
-                                          Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                          Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 15) & Padeo(Parcial, 6) & "000000"
-                                          RsHistoria.MoveNext
-                                       Wend
+                                          ' AGREGADO PARA RETENCIONES DE ENERO DE 2014
+                                           'MINISTERIO DE GANADERIA, AGRICULTURA Y PESCA
+                                           ElseIf Control = "0701" Then
+                                             RsHistoria.MoveFirst
+                                             While Not RsHistoria.EOF
+                                                Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 15) & Padeo(Parcial, 6) & "000000"
+                                                RsHistoria.MoveNext
+                                             Wend
       
-                                     ElseIf Oficina = "99" Then 'BPS
-                                         RsHistoria.MoveFirst
-                                         While Not RsHistoria.EOF
-                                             Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos)
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Print #Canal, Primero & Segundo & PadeoBlancos(Val(RsHistoria!cedula), 16) & _
-                                             Tercero & Padeo(Parcial, 8) & PadeoBlancos(Nombre, 50) & _
-                                             PadeoBlancos(RsHistoria!numeroprestamo, 10)
-                                             Total = Total + Parcial
-                                             CantidadGente = CantidadGente + 1
-                                             RsHistoria.MoveNext
-                                         Wend
-                                     ElseIf Control = "1301" Then ' MTSS
-                                         RsHistoria.MoveFirst
-                                         While Not RsHistoria.EOF
-                                             Nombre = Trim(RsHistoria!apellidos) & " " & Trim(RsHistoria!Nombres)
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Primero = PadeoBlancos(RsHistoria!numerocobro, 5)
-                                             Segundo = RsHistoria!cedula
-                                             Tercero = "  "
-                                             Print #Canal, Primero & Segundo & Tercero & PadeoBlancos(Nombre, 30) & PadeoBlancos(Parcial, 7) & "00"
-                                             RsHistoria.MoveNext
-                                         Wend
+                                           ElseIf Oficina = "99" Then 'BPS
+                                               RsHistoria.MoveFirst
+                                               While Not RsHistoria.EOF
+                                                   Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos)
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Print #Canal, Primero & Segundo & PadeoBlancos(Val(RsHistoria!cedula), 16) & _
+                                                   Tercero & Padeo(Parcial, 8) & PadeoBlancos(Nombre, 50) & _
+                                                   PadeoBlancos(RsHistoria!numeroprestamo, 10)
+                                                   Total = Total + Parcial
+                                                   CantidadGente = CantidadGente + 1
+                                                   RsHistoria.MoveNext
+                                               Wend
+                                           ElseIf Control = "1301" Then ' MTSS
+                                               RsHistoria.MoveFirst
+                                               While Not RsHistoria.EOF
+                                                   Nombre = Trim(RsHistoria!apellidos) & " " & Trim(RsHistoria!Nombres)
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Primero = PadeoBlancos(RsHistoria!numerocobro, 5)
+                                                   Segundo = RsHistoria!cedula
+                                                   Tercero = "  "
+                                                   Print #Canal, Primero & Segundo & Tercero & PadeoBlancos(Nombre, 30) & PadeoBlancos(Parcial, 7) & "00"
+                                                   RsHistoria.MoveNext
+                                               Wend
 
-                                       'ElseIf Control = "1201" Then ' MSP
-                                       ElseIf Control = "2901" Then ' MSP
-                                          RsHistoria.MoveFirst
-                                          While Not RsHistoria.EOF
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Print #Canal, Primero & Segundo & Tercero & PadeoBlancos(RsHistoria!numerocobro, 8) & PadeoBlancos(Parcial, 10) & "00" & _
-                                             PadeoBlancos(RsHistoria!numeroprestamo, 8) & Space(12) & Space(5) & "C"
-                                             RsHistoria.MoveNext
-                                          Wend
+                                             'ElseIf Control = "1201" Then ' MSP
+                                             ElseIf Control = "2901" Then ' MSP
+                                                RsHistoria.MoveFirst
+                                                While Not RsHistoria.EOF
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Print #Canal, Primero & Segundo & Tercero & PadeoBlancos(RsHistoria!numerocobro, 8) & PadeoBlancos(Parcial, 10) & "00" & _
+                                                   PadeoBlancos(RsHistoria!numeroprestamo, 8) & Space(12) & Space(5) & "C"
+                                                   RsHistoria.MoveNext
+                                                Wend
          
-                                       ElseIf Control = "1001" Then 'Control = "1001" Then 'MTOP
-                                         RsHistoria.MoveFirst
-                                         While Not RsHistoria.EOF
-                                             'If RsHistoria!Oficina <> "03" Then
-                                                 Primero = RsHistoria!numerocobro
-                                                 Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
-                                                 Nombre = Mid(Nombre, 1, 30)
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 Print #Canal, Padeo(Primero, 6) & Segundo & Tercero & Nombre & Padeo((Parcial), 7) & "00" & Mid(RsHistoria!cedula, 1, 7) & "-" & Mid(RsHistoria!cedula, 8, 1)
+                                             ElseIf Control = "1001" Then 'Control = "1001" Then 'MTOP
+                                               RsHistoria.MoveFirst
+                                               While Not RsHistoria.EOF
+                                                   'If RsHistoria!Oficina <> "03" Then
+                                                       Primero = RsHistoria!numerocobro
+                                                       Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
+                                                       Nombre = Mid(Nombre, 1, 30)
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       Print #Canal, Padeo(Primero, 6) & Segundo & Tercero & Nombre & Padeo((Parcial), 7) & "00" & Mid(RsHistoria!cedula, 1, 7) & "-" & Mid(RsHistoria!cedula, 8, 1)
                 
-                                             'End If
-                                             RsHistoria.MoveNext
-                                         Wend
-                                       ElseIf Control = "9797" Then ' Empleados DGSS
-                                          RsHistoria.MoveFirst
-                                          While Not RsHistoria.EOF
-                                             Primero = RsHistoria!numerocobro
-                                             Segundo = RsHistoria!cedula
-                                             Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
-                                             Nombre = Mid(Nombre, 1, 30)
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Print #Canal, Padeo(Primero, 5) & Padeo(Segundo, 10) & Nombre & Padeo(Parcial, 7) & "00"
-                                             RsHistoria.MoveNext
-                                          Wend
-                                       ElseIf Control = "0508" Then ' LOTERIAS
-                                          RsHistoria.MoveFirst
-                                          While Not RsHistoria.EOF
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 4) & Padeo(Parcial, 5) & "00"
-                                             RsHistoria.MoveNext
-                                          Wend
-                                       ElseIf Control = "9604" Then ' SECUNDARIA
-                                          RsHistoria.MoveFirst
-                                          While Not RsHistoria.EOF
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Print #Canal, Chr(34) & "V" & Chr(34) & ",0000739," & RsHistoria!cedula & "," & Chr(34) & _
-                                             Mid(RsHistoria!apellidos, 1, 1) & Chr(34) & "," & Padeo(Parcial, 6) & ".00,"
-                                             RsHistoria.MoveNext
-                                          Wend
-                                       ElseIf Control = "9603" Then 'UTU
-                                          RsHistoria.MoveFirst
-                                          While Not RsHistoria.EOF
-                                             Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                             Print #Canal, Mid(Presupuesto, 4) & Mid(Presupuesto, 1, 2) & Mid(RsHistoria!cedula, 1, 7) & _
-                                             Padeo(Parcial, 8) & "00" & "2764"
-                                             RsHistoria.MoveNext
-                                          Wend
-                                      ElseIf Control = "9610" Then ' UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
-                                             RsHistoria.MoveFirst
-                                             Print #Canal, Primero
-                                             While Not RsHistoria.EOF
-                                             ',11698947,,739,0000005000, IACOVAZZO IZMENDI M
-                                             'Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
-                                                 Print #Canal, "," & RsHistoria!cedula & ",,276," & Padeo(Parcial, 8) & "00," & RsHistoria!apellidos
-                                                 RsHistoria.MoveNext
-                                             Wend
+                                                   'End If
+                                                   RsHistoria.MoveNext
+                                               Wend
+                                             ElseIf Control = "9797" Then ' Empleados DGSS
+                                                RsHistoria.MoveFirst
+                                                While Not RsHistoria.EOF
+                                                   Primero = RsHistoria!numerocobro
+                                                   Segundo = RsHistoria!cedula
+                                                   Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
+                                                   Nombre = Mid(Nombre, 1, 30)
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Print #Canal, Padeo(Primero, 5) & Padeo(Segundo, 10) & Nombre & Padeo(Parcial, 7) & "00"
+                                                   RsHistoria.MoveNext
+                                                Wend
+                                             ElseIf Control = "0508" Then ' LOTERIAS
+                                                RsHistoria.MoveFirst
+                                                While Not RsHistoria.EOF
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 4) & Padeo(Parcial, 5) & "00"
+                                                   RsHistoria.MoveNext
+                                                Wend
+                                             ElseIf Control = "9604" Then ' SECUNDARIA
+                                                RsHistoria.MoveFirst
+                                                While Not RsHistoria.EOF
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Print #Canal, Chr(34) & "V" & Chr(34) & ",0000739," & RsHistoria!cedula & "," & Chr(34) & _
+                                                   Mid(RsHistoria!apellidos, 1, 1) & Chr(34) & "," & Padeo(Parcial, 6) & ".00,"
+                                                   RsHistoria.MoveNext
+                                                Wend
+                                             ElseIf Control = "9603" Then 'UTU
+                                                RsHistoria.MoveFirst
+                                                While Not RsHistoria.EOF
+                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                   Print #Canal, Mid(Presupuesto, 4) & Mid(Presupuesto, 1, 2) & Mid(RsHistoria!cedula, 1, 7) & _
+                                                   Padeo(Parcial, 8) & "00" & "2764"
+                                                   RsHistoria.MoveNext
+                                                Wend
+                                            ElseIf Control = "9610" Then ' UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
+                                                   RsHistoria.MoveFirst
+                                                   Print #Canal, Primero
+                                                   While Not RsHistoria.EOF
+                                                   ',11698947,,739,0000005000, IACOVAZZO IZMENDI M
+                                                   'Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
+                                                       Print #Canal, "," & RsHistoria!cedula & ",,276," & Padeo(Parcial, 8) & "00," & RsHistoria!apellidos
+                                                       RsHistoria.MoveNext
+                                                   Wend
 
-                                      ElseIf Control = "9602" Then ' CODICEN
-                                             RsHistoria.MoveFirst
-                                             Print #Canal, Primero
-                                             While Not RsHistoria.EOF
-                                             ',11698947,,739,0000005000, IACOVAZZO IZMENDI M
-                                             'Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
-                                                 Print #Canal, "," & RsHistoria!cedula & ",,739," & Padeo(Parcial, 8) & "00," & RsHistoria!apellidos
-                                                 RsHistoria.MoveNext
-                                             Wend
-                                       ElseIf Control = "9601" Then  ' CONSEJO EDUCACION PRIMARIA
-                                             RsHistoria.MoveFirst
-                                             While Not RsHistoria.EOF
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 Nombre = Trim(RsHistoria!apellidos) & " " & Trim(RsHistoria!Nombres) & Space(60)
-                                                 Nombre = Mid(Nombre, 1, 25)
-                                                 Primero = Padeo(RsHistoria!departamento, 2)
-                                                 Segundo = Padeo(RsHistoria!numerocobro, 5)
-                                                 Print #Canal, Primero & Segundo & Nombre & Padeo(Parcial, 5) & "00" & Mid(RsHistoria!ingreso, 4, 2) & _
-                                                 Mid(RsHistoria!ingreso, 7)
-                                                 RsHistoria.MoveNext
-                                             Wend
-                                          ElseIf Control = "2002" Then  ' INTENDENCIA DE CANELONES
-                                             RsHistoria.MoveFirst
-                                             While Not RsHistoria.EOF
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos)
-                                                 Nombre = Mid(Nombre, 1, 40)
-                                                 Nombre = PadeoBlancos(Nombre, 40)
-                                                 MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
-                                                 MesAño = Padeo(MesAño, 6)
-                                                 Primero = Padeo(RsHistoria!cedula, 8)
-                                                 Print #Canal, Primero & Nombre & Padeo(Parcial, 6) & "00" & MesAño
-                                                 RsHistoria.MoveNext
-                                             Wend
-                                          ElseIf Control = "2609" Then  ' FACULTAD DE ODONTOLOGIA
-                                             While Not RsHistoria.EOF
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos) & Space(60)
-                                                 Nombre = Mid(Nombre, 1, 24)
-                                                 Nombre = PadeoBlancos(Nombre, 24)
-                                                 MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
-                                                 MesAño = Padeo(MesAño, 6)
-                                                 Primero = RsHistoria!observaciones
-                                                 Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 6) & Padeo(Parcial, 6) & "00" & "         " & Nombre & Padeo(RsHistoria!cedula, 8)
+                                            ElseIf Control = "9602" Then ' CODICEN
+                                                   RsHistoria.MoveFirst
+                                                   Print #Canal, Primero
+                                                   While Not RsHistoria.EOF
+                                                   ',11698947,,739,0000005000, IACOVAZZO IZMENDI M
+                                                   'Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
+                                                       Print #Canal, "," & RsHistoria!cedula & ",,739," & Padeo(Parcial, 8) & "00," & RsHistoria!apellidos
+                                                       RsHistoria.MoveNext
+                                                   Wend
+                                             ElseIf Control = "9601" Then  ' CONSEJO EDUCACION PRIMARIA
+                                                   RsHistoria.MoveFirst
+                                                   While Not RsHistoria.EOF
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       Nombre = Trim(RsHistoria!apellidos) & " " & Trim(RsHistoria!Nombres) & Space(60)
+                                                       Nombre = Mid(Nombre, 1, 25)
+                                                       Primero = Padeo(RsHistoria!departamento, 2)
+                                                       Segundo = Padeo(RsHistoria!numerocobro, 5)
+                                                       Print #Canal, Primero & Segundo & Nombre & Padeo(Parcial, 5) & "00" & Mid(RsHistoria!ingreso, 4, 2) & _
+                                                       Mid(RsHistoria!ingreso, 7)
+                                                       RsHistoria.MoveNext
+                                                   Wend
+                                                ElseIf Control = "2002" Then  ' INTENDENCIA DE CANELONES
+                                                   RsHistoria.MoveFirst
+                                                   While Not RsHistoria.EOF
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos)
+                                                       Nombre = Mid(Nombre, 1, 40)
+                                                       Nombre = PadeoBlancos(Nombre, 40)
+                                                       MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
+                                                       MesAño = Padeo(MesAño, 6)
+                                                       Primero = Padeo(RsHistoria!cedula, 8)
+                                                       Print #Canal, Primero & Nombre & Padeo(Parcial, 6) & "00" & MesAño
+                                                       RsHistoria.MoveNext
+                                                   Wend
+                                                ElseIf Control = "2609" Then  ' FACULTAD DE ODONTOLOGIA
+                                                   While Not RsHistoria.EOF
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos) & Space(60)
+                                                       Nombre = Mid(Nombre, 1, 24)
+                                                       Nombre = PadeoBlancos(Nombre, 24)
+                                                       MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
+                                                       MesAño = Padeo(MesAño, 6)
+                                                       Primero = RsHistoria!observaciones
+                                                       Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 6) & Padeo(Parcial, 6) & "00" & "         " & Nombre & Padeo(RsHistoria!cedula, 8)
                 
-                                                 RsHistoria.MoveNext
+                                                       RsHistoria.MoveNext
         
-                                             Wend
-                                          ElseIf Control = "2615" Then  ' HOSPITAL DE CLINICAS
-                                             While Not RsHistoria.EOF
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos) & Space(60)
-                                                 Nombre = Mid(Nombre, 1, 24)
-                                                 Nombre = PadeoBlancos(Nombre, 24)
-                                                 MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
-                                                 MesAño = Padeo(MesAño, 6)
-                                                 Primero = RsHistoria!observaciones
-                                                 Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 6) & Padeo(Parcial, 6) & "00" & "         " & Nombre & Padeo(RsHistoria!cedula, 8)
+                                                   Wend
+                                                ElseIf Control = "2615" Then  ' HOSPITAL DE CLINICAS
+                                                   While Not RsHistoria.EOF
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos) & Space(60)
+                                                       Nombre = Mid(Nombre, 1, 24)
+                                                       Nombre = PadeoBlancos(Nombre, 24)
+                                                       MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
+                                                       MesAño = Padeo(MesAño, 6)
+                                                       Primero = RsHistoria!observaciones
+                                                       Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 6) & Padeo(Parcial, 6) & "00" & "         " & Nombre & Padeo(RsHistoria!cedula, 8)
                 
-                                                 RsHistoria.MoveNext
+                                                       RsHistoria.MoveNext
         
-                                             Wend
+                                                   Wend
 
-                                          ElseIf Control = "3001" Then  ' ANTEL
-                                             While Not RsHistoria.EOF
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 MesAño = Mid(Presupuesto, 1, 2)
-                                                 MesAño = Padeo(MesAño, 2)
-                                                 Print #Canal, MesAño & Padeo(Mid(RsHistoria!cedula, 1, 7), 7) & "B20" & Padeo(Parcial, 8) & "00"
+                                                ElseIf Control = "3001" Then  ' ANTEL
+                                                   While Not RsHistoria.EOF
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       MesAño = Mid(Presupuesto, 1, 2)
+                                                       MesAño = Padeo(MesAño, 2)
+                                                       Print #Canal, MesAño & Padeo(Mid(RsHistoria!cedula, 1, 7), 7) & "B20" & Padeo(Parcial, 8) & "00"
                 
-                                                 RsHistoria.MoveNext
+                                                       RsHistoria.MoveNext
         
-                                             Wend
+                                                   Wend
 
-                                          ElseIf Control = "0406" Then  ' JEFATURA DE POLICIA DE CANELONES
-                                             While Not RsHistoria.EOF
-                                                 Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                 Print #Canal, Primero & Padeo(Mid(RsHistoria!cedula, 1, 7), 15) & Padeo(Parcial, 6) & "00" & "0000"
-                                                 RsHistoria.MoveNext
+                                                ElseIf Control = "0406" Then  ' JEFATURA DE POLICIA DE CANELONES
+                                                   While Not RsHistoria.EOF
+                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
+                                                       Print #Canal, Primero & Padeo(Mid(RsHistoria!cedula, 1, 7), 15) & Padeo(Parcial, 6) & "00" & "0000"
+                                                       RsHistoria.MoveNext
 
-                                             Wend
+                                                   Wend
 
-                                       End If
+                                             End If
   
-                                    Close #Canal
+                                          Close #Canal
    
-                                    If Control = "0505" Then 'totales DGI
+                                          If Control = "0505" Then 'totales DGI
       
-                                       'Open "A:\CONTROL.TXT" For Output As #Canal
-                                       Open Unidad & "CONTROL.TXT" For Output As #Canal
-                                       Print #Canal, "T02" & Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4) & _
-                                       "0000000" & Padeo(CantidadGente, 3) & Padeo(Total, 10) & "00"
-                                       Close #Canal
-                                    ElseIf Oficina = "99" Then 'totales BPS
-                                       Open Unidad & "Tot685" & Primero & ".dat" For Output As #Canal
-                                       Print #Canal, Primero & "0006685" & Padeo(CantidadGente, 7) & Padeo(Total, 10)
-                                       Close #Canal
-                                    End If
+                                             'Open "A:\CONTROL.TXT" For Output As #Canal
+                                             Open Unidad & "CONTROL.TXT" For Output As #Canal
+                                             Print #Canal, "T02" & Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4) & _
+                                             "0000000" & Padeo(CantidadGente, 3) & Padeo(Total, 10) & "00"
+                                             Close #Canal
+                                          ElseIf Oficina = "99" Then 'totales BPS
+                                             Open Unidad & "Tot685" & Primero & ".dat" For Output As #Canal
+                                             Print #Canal, Primero & "0006685" & Padeo(CantidadGente, 7) & Padeo(Total, 10)
+                                             Close #Canal
+                                          End If
       
-                                    Set RsHistoria = Nothing
-                                    Set RsSocios = Nothing
-                                    Set RsIncisos = Nothing
-                                    Set RsOficinas = Nothing
-                                    If NombreArchivo = "NoHayCodigos" Then
-                                       MsgBox "Ha seleccionado una Oficina" & Chr(13) _
-                                       & "que no tiene retención por disco", vbOKOnly + vbInformation, Me.Caption
-                                    End If
-                                    MsgBox "Disco Finalizado.", vbOKOnly + vbInformation, "Inciso:" & WInciso & " Oficina:" & Oficina
-                                    Exit Sub
+                                          Set RsHistoria = Nothing
+                                          Set RsSocios = Nothing
+                                          Set RsIncisos = Nothing
+                                          Set RsOficinas = Nothing
+                                          If NombreArchivo = "NoHayCodigos" Then
+                                             MsgBox "Ha seleccionado una Oficina" & Chr(13) _
+                                             & "que no tiene retención por disco", vbOKOnly + vbInformation, Me.Caption
+                                          End If
+                                          MsgBox "Disco Finalizado.", vbOKOnly + vbInformation, "Inciso:" & WInciso & " Oficina:" & Oficina
+                                          Exit Sub
    
-                                 escribo_error:
+                                       escribo_error:
 
 
     
-                                    Set RsHistoria = Nothing
-                                    Set RsSocios = Nothing
-                                    Set RsIncisos = Nothing
-                                    Set RsOficinas = Nothing
-                                    Close #Canal
-                                    Dim Contesta As Integer
-                                    Screen.MousePointer = 0
-                                    Contesta = Manejo_Error(Err.Number)
+                                          Set RsHistoria = Nothing
+                                          Set RsSocios = Nothing
+                                          Set RsIncisos = Nothing
+                                          Set RsOficinas = Nothing
+                                          Close #Canal
+                                          Dim Contesta As Integer
+                                          Screen.MousePointer = 0
+                                          Contesta = Manejo_Error(Err.Number)
    
-                                    Select Case Contesta
-                                       Case vbAbort
-                                          Exit Sub
-                                       Case vbRetry
-                                          Resume
-                                       Case vbIgnore
-                                          Resume Next
-                                    End Select
+                                          Select Case Contesta
+                                             Case vbAbort
+                                                Exit Sub
+                                             Case vbRetry
+                                                Resume
+                                             Case vbIgnore
+                                                Resume Next
+                                          End Select
    
-                                 End Sub
-                                         */
+                                       End Sub
+                                               */
         }
 
 
