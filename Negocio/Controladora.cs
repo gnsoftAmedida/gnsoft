@@ -42,7 +42,7 @@ namespace Negocio
             {
                 cadena2 = cadena2 + "0";
             }
-            
+
             cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena))) + cadena;
             return cadena2;
         }
@@ -75,25 +75,17 @@ namespace Negocio
             String Oficina = "";
             String WInciso = "";
             String Segundo = "0";
-            String Tercero;
+            String Tercero = "";
             String Control;
             String Busqueda;
             String Mensaje = "";
             Double Parcial = 0;
+            String MesAno;
 
             Presupuesto = TxtMes + "/" + TxtAño;
             NombreArchivo = "NoHayCodigos";
             Parcial = 0;
 
-            /* 
-   
-            
-              Nombre As String
-              MesAño As String
-           
-              
-             'Unidad = CboUnidad.Text
-                      */
 
             /*  '****************************************************************************
               'Comentado porque ahora va el nuevo formato que va despues de este comentario
@@ -173,7 +165,7 @@ namespace Negocio
                 NombreArchivo = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 6, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "568.MTS";
                 WInciso = "13";
                 Oficina = "01";
-                ; //} else if ( Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "123" ) ; //Salud Publica"
+              //} else if ( Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "123" ) ; //Salud Publica"
             }
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "29")  //ASSE MODIFICADO
             {
@@ -220,7 +212,6 @@ namespace Negocio
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "96" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "10")  //UTU FORMATO CSV
             //Modificado 29/10/2010 según instrucciones de UTU
             {
-
                 NombreArchivo = "Cacfsmef_276.csv";
                 Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
                 WInciso = "96";
@@ -229,8 +220,8 @@ namespace Negocio
             }
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "96" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "02")  // CODICEN
             {
-                ; //Modificado 19/05/2010 según instrucciones del codicen
-                ; //NombreArchivo = "Codicen.csv" Cambio en nombre de archivo
+                //Modificado 19/05/2010 según instrucciones del codicen
+                //NombreArchivo = "Codicen.csv" Cambio en nombre de archivo
                 NombreArchivo = "Cacfsmef_739.csv";
                 Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
                 WInciso = "96";
@@ -239,14 +230,14 @@ namespace Negocio
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "96" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // CONSEJO EDUC. PRIMARIA
             {
                 NombreArchivo = "CEP.txt";
-                ; //Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario"
+                //Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario"
                 WInciso = "96";
                 Oficina = "01";
             }
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "20" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "02")  // INTENDENCIA DE CANELONES
             {
                 NombreArchivo = "IMC" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + ".TXT";
-                ; //Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario"
+                //Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario"
                 WInciso = "20";
                 Oficina = "02";
             }
@@ -276,6 +267,7 @@ namespace Negocio
                 Oficina = "06";
                 WInciso = "04";
             }
+
             Control = WInciso + Oficina;
 
             if (Oficina != "99")
@@ -342,9 +334,8 @@ namespace Negocio
                 return mensaje;
             }
 
-
             //NOMBRE DE ARCHIVO Y APERTURA SACARLOS LUEGO.
-            if (Microsoft.VisualBasic.Strings.Right(unidad + "Nuevo.txt", 1) != @"\")
+            if (Microsoft.VisualBasic.Strings.Right(unidad, 1) != @"\")
             {
                 unidad = unidad + @"\";
             }
@@ -354,7 +345,6 @@ namespace Negocio
             // este if luego ponerlo en el lugar que esta ahora impositiva. NUEVA MODALIDAD A  PARTIR DE MARZO DE 2007
             if (Control == "0505") //DGI
             {
-
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
                     //Corregido
@@ -363,7 +353,7 @@ namespace Negocio
                     string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
                     Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
                     Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
-                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());                    
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
                     String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter.ToString("###,##0"), 8) + "00";
 
@@ -371,6 +361,8 @@ namespace Negocio
                 }
             }
 
+            sw.Flush();
+            sw.Dispose();
 
             sw = new StreamWriter(unidad + NombreArchivo, true);
 
@@ -388,13 +380,12 @@ namespace Negocio
                     Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
                     Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
                     Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
-                    
+
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
                     String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + this.Padeo(resultadoInter.ToString("###,##0"), 6) + "000000";
 
                     sw.WriteLine(r);
                 }
-
 
                 //contaduria,Direccion General de Comercio, Registro Civil
             }
@@ -410,10 +401,10 @@ namespace Negocio
                     double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
                     double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
                     double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
-                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;                    
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
                     String r = Primero + this.Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("###,##0"), 5) + "00";
-                    sw.WriteLine(r);                   
-                }                
+                    sw.WriteLine(r);
+                }
             }
 
             else if (Control == "0505")
@@ -438,269 +429,537 @@ namespace Negocio
                     CantidadGente = CantidadGente + 1;
 
                     sw.WriteLine(r);
-                   
-                }                
+                }
+            }
+            else if (Control == "0507")
+            { // Aduanas
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    //Corregido
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + "," + Microsoft.VisualBasic.Strings.Trim(nombres) + Microsoft.VisualBasic.Strings.Space(60);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 30);
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Padeo(numeroCobro, 5) + "0000000000" + nombreApellido + Padeo((resultadoInter.ToString("###,##0")), 7) + "00" + "0" + Microsoft.VisualBasic.Strings.Trim(cedula);
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            //AGREGADO PARA RETENCIONES DE ENERO DE 2014
+            //MINISTERIO DE GANADERIA, AGRICULTURA Y PESCA
+            else if (Control == "0701")
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    //Corregido
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Primero + Padeo(numeroCobro, 15) + Padeo(resultadoInter.ToString("###,##0"), 6) + "000000";
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Oficina == "99") //BPS
+            {
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(nombres) + " " + Microsoft.VisualBasic.Strings.Trim(apellidos);
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Primero + Segundo + PadeoBlancos(Microsoft.VisualBasic.Conversion.Val(cedula).ToString(), 16) + Tercero + Padeo(resultadoInter.ToString("###,##0"), 8) + PadeoBlancos(nombreApellido, 50) + PadeoBlancos(numeroPrestamo, 10);
+
+                    sw.WriteLine(r);
+
+                    Total = Total + resultadoInter;
+                    CantidadGente = CantidadGente + 1;
+                }
+            }
+
+            else if (Control == "1301") //MTSS
+            {
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + " " + Microsoft.VisualBasic.Strings.Trim(nombres);
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    Primero = PadeoBlancos(numeroCobro, 5);
+                    Segundo = cedula;
+                    Tercero = "  ";
+
+                    String r = Primero + Segundo + Tercero + PadeoBlancos(nombreApellido, 30) + PadeoBlancos(resultadoInter.ToString("###,##0"), 7) + "00";
+
+                    sw.WriteLine(r);
+                }
+            }
+
+             //elseIf Control = "1201" Then // MSP
+            else if (Control == "2901") //MSP
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    //###,##0
+
+                    String r = Primero + Segundo + Tercero + PadeoBlancos(numeroCobro, 8) + PadeoBlancos(resultadoInter.ToString("###,##0"), 10) + "00" + PadeoBlancos(numeroPrestamo, 8) + Microsoft.VisualBasic.Strings.Space(12) + Microsoft.VisualBasic.Strings.Space(5) + "C";
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "1001") //Control = "1001" Then MTOP
+            {
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    //If RsHistoria!Oficina <> "03" Then
+                    Primero = numeroCobro;
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + "," + Microsoft.VisualBasic.Strings.Trim(nombres) + Microsoft.VisualBasic.Strings.Space(60);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 30);
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Padeo(Primero, 6) + Segundo + Tercero + nombreApellido + Padeo(resultadoInter.ToString("###,##0"), 7) + "00" + Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7) + "-" + Microsoft.VisualBasic.Strings.Mid(cedula, 8, 1);
+
+                    sw.WriteLine(r);
+
+                    //End If
+                }
+            }
+
+            else if (Control == "9797") // Empleados DGSS
+            {
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Primero = numeroCobro;
+                    Segundo = cedula;
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + "," + Microsoft.VisualBasic.Strings.Trim(nombres) + Microsoft.VisualBasic.Strings.Space(60);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 30);
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Padeo(Primero, 5) + Padeo(Segundo, 10) + nombreApellido + Padeo(resultadoInter.ToString("###,##0"), 7) + "00";
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "0508") // LOTERIAS
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Primero + Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("###,##0"), 5) + "00";
+
+                    sw.WriteLine(r);
+                }
+            }
+            else if (Control == "9604") // SECUNDARIA
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Microsoft.VisualBasic.Strings.Chr(34) + "V" + Microsoft.VisualBasic.Strings.Chr(34) + ",0000739," + cedula + "," + Microsoft.VisualBasic.Strings.Chr(34) + Microsoft.VisualBasic.Strings.Mid(apellidos, 1, 1) + Microsoft.VisualBasic.Strings.Chr(34) + "," + Padeo(resultadoInter.ToString("###,##0"), 6) + ".00,";
+
+                    sw.WriteLine(r);
+                }
+            }
+            else if (Control == "9603") // UTU
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String r = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7) + Padeo(resultadoInter.ToString("###,##0"), 8) + "00" + "2764";
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "9610") // UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
+            {
+                sw.WriteLine(Primero);
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    //,11698947,,739,0000005000, IACOVAZZO IZMENDI M
+                    //Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    //###,##0
+
+                    //'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
+                    String r = "," + cedula + ",,276," + Padeo(resultadoInter.ToString("###,##0"), 8) + "00," + apellidos;
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "9602") // CODICEN
+            {
+                sw.WriteLine(Primero);
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    //,11698947,,739,0000005000, IACOVAZZO IZMENDI M
+                    //Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    //###,##0
+
+                    //Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
+                    String r = "," + cedula + ",,739," + Padeo(resultadoInter.ToString("###,##0"), 8) + "00," + apellidos;
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    //###,##0
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + " " + Microsoft.VisualBasic.Strings.Trim(nombres) + Microsoft.VisualBasic.Strings.Space(60);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 25);
+
+
+                    Primero = Padeo(departamento, 2);
+                    Segundo = Padeo(numeroCobro, 5);
+
+                    String r = Primero + Segundo + nombreApellido + Padeo(resultadoInter.ToString("###,##0"), 5) + "00" + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 4, 2) + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 7);
+
+                    sw.WriteLine(r);
+                }
+            }
+            else if (Control == "2002") // INTENDENCIA DE CANELONES
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(nombres) + " " + Microsoft.VisualBasic.Strings.Trim(apellidos);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 40);
+                    nombreApellido = PadeoBlancos(nombreApellido, 40);
+                    MesAno = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
+                    MesAno = Padeo(MesAno, 6);
+                    Primero = Padeo(cedula, 8);
+                    String r = Primero + nombreApellido + Padeo(resultadoInter.ToString("###,##0"), 6) + "00" + MesAno;
+
+                    sw.WriteLine(r);
+                }
+            }
+            else if (Control == "2609") // FACULTAD DE ODONTOLOGIA
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    //###,##0
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(nombres) + " " + Microsoft.VisualBasic.Strings.Trim(apellidos) + Microsoft.VisualBasic.Strings.Space(60);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 24);
+                    nombreApellido = PadeoBlancos(nombreApellido, 24);
+                    MesAno = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
+                    MesAno = Padeo(MesAno, 6);
+                    Primero = observaciones;
+
+                    String r = Primero + Padeo(numeroCobro, 6) + Padeo(resultadoInter.ToString("###,##0"), 6) + "00" + "         " + nombreApellido + Padeo(cedula, 8);
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "2615") //  HOSPITAL DE CLINICAS
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(nombres) + " " + Microsoft.VisualBasic.Strings.Trim(apellidos) + Microsoft.VisualBasic.Strings.Space(60);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 24);
+                    nombreApellido = PadeoBlancos(nombreApellido, 24);
+                    MesAno = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
+                    MesAno = Padeo(MesAno, 6);
+                    Primero = observaciones;
+
+                    String r = Primero + Padeo(numeroCobro, 6) + Padeo(resultadoInter.ToString("###,##0"), 6) + "00" + "         " + nombreApellido + Padeo(cedula, 8);
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "3001") // ANTEL
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    MesAno = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2);
+                    MesAno = Padeo(MesAno, 2);
+
+                    String r = MesAno + Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 7) + "B20" + Padeo(resultadoInter.ToString("###,##0"), 8) + "00";
+
+                    sw.WriteLine(r);
+                }
+            }
+
+            else if (Control == "0406") // JEFATURA DE POLICIA DE CANELONES
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    String r = Primero + Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("###,##0"), 6) + "00" + "0000";
+
+                    sw.WriteLine(r);
+                }
             }
 
             sw.Flush();
             sw.Dispose();
-            return "Interfaces generadas correctamente";
-          
-            //sacar esta línea para seguir
 
 
 
-            /*
-                                           ElseIf Control = "0507" Then 'Aduanas
-                                               RsHistoria.MoveFirst
-                                               While Not RsHistoria.EOF
-                                                   Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
-                                                   Nombre = Mid(Nombre, 1, 30)
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Print #Canal, Padeo(RsHistoria!numerocobro, 5) & "0000000000" & Nombre & Padeo((Parcial), 7) & "00" & "0" & Trim(RsHistoria!cedula)
-                                                   RsHistoria.MoveNext
+            if (Control == "0505") // 'totales DGI
+            {
+                //Open "A:\CONTROL.TXT" For Output As #Canal       
+                sw = new StreamWriter(unidad + "CONTROL.TXT", true);
+                String r = "T02" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + "0000000" + Padeo(CantidadGente.ToString(), 3) + Padeo(Total.ToString(), 10) + "00";
+                sw.WriteLine(r);
+                sw.Flush();
+                sw.Dispose();
+            }
+            else if (Oficina == "99") //totales BPS
+            {
+                sw = new StreamWriter(unidad + "Tot685" + Primero + ".dat", true);
+                String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString(), 10);
+                sw.WriteLine(r);
+                sw.Flush();
+                sw.Dispose();
+            }
 
-                                               Wend
-        
-                                          ' AGREGADO PARA RETENCIONES DE ENERO DE 2014
-                                           'MINISTERIO DE GANADERIA, AGRICULTURA Y PESCA
-                                           ElseIf Control = "0701" Then
-                                             RsHistoria.MoveFirst
-                                             While Not RsHistoria.EOF
-                                                Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 15) & Padeo(Parcial, 6) & "000000"
-                                                RsHistoria.MoveNext
-                                             Wend
-      
-                                           ElseIf Oficina = "99" Then 'BPS
-                                               RsHistoria.MoveFirst
-                                               While Not RsHistoria.EOF
-                                                   Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos)
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Print #Canal, Primero & Segundo & PadeoBlancos(Val(RsHistoria!cedula), 16) & _
-                                                   Tercero & Padeo(Parcial, 8) & PadeoBlancos(Nombre, 50) & _
-                                                   PadeoBlancos(RsHistoria!numeroprestamo, 10)
-                                                   Total = Total + Parcial
-                                                   CantidadGente = CantidadGente + 1
-                                                   RsHistoria.MoveNext
-                                               Wend
-                                           ElseIf Control = "1301" Then ' MTSS
-                                               RsHistoria.MoveFirst
-                                               While Not RsHistoria.EOF
-                                                   Nombre = Trim(RsHistoria!apellidos) & " " & Trim(RsHistoria!Nombres)
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Primero = PadeoBlancos(RsHistoria!numerocobro, 5)
-                                                   Segundo = RsHistoria!cedula
-                                                   Tercero = "  "
-                                                   Print #Canal, Primero & Segundo & Tercero & PadeoBlancos(Nombre, 30) & PadeoBlancos(Parcial, 7) & "00"
-                                                   RsHistoria.MoveNext
-                                               Wend
-
-                                             'ElseIf Control = "1201" Then ' MSP
-                                             ElseIf Control = "2901" Then ' MSP
-                                                RsHistoria.MoveFirst
-                                                While Not RsHistoria.EOF
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Print #Canal, Primero & Segundo & Tercero & PadeoBlancos(RsHistoria!numerocobro, 8) & PadeoBlancos(Parcial, 10) & "00" & _
-                                                   PadeoBlancos(RsHistoria!numeroprestamo, 8) & Space(12) & Space(5) & "C"
-                                                   RsHistoria.MoveNext
-                                                Wend
-         
-                                             ElseIf Control = "1001" Then 'Control = "1001" Then 'MTOP
-                                               RsHistoria.MoveFirst
-                                               While Not RsHistoria.EOF
-                                                   'If RsHistoria!Oficina <> "03" Then
-                                                       Primero = RsHistoria!numerocobro
-                                                       Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
-                                                       Nombre = Mid(Nombre, 1, 30)
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       Print #Canal, Padeo(Primero, 6) & Segundo & Tercero & Nombre & Padeo((Parcial), 7) & "00" & Mid(RsHistoria!cedula, 1, 7) & "-" & Mid(RsHistoria!cedula, 8, 1)
-                
-                                                   'End If
-                                                   RsHistoria.MoveNext
-                                               Wend
-                                             ElseIf Control = "9797" Then ' Empleados DGSS
-                                                RsHistoria.MoveFirst
-                                                While Not RsHistoria.EOF
-                                                   Primero = RsHistoria!numerocobro
-                                                   Segundo = RsHistoria!cedula
-                                                   Nombre = Trim(RsHistoria!apellidos) & "," & Trim(RsHistoria!Nombres) & Space(60)
-                                                   Nombre = Mid(Nombre, 1, 30)
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Print #Canal, Padeo(Primero, 5) & Padeo(Segundo, 10) & Nombre & Padeo(Parcial, 7) & "00"
-                                                   RsHistoria.MoveNext
-                                                Wend
-                                             ElseIf Control = "0508" Then ' LOTERIAS
-                                                RsHistoria.MoveFirst
-                                                While Not RsHistoria.EOF
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 4) & Padeo(Parcial, 5) & "00"
-                                                   RsHistoria.MoveNext
-                                                Wend
-                                             ElseIf Control = "9604" Then ' SECUNDARIA
-                                                RsHistoria.MoveFirst
-                                                While Not RsHistoria.EOF
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Print #Canal, Chr(34) & "V" & Chr(34) & ",0000739," & RsHistoria!cedula & "," & Chr(34) & _
-                                                   Mid(RsHistoria!apellidos, 1, 1) & Chr(34) & "," & Padeo(Parcial, 6) & ".00,"
-                                                   RsHistoria.MoveNext
-                                                Wend
-                                             ElseIf Control = "9603" Then 'UTU
-                                                RsHistoria.MoveFirst
-                                                While Not RsHistoria.EOF
-                                                   Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                   Print #Canal, Mid(Presupuesto, 4) & Mid(Presupuesto, 1, 2) & Mid(RsHistoria!cedula, 1, 7) & _
-                                                   Padeo(Parcial, 8) & "00" & "2764"
-                                                   RsHistoria.MoveNext
-                                                Wend
-                                            ElseIf Control = "9610" Then ' UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
-                                                   RsHistoria.MoveFirst
-                                                   Print #Canal, Primero
-                                                   While Not RsHistoria.EOF
-                                                   ',11698947,,739,0000005000, IACOVAZZO IZMENDI M
-                                                   'Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
-                                                       Print #Canal, "," & RsHistoria!cedula & ",,276," & Padeo(Parcial, 8) & "00," & RsHistoria!apellidos
-                                                       RsHistoria.MoveNext
-                                                   Wend
-
-                                            ElseIf Control = "9602" Then ' CODICEN
-                                                   RsHistoria.MoveFirst
-                                                   Print #Canal, Primero
-                                                   While Not RsHistoria.EOF
-                                                   ',11698947,,739,0000005000, IACOVAZZO IZMENDI M
-                                                   'Modificado 19/05/2010 segun instrucciones del Codicen - Cambio de registro
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
-                                                       Print #Canal, "," & RsHistoria!cedula & ",,739," & Padeo(Parcial, 8) & "00," & RsHistoria!apellidos
-                                                       RsHistoria.MoveNext
-                                                   Wend
-                                             ElseIf Control = "9601" Then  ' CONSEJO EDUCACION PRIMARIA
-                                                   RsHistoria.MoveFirst
-                                                   While Not RsHistoria.EOF
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       Nombre = Trim(RsHistoria!apellidos) & " " & Trim(RsHistoria!Nombres) & Space(60)
-                                                       Nombre = Mid(Nombre, 1, 25)
-                                                       Primero = Padeo(RsHistoria!departamento, 2)
-                                                       Segundo = Padeo(RsHistoria!numerocobro, 5)
-                                                       Print #Canal, Primero & Segundo & Nombre & Padeo(Parcial, 5) & "00" & Mid(RsHistoria!ingreso, 4, 2) & _
-                                                       Mid(RsHistoria!ingreso, 7)
-                                                       RsHistoria.MoveNext
-                                                   Wend
-                                                ElseIf Control = "2002" Then  ' INTENDENCIA DE CANELONES
-                                                   RsHistoria.MoveFirst
-                                                   While Not RsHistoria.EOF
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos)
-                                                       Nombre = Mid(Nombre, 1, 40)
-                                                       Nombre = PadeoBlancos(Nombre, 40)
-                                                       MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
-                                                       MesAño = Padeo(MesAño, 6)
-                                                       Primero = Padeo(RsHistoria!cedula, 8)
-                                                       Print #Canal, Primero & Nombre & Padeo(Parcial, 6) & "00" & MesAño
-                                                       RsHistoria.MoveNext
-                                                   Wend
-                                                ElseIf Control = "2609" Then  ' FACULTAD DE ODONTOLOGIA
-                                                   While Not RsHistoria.EOF
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos) & Space(60)
-                                                       Nombre = Mid(Nombre, 1, 24)
-                                                       Nombre = PadeoBlancos(Nombre, 24)
-                                                       MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
-                                                       MesAño = Padeo(MesAño, 6)
-                                                       Primero = RsHistoria!observaciones
-                                                       Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 6) & Padeo(Parcial, 6) & "00" & "         " & Nombre & Padeo(RsHistoria!cedula, 8)
-                
-                                                       RsHistoria.MoveNext
-        
-                                                   Wend
-                                                ElseIf Control = "2615" Then  ' HOSPITAL DE CLINICAS
-                                                   While Not RsHistoria.EOF
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       Nombre = Trim(RsHistoria!Nombres) & " " & Trim(RsHistoria!apellidos) & Space(60)
-                                                       Nombre = Mid(Nombre, 1, 24)
-                                                       Nombre = PadeoBlancos(Nombre, 24)
-                                                       MesAño = Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4)
-                                                       MesAño = Padeo(MesAño, 6)
-                                                       Primero = RsHistoria!observaciones
-                                                       Print #Canal, Primero & Padeo(RsHistoria!numerocobro, 6) & Padeo(Parcial, 6) & "00" & "         " & Nombre & Padeo(RsHistoria!cedula, 8)
-                
-                                                       RsHistoria.MoveNext
-        
-                                                   Wend
-
-                                                ElseIf Control = "3001" Then  ' ANTEL
-                                                   While Not RsHistoria.EOF
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       MesAño = Mid(Presupuesto, 1, 2)
-                                                       MesAño = Padeo(MesAño, 2)
-                                                       Print #Canal, MesAño & Padeo(Mid(RsHistoria!cedula, 1, 7), 7) & "B20" & Padeo(Parcial, 8) & "00"
-                
-                                                       RsHistoria.MoveNext
-        
-                                                   Wend
-
-                                                ElseIf Control = "0406" Then  ' JEFATURA DE POLICIA DE CANELONES
-                                                   While Not RsHistoria.EOF
-                                                       Parcial = Format(RsHistoria!ImporteCuota + RsHistoria!aportecapital + RsHistoria!Excedido + RsHistoria!Mora + RsHistoria!IvaMora, "###,##0")
-                                                       Print #Canal, Primero & Padeo(Mid(RsHistoria!cedula, 1, 7), 15) & Padeo(Parcial, 6) & "00" & "0000"
-                                                       RsHistoria.MoveNext
-
-                                                   Wend
-
-                                             End If
-  
-                                          Close #Canal
-   
-                                          If Control = "0505" Then 'totales DGI
-      
-                                             'Open "A:\CONTROL.TXT" For Output As #Canal
-                                             Open Unidad & "CONTROL.TXT" For Output As #Canal
-                                             Print #Canal, "T02" & Mid(Presupuesto, 1, 2) & Mid(Presupuesto, 4) & _
-                                             "0000000" & Padeo(CantidadGente, 3) & Padeo(Total, 10) & "00"
-                                             Close #Canal
-                                          ElseIf Oficina = "99" Then 'totales BPS
-                                             Open Unidad & "Tot685" & Primero & ".dat" For Output As #Canal
-                                             Print #Canal, Primero & "0006685" & Padeo(CantidadGente, 7) & Padeo(Total, 10)
-                                             Close #Canal
-                                          End If
-      
-                                          Set RsHistoria = Nothing
-                                          Set RsSocios = Nothing
-                                          Set RsIncisos = Nothing
-                                          Set RsOficinas = Nothing
-                                          If NombreArchivo = "NoHayCodigos" Then
-                                             MsgBox "Ha seleccionado una Oficina" & Chr(13) _
-                                             & "que no tiene retención por disco", vbOKOnly + vbInformation, Me.Caption
-                                          End If
-                                          MsgBox "Disco Finalizado.", vbOKOnly + vbInformation, "Inciso:" & WInciso & " Oficina:" & Oficina
-                                          Exit Sub
-   
-                                       escribo_error:
-
-
-    
-                                          Set RsHistoria = Nothing
-                                          Set RsSocios = Nothing
-                                          Set RsIncisos = Nothing
-                                          Set RsOficinas = Nothing
-                                          Close #Canal
-                                          Dim Contesta As Integer
-                                          Screen.MousePointer = 0
-                                          Contesta = Manejo_Error(Err.Number)
-   
-                                          Select Case Contesta
-                                             Case vbAbort
-                                                Exit Sub
-                                             Case vbRetry
-                                                Resume
-                                             Case vbIgnore
-                                                Resume Next
-                                          End Select
-   
-                                       End Sub
-                                               */
+            if (NombreArchivo == "NoHayCodigos")
+            {
+                return "Ha seleccionado una Oficina que no tiene retención por disco";
+            }
+            else
+            {
+                return "Interfaces generadas correctamente";
+            }   
         }
 
 
