@@ -2933,6 +2933,34 @@ Agregar emisión
             frmGeneracionDiscosRetenciones tmpfrmGeneracionDiscosRetenciones = new frmGeneracionDiscosRetenciones();
             tmpfrmGeneracionDiscosRetenciones.ShowDialog();
         }
+
+        private void sociosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            DataSet sociosResultado = empresa.devolverSociosActivosEdad();
+            
+            String fechaActual = DateTime.Today.ToShortDateString();
+
+            for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+            {
+                string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                DateTime fechaNacimiento = Convert.ToDateTime(sociosResultado.Tables["socios"].Rows[n][5].ToString());
+                string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                int edad = this.EdadPersona(fechaNacimiento);
+
+                estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, edad, Inciso, oficina, numerocobro);
+            }
+
+            frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS_EDAD");
+            reporte.ShowDialog();
+            estadoSocios.Clear();
+        }
     }
 }
 

@@ -44,9 +44,26 @@ namespace COOPMEF
                 cmbUnidades.Items.Add(d);
             }
 
-            cmbAnios.SelectedIndex = 0;
-            cmbMeses.SelectedIndex = 0;
-            cmbUnidades.SelectedIndex = 0;
+            int anio = 2018;
+            int posAnio = 38;
+            int anioActual = DateTime.Today.Year;
+
+            posAnio = anioActual - anio + posAnio;
+
+            try
+            {
+                cmbAnios.SelectedIndex = posAnio;
+                cmbMeses.SelectedIndex = DateTime.Today.Month - 1;
+            }
+            catch
+            {
+                MessageBox.Show("Verifique que la fecha de su ordenador sea correcta");
+            }
+
+            if (cmbUnidades.Items.Count > 0)
+            {
+                cmbUnidades.SelectedIndex = 0;
+            }
         }
 
         private void cmbUnidades_SelectedIndexChanged(object sender, EventArgs e)
@@ -104,14 +121,44 @@ namespace COOPMEF
             string mes = cmbMeses.Text;
             string anio = cmbAnios.Text;
 
-            try
+            if (inciso != "")
             {
-                string unidad = treeView1.SelectedNode.Text;
-                MessageBox.Show(empresa.generarInterfaces(inciso, oficina, mes, anio, unidad));
+                if (oficina != "")
+                {
+                    Boolean unidadBien = false;
+                    string unidad = "";
+
+                    try
+                    {
+                        unidad = treeView1.SelectedNode.Text;
+                        unidadBien = true;
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Debe seleccionar una unidad de destino para generar la interface");
+                    }
+
+
+                    try
+                    {
+                        if (unidadBien)
+                        {
+                            MessageBox.Show(empresa.generarInterfaces(inciso, oficina, mes, anio, unidad));
+                        }
+                    }
+                    catch
+                    {
+                        MessageBox.Show("Error al generar las interfaces. Verifique los permisos de acceso a " + unidad);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("El inciso no tiene oficinas cargadas");
+                }
             }
-            catch
+            else
             {
-                MessageBox.Show("Debe seleccionar una unidad de destino para generar la interface");
+                MessageBox.Show("No tiene incisos cargadas");
             }
         }
     }

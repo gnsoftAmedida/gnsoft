@@ -165,7 +165,7 @@ namespace Negocio
                 NombreArchivo = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 6, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "568.MTS";
                 WInciso = "13";
                 Oficina = "01";
-              //} else if ( Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "123" ) ; //Salud Publica"
+                //} else if ( Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "123" ) ; //Salud Publica"
             }
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "29")  //ASSE MODIFICADO
             {
@@ -932,8 +932,6 @@ namespace Negocio
             sw.Flush();
             sw.Dispose();
 
-
-
             if (Control == "0505") // 'totales DGI
             {
                 //Open "A:\CONTROL.TXT" For Output As #Canal       
@@ -959,7 +957,7 @@ namespace Negocio
             else
             {
                 return "Interfaces generadas correctamente";
-            }   
+            }
         }
 
 
@@ -1387,6 +1385,13 @@ namespace Negocio
         {
             Socio tmpSocio = new Socio();
             DataSet socios = tmpSocio.devolverSociosSegunEstado(estado);
+            return socios;
+        }
+
+        public DataSet devolverSociosActivosEdad()
+        {
+            Socio tmpSocio = new Socio();
+            DataSet socios = tmpSocio.devolverSociosActivosEdad();
             return socios;
         }
 

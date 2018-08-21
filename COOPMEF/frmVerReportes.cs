@@ -139,8 +139,16 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpSocioDepartamento;
               
-            } 
+            }
+            if (tipo.Equals("SOCIOS_ACTIVOS_EDAD"))
+            {
+                COOPMEF.Reportes.socioEdad tmpSocioEdad = new COOPMEF.Reportes.socioEdad();
 
+                tmpSocioEdad.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpSocioEdad;
+              
+            } 
             if (tipo.Equals("SOCIOS_INGRESADOS_EN"))
             {
                 COOPMEF.Reportes.socioDepartamento tmpSocioDepartamento = new COOPMEF.Reportes.socioDepartamento();

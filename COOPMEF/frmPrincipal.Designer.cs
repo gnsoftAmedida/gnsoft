@@ -48,12 +48,12 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem12 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
+            this.discoParaRetencionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -277,7 +277,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.discoParaRetencionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -433,7 +433,6 @@
             this.reportesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem11,
-            this.toolStripMenuItem12,
             this.toolStripMenuItem13,
             this.toolStripMenuItem14,
             this.toolStripMenuItem15,
@@ -448,12 +447,6 @@
             this.toolStripMenuItem11.Name = "toolStripMenuItem11";
             resources.ApplyResources(this.toolStripMenuItem11, "toolStripMenuItem11");
             this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
-            // 
-            // toolStripMenuItem12
-            // 
-            this.toolStripMenuItem12.Name = "toolStripMenuItem12";
-            resources.ApplyResources(this.toolStripMenuItem12, "toolStripMenuItem12");
-            this.toolStripMenuItem12.Click += new System.EventHandler(this.toolStripMenuItem12_Click);
             // 
             // toolStripMenuItem13
             // 
@@ -485,6 +478,12 @@
             this.toolStripMenuItem18.Name = "toolStripMenuItem18";
             resources.ApplyResources(this.toolStripMenuItem18, "toolStripMenuItem18");
             this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
+            // 
+            // discoParaRetencionesToolStripMenuItem
+            // 
+            this.discoParaRetencionesToolStripMenuItem.Name = "discoParaRetencionesToolStripMenuItem";
+            resources.ApplyResources(this.discoParaRetencionesToolStripMenuItem, "discoParaRetencionesToolStripMenuItem");
+            this.discoParaRetencionesToolStripMenuItem.Click += new System.EventHandler(this.discoParaRetencionesToolStripMenuItem_Click);
             // 
             // bancoToolStripMenuItem
             // 
@@ -559,7 +558,8 @@
             this.dadosDeBajaEnToolStripMenuItem,
             this.padrónToolStripMenuItem1,
             this.cumpleañosToolStripMenuItem,
-            this.sociosPorDepartamentoToolStripMenuItem});
+            this.sociosPorDepartamentoToolStripMenuItem,
+            this.sociosToolStripMenuItem});
             this.reportesToolStripMenuItem1.Name = "reportesToolStripMenuItem1";
             resources.ApplyResources(this.reportesToolStripMenuItem1, "reportesToolStripMenuItem1");
             // 
@@ -2046,11 +2046,11 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // discoParaRetencionesToolStripMenuItem
+            // sociosToolStripMenuItem
             // 
-            this.discoParaRetencionesToolStripMenuItem.Name = "discoParaRetencionesToolStripMenuItem";
-            resources.ApplyResources(this.discoParaRetencionesToolStripMenuItem, "discoParaRetencionesToolStripMenuItem");
-            this.discoParaRetencionesToolStripMenuItem.Click += new System.EventHandler(this.discoParaRetencionesToolStripMenuItem_Click);
+            this.sociosToolStripMenuItem.Name = "sociosToolStripMenuItem";
+            resources.ApplyResources(this.sociosToolStripMenuItem, "sociosToolStripMenuItem");
+            this.sociosToolStripMenuItem.Click += new System.EventHandler(this.sociosToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -2182,7 +2182,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAgenda;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem12;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
@@ -2361,6 +2360,7 @@
         private System.Windows.Forms.ToolStripMenuItem cumpleañosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sociosPorDepartamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discoParaRetencionesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sociosToolStripMenuItem;
     }
 }
 

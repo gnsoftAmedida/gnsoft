@@ -224,6 +224,13 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet devolverSociosActivosEdad() // 1 = activo 0 = historico o baja
+        {
+            pSocio tmpSocio = new pSocio();
+            DataSet socios = tmpSocio.devolverSociosActivosEdad();
+            return socios;
+        }
+        
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();

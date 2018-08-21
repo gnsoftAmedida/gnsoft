@@ -54,11 +54,14 @@ namespace COOPMEF
 
                     ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaNac, baja, telefono, mesNombre, mesNombre, Inciso, oficina, numerocobro);
                 }
+                frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_CUMPLE");
+                reporte.ShowDialog();
+                ingresadosEn.SociosIngresadosEn.Rows.Clear();
             }
-
-            frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_CUMPLE");
-            reporte.ShowDialog();
-            ingresadosEn.SociosIngresadosEn.Rows.Clear();
+            else
+            {
+                MessageBox.Show("No hay socios cuyo cumpleaños sea en " + mesNombre);
+            }
         }
     }
 }
