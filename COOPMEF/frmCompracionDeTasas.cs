@@ -20,5 +20,10 @@ namespace COOPMEF
         {
             this.Close();
         }
+
+        private void btnCalcularComparacion_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

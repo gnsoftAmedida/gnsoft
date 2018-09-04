@@ -29,21 +29,21 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.txtMonto = new System.Windows.Forms.TextBox();
-            this.txtTasa = new System.Windows.Forms.TextBox();
-            this.txtTotalAPagar = new System.Windows.Forms.TextBox();
-            this.txtMontoCuota = new System.Windows.Forms.TextBox();
-            this.txtCantCuotas = new System.Windows.Forms.TextBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.txtCantCuotas = new System.Windows.Forms.TextBox();
+            this.txtMontoCuota = new System.Windows.Forms.TextBox();
+            this.txtTotalAPagar = new System.Windows.Forms.TextBox();
+            this.txtTasa = new System.Windows.Forms.TextBox();
+            this.txtMonto = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.txtTasaCoop = new System.Windows.Forms.TextBox();
-            this.txtTasaCoop2 = new System.Windows.Forms.TextBox();
-            this.txtTotalAPagarCoop = new System.Windows.Forms.TextBox();
             this.txtMontoCuotaCoop = new System.Windows.Forms.TextBox();
+            this.txtTotalAPagarCoop = new System.Windows.Forms.TextBox();
+            this.txtTasaCoop2 = new System.Windows.Forms.TextBox();
+            this.txtTasaCoop = new System.Windows.Forms.TextBox();
             this.btnSalirComparacion = new System.Windows.Forms.Button();
             this.btnCalcularComparacion = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
@@ -62,92 +62,104 @@
             this.groupBox1.Controls.Add(this.txtTotalAPagar);
             this.groupBox1.Controls.Add(this.txtTasa);
             this.groupBox1.Controls.Add(this.txtMonto);
-            this.groupBox1.Location = new System.Drawing.Point(12, 24);
+            this.groupBox1.Location = new System.Drawing.Point(9, 20);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(302, 197);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(226, 160);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Mercado";
             // 
-            // txtMonto
+            // label5
             // 
-            this.txtMonto.Location = new System.Drawing.Point(199, 47);
-            this.txtMonto.Name = "txtMonto";
-            this.txtMonto.Size = new System.Drawing.Size(84, 22);
-            this.txtMonto.TabIndex = 0;
-            // 
-            // txtTasa
-            // 
-            this.txtTasa.Location = new System.Drawing.Point(199, 159);
-            this.txtTasa.Name = "txtTasa";
-            this.txtTasa.Size = new System.Drawing.Size(84, 22);
-            this.txtTasa.TabIndex = 1;
-            // 
-            // txtTotalAPagar
-            // 
-            this.txtTotalAPagar.Location = new System.Drawing.Point(199, 131);
-            this.txtTotalAPagar.Name = "txtTotalAPagar";
-            this.txtTotalAPagar.Size = new System.Drawing.Size(84, 22);
-            this.txtTotalAPagar.TabIndex = 2;
-            // 
-            // txtMontoCuota
-            // 
-            this.txtMontoCuota.Location = new System.Drawing.Point(199, 103);
-            this.txtMontoCuota.Name = "txtMontoCuota";
-            this.txtMontoCuota.Size = new System.Drawing.Size(84, 22);
-            this.txtMontoCuota.TabIndex = 3;
-            // 
-            // txtCantCuotas
-            // 
-            this.txtCantCuotas.Location = new System.Drawing.Point(199, 75);
-            this.txtCantCuotas.Name = "txtCantCuotas";
-            this.txtCantCuotas.Size = new System.Drawing.Size(84, 22);
-            this.txtCantCuotas.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 47);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(145, 17);
-            this.label1.TabIndex = 5;
-            this.label1.Text = "Monto del préstamo $";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(48, 159);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 17);
-            this.label2.TabIndex = 6;
-            this.label2.Text = "Tasa efectiva anual %";
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 131);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(105, 17);
-            this.label3.TabIndex = 7;
-            this.label3.Text = "Total a pagar $";
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 61);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(99, 13);
+            this.label5.TabIndex = 9;
+            this.label5.Text = "Cantidad de cuotas";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(48, 103);
+            this.label4.Location = new System.Drawing.Point(36, 84);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(133, 17);
+            this.label4.Size = new System.Drawing.Size(102, 13);
             this.label4.TabIndex = 8;
             this.label4.Text = "Monto de la cuota $";
             // 
-            // label5
+            // label3
             // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(48, 75);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(130, 17);
-            this.label5.TabIndex = 9;
-            this.label5.Text = "Cantidad de cuotas";
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(36, 106);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(79, 13);
+            this.label3.TabIndex = 7;
+            this.label3.Text = "Total a pagar $";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(36, 129);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(112, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "Tasa efectiva anual %";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(36, 38);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(109, 13);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "Monto del préstamo $";
+            // 
+            // txtCantCuotas
+            // 
+            this.txtCantCuotas.Location = new System.Drawing.Point(149, 61);
+            this.txtCantCuotas.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCantCuotas.Name = "txtCantCuotas";
+            this.txtCantCuotas.Size = new System.Drawing.Size(64, 20);
+            this.txtCantCuotas.TabIndex = 4;
+            // 
+            // txtMontoCuota
+            // 
+            this.txtMontoCuota.Location = new System.Drawing.Point(149, 84);
+            this.txtMontoCuota.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMontoCuota.Name = "txtMontoCuota";
+            this.txtMontoCuota.Size = new System.Drawing.Size(64, 20);
+            this.txtMontoCuota.TabIndex = 3;
+            // 
+            // txtTotalAPagar
+            // 
+            this.txtTotalAPagar.Location = new System.Drawing.Point(149, 106);
+            this.txtTotalAPagar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTotalAPagar.Name = "txtTotalAPagar";
+            this.txtTotalAPagar.Size = new System.Drawing.Size(64, 20);
+            this.txtTotalAPagar.TabIndex = 2;
+            // 
+            // txtTasa
+            // 
+            this.txtTasa.Location = new System.Drawing.Point(149, 129);
+            this.txtTasa.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTasa.Name = "txtTasa";
+            this.txtTasa.Size = new System.Drawing.Size(64, 20);
+            this.txtTasa.TabIndex = 1;
+            // 
+            // txtMonto
+            // 
+            this.txtMonto.Location = new System.Drawing.Point(149, 38);
+            this.txtMonto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMonto.Name = "txtMonto";
+            this.txtMonto.Size = new System.Drawing.Size(64, 20);
+            this.txtMonto.TabIndex = 0;
             // 
             // groupBox2
             // 
@@ -155,50 +167,55 @@
             this.groupBox2.Controls.Add(this.txtTotalAPagarCoop);
             this.groupBox2.Controls.Add(this.txtTasaCoop2);
             this.groupBox2.Controls.Add(this.txtTasaCoop);
-            this.groupBox2.Location = new System.Drawing.Point(320, 86);
+            this.groupBox2.Location = new System.Drawing.Point(240, 70);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(176, 135);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(132, 110);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cooperativa";
             // 
-            // txtTasaCoop
+            // txtMontoCuotaCoop
             // 
-            this.txtTasaCoop.Location = new System.Drawing.Point(10, 97);
-            this.txtTasaCoop.Name = "txtTasaCoop";
-            this.txtTasaCoop.Size = new System.Drawing.Size(61, 22);
-            this.txtTasaCoop.TabIndex = 2;
-            // 
-            // txtTasaCoop2
-            // 
-            this.txtTasaCoop2.Location = new System.Drawing.Point(77, 97);
-            this.txtTasaCoop2.Name = "txtTasaCoop2";
-            this.txtTasaCoop2.Size = new System.Drawing.Size(40, 22);
-            this.txtTasaCoop2.TabIndex = 3;
+            this.txtMontoCuotaCoop.Location = new System.Drawing.Point(8, 33);
+            this.txtMontoCuotaCoop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMontoCuotaCoop.Name = "txtMontoCuotaCoop";
+            this.txtMontoCuotaCoop.Size = new System.Drawing.Size(81, 20);
+            this.txtMontoCuotaCoop.TabIndex = 5;
             // 
             // txtTotalAPagarCoop
             // 
-            this.txtTotalAPagarCoop.Location = new System.Drawing.Point(10, 69);
+            this.txtTotalAPagarCoop.Location = new System.Drawing.Point(8, 56);
+            this.txtTotalAPagarCoop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTotalAPagarCoop.Name = "txtTotalAPagarCoop";
-            this.txtTotalAPagarCoop.Size = new System.Drawing.Size(107, 22);
+            this.txtTotalAPagarCoop.Size = new System.Drawing.Size(81, 20);
             this.txtTotalAPagarCoop.TabIndex = 4;
             // 
-            // txtMontoCuotaCoop
+            // txtTasaCoop2
             // 
-            this.txtMontoCuotaCoop.Location = new System.Drawing.Point(10, 41);
-            this.txtMontoCuotaCoop.Name = "txtMontoCuotaCoop";
-            this.txtMontoCuotaCoop.Size = new System.Drawing.Size(107, 22);
-            this.txtMontoCuotaCoop.TabIndex = 5;
+            this.txtTasaCoop2.Location = new System.Drawing.Point(58, 79);
+            this.txtTasaCoop2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTasaCoop2.Name = "txtTasaCoop2";
+            this.txtTasaCoop2.Size = new System.Drawing.Size(31, 20);
+            this.txtTasaCoop2.TabIndex = 3;
+            // 
+            // txtTasaCoop
+            // 
+            this.txtTasaCoop.Location = new System.Drawing.Point(8, 79);
+            this.txtTasaCoop.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTasaCoop.Name = "txtTasaCoop";
+            this.txtTasaCoop.Size = new System.Drawing.Size(47, 20);
+            this.txtTasaCoop.TabIndex = 2;
             // 
             // btnSalirComparacion
             // 
             this.btnSalirComparacion.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out1;
             this.btnSalirComparacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirComparacion.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirComparacion.Location = new System.Drawing.Point(397, 239);
-            this.btnSalirComparacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalirComparacion.Location = new System.Drawing.Point(298, 194);
             this.btnSalirComparacion.Name = "btnSalirComparacion";
-            this.btnSalirComparacion.Size = new System.Drawing.Size(98, 39);
+            this.btnSalirComparacion.Size = new System.Drawing.Size(74, 32);
             this.btnSalirComparacion.TabIndex = 23;
             this.btnSalirComparacion.Text = "    Salir";
             this.btnSalirComparacion.UseVisualStyleBackColor = true;
@@ -210,23 +227,24 @@
             this.btnCalcularComparacion.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
             this.btnCalcularComparacion.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCalcularComparacion.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCalcularComparacion.Location = new System.Drawing.Point(320, 40);
-            this.btnCalcularComparacion.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCalcularComparacion.Location = new System.Drawing.Point(240, 32);
             this.btnCalcularComparacion.Name = "btnCalcularComparacion";
-            this.btnCalcularComparacion.Size = new System.Drawing.Size(175, 39);
+            this.btnCalcularComparacion.Size = new System.Drawing.Size(131, 32);
             this.btnCalcularComparacion.TabIndex = 24;
             this.btnCalcularComparacion.Text = "    Calcular";
             this.btnCalcularComparacion.UseVisualStyleBackColor = true;
+            this.btnCalcularComparacion.Click += new System.EventHandler(this.btnCalcularComparacion_Click);
             // 
             // frmCompracionDeTasas
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(508, 305);
+            this.ClientSize = new System.Drawing.Size(381, 248);
             this.Controls.Add(this.btnCalcularComparacion);
             this.Controls.Add(this.btnSalirComparacion);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmCompracionDeTasas";
             this.Text = "Comparación de tasas";
             this.groupBox1.ResumeLayout(false);
