@@ -355,7 +355,16 @@ namespace Negocio
                     Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
                     Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
-                    String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter.ToString("###,##0"), 8) + "00";
+
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    // Agregado por si ponen un nro de cobro mayor a 6
+                    if (numeroCobro.Length > 6)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 6, 6);
+                    }
+
+                    String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter.ToString("#####0"), 8) + "00";
 
                     sw.WriteLine(r);
                 }
@@ -402,7 +411,16 @@ namespace Negocio
                     double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
                     double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
-                    String r = Primero + this.Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("###,##0"), 5) + "00";
+
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    // Agregado por si ponen un nro de cobro mayor a 4
+                    if (numeroCobro.Length > 4)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 4, 4);
+                    }
+
+                    String r = Primero + this.Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("#####0"), 5) + "00";
                     sw.WriteLine(r);
                 }
             }
@@ -423,7 +441,16 @@ namespace Negocio
                     Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
-                    String r = Primero + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Segundo + Padeo(numeroCobro, 5) + cedula + Padeo(resultadoInter.ToString("###,##0"), 7) + "00";
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    // Agregado por si ponen un nro de cobro mayor a 5
+                    if (numeroCobro.Length > 5)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 5, 5);
+                    }
+
+                    String r = Primero + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Segundo + Padeo(numeroCobro, 5) + cedula + Padeo(resultadoInter.ToString("#####0"), 7) + "00";
 
                     Total = Total + Convert.ToDouble(resultadoInter);
                     CantidadGente = CantidadGente + 1;
@@ -454,7 +481,7 @@ namespace Negocio
 
                     numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
 
-                       // Agregado por si ponen un nro de cobro mayor a 4
+                    // Agregado por si ponen un nro de cobro mayor a 4
                     if (numeroCobro.Length > 5)
                     {
                         numeroCobro = numeroCobro.Substring(numeroCobro.Length - 5, 5);
@@ -509,7 +536,9 @@ namespace Negocio
 
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
-                    String r = Primero + Segundo + PadeoBlancos(Microsoft.VisualBasic.Conversion.Val(cedula).ToString(), 16) + Tercero + Padeo(resultadoInter.ToString("###,##0"), 8) + PadeoBlancos(nombreApellido, 50) + PadeoBlancos(numeroPrestamo, 10);
+                    cedula = cedula.Replace(".", "").Replace(",", "");
+
+                    String r = Primero + Segundo + PadeoBlancos(Microsoft.VisualBasic.Conversion.Val(cedula).ToString(), 16) + Tercero + Padeo(resultadoInter.ToString("#####0"), 8) + PadeoBlancos(nombreApellido.ToUpper(), 50) + PadeoBlancos(numeroPrestamo, 10);
 
                     sw.WriteLine(r);
 
@@ -656,9 +685,9 @@ namespace Negocio
                     String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
 
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
-                  
+
                     numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
-                    
+
                     // Agregado por si ponen un nro de cobro mayor a 4
                     if (numeroCobro.Length > 4)
                     {
@@ -796,11 +825,21 @@ namespace Negocio
                     String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + " " + Microsoft.VisualBasic.Strings.Trim(nombres) + Microsoft.VisualBasic.Strings.Space(60);
                     nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 25);
 
+                    //Corroborar que los número de departamento sean iguales a los de la Coop
 
-                    Primero = Padeo(departamento, 2);
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    if (numeroCobro.Length > 5)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 5, 5);
+                    }
+
+                    string nroDepto = codigoDepartamento(departamento);
+
+                    Primero = Padeo(nroDepto, 2);
                     Segundo = Padeo(numeroCobro, 5);
 
-                    String r = Primero + Segundo + nombreApellido + Padeo(resultadoInter.ToString("###,##0"), 5) + "00" + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 4, 2) + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 7);
+                    String r = Primero + Segundo + nombreApellido.ToUpper() + Padeo(resultadoInter.ToString("#####0"), 5) + "00" + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 4, 2) + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 7,4);
 
                     sw.WriteLine(r);
                 }
@@ -828,8 +867,8 @@ namespace Negocio
                     nombreApellido = PadeoBlancos(nombreApellido, 40);
                     MesAno = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
                     MesAno = Padeo(MesAno, 6);
-                    Primero = Padeo(cedula, 8);
-                    String r = Primero + nombreApellido + Padeo(resultadoInter.ToString("###,##0"), 6) + "00" + MesAno;
+                    Primero = Padeo(cedula.Replace(".", "").Replace(",", "").Replace("-", ""), 8);
+                    String r = Primero + nombreApellido.ToUpper() + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + MesAno;
 
                     sw.WriteLine(r);
                 }
@@ -960,7 +999,7 @@ namespace Negocio
             {
                 //Open "A:\CONTROL.TXT" For Output As #Canal       
                 sw = new StreamWriter(unidad + "CONTROL.TXT", true);
-                String r = "T02" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + "0000000" + Padeo(CantidadGente.ToString(), 3) + Padeo(Total.ToString(), 10) + "00";
+                String r = "T02" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + "0000000" + Padeo(CantidadGente.ToString(), 3) + Padeo(Total.ToString().Replace(",", "").Replace(".", ""), 10) + "00";
                 sw.WriteLine(r);
                 sw.Flush();
                 sw.Dispose();
@@ -968,7 +1007,7 @@ namespace Negocio
             else if (Oficina == "99") //totales BPS
             {
                 sw = new StreamWriter(unidad + "Tot685" + Primero + ".dat", true);
-                String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString(), 10);
+                String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString().Replace(",","").Replace(".",""), 10);
                 sw.WriteLine(r);
                 sw.Flush();
                 sw.Dispose();
@@ -984,6 +1023,56 @@ namespace Negocio
             }
         }
 
+        private string codigoDepartamento(String nombre)
+        {
+
+            String caseSwitch = nombre;
+
+            switch (caseSwitch)
+            {
+                case "Montevideo":
+                    return "01";
+                case "Colonia":
+                    return "02";
+                case "Cerro Largo":
+                    return "03";
+                case "Artigas":
+                    return "04";
+                case "Canelones":
+                    return "05";
+                case "Florida":
+                    return "06";
+                case "Paysandú":
+                    return "07";
+                case "Río Negro":
+                    return "08";
+                case "Rivera":
+                    return "09";
+                case "Rocha":
+                    return "10";
+                case "Salto":
+                    return "11";
+                case "San José":
+                    return "12";
+                case "Soriano":
+                    return "13";
+                case "Tacuarembó":
+                    return "14";
+                case "Flores":
+                    return "15";
+                case "Lavalleja":
+                    return "16";
+                case "Maldonado":
+                    return "17";
+                case "Treinta y Tres":
+                    return "18";
+                case "Durazno":
+                    return "19";
+
+                default:
+                    return "00";
+            }
+        }
 
         public string validoCedula(string cedula)
         {
