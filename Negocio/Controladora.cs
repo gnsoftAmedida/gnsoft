@@ -149,8 +149,8 @@ namespace Negocio
                 NombreArchivo = "MGAP" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
                 Oficina = "01";
                 WInciso = "07";
-
             }
+
             else if (Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "99")  //Jubilados
             {
                 Primero = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2);
@@ -391,7 +391,10 @@ namespace Negocio
                     Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
 
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
-                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + this.Padeo(resultadoInter.ToString("###,##0"), 6) + "000000";
+                    
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + this.Padeo(resultadoInter.ToString("#####0"), 6) + "000000";
 
                     sw.WriteLine(r);
                 }
@@ -510,7 +513,9 @@ namespace Negocio
 
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
-                    String r = Primero + Padeo(numeroCobro, 15) + Padeo(resultadoInter.ToString("###,##0"), 6) + "000000";
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    String r = Primero + Padeo(numeroCobro, 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "000000";
 
                     sw.WriteLine(r);
                 }
