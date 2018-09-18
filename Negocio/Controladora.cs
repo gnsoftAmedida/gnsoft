@@ -67,15 +67,16 @@ namespace Negocio
             return cadena2;
         }
 
-        private void generarInterfacesExcel(String unidad, String nombreArchivo, DataSet resultado, String inciso, String oficina) {
+        private void generarInterfacesExcel(String unidad, String nombreArchivo, DataSet resultado, String inciso, String oficina)
+        {
             Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
 
-         /*   if (xlApp == null)
-            {
-                MessageBox.Show("¡Excel no está instalado correctamente!");
-                regreso;
-            }
-            */
+            /*   if (xlApp == null)
+               {
+                   MessageBox.Show("¡Excel no está instalado correctamente!");
+                   regreso;
+               }
+               */
 
             Excel.Workbook xlWorkBook;
             Excel.Worksheet xlWorkSheet;
@@ -103,7 +104,7 @@ namespace Negocio
                 string apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
 
                 Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
-            
+
                 xlWorkSheet.Cells[n + 5, 1] = cedula;
                 xlWorkSheet.Cells[n + 5, 3] = apellidos;
                 xlWorkSheet.Cells[n + 5, 5] = nombres;
@@ -146,6 +147,7 @@ namespace Negocio
             String Mensaje = "";
             Double Parcial = 0;
             String MesAno;
+            bool interfacePorDisco = true;
 
             Presupuesto = TxtMes + "/" + TxtAño;
             NombreArchivo = "NoHayCodigos";
@@ -332,6 +334,14 @@ namespace Negocio
                 Oficina = "06";
                 WInciso = "04";
             }
+            else
+            {
+                // Agregado por Nico para contemplar el resto de las oficinas que no tienen interfaces programadas y son solo Excel.
+                Oficina = Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2);
+                WInciso = Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2);
+                NombreArchivo = Oficina + WInciso + "_" + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
+                interfacePorDisco = false;
+            }
 
             Control = WInciso + Oficina;
 
@@ -390,7 +400,6 @@ namespace Negocio
                       "ORDER BY historia.cedula;";
             }
 
-
             DataSet resultado = this.devolverBusquedaInterfaz(Busqueda);
 
             if (resultado.Tables["interfaz"].Rows.Count == 0)
@@ -405,7 +414,14 @@ namespace Negocio
                 unidad = unidad + @"\";
             }
 
-            StreamWriter sw = new StreamWriter(unidad + "Nuevo.txt", true);
+            StreamWriter sw = null;
+
+            if (interfacePorDisco)
+            {
+                sw = new StreamWriter(unidad + NombreArchivo, true);
+            }
+
+
 
             // este if luego ponerlo en el lugar que esta ahora impositiva. NUEVA MODALIDAD A  PARTIR DE MARZO DE 2007
             if (Control == "0505") //DGI
@@ -434,13 +450,8 @@ namespace Negocio
                     sw.WriteLine(r);
                 }
 
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
-
-            sw.Flush();
-            sw.Dispose();
-
-            sw = new StreamWriter(unidad + NombreArchivo, true);
 
             //Open "a:\" & NombreArchivo For Output As #Canal
             //secretaria
@@ -458,14 +469,14 @@ namespace Negocio
                     Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
 
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
-                    
+
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
 
                     String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + this.Padeo(resultadoInter.ToString("#####0"), 6) + "000000";
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
                 //contaduria,Direccion General de Comercio, Registro Civil
             }
             else if (Control == "0502" || Control == "0514" || Control == "1121")
@@ -492,9 +503,10 @@ namespace Negocio
 
                     String r = Primero + this.Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("#####0"), 5) + "00";
                     sw.WriteLine(r);
-                    
+
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "0505")
@@ -529,7 +541,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "0507") //(Verificada)
             { // Aduanas
@@ -564,7 +576,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             //AGREGADO PARA RETENCIONES DE ENERO DE 2014
@@ -590,7 +602,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Oficina == "99") //BPS
@@ -622,7 +634,7 @@ namespace Negocio
                     Total = Total + resultadoInter;
                     CantidadGente = CantidadGente + 1;
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "1301") //MTSS (Verificada)
@@ -653,7 +665,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
              //elseIf Control = "1201" Then // MSP
@@ -679,7 +691,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "1001") //Control = "1001" Then MTOP (Verificada)
@@ -718,7 +730,7 @@ namespace Negocio
 
                     //End If
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9797") // Empleados DGSS (No se encuentra archivo 0887.txt)
@@ -748,7 +760,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "0508") // LOTERIAS (Verificada)
@@ -780,7 +792,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "9604") // SECUNDARIA (Verificada)
             {
@@ -826,7 +838,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9610") // UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
@@ -856,7 +868,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9602") // CODICEN
@@ -886,7 +898,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
@@ -926,11 +938,11 @@ namespace Negocio
                     Primero = Padeo(nroDepto, 2);
                     Segundo = Padeo(numeroCobro, 5);
 
-                    String r = Primero + Segundo + nombreApellido.ToUpper() + Padeo(resultadoInter.ToString("#####0"), 5) + "00" + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 4, 2) + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 7,4);
+                    String r = Primero + Segundo + nombreApellido.ToUpper() + Padeo(resultadoInter.ToString("#####0"), 5) + "00" + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 4, 2) + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 7, 4);
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "2002") // INTENDENCIA DE CANELONES
             {
@@ -960,7 +972,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "2609") // FACULTAD DE ODONTOLOGIA
             {
@@ -993,7 +1005,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "2615") //  HOSPITAL DE CLINICAS
@@ -1027,7 +1039,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "3001") // ANTEL (Verificada)
@@ -1056,7 +1068,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "0406") // JEFATURA DE POLICIA DE CANELONES
@@ -1082,11 +1094,38 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+            }
+            // Agregado por Nico para contemplar el resto de las oficinas que no tienen interfaces programadas y son solo Excel.
+            else
+            {
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                }
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+
             }
 
-            sw.Flush();
-            sw.Dispose();
+            if (interfacePorDisco)
+            {
+                sw.Flush();
+                sw.Dispose();
+            }
 
             if (Control == "0505") // 'totales DGI
             {
@@ -1100,7 +1139,7 @@ namespace Negocio
             else if (Oficina == "99") //totales BPS
             {
                 sw = new StreamWriter(unidad + "Tot685" + Primero + ".dat", true);
-                String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString().Replace(",","").Replace(".",""), 10);
+                String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString().Replace(",", "").Replace(".", ""), 10);
                 sw.WriteLine(r);
                 sw.Flush();
                 sw.Dispose();
