@@ -91,9 +91,9 @@ namespace Negocio
             xlWorkSheet.Cells[3, 1] = "2";
             xlWorkSheet.Cells[3, 2] = "Dos";
 
+            String ruta = unidad + nombreArchivo;
 
-
-            xlWorkBook.SaveAs("d: \\ csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.SaveAs(ruta, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
             xlWorkBook.Close(true, misValue, misValue);
             xlApp.Quit();
 
@@ -462,7 +462,9 @@ namespace Negocio
 
                     String r = Primero + this.Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("#####0"), 5) + "00";
                     sw.WriteLine(r);
+                    
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls");
             }
 
             else if (Control == "0505")
