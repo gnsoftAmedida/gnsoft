@@ -2961,6 +2961,11 @@ Agregar emisión
             reporte.ShowDialog();
             estadoSocios.Clear();
         }
+
+        private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
 

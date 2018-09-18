@@ -258,6 +258,12 @@
     <Compile Include="frmDistribucionDeUtilidades.Designer.cs">
       <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmFacturacion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmFacturacion.Designer.cs">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmGeneracionDiscosRetenciones.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -515,6 +521,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmDistribucionDeUtilidades.resx">
       <DependentUpon>frmDistribucionDeUtilidades.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmFacturacion.resx">
+      <DependentUpon>frmFacturacion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmGeneracionDiscosRetenciones.resx">
       <DependentUpon>frmGeneracionDiscosRetenciones.cs</DependentUpon>

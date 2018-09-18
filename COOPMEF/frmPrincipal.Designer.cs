@@ -74,6 +74,7 @@
             this.históricosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cumpleañosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sociosPorDepartamentoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.usuariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.altaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -277,7 +278,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.sociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -438,7 +439,8 @@
             this.toolStripMenuItem15,
             this.toolStripMenuItem17,
             this.toolStripMenuItem18,
-            this.discoParaRetencionesToolStripMenuItem});
+            this.discoParaRetencionesToolStripMenuItem,
+            this.facturaciónToolStripMenuItem});
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
             this.reportesToolStripMenuItem.Name = "reportesToolStripMenuItem";
             // 
@@ -625,6 +627,12 @@
             this.sociosPorDepartamentoToolStripMenuItem.Name = "sociosPorDepartamentoToolStripMenuItem";
             resources.ApplyResources(this.sociosPorDepartamentoToolStripMenuItem, "sociosPorDepartamentoToolStripMenuItem");
             this.sociosPorDepartamentoToolStripMenuItem.Click += new System.EventHandler(this.sociosPorDepartamentoToolStripMenuItem_Click);
+            // 
+            // sociosToolStripMenuItem
+            // 
+            this.sociosToolStripMenuItem.Name = "sociosToolStripMenuItem";
+            resources.ApplyResources(this.sociosToolStripMenuItem, "sociosToolStripMenuItem");
+            this.sociosToolStripMenuItem.Click += new System.EventHandler(this.sociosToolStripMenuItem_Click);
             // 
             // mToolStripMenuItem
             // 
@@ -2046,11 +2054,11 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // sociosToolStripMenuItem
+            // facturaciónToolStripMenuItem
             // 
-            this.sociosToolStripMenuItem.Name = "sociosToolStripMenuItem";
-            resources.ApplyResources(this.sociosToolStripMenuItem, "sociosToolStripMenuItem");
-            this.sociosToolStripMenuItem.Click += new System.EventHandler(this.sociosToolStripMenuItem_Click);
+            this.facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
+            resources.ApplyResources(this.facturaciónToolStripMenuItem, "facturaciónToolStripMenuItem");
+            this.facturaciónToolStripMenuItem.Click += new System.EventHandler(this.facturaciónToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -2361,6 +2369,7 @@
         private System.Windows.Forms.ToolStripMenuItem sociosPorDepartamentoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem discoParaRetencionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sociosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItem;
     }
 }
 
