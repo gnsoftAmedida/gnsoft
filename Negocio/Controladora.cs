@@ -8,6 +8,8 @@ using Utilidades;
 using System.Globalization;
 using Microsoft.VisualBasic;
 using System.IO;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Runtime.InteropServices;
 
 namespace Negocio
 {
@@ -63,6 +65,41 @@ namespace Negocio
             }
             cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena))) + cadena;
             return cadena2;
+        }
+
+        private void generarInterfacesExcel(String unidad, String nombreArchivo) {
+            Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+         /*   if (xlApp == null)
+            {
+                MessageBox.Show("¡Excel no está instalado correctamente!");
+                regreso;
+            }
+            */
+
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            xlWorkSheet.Cells[1, 1] = "ID";
+            xlWorkSheet.Cells[1, 2] = "Nombre";
+            xlWorkSheet.Cells[2, 1] = "1";
+            xlWorkSheet.Cells[2, 2] = "Uno";
+            xlWorkSheet.Cells[3, 1] = "2";
+            xlWorkSheet.Cells[3, 2] = "Dos";
+
+
+
+            xlWorkBook.SaveAs("d: \\ csharp-Excel.xls", Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            Marshal.ReleaseComObject(xlWorkSheet);
+            Marshal.ReleaseComObject(xlWorkBook);
+            Marshal.ReleaseComObject(xlApp);
         }
 
         public string generarInterfaces(String CboIncisos, String CboOficinas, String TxtMes, String TxtAño, String unidad)
