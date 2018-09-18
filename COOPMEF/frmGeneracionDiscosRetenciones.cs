@@ -138,7 +138,6 @@ namespace COOPMEF
                         MessageBox.Show("Debe seleccionar una unidad de destino para generar la interface");
                     }
 
-
                     try
                     {
                         if (unidadBien)

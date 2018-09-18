@@ -67,7 +67,7 @@ namespace Negocio
             return cadena2;
         }
 
-        private void generarInterfacesExcel(String unidad, String nombreArchivo) {
+        private void generarInterfacesExcel(String unidad, String nombreArchivo, DataSet resultado, String inciso, String oficina) {
             Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
 
          /*   if (xlApp == null)
@@ -84,12 +84,40 @@ namespace Negocio
             xlWorkBook = xlApp.Workbooks.Add(misValue);
             xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
 
-            xlWorkSheet.Cells[1, 1] = "ID";
-            xlWorkSheet.Cells[1, 2] = "Nombre";
-            xlWorkSheet.Cells[2, 1] = "1";
-            xlWorkSheet.Cells[2, 2] = "Uno";
-            xlWorkSheet.Cells[3, 1] = "2";
-            xlWorkSheet.Cells[3, 2] = "Dos";
+            int contador = 0;
+            double total = 0;
+
+            xlWorkSheet.Cells[1, 1] = inciso;
+            xlWorkSheet.Cells[3, 2] = oficina;
+
+            for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+            {
+                string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                string nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                string apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+            
+                xlWorkSheet.Cells[n + 5, 1] = cedula;
+                xlWorkSheet.Cells[n + 5, 3] = apellidos;
+                xlWorkSheet.Cells[n + 5, 5] = nombres;
+                xlWorkSheet.Cells[n + 5, 7] = numeroCobro;
+                xlWorkSheet.Cells[n + 5, 9] = resultadoInter;
+
+                contador++;
+                total = total + resultadoInter;
+            }
+
+            xlWorkSheet.Cells[contador + 7, 1] = "Registros";
+            xlWorkSheet.Cells[contador + 7, 2] = contador;
+            xlWorkSheet.Cells[contador + 7, 8] = "Total";
+            xlWorkSheet.Cells[contador + 7, 9] = total;
 
             String ruta = unidad + nombreArchivo;
 
@@ -405,6 +433,8 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             sw.Flush();
@@ -435,7 +465,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
                 //contaduria,Direccion General de Comercio, Registro Civil
             }
             else if (Control == "0502" || Control == "0514" || Control == "1121")
@@ -464,7 +494,7 @@ namespace Negocio
                     sw.WriteLine(r);
                     
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls");
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "0505")
@@ -499,6 +529,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "0507") //(Verificada)
             { // Aduanas
@@ -533,6 +564,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             //AGREGADO PARA RETENCIONES DE ENERO DE 2014
@@ -558,6 +590,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Oficina == "99") //BPS
@@ -589,6 +622,7 @@ namespace Negocio
                     Total = Total + resultadoInter;
                     CantidadGente = CantidadGente + 1;
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "1301") //MTSS (Verificada)
@@ -619,6 +653,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
              //elseIf Control = "1201" Then // MSP
@@ -644,6 +679,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "1001") //Control = "1001" Then MTOP (Verificada)
@@ -682,6 +718,7 @@ namespace Negocio
 
                     //End If
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9797") // Empleados DGSS (No se encuentra archivo 0887.txt)
@@ -711,6 +748,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "0508") // LOTERIAS (Verificada)
@@ -742,6 +780,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "9604") // SECUNDARIA (Verificada)
             {
@@ -764,6 +803,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "9603") // UTU (Verificada)
             {
@@ -786,6 +826,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9610") // UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
@@ -815,6 +856,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9602") // CODICEN
@@ -844,6 +886,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
@@ -887,6 +930,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "2002") // INTENDENCIA DE CANELONES
             {
@@ -916,6 +960,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
             else if (Control == "2609") // FACULTAD DE ODONTOLOGIA
             {
@@ -948,6 +993,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "2615") //  HOSPITAL DE CLINICAS
@@ -981,6 +1027,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "3001") // ANTEL (Verificada)
@@ -1009,6 +1056,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             else if (Control == "0406") // JEFATURA DE POLICIA DE CANELONES
@@ -1034,6 +1082,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
             sw.Flush();
