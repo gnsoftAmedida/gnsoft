@@ -106,6 +106,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalDataSets\dsFactura.cs">
+      <DependentUpon>dsFactura.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsFactura.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsFactura.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsInterfaces.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -403,6 +412,11 @@
       <DependentUpon>cancelacionPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\facturas.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>facturas.rpt</DependentUpon>
+    </Compile>
     <Compile Include="Reportes\ReporteInterfacesGenerales.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -623,6 +637,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cancelacionPrestamo.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\facturas.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>facturas.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\ReporteInterfacesGenerales.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteInterfacesGenerales.cs</LastGenOutput>
@@ -720,6 +738,17 @@
     </None>
     <None Include="CrystalDataSets\dsExcedidos.xss">
       <DependentUpon>dsExcedidos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsFactura.xsc">
+      <DependentUpon>dsFactura.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsFactura.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsFactura.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsFactura.xss">
+      <DependentUpon>dsFactura.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsInterfaces.xsc">
       <DependentUpon>dsInterfaces.xsd</DependentUpon>

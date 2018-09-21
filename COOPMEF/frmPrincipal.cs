@@ -2965,7 +2965,8 @@ Agregar emisión
 
         private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            frmFacturacion tmpfrmFacturacion = new frmFacturacion();
+            tmpfrmFacturacion.ShowDialog();
         }
     }
 }

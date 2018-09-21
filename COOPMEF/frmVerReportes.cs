@@ -165,6 +165,15 @@ namespace COOPMEF
                 tmpReporteInterfacesGenerales.SetDataSource(DS);
 
                 this.crystalReportViewer1.ReportSource = tmpReporteInterfacesGenerales;              
+            }
+
+            if (tipo.Equals("FACTURAS"))
+            {
+                COOPMEF.Reportes.facturas tmpfacturas = new COOPMEF.Reportes.facturas();
+
+                tmpfacturas.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpfacturas;              
             } 
         }
 

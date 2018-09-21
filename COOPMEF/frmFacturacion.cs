@@ -14,7 +14,7 @@ namespace COOPMEF
     public partial class frmFacturacion : Form
     {
         private Controladora empresa = Controladora.Instance;
-        private dsSociosIngresadosEn ingresadosEn = new dsSociosIngresadosEn();
+        private dsFactura tmpDsFactura = new dsFactura();
 
         public frmFacturacion()
         {
@@ -28,8 +28,21 @@ namespace COOPMEF
 
         private void frmFacturacion_Load(object sender, EventArgs e)
         {
-            this.cmbAnios.SelectedIndex = 0;
-            this.cmbMeses.SelectedIndex = 0;
+            int anio = 2018;
+            int posAnio = 38;
+            int anioActual = DateTime.Today.Year;
+
+            posAnio = anioActual - anio + posAnio;
+
+            try
+            {
+                cmbAnios.SelectedIndex = posAnio;
+                cmbMeses.SelectedIndex = DateTime.Today.Month - 1;
+            }
+            catch
+            {
+                MessageBox.Show("Verifique que la fecha de su ordenador sea correcta");
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -38,35 +51,41 @@ namespace COOPMEF
             string mesNombre = cmbMeses.SelectedItem.ToString(); ;
             string anio = cmbAnios.SelectedItem.ToString();
 
-            string presupuesto = mes + "/" + anio;
+            string presupuesto;
 
-            //Ver si es por mes o por presupuesto
-            DataSet sociosResultado = empresa.facturacion(presupuesto);
-
-            if (sociosResultado.Tables["facturacion"].Rows.Count > 0)
+            if (mes < 10)
             {
-                for (int n = 0; n <= sociosResultado.Tables["facturacion"].Rows.Count - 1; n++)
+                presupuesto = "0" + mes + "/" + anio;
+            }
+            else
+            {
+                presupuesto = mes + "/" + anio;
+            }
+
+            DataSet facturasPresupuesto = empresa.facturacion(presupuesto);
+
+            if (facturasPresupuesto.Tables["facturacion"].Rows.Count > 0)
+            {
+                for (int n = 0; n <= facturasPresupuesto.Tables["facturacion"].Rows.Count - 1; n++)
                 {
+                    string socio_apellido = facturasPresupuesto.Tables["facturacion"].Rows[n][0].ToString();
+                    string socio_nombre = facturasPresupuesto.Tables["facturacion"].Rows[n][1].ToString();
+                    string inciso_codigo = facturasPresupuesto.Tables["facturacion"].Rows[n][2].ToString();
+                    string oficina_codigo = facturasPresupuesto.Tables["facturacion"].Rows[n][3].ToString();
+                    string InteresCuota = facturasPresupuesto.Tables["facturacion"].Rows[n][4].ToString();
+                    string ivaCuota = facturasPresupuesto.Tables["facturacion"].Rows[n][5].ToString();
+                    string mora = facturasPresupuesto.Tables["facturacion"].Rows[n][6].ToString();
+                    string ivaMora = facturasPresupuesto.Tables["facturacion"].Rows[n][7].ToString();
 
-                    string socio_apellido = sociosResultado.Tables["facturacion"].Rows[n][0].ToString();
-                    string socio_nombre = sociosResultado.Tables["facturacion"].Rows[n][1].ToString();
-                    string inciso_codigo = sociosResultado.Tables["facturacion"].Rows[n][2].ToString();
-                    string oficina_codigo = sociosResultado.Tables["facturacion"].Rows[n][3].ToString();
-                    string InteresCuota = sociosResultado.Tables["facturacion"].Rows[n][4].ToString();
-                    string ivaCuota = sociosResultado.Tables["facturacion"].Rows[n][5].ToString();
-                    string mora = sociosResultado.Tables["facturacion"].Rows[n][6].ToString();
-                    string ivaMora = sociosResultado.Tables["facturacion"].Rows[n][7].ToString();
+                    String fecha = DateTime.Today.ToLongDateString();
 
-                    //Ver ejemplos de facturas para ver como cobran los $150 y los renglones.
-
-                   // ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, baja, telefono, mesNombre, anio, Inciso, oficina, numerocobro);
-
+                    tmpDsFactura.factura.Rows.Add(socio_apellido, socio_nombre, inciso_codigo, oficina_codigo, InteresCuota, ivaCuota, mora, ivaMora);
                 }
             }
 
-            frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_BAJA_EN");
+            frmVerReportes reporte = new frmVerReportes(tmpDsFactura, "FACTURAS");
             reporte.ShowDialog();
-            ingresadosEn.SociosIngresadosEn.Rows.Clear();
+            tmpDsFactura.factura.Rows.Clear();
         }
     }
 }

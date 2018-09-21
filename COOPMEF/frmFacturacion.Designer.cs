@@ -210,6 +210,7 @@
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnSalirPrestamo);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "frmFacturacion";
             this.Text = "Facturación";
             this.Load += new System.EventHandler(this.frmFacturacion_Load);
