@@ -1,6 +1,6 @@
 ﻿namespace COOPMEF
 {
-    partial class frmSociosBajaEn
+    partial class frmListadoGeneralRetenciones
     {
         /// <summary>
         /// Required designer variable.
@@ -44,13 +44,14 @@
             this.groupBox1.Controls.Add(this.cmbMeses);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(9, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Location = new System.Drawing.Point(11, 11);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(298, 63);
-            this.groupBox1.TabIndex = 18;
+            this.groupBox1.TabIndex = 24;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Mes y Año del Presupuesto";
             // 
             // cmbAnios
             // 
@@ -128,7 +129,7 @@
             "2048",
             "2049",
             "2050"});
-            this.cmbAnios.Location = new System.Drawing.Point(199, 22);
+            this.cmbAnios.Location = new System.Drawing.Point(197, 22);
             this.cmbAnios.Name = "cmbAnios";
             this.cmbAnios.Size = new System.Drawing.Size(73, 21);
             this.cmbAnios.TabIndex = 58;
@@ -158,7 +159,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(169, 22);
+            this.label2.Location = new System.Drawing.Point(167, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);
@@ -181,10 +182,10 @@
             this.btnBuscar.Image = global::COOPMEF.Properties.Resources._1486108741_Search;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBuscar.Location = new System.Drawing.Point(68, 87);
+            this.btnBuscar.Location = new System.Drawing.Point(70, 88);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 30);
-            this.btnBuscar.TabIndex = 20;
+            this.btnBuscar.TabIndex = 26;
             this.btnBuscar.Text = "Ver";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
@@ -194,26 +195,26 @@
             this.btnSalirPrestamo.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirPrestamo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirPrestamo.Location = new System.Drawing.Point(181, 87);
+            this.btnSalirPrestamo.Location = new System.Drawing.Point(183, 88);
             this.btnSalirPrestamo.Name = "btnSalirPrestamo";
             this.btnSalirPrestamo.Size = new System.Drawing.Size(100, 30);
-            this.btnSalirPrestamo.TabIndex = 19;
+            this.btnSalirPrestamo.TabIndex = 25;
             this.btnSalirPrestamo.Text = "Salir";
             this.btnSalirPrestamo.UseVisualStyleBackColor = true;
             this.btnSalirPrestamo.Click += new System.EventHandler(this.btnSalirPrestamo_Click);
             // 
-            // frmSociosBajaEn
+            // frmListadoGeneralRetenciones
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(325, 134);
+            this.ClientSize = new System.Drawing.Size(323, 134);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnSalirPrestamo);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.Name = "frmSociosBajaEn";
-            this.Text = "frmSociosBajaEn";
-            this.Load += new System.EventHandler(this.frmSociosBajaEn_Load);
+            this.MaximizeBox = false;
+            this.Name = "frmListadoGeneralRetenciones";
+            this.Text = "Listado General de Retenciones";
+            this.Load += new System.EventHandler(this.frmListadoGeneralRetenciones_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

@@ -71,8 +71,21 @@ namespace COOPMEF
 
         private void frmSociosIngresadosEn_Load(object sender, EventArgs e)
         {
-            this.cmbAnios.SelectedIndex = 0;
-            this.cmbMeses.SelectedIndex = 0;
+            int anio = 2018;
+            int posAnio = 38;
+            int anioActual = DateTime.Today.Year;
+
+            posAnio = anioActual - anio + posAnio;
+
+            try
+            {
+                cmbAnios.SelectedIndex = posAnio;
+                cmbMeses.SelectedIndex = DateTime.Today.Month - 1;
+            }
+            catch
+            {
+                MessageBox.Show("Verifique que la fecha de su ordenador sea correcta");
+            }
         }
     }
 }

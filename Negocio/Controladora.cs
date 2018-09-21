@@ -131,7 +131,7 @@ namespace Negocio
             Marshal.ReleaseComObject(xlApp);
         }
 
-        public string generarInterfaces(String CboIncisos, String CboOficinas, String TxtMes, String TxtAño, String unidad)
+        public string generarInterfaces(String CboIncisos, String CboOficinas, String TxtMes, String TxtAño, String unidad, String id_inciso, String id_oficina)
         {
             double Total = 0;
             int CantidadGente = 0;
@@ -359,7 +359,7 @@ namespace Negocio
                         "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
                         "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
                         "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
-                        "AND historia.oficina= '03'" +
+                        "AND historia.oficina= " + "'" + id_oficina + "'" +
                         "ORDER BY historia.cedula;";
                 }
                 else
@@ -370,8 +370,8 @@ namespace Negocio
                         "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
                         "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
                         "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
-                        "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
-                        "AND historia.oficina=" + "'" + Oficina + "'" +
+                        "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + id_inciso + "'" +
+                        "AND historia.oficina=" + "'" + id_oficina + "'" +
                         "ORDER BY historia.cedula;";
                 }
             }
@@ -384,7 +384,7 @@ namespace Negocio
                       "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
                       "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
                       "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
-                      "AND historia.oficina=" + "'" + Oficina + "'" +
+                      "AND historia.oficina=" + "'" + id_oficina + "'" +
                       "ORDER BY historia.cedula;";
             }
 
@@ -396,7 +396,7 @@ namespace Negocio
                       "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
                       "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
                       "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
-                      "AND historia.inciso = " + "'" + WInciso + "'" +
+                      "AND historia.inciso = " + "'" + id_inciso + "'" +
                       "ORDER BY historia.cedula;";
             }
 
@@ -420,7 +420,7 @@ namespace Negocio
             {
                 sw = new StreamWriter(unidad + NombreArchivo, true);
             }
-           
+
             // este if luego ponerlo en el lugar que esta ahora impositiva. NUEVA MODALIDAD A  PARTIR DE MARZO DE 2007
             if (Control == "0505") //DGI
             {
@@ -754,7 +754,7 @@ namespace Negocio
 
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
                     numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
-                  
+
                     Primero = numeroCobro;
                     Segundo = cedula;
 
@@ -884,7 +884,7 @@ namespace Negocio
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
 
                     //'Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
-                 
+
                     String r = "," + cedula + ",,276," + Padeo(resultadoInter.ToString("#####0"), 8) + "00," + apellidos;
 
                     sw.WriteLine(r);
@@ -1026,7 +1026,7 @@ namespace Negocio
 
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
                     numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
-                                    
+
                     if (cedula.Length > 8)
                     {
                         cedula = cedula.Substring(cedula.Length - 8, 8);
@@ -1146,7 +1146,7 @@ namespace Negocio
                     {
                         cedula = cedula.Substring(cedula.Length - 8, 8);
                     }
-           
+
                     String r = Primero + Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + "0000";
 
                     sw.WriteLine(r);
@@ -1536,6 +1536,13 @@ namespace Negocio
         {
             Historia tmpHistoria = new Historia();
             DataSet historias = tmpHistoria.devolverHistoria();
+            return historias;
+        }
+
+        public DataSet devolverInterfacesGeneralesInforme(string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverInterfacesGeneralesInforme(presupuesto);
             return historias;
         }
 

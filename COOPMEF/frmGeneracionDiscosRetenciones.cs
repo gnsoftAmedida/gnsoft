@@ -118,6 +118,10 @@ namespace COOPMEF
         {
             string inciso = cmbInciso.Text;
             string oficina = cmbOficina.Text;
+
+            string id_inciso = cmbInciso.SelectedValue.ToString();
+            string id_oficina = cmbOficina.SelectedValue.ToString();
+
             string mes = cmbMeses.Text;
             string anio = cmbAnios.Text;
 
@@ -142,7 +146,7 @@ namespace COOPMEF
                     {
                         if (unidadBien)
                         {
-                            MessageBox.Show(empresa.generarInterfaces(inciso, oficina, mes, anio, unidad));
+                            MessageBox.Show(empresa.generarInterfaces(inciso, oficina, mes, anio, unidad, id_inciso, id_oficina));
                         }
                     }
                     catch

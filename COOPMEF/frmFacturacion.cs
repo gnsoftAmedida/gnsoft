@@ -43,21 +43,24 @@ namespace COOPMEF
             //Ver si es por mes o por presupuesto
             DataSet sociosResultado = empresa.facturacion(presupuesto);
 
-            if (sociosResultado.Tables["sociosEntreFechas"].Rows.Count > 0)
+            if (sociosResultado.Tables["facturacion"].Rows.Count > 0)
             {
-                for (int n = 0; n <= sociosResultado.Tables["sociosEntreFechas"].Rows.Count - 1; n++)
+                for (int n = 0; n <= sociosResultado.Tables["facturacion"].Rows.Count - 1; n++)
                 {
-                    string socio_apellido = sociosResultado.Tables["sociosEntreFechas"].Rows[n][3].ToString();
-                    string socio_nombre = sociosResultado.Tables["sociosEntreFechas"].Rows[n][2].ToString();
-                    string numerocobro = sociosResultado.Tables["sociosEntreFechas"].Rows[n][4].ToString();
-                    string numeroSocio = sociosResultado.Tables["sociosEntreFechas"].Rows[n][1].ToString();
-                    string fechaIngreso = sociosResultado.Tables["sociosEntreFechas"].Rows[n][6].ToString();
-                    string baja = sociosResultado.Tables["sociosEntreFechas"].Rows[n][22].ToString();
-                    string telefono = sociosResultado.Tables["sociosEntreFechas"].Rows[n][13].ToString();
-                    string oficina = sociosResultado.Tables["sociosEntreFechas"].Rows[n][17].ToString();
-                    string Inciso = sociosResultado.Tables["sociosEntreFechas"].Rows[n][16].ToString();
 
-                    ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, baja, telefono, mesNombre, anio, Inciso, oficina, numerocobro);
+                    string socio_apellido = sociosResultado.Tables["facturacion"].Rows[n][0].ToString();
+                    string socio_nombre = sociosResultado.Tables["facturacion"].Rows[n][1].ToString();
+                    string inciso_codigo = sociosResultado.Tables["facturacion"].Rows[n][2].ToString();
+                    string oficina_codigo = sociosResultado.Tables["facturacion"].Rows[n][3].ToString();
+                    string InteresCuota = sociosResultado.Tables["facturacion"].Rows[n][4].ToString();
+                    string ivaCuota = sociosResultado.Tables["facturacion"].Rows[n][5].ToString();
+                    string mora = sociosResultado.Tables["facturacion"].Rows[n][6].ToString();
+                    string ivaMora = sociosResultado.Tables["facturacion"].Rows[n][7].ToString();
+
+                    //Ver ejemplos de facturas para ver como cobran los $150 y los renglones.
+
+                   // ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, baja, telefono, mesNombre, anio, Inciso, oficina, numerocobro);
+
                 }
             }
 

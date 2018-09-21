@@ -23,7 +23,7 @@ namespace COOPMEF
 
         private void frmCumpleanios_Load(object sender, EventArgs e)
         {
-            this.cmbMeses.SelectedIndex = 0;
+           cmbMeses.SelectedIndex = DateTime.Today.Month - 1;
         }
 
         private void btnSalirPrestamo_Click(object sender, EventArgs e)

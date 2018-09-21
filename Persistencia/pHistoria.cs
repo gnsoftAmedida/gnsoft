@@ -168,6 +168,30 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverInterfacesGeneralesInforme(string presupuesto)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre), historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles FROM oficina o, inciso i, socio INNER JOIN historia on socio.socio_nro=historia.cedula WHERE historia.oficina = o.oficina_id and historia.Inciso = i.inciso_id and historia.presupuesto= '" + presupuesto + "'	ORDER BY historia.cedula";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "interfacesInforme");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public DataSet devolverPresupuestoDelMes(string presupuesto)
         {
             try
@@ -206,7 +230,7 @@ namespace Persistencia
 
                 // apellidos nombres 
 
-                string sql = "SELECT s.socio_apellido, s.socio_nombre, h.numerocobro, h.cantidadcuotas, h.nrocuotas, h.AmortizacionCuota, h.InteresCuota, (h.InteresCuota * (h.porcentajeiva / 100)), h.aportecapital, h.excedido, h.mora, h.ivaMora, (h.excedido + h.mora + h.ivaMora + h.aportecapital), h.AmortizacionVencer, h.InteresVencer, (h.InteresVencer * (h.porcentajeiva / 100)), CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM historia h, oficina o, inciso i, socio s where h.socio_id = s.socio_id and h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.Presupuesto ='" + presupuesto + "' ORDER BY h.Inciso, h.oficina";
+                string sql = "SELECT s.socio_apellido, s.socio_nombre, i.inciso_codigo, o.oficina_codigo, h.InteresCuota, h.IvaCuota, h.mora, h.ivaMora, (h.InteresCuota * (h.porcentajeiva / 100)), (h.excedido + h.mora + h.ivaMora + h.aportecapital) FROM historia h, oficina o, inciso i, socio s where h.socio_id = s.socio_id and h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.Presupuesto ='" + presupuesto + "' ORDER BY h.Inciso, h.oficina";
                 DataSet ds = new DataSet();
 
                 connection.Open();

@@ -85,7 +85,7 @@ namespace Negocio
             DataSet historias = tmpHistoria.devolverBusquedaInterfaz(Busqueda);
             return historias;
         }
-        
+
         public DataSet devolverPresupuestoDelMes(string presupuesto)
         {
             pHistoria tmpHistoria = new pHistoria();
@@ -99,7 +99,7 @@ namespace Negocio
             DataSet historias = tmpHistoria.facturacion(presupuesto);
             return historias;
         }
-         
+
         public DataSet devolverHistoriaPorIdSocio(int idSocio)
         {
             pHistoria tmpHistoria = new pHistoria();
@@ -116,6 +116,12 @@ namespace Negocio
         {
             pHistoria tmpHistoria = new pHistoria();
             return tmpHistoria.devolverHistoria(ci, presupuesto);
+        }
+
+        public DataSet devolverInterfacesGeneralesInforme(string presupuesto)
+        {
+            pHistoria tmpHistoria = new pHistoria();
+            return tmpHistoria.devolverInterfacesGeneralesInforme(presupuesto);
         }
 
         public void eliminar()

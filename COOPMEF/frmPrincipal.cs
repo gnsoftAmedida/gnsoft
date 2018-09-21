@@ -2802,7 +2802,8 @@ Agregar emisión
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+            frmListadoGeneralRetenciones tmpFrmListadoGeneralRetenciones = new frmListadoGeneralRetenciones();
+            tmpFrmListadoGeneralRetenciones.ShowDialog();
         }
 
         private void toolStripMenuItem12_Click(object sender, EventArgs e)
@@ -2937,7 +2938,7 @@ Agregar emisión
         private void sociosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             DataSet sociosResultado = empresa.devolverSociosActivosEdad();
-            
+
             String fechaActual = DateTime.Today.ToShortDateString();
 
             for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)

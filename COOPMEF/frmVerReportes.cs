@@ -157,6 +157,14 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpSocioDepartamento;
               
+            }
+            if (tipo.Equals("INTERFACES_GENERALES"))
+            {
+                COOPMEF.Reportes.ReporteInterfacesGenerales tmpReporteInterfacesGenerales = new COOPMEF.Reportes.ReporteInterfacesGenerales();
+
+                tmpReporteInterfacesGenerales.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteInterfacesGenerales;              
             } 
         }
 
