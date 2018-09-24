@@ -416,6 +416,7 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>facturas.rpt</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\ReporteInterfacesGenerales.cs">
       <AutoGen>True</AutoGen>

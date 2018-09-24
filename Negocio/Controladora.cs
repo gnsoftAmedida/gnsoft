@@ -67,6 +67,50 @@ namespace Negocio
             return cadena2;
         }
 
+        private void generarPrimariaExcel(String unidad, String nombreArchivo, DataSet resultado)
+        {
+            Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
+
+            Excel.Workbook xlWorkBook;
+            Excel.Worksheet xlWorkSheet;
+            object misValue = System.Reflection.Missing.Value;
+
+            xlWorkBook = xlApp.Workbooks.Add(misValue);
+            xlWorkSheet = (Excel.Worksheet)xlWorkBook.Worksheets.get_Item(1);
+
+            for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+            {
+                string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                string nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                string apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                xlWorkSheet.Cells[n + 1, 1] = cedula;
+                xlWorkSheet.Cells[n + 1, 3] = "8381";
+                xlWorkSheet.Cells[n + 1, 4] = resultadoInter.ToString("#####0") + "00";
+                
+            }
+     
+            String ruta = unidad + nombreArchivo;
+
+            xlWorkBook.SaveAs(ruta, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
+            xlWorkBook.Close(true, misValue, misValue);
+            xlApp.Quit();
+
+            Marshal.ReleaseComObject(xlWorkSheet);
+            Marshal.ReleaseComObject(xlWorkBook);
+            Marshal.ReleaseComObject(xlApp);
+        }
+
         private void generarInterfacesExcel(String unidad, String nombreArchivo, DataSet resultado, String inciso, String oficina)
         {
             Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
@@ -926,6 +970,11 @@ namespace Negocio
 
             else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
             {
+
+                StreamWriter swPrimaria = new StreamWriter(unidad + "primaria.txt", true);
+                string linea1 = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
+                swPrimaria.WriteLine(linea1);
+
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
                     String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
@@ -950,6 +999,7 @@ namespace Negocio
                     //Corroborar que los número de departamento sean iguales a los de la Coop
 
                     numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
 
                     if (numeroCobro.Length > 5)
                     {
@@ -963,9 +1013,15 @@ namespace Negocio
 
                     String r = Primero + Segundo + nombreApellido.ToUpper() + Padeo(resultadoInter.ToString("#####0"), 5) + "00" + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 4, 2) + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 7, 4);
 
+                    String archivoDos = "," + cedula + ",,8381," + Padeo(resultadoInter.ToString("#####0"), 8)   + "00" + ",,,,,";
+
+                    swPrimaria.WriteLine(archivoDos);
                     sw.WriteLine(r);
+
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarPrimariaExcel(unidad, "MODeloF NO ENVIAR.xls", resultado);
+                swPrimaria.Flush();
+                swPrimaria.Dispose();
             }
             else if (Control == "2002") // INTENDENCIA DE CANELONES
             {
@@ -1214,48 +1270,47 @@ namespace Negocio
 
         private string codigoDepartamento(String nombre)
         {
-
             String caseSwitch = nombre;
 
             switch (caseSwitch)
             {
-                case "Montevideo":
+                case "Artigas":
                     return "01";
-                case "Colonia":
+                case "Canelones":
                     return "02";
                 case "Cerro Largo":
                     return "03";
-                case "Artigas":
+                case "Colonia":
                     return "04";
-                case "Canelones":
-                    return "05";
-                case "Florida":
-                    return "06";
-                case "Paysandú":
-                    return "07";
-                case "Río Negro":
-                    return "08";
-                case "Rivera":
-                    return "09";
-                case "Rocha":
-                    return "10";
-                case "Salto":
-                    return "11";
-                case "San José":
-                    return "12";
-                case "Soriano":
-                    return "13";
-                case "Tacuarembó":
-                    return "14";
-                case "Flores":
-                    return "15";
-                case "Lavalleja":
-                    return "16";
-                case "Maldonado":
-                    return "17";
-                case "Treinta y Tres":
-                    return "18";
                 case "Durazno":
+                    return "05";
+                case "Flores":
+                    return "06";
+                case "Florida":
+                    return "07";
+                case "Lavalleja":
+                    return "08";
+                case "Maldonado":
+                    return "09";
+                case "Montevideo":
+                    return "10";
+                case "Paysandú":
+                    return "11";
+                case "Río Negro":
+                    return "12";
+                case "Rivera":
+                    return "13";
+                case "Rocha":
+                    return "14";
+                case "Salto":
+                    return "15";
+                case "San José":
+                    return "16";
+                case "Soriano":
+                    return "17";
+                case "Tacuarembó":
+                    return "18";
+                case "Treinta y Tres":
                     return "19";
 
                 default:
