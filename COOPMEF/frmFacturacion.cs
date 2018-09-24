@@ -87,8 +87,8 @@ namespace COOPMEF
                         Double subtotal_1 = Convert.ToDouble(InteresCuota) + Convert.ToDouble(mora);
                         Double subtotal_2 = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
                         Double total = subtotal_1 + subtotal_2;
-                        String iva1;
-                        String iva2;
+                        String iva1="";
+                        String iva2="";
                         String fecha = DateTime.Today.ToShortDateString();
 
                         if (InteresCuota == "0")
@@ -108,7 +108,8 @@ namespace COOPMEF
                         else
                         {
                             ivaCuota = Convert.ToDouble(ivaCuota).ToString("##########.00");
-                            iva1 = "22";
+                            iva1 = ((Convert.ToDouble(ivaCuota) * 100) / Convert.ToDouble(InteresCuota)).ToString("##########.00"); ;
+                                
                         }
 
                         if (mora == "0")
@@ -128,7 +129,7 @@ namespace COOPMEF
                         else
                         {
                             ivaMora = Convert.ToDouble(ivaMora).ToString("##########.00");
-                            iva2 = "22";
+                            iva2 = ((Convert.ToDouble(ivaMora) * 100) / Convert.ToDouble(mora)).ToString("##########.00"); ;                           
                         }
 
                         String subtotal_1_string;
