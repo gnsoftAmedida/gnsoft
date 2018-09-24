@@ -77,9 +77,96 @@ namespace COOPMEF
                     string mora = facturasPresupuesto.Tables["facturacion"].Rows[n][6].ToString();
                     string ivaMora = facturasPresupuesto.Tables["facturacion"].Rows[n][7].ToString();
 
-                    String fecha = DateTime.Today.ToLongDateString();
 
-                    tmpDsFactura.factura.Rows.Add(socio_apellido, socio_nombre, inciso_codigo, oficina_codigo, InteresCuota, ivaCuota, mora, ivaMora);
+                    Double descartoCeros = Convert.ToDouble(InteresCuota) + Convert.ToDouble(ivaCuota) + Convert.ToDouble(mora) + Convert.ToDouble(ivaMora);
+
+                    if (!(descartoCeros == 0))
+                    {
+                        string nombre_apellido_inciso_oficina = socio_apellido + "," + socio_nombre + "(" + inciso_codigo + "/" + oficina_codigo + ")";
+
+                        Double subtotal_1 = Convert.ToDouble(InteresCuota) + Convert.ToDouble(mora);
+                        Double subtotal_2 = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
+                        Double total = subtotal_1 + subtotal_2;
+                        String iva1;
+                        String iva2;
+                        String fecha = DateTime.Today.ToShortDateString();
+
+                        if (InteresCuota == "0")
+                        {
+                            InteresCuota = "00,0";
+                        }
+                        else
+                        {
+                            InteresCuota = Convert.ToDouble(InteresCuota).ToString("##########.00");
+                        }
+
+                        if (ivaCuota == "0")
+                        {
+                            ivaCuota = "00,0";
+                            iva1 = "0";
+                        }
+                        else
+                        {
+                            ivaCuota = Convert.ToDouble(ivaCuota).ToString("##########.00");
+                            iva1 = "22";
+                        }
+
+                        if (mora == "0")
+                        {
+                            mora = "00,0";
+                        }
+                        else
+                        {
+                            mora = Convert.ToDouble(mora).ToString("##########.00");
+                        }
+
+                        if (ivaMora == "0")
+                        {
+                            ivaMora = "00,0";
+                            iva2 = "0";
+                        }
+                        else
+                        {
+                            ivaMora = Convert.ToDouble(ivaMora).ToString("##########.00");
+                            iva2 = "22";
+                        }
+
+                        String subtotal_1_string;
+                       
+                        if (subtotal_1 == 0)
+                        {
+                            subtotal_1_string = "0,00";
+                           
+                        }
+                        else {
+                            subtotal_1_string = subtotal_1.ToString("##########.00");
+                           
+                        }
+
+                        String subtotal_2_string;
+                       
+                        if (subtotal_2 == 0)
+                        {
+                            subtotal_2_string = "0,00";
+                          
+                        }
+                        else
+                        {
+                            subtotal_2_string = subtotal_2.ToString("##########.00");                         
+                        }
+
+                        String total_string;
+                        if (total == 0)
+                        {
+                            total_string = "0,00";
+                        }
+                        else
+                        {
+                            total_string = total.ToString("##########.00");
+                        }
+
+                        tmpDsFactura.factura.Rows.Add(nombre_apellido_inciso_oficina, InteresCuota, ivaCuota, mora, ivaMora, fecha, subtotal_1_string, subtotal_2_string, total_string, iva1, iva2);
+                    }
                 }
             }
 

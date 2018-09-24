@@ -279,13 +279,7 @@ namespace COOPMEF.CrystalDataSets {
         [global::System.Xml.Serialization.XmlSchemaProviderAttribute("GetTypedTableSchema")]
         public partial class facturaDataTable : global::System.Data.TypedTableBase<facturaRow> {
             
-            private global::System.Data.DataColumn columnsocio_apellido;
-            
-            private global::System.Data.DataColumn columnsocio_nombre;
-            
-            private global::System.Data.DataColumn columninciso_codigo;
-            
-            private global::System.Data.DataColumn columnoficina_codigo;
+            private global::System.Data.DataColumn columnnombre_apellido_inciso_oficina;
             
             private global::System.Data.DataColumn columnInteresCuota;
             
@@ -296,6 +290,16 @@ namespace COOPMEF.CrystalDataSets {
             private global::System.Data.DataColumn columnivaMora;
             
             private global::System.Data.DataColumn columnfecha;
+            
+            private global::System.Data.DataColumn columnsubtotal_1;
+            
+            private global::System.Data.DataColumn columnsubtotal_2;
+            
+            private global::System.Data.DataColumn columntotal;
+            
+            private global::System.Data.DataColumn columniva1;
+            
+            private global::System.Data.DataColumn columniva2;
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
@@ -332,33 +336,9 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn socio_apellidoColumn {
+            public global::System.Data.DataColumn nombre_apellido_inciso_oficinaColumn {
                 get {
-                    return this.columnsocio_apellido;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn socio_nombreColumn {
-                get {
-                    return this.columnsocio_nombre;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn inciso_codigoColumn {
-                get {
-                    return this.columninciso_codigo;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public global::System.Data.DataColumn oficina_codigoColumn {
-                get {
-                    return this.columnoficina_codigo;
+                    return this.columnnombre_apellido_inciso_oficina;
                 }
             }
             
@@ -404,6 +384,46 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn subtotal_1Column {
+                get {
+                    return this.columnsubtotal_1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn subtotal_2Column {
+                get {
+                    return this.columnsubtotal_2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn totalColumn {
+                get {
+                    return this.columntotal;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn iva1Column {
+                get {
+                    return this.columniva1;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn iva2Column {
+                get {
+                    return this.columniva2;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -439,18 +459,20 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public facturaRow AddfacturaRow(string socio_apellido, string socio_nombre, string inciso_codigo, string oficina_codigo, string InteresCuota, string ivaCuota, string mora, string ivaMora, string fecha) {
+            public facturaRow AddfacturaRow(string nombre_apellido_inciso_oficina, string InteresCuota, string ivaCuota, string mora, string ivaMora, string fecha, string subtotal_1, string subtotal_2, string total, string iva1, string iva2) {
                 facturaRow rowfacturaRow = ((facturaRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
-                        socio_apellido,
-                        socio_nombre,
-                        inciso_codigo,
-                        oficina_codigo,
+                        nombre_apellido_inciso_oficina,
                         InteresCuota,
                         ivaCuota,
                         mora,
                         ivaMora,
-                        fecha};
+                        fecha,
+                        subtotal_1,
+                        subtotal_2,
+                        total,
+                        iva1,
+                        iva2};
                 rowfacturaRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowfacturaRow);
                 return rowfacturaRow;
@@ -473,28 +495,24 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             internal void InitVars() {
-                this.columnsocio_apellido = base.Columns["socio_apellido"];
-                this.columnsocio_nombre = base.Columns["socio_nombre"];
-                this.columninciso_codigo = base.Columns["inciso_codigo"];
-                this.columnoficina_codigo = base.Columns["oficina_codigo"];
+                this.columnnombre_apellido_inciso_oficina = base.Columns["nombre_apellido_inciso_oficina"];
                 this.columnInteresCuota = base.Columns["InteresCuota"];
                 this.columnivaCuota = base.Columns["ivaCuota"];
                 this.columnmora = base.Columns["mora"];
                 this.columnivaMora = base.Columns["ivaMora"];
                 this.columnfecha = base.Columns["fecha"];
+                this.columnsubtotal_1 = base.Columns["subtotal_1"];
+                this.columnsubtotal_2 = base.Columns["subtotal_2"];
+                this.columntotal = base.Columns["total"];
+                this.columniva1 = base.Columns["iva1"];
+                this.columniva2 = base.Columns["iva2"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             private void InitClass() {
-                this.columnsocio_apellido = new global::System.Data.DataColumn("socio_apellido", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsocio_apellido);
-                this.columnsocio_nombre = new global::System.Data.DataColumn("socio_nombre", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnsocio_nombre);
-                this.columninciso_codigo = new global::System.Data.DataColumn("inciso_codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columninciso_codigo);
-                this.columnoficina_codigo = new global::System.Data.DataColumn("oficina_codigo", typeof(string), null, global::System.Data.MappingType.Element);
-                base.Columns.Add(this.columnoficina_codigo);
+                this.columnnombre_apellido_inciso_oficina = new global::System.Data.DataColumn("nombre_apellido_inciso_oficina", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnnombre_apellido_inciso_oficina);
                 this.columnInteresCuota = new global::System.Data.DataColumn("InteresCuota", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnInteresCuota);
                 this.columnivaCuota = new global::System.Data.DataColumn("ivaCuota", typeof(string), null, global::System.Data.MappingType.Element);
@@ -505,6 +523,16 @@ namespace COOPMEF.CrystalDataSets {
                 base.Columns.Add(this.columnivaMora);
                 this.columnfecha = new global::System.Data.DataColumn("fecha", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columnfecha);
+                this.columnsubtotal_1 = new global::System.Data.DataColumn("subtotal_1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubtotal_1);
+                this.columnsubtotal_2 = new global::System.Data.DataColumn("subtotal_2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnsubtotal_2);
+                this.columntotal = new global::System.Data.DataColumn("total", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columntotal);
+                this.columniva1 = new global::System.Data.DataColumn("iva1", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columniva1);
+                this.columniva2 = new global::System.Data.DataColumn("iva2", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columniva2);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -647,65 +675,18 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string socio_apellido {
+            public string nombre_apellido_inciso_oficina {
                 get {
                     try {
-                        return ((string)(this[this.tablefactura.socio_apellidoColumn]));
+                        return ((string)(this[this.tablefactura.nombre_apellido_inciso_oficinaColumn]));
                     }
                     catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'socio_apellido\' in table \'factura\' is DBNull.", e);
+                        throw new global::System.Data.StrongTypingException("The value for column \'nombre_apellido_inciso_oficina\' in table \'factura\' is DBNul" +
+                                "l.", e);
                     }
                 }
                 set {
-                    this[this.tablefactura.socio_apellidoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string socio_nombre {
-                get {
-                    try {
-                        return ((string)(this[this.tablefactura.socio_nombreColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'socio_nombre\' in table \'factura\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablefactura.socio_nombreColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string inciso_codigo {
-                get {
-                    try {
-                        return ((string)(this[this.tablefactura.inciso_codigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'inciso_codigo\' in table \'factura\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablefactura.inciso_codigoColumn] = value;
-                }
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public string oficina_codigo {
-                get {
-                    try {
-                        return ((string)(this[this.tablefactura.oficina_codigoColumn]));
-                    }
-                    catch (global::System.InvalidCastException e) {
-                        throw new global::System.Data.StrongTypingException("The value for column \'oficina_codigo\' in table \'factura\' is DBNull.", e);
-                    }
-                }
-                set {
-                    this[this.tablefactura.oficina_codigoColumn] = value;
+                    this[this.tablefactura.nombre_apellido_inciso_oficinaColumn] = value;
                 }
             }
             
@@ -791,50 +772,94 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Issocio_apellidoNull() {
-                return this.IsNull(this.tablefactura.socio_apellidoColumn);
+            public string subtotal_1 {
+                get {
+                    try {
+                        return ((string)(this[this.tablefactura.subtotal_1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'subtotal_1\' in table \'factura\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefactura.subtotal_1Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setsocio_apellidoNull() {
-                this[this.tablefactura.socio_apellidoColumn] = global::System.Convert.DBNull;
+            public string subtotal_2 {
+                get {
+                    try {
+                        return ((string)(this[this.tablefactura.subtotal_2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'subtotal_2\' in table \'factura\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefactura.subtotal_2Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Issocio_nombreNull() {
-                return this.IsNull(this.tablefactura.socio_nombreColumn);
+            public string total {
+                get {
+                    try {
+                        return ((string)(this[this.tablefactura.totalColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'total\' in table \'factura\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefactura.totalColumn] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setsocio_nombreNull() {
-                this[this.tablefactura.socio_nombreColumn] = global::System.Convert.DBNull;
+            public string iva1 {
+                get {
+                    try {
+                        return ((string)(this[this.tablefactura.iva1Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'iva1\' in table \'factura\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefactura.iva1Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isinciso_codigoNull() {
-                return this.IsNull(this.tablefactura.inciso_codigoColumn);
+            public string iva2 {
+                get {
+                    try {
+                        return ((string)(this[this.tablefactura.iva2Column]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'iva2\' in table \'factura\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablefactura.iva2Column] = value;
+                }
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setinciso_codigoNull() {
-                this[this.tablefactura.inciso_codigoColumn] = global::System.Convert.DBNull;
+            public bool Isnombre_apellido_inciso_oficinaNull() {
+                return this.IsNull(this.tablefactura.nombre_apellido_inciso_oficinaColumn);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public bool Isoficina_codigoNull() {
-                return this.IsNull(this.tablefactura.oficina_codigoColumn);
-            }
-            
-            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public void Setoficina_codigoNull() {
-                this[this.tablefactura.oficina_codigoColumn] = global::System.Convert.DBNull;
+            public void Setnombre_apellido_inciso_oficinaNull() {
+                this[this.tablefactura.nombre_apellido_inciso_oficinaColumn] = global::System.Convert.DBNull;
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -895,6 +920,66 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetfechaNull() {
                 this[this.tablefactura.fechaColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Issubtotal_1Null() {
+                return this.IsNull(this.tablefactura.subtotal_1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setsubtotal_1Null() {
+                this[this.tablefactura.subtotal_1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Issubtotal_2Null() {
+                return this.IsNull(this.tablefactura.subtotal_2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setsubtotal_2Null() {
+                this[this.tablefactura.subtotal_2Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IstotalNull() {
+                return this.IsNull(this.tablefactura.totalColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SettotalNull() {
+                this[this.tablefactura.totalColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isiva1Null() {
+                return this.IsNull(this.tablefactura.iva1Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setiva1Null() {
+                this[this.tablefactura.iva1Column] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool Isiva2Null() {
+                return this.IsNull(this.tablefactura.iva2Column);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void Setiva2Null() {
+                this[this.tablefactura.iva2Column] = global::System.Convert.DBNull;
             }
         }
         

@@ -51,9 +51,8 @@
             this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem17 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem18 = new System.Windows.Forms.ToolStripMenuItem();
             this.discoParaRetencionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.mantenimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.movimientosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -278,7 +277,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -437,8 +435,6 @@
             this.toolStripMenuItem13,
             this.toolStripMenuItem14,
             this.toolStripMenuItem15,
-            this.toolStripMenuItem17,
-            this.toolStripMenuItem18,
             this.discoParaRetencionesToolStripMenuItem,
             this.facturaciónToolStripMenuItem});
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
@@ -469,23 +465,17 @@
             resources.ApplyResources(this.toolStripMenuItem15, "toolStripMenuItem15");
             this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
             // 
-            // toolStripMenuItem17
-            // 
-            this.toolStripMenuItem17.Name = "toolStripMenuItem17";
-            resources.ApplyResources(this.toolStripMenuItem17, "toolStripMenuItem17");
-            this.toolStripMenuItem17.Click += new System.EventHandler(this.toolStripMenuItem17_Click);
-            // 
-            // toolStripMenuItem18
-            // 
-            this.toolStripMenuItem18.Name = "toolStripMenuItem18";
-            resources.ApplyResources(this.toolStripMenuItem18, "toolStripMenuItem18");
-            this.toolStripMenuItem18.Click += new System.EventHandler(this.toolStripMenuItem18_Click);
-            // 
             // discoParaRetencionesToolStripMenuItem
             // 
             this.discoParaRetencionesToolStripMenuItem.Name = "discoParaRetencionesToolStripMenuItem";
             resources.ApplyResources(this.discoParaRetencionesToolStripMenuItem, "discoParaRetencionesToolStripMenuItem");
             this.discoParaRetencionesToolStripMenuItem.Click += new System.EventHandler(this.discoParaRetencionesToolStripMenuItem_Click);
+            // 
+            // facturaciónToolStripMenuItem
+            // 
+            this.facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
+            resources.ApplyResources(this.facturaciónToolStripMenuItem, "facturaciónToolStripMenuItem");
+            this.facturaciónToolStripMenuItem.Click += new System.EventHandler(this.facturaciónToolStripMenuItem_Click);
             // 
             // bancoToolStripMenuItem
             // 
@@ -2054,12 +2044,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // facturaciónToolStripMenuItem
-            // 
-            this.facturaciónToolStripMenuItem.Name = "facturaciónToolStripMenuItem";
-            resources.ApplyResources(this.facturaciónToolStripMenuItem, "facturaciónToolStripMenuItem");
-            this.facturaciónToolStripMenuItem.Click += new System.EventHandler(this.facturaciónToolStripMenuItem_Click);
-            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2193,8 +2177,6 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem17;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem18;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txtRetenidoIngExc;
         private System.Windows.Forms.TextBox txtARetenerIngExc;

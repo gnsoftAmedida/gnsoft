@@ -8,11 +8,11 @@ C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utili
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utilidades\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utilidades\obj\Debug\Utilidades.dll
 C:\Users\GNSoft\Documents\Visual Studio 2010\Projects\COOPMEF 17042017_v12\Utilidades\obj\Debug\Utilidades.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Debug\Utilidades.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Debug\Utilidades.pdb
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Debug\Utilidades.dll
-C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Debug\Utilidades.pdb
 C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\bin\Debug\Utilidades.dll
 C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\bin\Debug\Utilidades.pdb
 C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\obj\Debug\Utilidades.dll
 C:\Users\Public\Documents\GitHub\gnsoft\Utilidades\obj\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Debug\Utilidades.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\Utilidades\obj\Debug\Utilidades.pdb

@@ -128,7 +128,7 @@
             "2048",
             "2049",
             "2050"});
-            this.cmbAnios.Location = new System.Drawing.Point(188, 22);
+            this.cmbAnios.Location = new System.Drawing.Point(197, 22);
             this.cmbAnios.Name = "cmbAnios";
             this.cmbAnios.Size = new System.Drawing.Size(73, 21);
             this.cmbAnios.TabIndex = 58;
@@ -152,13 +152,13 @@
             "DICIEMBRE"});
             this.cmbMeses.Location = new System.Drawing.Point(50, 22);
             this.cmbMeses.Name = "cmbMeses";
-            this.cmbMeses.Size = new System.Drawing.Size(90, 21);
+            this.cmbMeses.Size = new System.Drawing.Size(103, 21);
             this.cmbMeses.TabIndex = 57;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(158, 22);
+            this.label2.Location = new System.Drawing.Point(167, 22);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(29, 13);

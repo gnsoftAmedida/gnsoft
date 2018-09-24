@@ -244,18 +244,6 @@
   <data name="toolStripMenuItem15.Text" xml:space="preserve">
     <value>Ingreso de excedidos</value>
   </data>
-  <data name="toolStripMenuItem17.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 22</value>
-  </data>
-  <data name="toolStripMenuItem17.Text" xml:space="preserve">
-    <value>Pase a jurídica</value>
-  </data>
-  <data name="toolStripMenuItem18.Size" type="System.Drawing.Size, System.Drawing">
-    <value>319, 22</value>
-  </data>
-  <data name="toolStripMenuItem18.Text" xml:space="preserve">
-    <value>Facturación</value>
-  </data>
   <data name="discoParaRetencionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>319, 22</value>
   </data>
@@ -6316,22 +6304,16 @@
   <data name="&gt;&gt;toolStripMenuItem15.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem17.Name" xml:space="preserve">
-    <value>toolStripMenuItem17</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem17.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem18.Name" xml:space="preserve">
-    <value>toolStripMenuItem18</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem18.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;discoParaRetencionesToolStripMenuItem.Name" xml:space="preserve">
     <value>discoParaRetencionesToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;discoParaRetencionesToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;facturaciónToolStripMenuItem.Name" xml:space="preserve">
+    <value>facturaciónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;facturaciónToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;bancoToolStripMenuItem.Name" xml:space="preserve">
@@ -6542,12 +6524,6 @@
     <value>ayudaToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;facturaciónToolStripMenuItem.Name" xml:space="preserve">
-    <value>facturaciónToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;facturaciónToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
