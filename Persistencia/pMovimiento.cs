@@ -37,6 +37,32 @@ namespace Persistencia
             return ds;
         }
 
+        public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
+        {
+            try
+            {
+                
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT b.nombrebanco, b.numerocta ,b.moneda, m.movimiento, m.fecha, m.numerodocumento, m.concepto, m.debehaber, m.importe, m.saldo from movimientos m, banco b where m.codigobanco = b.codigobanco and b.codigobanco ='" + id_banco + "' and m.fecha BETWEEN '" + fechaDesde.ToString("yyyy/MM/dd") + "' and '" + fechaHasta.ToString("yyyy/MM/dd") + "' and m.concepto like '%" + concepto + "%' ORDER BY  m.movimiento ASC ";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "cuentacorriente");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+
         public void GuardarMovimiento(DateTime fecha, int codigobanco, string numerocta, string numerodocumento, string debehaber, Double importe, string concepto, Double saldo)
         {
             MySqlConnection connection = conectar();

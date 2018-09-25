@@ -90,5 +90,11 @@ namespace Negocio
             tmpMovimiento.GuardarMovimiento(fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, Saldo);
         }
 
+        public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
+        {
+            pMovimiento tmpMovimiento = new pMovimiento();
+            return tmpMovimiento.devolverCuentaCorriente(id_banco, fechaDesde, fechaHasta, concepto);
+        }
+
     }
 }

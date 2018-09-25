@@ -266,7 +266,7 @@
     <value>Cobranza</value>
   </data>
   <data name="mantenimientoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="mantenimientoToolStripMenuItem.Text" xml:space="preserve">
     <value>Mantenimientos</value>
@@ -284,22 +284,22 @@
     <value>Cantidad y Promedio</value>
   </data>
   <data name="movimientosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="movimientosToolStripMenuItem.Text" xml:space="preserve">
     <value>Movimientos</value>
   </data>
   <data name="consultaRápidaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="consultaRápidaToolStripMenuItem.Text" xml:space="preserve">
     <value>Consulta Rápida</value>
   </data>
   <data name="informesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>180, 22</value>
+    <value>201, 22</value>
   </data>
   <data name="informesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Informes</value>
+    <value>Cuentas Corrientes</value>
   </data>
   <data name="bancoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 9.75pt</value>

@@ -2833,7 +2833,8 @@ Agregar emisión
 
         private void informesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
+            frmCuentaCorriente tmpfrmCuentaCorriente = new frmCuentaCorriente();
+            tmpfrmCuentaCorriente.ShowDialog();
         }
 
         private void tabHistorial_Click(object sender, EventArgs e)

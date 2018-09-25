@@ -36,6 +36,12 @@ namespace Negocio
             return false;
         }
 
+        public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
+        {
+            Movimiento tmpMovimiento = new Movimiento();
+            return tmpMovimiento.devolverCuentaCorriente(id_banco, fechaDesde, fechaHasta, concepto);
+        }
+
         public string Padeo(String cadena, int largo)
         {
             string cadena2;
@@ -97,9 +103,9 @@ namespace Negocio
                 xlWorkSheet.Cells[n + 1, 1] = cedula;
                 xlWorkSheet.Cells[n + 1, 3] = "8381";
                 xlWorkSheet.Cells[n + 1, 4] = resultadoInter.ToString("#####0") + "00";
-                
+
             }
-     
+
             String ruta = unidad + nombreArchivo;
 
             xlWorkBook.SaveAs(ruta, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
@@ -1013,7 +1019,7 @@ namespace Negocio
 
                     String r = Primero + Segundo + nombreApellido.ToUpper() + Padeo(resultadoInter.ToString("#####0"), 5) + "00" + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 4, 2) + Microsoft.VisualBasic.Strings.Mid(fechaIngreso, 7, 4);
 
-                    String archivoDos = "," + cedula + ",,8381," + Padeo(resultadoInter.ToString("#####0"), 8)   + "00" + ",,,,,";
+                    String archivoDos = "," + cedula + ",,8381," + Padeo(resultadoInter.ToString("#####0"), 8) + "00" + ",,,,,";
 
                     swPrimaria.WriteLine(archivoDos);
                     sw.WriteLine(r);

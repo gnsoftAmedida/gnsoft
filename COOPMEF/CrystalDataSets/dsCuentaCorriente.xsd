@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsCuentaCorriente" targetNamespace="http://tempuri.org/dsCuentaCorriente.xsd" xmlns:mstns="http://tempuri.org/dsCuentaCorriente.xsd" xmlns="http://tempuri.org/dsCuentaCorriente.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsCuentaCorriente" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsCuentaCorriente" msprop:Generator_UserDSName="dsCuentaCorriente">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="CuentaCorriente" msprop:Generator_TableClassName="CuentaCorrienteDataTable" msprop:Generator_TableVarName="tableCuentaCorriente" msprop:Generator_TablePropName="CuentaCorriente" msprop:Generator_RowDeletingName="CuentaCorrienteRowDeleting" msprop:Generator_RowChangingName="CuentaCorrienteRowChanging" msprop:Generator_RowEvHandlerName="CuentaCorrienteRowChangeEventHandler" msprop:Generator_RowDeletedName="CuentaCorrienteRowDeleted" msprop:Generator_UserTableName="CuentaCorriente" msprop:Generator_RowChangedName="CuentaCorrienteRowChanged" msprop:Generator_RowEvArgName="CuentaCorrienteRowChangeEvent" msprop:Generator_RowClassName="CuentaCorrienteRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="nombrebanco" msprop:Generator_ColumnVarNameInTable="columnnombrebanco" msprop:Generator_ColumnPropNameInRow="nombrebanco" msprop:Generator_ColumnPropNameInTable="nombrebancoColumn" msprop:Generator_UserColumnName="nombrebanco" type="xs:string" minOccurs="0" />
+              <xs:element name="numerocta" msprop:Generator_ColumnVarNameInTable="columnnumerocta" msprop:Generator_ColumnPropNameInRow="numerocta" msprop:Generator_ColumnPropNameInTable="numeroctaColumn" msprop:Generator_UserColumnName="numerocta" type="xs:string" minOccurs="0" />
+              <xs:element name="moneda" msprop:Generator_ColumnVarNameInTable="columnmoneda" msprop:Generator_ColumnPropNameInRow="moneda" msprop:Generator_ColumnPropNameInTable="monedaColumn" msprop:Generator_UserColumnName="moneda" type="xs:string" minOccurs="0" />
+              <xs:element name="movimiento" msprop:Generator_ColumnVarNameInTable="columnmovimiento" msprop:Generator_ColumnPropNameInRow="movimiento" msprop:Generator_ColumnPropNameInTable="movimientoColumn" msprop:Generator_UserColumnName="movimiento" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="numerodocumento" msprop:Generator_ColumnVarNameInTable="columnnumerodocumento" msprop:Generator_ColumnPropNameInRow="numerodocumento" msprop:Generator_ColumnPropNameInTable="numerodocumentoColumn" msprop:Generator_UserColumnName="numerodocumento" type="xs:string" minOccurs="0" />
+              <xs:element name="conceptoCompleto" msprop:Generator_ColumnVarNameInTable="columnconceptoCompleto" msprop:Generator_ColumnPropNameInRow="conceptoCompleto" msprop:Generator_ColumnPropNameInTable="conceptoCompletoColumn" msprop:Generator_UserColumnName="conceptoCompleto" type="xs:string" minOccurs="0" />
+              <xs:element name="debe" msprop:Generator_ColumnVarNameInTable="columndebe" msprop:Generator_ColumnPropNameInRow="debe" msprop:Generator_ColumnPropNameInTable="debeColumn" msprop:Generator_UserColumnName="debe" type="xs:string" minOccurs="0" />
+              <xs:element name="haber" msprop:Generator_ColumnVarNameInTable="columnhaber" msprop:Generator_ColumnPropNameInRow="haber" msprop:Generator_ColumnPropNameInTable="haberColumn" msprop:Generator_UserColumnName="haber" type="xs:string" minOccurs="0" />
+              <xs:element name="importe" msprop:Generator_ColumnVarNameInTable="columnimporte" msprop:Generator_ColumnPropNameInRow="importe" msprop:Generator_ColumnPropNameInTable="importeColumn" msprop:Generator_UserColumnName="importe" type="xs:string" minOccurs="0" />
+              <xs:element name="saldo" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:string" minOccurs="0" />
+              <xs:element name="fechaActual" msprop:Generator_ColumnVarNameInTable="columnfechaActual" msprop:Generator_ColumnPropNameInRow="fechaActual" msprop:Generator_ColumnPropNameInTable="fechaActualColumn" msprop:Generator_UserColumnName="fechaActual" type="xs:string" minOccurs="0" />
+              <xs:element name="totalDebe" msprop:Generator_ColumnVarNameInTable="columntotalDebe" msprop:Generator_ColumnPropNameInRow="totalDebe" msprop:Generator_ColumnPropNameInTable="totalDebeColumn" msprop:Generator_UserColumnName="totalDebe" type="xs:string" minOccurs="0" />
+              <xs:element name="totalHaber" msprop:Generator_ColumnVarNameInTable="columntotalHaber" msprop:Generator_ColumnPropNameInRow="totalHaber" msprop:Generator_ColumnPropNameInTable="totalHaberColumn" msprop:Generator_UserColumnName="totalHaber" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

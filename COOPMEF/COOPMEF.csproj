@@ -106,6 +106,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalDataSets\dsCuentaCorriente.cs">
+      <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsCuentaCorriente.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsFactura.cs">
       <DependentUpon>dsFactura.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -260,6 +269,12 @@
     <Compile Include="frmConsultaSaldosBancarios.Designer.cs">
       <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmCuentaCorriente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmCuentaCorriente.Designer.cs">
+      <DependentUpon>frmCuentaCorriente.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmCumpleanios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -412,6 +427,12 @@
       <DependentUpon>cancelacionPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\reporteCuentaCorriente.cs">
+      <DependentUpon>reporteCuentaCorriente.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reportes\facturas.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -548,6 +569,9 @@
     <EmbeddedResource Include="frmConsultaSaldosBancarios.resx">
       <DependentUpon>frmConsultaSaldosBancarios.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmCuentaCorriente.resx">
+      <DependentUpon>frmCuentaCorriente.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmCumpleanios.resx">
       <DependentUpon>frmCumpleanios.cs</DependentUpon>
     </EmbeddedResource>
@@ -638,6 +662,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cancelacionPrestamo.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteCuentaCorriente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteCuentaCorriente.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\facturas.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>facturas.cs</LastGenOutput>
@@ -717,6 +745,17 @@
     </None>
     <None Include="CrystalDataSets\dsCancelacion.xss">
       <DependentUpon>dsCancelacion.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsCuentaCorriente.xsc">
+      <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsCuentaCorriente.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCuentaCorriente.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsCuentaCorriente.xss">
+      <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsEventos.xsc">
       <DependentUpon>dsEventos.xsd</DependentUpon>
