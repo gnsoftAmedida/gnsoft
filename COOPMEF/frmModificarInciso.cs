@@ -361,5 +361,12 @@ namespace COOPMEF
         {
              this.Close();
         }
+
+        private void groupBox12_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+      
     }
 }

@@ -478,6 +478,21 @@
   <data name="mToolStripMenuItem.Text" xml:space="preserve">
     <value>Mantenimiento</value>
   </data>
+  <data name="queTasaEstánCobrandoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>235, 22</value>
+  </data>
+  <data name="queTasaEstánCobrandoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Que tasa están cobrando</value>
+  </data>
+  <data name="utilitariosToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="utilitariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 20</value>
+  </data>
+  <data name="utilitariosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Utilitarios</value>
+  </data>
   <data name="ayudaToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 9.75pt</value>
   </data>
@@ -6524,6 +6539,18 @@
     <value>ayudaToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;utilitariosToolStripMenuItem.Name" xml:space="preserve">
+    <value>utilitariosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;utilitariosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;queTasaEstánCobrandoToolStripMenuItem.Name" xml:space="preserve">
+    <value>queTasaEstánCobrandoToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;queTasaEstánCobrandoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

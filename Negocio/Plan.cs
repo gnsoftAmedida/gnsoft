@@ -73,6 +73,14 @@ namespace Negocio
             return planes;
         }
 
+        public DataSet devolverTasaPorCantCuotasActivos(int cuotas)
+        {
+            pPlan tmpTasa = new pPlan();
+            DataSet planes = tmpTasa.devolverTasaPorCantCuotasActivos(cuotas);
+            return planes;
+        }
+
+
         public void Guardar()
         {
             pPlan tmpPlan = new pPlan();

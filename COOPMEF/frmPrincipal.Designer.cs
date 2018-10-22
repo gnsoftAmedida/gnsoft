@@ -88,6 +88,8 @@
             this.planDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parámetrosDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilitariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.queTasaEstánCobrandoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.tbcPestanas = new System.Windows.Forms.TabControl();
             this.tabBusqueda = new System.Windows.Forms.TabPage();
             this.dgvSociosCampo = new System.Windows.Forms.DataGridView();
@@ -312,6 +314,7 @@
             this.bancoToolStripMenuItem,
             this.calendarioToolStripMenuItem,
             this.mToolStripMenuItem,
+            this.utilitariosToolStripMenuItem,
             this.ayudaToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
@@ -722,6 +725,19 @@
             resources.ApplyResources(this.ayudaToolStripMenuItem, "ayudaToolStripMenuItem");
             this.ayudaToolStripMenuItem.Name = "ayudaToolStripMenuItem";
             this.ayudaToolStripMenuItem.Click += new System.EventHandler(this.ayudaToolStripMenuItem_Click);
+            // 
+            // utilitariosToolStripMenuItem
+            // 
+            this.utilitariosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.queTasaEstánCobrandoToolStripMenuItem});
+            resources.ApplyResources(this.utilitariosToolStripMenuItem, "utilitariosToolStripMenuItem");
+            this.utilitariosToolStripMenuItem.Name = "utilitariosToolStripMenuItem";
+            // 
+            // queTasaEstánCobrandoToolStripMenuItem
+            // 
+            this.queTasaEstánCobrandoToolStripMenuItem.Name = "queTasaEstánCobrandoToolStripMenuItem";
+            resources.ApplyResources(this.queTasaEstánCobrandoToolStripMenuItem, "queTasaEstánCobrandoToolStripMenuItem");
+            this.queTasaEstánCobrandoToolStripMenuItem.Click += new System.EventHandler(this.queTasaEstánCobrandoToolStripMenuItem_Click);
             // 
             // tbcPestanas
             // 
@@ -2352,6 +2368,8 @@
         private System.Windows.Forms.ToolStripMenuItem discoParaRetencionesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sociosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilitariosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem queTasaEstánCobrandoToolStripMenuItem;
     }
 }
 

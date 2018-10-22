@@ -2969,6 +2969,12 @@ Agregar emisión
             frmFacturacion tmpfrmFacturacion = new frmFacturacion();
             tmpfrmFacturacion.ShowDialog();
         }
+
+        private void queTasaEstánCobrandoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCompracionDeTasas tmpComparaciónDeTasas = new frmCompracionDeTasas();
+            tmpComparaciónDeTasas.ShowDialog();
+        }
     }
 }
 

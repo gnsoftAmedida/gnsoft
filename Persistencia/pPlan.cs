@@ -61,6 +61,31 @@ namespace Persistencia
             }
         }
 
+        //se agrega para comparacion de tasas el 18 oct 2018
+        public DataSet devolverTasaPorCantCuotasActivos(int cuotas)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT plan_TasaAnualEfectiva FROM planprestamo where plan_vigente = 1 AND plan_NroCuotas ='" + cuotas + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "planprestamo");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
         public void eliminarPlan(int Id)
         {
 

@@ -65,24 +65,22 @@
             this.groupBox12.Controls.Add(this.label30);
             this.groupBox12.Controls.Add(this.label28);
             this.groupBox12.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox12.Location = new System.Drawing.Point(16, 15);
-            this.groupBox12.Margin = new System.Windows.Forms.Padding(4);
+            this.groupBox12.Location = new System.Drawing.Point(12, 12);
             this.groupBox12.Name = "groupBox12";
-            this.groupBox12.Padding = new System.Windows.Forms.Padding(4);
-            this.groupBox12.Size = new System.Drawing.Size(637, 293);
+            this.groupBox12.Size = new System.Drawing.Size(478, 238);
             this.groupBox12.TabIndex = 5;
             this.groupBox12.TabStop = false;
             this.groupBox12.Text = "Mantenimiento de Inciso";
+            this.groupBox12.Enter += new System.EventHandler(this.groupBox12_Enter);
             // 
             // lblErrorGenerico
             // 
             this.lblErrorGenerico.AutoSize = true;
             this.lblErrorGenerico.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorGenerico.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorGenerico.Location = new System.Drawing.Point(24, 233);
-            this.lblErrorGenerico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorGenerico.Location = new System.Drawing.Point(18, 189);
             this.lblErrorGenerico.Name = "lblErrorGenerico";
-            this.lblErrorGenerico.Size = new System.Drawing.Size(49, 16);
+            this.lblErrorGenerico.Size = new System.Drawing.Size(39, 12);
             this.lblErrorGenerico.TabIndex = 30;
             this.lblErrorGenerico.Text = "label2";
             // 
@@ -91,10 +89,9 @@
             this.lblAbreviatura.AutoSize = true;
             this.lblAbreviatura.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblAbreviatura.ForeColor = System.Drawing.Color.Red;
-            this.lblAbreviatura.Location = new System.Drawing.Point(393, 177);
-            this.lblAbreviatura.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblAbreviatura.Location = new System.Drawing.Point(295, 144);
             this.lblAbreviatura.Name = "lblAbreviatura";
-            this.lblAbreviatura.Size = new System.Drawing.Size(49, 16);
+            this.lblAbreviatura.Size = new System.Drawing.Size(39, 12);
             this.lblAbreviatura.TabIndex = 30;
             this.lblAbreviatura.Text = "label2";
             // 
@@ -103,10 +100,9 @@
             this.lblCodigo.AutoSize = true;
             this.lblCodigo.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblCodigo.ForeColor = System.Drawing.Color.Red;
-            this.lblCodigo.Location = new System.Drawing.Point(333, 101);
-            this.lblCodigo.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblCodigo.Location = new System.Drawing.Point(250, 82);
             this.lblCodigo.Name = "lblCodigo";
-            this.lblCodigo.Size = new System.Drawing.Size(49, 16);
+            this.lblCodigo.Size = new System.Drawing.Size(39, 12);
             this.lblCodigo.TabIndex = 30;
             this.lblCodigo.Text = "label2";
             // 
@@ -115,20 +111,18 @@
             this.lblNombre.AutoSize = true;
             this.lblNombre.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblNombre.ForeColor = System.Drawing.Color.Red;
-            this.lblNombre.Location = new System.Drawing.Point(493, 139);
-            this.lblNombre.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblNombre.Location = new System.Drawing.Point(370, 113);
             this.lblNombre.Name = "lblNombre";
-            this.lblNombre.Size = new System.Drawing.Size(49, 16);
+            this.lblNombre.Size = new System.Drawing.Size(39, 12);
             this.lblNombre.TabIndex = 30;
             this.lblNombre.Text = "label2";
             // 
             // txtCodigoInciso
             // 
-            this.txtCodigoInciso.Location = new System.Drawing.Point(212, 87);
-            this.txtCodigoInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.txtCodigoInciso.Location = new System.Drawing.Point(159, 71);
             this.txtCodigoInciso.MaxLength = 10;
             this.txtCodigoInciso.Name = "txtCodigoInciso";
-            this.txtCodigoInciso.Size = new System.Drawing.Size(112, 26);
+            this.txtCodigoInciso.Size = new System.Drawing.Size(85, 23);
             this.txtCodigoInciso.TabIndex = 1;
             // 
             // label1
@@ -136,10 +130,9 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label1.Location = new System.Drawing.Point(23, 91);
-            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label1.Location = new System.Drawing.Point(17, 74);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(75, 22);
+            this.label1.Size = new System.Drawing.Size(59, 17);
             this.label1.TabIndex = 28;
             this.label1.Text = "Código";
             // 
@@ -147,29 +140,26 @@
             // 
             this.cmbBusqueda.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbBusqueda.FormattingEnabled = true;
-            this.cmbBusqueda.Location = new System.Drawing.Point(212, 50);
-            this.cmbBusqueda.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbBusqueda.Location = new System.Drawing.Point(159, 41);
             this.cmbBusqueda.Name = "cmbBusqueda";
-            this.cmbBusqueda.Size = new System.Drawing.Size(272, 28);
+            this.cmbBusqueda.Size = new System.Drawing.Size(205, 24);
             this.cmbBusqueda.TabIndex = 0;
             this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 
             // txtNombreInciso
             // 
-            this.txtNombreInciso.Location = new System.Drawing.Point(212, 126);
-            this.txtNombreInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.txtNombreInciso.Location = new System.Drawing.Point(159, 102);
             this.txtNombreInciso.MaxLength = 100;
             this.txtNombreInciso.Name = "txtNombreInciso";
-            this.txtNombreInciso.Size = new System.Drawing.Size(272, 26);
+            this.txtNombreInciso.Size = new System.Drawing.Size(205, 23);
             this.txtNombreInciso.TabIndex = 2;
             // 
             // txtRefInciso
             // 
-            this.txtRefInciso.Location = new System.Drawing.Point(212, 164);
-            this.txtRefInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.txtRefInciso.Location = new System.Drawing.Point(159, 133);
             this.txtRefInciso.MaxLength = 45;
             this.txtRefInciso.Name = "txtRefInciso";
-            this.txtRefInciso.Size = new System.Drawing.Size(172, 26);
+            this.txtRefInciso.Size = new System.Drawing.Size(130, 23);
             this.txtRefInciso.TabIndex = 3;
             // 
             // label31
@@ -177,10 +167,9 @@
             this.label31.AutoSize = true;
             this.label31.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label31.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label31.Location = new System.Drawing.Point(23, 167);
-            this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label31.Location = new System.Drawing.Point(17, 136);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(118, 22);
+            this.label31.Size = new System.Drawing.Size(95, 17);
             this.label31.TabIndex = 2;
             this.label31.Text = "Abreviatura";
             // 
@@ -189,10 +178,9 @@
             this.label30.AutoSize = true;
             this.label30.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label30.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label30.Location = new System.Drawing.Point(23, 129);
-            this.label30.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label30.Location = new System.Drawing.Point(17, 105);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(83, 22);
+            this.label30.Size = new System.Drawing.Size(66, 17);
             this.label30.TabIndex = 1;
             this.label30.Text = "Nombre";
             // 
@@ -201,10 +189,9 @@
             this.label28.AutoSize = true;
             this.label28.Font = new System.Drawing.Font("Arial Rounded MT Bold", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label28.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label28.Location = new System.Drawing.Point(23, 53);
-            this.label28.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label28.Location = new System.Drawing.Point(17, 43);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(64, 22);
+            this.label28.Size = new System.Drawing.Size(52, 17);
             this.label28.TabIndex = 0;
             this.label28.Text = "Inciso";
             // 
@@ -213,10 +200,9 @@
             this.btnCancelarInciso.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
             this.btnCancelarInciso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarInciso.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancelarInciso.Location = new System.Drawing.Point(700, 218);
-            this.btnCancelarInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.btnCancelarInciso.Location = new System.Drawing.Point(525, 177);
             this.btnCancelarInciso.Name = "btnCancelarInciso";
-            this.btnCancelarInciso.Size = new System.Drawing.Size(128, 36);
+            this.btnCancelarInciso.Size = new System.Drawing.Size(96, 29);
             this.btnCancelarInciso.TabIndex = 0;
             this.btnCancelarInciso.Text = "     Cancelar";
             this.btnCancelarInciso.UseVisualStyleBackColor = true;
@@ -227,10 +213,9 @@
             this.btnGuardarInciso.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             this.btnGuardarInciso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarInciso.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardarInciso.Location = new System.Drawing.Point(700, 172);
-            this.btnGuardarInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardarInciso.Location = new System.Drawing.Point(525, 140);
             this.btnGuardarInciso.Name = "btnGuardarInciso";
-            this.btnGuardarInciso.Size = new System.Drawing.Size(128, 38);
+            this.btnGuardarInciso.Size = new System.Drawing.Size(96, 31);
             this.btnGuardarInciso.TabIndex = 3;
             this.btnGuardarInciso.Text = "     Guardar";
             this.btnGuardarInciso.UseVisualStyleBackColor = true;
@@ -241,10 +226,9 @@
             this.btnEliminarInciso.Image = global::COOPMEF.Properties.Resources.delete16;
             this.btnEliminarInciso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarInciso.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEliminarInciso.Location = new System.Drawing.Point(700, 122);
-            this.btnEliminarInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEliminarInciso.Location = new System.Drawing.Point(525, 99);
             this.btnEliminarInciso.Name = "btnEliminarInciso";
-            this.btnEliminarInciso.Size = new System.Drawing.Size(128, 37);
+            this.btnEliminarInciso.Size = new System.Drawing.Size(96, 30);
             this.btnEliminarInciso.TabIndex = 2;
             this.btnEliminarInciso.Text = "     Eliminar";
             this.btnEliminarInciso.UseVisualStyleBackColor = true;
@@ -255,10 +239,9 @@
             this.btnEditarInciso.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
             this.btnEditarInciso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarInciso.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEditarInciso.Location = new System.Drawing.Point(700, 78);
-            this.btnEditarInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.btnEditarInciso.Location = new System.Drawing.Point(525, 63);
             this.btnEditarInciso.Name = "btnEditarInciso";
-            this.btnEditarInciso.Size = new System.Drawing.Size(128, 37);
+            this.btnEditarInciso.Size = new System.Drawing.Size(96, 30);
             this.btnEditarInciso.TabIndex = 1;
             this.btnEditarInciso.Text = "     Editar";
             this.btnEditarInciso.UseVisualStyleBackColor = true;
@@ -269,10 +252,9 @@
             this.btnNuevoInciso.Image = global::COOPMEF.Properties.Resources._1486109530_new_file;
             this.btnNuevoInciso.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoInciso.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNuevoInciso.Location = new System.Drawing.Point(700, 33);
-            this.btnNuevoInciso.Margin = new System.Windows.Forms.Padding(4);
+            this.btnNuevoInciso.Location = new System.Drawing.Point(525, 27);
             this.btnNuevoInciso.Name = "btnNuevoInciso";
-            this.btnNuevoInciso.Size = new System.Drawing.Size(128, 37);
+            this.btnNuevoInciso.Size = new System.Drawing.Size(96, 30);
             this.btnNuevoInciso.TabIndex = 0;
             this.btnNuevoInciso.Text = "    Nuevo";
             this.btnNuevoInciso.UseVisualStyleBackColor = true;
@@ -283,10 +265,9 @@
             this.btnSalir.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalir.Location = new System.Drawing.Point(700, 272);
-            this.btnSalir.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalir.Location = new System.Drawing.Point(525, 221);
             this.btnSalir.Name = "btnSalir";
-            this.btnSalir.Size = new System.Drawing.Size(128, 36);
+            this.btnSalir.Size = new System.Drawing.Size(96, 29);
             this.btnSalir.TabIndex = 6;
             this.btnSalir.Text = "     Salir";
             this.btnSalir.UseVisualStyleBackColor = true;
@@ -294,9 +275,9 @@
             // 
             // frmMantenimientoInciso
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(844, 332);
+            this.ClientSize = new System.Drawing.Size(633, 270);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelarInciso);
             this.Controls.Add(this.btnGuardarInciso);
@@ -304,7 +285,6 @@
             this.Controls.Add(this.btnEditarInciso);
             this.Controls.Add(this.btnNuevoInciso);
             this.Controls.Add(this.groupBox12);
-            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "frmMantenimientoInciso";
             this.Text = "Mantenimiento de Inciso";
             this.Load += new System.EventHandler(this.frmMantenimientoInciso_Load);

@@ -39,6 +39,7 @@ namespace Negocio
         public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
         {
             Movimiento tmpMovimiento = new Movimiento();
+           
             return tmpMovimiento.devolverCuentaCorriente(id_banco, fechaDesde, fechaHasta, concepto);
         }
 
@@ -54,6 +55,50 @@ namespace Negocio
             cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena))) + cadena;
             return cadena2;
         }
+        //agrega GIno 19 oct 2018 para el calculo de tasas
+        public double Rate(double CanCuotas, double ImpCuota, double Capital)
+        {
+
+            return Microsoft.VisualBasic.Financial.Rate(CanCuotas, -ImpCuota, Capital);
+        
+        
+        }
+
+        public double Format(double tasa, int CantidadCuotas, double Capital)
+        {
+
+            return Microsoft.VisualBasic.Financial.Pmt(tasa, CantidadCuotas, -Capital);
+    }
+        
+        
+        public bool esNumerico(object Expression)
+            
+
+        {
+
+            bool isNum;
+
+            double retNum;
+
+            isNum = Double.TryParse(Convert.ToString(Expression), System.Globalization.NumberStyles.Any, System.Globalization.NumberFormatInfo.InvariantInfo, out retNum);
+
+            return isNum;
+
+        }
+
+        public bool esEntero(object Expression)
+        {
+
+            bool isNum;
+
+            int retNum;
+
+            isNum = Int32.TryParse(Convert.ToString(Expression),out retNum);
+
+            return isNum;
+
+        }
+
 
         public string PadeoBlancos(String cadena, int largo)
         {
@@ -1895,6 +1940,14 @@ namespace Negocio
             DataSet planes = tmpPlan.devolverActivos();
             return planes;
         }
+
+        public DataSet devolverTasaPorCantCuotasActivos(int cuotas)
+        {
+            Plan tmpTasa = new Plan();
+            DataSet planes = tmpTasa.devolverTasaPorCantCuotasActivos(cuotas);
+            return planes;
+        }
+
         public void AltaPlan(int Plan_cantCuotas, double Plan_TasaAnualEfectiva, double Plan_IvaSobreIntereses, int Plan_vigencia, string Plan_nombre, double Plan_CuotaCada1000)
         {
             Plan tmpPlan = new Plan();

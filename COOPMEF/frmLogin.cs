@@ -25,10 +25,10 @@ namespace COOPMEF
 
         private void btnLogin_Click(object sender, EventArgs e)
         {
-        /*  frmPrincipal  principal = new frmPrincipal();
-          this.Close();
-            principal.ShowDialog();
-            */
+        //frmPrincipal  principal = new frmPrincipal();
+        //  this.Close();
+        //    principal.ShowDialog();
+            
 
 
 
