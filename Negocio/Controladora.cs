@@ -39,7 +39,7 @@ namespace Negocio
         public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
         {
             Movimiento tmpMovimiento = new Movimiento();
-           
+
             return tmpMovimiento.devolverCuentaCorriente(id_banco, fechaDesde, fechaHasta, concepto);
         }
 
@@ -60,20 +60,18 @@ namespace Negocio
         {
 
             return Microsoft.VisualBasic.Financial.Rate(CanCuotas, -ImpCuota, Capital);
-        
-        
+
+
         }
 
         public double Format(double tasa, int CantidadCuotas, double Capital)
         {
 
             return Microsoft.VisualBasic.Financial.Pmt(tasa, CantidadCuotas, -Capital);
-    }
-        
-        
-        public bool esNumerico(object Expression)
-            
+        }
 
+
+        public bool esNumerico(object Expression)
         {
 
             bool isNum;
@@ -93,7 +91,7 @@ namespace Negocio
 
             int retNum;
 
-            isNum = Int32.TryParse(Convert.ToString(Expression),out retNum);
+            isNum = Int32.TryParse(Convert.ToString(Expression), out retNum);
 
             return isNum;
 
@@ -243,11 +241,13 @@ namespace Negocio
             Double Parcial = 0;
             String MesAno;
             bool interfacePorDisco = true;
+            String NombreArchivo_Formato_Nuevo; //agregado formato nuevos aduana 18/09/2018
 
             Presupuesto = TxtMes + "/" + TxtAño;
             NombreArchivo = "NoHayCodigos";
             Parcial = 0;
 
+            NombreArchivo_Formato_Nuevo = "NoHayCodigos"; // agregado formato nuevos aduana 18/09/2018
 
             /*  '****************************************************************************
               'Comentado porque ahora va el nuevo formato que va despues de este comentario
@@ -283,6 +283,14 @@ namespace Negocio
                 Oficina = "14";
                 WInciso = "05";
             }
+
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "05" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "09")
+            {
+                Primero = "S0205009000000070"; // Catastro
+                NombreArchivo = "CATASTRO" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
+                Oficina = "09";
+                WInciso = "05";
+            }
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "11" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "21")
             {
                 Primero = "S0211110021630"; // Registro Civil
@@ -301,6 +309,8 @@ namespace Negocio
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "05" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "07")
             {
                 NombreArchivo = "ADUANA.TXT"; // Aduanas
+                NombreArchivo_Formato_Nuevo = "ADUANA_2.TXT"; //Segundo Formato de Aduanas 18/09/2018
+                Primero = "S0205007000000070";
                 Oficina = "07";
                 WInciso = "05";
 
@@ -329,10 +339,11 @@ namespace Negocio
                 Oficina = "01";
                 //} else if ( Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "123" ) ; //Salud Publica"
             }
-            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "29")  //ASSE MODIFICADO
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "29")  //ASSE MODIFICADO 26/12/2014
             {
-                NombreArchivo = "MSP" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 6, 2) + ".TXT";
-                Primero = "00083047";
+                NombreArchivo = "830470" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4, 4) + ".TXT";
+                //Primero = "00083047";
+                Primero = "Formato1,PerDocNum,FunCod,RetCod,Importe";
                 Segundo = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2);
                 Tercero = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
                 WInciso = "29";
@@ -428,6 +439,13 @@ namespace Negocio
                 NombreArchivo = "CooperativaMEF" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
                 Oficina = "06";
                 WInciso = "04";
+            }
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "12" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")
+            {
+                Primero = "00030470"; //Salud Pública
+                NombreArchivo = "DGS_Salud_Publica_" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
+                Oficina = "01";
+                WInciso = "12";
             }
             else
             {
@@ -605,6 +623,34 @@ namespace Negocio
 
                 generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
+            else if (Control == "0509")
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    // Agregado por si ponen un nro de cobro mayor a 4
+
+
+                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + "0000";
+                    sw.WriteLine(r);
+
+                }
+
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+            }
 
             else if (Control == "0505")
             { //DGI
@@ -643,6 +689,10 @@ namespace Negocio
             else if (Control == "0507") //(Verificada)
             { // Aduanas
 
+                //agregado para aduana formato nuevo 18/09/2018
+                StreamWriter archivoAduanas = null;
+                archivoAduanas = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, true);
+
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
                     //Corregido
@@ -670,9 +720,17 @@ namespace Negocio
                     }
 
                     String r = Padeo(numeroCobro, 5) + "0000000000" + nombreApellido.ToUpper() + Padeo((resultadoInter.ToString("#####0")), 7) + "00" + "0" + Microsoft.VisualBasic.Strings.Trim(cedula.Replace(".", "").Replace(",", "").Replace("-", ""));
-
                     sw.WriteLine(r);
+
+                    //agregado para aduana formato nuevo 18/09/2018
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+                    String formatoNuevoAduantas = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "000000";
+                    archivoAduanas.WriteLine(formatoNuevoAduantas);
                 }
+
+                archivoAduanas.Flush();
+                archivoAduanas.Dispose();
+
                 generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
 
@@ -766,8 +824,10 @@ namespace Negocio
             }
 
              //elseIf Control = "1201" Then // MSP
-            else if (Control == "2901") //MSP
+            else if (Control == "2901") //MSP ASSE
             {
+                sw.WriteLine(Primero);
+
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
                     String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
@@ -785,7 +845,9 @@ namespace Negocio
 
                     numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
 
-                    String r = Primero + Segundo + Tercero + PadeoBlancos(numeroCobro, 8) + PadeoBlancos(resultadoInter.ToString("#####0"), 10) + "00" + PadeoBlancos(numeroPrestamo, 8) + Microsoft.VisualBasic.Strings.Space(12) + Microsoft.VisualBasic.Strings.Space(5) + "C";
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    String r = "1" + Microsoft.VisualBasic.Strings.RTrim(cedula) + ",," + "830470" + resultadoInter.ToString("#####0") + "00";
 
                     sw.WriteLine(r);
                 }
@@ -1260,7 +1322,52 @@ namespace Negocio
                 }
                 generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
             }
-            // Agregado por Nico para contemplar el resto de las oficinas que no tienen interfaces programadas y son solo Excel.
+
+            else if (Control == "1201") // SALUD PUBLICA
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    MesAno = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
+                    MesAno = Padeo(MesAno, 6);
+
+
+                    if (cedula.Length > 8)
+                    {
+                        cedula = cedula.Substring(cedula.Length - 8, 8);
+                    }
+
+                    if (numeroCobro.Length > 8)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 8, 8);
+                    }
+
+                    String r = Primero + MesAno + Padeo(numeroCobro, 8) + Padeo(resultadoInter.ToString("#####0"), 10) + "00" + Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 8), 8) + "000000000000";
+
+                    sw.WriteLine(r);
+                }
+                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+            }
+
+           // Agregado por Nico para contemplar el resto de las oficinas que no tienen interfaces programadas y son solo Excel.
             else
             {
 

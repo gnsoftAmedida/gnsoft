@@ -43,31 +43,35 @@ namespace COOPMEF
             txtTasaCoop.Text = "0";
             txtAhorro.Text = "0";
             double tasaInteres = 0;
-            if (empresa.esNumerico(txtMonto.Text) && empresa.esEntero(txtCantCuotas.Text) && empresa.esNumerico(txtCantCuotas.Text) && empresa.esNumerico(txtMontoCuota.Text))
+            if (empresa.esNumerico(txtMonto.Text.Replace(".", ",")) && empresa.esEntero(txtCantCuotas.Text.Replace(".", ",")) && empresa.esNumerico(txtCantCuotas.Text.Replace(".", ",")) && empresa.esNumerico(txtMontoCuota.Text.Replace(".", ",")))
             {
-            double totalAPagarCompetencia = ((Convert.ToDouble(txtMontoCuota.Text.Replace(".", ","))) * (Convert.ToDouble(txtCantCuotas.Text.Replace(".", ","))));
-            
-            
-            if (totalAPagarCompetencia == Convert.ToDouble(txtMonto.Text.Replace(".", ",")))
-                MessageBox.Show("Sin intereses, tasa insuperable");
-            else
-                
-                    if (txtMonto.Text != "" && txtCantCuotas.Text != "" && txtMontoCuota.Text != "")
-                    {
+                if (Convert.ToDouble(txtMonto.Text.Replace(".", ",")) <= (Convert.ToDouble(txtCantCuotas.Text.Replace(".", ",")) * Convert.ToDouble(txtMontoCuota.Text.Replace(".", ","))))
+                {
+                    double totalAPagarCompetencia = ((Convert.ToDouble(txtMontoCuota.Text.Replace(".", ","))) * (Convert.ToDouble(txtCantCuotas.Text.Replace(".", ","))));
 
 
-                        dsPlanes = empresa.devolverTasaPorCantCuotasActivos(Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")));
-                        if (dsPlanes.Tables["planprestamo"].Rows.Count > 0)
+                    if (totalAPagarCompetencia == Convert.ToDouble(txtMonto.Text.Replace(".", ",")))
+                        MessageBox.Show("Sin intereses, tasa insuperable");
+                    else
+
+                        if (txtMonto.Text != "" && txtCantCuotas.Text != "" && txtMontoCuota.Text != "")
                         {
-                            tasaInteres = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[0][0].ToString());
+
+
+                            dsPlanes = empresa.devolverTasaPorCantCuotasActivos(Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")));
+                            if (dsPlanes.Tables["planprestamo"].Rows.Count > 0)
+                            {
+                                tasaInteres = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[0][0].ToString());
+
+                            }
+                            else
+                                MessageBox.Show("No hay un plan de préstamos para la cantidad de cuotas especificada");
 
                         }
-                        else
-                            MessageBox.Show("No hay un plan de préstamos para la cantidad de cuotas especificada");
-
-                    }
 
                     txtTotalAPagar.Text = (totalAPagarCompetencia).ToString("##########.");
+
+
                     txtTasa.Text = (queTasa(Convert.ToDouble(txtMonto.Text.Replace(".", ",")), Convert.ToDouble(txtMontoCuota.Text.Replace(".", ",")), Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")))).ToString("##########.");
 
                     if (tasaInteres != 0)
@@ -77,8 +81,14 @@ namespace COOPMEF
                         txtTasaCoop.Text = tasaInteres.ToString("##########.");
                         txtAhorro.Text = (Convert.ToDouble(txtTotalAPagar.Text.Replace(".", ",")) - Convert.ToDouble(txtTotalAPagarCoop.Text.Replace(".", ","))).ToString("##########.");
                     }
-                }else
+                }
+                else
+                    MessageBox.Show("El monto pedido debe ser menor o igual a la cantidad de cuotas por el monto de la cuota");
+                   
+            }
+            else
                 MessageBox.Show("Los campos deben ser numéricos y la cantidad de cuotas debe ser entero");
+                
         }
 
 
@@ -87,9 +97,9 @@ namespace COOPMEF
         {
             tasa = tasa + 100; //' ejemp. 60 + 100 = 160
             tasa = tasa / 100; //' ejemp. 160 / 100 = 1.60
-            Decimal exp= (1.00m /12.00m);
-            string num =Convert.ToString(Math.Pow(tasa, Convert.ToDouble(exp)));
-            tasa =  Convert.ToDouble(num) - 1; //' esta es la tasa mensual
+            Decimal exp = (1.00m / 12.00m);
+            string num = Convert.ToString(Math.Pow(tasa, Convert.ToDouble(exp)));
+            tasa = Convert.ToDouble(num) - 1; //' esta es la tasa mensual
             //'modificado 14/10/09
             return empresa.Format(tasa, CantidadCuotas, Capital);
         }
@@ -97,7 +107,7 @@ namespace COOPMEF
 
         private Double queTasa(double Capital, double ImpCuota, int CanCuotas)
         {
-            double TasaMensual=0;
+            double TasaMensual = 0;
             double TasaAnual = 0; ;
 
             TasaMensual = empresa.Rate(CanCuotas, ImpCuota, Capital);
