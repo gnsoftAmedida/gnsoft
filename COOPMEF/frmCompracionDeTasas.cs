@@ -35,7 +35,27 @@ namespace COOPMEF
             this.Close();
         }
 
+        private bool sonNumericos()
+        {
 
+
+            return empresa.esNumerico(txtMonto.Text.Replace(".", ",")) && empresa.esNumerico(txtCantCuotas.Text.Replace(".", ",")) && empresa.esNumerico(txtMontoCuota.Text.Replace(".", ","));
+
+        }
+        private bool montoCorrecto()
+        {
+
+            return Convert.ToDouble(txtMonto.Text.Replace(".", ",")) <= (Convert.ToDouble(txtCantCuotas.Text.Replace(".", ",")) * Convert.ToDouble(txtMontoCuota.Text.Replace(".", ",")));
+
+        }
+
+        private bool camposCompletos()
+        {
+
+            return txtMonto.Text != "" && txtCantCuotas.Text != "" && txtMontoCuota.Text != "";
+
+
+        }
         private void btnCalcularComparacion_Click(object sender, EventArgs e)
         {
             txtMontoCuotaCoop.Text = "0";
@@ -43,52 +63,76 @@ namespace COOPMEF
             txtTasaCoop.Text = "0";
             txtAhorro.Text = "0";
             double tasaInteres = 0;
-            if (empresa.esNumerico(txtMonto.Text.Replace(".", ",")) && empresa.esEntero(txtCantCuotas.Text.Replace(".", ",")) && empresa.esNumerico(txtCantCuotas.Text.Replace(".", ",")) && empresa.esNumerico(txtMontoCuota.Text.Replace(".", ",")))
+            string mensaje = "";
+            try
             {
-                if (Convert.ToDouble(txtMonto.Text.Replace(".", ",")) <= (Convert.ToDouble(txtCantCuotas.Text.Replace(".", ",")) * Convert.ToDouble(txtMontoCuota.Text.Replace(".", ","))))
+                if (camposCompletos())
                 {
-                    double totalAPagarCompetencia = ((Convert.ToDouble(txtMontoCuota.Text.Replace(".", ","))) * (Convert.ToDouble(txtCantCuotas.Text.Replace(".", ","))));
-
-
-                    if (totalAPagarCompetencia == Convert.ToDouble(txtMonto.Text.Replace(".", ",")))
-                        MessageBox.Show("Sin intereses, tasa insuperable");
-                    else
-
-                        if (txtMonto.Text != "" && txtCantCuotas.Text != "" && txtMontoCuota.Text != "")
+                    if (sonNumericos())
+                    {
+                        if (empresa.esEntero(txtCantCuotas.Text.Replace(".", ",")))
                         {
 
-
-                            dsPlanes = empresa.devolverTasaPorCantCuotasActivos(Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")));
-                            if (dsPlanes.Tables["planprestamo"].Rows.Count > 0)
+                            if (montoCorrecto())
                             {
-                                tasaInteres = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[0][0].ToString());
+                                double totalAPagarCompetencia = ((Convert.ToDouble(txtMontoCuota.Text.Replace(".", ","))) * (Convert.ToDouble(txtCantCuotas.Text.Replace(".", ","))));
 
+
+                                if (totalAPagarCompetencia == Convert.ToDouble(txtMonto.Text.Replace(".", ",")))
+                                    MessageBox.Show("Sin intereses, tasa insuperable");
+                                else
+                                {
+
+
+                                    dsPlanes = empresa.devolverTasaPorCantCuotasActivos(Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")));
+                                    if (dsPlanes.Tables["planprestamo"].Rows.Count > 0)
+                                    {
+                                        tasaInteres = Convert.ToDouble(dsPlanes.Tables["planprestamo"].Rows[0][0].ToString());
+
+                                    }
+                                    else
+                                        MessageBox.Show("No hay un plan de préstamos para la cantidad de cuotas especificada");
+
+                                }
+
+
+                                txtTotalAPagar.Text = (totalAPagarCompetencia).ToString("##########.");
+
+
+                                txtTasa.Text = (queTasa(Convert.ToDouble(txtMonto.Text.Replace(".", ",")), Convert.ToDouble(txtMontoCuota.Text.Replace(".", ",")), Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")))).ToString("##########.");
+
+
+                                if (tasaInteres != 0)
+                                {
+                                    txtMontoCuotaCoop.Text = (Cuota(tasaInteres, Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")), Convert.ToDouble(txtMonto.Text.Replace(".", ",")))).ToString("##########.");
+                                    txtTotalAPagarCoop.Text = ((Convert.ToDouble(txtMontoCuotaCoop.Text.Replace(".", ","))) * (Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")))).ToString("##########.");
+                                    txtTasaCoop.Text = tasaInteres.ToString("##########.");
+                                    txtAhorro.Text = (Convert.ToDouble(txtTotalAPagar.Text.Replace(".", ",")) - Convert.ToDouble(txtTotalAPagarCoop.Text.Replace(".", ","))).ToString("##########.");
+                                }
                             }
                             else
-                                MessageBox.Show("No hay un plan de préstamos para la cantidad de cuotas especificada");
+                                MessageBox.Show("El monto pedido debe ser menor o igual a la cantidad de cuotas por el monto de la cuota");
+
 
                         }
+                        else
+                            MessageBox.Show("La cantidad de cuotas debe ser entero");
 
-                    txtTotalAPagar.Text = (totalAPagarCompetencia).ToString("##########.");
 
-
-                    txtTasa.Text = (queTasa(Convert.ToDouble(txtMonto.Text.Replace(".", ",")), Convert.ToDouble(txtMontoCuota.Text.Replace(".", ",")), Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")))).ToString("##########.");
-
-                    if (tasaInteres != 0)
-                    {
-                        txtMontoCuotaCoop.Text = (Cuota(tasaInteres, Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")), Convert.ToDouble(txtMonto.Text.Replace(".", ",")))).ToString("##########.");
-                        txtTotalAPagarCoop.Text = ((Convert.ToDouble(txtMontoCuotaCoop.Text.Replace(".", ","))) * (Convert.ToInt32(txtCantCuotas.Text.Replace(".", ",")))).ToString("##########.");
-                        txtTasaCoop.Text = tasaInteres.ToString("##########.");
-                        txtAhorro.Text = (Convert.ToDouble(txtTotalAPagar.Text.Replace(".", ",")) - Convert.ToDouble(txtTotalAPagarCoop.Text.Replace(".", ","))).ToString("##########.");
                     }
+                    else
+                        MessageBox.Show("Los campos deben ser numéricos");
                 }
+
                 else
-                    MessageBox.Show("El monto pedido debe ser menor o igual a la cantidad de cuotas por el monto de la cuota");
-                   
+                    MessageBox.Show("Debe completar todos los campos");
             }
-            else
-                MessageBox.Show("Los campos deben ser numéricos y la cantidad de cuotas debe ser entero");
-                
+
+            catch (Exception ex)
+            {
+                mensaje = ex.Message;
+                MessageBox.Show(mensaje);
+            }
         }
 
 
