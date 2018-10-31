@@ -65,22 +65,22 @@ namespace COOPMEF
 
                 if (movimientoPro.Tables["consultaMovimiento"].Rows[0][0].ToString() != "")
                 {
-                     depositos = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[0][0].ToString());
+                    depositos = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[0][0].ToString());
                 }
 
                 if (movimientoPro.Tables["consultaMovimiento"].Rows[0][1].ToString() != "")
                 {
-                     promedioDeposito = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[0][1].ToString());
+                    promedioDeposito = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[0][1].ToString());
                 }
 
                 if (movimientoPro.Tables["consultaMovimiento"].Rows[1][0].ToString() != "")
                 {
-                     cheques = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[1][0].ToString());
+                    cheques = Convert.ToInt32(movimientoPro.Tables["consultaMovimiento"].Rows[1][0].ToString());
                 }
 
                 if (movimientoPro.Tables["consultaMovimiento"].Rows[1][1].ToString() != "")
                 {
-                     PromedioCheques = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[1][1].ToString());
+                    PromedioCheques = Convert.ToDouble(movimientoPro.Tables["consultaMovimiento"].Rows[1][1].ToString());
                 }
 
                 double promedioTotal = (promedioDeposito + PromedioCheques) / 2;

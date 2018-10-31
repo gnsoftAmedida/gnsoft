@@ -1745,6 +1745,13 @@ namespace Negocio
             return consulta;
         }
 
+        public DataSet salidasIngresos(int diaDesde, int diaHasta, int mes, int anio)
+        {
+            Movimiento tmpMovimiento = new Movimiento();
+            DataSet consulta = tmpMovimiento.salidasIngresos(diaDesde, diaHasta, mes, anio);
+            return consulta;
+        }
+
         public DataSet DevolverHistoria()
         {
             Historia tmpHistoria = new Historia();

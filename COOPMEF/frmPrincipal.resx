@@ -122,19 +122,25 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="anulaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Anulación</value>
   </data>
   <data name="resumenDePréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>225, 22</value>
+    <value>286, 22</value>
   </data>
   <data name="resumenDePréstamosToolStripMenuItem.Text" xml:space="preserve">
     <value>Resumen de Préstamos</value>
   </data>
+  <data name="salidasEIngresosPorPréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>286, 22</value>
+  </data>
+  <data name="salidasEIngresosPorPréstamosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salidas e Ingresos por préstamos</value>
+  </data>
   <data name="informesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="informesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Informes</value>
@@ -6535,12 +6541,6 @@
   <data name="&gt;&gt;parámetrosDelSistemaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;ayudaToolStripMenuItem.Name" xml:space="preserve">
-    <value>ayudaToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;utilitariosToolStripMenuItem.Name" xml:space="preserve">
     <value>utilitariosToolStripMenuItem</value>
   </data>
@@ -6551,6 +6551,18 @@
     <value>queTasaEstánCobrandoToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;queTasaEstánCobrandoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;ayudaToolStripMenuItem.Name" xml:space="preserve">
+    <value>ayudaToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;salidasEIngresosPorPréstamosToolStripMenuItem.Name" xml:space="preserve">
+    <value>salidasEIngresosPorPréstamosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;salidasEIngresosPorPréstamosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

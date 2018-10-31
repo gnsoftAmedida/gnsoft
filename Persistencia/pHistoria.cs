@@ -230,7 +230,7 @@ namespace Persistencia
 
                 // apellidos nombres 
 
-                string sql = "SELECT s.socio_apellido, s.socio_nombre, i.inciso_codigo, o.oficina_codigo, h.InteresCuota, h.IvaCuota, h.mora, h.ivaMora, (h.InteresCuota * (h.porcentajeiva / 100)), (h.excedido + h.mora + h.ivaMora + h.aportecapital) FROM historia h, oficina o, inciso i, socio s where h.socio_id = s.socio_id and h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.Presupuesto ='" + presupuesto + "' ORDER BY h.Inciso, h.oficina";
+                string sql = "SELECT s.socio_apellido, s.socio_nombre, i.inciso_codigo, o.oficina_codigo, h.InteresCuota, h.IvaCuota, h.mora, h.ivaMora, (h.InteresCuota * (h.porcentajeiva / 100)), (h.excedido + h.mora + h.ivaMora + h.aportecapital), h.NumeroPrestamo, h.cedula FROM historia h, oficina o, inciso i, socio s where h.socio_id = s.socio_id and h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.Presupuesto ='" + presupuesto + "' and (h.IvaCuota <> '0' or h.ivaMora <> '0')  ORDER BY h.Inciso, h.oficina";
                 DataSet ds = new DataSet();
 
                 connection.Open();

@@ -37,6 +37,25 @@ namespace Persistencia
             return ds;
         }
 
+
+        public DataSet salidasIngresos(int diaDesde, int diaHasta, int mes, int anio)
+        {
+            MySqlConnection connection = conectar();
+
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            string sql = "SELECT sum(importe) FROM movimientos where fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Deposito' union SELECT sum(importe) FROM movimientos where fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Cheque'";
+
+            DataSet ds = new DataSet();
+
+            connection.Open();
+            MySqlAdapter.SelectCommand = connection.CreateCommand();
+            MySqlAdapter.SelectCommand.CommandText = sql;
+            MySqlAdapter.Fill(ds, "salidaIngreso");
+            connection.Close();
+            return ds;
+        }
+
         public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
         {
             try

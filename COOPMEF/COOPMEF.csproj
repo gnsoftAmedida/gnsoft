@@ -359,6 +359,12 @@
     <Compile Include="frmReporteEventos.Designer.cs">
       <DependentUpon>frmReporteEventos.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmSalidasIngresosBancos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmSalidasIngresosBancos.Designer.cs">
+      <DependentUpon>frmSalidasIngresosBancos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmSeleccionUsuario.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -616,6 +622,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteEventos.resx">
       <DependentUpon>frmReporteEventos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmSalidasIngresosBancos.resx">
+      <DependentUpon>frmSalidasIngresosBancos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmSeleccionUsuario.resx">
       <DependentUpon>frmSeleccionUsuario.cs</DependentUpon>

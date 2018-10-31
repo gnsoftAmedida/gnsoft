@@ -2975,6 +2975,12 @@ Agregar emisión
             frmCompracionDeTasas tmpComparaciónDeTasas = new frmCompracionDeTasas();
             tmpComparaciónDeTasas.ShowDialog();
         }
+
+        private void salidasEIngresosPorPréstamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmSalidasIngresosBancos tmpfrmSalidasIngresosBancos = new frmSalidasIngresosBancos();
+            tmpfrmSalidasIngresosBancos.ShowDialog();
+        }
     }
 }
 
