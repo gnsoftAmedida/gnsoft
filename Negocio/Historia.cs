@@ -137,5 +137,11 @@ namespace Negocio
                 _nrodecuotas, _importecuota, _AmortizacionCuota, _InteresCuota, _IvaCuota, _AmortizacionVencer, _InteresVencer,
                 _aportecapital, _numerocobro, _Inciso, _oficina, _excedido, _mora, _IvaMora, _socio_id);
         }
+
+        public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)
+        {
+            pHistoria tmpHistoria = new pHistoria();
+            return tmpHistoria.devolverUtilidadesPorPresupuesto(presupuesto);
+        }
     }
 }

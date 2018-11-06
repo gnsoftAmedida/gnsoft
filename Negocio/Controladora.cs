@@ -2963,6 +2963,12 @@ namespace Negocio
             return tmpCierre.cierreEfectuado(presupuesto);
         }
 
+        public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            return tmpHistoria.devolverUtilidadesPorPresupuesto(presupuesto);
+        }
+
         public void cierre()
         {
             double CuotaCapital;

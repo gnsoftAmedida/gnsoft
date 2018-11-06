@@ -2772,7 +2772,7 @@ Agregar emisión
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
+           
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -2980,6 +2980,12 @@ Agregar emisión
         {
             frmSalidasIngresosBancos tmpfrmSalidasIngresosBancos = new frmSalidasIngresosBancos();
             tmpfrmSalidasIngresosBancos.ShowDialog();
+        }
+
+        private void distribuciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmDistribucionDeUtilidades tmpfrmDistribucionDeUtilidades = new frmDistribucionDeUtilidades();
+            tmpfrmDistribucionDeUtilidades.ShowDialog();
         }
     }
 }

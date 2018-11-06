@@ -319,6 +319,56 @@ namespace Persistencia
                       throw ex;
                   }
    
+              }     
+
+              public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)
+              {
+                  try
+                  {
+                      MySqlConnection connection = conectar();
+
+                      MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                      string sql = "SELECT SUM(InteresCuota), SUM(aportecapital) FROM coopmef.historia where Presupuesto='" + presupuesto + "'";
+                      DataSet ds = new DataSet();
+
+                      connection.Open();
+                      MySqlAdapter.SelectCommand = connection.CreateCommand();
+                      MySqlAdapter.SelectCommand.CommandText = sql;
+                      MySqlAdapter.Fill(ds, "devolverUtilidadesPorPresupuesto");
+                      connection.Close();
+                      return ds;
+
+                  }
+                  catch (Exception ex)
+                  {
+                      throw ex;
+                  }
+              }
+
+
+        //**************************************
+              public DataSet distribucionUtilidadesPorPresupuesto(string presupuesto)
+              {
+                  try
+                  {
+                      MySqlConnection connection = conectar();
+
+                      MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                      string sql = "SELECT h.cedula, SUM(InteresCuota), SUM(aportecapital) FROM coopmef.historia h where Presupuesto='" + presupuesto +"' group by cedula" ;
+                      DataSet ds = new DataSet();
+
+                      connection.Open();
+                      MySqlAdapter.SelectCommand = connection.CreateCommand();
+                      MySqlAdapter.SelectCommand.CommandText = sql;
+                      MySqlAdapter.Fill(ds, "utilidadesPorPresupuesto");
+                      connection.Close();
+                      return ds;
+
+                  }
+                  catch (Exception ex)
+                  {
+                      throw ex;
+                  }
               }
         
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,

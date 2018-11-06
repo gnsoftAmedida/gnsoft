@@ -34,6 +34,7 @@
             this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
@@ -279,7 +280,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -349,6 +350,12 @@
             resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
             this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click);
             // 
+            // salidasEIngresosPorPréstamosToolStripMenuItem
+            // 
+            this.salidasEIngresosPorPréstamosToolStripMenuItem.Name = "salidasEIngresosPorPréstamosToolStripMenuItem";
+            resources.ApplyResources(this.salidasEIngresosPorPréstamosToolStripMenuItem, "salidasEIngresosPorPréstamosToolStripMenuItem");
+            this.salidasEIngresosPorPréstamosToolStripMenuItem.Click += new System.EventHandler(this.salidasEIngresosPorPréstamosToolStripMenuItem_Click);
+            // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -417,6 +424,8 @@
             // 
             // toolStripMenuItem2
             // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.distribuciónToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
@@ -2062,11 +2071,11 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // salidasEIngresosPorPréstamosToolStripMenuItem
+            // distribuciónToolStripMenuItem
             // 
-            this.salidasEIngresosPorPréstamosToolStripMenuItem.Name = "salidasEIngresosPorPréstamosToolStripMenuItem";
-            resources.ApplyResources(this.salidasEIngresosPorPréstamosToolStripMenuItem, "salidasEIngresosPorPréstamosToolStripMenuItem");
-            this.salidasEIngresosPorPréstamosToolStripMenuItem.Click += new System.EventHandler(this.salidasEIngresosPorPréstamosToolStripMenuItem_Click);
+            this.distribuciónToolStripMenuItem.Name = "distribuciónToolStripMenuItem";
+            resources.ApplyResources(this.distribuciónToolStripMenuItem, "distribuciónToolStripMenuItem");
+            this.distribuciónToolStripMenuItem.Click += new System.EventHandler(this.distribuciónToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -2379,6 +2388,7 @@
         private System.Windows.Forms.ToolStripMenuItem utilitariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem queTasaEstánCobrandoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salidasEIngresosPorPréstamosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem distribuciónToolStripMenuItem;
     }
 }
 

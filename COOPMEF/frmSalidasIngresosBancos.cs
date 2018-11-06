@@ -87,7 +87,7 @@ namespace COOPMEF
                     cheque = 0;
                 }
 
-                dgvIngresosSalidas.Rows.Add(mes + "/" + anio, cheque, deposito);
+                dgvIngresosSalidas.Rows.Add(mes + "/" + anio, cheque.ToString("###,###,##0.00"), deposito.ToString("###,###,##0.00"));
             }
 
             anio = anio + 1;
@@ -142,15 +142,15 @@ namespace COOPMEF
                     cheque = 0;
                 }
 
-                dgvIngresosSalidas.Rows.Add("0" + mes + "/" + anio, cheque, deposito);
+                dgvIngresosSalidas.Rows.Add("0" + mes + "/" + anio, cheque.ToString("###,###,##0.00"), deposito.ToString("###,###,##0.00"));
             }
 
             promedioCheque = sumaCheques / 12;
             promedioDeposito = sumaDepositos / 12;
 
             dgvIngresosSalidas.Rows.Add("", "", "");
-            dgvIngresosSalidas.Rows.Add("Total", sumaCheques, sumaDepositos);
-            dgvIngresosSalidas.Rows.Add("Promedio Mensual", promedioCheque, promedioDeposito);
+            dgvIngresosSalidas.Rows.Add("Total", sumaCheques.ToString("###,###,##0.00"), sumaDepositos.ToString("###,###,##0.00"));
+            dgvIngresosSalidas.Rows.Add("Promedio Mensual", promedioCheque.ToString("###,###,##0.00"), promedioDeposito.ToString("###,###,##0.00"));
 
         }
 
