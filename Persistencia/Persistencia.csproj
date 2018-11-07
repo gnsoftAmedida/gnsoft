@@ -44,6 +44,7 @@
     <Compile Include="CapaDatos.cs" />
     <Compile Include="pBanco.cs" />
     <Compile Include="pCancelacion.cs" />
+    <Compile Include="pDistribucion.cs" />
     <Compile Include="pExcedidos.cs" />
     <Compile Include="pCobranzaProvisoria.cs" />
     <Compile Include="pFechaCierre.cs" />

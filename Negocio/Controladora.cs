@@ -2048,6 +2048,29 @@ namespace Negocio
             return fechasCierres;
         }
 
+
+        //public void GuardarDistribucion(int socio_id, string cedula, string ejercicio, Double aportesCapital, Double interesesAportados, Double utilidades, string pagadopor, DateTime fecha, string cheque)
+        public void GuardarDistribucion(int socio_id, string cedula, string ejercicio, Double aportesCapital, Double interesesAportados)
+        {
+            Distribucion tmpDistribucion = new Distribucion();
+            tmpDistribucion.Socio_id = socio_id;
+            tmpDistribucion.Cedula = cedula;
+            tmpDistribucion.Ejercicio = ejercicio;
+            tmpDistribucion.AportesCapital = aportesCapital;
+            tmpDistribucion.InteresesAportados = interesesAportados;
+            //  tmpDistribucion.Utilidades = utilidades;
+            //  tmpDistribucion.Pagadopor = pagadopor;
+            //  tmpDistribucion.Fecha = fecha;
+            //  tmpDistribucion.Cheque = cheque;
+            tmpDistribucion.GuardarDistribucion();
+        }
+
+        public void actualizarUtilidadesDistribucionEjercicio(Double aDistribuir, Double totalInteres, string ejercicio)
+        {
+            Distribucion tmpDistribucion = new Distribucion();
+            tmpDistribucion.actualizarUtilidadesDistribucionEjercicio(aDistribuir, totalInteres, ejercicio);
+        }
+
         public DataSet DevolverPlanesActivos()
         {
             Plan tmpPlan = new Plan();
@@ -2963,10 +2986,22 @@ namespace Negocio
             return tmpCierre.cierreEfectuado(presupuesto);
         }
 
+        public Boolean ejercicioProcesado(String ejercicio)
+        {
+            Distribucion tmDistribucion = new Distribucion();
+            return tmDistribucion.ejercicioProcesado(ejercicio);
+        }
+
         public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)
         {
             Historia tmpHistoria = new Historia();
             return tmpHistoria.devolverUtilidadesPorPresupuesto(presupuesto);
+        }
+
+        public DataSet distribucionUtilidadesPorPresupuesto(string consultaPrevia)
+        {
+            Historia tmpHistoria = new Historia();
+            return tmpHistoria.distribucionUtilidadesPorPresupuesto(consultaPrevia);
         }
 
         public void cierre()

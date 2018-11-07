@@ -52,6 +52,7 @@
     <Compile Include="Controladora.cs" />
     <Compile Include="Cobranza.cs" />
     <Compile Include="CobranzaProvisoria.cs" />
+    <Compile Include="Distribucion.cs" />
     <Compile Include="Excedidos.cs" />
     <Compile Include="FechaCierre.cs" />
     <Compile Include="Empresa.cs" />

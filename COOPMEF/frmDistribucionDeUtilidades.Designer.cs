@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDistribucionDeUtilidades));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtUtilidades = new System.Windows.Forms.TextBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
@@ -50,7 +51,6 @@
             this.aporte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.intereses = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.txtEjercicio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -63,25 +63,38 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.cmbAnio);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(632, 54);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox1.Location = new System.Drawing.Point(632, 97);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox1.Size = new System.Drawing.Size(140, 81);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox1.Size = new System.Drawing.Size(140, 87);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Año";
             // 
+            // cmbAnio
+            // 
+            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbAnio.FormattingEnabled = true;
+            this.cmbAnio.Location = new System.Drawing.Point(20, 32);
+            this.cmbAnio.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbAnio.Name = "cmbAnio";
+            this.cmbAnio.Size = new System.Drawing.Size(103, 28);
+            this.cmbAnio.TabIndex = 31;
+            this.cmbAnio.SelectedIndexChanged += new System.EventHandler(this.cmbAnio_SelectedIndexChanged);
+            // 
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.txtUtilidades);
-            this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(787, 54);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Font = new System.Drawing.Font("Arial Narrow", 12F);
+            this.groupBox2.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox2.Location = new System.Drawing.Point(787, 97);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox2.Size = new System.Drawing.Size(135, 81);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(135, 87);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Utilidades $";
@@ -97,11 +110,11 @@
             // 
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(632, 139);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Location = new System.Drawing.Point(632, 241);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox3.Size = new System.Drawing.Size(290, 138);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox3.Size = new System.Drawing.Size(290, 184);
             this.groupBox3.TabIndex = 5;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Importante";
@@ -110,7 +123,7 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(16, 27);
+            this.label1.Location = new System.Drawing.Point(34, 46);
             this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(223, 96);
@@ -126,12 +139,13 @@
             this.groupBox4.Controls.Add(this.label4);
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.label2);
-            this.groupBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox4.Location = new System.Drawing.Point(324, 393);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.groupBox4.ForeColor = System.Drawing.SystemColors.Highlight;
+            this.groupBox4.Location = new System.Drawing.Point(81, 374);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
-            this.groupBox4.Size = new System.Drawing.Size(290, 123);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox4.Size = new System.Drawing.Size(470, 108);
             this.groupBox4.TabIndex = 6;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Totales";
@@ -139,63 +153,65 @@
             // lblTotal
             // 
             this.lblTotal.AutoSize = true;
-            this.lblTotal.Location = new System.Drawing.Point(146, 87);
+            this.lblTotal.Font = new System.Drawing.Font("Arial Narrow", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTotal.Location = new System.Drawing.Point(273, 76);
             this.lblTotal.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblTotal.Name = "lblTotal";
-            this.lblTotal.Size = new System.Drawing.Size(51, 20);
+            this.lblTotal.Size = new System.Drawing.Size(45, 20);
             this.lblTotal.TabIndex = 5;
             this.lblTotal.Text = "label8";
             // 
             // lblInteres
             // 
             this.lblInteres.AutoSize = true;
-            this.lblInteres.Location = new System.Drawing.Point(146, 55);
+            this.lblInteres.Location = new System.Drawing.Point(273, 44);
             this.lblInteres.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblInteres.Name = "lblInteres";
-            this.lblInteres.Size = new System.Drawing.Size(51, 20);
+            this.lblInteres.Size = new System.Drawing.Size(45, 20);
             this.lblInteres.TabIndex = 4;
             this.lblInteres.Text = "label7";
             // 
             // lblAportes
             // 
             this.lblAportes.AutoSize = true;
-            this.lblAportes.Location = new System.Drawing.Point(146, 32);
+            this.lblAportes.Location = new System.Drawing.Point(273, 21);
             this.lblAportes.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblAportes.Name = "lblAportes";
-            this.lblAportes.Size = new System.Drawing.Size(51, 20);
+            this.lblAportes.Size = new System.Drawing.Size(45, 20);
             this.lblAportes.TabIndex = 3;
             this.lblAportes.Text = "label6";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(61, 87);
+            this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(171, 76);
             this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(79, 20);
+            this.label4.Size = new System.Drawing.Size(85, 18);
             this.label4.TabIndex = 2;
-            this.label4.Text = "Total    $";
+            this.label4.Text = "Total         $";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(44, 55);
+            this.label3.Location = new System.Drawing.Point(171, 44);
             this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(97, 20);
+            this.label3.Size = new System.Drawing.Size(83, 20);
             this.label3.TabIndex = 1;
             this.label3.Text = "Intereses   $";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(62, 32);
+            this.label2.Location = new System.Drawing.Point(171, 21);
             this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(78, 20);
+            this.label2.Size = new System.Drawing.Size(83, 20);
             this.label2.TabIndex = 0;
-            this.label2.Text = "Aportes $";
+            this.label2.Text = "Aportes     $";
+            this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
             // label5
             // 
@@ -211,9 +227,9 @@
             this.btnDistribuir.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
             this.btnDistribuir.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnDistribuir.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnDistribuir.Location = new System.Drawing.Point(792, 298);
+            this.btnDistribuir.Location = new System.Drawing.Point(729, 443);
             this.btnDistribuir.Name = "btnDistribuir";
-            this.btnDistribuir.Size = new System.Drawing.Size(69, 32);
+            this.btnDistribuir.Size = new System.Drawing.Size(96, 39);
             this.btnDistribuir.TabIndex = 27;
             this.btnDistribuir.Text = "    Distribuir";
             this.btnDistribuir.UseVisualStyleBackColor = true;
@@ -224,9 +240,9 @@
             this.btnEliminarUtili.Image = global::COOPMEF.Properties.Resources.delete16;
             this.btnEliminarUtili.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarUtili.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEliminarUtili.Location = new System.Drawing.Point(734, 298);
+            this.btnEliminarUtili.Location = new System.Drawing.Point(631, 443);
             this.btnEliminarUtili.Name = "btnEliminarUtili";
-            this.btnEliminarUtili.Size = new System.Drawing.Size(58, 31);
+            this.btnEliminarUtili.Size = new System.Drawing.Size(96, 38);
             this.btnEliminarUtili.TabIndex = 28;
             this.btnEliminarUtili.Text = "   Eliminar";
             this.btnEliminarUtili.UseVisualStyleBackColor = true;
@@ -236,9 +252,9 @@
             this.btnSalirDistribuciUtilidades.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out1;
             this.btnSalirDistribuciUtilidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirDistribuciUtilidades.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirDistribuciUtilidades.Location = new System.Drawing.Point(860, 298);
+            this.btnSalirDistribuciUtilidades.Location = new System.Drawing.Point(825, 443);
             this.btnSalirDistribuciUtilidades.Name = "btnSalirDistribuciUtilidades";
-            this.btnSalirDistribuciUtilidades.Size = new System.Drawing.Size(62, 32);
+            this.btnSalirDistribuciUtilidades.Size = new System.Drawing.Size(96, 39);
             this.btnSalirDistribuciUtilidades.TabIndex = 26;
             this.btnSalirDistribuciUtilidades.Text = "   Salir";
             this.btnSalirDistribuciUtilidades.UseVisualStyleBackColor = true;
@@ -252,10 +268,12 @@
             this.aporte,
             this.intereses,
             this.Total});
+            this.dgvUtilidades.GridColor = System.Drawing.SystemColors.ActiveCaption;
             this.dgvUtilidades.Location = new System.Drawing.Point(12, 54);
             this.dgvUtilidades.Name = "dgvUtilidades";
-            this.dgvUtilidades.Size = new System.Drawing.Size(602, 325);
+            this.dgvUtilidades.Size = new System.Drawing.Size(602, 313);
             this.dgvUtilidades.TabIndex = 29;
+            this.dgvUtilidades.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUtilidades_CellContentClick);
             // 
             // presupuesto
             // 
@@ -283,33 +301,24 @@
             this.Total.Name = "Total";
             this.Total.Width = 155;
             // 
-            // cmbAnio
-            // 
-            this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(20, 32);
-            this.cmbAnio.Margin = new System.Windows.Forms.Padding(2);
-            this.cmbAnio.Name = "cmbAnio";
-            this.cmbAnio.Size = new System.Drawing.Size(103, 28);
-            this.cmbAnio.TabIndex = 31;
-            this.cmbAnio.SelectedIndexChanged += new System.EventHandler(this.cmbAnio_SelectedIndexChanged);
-            // 
             // txtEjercicio
             // 
+            this.txtEjercicio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtEjercicio.Location = new System.Drawing.Point(237, 12);
             this.txtEjercicio.Name = "txtEjercicio";
             this.txtEjercicio.ReadOnly = true;
-            this.txtEjercicio.Size = new System.Drawing.Size(120, 20);
+            this.txtEjercicio.Size = new System.Drawing.Size(104, 21);
             this.txtEjercicio.TabIndex = 32;
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label7.Font = new System.Drawing.Font("Arial Rounded MT Bold", 12F);
+            this.label7.ForeColor = System.Drawing.SystemColors.ActiveCaption;
             this.label7.Location = new System.Drawing.Point(154, 12);
             this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 20);
+            this.label7.Size = new System.Drawing.Size(78, 18);
             this.label7.TabIndex = 31;
             this.label7.Text = "Ejercicio";
             // 
@@ -329,7 +338,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.Name = "frmDistribucionDeUtilidades";
             this.Text = "Distribución de Utilidades";
             this.Load += new System.EventHandler(this.frmDistribucionDeUtilidades_Load);

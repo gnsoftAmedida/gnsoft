@@ -36,8 +36,25 @@ namespace COOPMEF
                         {
                             if (Convert.ToInt32(txtUtilidades.Text) <= Convert.ToDouble(lblInteres.Text))
                             {
-                                MessageBox.Show("Sigo");
+                                if (!(empresa.ejercicioProcesado(txtEjercicio.Text)))
+                                {
 
+                                    string message = "¿Está seguro que desea distribuir las utilidades?";
+                                    string caption = "Gestión COOPMEF";
+                                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                                    DialogResult result;
+
+                                    result = MessageBox.Show(message, caption, buttons);
+
+                                    if (result == System.Windows.Forms.DialogResult.Yes)
+                                    {
+                                        generarDistribucion();
+                                    }
+                                }
+                                else
+                                {
+                                    MessageBox.Show("El Ejercicio ya fue procesado");
+                                }
                             }
                             else
                             {
@@ -66,6 +83,60 @@ namespace COOPMEF
             }
         }
 
+        private void generarDistribucion()
+        {
+
+            DataSet dsSociosDistribucion = empresa.distribucionUtilidadesPorPresupuesto(consultaPreviaDistribucion());
+            string ejercicio = txtEjercicio.Text;
+            Double TotalInteres = 0;
+            Double TotalAportes = 0;
+
+            if (dsSociosDistribucion.Tables["utilidadesPorPresupuesto"].Rows.Count > 0)
+            {
+                for (int i = 0; i <= dsSociosDistribucion.Tables["utilidadesPorPresupuesto"].Rows.Count - 1; i++)
+                {
+                    int socio_id = Convert.ToInt32(dsSociosDistribucion.Tables["utilidadesPorPresupuesto"].Rows[i][0].ToString());
+                    string cedula = dsSociosDistribucion.Tables["utilidadesPorPresupuesto"].Rows[i][1].ToString();
+                    Double aporteCapital = Convert.ToDouble(dsSociosDistribucion.Tables["utilidadesPorPresupuesto"].Rows[i][3].ToString());
+                    Double interesesAportados = Convert.ToDouble(dsSociosDistribucion.Tables["utilidadesPorPresupuesto"].Rows[i][2].ToString());
+
+                    TotalInteres = TotalInteres + interesesAportados;
+                    TotalAportes = TotalAportes + aporteCapital;
+
+                    empresa.GuardarDistribucion(socio_id, cedula, ejercicio, aporteCapital, interesesAportados);
+
+                }
+
+                empresa.actualizarUtilidadesDistribucionEjercicio(Convert.ToDouble(txtUtilidades.Text), TotalInteres, ejercicio);
+            }
+
+            MessageBox.Show("Se ha completado la Distribución de Utilidades del Ejercicio " + txtEjercicio.Text + " Intereses Aportados $ " + TotalInteres.ToString("###,###,##0.00") + " Aportes de Capital $ " + TotalAportes.ToString("###,###,##0.00") + " Utilidades Distribuidas $ " + Convert.ToDouble(txtUtilidades.Text).ToString("###,###,##0.00"));
+
+        }
+
+        private string consultaPreviaDistribucion()
+        {
+            string Sentencia = "";
+            bool primerEntrada = true;
+
+            foreach (DataGridViewRow row in dgvUtilidades.Rows)
+            {
+                if (primerEntrada)
+                {
+                    Sentencia += "SELECT distinctrow socio_id, cedula, SUM(InteresCuota), SUM(aportecapital) FROM coopmef.historia where historia.presupuesto=" + "'" + row.Cells[0].Value.ToString() + "'";
+                    primerEntrada = false;
+                }
+                else
+                {
+                    Sentencia = Sentencia + " or historia.presupuesto=" + "'" + row.Cells[0].Value.ToString() + "'";
+                }
+            }
+
+            Sentencia = Sentencia + " group by historia.cedula";
+
+            return Sentencia;
+        }
+
         private void frmDistribucionDeUtilidades_Load(object sender, EventArgs e)
         {
             for (int i = 2050; i >= 1985; i--)
@@ -88,6 +159,17 @@ namespace COOPMEF
             dgvUtilidades.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
             dgvUtilidades.BackgroundColor = BackColor;
             dgvUtilidades.BorderStyle = BorderStyle.None;
+
+
+            //centrar los datos y los cabezales en el dgv
+            for (int i = 0; i <= 11; i++)
+            {
+                dgvUtilidades.Columns[i].DefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+            }
+
+            dgvUtilidades.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
+
+
         }
 
         private void iniciar()
@@ -180,11 +262,21 @@ namespace COOPMEF
 
         private void cmbAnio_SelectedIndexChanged(object sender, EventArgs e)
         {
-            this.txtEjercicio.Text = Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + " / " + (Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + 1);
+            this.txtEjercicio.Text = Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + "/" + (Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + 1);
             iniciar();
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dgvUtilidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }

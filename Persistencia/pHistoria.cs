@@ -347,14 +347,14 @@ namespace Persistencia
 
 
         //**************************************
-              public DataSet distribucionUtilidadesPorPresupuesto(string presupuesto)
+              public DataSet distribucionUtilidadesPorPresupuesto(string consultaPrevia)
               {
                   try
                   {
                       MySqlConnection connection = conectar();
 
                       MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                      string sql = "SELECT h.cedula, SUM(InteresCuota), SUM(aportecapital) FROM coopmef.historia h where Presupuesto='" + presupuesto +"' group by cedula" ;
+                      string sql = consultaPrevia;
                       DataSet ds = new DataSet();
 
                       connection.Open();

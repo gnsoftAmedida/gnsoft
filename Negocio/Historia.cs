@@ -143,5 +143,11 @@ namespace Negocio
             pHistoria tmpHistoria = new pHistoria();
             return tmpHistoria.devolverUtilidadesPorPresupuesto(presupuesto);
         }
+
+        public DataSet distribucionUtilidadesPorPresupuesto(string consultaPrevia)
+        {
+            pHistoria tmpHistoria = new pHistoria();
+            return tmpHistoria.distribucionUtilidadesPorPresupuesto(consultaPrevia);
+        }
     }
 }
