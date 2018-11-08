@@ -2987,6 +2987,12 @@ Agregar emisión
             frmDistribucionDeUtilidades tmpfrmDistribucionDeUtilidades = new frmDistribucionDeUtilidades();
             tmpfrmDistribucionDeUtilidades.ShowDialog();
         }
+
+        private void liquidaciónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmLiquidacionDeUtilidades tmpfrmLiquidacionDeUtilidades = new frmLiquidacionDeUtilidades();
+            tmpfrmLiquidacionDeUtilidades.ShowDialog();
+        }
     }
 }
 

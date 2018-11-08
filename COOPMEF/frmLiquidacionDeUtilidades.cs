@@ -15,5 +15,10 @@ namespace COOPMEF
         {
             InitializeComponent();
         }
+
+        private void lblNroSocio_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

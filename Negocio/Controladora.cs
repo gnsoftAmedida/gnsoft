@@ -43,6 +43,31 @@ namespace Negocio
             return tmpMovimiento.devolverCuentaCorriente(id_banco, fechaDesde, fechaHasta, concepto);
         }
 
+        public string NomPropio(String Nombre)
+        {
+            String retorno = "";
+            for (int i = 1; i <= Microsoft.VisualBasic.Strings.Len(Nombre); i++)
+            {
+                if (i == 1)
+                {
+                    retorno = Microsoft.VisualBasic.Strings.UCase(Microsoft.VisualBasic.Strings.Mid(Nombre, 1, 1));
+                }
+                else
+                {
+                    if (Microsoft.VisualBasic.Strings.Mid(Nombre, i - 1, 1) == " ")
+                    {
+                        retorno = retorno + Microsoft.VisualBasic.Strings.UCase(Microsoft.VisualBasic.Strings.Mid(Nombre, i, 1));
+                    }
+                    else
+                    {
+                        retorno = retorno + Microsoft.VisualBasic.Strings.LCase(Microsoft.VisualBasic.Strings.Mid(Nombre, i, 1));
+                    }
+                }
+            }
+            return retorno;
+        }
+
+
         public string Padeo(String cadena, int largo)
         {
             string cadena2;
@@ -51,7 +76,7 @@ namespace Negocio
             {
                 cadena2 = cadena2 + "0";
             }
-            
+
             cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena))) + cadena;
             return cadena2;
         }
