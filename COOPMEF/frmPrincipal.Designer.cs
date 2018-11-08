@@ -46,6 +46,7 @@
             this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -281,7 +282,8 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.txtCesion = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -437,6 +439,12 @@
             this.distribuciónToolStripMenuItem.Name = "distribuciónToolStripMenuItem";
             resources.ApplyResources(this.distribuciónToolStripMenuItem, "distribuciónToolStripMenuItem");
             this.distribuciónToolStripMenuItem.Click += new System.EventHandler(this.distribuciónToolStripMenuItem_Click);
+            // 
+            // liquidaciónToolStripMenuItem
+            // 
+            this.liquidaciónToolStripMenuItem.Name = "liquidaciónToolStripMenuItem";
+            resources.ApplyResources(this.liquidaciónToolStripMenuItem, "liquidaciónToolStripMenuItem");
+            this.liquidaciónToolStripMenuItem.Click += new System.EventHandler(this.liquidaciónToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -872,6 +880,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label9);
+            this.groupBox1.Controls.Add(this.txtCesion);
             this.groupBox1.Controls.Add(this.cmbDepartamento);
             this.groupBox1.Controls.Add(this.label44);
             this.groupBox1.Controls.Add(this.lblErrorFechas);
@@ -880,15 +890,15 @@
             this.groupBox1.Controls.Add(this.lblFechaIng);
             this.groupBox1.Controls.Add(this.lblFechaNac);
             this.groupBox1.Controls.Add(this.lblNroSocioFormatoInvalido);
-            this.groupBox1.Controls.Add(this.lblEmailFormatoInvalido);
             this.groupBox1.Controls.Add(this.lblFormatoInvalido);
-            this.groupBox1.Controls.Add(this.txtNroSocio);
+            this.groupBox1.Controls.Add(this.lblEmailFormatoInvalido);
             this.groupBox1.Controls.Add(this.lblYaExiste);
+            this.groupBox1.Controls.Add(this.txtNroSocio);
             this.groupBox1.Controls.Add(this.lblYaExisteMail);
             this.groupBox1.Controls.Add(this.lblYaExisteTel);
+            this.groupBox1.Controls.Add(this.lblReferenciaError);
             this.groupBox1.Controls.Add(this.lblYaExisteCobro);
             this.groupBox1.Controls.Add(this.lblYaExisteSocio);
-            this.groupBox1.Controls.Add(this.lblReferenciaError);
             this.groupBox1.Controls.Add(this.dtpFechaIng);
             this.groupBox1.Controls.Add(this.dtpFechaNac);
             this.groupBox1.Controls.Add(this.lblDir);
@@ -2079,11 +2089,15 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // liquidaciónToolStripMenuItem
+            // txtCesion
             // 
-            this.liquidaciónToolStripMenuItem.Name = "liquidaciónToolStripMenuItem";
-            resources.ApplyResources(this.liquidaciónToolStripMenuItem, "liquidaciónToolStripMenuItem");
-            this.liquidaciónToolStripMenuItem.Click += new System.EventHandler(this.liquidaciónToolStripMenuItem_Click);
+            resources.ApplyResources(this.txtCesion, "txtCesion");
+            this.txtCesion.Name = "txtCesion";
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
             // 
             // frmPrincipal
             // 
@@ -2398,6 +2412,8 @@
         private System.Windows.Forms.ToolStripMenuItem salidasEIngresosPorPréstamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem distribuciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem liquidaciónToolStripMenuItem;
+        private System.Windows.Forms.TextBox txtCesion;
+        private System.Windows.Forms.Label label9;
     }
 }
 

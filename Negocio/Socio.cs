@@ -154,6 +154,15 @@ namespace Negocio
             set { departamento = value; }
         }
 
+        private String socioCesion;
+
+        public String SocioCesion
+        {
+            get { return socioCesion; }
+            set { socioCesion = value; }
+        }
+
+
         public DataSet devolverSocios()
         {
             pSocio tmpSocio = new pSocio();
@@ -234,13 +243,13 @@ namespace Negocio
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, socio_postal, Detalles, Departamento);
+            tmpSocio.GuardarSocio(socio_activo, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, socio_postal, Detalles, Departamento, SocioCesion);
         }
 
         public void ModificarSocio()
         {
             pSocio tmpSocio = new pSocio();
-            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles, socio_postal, Departamento);
+            tmpSocio.GuardarSocioModificado(Socio_id, Socio_nro, socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email, Detalles, socio_postal, Departamento, SocioCesion);
         }
 
         public void eliminar(ref int estadoActual)

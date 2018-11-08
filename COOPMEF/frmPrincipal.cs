@@ -227,6 +227,7 @@ namespace COOPMEF
             this.gBoxEstado.Enabled = false;
             this.gBoxSexo.Enabled = false;
             this.txtMostrarDetalles.ReadOnly = true;
+            this.txtCesion.Enabled = false;
         }
 
         private void activarAltaSocio()
@@ -248,6 +249,7 @@ namespace COOPMEF
             this.gBoxEstado.Enabled = true;
             this.gBoxSexo.Enabled = true;
             this.txtMostrarDetalles.ReadOnly = false;
+            this.txtCesion.Enabled = true;
 
         }
 
@@ -409,6 +411,7 @@ namespace COOPMEF
             this.txtEmail.Clear();
             this.txtPostal.Clear();
             this.txtMostrarDetalles.Clear();
+            this.txtCesion.Clear();
         }
 
         private void btnNuevoSocio_Click(object sender, EventArgs e)
@@ -813,7 +816,7 @@ namespace COOPMEF
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
-                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""));
+                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""), txtCesion.Text);
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
@@ -950,7 +953,7 @@ namespace COOPMEF
                         string estado_civil = cmbEstadoCivil.SelectedItem.ToString();
                         string departamento = this.cmbDepartamento.SelectedValue.ToString();
 
-                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""));
+                        empresa.EditarSocio(this.idSocioSeleccionado, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""), txtCesion.Text);
 
 
                         //*******
@@ -1295,6 +1298,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_detalles"].Visible = false;
             dgvSociosCampo.Columns["socio_postal"].Visible = false;
             dgvSociosCampo.Columns["socio_departamento"].Visible = false;
+            dgvSociosCampo.Columns["socio_cesion"].Visible = false;
 
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
             dgvSociosCampo.Columns["socio_nro"].Width = 150;
@@ -1581,6 +1585,7 @@ namespace COOPMEF
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
                 this.txtPostal.Text = dgvSociosCampo.Rows[index].Cells["socio_postal"].Value.ToString();
                 this.txtMostrarDetalles.Text = dgvSociosCampo.Rows[index].Cells["socio_detalles"].Value.ToString();
+               // this.txtCesion.Text = dgvSociosCampo.Rows[index].Cells["socio_cesion"].Value.ToString();
             }
 
             tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
