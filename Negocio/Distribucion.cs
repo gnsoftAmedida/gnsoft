@@ -98,5 +98,17 @@ namespace Negocio
             pDistribucion tmppDistribucion = new pDistribucion();
             return tmppDistribucion.ejercicioProcesado(ejercicio);
         }
+
+        public Boolean verificarEjercicioSinPagos(String ejercicio)
+        {
+            pDistribucion tmppDistribucion = new pDistribucion();
+            return tmppDistribucion.verificarEjercicioSinPagos(ejercicio);
+        }
+
+        public void eliminarDistribucion(String ejercicio)
+        {
+            pDistribucion tmppDistribucion = new pDistribucion();
+            tmppDistribucion.eliminarDistribucion(ejercicio);
+        }
     }
 }

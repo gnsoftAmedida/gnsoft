@@ -51,7 +51,7 @@ namespace Negocio
             {
                 cadena2 = cadena2 + "0";
             }
-
+            
             cadena2 = Microsoft.VisualBasic.Strings.Mid(cadena2, 1, largo - Microsoft.VisualBasic.Strings.Len(Microsoft.VisualBasic.Strings.Trim(cadena))) + cadena;
             return cadena2;
         }
@@ -2990,6 +2990,18 @@ namespace Negocio
         {
             Distribucion tmDistribucion = new Distribucion();
             return tmDistribucion.ejercicioProcesado(ejercicio);
+        }
+
+        public Boolean verificarEjercicioSinPagos(String ejercicio)
+        {
+            Distribucion tmDistribucion = new Distribucion();
+            return tmDistribucion.verificarEjercicioSinPagos(ejercicio);
+        }
+
+        public void eliminarDistribucion(String ejercicio)
+        {
+            Distribucion tmDistribucion = new Distribucion();
+            tmDistribucion.eliminarDistribucion(ejercicio);
         }
 
         public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)

@@ -246,6 +246,7 @@
             this.btnEliminarUtili.TabIndex = 28;
             this.btnEliminarUtili.Text = "   Eliminar";
             this.btnEliminarUtili.UseVisualStyleBackColor = true;
+            this.btnEliminarUtili.Click += new System.EventHandler(this.btnEliminarUtili_Click);
             // 
             // btnSalirDistribuciUtilidades
             // 

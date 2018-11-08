@@ -273,3 +273,5 @@ C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmFactura
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmListadoGeneralRetenciones.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmCuentaCorriente.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSalidasIngresosBancos.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmCuentaCorriente.resources
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSalidasIngresosBancos.resources

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using Microsoft.VisualBasic;
 
 namespace COOPMEF
 {
@@ -26,8 +27,9 @@ namespace COOPMEF
 
         private void btnDistribuir_Click(object sender, EventArgs e)
         {
-            if (empresa.cierreEfectuado("09/" + cmbAnio.SelectedItem.ToString()))
-            {
+            int anio = Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + 1;
+            if (empresa.cierreEfectuado("09/" + anio.ToString()))
+            {                
                 if (txtUtilidades.Text.Trim() != "")
                 {
                     if (empresa.esEntero(txtUtilidades.Text))
@@ -110,7 +112,7 @@ namespace COOPMEF
                 empresa.actualizarUtilidadesDistribucionEjercicio(Convert.ToDouble(txtUtilidades.Text), TotalInteres, ejercicio);
             }
 
-            MessageBox.Show("Se ha completado la Distribución de Utilidades del Ejercicio " + txtEjercicio.Text + " Intereses Aportados $ " + TotalInteres.ToString("###,###,##0.00") + " Aportes de Capital $ " + TotalAportes.ToString("###,###,##0.00") + " Utilidades Distribuidas $ " + Convert.ToDouble(txtUtilidades.Text).ToString("###,###,##0.00"));
+            MessageBox.Show("Se ha completado la Distribución de Utilidades del Ejercicio " + txtEjercicio.Text + Environment.NewLine + " Intereses Aportados $ " + TotalInteres.ToString("###,###,##0.00") + Environment.NewLine + " Aportes de Capital $ " + TotalAportes.ToString("###,###,##0.00") + Environment.NewLine + " Utilidades Distribuidas $ " + Convert.ToDouble(txtUtilidades.Text).ToString("###,###,##0.00"));
 
         }
 
@@ -279,6 +281,36 @@ namespace COOPMEF
         private void dgvUtilidades_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
+        }
+
+        private void btnEliminarUtili_Click(object sender, EventArgs e)
+        {
+            if (empresa.ejercicioProcesado(txtEjercicio.Text))
+            {
+                if (empresa.verificarEjercicioSinPagos(txtEjercicio.Text))
+                {
+                    string message = "¿Confirma que desea eliminar la distribución del ejercicio " + txtEjercicio.Text + "?";
+                    string caption = "Gestión COOPMEF";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+
+                    result = MessageBox.Show(message, caption, buttons);
+
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        empresa.eliminarDistribucion(txtEjercicio.Text);
+                        MessageBox.Show("Se ha Eliminado la distribución del ejercicio " + txtEjercicio.Text);
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Imposible Eliminar ese Ejercicio. Ya" + Environment.NewLine + "se han hecho pagos sobre el mismo." + Environment.NewLine + "La Operación ha sido Cancelada.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("No se ubica el Ejercicio " + txtEjercicio.Text);
+            }
         }
     }
 }
