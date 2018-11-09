@@ -116,5 +116,11 @@ namespace Negocio
             pDistribucion tmppDistribucion = new pDistribucion();
             tmppDistribucion.eliminarDistribucion(ejercicio);
         }
+
+        public void actualizarPagoDistribucion(int socio_id, string pagadoPor, DateTime fecha, string cheque)
+        {
+            pDistribucion tmppDistribucion = new pDistribucion();
+            tmppDistribucion.actualizarPagoDistribucion(socio_id, pagadoPor, fecha, cheque);
+        }
     }
 }

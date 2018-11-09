@@ -184,6 +184,15 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpReporteCuentaCorriente;
             }
+
+            if (tipo.Equals("UTILIDAD"))
+            {
+                COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();
+
+                tmpPagoUtilidad.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpPagoUtilidad;
+            }
         }
 
         private void frmVerReportes_Load(object sender, EventArgs e)

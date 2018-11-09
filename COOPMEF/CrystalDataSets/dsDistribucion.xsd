@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDistribucion" targetNamespace="http://tempuri.org/dsDistribucion.xsd" xmlns:mstns="http://tempuri.org/dsDistribucion.xsd" xmlns="http://tempuri.org/dsDistribucion.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDistribucion" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsDistribucion" msprop:Generator_UserDSName="dsDistribucion">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="utilidad" msprop:Generator_TableClassName="utilidadDataTable" msprop:Generator_TableVarName="tableutilidad" msprop:Generator_TablePropName="utilidad" msprop:Generator_RowDeletingName="utilidadRowDeleting" msprop:Generator_RowChangingName="utilidadRowChanging" msprop:Generator_RowEvHandlerName="utilidadRowChangeEventHandler" msprop:Generator_RowDeletedName="utilidadRowDeleted" msprop:Generator_UserTableName="utilidad" msprop:Generator_RowChangedName="utilidadRowChanged" msprop:Generator_RowEvArgName="utilidadRowChangeEvent" msprop:Generator_RowClassName="utilidadRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="totalAPagar" msprop:Generator_ColumnVarNameInTable="columntotalAPagar" msprop:Generator_ColumnPropNameInRow="totalAPagar" msprop:Generator_ColumnPropNameInTable="totalAPagarColumn" msprop:Generator_UserColumnName="totalAPagar" type="xs:string" minOccurs="0" />
+              <xs:element name="cedula" msprop:Generator_ColumnVarNameInTable="columncedula" msprop:Generator_ColumnPropNameInRow="cedula" msprop:Generator_ColumnPropNameInTable="cedulaColumn" msprop:Generator_UserColumnName="cedula" type="xs:string" minOccurs="0" />
+              <xs:element name="ApellidosNombres" msprop:Generator_ColumnVarNameInTable="columnApellidosNombres" msprop:Generator_ColumnPropNameInRow="ApellidosNombres" msprop:Generator_ColumnPropNameInTable="ApellidosNombresColumn" msprop:Generator_UserColumnName="ApellidosNombres" type="xs:string" minOccurs="0" />
+              <xs:element name="Fecha" msprop:Generator_ColumnVarNameInTable="columnFecha" msprop:Generator_ColumnPropNameInRow="Fecha" msprop:Generator_ColumnPropNameInTable="FechaColumn" msprop:Generator_UserColumnName="Fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="cheque" msprop:Generator_ColumnVarNameInTable="columncheque" msprop:Generator_ColumnPropNameInRow="cheque" msprop:Generator_ColumnPropNameInTable="chequeColumn" msprop:Generator_UserColumnName="cheque" type="xs:string" minOccurs="0" />
+              <xs:element name="PrimerEjercicio" msprop:Generator_ColumnVarNameInTable="columnPrimerEjercicio" msprop:Generator_ColumnPropNameInRow="PrimerEjercicio" msprop:Generator_ColumnPropNameInTable="PrimerEjercicioColumn" msprop:Generator_UserColumnName="PrimerEjercicio" type="xs:string" minOccurs="0" />
+              <xs:element name="UltimoEjercicio" msprop:Generator_ColumnVarNameInTable="columnUltimoEjercicio" msprop:Generator_ColumnPropNameInRow="UltimoEjercicio" msprop:Generator_ColumnPropNameInTable="UltimoEjercicioColumn" msprop:Generator_UserColumnName="UltimoEjercicio" type="xs:string" minOccurs="0" />
+              <xs:element name="Cesion" msprop:Generator_ColumnVarNameInTable="columnCesion" msprop:Generator_ColumnPropNameInRow="Cesion" msprop:Generator_ColumnPropNameInTable="CesionColumn" msprop:Generator_UserColumnName="Cesion" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

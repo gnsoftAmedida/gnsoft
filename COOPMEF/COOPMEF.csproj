@@ -115,6 +115,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsDistribucion.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDistribucion.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsFactura.cs">
       <DependentUpon>dsFactura.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -433,6 +438,12 @@
       <DependentUpon>cancelacionPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\pagoUtilidad.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>pagoUtilidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\reporteCuentaCorriente.cs">
       <DependentUpon>reporteCuentaCorriente.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -671,6 +682,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>cancelacionPrestamo.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\pagoUtilidad.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>pagoUtilidad.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteCuentaCorriente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reporteCuentaCorriente.cs</LastGenOutput>
@@ -765,6 +780,17 @@
     </None>
     <None Include="CrystalDataSets\dsCuentaCorriente.xss">
       <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsDistribucion.xsc">
+      <DependentUpon>dsDistribucion.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsDistribucion.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDistribucion.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsDistribucion.xss">
+      <DependentUpon>dsDistribucion.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsEventos.xsc">
       <DependentUpon>dsEventos.xsd</DependentUpon>

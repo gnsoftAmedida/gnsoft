@@ -75,6 +75,36 @@ namespace Persistencia
             }
         }
 
+        public void actualizarPagoDistribucion(int socio_id, string pagadoPor, DateTime fecha, string cheque)
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            try
+            {
+                string sql = "Update distribucion set pagadopor = '" + pagadoPor + "', fecha='" + fecha.ToString("yyyy/MM/dd") + "', cheque='" + cheque + "'  WHERE socio_id ='" + socio_id + "' and isnull(cheque)";
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                MySqlAdapter.UpdateCommand = connection.CreateCommand();
+                MySqlAdapter.UpdateCommand.Transaction = transaction;
+
+                MySqlAdapter.UpdateCommand.CommandText = sql;
+                MySqlAdapter.UpdateCommand.ExecuteNonQuery();
+
+                transaction.Commit();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+                throw ex;
+            }
+        }
+
 
         public void actualizarUtilidadesDistribucionEjercicio(Double aDistribuir, Double totalInteres, string ejercicio)
         {

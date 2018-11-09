@@ -2007,6 +2007,12 @@ namespace Negocio
             return tmpSocio.buscarSociosUtilidades(cedula);
         }
 
+        public void actualizarPagoDistribucion(int socio_id, string pagadoPor, DateTime fecha, string cheque)
+        {
+            Distribucion tmppDistribucion = new Distribucion();
+            tmppDistribucion.actualizarPagoDistribucion(socio_id, pagadoPor, fecha, cheque);
+        }
+
         public DataSet detalleUtilidadesLiquidadasYnoLiquidadas(int socio_id)
         {
             Distribucion tmpDistribucion = new Distribucion();
