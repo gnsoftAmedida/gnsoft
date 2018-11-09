@@ -239,7 +239,7 @@ namespace Negocio
             DataSet socios = tmpSocio.devolverSociosActivosEdad();
             return socios;
         }
-        
+
         public void Guardar()
         {
             pSocio tmpSocio = new pSocio();
@@ -264,6 +264,12 @@ namespace Negocio
         {
             pSocio tmpSocio = new pSocio();
             tmpSocio.buscarSocio(this.socio_nro);
+        }
+
+        public DataSet buscarSociosUtilidades(string cedula)
+        {
+            pSocio tmpSocio = new pSocio();
+            return tmpSocio.buscarSociosUtilidades(cedula);
         }
 
         /*    public void modificarSocio()

@@ -447,6 +447,7 @@ namespace COOPMEF
             this.txtTelefono.Enabled = true;
             this.txtDireccion.Enabled = true;
             this.txtEmail.Enabled = true;
+            this.txtCesion.Enabled = true;
             this.txtPostal.Enabled = true;
             this.btnEditarSocio.Enabled = false;
             this.btnEliminarSocio.Enabled = false;
@@ -1585,7 +1586,7 @@ namespace COOPMEF
                 this.txtEmail.Text = dgvSociosCampo.Rows[index].Cells["socio_email"].Value.ToString();
                 this.txtPostal.Text = dgvSociosCampo.Rows[index].Cells["socio_postal"].Value.ToString();
                 this.txtMostrarDetalles.Text = dgvSociosCampo.Rows[index].Cells["socio_detalles"].Value.ToString();
-               // this.txtCesion.Text = dgvSociosCampo.Rows[index].Cells["socio_cesion"].Value.ToString();
+                this.txtCesion.Text = dgvSociosCampo.Rows[index].Cells["socio_cesion"].Value.ToString();
             }
 
             tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];

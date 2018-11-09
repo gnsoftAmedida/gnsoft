@@ -105,6 +105,12 @@ namespace Negocio
             return tmppDistribucion.verificarEjercicioSinPagos(ejercicio);
         }
 
+        public DataSet detalleUtilidadesLiquidadasYnoLiquidadas(int socio_id)
+        {
+            pDistribucion tmppDistribucion = new pDistribucion();
+            return tmppDistribucion.detalleUtilidadesLiquidadasYnoLiquidadas(socio_id);
+        }
+
         public void eliminarDistribucion(String ejercicio)
         {
             pDistribucion tmppDistribucion = new pDistribucion();

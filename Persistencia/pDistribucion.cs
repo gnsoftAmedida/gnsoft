@@ -12,9 +12,6 @@ namespace Persistencia
 {
     public class pDistribucion : CapaDatos
     {
-
-
-
         //public void GuardarDistribucion(int socio_id, string cedula, string ejercicio, Double aportesCapital, Double interesesAportados, Double utilidades, string pagadopor, DateTime fecha, string cheque)
         public void GuardarDistribucion(int socio_id, string cedula, string ejercicio, Double aportesCapital, Double interesesAportados)
         {
@@ -52,6 +49,32 @@ namespace Persistencia
                 }
             }
         }
+
+
+        public DataSet detalleUtilidadesLiquidadasYnoLiquidadas(int socio_id)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT * FROM distribucion d where socio_id ='" + socio_id.ToString() + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "utilidadesLiquidadasYnoLiquidadas");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
 
         public void actualizarUtilidadesDistribucionEjercicio(Double aDistribuir, Double totalInteres, string ejercicio)
         {

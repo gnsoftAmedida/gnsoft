@@ -2001,6 +2001,18 @@ namespace Negocio
 
         }
 
+        public DataSet buscarSociosUtilidades(string cedula)
+        {
+            Socio tmpSocio = new Socio();
+            return tmpSocio.buscarSociosUtilidades(cedula);
+        }
+
+        public DataSet detalleUtilidadesLiquidadasYnoLiquidadas(int socio_id)
+        {
+            Distribucion tmpDistribucion = new Distribucion();
+            return tmpDistribucion.detalleUtilidadesLiquidadasYnoLiquidadas(socio_id);
+        }
+
         public DataSet buscarSociosPorCampo(string campo, string valor)
         {
             Socio tmpSocio = new Socio();

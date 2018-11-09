@@ -106,6 +106,8 @@
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.txtCesion = new System.Windows.Forms.TextBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
             this.lblErrorFechas = new System.Windows.Forms.Label();
@@ -114,15 +116,15 @@
             this.lblFechaIng = new System.Windows.Forms.Label();
             this.lblFechaNac = new System.Windows.Forms.Label();
             this.lblNroSocioFormatoInvalido = new System.Windows.Forms.Label();
-            this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
             this.lblFormatoInvalido = new System.Windows.Forms.Label();
-            this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
+            this.lblEmailFormatoInvalido = new System.Windows.Forms.Label();
             this.lblYaExiste = new System.Windows.Forms.Label();
+            this.txtNroSocio = new System.Windows.Forms.MaskedTextBox();
             this.lblYaExisteMail = new System.Windows.Forms.Label();
             this.lblYaExisteTel = new System.Windows.Forms.Label();
+            this.lblReferenciaError = new System.Windows.Forms.Label();
             this.lblYaExisteCobro = new System.Windows.Forms.Label();
             this.lblYaExisteSocio = new System.Windows.Forms.Label();
-            this.lblReferenciaError = new System.Windows.Forms.Label();
             this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.lblDir = new System.Windows.Forms.Label();
@@ -282,8 +284,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.txtCesion = new System.Windows.Forms.TextBox();
-            this.label9 = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -937,6 +937,16 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // txtCesion
+            // 
+            resources.ApplyResources(this.txtCesion, "txtCesion");
+            this.txtCesion.Name = "txtCesion";
+            // 
             // cmbDepartamento
             // 
             this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -983,28 +993,28 @@
             this.lblNroSocioFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
             this.lblNroSocioFormatoInvalido.Name = "lblNroSocioFormatoInvalido";
             // 
-            // lblEmailFormatoInvalido
-            // 
-            resources.ApplyResources(this.lblEmailFormatoInvalido, "lblEmailFormatoInvalido");
-            this.lblEmailFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
-            this.lblEmailFormatoInvalido.Name = "lblEmailFormatoInvalido";
-            // 
             // lblFormatoInvalido
             // 
             resources.ApplyResources(this.lblFormatoInvalido, "lblFormatoInvalido");
             this.lblFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
             this.lblFormatoInvalido.Name = "lblFormatoInvalido";
             // 
-            // txtNroSocio
+            // lblEmailFormatoInvalido
             // 
-            resources.ApplyResources(this.txtNroSocio, "txtNroSocio");
-            this.txtNroSocio.Name = "txtNroSocio";
+            resources.ApplyResources(this.lblEmailFormatoInvalido, "lblEmailFormatoInvalido");
+            this.lblEmailFormatoInvalido.ForeColor = System.Drawing.Color.Gray;
+            this.lblEmailFormatoInvalido.Name = "lblEmailFormatoInvalido";
             // 
             // lblYaExiste
             // 
             resources.ApplyResources(this.lblYaExiste, "lblYaExiste");
             this.lblYaExiste.ForeColor = System.Drawing.Color.Blue;
             this.lblYaExiste.Name = "lblYaExiste";
+            // 
+            // txtNroSocio
+            // 
+            resources.ApplyResources(this.txtNroSocio, "txtNroSocio");
+            this.txtNroSocio.Name = "txtNroSocio";
             // 
             // lblYaExisteMail
             // 
@@ -1018,6 +1028,12 @@
             this.lblYaExisteTel.ForeColor = System.Drawing.Color.Blue;
             this.lblYaExisteTel.Name = "lblYaExisteTel";
             // 
+            // lblReferenciaError
+            // 
+            resources.ApplyResources(this.lblReferenciaError, "lblReferenciaError");
+            this.lblReferenciaError.ForeColor = System.Drawing.Color.Red;
+            this.lblReferenciaError.Name = "lblReferenciaError";
+            // 
             // lblYaExisteCobro
             // 
             resources.ApplyResources(this.lblYaExisteCobro, "lblYaExisteCobro");
@@ -1029,12 +1045,6 @@
             resources.ApplyResources(this.lblYaExisteSocio, "lblYaExisteSocio");
             this.lblYaExisteSocio.ForeColor = System.Drawing.Color.Blue;
             this.lblYaExisteSocio.Name = "lblYaExisteSocio";
-            // 
-            // lblReferenciaError
-            // 
-            resources.ApplyResources(this.lblReferenciaError, "lblReferenciaError");
-            this.lblReferenciaError.ForeColor = System.Drawing.Color.Red;
-            this.lblReferenciaError.Name = "lblReferenciaError";
             // 
             // dtpFechaIng
             // 
@@ -2088,16 +2098,6 @@
             resources.ApplyResources(this.btnOtrosDatos, "btnOtrosDatos");
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
-            // 
-            // txtCesion
-            // 
-            resources.ApplyResources(this.txtCesion, "txtCesion");
-            this.txtCesion.Name = "txtCesion";
-            // 
-            // label9
-            // 
-            resources.ApplyResources(this.label9, "label9");
-            this.label9.Name = "label9";
             // 
             // frmPrincipal
             // 

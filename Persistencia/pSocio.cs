@@ -36,6 +36,30 @@ namespace Persistencia
 
         }
 
+        public DataSet buscarSociosUtilidades(string cedula)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaIngreso, s.socio_cesion, s.socio_direccion FROM socio s where s.socio_nro ='" + cedula + "'";
+                DataSet ds = new DataSet();
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "socioUtilidades");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+
+        }
+
         public DataSet devolverTodosBusqueda(string campo)
         {
             try
