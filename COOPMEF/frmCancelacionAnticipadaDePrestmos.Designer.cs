@@ -62,10 +62,10 @@
             this.txtNroCobroCA = new System.Windows.Forms.TextBox();
             this.txtIncisoCA = new System.Windows.Forms.TextBox();
             this.txtOficinaCA = new System.Windows.Forms.TextBox();
-            this.btnCancelarBusqueda = new System.Windows.Forms.Button();
-            this.btnGuardarSocio = new System.Windows.Forms.Button();
             this.btnCalcularCobranza = new System.Windows.Forms.Button();
             this.btnImprimirCobranza = new System.Windows.Forms.Button();
+            this.btnGuardarSocio = new System.Windows.Forms.Button();
+            this.btnCancelarBusqueda = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.SuspendLayout();
@@ -73,81 +73,90 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(48, 34);
+            this.label1.Location = new System.Drawing.Point(36, 28);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(134, 17);
+            this.label1.Size = new System.Drawing.Size(101, 13);
             this.label1.TabIndex = 0;
             this.label1.Text = "Cédula de identidad";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(5, 98);
+            this.label2.Location = new System.Drawing.Point(4, 80);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(148, 17);
+            this.label2.Size = new System.Drawing.Size(112, 13);
             this.label2.TabIndex = 1;
             this.label2.Text = "Tasa anual efectiva %";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(5, 66);
+            this.label3.Location = new System.Drawing.Point(4, 54);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(173, 17);
+            this.label3.Size = new System.Drawing.Size(133, 13);
             this.label3.TabIndex = 2;
             this.label3.Text = "Cuotas pagadas/pactadas";
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(5, 38);
+            this.label4.Location = new System.Drawing.Point(4, 31);
+            this.label4.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(114, 17);
+            this.label4.Size = new System.Drawing.Size(85, 13);
             this.label4.TabIndex = 3;
             this.label4.Text = "Nro de préstamo";
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(5, 128);
+            this.label5.Location = new System.Drawing.Point(4, 104);
+            this.label5.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(112, 17);
+            this.label5.Size = new System.Drawing.Size(86, 13);
             this.label5.TabIndex = 4;
             this.label5.Text = "Monto del vale $";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(363, 98);
+            this.label6.Location = new System.Drawing.Point(272, 80);
+            this.label6.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(52, 17);
+            this.label6.Size = new System.Drawing.Size(40, 13);
             this.label6.TabIndex = 5;
             this.label6.Text = "Oficina";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(48, 98);
+            this.label7.Location = new System.Drawing.Point(36, 80);
+            this.label7.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(44, 17);
+            this.label7.Size = new System.Drawing.Size(35, 13);
             this.label7.TabIndex = 6;
             this.label7.Text = "Inciso";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(48, 66);
+            this.label8.Location = new System.Drawing.Point(36, 54);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(130, 17);
+            this.label8.Size = new System.Drawing.Size(97, 13);
             this.label8.TabIndex = 7;
             this.label8.Text = "Apellidos, Nombres";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(363, 34);
+            this.label9.Location = new System.Drawing.Point(272, 28);
+            this.label9.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(95, 17);
+            this.label9.Size = new System.Drawing.Size(72, 13);
             this.label9.TabIndex = 8;
             this.label9.Text = "Nro de cobro:";
             // 
@@ -168,111 +177,114 @@
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
-            this.groupBox1.Location = new System.Drawing.Point(51, 149);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox1.Location = new System.Drawing.Point(38, 121);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox1.Size = new System.Drawing.Size(323, 268);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(242, 218);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Préstamo pendiente";
             // 
             // txtInteresesAVencerCA
             // 
-            this.txtInteresesAVencerCA.Location = new System.Drawing.Point(179, 222);
-            this.txtInteresesAVencerCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtInteresesAVencerCA.Location = new System.Drawing.Point(134, 180);
+            this.txtInteresesAVencerCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtInteresesAVencerCA.Name = "txtInteresesAVencerCA";
             this.txtInteresesAVencerCA.ReadOnly = true;
-            this.txtInteresesAVencerCA.Size = new System.Drawing.Size(117, 22);
+            this.txtInteresesAVencerCA.Size = new System.Drawing.Size(89, 20);
             this.txtInteresesAVencerCA.TabIndex = 15;
             // 
             // txtAmortizacionAVencerCA
             // 
-            this.txtAmortizacionAVencerCA.Location = new System.Drawing.Point(179, 190);
-            this.txtAmortizacionAVencerCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAmortizacionAVencerCA.Location = new System.Drawing.Point(134, 154);
+            this.txtAmortizacionAVencerCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAmortizacionAVencerCA.Name = "txtAmortizacionAVencerCA";
             this.txtAmortizacionAVencerCA.ReadOnly = true;
-            this.txtAmortizacionAVencerCA.Size = new System.Drawing.Size(117, 22);
+            this.txtAmortizacionAVencerCA.Size = new System.Drawing.Size(89, 20);
             this.txtAmortizacionAVencerCA.TabIndex = 14;
             // 
             // txtImporteCuotaCA
             // 
-            this.txtImporteCuotaCA.Location = new System.Drawing.Point(179, 158);
-            this.txtImporteCuotaCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtImporteCuotaCA.Location = new System.Drawing.Point(134, 128);
+            this.txtImporteCuotaCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtImporteCuotaCA.Name = "txtImporteCuotaCA";
             this.txtImporteCuotaCA.ReadOnly = true;
-            this.txtImporteCuotaCA.Size = new System.Drawing.Size(117, 22);
+            this.txtImporteCuotaCA.Size = new System.Drawing.Size(89, 20);
             this.txtImporteCuotaCA.TabIndex = 13;
             // 
             // txtMontoDelValeCA
             // 
-            this.txtMontoDelValeCA.Location = new System.Drawing.Point(179, 128);
-            this.txtMontoDelValeCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtMontoDelValeCA.Location = new System.Drawing.Point(134, 104);
+            this.txtMontoDelValeCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtMontoDelValeCA.Name = "txtMontoDelValeCA";
             this.txtMontoDelValeCA.ReadOnly = true;
-            this.txtMontoDelValeCA.Size = new System.Drawing.Size(117, 22);
+            this.txtMontoDelValeCA.Size = new System.Drawing.Size(89, 20);
             this.txtMontoDelValeCA.TabIndex = 12;
             // 
             // txtTasAnualEfecCA
             // 
-            this.txtTasAnualEfecCA.Location = new System.Drawing.Point(179, 98);
-            this.txtTasAnualEfecCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtTasAnualEfecCA.Location = new System.Drawing.Point(134, 80);
+            this.txtTasAnualEfecCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtTasAnualEfecCA.Name = "txtTasAnualEfecCA";
             this.txtTasAnualEfecCA.ReadOnly = true;
-            this.txtTasAnualEfecCA.Size = new System.Drawing.Size(117, 22);
+            this.txtTasAnualEfecCA.Size = new System.Drawing.Size(89, 20);
             this.txtTasAnualEfecCA.TabIndex = 11;
             // 
             // txtCuotasPactadasCA
             // 
-            this.txtCuotasPactadasCA.Location = new System.Drawing.Point(237, 66);
-            this.txtCuotasPactadasCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCuotasPactadasCA.Location = new System.Drawing.Point(178, 54);
+            this.txtCuotasPactadasCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCuotasPactadasCA.Name = "txtCuotasPactadasCA";
             this.txtCuotasPactadasCA.ReadOnly = true;
-            this.txtCuotasPactadasCA.Size = new System.Drawing.Size(57, 22);
+            this.txtCuotasPactadasCA.Size = new System.Drawing.Size(44, 20);
             this.txtCuotasPactadasCA.TabIndex = 10;
             // 
             // txtCuotasPagadasCA
             // 
-            this.txtCuotasPagadasCA.Location = new System.Drawing.Point(179, 66);
-            this.txtCuotasPagadasCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCuotasPagadasCA.Location = new System.Drawing.Point(134, 54);
+            this.txtCuotasPagadasCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCuotasPagadasCA.Name = "txtCuotasPagadasCA";
             this.txtCuotasPagadasCA.ReadOnly = true;
-            this.txtCuotasPagadasCA.Size = new System.Drawing.Size(55, 22);
+            this.txtCuotasPagadasCA.Size = new System.Drawing.Size(42, 20);
             this.txtCuotasPagadasCA.TabIndex = 9;
             // 
             // txtNroPrestamoCA
             // 
-            this.txtNroPrestamoCA.Location = new System.Drawing.Point(179, 33);
-            this.txtNroPrestamoCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNroPrestamoCA.Location = new System.Drawing.Point(134, 27);
+            this.txtNroPrestamoCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNroPrestamoCA.Name = "txtNroPrestamoCA";
             this.txtNroPrestamoCA.ReadOnly = true;
-            this.txtNroPrestamoCA.Size = new System.Drawing.Size(117, 22);
+            this.txtNroPrestamoCA.Size = new System.Drawing.Size(89, 20);
             this.txtNroPrestamoCA.TabIndex = 8;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(5, 222);
+            this.label12.Location = new System.Drawing.Point(4, 180);
+            this.label12.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(137, 17);
+            this.label12.Size = new System.Drawing.Size(104, 13);
             this.label12.TabIndex = 7;
             this.label12.Text = "Intereses a vencer $";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(5, 190);
+            this.label11.Location = new System.Drawing.Point(4, 154);
+            this.label11.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(160, 17);
+            this.label11.Size = new System.Drawing.Size(121, 13);
             this.label11.TabIndex = 6;
             this.label11.Text = "Amortización a vencer $";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(5, 158);
+            this.label10.Location = new System.Drawing.Point(4, 128);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(141, 17);
+            this.label10.Size = new System.Drawing.Size(107, 13);
             this.label10.TabIndex = 5;
             this.label10.Text = "Importe de la cuota $";
             // 
@@ -285,66 +297,70 @@
             this.groupBox2.Controls.Add(this.label15);
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
-            this.groupBox2.Location = new System.Drawing.Point(395, 149);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.groupBox2.Location = new System.Drawing.Point(296, 121);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(3, 2, 3, 2);
-            this.groupBox2.Size = new System.Drawing.Size(245, 150);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(184, 122);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Observaciones";
             // 
             // txtPresupuestoDeCancelacion
             // 
-            this.txtPresupuestoDeCancelacion.Location = new System.Drawing.Point(147, 113);
-            this.txtPresupuestoDeCancelacion.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtPresupuestoDeCancelacion.Location = new System.Drawing.Point(110, 92);
+            this.txtPresupuestoDeCancelacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtPresupuestoDeCancelacion.Name = "txtPresupuestoDeCancelacion";
             this.txtPresupuestoDeCancelacion.ReadOnly = true;
-            this.txtPresupuestoDeCancelacion.Size = new System.Drawing.Size(91, 22);
+            this.txtPresupuestoDeCancelacion.Size = new System.Drawing.Size(69, 20);
             this.txtPresupuestoDeCancelacion.TabIndex = 6;
             // 
             // txtAPagarPorCajaCA
             // 
-            this.txtAPagarPorCajaCA.Location = new System.Drawing.Point(147, 34);
-            this.txtAPagarPorCajaCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtAPagarPorCajaCA.Location = new System.Drawing.Point(110, 28);
+            this.txtAPagarPorCajaCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtAPagarPorCajaCA.Name = "txtAPagarPorCajaCA";
             this.txtAPagarPorCajaCA.ReadOnly = true;
-            this.txtAPagarPorCajaCA.Size = new System.Drawing.Size(91, 22);
+            this.txtAPagarPorCajaCA.Size = new System.Drawing.Size(69, 20);
             this.txtAPagarPorCajaCA.TabIndex = 5;
             // 
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(7, 118);
+            this.label17.Location = new System.Drawing.Point(5, 96);
+            this.label17.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(140, 17);
+            this.label17.Size = new System.Drawing.Size(104, 13);
             this.label17.TabIndex = 4;
             this.label17.Text = "presupuesto del mes";
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(11, 101);
+            this.label16.Location = new System.Drawing.Point(8, 82);
+            this.label16.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(130, 17);
+            this.label16.Size = new System.Drawing.Size(95, 13);
             this.label16.TabIndex = 3;
             this.label16.Text = "operara a partir del";
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(23, 84);
+            this.label15.Location = new System.Drawing.Point(17, 68);
+            this.label15.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(98, 17);
+            this.label15.Size = new System.Drawing.Size(73, 13);
             this.label15.TabIndex = 2;
             this.label15.Text = "este préstamo";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(11, 66);
+            this.label14.Location = new System.Drawing.Point(8, 54);
+            this.label14.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(123, 17);
+            this.label14.Size = new System.Drawing.Size(95, 13);
             this.label14.TabIndex = 1;
             this.label14.Text = "La cancelación de";
             this.label14.Click += new System.EventHandler(this.label14_Click);
@@ -352,95 +368,66 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(7, 38);
+            this.label13.Location = new System.Drawing.Point(5, 31);
+            this.label13.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(125, 17);
+            this.label13.Size = new System.Drawing.Size(94, 13);
             this.label13.TabIndex = 0;
             this.label13.Text = "A pagar por caja $";
             // 
             // txtCiCA
             // 
-            this.txtCiCA.Location = new System.Drawing.Point(188, 31);
-            this.txtCiCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtCiCA.Location = new System.Drawing.Point(141, 25);
+            this.txtCiCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtCiCA.Name = "txtCiCA";
             this.txtCiCA.ReadOnly = true;
-            this.txtCiCA.Size = new System.Drawing.Size(159, 22);
+            this.txtCiCA.Size = new System.Drawing.Size(120, 20);
             this.txtCiCA.TabIndex = 11;
             // 
             // txtApeNomCA
             // 
-            this.txtApeNomCA.Location = new System.Drawing.Point(188, 63);
-            this.txtApeNomCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtApeNomCA.Location = new System.Drawing.Point(141, 51);
+            this.txtApeNomCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtApeNomCA.Name = "txtApeNomCA";
             this.txtApeNomCA.ReadOnly = true;
-            this.txtApeNomCA.Size = new System.Drawing.Size(443, 22);
+            this.txtApeNomCA.Size = new System.Drawing.Size(333, 20);
             this.txtApeNomCA.TabIndex = 12;
             // 
             // txtNroCobroCA
             // 
-            this.txtNroCobroCA.Location = new System.Drawing.Point(465, 34);
-            this.txtNroCobroCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtNroCobroCA.Location = new System.Drawing.Point(349, 28);
+            this.txtNroCobroCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNroCobroCA.Name = "txtNroCobroCA";
             this.txtNroCobroCA.ReadOnly = true;
-            this.txtNroCobroCA.Size = new System.Drawing.Size(167, 22);
+            this.txtNroCobroCA.Size = new System.Drawing.Size(126, 20);
             this.txtNroCobroCA.TabIndex = 13;
             // 
             // txtIncisoCA
             // 
-            this.txtIncisoCA.Location = new System.Drawing.Point(188, 98);
-            this.txtIncisoCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtIncisoCA.Location = new System.Drawing.Point(141, 80);
+            this.txtIncisoCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtIncisoCA.Name = "txtIncisoCA";
             this.txtIncisoCA.ReadOnly = true;
-            this.txtIncisoCA.Size = new System.Drawing.Size(159, 22);
+            this.txtIncisoCA.Size = new System.Drawing.Size(120, 20);
             this.txtIncisoCA.TabIndex = 14;
             // 
             // txtOficinaCA
             // 
-            this.txtOficinaCA.Location = new System.Drawing.Point(465, 94);
-            this.txtOficinaCA.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.txtOficinaCA.Location = new System.Drawing.Point(349, 76);
+            this.txtOficinaCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtOficinaCA.Name = "txtOficinaCA";
             this.txtOficinaCA.ReadOnly = true;
-            this.txtOficinaCA.Size = new System.Drawing.Size(167, 22);
+            this.txtOficinaCA.Size = new System.Drawing.Size(126, 20);
             this.txtOficinaCA.TabIndex = 15;
-            // 
-            // btnCancelarBusqueda
-            // 
-            this.btnCancelarBusqueda.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
-            this.btnCancelarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnCancelarBusqueda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancelarBusqueda.Location = new System.Drawing.Point(526, 389);
-            this.btnCancelarBusqueda.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
-            this.btnCancelarBusqueda.Size = new System.Drawing.Size(107, 28);
-            this.btnCancelarBusqueda.TabIndex = 37;
-            this.btnCancelarBusqueda.Text = "   Cancelar";
-            this.btnCancelarBusqueda.UseVisualStyleBackColor = true;
-            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
-            // 
-            // btnGuardarSocio
-            // 
-            this.btnGuardarSocio.Enabled = false;
-            this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
-            this.btnGuardarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardarSocio.Location = new System.Drawing.Point(414, 389);
-            this.btnGuardarSocio.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.btnGuardarSocio.Name = "btnGuardarSocio";
-            this.btnGuardarSocio.Size = new System.Drawing.Size(107, 28);
-            this.btnGuardarSocio.TabIndex = 39;
-            this.btnGuardarSocio.Text = "     Guardar";
-            this.btnGuardarSocio.UseVisualStyleBackColor = true;
-            this.btnGuardarSocio.Click += new System.EventHandler(this.btnGuardarSocio_Click);
             // 
             // btnCalcularCobranza
             // 
             this.btnCalcularCobranza.Image = global::COOPMEF.Properties.Resources._1486806555_calculator;
             this.btnCalcularCobranza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCalcularCobranza.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCalcularCobranza.Location = new System.Drawing.Point(420, 306);
-            this.btnCalcularCobranza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnCalcularCobranza.Location = new System.Drawing.Point(315, 249);
             this.btnCalcularCobranza.Name = "btnCalcularCobranza";
-            this.btnCalcularCobranza.Size = new System.Drawing.Size(95, 28);
+            this.btnCalcularCobranza.Size = new System.Drawing.Size(71, 23);
             this.btnCalcularCobranza.TabIndex = 42;
             this.btnCalcularCobranza.Text = "    Calcular";
             this.btnCalcularCobranza.UseVisualStyleBackColor = true;
@@ -451,20 +438,46 @@
             this.btnImprimirCobranza.Image = global::COOPMEF.Properties.Resources.print;
             this.btnImprimirCobranza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnImprimirCobranza.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnImprimirCobranza.Location = new System.Drawing.Point(523, 306);
-            this.btnImprimirCobranza.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.btnImprimirCobranza.Location = new System.Drawing.Point(392, 249);
             this.btnImprimirCobranza.Name = "btnImprimirCobranza";
-            this.btnImprimirCobranza.Size = new System.Drawing.Size(95, 28);
+            this.btnImprimirCobranza.Size = new System.Drawing.Size(71, 23);
             this.btnImprimirCobranza.TabIndex = 41;
             this.btnImprimirCobranza.Text = "     Imprimir";
             this.btnImprimirCobranza.UseVisualStyleBackColor = true;
             this.btnImprimirCobranza.Click += new System.EventHandler(this.btnImprimirCobranza_Click);
             // 
+            // btnGuardarSocio
+            // 
+            this.btnGuardarSocio.Enabled = false;
+            this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
+            this.btnGuardarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnGuardarSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnGuardarSocio.Location = new System.Drawing.Point(310, 316);
+            this.btnGuardarSocio.Name = "btnGuardarSocio";
+            this.btnGuardarSocio.Size = new System.Drawing.Size(80, 23);
+            this.btnGuardarSocio.TabIndex = 39;
+            this.btnGuardarSocio.Text = "     Guardar";
+            this.btnGuardarSocio.UseVisualStyleBackColor = true;
+            this.btnGuardarSocio.Click += new System.EventHandler(this.btnGuardarSocio_Click);
+            // 
+            // btnCancelarBusqueda
+            // 
+            this.btnCancelarBusqueda.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
+            this.btnCancelarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarBusqueda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCancelarBusqueda.Location = new System.Drawing.Point(394, 316);
+            this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
+            this.btnCancelarBusqueda.Size = new System.Drawing.Size(80, 23);
+            this.btnCancelarBusqueda.TabIndex = 37;
+            this.btnCancelarBusqueda.Text = "   Cancelar";
+            this.btnCancelarBusqueda.UseVisualStyleBackColor = true;
+            this.btnCancelarBusqueda.Click += new System.EventHandler(this.btnCancelarBusqueda_Click);
+            // 
             // frmCancelacionAnticipadaDePrestmos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(719, 430);
+            this.ClientSize = new System.Drawing.Size(539, 349);
             this.Controls.Add(this.btnCalcularCobranza);
             this.Controls.Add(this.btnImprimirCobranza);
             this.Controls.Add(this.btnGuardarSocio);
@@ -481,7 +494,7 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "frmCancelacionAnticipadaDePrestmos";
             this.Text = "Cancelación anticipada de préstamos";
             this.Load += new System.EventHandler(this.CancelacionAnticipadaDePrestmos_Load);

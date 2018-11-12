@@ -284,6 +284,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -464,6 +465,7 @@
             this.toolStripMenuItem11,
             this.toolStripMenuItem13,
             this.toolStripMenuItem14,
+            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem,
             this.toolStripMenuItem15,
             this.discoParaRetencionesToolStripMenuItem,
             this.facturaciónToolStripMenuItem});
@@ -2099,6 +2101,12 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
+            // cancelaciónAnticipadaPorFallecimientoToolStripMenuItem
+            // 
+            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Name = "cancelaciónAnticipadaPorFallecimientoToolStripMenuItem";
+            resources.ApplyResources(this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem, "cancelaciónAnticipadaPorFallecimientoToolStripMenuItem");
+            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Click += new System.EventHandler(this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2414,6 +2422,7 @@
         private System.Windows.Forms.ToolStripMenuItem liquidaciónToolStripMenuItem;
         private System.Windows.Forms.TextBox txtCesion;
         private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ToolStripMenuItem cancelaciónAnticipadaPorFallecimientoToolStripMenuItem;
     }
 }
 

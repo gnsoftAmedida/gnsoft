@@ -2778,7 +2778,7 @@ Agregar emisión
 
         private void toolStripMenuItem2_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)
@@ -2998,6 +2998,12 @@ Agregar emisión
         {
             frmLiquidacionDeUtilidades tmpfrmLiquidacionDeUtilidades = new frmLiquidacionDeUtilidades();
             tmpfrmLiquidacionDeUtilidades.ShowDialog();
+        }
+
+        private void cancelaciónAnticipadaPorFallecimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmCancelacionFallecimiento tmpFrmCancelacionFallecimiento = new frmCancelacionFallecimiento();
+            tmpFrmCancelacionFallecimiento.ShowDialog();
         }
     }
 }
