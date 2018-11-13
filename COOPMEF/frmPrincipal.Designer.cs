@@ -38,12 +38,6 @@
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem7 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem8 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem9 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem10 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -51,9 +45,8 @@
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem13 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem15 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.discoParaRetencionesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.facturaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.bancoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -65,10 +58,9 @@
             this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.calendarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItemAgenda = new System.Windows.Forms.ToolStripMenuItem();
+            this.cuadroFranjasEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.reportesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.eventosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informeDeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.cuadroFranjasEdadToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ingresadosEnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.dadosDeBajaEnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.padrónToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
@@ -284,7 +276,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -374,11 +365,7 @@
             // toolStripMenuItem1
             // 
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5,
-            this.toolStripMenuItem6,
-            this.toolStripMenuItem7,
-            this.toolStripMenuItem8,
-            this.toolStripMenuItem3});
+            this.toolStripMenuItem5});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             // 
@@ -388,44 +375,6 @@
             resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
             this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
-            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
-            // 
-            // toolStripMenuItem7
-            // 
-            this.toolStripMenuItem7.Name = "toolStripMenuItem7";
-            resources.ApplyResources(this.toolStripMenuItem7, "toolStripMenuItem7");
-            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
-            // 
-            // toolStripMenuItem8
-            // 
-            this.toolStripMenuItem8.Name = "toolStripMenuItem8";
-            resources.ApplyResources(this.toolStripMenuItem8, "toolStripMenuItem8");
-            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
-            // 
-            // toolStripMenuItem3
-            // 
-            this.toolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem9,
-            this.toolStripMenuItem10});
-            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
-            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
-            // 
-            // toolStripMenuItem9
-            // 
-            this.toolStripMenuItem9.Name = "toolStripMenuItem9";
-            resources.ApplyResources(this.toolStripMenuItem9, "toolStripMenuItem9");
-            this.toolStripMenuItem9.Click += new System.EventHandler(this.toolStripMenuItem9_Click);
-            // 
-            // toolStripMenuItem10
-            // 
-            this.toolStripMenuItem10.Name = "toolStripMenuItem10";
-            resources.ApplyResources(this.toolStripMenuItem10, "toolStripMenuItem10");
-            this.toolStripMenuItem10.Click += new System.EventHandler(this.toolStripMenuItem10_Click);
-            // 
             // toolStripMenuItem2
             // 
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -433,7 +382,6 @@
             this.liquidaciónToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
-            this.toolStripMenuItem2.Click += new System.EventHandler(this.toolStripMenuItem2_Click);
             // 
             // distribuciónToolStripMenuItem
             // 
@@ -463,10 +411,8 @@
             this.reportesToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.reportesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItem11,
-            this.toolStripMenuItem13,
             this.toolStripMenuItem14,
             this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem,
-            this.toolStripMenuItem15,
             this.discoParaRetencionesToolStripMenuItem,
             this.facturaciónToolStripMenuItem});
             resources.ApplyResources(this.reportesToolStripMenuItem, "reportesToolStripMenuItem");
@@ -478,24 +424,17 @@
             resources.ApplyResources(this.toolStripMenuItem11, "toolStripMenuItem11");
             this.toolStripMenuItem11.Click += new System.EventHandler(this.toolStripMenuItem11_Click);
             // 
-            // toolStripMenuItem13
-            // 
-            this.toolStripMenuItem13.Name = "toolStripMenuItem13";
-            resources.ApplyResources(this.toolStripMenuItem13, "toolStripMenuItem13");
-            this.toolStripMenuItem13.Click += new System.EventHandler(this.toolStripMenuItem13_Click);
-            // 
             // toolStripMenuItem14
             // 
             this.toolStripMenuItem14.Name = "toolStripMenuItem14";
             resources.ApplyResources(this.toolStripMenuItem14, "toolStripMenuItem14");
             this.toolStripMenuItem14.Click += new System.EventHandler(this.toolStripMenuItem14_Click);
             // 
-            // toolStripMenuItem15
+            // cancelaciónAnticipadaPorFallecimientoToolStripMenuItem
             // 
-            this.toolStripMenuItem15.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.toolStripMenuItem15.Name = "toolStripMenuItem15";
-            resources.ApplyResources(this.toolStripMenuItem15, "toolStripMenuItem15");
-            this.toolStripMenuItem15.Click += new System.EventHandler(this.toolStripMenuItem15_Click);
+            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Name = "cancelaciónAnticipadaPorFallecimientoToolStripMenuItem";
+            resources.ApplyResources(this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem, "cancelaciónAnticipadaPorFallecimientoToolStripMenuItem");
+            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Click += new System.EventHandler(this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem_Click);
             // 
             // discoParaRetencionesToolStripMenuItem
             // 
@@ -563,6 +502,7 @@
             this.calendarioToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.calendarioToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripMenuItemAgenda,
+            this.cuadroFranjasEdadToolStripMenuItem,
             this.reportesToolStripMenuItem1});
             resources.ApplyResources(this.calendarioToolStripMenuItem, "calendarioToolStripMenuItem");
             this.calendarioToolStripMenuItem.Name = "calendarioToolStripMenuItem";
@@ -573,11 +513,16 @@
             resources.ApplyResources(this.toolStripMenuItemAgenda, "toolStripMenuItemAgenda");
             this.toolStripMenuItemAgenda.Click += new System.EventHandler(this.toolStripMenuItemAgenda_Click);
             // 
+            // cuadroFranjasEdadToolStripMenuItem
+            // 
+            this.cuadroFranjasEdadToolStripMenuItem.Name = "cuadroFranjasEdadToolStripMenuItem";
+            resources.ApplyResources(this.cuadroFranjasEdadToolStripMenuItem, "cuadroFranjasEdadToolStripMenuItem");
+            this.cuadroFranjasEdadToolStripMenuItem.Click += new System.EventHandler(this.cuadroFranjasEdadToolStripMenuItem_Click);
+            // 
             // reportesToolStripMenuItem1
             // 
             this.reportesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.eventosToolStripMenuItem,
-            this.informeDeToolStripMenuItem,
             this.ingresadosEnToolStripMenuItem,
             this.dadosDeBajaEnToolStripMenuItem,
             this.padrónToolStripMenuItem1,
@@ -592,19 +537,6 @@
             this.eventosToolStripMenuItem.Name = "eventosToolStripMenuItem";
             resources.ApplyResources(this.eventosToolStripMenuItem, "eventosToolStripMenuItem");
             this.eventosToolStripMenuItem.Click += new System.EventHandler(this.eventosToolStripMenuItem_Click);
-            // 
-            // informeDeToolStripMenuItem
-            // 
-            this.informeDeToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.cuadroFranjasEdadToolStripMenuItem});
-            this.informeDeToolStripMenuItem.Name = "informeDeToolStripMenuItem";
-            resources.ApplyResources(this.informeDeToolStripMenuItem, "informeDeToolStripMenuItem");
-            // 
-            // cuadroFranjasEdadToolStripMenuItem
-            // 
-            this.cuadroFranjasEdadToolStripMenuItem.Name = "cuadroFranjasEdadToolStripMenuItem";
-            resources.ApplyResources(this.cuadroFranjasEdadToolStripMenuItem, "cuadroFranjasEdadToolStripMenuItem");
-            this.cuadroFranjasEdadToolStripMenuItem.Click += new System.EventHandler(this.cuadroFranjasEdadToolStripMenuItem_Click);
             // 
             // ingresadosEnToolStripMenuItem
             // 
@@ -1140,7 +1072,6 @@
             this.rBtnPasivo.Name = "rBtnPasivo";
             this.rBtnPasivo.TabStop = true;
             this.rBtnPasivo.UseVisualStyleBackColor = true;
-            this.rBtnPasivo.CheckedChanged += new System.EventHandler(this.rBtnPasivo_CheckedChanged);
             // 
             // rBtnActivo
             // 
@@ -2101,12 +2032,6 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // cancelaciónAnticipadaPorFallecimientoToolStripMenuItem
-            // 
-            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Name = "cancelaciónAnticipadaPorFallecimientoToolStripMenuItem";
-            resources.ApplyResources(this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem, "cancelaciónAnticipadaPorFallecimientoToolStripMenuItem");
-            this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Click += new System.EventHandler(this.cancelaciónAnticipadaPorFallecimientoToolStripMenuItem_Click);
-            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2227,19 +2152,11 @@
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem7;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem8;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem9;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem10;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAgenda;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem13;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem15;
         private System.Windows.Forms.GroupBox groupBox7;
         private System.Windows.Forms.TextBox txtRetenidoIngExc;
         private System.Windows.Forms.TextBox txtARetenerIngExc;
@@ -2403,8 +2320,6 @@
         private System.Windows.Forms.Label label44;
         private System.Windows.Forms.Label label45;
         private System.Windows.Forms.ComboBox cmbDepartamento;
-        private System.Windows.Forms.ToolStripMenuItem informeDeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cuadroFranjasEdadToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresadosEnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem padrónToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem activosToolStripMenuItem1;
@@ -2423,6 +2338,7 @@
         private System.Windows.Forms.TextBox txtCesion;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripMenuItem cancelaciónAnticipadaPorFallecimientoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cuadroFranjasEdadToolStripMenuItem;
     }
 }
 

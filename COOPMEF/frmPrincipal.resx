@@ -122,7 +122,7 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="anulaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>140, 22</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Anulación</value>
@@ -140,7 +140,7 @@
     <value>Salidas e Ingresos por préstamos</value>
   </data>
   <data name="informesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>140, 22</value>
   </data>
   <data name="informesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Informes</value>
@@ -159,42 +159,6 @@
   </data>
   <data name="toolStripMenuItem5.Text" xml:space="preserve">
     <value>Presupuestos de un mes</value>
-  </data>
-  <data name="toolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 22</value>
-  </data>
-  <data name="toolStripMenuItem6.Text" xml:space="preserve">
-    <value>Excedidos de un mes</value>
-  </data>
-  <data name="toolStripMenuItem7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 22</value>
-  </data>
-  <data name="toolStripMenuItem7.Text" xml:space="preserve">
-    <value>Pagos de excedidos</value>
-  </data>
-  <data name="toolStripMenuItem8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 22</value>
-  </data>
-  <data name="toolStripMenuItem8.Text" xml:space="preserve">
-    <value>Cobranza por jurídica</value>
-  </data>
-  <data name="toolStripMenuItem9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 22</value>
-  </data>
-  <data name="toolStripMenuItem9.Text" xml:space="preserve">
-    <value>Por pago del socio</value>
-  </data>
-  <data name="toolStripMenuItem10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>193, 22</value>
-  </data>
-  <data name="toolStripMenuItem10.Text" xml:space="preserve">
-    <value>Por fallecimiento</value>
-  </data>
-  <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 22</value>
-  </data>
-  <data name="toolStripMenuItem3.Text" xml:space="preserve">
-    <value>Cancelación anticipada</value>
   </data>
   <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 22</value>
@@ -244,12 +208,6 @@
   <data name="toolStripMenuItem11.Text" xml:space="preserve">
     <value>Listado de retenciones</value>
   </data>
-  <data name="toolStripMenuItem13.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 22</value>
-  </data>
-  <data name="toolStripMenuItem13.Text" xml:space="preserve">
-    <value>Información de cobranza</value>
-  </data>
   <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
     <value>342, 22</value>
   </data>
@@ -261,12 +219,6 @@
   </data>
   <data name="cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Text" xml:space="preserve">
     <value>Cancelación Anticipada por fallecimiento</value>
-  </data>
-  <data name="toolStripMenuItem15.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 22</value>
-  </data>
-  <data name="toolStripMenuItem15.Text" xml:space="preserve">
-    <value>Ingreso de excedidos</value>
   </data>
   <data name="discoParaRetencionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>342, 22</value>
@@ -335,16 +287,10 @@
     <value>Bancos</value>
   </data>
   <data name="toolStripMenuItemAgenda.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>206, 22</value>
   </data>
   <data name="toolStripMenuItemAgenda.Text" xml:space="preserve">
     <value>Agenda</value>
-  </data>
-  <data name="eventosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
-  </data>
-  <data name="eventosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Eventos</value>
   </data>
   <data name="cuadroFranjasEdadToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 22</value>
@@ -352,23 +298,23 @@
   <data name="cuadroFranjasEdadToolStripMenuItem.Text" xml:space="preserve">
     <value>Cuadro franjas Edad</value>
   </data>
-  <data name="informeDeToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
+  <data name="eventosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>261, 22</value>
   </data>
-  <data name="informeDeToolStripMenuItem.Text" xml:space="preserve">
-    <value>Informe de Socios por edad</value>
+  <data name="eventosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Eventos</value>
   </data>
   <data name="ingresadosEnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
+    <value>261, 22</value>
   </data>
   <data name="ingresadosEnToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ingresados en...</value>
+    <value>Socios Ingresados (mes/año)</value>
   </data>
   <data name="dadosDeBajaEnToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
+    <value>261, 22</value>
   </data>
   <data name="dadosDeBajaEnToolStripMenuItem.Text" xml:space="preserve">
-    <value>Dados de baja en...</value>
+    <value>Socios dados de baja</value>
   </data>
   <data name="activosToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
     <value>141, 22</value>
@@ -383,31 +329,31 @@
     <value>Históricos</value>
   </data>
   <data name="padrónToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
+    <value>261, 22</value>
   </data>
   <data name="padrónToolStripMenuItem1.Text" xml:space="preserve">
     <value>Padrón</value>
   </data>
   <data name="cumpleañosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
+    <value>261, 22</value>
   </data>
   <data name="cumpleañosToolStripMenuItem.Text" xml:space="preserve">
     <value>Cumpleaños del mes</value>
   </data>
   <data name="sociosPorDepartamentoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
+    <value>261, 22</value>
   </data>
   <data name="sociosPorDepartamentoToolStripMenuItem.Text" xml:space="preserve">
     <value>Socios por departamento</value>
   </data>
   <data name="sociosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>250, 22</value>
+    <value>261, 22</value>
   </data>
   <data name="sociosToolStripMenuItem.Text" xml:space="preserve">
     <value>Socios por edad</value>
   </data>
   <data name="reportesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>133, 22</value>
+    <value>206, 22</value>
   </data>
   <data name="reportesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Reportes</value>
@@ -6319,42 +6265,6 @@
   <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem6.Name" xml:space="preserve">
-    <value>toolStripMenuItem6</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem7.Name" xml:space="preserve">
-    <value>toolStripMenuItem7</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem7.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem8.Name" xml:space="preserve">
-    <value>toolStripMenuItem8</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem8.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem3.Name" xml:space="preserve">
-    <value>toolStripMenuItem3</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem9.Name" xml:space="preserve">
-    <value>toolStripMenuItem9</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem9.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem10.Name" xml:space="preserve">
-    <value>toolStripMenuItem10</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem10.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
     <value>toolStripMenuItem2</value>
   </data>
@@ -6397,22 +6307,16 @@
   <data name="&gt;&gt;toolStripMenuItem11.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem13.Name" xml:space="preserve">
-    <value>toolStripMenuItem13</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem13.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripMenuItem14.Name" xml:space="preserve">
     <value>toolStripMenuItem14</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem14.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem15.Name" xml:space="preserve">
-    <value>toolStripMenuItem15</value>
+  <data name="&gt;&gt;cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Name" xml:space="preserve">
+    <value>cancelaciónAnticipadaPorFallecimientoToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem15.Type" xml:space="preserve">
+  <data name="&gt;&gt;cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;discoParaRetencionesToolStripMenuItem.Name" xml:space="preserve">
@@ -6481,6 +6385,12 @@
   <data name="&gt;&gt;toolStripMenuItemAgenda.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Name" xml:space="preserve">
+    <value>cuadroFranjasEdadToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;reportesToolStripMenuItem1.Name" xml:space="preserve">
     <value>reportesToolStripMenuItem1</value>
   </data>
@@ -6491,18 +6401,6 @@
     <value>eventosToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;eventosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;informeDeToolStripMenuItem.Name" xml:space="preserve">
-    <value>informeDeToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;informeDeToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Name" xml:space="preserve">
-    <value>cuadroFranjasEdadToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;cuadroFranjasEdadToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;ingresadosEnToolStripMenuItem.Name" xml:space="preserve">
@@ -6647,12 +6545,6 @@
     <value>ayudaToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Name" xml:space="preserve">
-    <value>cancelaciónAnticipadaPorFallecimientoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

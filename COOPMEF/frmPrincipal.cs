@@ -363,30 +363,49 @@ namespace COOPMEF
 
         private void oficinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMantOficinas mantOficina = new frmMantOficinas();
-            mantOficina.ShowDialog();
-            cargarIncisosOficinas();
+
+            if (VerificarPermisosUsuario("frmMantOficinas"))
+            {
+                frmMantOficinas mantOficina = new frmMantOficinas();
+                mantOficina.ShowDialog();
+                cargarIncisosOficinas();
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
 
         }
 
         private void incisoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //if (VerificarPermisosUsuario("frmInciso"))
+            if (VerificarPermisosUsuario("frmMantenimientoInciso"))
             {
                 frmMantenimientoInciso minciso = new frmMantenimientoInciso();
                 minciso.ShowDialog();
                 cargarIncisosOficinas();
             }
-            //else
-            //{
-            //    MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            //}
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
+
         }
 
         private void planDePréstamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmPlanDePrestamo plan = new frmPlanDePrestamo();
-            plan.Show();
+            if (VerificarPermisosUsuario("frmPlanDePrestamo"))
+            {
+                frmPlanDePrestamo plan = new frmPlanDePrestamo();
+                plan.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
         }
 
         private void mToolStripMenuItem_Click(object sender, EventArgs e)
@@ -416,60 +435,70 @@ namespace COOPMEF
 
         private void btnNuevoSocio_Click(object sender, EventArgs e)
         {
-            limpiarDatosGralesDeSocio();
-            activarAltaSocio();
-            //se agrega 31/8/2017
-            lblEstadoActivo.Visible = true;
-            lblEstadoDeBaja.Visible = false;
-            //********
 
-            pantallaInicialSocio();
-
-            this.nuevo = true;
-
-
-            borrarTextNuevoSocio();
-
-
-            this.txtNroSocio.Enabled = true;
-            this.txtNroCobro.Enabled = true;
-            this.txtNombres.Enabled = true;
-            this.txtApellidos.Enabled = true;
-            this.dtpFechaNac.Enabled = true;
-            this.cmbEstadoCivil.Enabled = true;
-            this.cmbDepartamento.Enabled = true;
-            this.rbtnMasculino.Enabled = true;
-            this.rbtnFemenino.Enabled = true;
-            this.rBtnActivo.Enabled = true;
-            this.rBtnPasivo.Enabled = true;
-            this.cmbOficina.Enabled = true;
-            this.cmbInciso.Enabled = true;
-            this.txtTelefono.Enabled = true;
-            this.txtDireccion.Enabled = true;
-            this.txtEmail.Enabled = true;
-            this.txtCesion.Enabled = true;
-            this.txtPostal.Enabled = true;
-            this.btnEditarSocio.Enabled = false;
-            this.btnEliminarSocio.Enabled = false;
-            this.btnVerMasSocio.Enabled = true;
-            this.btnGuardarSocio.Enabled = true;
-            this.btnCancelarSocio.Enabled = true;
-            this.btnSalir.Enabled = true;
-            this.lblErrorGenerico.Visible = false;
-            this.Solicitud.Enabled = true;
-
-            String fecha = empresa.presupuesto();
-
-            if (empresa.cierreEfectuado(fecha))
+            if (VerificarPermisosUsuario("AltaSocio"))
             {
-                this.dtpFechaIng.Text = Convert.ToDateTime("01/" + fecha.ToString()).AddMonths(1).ToString();
+
+
+                limpiarDatosGralesDeSocio();
+                activarAltaSocio();
+                //se agrega 31/8/2017
+                lblEstadoActivo.Visible = true;
+                lblEstadoDeBaja.Visible = false;
+                //********
+
+                pantallaInicialSocio();
+
+                this.nuevo = true;
+
+
+                borrarTextNuevoSocio();
+
+
+                this.txtNroSocio.Enabled = true;
+                this.txtNroCobro.Enabled = true;
+                this.txtNombres.Enabled = true;
+                this.txtApellidos.Enabled = true;
+                this.dtpFechaNac.Enabled = true;
+                this.cmbEstadoCivil.Enabled = true;
+                this.cmbDepartamento.Enabled = true;
+                this.rbtnMasculino.Enabled = true;
+                this.rbtnFemenino.Enabled = true;
+                this.rBtnActivo.Enabled = true;
+                this.rBtnPasivo.Enabled = true;
+                this.cmbOficina.Enabled = true;
+                this.cmbInciso.Enabled = true;
+                this.txtTelefono.Enabled = true;
+                this.txtDireccion.Enabled = true;
+                this.txtEmail.Enabled = true;
+                this.txtCesion.Enabled = true;
+                this.txtPostal.Enabled = true;
+                this.btnEditarSocio.Enabled = false;
+                this.btnEliminarSocio.Enabled = false;
+                this.btnVerMasSocio.Enabled = true;
+                this.btnGuardarSocio.Enabled = true;
+                this.btnCancelarSocio.Enabled = true;
+                this.btnSalir.Enabled = true;
+                this.lblErrorGenerico.Visible = false;
+                this.Solicitud.Enabled = true;
+
+                String fecha = empresa.presupuesto();
+
+                if (empresa.cierreEfectuado(fecha))
+                {
+                    this.dtpFechaIng.Text = Convert.ToDateTime("01/" + fecha.ToString()).AddMonths(1).ToString();
+                }
+                else
+                {
+                    this.dtpFechaIng.Text = DateTime.Today.ToShortDateString();
+                }
+
+                txtNroSocio.Focus();
             }
             else
             {
-                this.dtpFechaIng.Text = DateTime.Today.ToShortDateString();
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
-
-            txtNroSocio.Focus();
         }
 
         public void borrarErroresNuevoSocio()
@@ -1028,125 +1057,131 @@ namespace COOPMEF
 
         private void btnEliminarSocio_Click(object sender, EventArgs e)
         {
-            if (idSocioSeleccionado != 0)
+
+            if (VerificarPermisosUsuario("BajaSocio"))
             {
-                Boolean puedeDarseDeBaja = true;
-                Boolean excedido = true;
-                DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
-                DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
-                String mensaje = "El socio no puede darse de baja por";
 
-                excedido = estaExcedido();
-
-                if (excedido)
+                if (idSocioSeleccionado != 0)
                 {
-                    puedeDarseDeBaja = false;
-                    mensaje += " estar excedido";
-                }
+                    Boolean puedeDarseDeBaja = true;
+                    Boolean excedido = true;
+                    DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
+                    DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
+                    String mensaje = "El socio no puede darse de baja por";
 
-                if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count != 0)
-                {
-
-
-
-
-                    puedeDarseDeBaja = false;
+                    excedido = estaExcedido();
 
                     if (excedido)
                     {
-                        mensaje += " y tener préstamo pendiente";
+                        puedeDarseDeBaja = false;
+                        mensaje += " estar excedido";
+                    }
+
+                    if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count != 0)
+                    {
+
+                        puedeDarseDeBaja = false;
+
+                        if (excedido)
+                        {
+                            mensaje += " y tener préstamo pendiente";
+                        }
+                        else
+                        {
+                            mensaje += " tener préstamo pendiente";
+                        }
+
                     }
                     else
                     {
-                        mensaje += " tener préstamo pendiente";
-                    }
-
-                }
-                else
-                {
-                    if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count != 0)
-                    {
-                        if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString() != "0")
+                        if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count != 0)
                         {
-                            puedeDarseDeBaja = false;
+                            if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString() != "0")
+                            {
+                                puedeDarseDeBaja = false;
 
-                            if (excedido)
-                            {
-                                mensaje += " y tener préstamo pendiente";
-                            }
-                            else
-                            {
-                                mensaje += " tener préstamo pendiente";
+                                if (excedido)
+                                {
+                                    mensaje += " y tener préstamo pendiente";
+                                }
+                                else
+                                {
+                                    mensaje += " tener préstamo pendiente";
+                                }
                             }
                         }
                     }
-                }
 
-                if (puedeDarseDeBaja)
-                {
-                    string message = "¿Está seguro de que desea cambiar de estado al socio?";
-                    string caption = "Estado Socio";
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result;
-                    result = MessageBox.Show(message, caption, buttons);
-
-
-                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    if (puedeDarseDeBaja)
                     {
-                        try
+                        string message = "¿Está seguro de que desea cambiar de estado al socio?";
+                        string caption = "Estado Socio";
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        DialogResult result;
+                        result = MessageBox.Show(message, caption, buttons);
+
+
+                        if (result == System.Windows.Forms.DialogResult.Yes)
                         {
+                            try
+                            {
 
-                            int estadoActual = devolverEstadoSocio();
-                            nuevo = false;
-                            activarAltaSocio();
-                            this.btnNuevoSocio.Enabled = false;
-                            this.btnEditarSocio.Enabled = false;
-                            this.Solicitud.Enabled = false;
-                            this.btnVerMasSocio.Enabled = false;
+                                int estadoActual = devolverEstadoSocio();
+                                nuevo = false;
+                                activarAltaSocio();
+                                this.btnNuevoSocio.Enabled = false;
+                                this.btnEditarSocio.Enabled = false;
+                                this.Solicitud.Enabled = false;
+                                this.btnVerMasSocio.Enabled = false;
 
-                            this.btnGuardarSocio.Enabled = true;
-                            this.btnSalir.Enabled = true;
+                                this.btnGuardarSocio.Enabled = true;
+                                this.btnSalir.Enabled = true;
 
-                            this.lblErrorGenerico.Visible = false;
-                            string nroSocio = this.txtNroSocio.Text;
+                                this.lblErrorGenerico.Visible = false;
+                                string nroSocio = this.txtNroSocio.Text;
 
 
-                            empresa.bajaSocio(idSocioSeleccionado, ref estadoActual);
-                            MessageBox.Show("Estado del socio actualizado correctamente");
+                                empresa.bajaSocio(idSocioSeleccionado, ref estadoActual);
+                                MessageBox.Show("Estado del socio actualizado correctamente");
 
-                            RegistroSLogs registroLogs = new RegistroSLogs();
-                            registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Baja Socio Nro " + txtNroSocio.Text.Replace(",", "."));
+                                RegistroSLogs registroLogs = new RegistroSLogs();
+                                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Baja Socio Nro " + txtNroSocio.Text.Replace(",", "."));
 
-                            cambiarEstado(estadoActual);
-                            cambiarBotonBajaAlta(estadoActual);
-                            desactivarAltaSocio();
-                            btnEliminarSocio.Enabled = true;
-                            btnGuardarSocio.Enabled = false;
-                            //se agrega 31/8
-                            btnCancelarSocio.Enabled = false;
-                            this.btnNuevoSocio.Enabled = true;
+                                cambiarEstado(estadoActual);
+                                cambiarBotonBajaAlta(estadoActual);
+                                desactivarAltaSocio();
+                                btnEliminarSocio.Enabled = true;
+                                btnGuardarSocio.Enabled = false;
+                                //se agrega 31/8
+                                btnCancelarSocio.Enabled = false;
+                                this.btnNuevoSocio.Enabled = true;
 
-                            //Cargo Planes
-                            //dsPlanes = empresa.DevolverPlanes();
-                            //pantallaInicialSocio();
+                                //Cargo Planes
+                                //dsPlanes = empresa.DevolverPlanes();
+                                //pantallaInicialSocio();
 
-                            cancelar();
+                                cancelar();
+                            }
+                            catch (Exception ex)
+                            {
+                                this.lblErrorGenerico.Visible = true;
+                                this.lblErrorGenerico.Text = ex.Message;
+                            }
                         }
-                        catch (Exception ex)
-                        {
-                            this.lblErrorGenerico.Visible = true;
-                            this.lblErrorGenerico.Text = ex.Message;
-                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show(mensaje);
                     }
                 }
                 else
                 {
-                    MessageBox.Show(mensaje);
+                    MessageBox.Show("Debe seleccionar un socio antes de darlo de baja");
                 }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un socio antes de darlo de baja");
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
 
         }
@@ -1301,9 +1336,9 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_departamento"].Visible = false;
             dgvSociosCampo.Columns["socio_cesion"].Visible = false;
 
-      /*      dgvSociosCampo.Columns["inciso_abreviatura"].Visible = false;
-            dgvSociosCampo.Columns["oficina_abreviatura"].Visible = false;
-            */
+            /*      dgvSociosCampo.Columns["inciso_abreviatura"].Visible = false;
+                  dgvSociosCampo.Columns["oficina_abreviatura"].Visible = false;
+                  */
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
             dgvSociosCampo.Columns["socio_nro"].Width = 150;
 
@@ -1388,32 +1423,42 @@ namespace COOPMEF
 
         private void btnEditarSocio_Click(object sender, EventArgs e)
         {
-            if (this.idSocioSeleccionado != 0)
+
+            if (VerificarPermisosUsuario("editarSocios"))
             {
-                if (devolverEstadoSocio() == 1)
+
+
+                if (this.idSocioSeleccionado != 0)
                 {
-                    activarAltaSocio();
-                    this.btnNuevoSocio.Enabled = false;
-                    this.btnEliminarSocio.Enabled = false;
-                    this.btnVerMasSocio.Enabled = true;
+                    if (devolverEstadoSocio() == 1)
+                    {
+                        activarAltaSocio();
+                        this.btnNuevoSocio.Enabled = false;
+                        this.btnEliminarSocio.Enabled = false;
+                        this.btnVerMasSocio.Enabled = true;
 
-                    this.btnGuardarSocio.Enabled = true;
-                    this.btnSalir.Enabled = true;
-                    this.btnCancelarSocio.Enabled = true;
+                        this.btnGuardarSocio.Enabled = true;
+                        this.btnSalir.Enabled = true;
+                        this.btnCancelarSocio.Enabled = true;
 
-                    this.lblErrorGenerico.Visible = false;
+                        this.lblErrorGenerico.Visible = false;
 
-                    this.txtMostrarDetalles.ReadOnly = false;
-                    this.nuevo = false;
+                        this.txtMostrarDetalles.ReadOnly = false;
+                        this.nuevo = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El socio no se encuentra habilitado");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El socio no se encuentra habilitado");
+                    MessageBox.Show("Debe seleccionar un socio antes de intentar editarlo");
                 }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un socio antes de intentar editarlo");
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
 
@@ -2236,8 +2281,15 @@ namespace COOPMEF
 
         private void parámetrosDelSistemaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ParámetrosDelSistema ps = new ParámetrosDelSistema();
-            ps.Show();
+            if (VerificarPermisosUsuario("ParámetrosDelSistema"))
+            {
+                ParámetrosDelSistema ps = new ParámetrosDelSistema();
+                ps.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
 
         }
 
@@ -2258,37 +2310,56 @@ namespace COOPMEF
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
         {
-            frmCierreMes frmCierre = new frmCierreMes();
-            frmCierre.ShowDialog();
+
+            if (VerificarPermisosUsuario("frmCierreMes"))
+            {
+                frmCierreMes frmCierre = new frmCierreMes();
+                frmCierre.ShowDialog();
 
 
-            /*  string tabSeleccionado = tbcPestanas.SelectedTab.Name;
+                /*  string tabSeleccionado = tbcPestanas.SelectedTab.Name;
 
-              tbcPestanas.SelectedTab = tbcPestanas.TabPages[tabSeleccionado];
-             * 
-             * */
+                  tbcPestanas.SelectedTab = tbcPestanas.TabPages[tabSeleccionado];
+                 * 
+                 * */
 
-            cargarPlanPrestamoSocio();
+                cargarPlanPrestamoSocio();
 
 
-            limpiarPantallaIngresoDeExcedidos();
-            limpiarPantallaDeCobranza();
+                limpiarPantallaIngresoDeExcedidos();
+                limpiarPantallaDeCobranza();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
         }
 
         private void btnSolicitar_Click(object sender, EventArgs e)
         {
-            int estado = devolverEstadoSocio();
-            if (estado == 1)
+
+            if (VerificarPermisosUsuario("solicitarPrestamo"))
             {
-                DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
-                frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
-                reporte.ShowDialog();
-                DE.solicitud.Rows.Clear();
-                btnGuardarPrestamo.Enabled = true;
+
+
+                int estado = devolverEstadoSocio();
+                if (estado == 1)
+                {
+                    DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
+                    frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
+                    reporte.ShowDialog();
+                    DE.solicitud.Rows.Clear();
+                    btnGuardarPrestamo.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("El socio no está dado de alta en el sistema");
+                }
             }
             else
             {
-                MessageBox.Show("El socio no está dado de alta en el sistema");
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
 
@@ -2301,67 +2372,75 @@ namespace COOPMEF
 
         private void btnGuardarIngExcedidos_Click(object sender, EventArgs e)
         {
-
-            //bool txtSoloNumeros = true;
-            //Regex regex = new Regex("/^[0-9]+$/");
-            // Regex regex = new Regex("^[0-9]+([,|.][0-9]+)?$");
-            if (!esDecimal(txtARetenerIngExc.Text.Replace(".", ",")) || (!esDecimal(txtRetenidoIngExc.Text.Replace(".", ","))) && (!esCero(txtRetenidoIngExc.Text.Replace(".", ","))))
+            if (VerificarPermisosUsuario("ingresoExcedidos"))
             {
-                MessageBox.Show("Retenido o a_Retener deben ser numéricos");
-                calcularSaldoMorayTotal();
-            }
-            else
-                if (!hayCamposVaciosEnIngresoExcedidos())
+
+
+                //bool txtSoloNumeros = true;
+                //Regex regex = new Regex("/^[0-9]+$/");
+                // Regex regex = new Regex("^[0-9]+([,|.][0-9]+)?$");
+                if (!esDecimal(txtARetenerIngExc.Text.Replace(".", ",")) || (!esDecimal(txtRetenidoIngExc.Text.Replace(".", ","))) && (!esCero(txtRetenidoIngExc.Text.Replace(".", ","))))
                 {
-                    if (Convert.ToDouble(txtARetenerIngExc.Text.Replace(".", ",")) <= Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ",")))
-                    {
-                        MessageBox.Show("El importe Retenido debe ser menor que el de a_Retener.");
-                        calcularSaldoMorayTotal();
-                    }
-                    else
-                        if (retenidoActual > Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ",")))
-                        {
-                            MessageBox.Show("El importe Retenido debe ser mayor a lo que ya se habia retenido");
-                            calcularSaldoMorayTotal();
-                        }
-
-                        else
-                        {
-
-                            Excedidos ex = new Excedidos();
-                            ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text.Replace(".", ","));
-                            ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ","));
-                            ex._presupuesto = txtPresupuestoIngExc.Text;
-                            ex._cedula = txtNroSocio.Text;
-                            ex._socio_id = this.idSocioSeleccionado;
-
-                            DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuestoIngExc.Text);
-
-                            int filas = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count;
-                            if (filas <= 0)
-                            {
-                                ex.Guardar();
-                                MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
-                                marcarExcedido();
-                                RegistroSLogs registroLogs = new RegistroSLogs();
-                                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Socio ingresado como excedido " + txtNroSocio.Text.Replace(",", "."));
-
-                            }
-                            else
-                            {
-                                ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
-                                ex.modificarExcedido();
-                                MessageBox.Show("El valor retenido fue actualizado correctamente");
-                            }
-
-                            llenarCamposDeCobranzaExcedidos(dsExcedidoSocioIdPresupuesto, "excedidosPorSocioIdyPresupuesto");
-                            calcularSaldoMorayTotal();
-                        }
+                    MessageBox.Show("Retenido o a_Retener deben ser numéricos");
+                    calcularSaldoMorayTotal();
                 }
                 else
-                {
-                    MessageBox.Show("Debe ingresar los campos requeridos");
-                }
+                    if (!hayCamposVaciosEnIngresoExcedidos())
+                    {
+                        if (Convert.ToDouble(txtARetenerIngExc.Text.Replace(".", ",")) <= Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ",")))
+                        {
+                            MessageBox.Show("El importe Retenido debe ser menor que el de a_Retener.");
+                            calcularSaldoMorayTotal();
+                        }
+                        else
+                            if (retenidoActual > Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ",")))
+                            {
+                                MessageBox.Show("El importe Retenido debe ser mayor a lo que ya se habia retenido");
+                                calcularSaldoMorayTotal();
+                            }
+
+                            else
+                            {
+
+                                Excedidos ex = new Excedidos();
+                                ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text.Replace(".", ","));
+                                ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ","));
+                                ex._presupuesto = txtPresupuestoIngExc.Text;
+                                ex._cedula = txtNroSocio.Text;
+                                ex._socio_id = this.idSocioSeleccionado;
+
+                                DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuestoIngExc.Text);
+
+                                int filas = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count;
+                                if (filas <= 0)
+                                {
+                                    ex.Guardar();
+                                    MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
+                                    marcarExcedido();
+                                    RegistroSLogs registroLogs = new RegistroSLogs();
+                                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Socio ingresado como excedido " + txtNroSocio.Text.Replace(",", "."));
+
+                                }
+                                else
+                                {
+                                    ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
+                                    ex.modificarExcedido();
+                                    MessageBox.Show("El valor retenido fue actualizado correctamente");
+                                }
+
+                                llenarCamposDeCobranzaExcedidos(dsExcedidoSocioIdPresupuesto, "excedidosPorSocioIdyPresupuesto");
+                                calcularSaldoMorayTotal();
+                            }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Debe ingresar los campos requeridos");
+                    }
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void tabCobranza_Click(object sender, EventArgs e)
@@ -2371,15 +2450,22 @@ namespace COOPMEF
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            if (idSocioSeleccionado > 0)
+            if (VerificarPermisosUsuario("frmCancelacionAnticipadaDePrestmos"))
             {
-                frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado, txtInciso.Text, txtOficina.Text);
-                frmCancelacion.ShowDialog();
-                cargarPlanPrestamoSocio();
+                if (idSocioSeleccionado > 0)
+                {
+                    frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado, txtInciso.Text, txtOficina.Text);
+                    frmCancelacion.ShowDialog();
+                    cargarPlanPrestamoSocio();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un socio para poder cancelar");
+                }
             }
             else
             {
-                MessageBox.Show("Debe seleccionar un socio para poder cancelar");
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
 
@@ -2540,47 +2626,56 @@ namespace COOPMEF
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if (txtARetener.Text != "")
+            if (VerificarPermisosUsuario("cobrarExcedidos"))
             {
-                string message = "¿Está seguro que va a pagar la totalidad de la deuda?";
-                string caption = "Pago";
-                MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                DialogResult result;
-                result = MessageBox.Show(message, caption, buttons);
 
-                if (result == System.Windows.Forms.DialogResult.Yes)
+
+                if (txtARetener.Text != "")
                 {
-                    Excedidos ex = new Excedidos();
-                    ex._aretener = Convert.ToDouble(txtARetener.Text);
-                    ex._retenido = Convert.ToDouble(txtRetenido.Text);
-                    ex._presupuesto = txtPresupuesto.Text;
-                    ex._cedula = txtNroSocio.Text;
+                    string message = "¿Está seguro que va a pagar la totalidad de la deuda?";
+                    string caption = "Pago";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons);
 
-                    DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuesto.Text);
-
-                    if (dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count <= 0)
+                    if (result == System.Windows.Forms.DialogResult.Yes)
                     {
-                        //ex.Guardar();
-                        MessageBox.Show("La persona ingresada no esta Excedida");
-                    }
-                    else
-                    {
-                        ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
-                        ex.eliminar();
-                        MessageBox.Show("Deuda saldada");
+                        Excedidos ex = new Excedidos();
+                        ex._aretener = Convert.ToDouble(txtARetener.Text);
+                        ex._retenido = Convert.ToDouble(txtRetenido.Text);
+                        ex._presupuesto = txtPresupuesto.Text;
+                        ex._cedula = txtNroSocio.Text;
 
-                        RegistroSLogs registroLogs = new RegistroSLogs();
-                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cobranza excedido Socio Nro " + txtNroSocio.Text.Replace(",", "."));
+                        DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuesto.Text);
 
-                        //btnPagarCobranza.Enabled = false;
-                        //btnImprimirCobranza.Enabled = false;
-                        limpiarPantallaIngresoDeExcedidos();
-                        limpiarPantallaDeCobranza();
+                        if (dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count <= 0)
+                        {
+                            //ex.Guardar();
+                            MessageBox.Show("La persona ingresada no esta Excedida");
+                        }
+                        else
+                        {
+                            ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
+                            ex.eliminar();
+                            MessageBox.Show("Deuda saldada");
+
+                            RegistroSLogs registroLogs = new RegistroSLogs();
+                            registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cobranza excedido Socio Nro " + txtNroSocio.Text.Replace(",", "."));
+
+                            //btnPagarCobranza.Enabled = false;
+                            //btnImprimirCobranza.Enabled = false;
+                            limpiarPantallaIngresoDeExcedidos();
+                            limpiarPantallaDeCobranza();
+                        }
                     }
                 }
+                else
+                    MessageBox.Show("No hay deudas pendientes para pagar");
             }
             else
-                MessageBox.Show("No hay deudas pendientes para pagar");
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void btnSalirCobranza_Click(object sender, EventArgs e)
@@ -2715,9 +2810,16 @@ Agregar emisión
 
         private void anulaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmAnulacionPrestamo frmAnulacion = new frmAnulacionPrestamo();
-            frmAnulacion.ShowDialog();
-            cargarPlanPrestamoSocio();
+            if (VerificarPermisosUsuario("frmAnulacionPrestamo"))
+            {
+                frmAnulacionPrestamo frmAnulacion = new frmAnulacionPrestamo();
+                frmAnulacion.ShowDialog();
+                cargarPlanPrestamoSocio();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void dgvSociosCampo_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
@@ -2734,116 +2836,110 @@ Agregar emisión
 
         private void mantenimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmBanco frmTmpBanco = new frmBanco();
-            frmTmpBanco.ShowDialog();
+
+            if (VerificarPermisosUsuario("frmBanco"))
+            {
+                frmBanco frmTmpBanco = new frmBanco();
+                frmTmpBanco.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
         }
 
         private void ingresoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmMovimientosBancarios frmTmpMovimientos = new frmMovimientosBancarios();
-            frmTmpMovimientos.ShowDialog();
 
-        }
-
-        private void rBtnPasivo_CheckedChanged(object sender, EventArgs e)
-        {
-
+            if (VerificarPermisosUsuario("frmMovimientosBancarios"))
+            {
+                frmMovimientosBancarios frmTmpMovimientos = new frmMovimientosBancarios();
+                frmTmpMovimientos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void consultaRápidaToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmConsultaSaldosBancarios frmConsulta = new frmConsultaSaldosBancarios();
-            frmConsulta.ShowDialog();
+            if (VerificarPermisosUsuario("frmConsultaSaldosBancarios"))
+            {
+                frmConsultaSaldosBancarios frmConsulta = new frmConsultaSaldosBancarios();
+                frmConsulta.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void cantidadYPromedioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCantidadMovimientos frmTmpCantidad = new frmCantidadMovimientos();
-            frmTmpCantidad.ShowDialog();
-        }
-
-        private void cierreMesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
+            if (VerificarPermisosUsuario("frmCantidadMovimientos"))
+            {
+                frmCantidadMovimientos frmTmpCantidad = new frmCantidadMovimientos();
+                frmTmpCantidad.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-            frmInformePresupuesto frmInformePresupuestoTMP = new frmInformePresupuesto();
-            frmInformePresupuestoTMP.ShowDialog();
+            if (VerificarPermisosUsuario("frmInformePresupuesto"))
+            {
+                frmInformePresupuesto frmInformePresupuestoTMP = new frmInformePresupuesto();
+                frmInformePresupuestoTMP.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void resumenDePréstamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmInformePrestamo frmTmpInformeCierre = new frmInformePrestamo();
-            frmTmpInformeCierre.ShowDialog();
+            if (VerificarPermisosUsuario("frmInformePrestamo"))
+            {
+                frmInformePrestamo frmTmpInformeCierre = new frmInformePrestamo();
+                frmTmpInformeCierre.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
-        private void toolStripMenuItem2_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void toolStripMenuItem6_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
-        }
-
-        private void toolStripMenuItem7_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
-        }
-
-        private void toolStripMenuItem8_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
-        }
-
-        private void toolStripMenuItem9_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
-        }
-
-        private void toolStripMenuItem10_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
-        }
 
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
-            frmListadoGeneralRetenciones tmpFrmListadoGeneralRetenciones = new frmListadoGeneralRetenciones();
-            tmpFrmListadoGeneralRetenciones.ShowDialog();
-        }
-
-        private void toolStripMenuItem12_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 2)");
-        }
-
-        private void toolStripMenuItem13_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
-        }
-
-        private void toolStripMenuItem15_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
-        }
-
-        private void toolStripMenuItem17_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
-        }
-
-        private void toolStripMenuItem18_Click(object sender, EventArgs e)
-        {
-            MessageBox.Show("En construcción (Se desarrollará en la etapa 3)");
+            if (VerificarPermisosUsuario("frmListadoGeneralRetenciones"))
+            {
+                frmListadoGeneralRetenciones tmpFrmListadoGeneralRetenciones = new frmListadoGeneralRetenciones();
+                tmpFrmListadoGeneralRetenciones.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void informesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCuentaCorriente tmpfrmCuentaCorriente = new frmCuentaCorriente();
-            tmpfrmCuentaCorriente.ShowDialog();
+            if (VerificarPermisosUsuario("frmCuentaCorriente"))
+            {
+                frmCuentaCorriente tmpfrmCuentaCorriente = new frmCuentaCorriente();
+                tmpfrmCuentaCorriente.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void tabHistorial_Click(object sender, EventArgs e)
@@ -2859,130 +2955,201 @@ Agregar emisión
             DS.SolicitudIngreso.Rows.Clear();
         }
 
-        private void cuadroFranjasEdadToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            frmPadronEdades tmpfrmPadronEdades = new frmPadronEdades();
-            tmpfrmPadronEdades.ShowDialog();
-        }
-
         private void ingresadosEnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSociosIngresadosEn tmpfrmSociosIngresadosEn = new frmSociosIngresadosEn();
-            tmpfrmSociosIngresadosEn.ShowDialog();
+            if (VerificarPermisosUsuario("frmSociosIngresadosEn"))
+            {
+                frmSociosIngresadosEn tmpfrmSociosIngresadosEn = new frmSociosIngresadosEn();
+                tmpfrmSociosIngresadosEn.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void activosToolStripMenuItem1_Click(object sender, EventArgs e)
         {
-            DataSet sociosResultado = empresa.devolverSociosSegunEstado(1);
-            String fechaActual = DateTime.Today.ToShortDateString();
-
-            for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+            if (VerificarPermisosUsuario("SOCIOS_ACTIVOS"))
             {
-                string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
-                string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
-                string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
-                string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
-                string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
-                string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
-                string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
 
-                estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                DataSet sociosResultado = empresa.devolverSociosSegunEstado(1);
+                String fechaActual = DateTime.Today.ToShortDateString();
+
+                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                {
+                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+
+                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                }
+
+                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS");
+                reporte.ShowDialog();
+                estadoSocios.Clear();
+
             }
-
-            frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS");
-            reporte.ShowDialog();
-            estadoSocios.Clear();
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void históricosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataSet sociosResultado = empresa.devolverSociosSegunEstado(0);
-            String fechaActual = DateTime.Today.ToShortDateString();
-
-            for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+            if (VerificarPermisosUsuario("SOCIOS_HISTORICOS"))
             {
-                string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
-                string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
-                string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
-                string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
-                string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
-                string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
-                string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                DataSet sociosResultado = empresa.devolverSociosSegunEstado(0);
+                String fechaActual = DateTime.Today.ToShortDateString();
 
-                estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                {
+                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+
+                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                }
+
+                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_HISTORICOS");
+                reporte.ShowDialog();
+                estadoSocios.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
 
-            frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_HISTORICOS");
-            reporte.ShowDialog();
-            estadoSocios.Clear();
+
         }
 
         private void dadosDeBajaEnToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSociosBajaEn tmpfrmSociosBajaEn = new frmSociosBajaEn();
-            tmpfrmSociosBajaEn.ShowDialog();
+
+            if (VerificarPermisosUsuario("frmSociosBajaEn"))
+            {
+                frmSociosBajaEn tmpfrmSociosBajaEn = new frmSociosBajaEn();
+                tmpfrmSociosBajaEn.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void cumpleañosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCumpleanios tmpfrmCumpleanios = new frmCumpleanios();
-            tmpfrmCumpleanios.ShowDialog();
+            if (VerificarPermisosUsuario("frmCumpleanios"))
+            {
+                frmCumpleanios tmpfrmCumpleanios = new frmCumpleanios();
+                tmpfrmCumpleanios.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void sociosPorDepartamentoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSociosPorDepartamento tmpfrmSociosPorDepartamento = new frmSociosPorDepartamento();
-            tmpfrmSociosPorDepartamento.ShowDialog();
+            if (VerificarPermisosUsuario("frmSociosPorDepartamento"))
+            {
+                frmSociosPorDepartamento tmpfrmSociosPorDepartamento = new frmSociosPorDepartamento();
+                tmpfrmSociosPorDepartamento.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void discoParaRetencionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmGeneracionDiscosRetenciones tmpfrmGeneracionDiscosRetenciones = new frmGeneracionDiscosRetenciones();
-            tmpfrmGeneracionDiscosRetenciones.ShowDialog();
+            if (VerificarPermisosUsuario("c"))
+            {
+                frmGeneracionDiscosRetenciones tmpfrmGeneracionDiscosRetenciones = new frmGeneracionDiscosRetenciones();
+                tmpfrmGeneracionDiscosRetenciones.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void sociosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            DataSet sociosResultado = empresa.devolverSociosActivosEdad();
 
-            String fechaActual = DateTime.Today.ToShortDateString();
-
-            for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+            if (VerificarPermisosUsuario("SOCIOS_ACTIVOS_EDAD"))
             {
-                string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
-                string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
-                string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
-                DateTime fechaNacimiento = Convert.ToDateTime(sociosResultado.Tables["socios"].Rows[n][5].ToString());
-                string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
-                string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
-                string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
-                string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
-                int edad = this.EdadPersona(fechaNacimiento);
+                DataSet sociosResultado = empresa.devolverSociosActivosEdad();
 
-                estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, edad, Inciso, oficina, numerocobro);
+                String fechaActual = DateTime.Today.ToShortDateString();
+
+                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                {
+                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                    DateTime fechaNacimiento = Convert.ToDateTime(sociosResultado.Tables["socios"].Rows[n][5].ToString());
+                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                    int edad = this.EdadPersona(fechaNacimiento);
+
+                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, edad, Inciso, oficina, numerocobro);
+                }
+
+                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS_EDAD");
+                reporte.ShowDialog();
+                estadoSocios.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
 
-            frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS_EDAD");
-            reporte.ShowDialog();
-            estadoSocios.Clear();
         }
 
         private void facturaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmFacturacion tmpfrmFacturacion = new frmFacturacion();
-            tmpfrmFacturacion.ShowDialog();
+            if (VerificarPermisosUsuario("frmFacturacion"))
+            {
+                frmFacturacion tmpfrmFacturacion = new frmFacturacion();
+                tmpfrmFacturacion.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void queTasaEstánCobrandoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCompracionDeTasas tmpComparaciónDeTasas = new frmCompracionDeTasas();
-            tmpComparaciónDeTasas.ShowDialog();
+            if (VerificarPermisosUsuario("frmCompracionDeTasas"))
+            {
+                frmCompracionDeTasas tmpComparaciónDeTasas = new frmCompracionDeTasas();
+                tmpComparaciónDeTasas.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void salidasEIngresosPorPréstamosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -2993,20 +3160,56 @@ Agregar emisión
 
         private void distribuciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmDistribucionDeUtilidades tmpfrmDistribucionDeUtilidades = new frmDistribucionDeUtilidades();
-            tmpfrmDistribucionDeUtilidades.ShowDialog();
+            if (VerificarPermisosUsuario("frmDistribucionDeUtilidades"))
+            {
+                frmDistribucionDeUtilidades tmpfrmDistribucionDeUtilidades = new frmDistribucionDeUtilidades();
+                tmpfrmDistribucionDeUtilidades.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void liquidaciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmLiquidacionDeUtilidades tmpfrmLiquidacionDeUtilidades = new frmLiquidacionDeUtilidades();
-            tmpfrmLiquidacionDeUtilidades.ShowDialog();
+
+            if (VerificarPermisosUsuario("frmLiquidacionDeUtilidades"))
+            {
+                frmLiquidacionDeUtilidades tmpfrmLiquidacionDeUtilidades = new frmLiquidacionDeUtilidades();
+                tmpfrmLiquidacionDeUtilidades.ShowDialog();
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void cancelaciónAnticipadaPorFallecimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmCancelacionFallecimiento tmpFrmCancelacionFallecimiento = new frmCancelacionFallecimiento();
-            tmpFrmCancelacionFallecimiento.ShowDialog();
+            if (VerificarPermisosUsuario("frmCancelacionFallecimiento"))
+            {
+                frmCancelacionFallecimiento tmpFrmCancelacionFallecimiento = new frmCancelacionFallecimiento();
+                tmpFrmCancelacionFallecimiento.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void cuadroFranjasEdadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmPadronEdades"))
+            {
+                frmPadronEdades tmpfrmPadronEdades = new frmPadronEdades();
+                tmpfrmPadronEdades.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
     }
 }
