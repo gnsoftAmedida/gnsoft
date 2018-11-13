@@ -272,6 +272,12 @@ namespace Negocio
             return tmpSocio.buscarSociosUtilidades(cedula);
         }
 
+        public void GuardarFallecido(int NumeroPrestamo, int CuotasPactadas, int CuotasPagadas, Double Tasa, Double MontoVale, Double ImporteCuota, Double AmortizacionVencer, Double InteresesVencer, String Cedula, String Usuario, DateTime FechaCancelacion, int socio_id)
+        {
+            pSocio tmpSocio = new pSocio();
+            tmpSocio.GuardarFallecido(NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, Cedula, Usuario, FechaCancelacion, socio_id);
+        }
+
         /*    public void modificarSocio()
             {
                 pSocio tmpSocio = new pSocio();

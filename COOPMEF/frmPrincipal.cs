@@ -1301,6 +1301,9 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_departamento"].Visible = false;
             dgvSociosCampo.Columns["socio_cesion"].Visible = false;
 
+      /*      dgvSociosCampo.Columns["inciso_abreviatura"].Visible = false;
+            dgvSociosCampo.Columns["oficina_abreviatura"].Visible = false;
+            */
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
             dgvSociosCampo.Columns["socio_nro"].Width = 150;
 

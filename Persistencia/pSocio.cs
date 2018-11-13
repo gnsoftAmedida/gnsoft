@@ -19,7 +19,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, o.oficina_codigo, i.inciso_codigo, s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento, s.socio_cesion FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and " + campo + " like " + " '%" + valor + "%' ORDER BY " + campo + " ASC ";
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, o.oficina_codigo, i.inciso_codigo, s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento, s.socio_cesion, o.oficina_abreviatura, i.inciso_abreviatura FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and " + campo + " like " + " '%" + valor + "%' ORDER BY " + campo + " ASC ";
                 DataSet ds = new DataSet();
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
@@ -287,6 +287,65 @@ namespace Persistencia
             }
             catch (Exception ex)
             {
+                throw ex;
+            }
+        }
+
+
+        public void GuardarFallecido(int NumeroPrestamo, int CuotasPactadas, int CuotasPagadas, Double Tasa, Double MontoVale, Double ImporteCuota, Double AmortizacionVencer, Double InteresesVencer, String Cedula, String Usuario, DateTime FechaCancelacion, int socio_id)
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            string sql;
+            sql = "INSERT INTO fallecidos (NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, Cedula, Usuario, FechaCancelacion, socio_id) VALUES ('" + NumeroPrestamo + "','" + CuotasPactadas + "','" + CuotasPagadas + "','" + Tasa.ToString().Replace(",", ".") + "','" + MontoVale.ToString().Replace(",", ".") + "','" + ImporteCuota.ToString().Replace(",", ".") + "','" + AmortizacionVencer.ToString().Replace(",", ".") + "','" + InteresesVencer.ToString().Replace(",", ".") + "','" + Cedula + "','" + Usuario + "','" + FechaCancelacion.ToString("yyyy/MM/dd") + "','" + socio_id + "');" + "Select last_insert_id()";
+                                                                                                                                                                                                                               
+            try
+            {
+                connection.Open();
+                transaction = connection.BeginTransaction();
+
+                MySqlAdapter.InsertCommand = connection.CreateCommand();
+                MySqlAdapter.InsertCommand.Transaction = transaction;
+                MySqlAdapter.InsertCommand.CommandText = sql;
+                MySqlAdapter.InsertCommand.ExecuteNonQuery();
+                transaction.Commit();
+                connection.Close();
+            }
+
+
+            catch (MySqlException ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+
+                switch (ex.Number)
+                {
+                    case 1406:
+                        MisExcepciones ep = new MisExcepciones("Datos muy largos");
+                        throw ep;
+
+                    case 1062:
+                        MisExcepciones es = new MisExcepciones("Ya exíste un socio registrado con ese documento");
+                        throw es;
+
+                    case 1451:
+                        MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten prestamos asociadas ");
+                        throw fk;
+                }
+
+                MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
+                throw eg;
+            }
+
+
+
+
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                connection.Close();
                 throw ex;
             }
         }

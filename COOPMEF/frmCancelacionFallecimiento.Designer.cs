@@ -34,6 +34,7 @@
             this.txtNroCobroCA = new System.Windows.Forms.TextBox();
             this.txtApeNomCA = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.txtInteresesAVencerCA = new System.Windows.Forms.TextBox();
@@ -55,14 +56,14 @@
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnGuardarSocio = new System.Windows.Forms.Button();
+            this.btnCancelarDeudas = new System.Windows.Forms.Button();
             this.btnCancelarBusqueda = new System.Windows.Forms.Button();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.txtCedula = new System.Windows.Forms.MaskedTextBox();
             this.lblNroSocio = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.btnSalirDistribuciUtilidades = new System.Windows.Forms.Button();
             this.groupBox2.SuspendLayout();
             this.groupBox1.SuspendLayout();
             this.groupBox4.SuspendLayout();
@@ -116,6 +117,16 @@
             this.groupBox2.Size = new System.Drawing.Size(190, 174);
             this.groupBox2.TabIndex = 49;
             this.groupBox2.TabStop = false;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(13, 18);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.Size = new System.Drawing.Size(164, 130);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
             // label13
             // 
@@ -335,25 +346,26 @@
             this.label6.TabIndex = 44;
             this.label6.Text = "Oficina";
             // 
-            // btnGuardarSocio
+            // btnCancelarDeudas
             // 
-            this.btnGuardarSocio.Enabled = false;
-            this.btnGuardarSocio.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
-            this.btnGuardarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnGuardarSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardarSocio.Location = new System.Drawing.Point(289, 305);
-            this.btnGuardarSocio.Name = "btnGuardarSocio";
-            this.btnGuardarSocio.Size = new System.Drawing.Size(80, 23);
-            this.btnGuardarSocio.TabIndex = 56;
-            this.btnGuardarSocio.Text = "     Guardar";
-            this.btnGuardarSocio.UseVisualStyleBackColor = true;
+            this.btnCancelarDeudas.Enabled = false;
+            this.btnCancelarDeudas.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
+            this.btnCancelarDeudas.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnCancelarDeudas.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnCancelarDeudas.Location = new System.Drawing.Point(217, 428);
+            this.btnCancelarDeudas.Name = "btnCancelarDeudas";
+            this.btnCancelarDeudas.Size = new System.Drawing.Size(80, 23);
+            this.btnCancelarDeudas.TabIndex = 56;
+            this.btnCancelarDeudas.Text = "     Guardar";
+            this.btnCancelarDeudas.UseVisualStyleBackColor = true;
+            this.btnCancelarDeudas.Click += new System.EventHandler(this.btnCancelarDeudas_Click);
             // 
             // btnCancelarBusqueda
             // 
             this.btnCancelarBusqueda.Image = global::COOPMEF.Properties.Resources._1486109207_Cancel;
             this.btnCancelarBusqueda.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnCancelarBusqueda.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnCancelarBusqueda.Location = new System.Drawing.Point(373, 305);
+            this.btnCancelarBusqueda.Location = new System.Drawing.Point(301, 428);
             this.btnCancelarBusqueda.Name = "btnCancelarBusqueda";
             this.btnCancelarBusqueda.Size = new System.Drawing.Size(80, 23);
             this.btnCancelarBusqueda.TabIndex = 55;
@@ -407,8 +419,6 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.btnGuardarSocio);
-            this.groupBox3.Controls.Add(this.btnCancelarBusqueda);
             this.groupBox3.Controls.Add(this.txtOficinaCA);
             this.groupBox3.Controls.Add(this.txtIncisoCA);
             this.groupBox3.Controls.Add(this.txtNroCobroCA);
@@ -425,22 +435,28 @@
             this.groupBox3.TabIndex = 58;
             this.groupBox3.TabStop = false;
             // 
-            // textBox1
+            // btnSalirDistribuciUtilidades
             // 
-            this.textBox1.Location = new System.Drawing.Point(13, 18);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.Size = new System.Drawing.Size(164, 130);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.btnSalirDistribuciUtilidades.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out1;
+            this.btnSalirDistribuciUtilidades.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSalirDistribuciUtilidades.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSalirDistribuciUtilidades.Location = new System.Drawing.Point(387, 428);
+            this.btnSalirDistribuciUtilidades.Name = "btnSalirDistribuciUtilidades";
+            this.btnSalirDistribuciUtilidades.Size = new System.Drawing.Size(96, 23);
+            this.btnSalirDistribuciUtilidades.TabIndex = 59;
+            this.btnSalirDistribuciUtilidades.Text = "   Salir";
+            this.btnSalirDistribuciUtilidades.UseVisualStyleBackColor = true;
+            this.btnSalirDistribuciUtilidades.Click += new System.EventHandler(this.btnSalirDistribuciUtilidades_Click);
             // 
             // frmCancelacionFallecimiento
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(495, 432);
+            this.ClientSize = new System.Drawing.Size(498, 461);
+            this.Controls.Add(this.btnSalirDistribuciUtilidades);
+            this.Controls.Add(this.btnCancelarDeudas);
             this.Controls.Add(this.groupBox3);
+            this.Controls.Add(this.btnCancelarBusqueda);
             this.Controls.Add(this.groupBox4);
             this.Name = "frmCancelacionFallecimiento";
             this.Text = "Cancelación de deudas por fallecimiento";
@@ -459,7 +475,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Button btnGuardarSocio;
+        private System.Windows.Forms.Button btnCancelarDeudas;
         private System.Windows.Forms.Button btnCancelarBusqueda;
         private System.Windows.Forms.TextBox txtOficinaCA;
         private System.Windows.Forms.TextBox txtIncisoCA;
@@ -493,5 +509,6 @@
         private System.Windows.Forms.Label lblNroSocio;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button btnSalirDistribuciUtilidades;
     }
 }
