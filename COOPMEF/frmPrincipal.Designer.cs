@@ -1691,6 +1691,7 @@
             // 
             // groupBox10
             // 
+            this.groupBox10.BackColor = System.Drawing.Color.WhiteSmoke;
             this.groupBox10.Controls.Add(this.groupBox12);
             this.groupBox10.Controls.Add(this.groupBox11);
             this.groupBox10.Controls.Add(this.txtPresupuesto);
