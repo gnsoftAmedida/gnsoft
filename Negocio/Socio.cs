@@ -278,6 +278,12 @@ namespace Negocio
             tmpSocio.GuardarFallecido(NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, Cedula, Usuario, FechaCancelacion, socio_id);
         }
 
+        public DataSet devolverCancelacionesFallecidos()
+        {
+            pSocio tmpSocio = new pSocio();
+            return tmpSocio.devolverCancelacionesFallecidos();
+        }
+
         /*    public void modificarSocio()
             {
                 pSocio tmpSocio = new pSocio();

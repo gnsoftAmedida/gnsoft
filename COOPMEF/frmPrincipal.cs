@@ -28,6 +28,7 @@ namespace COOPMEF
         DataSet dsIncisos;
         DataSet dsOficinas;
         private int idSocioSeleccionado = 0;
+        private dsCancelacionAnticipada cancelaciones = new dsCancelacionAnticipada();
 
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
@@ -3237,7 +3238,101 @@ Agregar emisión
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
+
+        private void porFallecimientoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmInformeCancelacionFallecimiento"))
+            {
+                DataSet cancelacionesFallecidos = empresa.devolverCancelacionesFallecidos();
+
+                if (cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows.Count > 0)
+                {
+                    for (int n = 0; n <= cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows.Count - 1; n++)
+                    {
+                        DateTime FechaCancelacion = Convert.ToDateTime(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][0].ToString());
+                        String socio_nro = cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][1].ToString();
+                        String socio_nombre = cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][2].ToString();
+                        String socio_apellido = cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][3].ToString();
+                        String NumeroPrestamo = cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][4].ToString();
+                        int CuotasPactadas = Convert.ToInt32(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][5].ToString());
+                        int CuotasPagadas = Convert.ToInt32(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][6].ToString());
+                        Double Tasa = Convert.ToDouble(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][7].ToString());
+                        Double MontoVale = Convert.ToDouble(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][8].ToString());
+                        Double ImporteCuota = Convert.ToDouble(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][9].ToString());
+                        Double AmortizacionVencer = Convert.ToDouble(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][10].ToString());
+                        Double InteresesVencer = Convert.ToDouble(cancelacionesFallecidos.Tables["canelacionesFallecidos"].Rows[n][11].ToString());
+
+                        String fecha = DateTime.Today.ToShortDateString();
+
+                        cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, " ", fecha);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(cancelaciones, "CANCELACION_FALLECIMIENTO");
+                    reporte.ShowDialog();
+                    cancelaciones.cancelacion.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No se encuentran cancelaciones por fallecimeintos");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
+        }
+
+        private void préstamosPendientesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+       /*     if (VerificarPermisosUsuario("frmInformePrestamosPendientes"))
+            {
+                DataSet prestamosPendientes = empresa.DevolverCobranzasProvisorias();
+
+                if (prestamosPendientes.Tables["cobranzasProvisorias"].Rows.Count > 0)
+                {
+                    for (int n = 0; n <= prestamosPendientes.Tables["cobranzasProvisorias"].Rows.Count - 1; n++)
+                    {
+
+                        cobranzaProvisoria_id, prestamo_id, cedula, tasa, porcentajeiva, montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer,InteresVencer, aportecapital, socio_id
+
+
+                        DateTime FechaCancelacion = Convert.ToDateTime(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][0].ToString());
+                        String socio_nro = prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][1].ToString();
+                        String socio_nombre = prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][2].ToString();
+                        String socio_apellido = prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][3].ToString();
+                        String NumeroPrestamo = prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][4].ToString();
+                        int CuotasPactadas = Convert.ToInt32(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][5].ToString());
+                        int CuotasPagadas = Convert.ToInt32(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][6].ToString());
+                        Double Tasa = Convert.ToDouble(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][7].ToString());
+                        Double MontoVale = Convert.ToDouble(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][8].ToString());
+                        Double ImporteCuota = Convert.ToDouble(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][9].ToString());
+                        Double AmortizacionVencer = Convert.ToDouble(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][10].ToString());
+                        Double InteresesVencer = Convert.ToDouble(prestamosPendientes.Tables["cobranzasProvisorias"].Rows[n][11].ToString());
+
+                        String fecha = DateTime.Today.ToShortDateString();
+
+                        cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, " ", fecha);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(cancelaciones, "PRESTAMOS_PENDIENTES");
+                    reporte.ShowDialog();
+                    cancelaciones.cancelacion.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No se encuentran préstamos pendientes");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }*/
+        }
     }
 }
 
 
+    

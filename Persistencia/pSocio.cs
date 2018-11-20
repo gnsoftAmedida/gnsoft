@@ -291,6 +291,30 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverCancelacionesFallecidos()
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT c.FechaCancelacion, s.socio_nro, s.socio_nombre, s.socio_apellido, c.NumeroPrestamo, c.CuotasPactadas, c.CuotasPagadas, c.Tasa, c.MontoVale, c.ImporteCuota, c.AmortizacionVencer, c.InteresesVencer FROM fallecidos c, socio s where c.socio_id = s.socio_id";
+
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "canelacionesFallecidos");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public void GuardarFallecido(int NumeroPrestamo, int CuotasPactadas, int CuotasPagadas, Double Tasa, Double MontoVale, Double ImporteCuota, Double AmortizacionVencer, Double InteresesVencer, String Cedula, String Usuario, DateTime FechaCancelacion, int socio_id)
         {

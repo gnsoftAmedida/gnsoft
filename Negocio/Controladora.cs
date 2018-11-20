@@ -1948,6 +1948,12 @@ namespace Negocio
             return tmpCancelacion.devolverCanelacionesPresupuesto(presupuesto);
         }
 
+        public DataSet devolverCancelacionesFallecidos()
+        {
+            Socio tmpSocio = new Socio();
+            return tmpSocio.devolverCancelacionesFallecidos();
+        }
+
         public DataSet devolverSociosActivosEdad()
         {
             Socio tmpSocio = new Socio();

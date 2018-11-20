@@ -12,6 +12,31 @@ namespace Persistencia
 {
     public class pCobranzaProvisoria : CapaDatos
     {
+        //SELECT i.inciso_codigo, o.oficina_codigo, s.socio_nroCobro, c.cedula, c.prestamo_id, c.montopedido, (c.importecuota * c.cantidadcuotas) - c.InteresVencer as total , (c.AmortizacionVencer + c.InteresVencer + c.importecuota) - c.montopedido as intereses  ,c.cantidadcuotas, c.importecuota, c.AmortizacionCuota, c.InteresCuota, c.IvaCuota,  c.AmortizacionVencer, c.InteresVencer FROM cobranzaProvisoria c, socio s, inciso i, oficina o where s.socio_id = c.socio_id and s.socio_incisoId = i.inciso_id and s.socio_oficinaId = o.oficina_id
+       /* public DataSet devolverPrestamosPendientes()
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+                //faltaría agregar el parámetro aportecapital ya que fue agregado a la BD el 11/10 por Gino
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT i.inciso_codigo, o.oficina_codigo, s.socio_nroCobro, c.prestamo_id, c.cedula, c.prestamo_id, c.montopedido, "poner total calculado", "Calcular Intereses", c.cantidadcuotas,c.importecuota, c.AmortizacionCuota, InteresCuota, IvaCuota,  AmortizacionVencer, c.InteresVencer FROM cobranzaProvisoria c, socio s, inciso i, oficina o where s.socio_id = c.socio_id and s.socio_incisoId = i.inciso_id and s.socio_oficinaId = o.oficina_id";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "cobranzasProvisorias");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        */
         public DataSet devolverTodas()
         {
             try
