@@ -36,8 +36,6 @@
             this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -276,6 +274,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.informesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.cancelacionAnticipadaDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.porPagoDeSociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.presupuestoDeUnMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -355,25 +357,12 @@
             // 
             this.verToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
             this.verToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem1,
             this.toolStripMenuItem2,
             this.toolStripSeparator1,
-            this.toolStripMenuItem4});
+            this.toolStripMenuItem4,
+            this.informesToolStripMenuItem2});
             resources.ApplyResources(this.verToolStripMenuItem, "verToolStripMenuItem");
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            // 
-            // toolStripMenuItem1
-            // 
-            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.toolStripMenuItem5});
-            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem2
             // 
@@ -2033,6 +2022,33 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
+            // informesToolStripMenuItem2
+            // 
+            this.informesToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.presupuestoDeUnMesToolStripMenuItem,
+            this.cancelacionAnticipadaDePréstamosToolStripMenuItem});
+            this.informesToolStripMenuItem2.Name = "informesToolStripMenuItem2";
+            resources.ApplyResources(this.informesToolStripMenuItem2, "informesToolStripMenuItem2");
+            // 
+            // cancelacionAnticipadaDePréstamosToolStripMenuItem
+            // 
+            this.cancelacionAnticipadaDePréstamosToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.porPagoDeSociosToolStripMenuItem});
+            this.cancelacionAnticipadaDePréstamosToolStripMenuItem.Name = "cancelacionAnticipadaDePréstamosToolStripMenuItem";
+            resources.ApplyResources(this.cancelacionAnticipadaDePréstamosToolStripMenuItem, "cancelacionAnticipadaDePréstamosToolStripMenuItem");            
+            // 
+            // porPagoDeSociosToolStripMenuItem
+            // 
+            this.porPagoDeSociosToolStripMenuItem.Name = "porPagoDeSociosToolStripMenuItem";
+            resources.ApplyResources(this.porPagoDeSociosToolStripMenuItem, "porPagoDeSociosToolStripMenuItem");
+            this.porPagoDeSociosToolStripMenuItem.Click += new System.EventHandler(this.porPagoDeSociosToolStripMenuItem_Click);
+            // 
+            // presupuestoDeUnMesToolStripMenuItem
+            // 
+            this.presupuestoDeUnMesToolStripMenuItem.Name = "presupuestoDeUnMesToolStripMenuItem";
+            resources.ApplyResources(this.presupuestoDeUnMesToolStripMenuItem, "presupuestoDeUnMesToolStripMenuItem");
+            this.presupuestoDeUnMesToolStripMenuItem.Click += new System.EventHandler(this.presupuestoDeUnMesToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2150,11 +2166,9 @@
         private System.Windows.Forms.TextBox txtNroPréstamo;
         private System.Windows.Forms.ComboBox cmbPlanPréstamo;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripSeparator toolStripSeparator1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem4;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItemAgenda;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem11;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem14;
@@ -2340,6 +2354,10 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.ToolStripMenuItem cancelaciónAnticipadaPorFallecimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cuadroFranjasEdadToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem cancelacionAnticipadaDePréstamosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem porPagoDeSociosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem presupuestoDeUnMesToolStripMenuItem;
     }
 }
 

@@ -185,6 +185,15 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = tmpReporteCuentaCorriente;
             }
 
+            if (tipo.Equals("CANCELACION_ANTICIPADA"))
+            {
+                COOPMEF.Reportes.reporteCancelacionAnticipada tmpReporteCancelacionAnticipada = new COOPMEF.Reportes.reporteCancelacionAnticipada();
+
+                tmpReporteCancelacionAnticipada.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteCancelacionAnticipada;
+            }
+
             if (tipo.Equals("UTILIDAD"))
             {
                 COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();

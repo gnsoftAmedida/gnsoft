@@ -106,6 +106,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CrystalDataSets\dsCancelacionAnticipada.cs">
+      <DependentUpon>dsCancelacionAnticipada.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsCancelacionAnticipada.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsCancelacionAnticipada.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsCuentaCorriente.cs">
       <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -364,6 +373,12 @@
     <Compile Include="frmPlanDePrestamo.Designer.cs">
       <DependentUpon>frmPlanDePrestamo.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReporteCancelacionAnticipadaPrestamos.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReporteCancelacionAnticipadaPrestamos.Designer.cs">
+      <DependentUpon>frmReporteCancelacionAnticipadaPrestamos.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmReporteEventos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -448,6 +463,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>pagoUtilidad.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\reporteCancelacionAnticipada.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteCancelacionAnticipada.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\reporteCuentaCorriente.cs">
@@ -640,6 +661,9 @@
     <EmbeddedResource Include="frmPrincipal.gsw.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReporteCancelacionAnticipadaPrestamos.resx">
+      <DependentUpon>frmReporteCancelacionAnticipadaPrestamos.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmReporteEventos.resx">
       <DependentUpon>frmReporteEventos.cs</DependentUpon>
     </EmbeddedResource>
@@ -694,6 +718,10 @@
     <EmbeddedResource Include="Reportes\pagoUtilidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>pagoUtilidad.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteCancelacionAnticipada.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteCancelacionAnticipada.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteCuentaCorriente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -778,6 +806,17 @@
     </None>
     <None Include="CrystalDataSets\dsCancelacion.xss">
       <DependentUpon>dsCancelacion.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsCancelacionAnticipada.xsc">
+      <DependentUpon>dsCancelacionAnticipada.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsCancelacionAnticipada.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsCancelacionAnticipada.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsCancelacionAnticipada.xss">
+      <DependentUpon>dsCancelacionAnticipada.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsCuentaCorriente.xsc">
       <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>

@@ -127,5 +127,11 @@ namespace Negocio
             pCancelacion tmpCancelacion = new pCancelacion();
             tmpCancelacion.GuardarCancelacion(Prestamo_id, Cuotaspactadas, Cuotaspagadas, Tasa, MontoVale, Importecuota, AmortizacionVencer, InteresesVencer, Presupuesto, Socio_nro, Usuario, FechaCancelacion, Socio_id);
         }
+
+        public DataSet devolverCanelacionesPresupuesto(string presupuesto)
+        {
+            pCancelacion tmpCancelacion = new pCancelacion();
+            return tmpCancelacion.devolverCanelacionesPresupuesto(presupuesto);
+        }
     }
 }

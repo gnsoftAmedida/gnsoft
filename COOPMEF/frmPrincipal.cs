@@ -3211,6 +3211,32 @@ Agregar emisión
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
+
+        private void porPagoDeSociosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmReporteCanelacionAnticipada"))
+            {
+                frmReporteCancelacionAnticipadaPrestamos tmpFrmReporteCancelacionAnticipadaPrestamos = new frmReporteCancelacionAnticipadaPrestamos();
+                tmpFrmReporteCancelacionAnticipadaPrestamos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void presupuestoDeUnMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmInformePresupuesto"))
+            {
+                frmInformePresupuesto frmInformePresupuestoTMP = new frmInformePresupuesto();
+                frmInformePresupuestoTMP.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
     }
 }
 

@@ -121,6 +121,117 @@
     <value>17, 17</value>
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="archivoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial, 9.75pt, style=Bold</value>
+  </data>
+  <data name="archivoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>90, 20</value>
+  </data>
+  <data name="archivoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Préstamos </value>
+  </data>
+  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="toolStripMenuItem2.Text" xml:space="preserve">
+    <value>Utilidades</value>
+  </data>
+  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>162, 6</value>
+  </data>
+  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="toolStripMenuItem4.Text" xml:space="preserve">
+    <value>Cierre de mes</value>
+  </data>
+  <data name="presupuestoDeUnMesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 22</value>
+  </data>
+  <data name="presupuestoDeUnMesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Presupuesto de un mes</value>
+  </data>
+  <data name="porPagoDeSociosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>189, 22</value>
+  </data>
+  <data name="porPagoDeSociosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Por pago de socio</value>
+  </data>
+  <data name="cancelacionAnticipadaDePréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 22</value>
+  </data>
+  <data name="cancelacionAnticipadaDePréstamosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cancelacion anticipada</value>
+  </data>
+  <data name="informesToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>165, 22</value>
+  </data>
+  <data name="informesToolStripMenuItem2.Text" xml:space="preserve">
+    <value>Informes</value>
+  </data>
+  <data name="verToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="verToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>108, 20</value>
+  </data>
+  <data name="verToolStripMenuItem.Text" xml:space="preserve">
+    <value>Presupuestos</value>
+  </data>
+  <data name="reportesToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="reportesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>82, 20</value>
+  </data>
+  <data name="reportesToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cobranza</value>
+  </data>
+  <data name="bancoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="bancoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>67, 20</value>
+  </data>
+  <data name="bancoToolStripMenuItem.Text" xml:space="preserve">
+    <value>Bancos</value>
+  </data>
+  <data name="calendarioToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="calendarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>42, 20</value>
+  </data>
+  <data name="calendarioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Ver</value>
+  </data>
+  <data name="mToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="mToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>116, 20</value>
+  </data>
+  <data name="mToolStripMenuItem.Text" xml:space="preserve">
+    <value>Mantenimiento</value>
+  </data>
+  <data name="utilitariosToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="utilitariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>84, 20</value>
+  </data>
+  <data name="utilitariosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Utilitarios</value>
+  </data>
+  <data name="ayudaToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
+    <value>Arial Rounded MT Bold, 9.75pt</value>
+  </data>
+  <data name="ayudaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>50, 20</value>
+  </data>
+  <data name="ayudaToolStripMenuItem.Text" xml:space="preserve">
+    <value>Salir</value>
+  </data>
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
@@ -146,23 +257,14 @@
   <data name="&gt;&gt;menuStrip1.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="archivoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt, style=Bold</value>
-  </data>
-  <data name="archivoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 20</value>
-  </data>
-  <data name="archivoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Préstamos </value>
-  </data>
   <data name="anulaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Anulación</value>
   </data>
   <data name="informesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="informesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Informes</value>
@@ -179,33 +281,6 @@
   <data name="salidasEIngresosPorPréstamosToolStripMenuItem.Text" xml:space="preserve">
     <value>Salidas e Ingresos por préstamos</value>
   </data>
-  <data name="verToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 9.75pt</value>
-  </data>
-  <data name="verToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>108, 20</value>
-  </data>
-  <data name="verToolStripMenuItem.Text" xml:space="preserve">
-    <value>Presupuestos</value>
-  </data>
-  <data name="toolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="toolStripMenuItem1.Text" xml:space="preserve">
-    <value>Informe</value>
-  </data>
-  <data name="toolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>231, 22</value>
-  </data>
-  <data name="toolStripMenuItem5.Text" xml:space="preserve">
-    <value>Presupuestos de un mes</value>
-  </data>
-  <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="toolStripMenuItem2.Text" xml:space="preserve">
-    <value>Utilidades</value>
-  </data>
   <data name="distribuciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>154, 22</value>
   </data>
@@ -217,24 +292,6 @@
   </data>
   <data name="liquidaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Liquidación</value>
-  </data>
-  <data name="toolStripSeparator1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>162, 6</value>
-  </data>
-  <data name="toolStripMenuItem4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>165, 22</value>
-  </data>
-  <data name="toolStripMenuItem4.Text" xml:space="preserve">
-    <value>Cierre de mes</value>
-  </data>
-  <data name="reportesToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 9.75pt</value>
-  </data>
-  <data name="reportesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>82, 20</value>
-  </data>
-  <data name="reportesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Cobranza</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
     <value>342, 22</value>
@@ -265,15 +322,6 @@
   </data>
   <data name="facturaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Facturación</value>
-  </data>
-  <data name="bancoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 9.75pt</value>
-  </data>
-  <data name="bancoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>67, 20</value>
-  </data>
-  <data name="bancoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Bancos</value>
   </data>
   <data name="mantenimientoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>201, 22</value>
@@ -310,15 +358,6 @@
   </data>
   <data name="informesToolStripMenuItem.Text" xml:space="preserve">
     <value>Cuentas Corrientes</value>
-  </data>
-  <data name="calendarioToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 9.75pt</value>
-  </data>
-  <data name="calendarioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>42, 20</value>
-  </data>
-  <data name="calendarioToolStripMenuItem.Text" xml:space="preserve">
-    <value>Ver</value>
   </data>
   <data name="toolStripMenuItemAgenda.Size" type="System.Drawing.Size, System.Drawing">
     <value>206, 22</value>
@@ -392,15 +431,6 @@
   <data name="sociosToolStripMenuItem.Text" xml:space="preserve">
     <value>Socios por edad</value>
   </data>
-  <data name="mToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 9.75pt</value>
-  </data>
-  <data name="mToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>116, 20</value>
-  </data>
-  <data name="mToolStripMenuItem.Text" xml:space="preserve">
-    <value>Mantenimiento</value>
-  </data>
   <data name="usuariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>230, 22</value>
   </data>
@@ -473,29 +503,11 @@
   <data name="parámetrosDelSistemaToolStripMenuItem.Text" xml:space="preserve">
     <value>Parámetros del Sistema</value>
   </data>
-  <data name="utilitariosToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 9.75pt</value>
-  </data>
-  <data name="utilitariosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>84, 20</value>
-  </data>
-  <data name="utilitariosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Utilitarios</value>
-  </data>
   <data name="queTasaEstánCobrandoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>235, 22</value>
   </data>
   <data name="queTasaEstánCobrandoToolStripMenuItem.Text" xml:space="preserve">
     <value>Que tasa están cobrando</value>
-  </data>
-  <data name="ayudaToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial Rounded MT Bold, 9.75pt</value>
-  </data>
-  <data name="ayudaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 20</value>
-  </data>
-  <data name="ayudaToolStripMenuItem.Text" xml:space="preserve">
-    <value>Salir</value>
   </data>
   <data name="&gt;&gt;tabBusqueda.Name" xml:space="preserve">
     <value>tabBusqueda</value>
@@ -8062,7 +8074,7 @@
     <value>6, 13</value>
   </data>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>986, 645</value>
+    <value>986, 637</value>
   </data>
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
@@ -8461,18 +8473,6 @@
   <data name="&gt;&gt;verToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Name" xml:space="preserve">
-    <value>toolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem5.Name" xml:space="preserve">
-    <value>toolStripMenuItem5</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
     <value>toolStripMenuItem2</value>
   </data>
@@ -8753,6 +8753,30 @@
     <value>ayudaToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;informesToolStripMenuItem2.Name" xml:space="preserve">
+    <value>informesToolStripMenuItem2</value>
+  </data>
+  <data name="&gt;&gt;informesToolStripMenuItem2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelacionAnticipadaDePréstamosToolStripMenuItem.Name" xml:space="preserve">
+    <value>cancelacionAnticipadaDePréstamosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;cancelacionAnticipadaDePréstamosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;porPagoDeSociosToolStripMenuItem.Name" xml:space="preserve">
+    <value>porPagoDeSociosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;porPagoDeSociosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;presupuestoDeUnMesToolStripMenuItem.Name" xml:space="preserve">
+    <value>presupuestoDeUnMesToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;presupuestoDeUnMesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

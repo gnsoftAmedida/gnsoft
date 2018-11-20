@@ -73,6 +73,7 @@ namespace COOPMEF
             }
 
             btnGuardarSocio.Enabled = false;
+            btnImprimirCobranza.Enabled = false;
         }
 
         private Boolean estaExcedido()
