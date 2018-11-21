@@ -141,6 +141,13 @@ namespace Negocio
             return cobranzasProvisorias;
         }
 
+        public DataSet devolverPrestamosPendientes()
+        {
+            pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();
+            DataSet cobranzasProvisorias = tmpCobranzaProvisoria.devolverPrestamosPendientes();
+            return cobranzasProvisorias;
+        }
+
         public void eliminarCobranzaProvisoria(int Id)
         {
             pCobranzaProvisoria tmpCobranzaProvisoria = new pCobranzaProvisoria();

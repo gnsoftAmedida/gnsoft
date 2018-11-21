@@ -278,3 +278,4 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmSalidas
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmCancelacionFallecimiento.resources
 C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmCancelacionFallecimiento.resources
 C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmReporteCancelacionAnticipadaPrestamos.resources
+C:\Users\Public\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmReporteCancelacionAnticipadaPrestamos.resources

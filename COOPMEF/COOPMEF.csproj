@@ -148,6 +148,15 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsPrestamosPendientes.cs">
+      <DependentUpon>dsPrestamosPendientes.xsd</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsPrestamosPendientes.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPrestamosPendientes.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsPresupuesto.cs">
       <DependentUpon>dsPresupuesto.xsd</DependentUpon>
       <SubType>Component</SubType>
@@ -465,6 +474,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reportes\reportePrestamosPendientes.cs">
+      <DependentUpon>reportePrestamosPendientes.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reportes\pagoUtilidad.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -725,6 +740,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CancelacionFallecimiento.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportePrestamosPendientes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportePrestamosPendientes.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\pagoUtilidad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>pagoUtilidad.cs</LastGenOutput>
@@ -904,6 +923,17 @@
     </None>
     <None Include="CrystalDataSets\dsPrestamosCierre.xss">
       <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPrestamosPendientes.xsc">
+      <DependentUpon>dsPrestamosPendientes.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPrestamosPendientes.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPrestamosPendientes.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsPrestamosPendientes.xss">
+      <DependentUpon>dsPrestamosPendientes.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsPresupuesto.xsc">
       <DependentUpon>dsPresupuesto.xsd</DependentUpon>

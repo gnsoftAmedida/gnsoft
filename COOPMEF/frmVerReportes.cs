@@ -201,7 +201,16 @@ namespace COOPMEF
                 tmpReporteCancelacionFallecimiento.SetDataSource(DS);
 
                 this.crystalReportViewer1.ReportSource = tmpReporteCancelacionFallecimiento;
-            }            
+            }
+
+            if (tipo.Equals("PRESTAMOS_PENDIENTES"))
+            {
+                COOPMEF.Reportes.reportePrestamosPendientes tmpReportePrestamosPendientes = new COOPMEF.Reportes.reportePrestamosPendientes();
+
+                tmpReportePrestamosPendientes.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReportePrestamosPendientes;
+            }
 
             if (tipo.Equals("UTILIDAD"))
             {

@@ -1900,6 +1900,13 @@ namespace Negocio
             return socios;
         }
 
+        public DataSet devolverPrestamosPendientes()
+        {
+            CobranzaProvisoria tmpCobranzaProvisoria = new CobranzaProvisoria();
+            return tmpCobranzaProvisoria.devolverPrestamosPendientes();
+        }
+
+
         public DataSet devolverTodosBusqueda(string campo)
         {
             Socio tmpSocio = new Socio();
