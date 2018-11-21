@@ -2511,8 +2511,8 @@ namespace COOPMEF
             {
 
 
-                txtARetenerIngExc.Text = Convert.ToDouble(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][3].ToString()).ToString("###,###,##0.00");
-                txtRetenidoIngExc.Text = Convert.ToDouble(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][4].ToString()).ToString("###,###,##0.00");
+                txtARetenerIngExc.Text = Convert.ToDouble(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][3].ToString()).ToString("##0.00");
+                txtRetenidoIngExc.Text = Convert.ToDouble(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][4].ToString()).ToString("##0.00");
                 txtPresupuestoIngExc.Text = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][1].ToString();
 
                 retenidoActual = Convert.ToDouble(txtRetenidoIngExc.Text);
@@ -2521,10 +2521,10 @@ namespace COOPMEF
                 string _Presupuesto = txtPresupuestoIngExc.Text;
 
 
-                txtSaldoIngExc.Text = Convert.ToDouble(saldo.ToString()).ToString("###,###,##0.00");
+                txtSaldoIngExc.Text = Convert.ToDouble(saldo.ToString()).ToString("##0.00");
                 Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
-                txtMoraIngExc.Text = mora.ToString("###,###,##0.00");
-                txtTotalIngExc.Text = (saldo + mora).ToString("###,###,##0.00");
+                txtMoraIngExc.Text = mora.ToString("##0.00");
+                txtTotalIngExc.Text = (saldo + mora).ToString("##0.00");
             }
             //else
             //    calcularMoraYSaldos();
@@ -2728,7 +2728,7 @@ Agregar emisión
                 double ivaMora = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][21].ToString());
                 double ivaCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][12].ToString());
                 double total = importeCuota + aporteCapital + excedido + mora + ivaMora + ivaCuota;
-                txtARetenerIngExc.Text = total.ToString("###,###,##0.00");
+                txtARetenerIngExc.Text = total.ToString("##0.00");
 
                 calcularSaldoMorayTotal();
 
@@ -3359,6 +3359,19 @@ Agregar emisión
                     MessageBox.Show("No se encuentran registros históricos");
                 }
 
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void pagosDeExcedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmPagosDeExcedidos"))
+            {
+                frmPagosDeExcedidos tmpFrmPagosDeExcedidos = new frmPagosDeExcedidos();
+                tmpFrmPagosDeExcedidos.ShowDialog();
             }
             else
             {

@@ -101,6 +101,11 @@ namespace Negocio
             return Microsoft.VisualBasic.Financial.Pmt(tasa, CantidadCuotas, -Capital);
         }
 
+        public DataSet PagoDeExcedidosPorPresupuesto(string presupuesto)
+        {
+            Excedidos tmpExcedido = new Excedidos();
+            return tmpExcedido.PagoDeExcedidosPorPresupuesto(presupuesto);
+        }
 
         public bool esNumerico(object Expression)
         {

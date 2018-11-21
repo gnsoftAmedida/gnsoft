@@ -145,9 +145,29 @@ namespace Persistencia
             }
         }
 
-        /*  Busqueda = "select * from excedidos where cedula=" & "'" & RsCobranza!cedula & "'"
-                            Busqueda = Busqueda & "and importepagado=0"
-          */
+        public DataSet PagoDeExcedidosPorPresupuesto(string presupuesto)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT DISTINCTROW s.socio_apellido, s.socio_nombre, s.socio_nroCobro, s.socio_nro, e.presupuestodelpago, e.aretener, e.retenido, (e.aretener - e.retenido) as deuda, h.mora, (h.mora + (e.aretener - e.retenido)) as total, CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM coopmef.excedidos e, coopmef.oficina o, coopmef.inciso i, coopmef.socio s, coopmef.historia h where h.socio_id = e.socio_id and e.socio_id = s.socio_id and s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and e.presupuestodelpago != '' and e.presupuesto = '" + presupuesto + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "pagoExecidosPorPresupuesto");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }        
 
         public DataSet devolverExcedidosSinPago(int id_socio)
         {

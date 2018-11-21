@@ -122,7 +122,7 @@
   </metadata>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="anulaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>140, 22</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Anulación</value>
@@ -146,7 +146,7 @@
     <value>Préstamos Pendientes</value>
   </data>
   <data name="informesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>152, 22</value>
+    <value>140, 22</value>
   </data>
   <data name="informesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Informes</value>
@@ -189,6 +189,12 @@
   </data>
   <data name="cancelacionAnticipadaDePréstamosToolStripMenuItem.Text" xml:space="preserve">
     <value>Cancelacion anticipada</value>
+  </data>
+  <data name="pagosDeExcedidosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 22</value>
+  </data>
+  <data name="pagosDeExcedidosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pagos de Excedidos</value>
   </data>
   <data name="informesToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 22</value>
@@ -6343,6 +6349,12 @@
   <data name="&gt;&gt;liquidaciónToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;históricoPorEjercicioToolStripMenuItem.Name" xml:space="preserve">
+    <value>históricoPorEjercicioToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;históricoPorEjercicioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;toolStripSeparator1.Name" xml:space="preserve">
     <value>toolStripSeparator1</value>
   </data>
@@ -6601,10 +6613,10 @@
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;históricoPorEjercicioToolStripMenuItem.Name" xml:space="preserve">
-    <value>históricoPorEjercicioToolStripMenuItem</value>
+  <data name="&gt;&gt;pagosDeExcedidosToolStripMenuItem.Name" xml:space="preserve">
+    <value>pagosDeExcedidosToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;históricoPorEjercicioToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;pagosDeExcedidosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -46,6 +46,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoPorEjercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
@@ -280,7 +281,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.históricoPorEjercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pagosDeExcedidosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -384,7 +385,8 @@
             // 
             this.informesToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.presupuestoDeUnMesToolStripMenuItem,
-            this.cancelacionAnticipadaDePréstamosToolStripMenuItem});
+            this.cancelacionAnticipadaDePréstamosToolStripMenuItem,
+            this.pagosDeExcedidosToolStripMenuItem});
             this.informesToolStripMenuItem2.Name = "informesToolStripMenuItem2";
             resources.ApplyResources(this.informesToolStripMenuItem2, "informesToolStripMenuItem2");
             // 
@@ -434,6 +436,12 @@
             this.liquidaciónToolStripMenuItem.Name = "liquidaciónToolStripMenuItem";
             resources.ApplyResources(this.liquidaciónToolStripMenuItem, "liquidaciónToolStripMenuItem");
             this.liquidaciónToolStripMenuItem.Click += new System.EventHandler(this.liquidaciónToolStripMenuItem_Click);
+            // 
+            // históricoPorEjercicioToolStripMenuItem
+            // 
+            this.históricoPorEjercicioToolStripMenuItem.Name = "históricoPorEjercicioToolStripMenuItem";
+            resources.ApplyResources(this.históricoPorEjercicioToolStripMenuItem, "históricoPorEjercicioToolStripMenuItem");
+            this.históricoPorEjercicioToolStripMenuItem.Click += new System.EventHandler(this.históricoPorEjercicioToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -2067,11 +2075,11 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // históricoPorEjercicioToolStripMenuItem
+            // pagosDeExcedidosToolStripMenuItem
             // 
-            this.históricoPorEjercicioToolStripMenuItem.Name = "históricoPorEjercicioToolStripMenuItem";
-            resources.ApplyResources(this.históricoPorEjercicioToolStripMenuItem, "históricoPorEjercicioToolStripMenuItem");
-            this.históricoPorEjercicioToolStripMenuItem.Click += new System.EventHandler(this.históricoPorEjercicioToolStripMenuItem_Click);
+            this.pagosDeExcedidosToolStripMenuItem.Name = "pagosDeExcedidosToolStripMenuItem";
+            resources.ApplyResources(this.pagosDeExcedidosToolStripMenuItem, "pagosDeExcedidosToolStripMenuItem");
+            this.pagosDeExcedidosToolStripMenuItem.Click += new System.EventHandler(this.pagosDeExcedidosToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -2385,6 +2393,7 @@
         private System.Windows.Forms.ToolStripMenuItem porFallecimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem préstamosPendientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem históricoPorEjercicioToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pagosDeExcedidosToolStripMenuItem;
     }
 }
 

@@ -80,5 +80,11 @@ namespace Negocio
             pExcedidos tmpExcedido = new pExcedidos();
             tmpExcedido.actualizarExcedidoCierre(_idExcedido, _fechadepago, _importepagado, _presupuestodelpago);
         }
+
+        public DataSet PagoDeExcedidosPorPresupuesto(string presupuesto)
+        {
+            pExcedidos tmpExcedido = new pExcedidos();
+            return tmpExcedido.PagoDeExcedidosPorPresupuesto(presupuesto);
+        }
     }
 }
