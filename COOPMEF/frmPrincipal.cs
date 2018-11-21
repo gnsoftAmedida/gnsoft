@@ -3289,6 +3289,7 @@ Agregar emisión
         {
             if (VerificarPermisosUsuario("frmInformePrestamosPendientes"))
             {
+
                 DataSet prestamosPendientes = empresa.devolverPrestamosPendientes();
 
                 if (prestamosPendientes.Tables["prestamoPendientes"].Rows.Count > 0)
@@ -3310,12 +3311,12 @@ Agregar emisión
 
                         String fecha = DateTime.Today.ToShortDateString();
 
-                        prestamosPendientesDs.prestamosPendientes.Rows.Add(inciso_codigo, oficina_codigo, socio_nroCobro, cedula, prestamo_id, solicitud, total, intereses, cantidadcuotas, importecuota, AmortizacionVencer, InteresVencer);
+                        prestamosPendientesDs.prestamosPendientes.Rows.Add(inciso_codigo, oficina_codigo, socio_nroCobro, cedula, prestamo_id, solicitud.ToString("###,###,##0.00"), total.ToString("###,###,##0.00"), intereses.ToString("###,###,##0.00"), cantidadcuotas, importecuota.ToString("###,###,##0.00"), AmortizacionVencer.ToString("###,###,##0.00"), InteresVencer.ToString("###,###,##0.00"));
                     }
 
                     frmVerReportes reporte = new frmVerReportes(prestamosPendientesDs, "PRESTAMOS_PENDIENTES");
                     reporte.ShowDialog();
-                    cancelaciones.cancelacion.Rows.Clear();
+                    prestamosPendientesDs.prestamosPendientes.Rows.Clear();
                 }
                 else
                 {
