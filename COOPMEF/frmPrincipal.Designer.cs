@@ -35,17 +35,18 @@
             this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.préstamosPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
-            this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.informesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.presupuestoDeUnMesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cancelacionAnticipadaDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porPagoDeSociosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.porFallecimientoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem14 = new System.Windows.Forms.ToolStripMenuItem();
@@ -279,7 +280,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.préstamosPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.históricoPorEjercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -356,6 +357,12 @@
             resources.ApplyResources(this.salidasEIngresosPorPréstamosToolStripMenuItem, "salidasEIngresosPorPréstamosToolStripMenuItem");
             this.salidasEIngresosPorPréstamosToolStripMenuItem.Click += new System.EventHandler(this.salidasEIngresosPorPréstamosToolStripMenuItem_Click);
             // 
+            // préstamosPendientesToolStripMenuItem
+            // 
+            this.préstamosPendientesToolStripMenuItem.Name = "préstamosPendientesToolStripMenuItem";
+            resources.ApplyResources(this.préstamosPendientesToolStripMenuItem, "préstamosPendientesToolStripMenuItem");
+            this.préstamosPendientesToolStripMenuItem.Click += new System.EventHandler(this.préstamosPendientesToolStripMenuItem_Click);
+            // 
             // verToolStripMenuItem
             // 
             this.verToolStripMenuItem.BackColor = System.Drawing.SystemColors.ControlLight;
@@ -366,31 +373,6 @@
             this.toolStripSeparator1});
             resources.ApplyResources(this.verToolStripMenuItem, "verToolStripMenuItem");
             this.verToolStripMenuItem.Name = "verToolStripMenuItem";
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.distribuciónToolStripMenuItem,
-            this.liquidaciónToolStripMenuItem});
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
-            // 
-            // distribuciónToolStripMenuItem
-            // 
-            this.distribuciónToolStripMenuItem.Name = "distribuciónToolStripMenuItem";
-            resources.ApplyResources(this.distribuciónToolStripMenuItem, "distribuciónToolStripMenuItem");
-            this.distribuciónToolStripMenuItem.Click += new System.EventHandler(this.distribuciónToolStripMenuItem_Click);
-            // 
-            // liquidaciónToolStripMenuItem
-            // 
-            this.liquidaciónToolStripMenuItem.Name = "liquidaciónToolStripMenuItem";
-            resources.ApplyResources(this.liquidaciónToolStripMenuItem, "liquidaciónToolStripMenuItem");
-            this.liquidaciónToolStripMenuItem.Click += new System.EventHandler(this.liquidaciónToolStripMenuItem_Click);
-            // 
-            // toolStripSeparator1
-            // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // toolStripMenuItem4
             // 
@@ -431,6 +413,32 @@
             this.porFallecimientoToolStripMenuItem.Name = "porFallecimientoToolStripMenuItem";
             resources.ApplyResources(this.porFallecimientoToolStripMenuItem, "porFallecimientoToolStripMenuItem");
             this.porFallecimientoToolStripMenuItem.Click += new System.EventHandler(this.porFallecimientoToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.distribuciónToolStripMenuItem,
+            this.liquidaciónToolStripMenuItem,
+            this.históricoPorEjercicioToolStripMenuItem});
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            // 
+            // distribuciónToolStripMenuItem
+            // 
+            this.distribuciónToolStripMenuItem.Name = "distribuciónToolStripMenuItem";
+            resources.ApplyResources(this.distribuciónToolStripMenuItem, "distribuciónToolStripMenuItem");
+            this.distribuciónToolStripMenuItem.Click += new System.EventHandler(this.distribuciónToolStripMenuItem_Click);
+            // 
+            // liquidaciónToolStripMenuItem
+            // 
+            this.liquidaciónToolStripMenuItem.Name = "liquidaciónToolStripMenuItem";
+            resources.ApplyResources(this.liquidaciónToolStripMenuItem, "liquidaciónToolStripMenuItem");
+            this.liquidaciónToolStripMenuItem.Click += new System.EventHandler(this.liquidaciónToolStripMenuItem_Click);
+            // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // reportesToolStripMenuItem
             // 
@@ -2059,11 +2067,11 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // préstamosPendientesToolStripMenuItem
+            // históricoPorEjercicioToolStripMenuItem
             // 
-            this.préstamosPendientesToolStripMenuItem.Name = "préstamosPendientesToolStripMenuItem";
-            resources.ApplyResources(this.préstamosPendientesToolStripMenuItem, "préstamosPendientesToolStripMenuItem");
-            this.préstamosPendientesToolStripMenuItem.Click += new System.EventHandler(this.préstamosPendientesToolStripMenuItem_Click);
+            this.históricoPorEjercicioToolStripMenuItem.Name = "históricoPorEjercicioToolStripMenuItem";
+            resources.ApplyResources(this.históricoPorEjercicioToolStripMenuItem, "históricoPorEjercicioToolStripMenuItem");
+            this.históricoPorEjercicioToolStripMenuItem.Click += new System.EventHandler(this.históricoPorEjercicioToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -2376,6 +2384,7 @@
         private System.Windows.Forms.ToolStripMenuItem presupuestoDeUnMesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porFallecimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem préstamosPendientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem históricoPorEjercicioToolStripMenuItem;
     }
 }
 

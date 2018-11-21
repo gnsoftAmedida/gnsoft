@@ -30,6 +30,7 @@ namespace COOPMEF
         private int idSocioSeleccionado = 0;
         private dsCancelacionAnticipada cancelaciones = new dsCancelacionAnticipada();
         private dsPrestamosPendientes prestamosPendientesDs = new dsPrestamosPendientes();
+        private dsHistoricoUtilidades dsdsHistoricoUtilidades = new dsHistoricoUtilidades();
 
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
@@ -3321,6 +3322,41 @@ Agregar emisión
                 else
                 {
                     MessageBox.Show("No se encuentran préstamos pendientes");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void históricoPorEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmInformeHistoricoUtilidades"))
+            {
+
+                DataSet historicoUtilidades = empresa.historicoAportesInteresesUtilidades();
+
+                if (historicoUtilidades.Tables["historicoGanancias"].Rows.Count > 0)
+                {
+                    for (int n = 0; n <= historicoUtilidades.Tables["historicoGanancias"].Rows.Count - 1; n++)
+                    {
+                        String ejercicio = historicoUtilidades.Tables["historicoGanancias"].Rows[n][0].ToString();
+                        Double aportesCapital = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][1].ToString());
+                        Double interesesAportados = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][2].ToString());
+                        Double utilidades = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][3].ToString());
+
+                        dsdsHistoricoUtilidades.historico.Rows.Add(aportesCapital.ToString("###,###,##0.00"), interesesAportados.ToString("###,###,##0.00"), utilidades.ToString("###,###,##0.00"), ejercicio);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(dsdsHistoricoUtilidades, "HISTORICO_GANANCIAS");
+                    reporte.ShowDialog();
+                    dsdsHistoricoUtilidades.historico.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No se encuentran registros históricos");
                 }
 
             }

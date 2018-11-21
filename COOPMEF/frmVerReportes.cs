@@ -212,6 +212,15 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = tmpReportePrestamosPendientes;
             }
 
+            if (tipo.Equals("HISTORICO_GANANCIAS"))
+            {
+                COOPMEF.Reportes.reporteHistoricoUtilidades tmpReporteHistoricoUtilidades = new COOPMEF.Reportes.reporteHistoricoUtilidades();
+
+                tmpReporteHistoricoUtilidades.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteHistoricoUtilidades;
+            }
+
             if (tipo.Equals("UTILIDAD"))
             {
                 COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();

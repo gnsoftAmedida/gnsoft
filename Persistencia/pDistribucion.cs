@@ -175,6 +175,23 @@ namespace Persistencia
             }
         }
 
+        public DataSet historicoAportesInteresesUtilidades()
+        {
+            MySqlConnection connection = conectar();
+
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+            string sql = "SELECT ejercicio, sum(aportesCapital), sum(interesesAportados), sum(utilidades) FROM coopmef.distribucion group by ejercicio";
+            DataSet ds = new DataSet();
+
+            connection.Open();
+            MySqlAdapter.SelectCommand = connection.CreateCommand();
+            MySqlAdapter.SelectCommand.CommandText = sql;
+            MySqlAdapter.Fill(ds, "historicoGanancias");
+            connection.Close();
+
+            return ds;
+        }
+
         public Boolean ejercicioProcesado(String ejercicio)
         {
             MySqlConnection connection = conectar();

@@ -36,6 +36,12 @@ namespace Negocio
             return false;
         }
 
+        public DataSet historicoAportesInteresesUtilidades()
+        {
+            Distribucion tmppDistribucion = new Distribucion();
+            return tmppDistribucion.historicoAportesInteresesUtilidades();
+        }
+
         public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
         {
             Movimiento tmpMovimiento = new Movimiento();

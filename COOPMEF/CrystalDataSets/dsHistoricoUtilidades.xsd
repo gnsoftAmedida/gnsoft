@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHistoricoUtilidades" targetNamespace="http://tempuri.org/dsHistoricoUtilidades.xsd" xmlns:mstns="http://tempuri.org/dsHistoricoUtilidades.xsd" xmlns="http://tempuri.org/dsHistoricoUtilidades.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHistoricoUtilidades" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHistoricoUtilidades" msprop:Generator_UserDSName="dsHistoricoUtilidades">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="historico" msprop:Generator_TableClassName="historicoDataTable" msprop:Generator_TableVarName="tablehistorico" msprop:Generator_RowChangedName="historicoRowChanged" msprop:Generator_TablePropName="historico" msprop:Generator_RowDeletingName="historicoRowDeleting" msprop:Generator_RowChangingName="historicoRowChanging" msprop:Generator_RowEvHandlerName="historicoRowChangeEventHandler" msprop:Generator_RowDeletedName="historicoRowDeleted" msprop:Generator_RowClassName="historicoRow" msprop:Generator_UserTableName="historico" msprop:Generator_RowEvArgName="historicoRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="aportesCapital" msprop:Generator_ColumnVarNameInTable="columnaportesCapital" msprop:Generator_ColumnPropNameInRow="aportesCapital" msprop:Generator_ColumnPropNameInTable="aportesCapitalColumn" msprop:Generator_UserColumnName="aportesCapital" type="xs:string" minOccurs="0" />
+              <xs:element name="interesesAportados" msprop:Generator_ColumnVarNameInTable="columninteresesAportados" msprop:Generator_ColumnPropNameInRow="interesesAportados" msprop:Generator_ColumnPropNameInTable="interesesAportadosColumn" msprop:Generator_UserColumnName="interesesAportados" type="xs:string" minOccurs="0" />
+              <xs:element name="utilidades" msprop:Generator_ColumnVarNameInTable="columnutilidades" msprop:Generator_ColumnPropNameInRow="utilidades" msprop:Generator_ColumnPropNameInTable="utilidadesColumn" msprop:Generator_UserColumnName="utilidades" type="xs:string" minOccurs="0" />
+              <xs:element name="Ejercicio" msprop:Generator_ColumnVarNameInTable="columnEjercicio" msprop:Generator_ColumnPropNameInRow="Ejercicio" msprop:Generator_ColumnPropNameInTable="EjercicioColumn" msprop:Generator_UserColumnName="Ejercicio" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

@@ -122,5 +122,11 @@ namespace Negocio
             pDistribucion tmppDistribucion = new pDistribucion();
             tmppDistribucion.actualizarPagoDistribucion(socio_id, pagadoPor, fecha, cheque);
         }
+
+        public DataSet historicoAportesInteresesUtilidades()
+        {
+            pDistribucion tmppDistribucion = new pDistribucion();
+            return tmppDistribucion.historicoAportesInteresesUtilidades();
+        }
     }
 }

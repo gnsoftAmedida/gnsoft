@@ -138,6 +138,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsFactura.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsHistoricoUtilidades.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsHistoricoUtilidades.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsInterfaces.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -474,6 +479,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reportes\reporteHistoricoUtilidades.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteHistoricoUtilidades.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\reportePrestamosPendientes.cs">
       <DependentUpon>reportePrestamosPendientes.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -740,6 +751,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CancelacionFallecimiento.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteHistoricoUtilidades.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteHistoricoUtilidades.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reportePrestamosPendientes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportePrestamosPendientes.cs</LastGenOutput>
@@ -901,6 +916,17 @@
     </None>
     <None Include="CrystalDataSets\dsFactura.xss">
       <DependentUpon>dsFactura.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsHistoricoUtilidades.xsc">
+      <DependentUpon>dsHistoricoUtilidades.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsHistoricoUtilidades.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsHistoricoUtilidades.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsHistoricoUtilidades.xss">
+      <DependentUpon>dsHistoricoUtilidades.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsInterfaces.xsc">
       <DependentUpon>dsInterfaces.xsd</DependentUpon>
