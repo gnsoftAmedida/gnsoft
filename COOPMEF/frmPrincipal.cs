@@ -32,6 +32,7 @@ namespace COOPMEF
         private dsPrestamosPendientes prestamosPendientesDs = new dsPrestamosPendientes();
         private dsHistoricoUtilidades dsdsHistoricoUtilidades = new dsHistoricoUtilidades();
         private socioExcedido dssocioExcedido = new socioExcedido();
+        private dsHistoricoPrestamosSocio tmpDsHistoricoPrestamosSocio = new dsHistoricoPrestamosSocio();
 
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
@@ -3427,6 +3428,56 @@ Agregar emisión
                     else
                     {
                         MessageBox.Show("El socio no posee histórico de excedido");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un socio");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void button7_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmHistorialPrestamosPorSocio"))
+            {
+                if (!(idSocioSeleccionado == 0))
+                {                                   //devolverHistoriaPorIdSocioCompleta
+                    DataSet historicoPrestamosSocio = empresa.devolverHistoriaPorIdSocioCompleta(idSocioSeleccionado);
+
+                    if (historicoPrestamosSocio.Tables["historiasIdSocio"].Rows.Count > 0)
+                    {
+                        for (int n = 0; n <= historicoPrestamosSocio.Tables["historiasIdSocio"].Rows.Count - 1; n++)
+                        {
+                            int NumeroPrestamo = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][0].ToString());
+                            DateTime fecha = Convert.ToDateTime(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][1].ToString());
+                            Double monteopedido = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][2].ToString());
+                            Double amortizacionVencer = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][3].ToString());
+                            Double totalvale = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][4].ToString());
+                            int cantidadcuotas = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][5].ToString());
+                            Double importecuota = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][6].ToString());
+                            int numeroPrestamoAnt = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][7].ToString());
+                            int cuotasPactadas = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][8].ToString());
+                            int cuotasPagadas = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][9].ToString());
+                            String porcentagePagado = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][10].ToString();
+                            String socio_nro = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][11].ToString();
+                            String socio_apellido = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][12].ToString();
+                            String socio_nombre = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][13].ToString();
+
+                            tmpDsHistoricoPrestamosSocio.historico.Rows.Add(NumeroPrestamo, fecha, monteopedido.ToString("##0.00"), amortizacionVencer.ToString("##0.00"), totalvale.ToString("##0.00"), cantidadcuotas, importecuota.ToString("##0.00"), numeroPrestamoAnt, cuotasPactadas, cuotasPagadas.ToString("##0.00"), porcentagePagado, socio_nro, socio_apellido, socio_nombre);
+                        }
+
+                        frmVerReportes reporte = new frmVerReportes(tmpDsHistoricoPrestamosSocio, "PRESTAMOS_SOCIO_HISTORICO");
+                        reporte.ShowDialog();
+                        tmpDsHistoricoPrestamosSocio.historico.Rows.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El socio no posee histórico de préstamos");
                     }
                 }
                 else

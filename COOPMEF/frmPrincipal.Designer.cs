@@ -227,6 +227,7 @@
             this.lblInciso = new System.Windows.Forms.Label();
             this.lblObs = new System.Windows.Forms.Label();
             this.tabCobranzaExcedidos = new System.Windows.Forms.TabPage();
+            this.button1 = new System.Windows.Forms.Button();
             this.btnPagarCobranza = new System.Windows.Forms.Button();
             this.btnSalirCobranza = new System.Windows.Forms.Button();
             this.btnImprimirCobranza = new System.Windows.Forms.Button();
@@ -283,7 +284,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -1330,6 +1330,7 @@
             resources.ApplyResources(this.button7, "button7");
             this.button7.Name = "button7";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // dgvHistoria
             // 
@@ -1723,6 +1724,14 @@
             resources.ApplyResources(this.tabCobranzaExcedidos, "tabCobranzaExcedidos");
             this.tabCobranzaExcedidos.Name = "tabCobranzaExcedidos";
             // 
+            // button1
+            // 
+            this.button1.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
+            resources.ApplyResources(this.button1, "button1");
+            this.button1.Name = "button1";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
             // btnPagarCobranza
             // 
             resources.ApplyResources(this.btnPagarCobranza, "btnPagarCobranza");
@@ -2090,14 +2099,6 @@
             resources.ApplyResources(this.btnOtrosDatos, "btnOtrosDatos");
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
-            // 
-            // button1
-            // 
-            this.button1.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // frmPrincipal
             // 

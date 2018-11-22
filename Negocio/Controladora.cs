@@ -2132,6 +2132,12 @@ namespace Negocio
             return historias;
         }
 
+        public DataSet devolverHistoriaPorIdSocioCompleta(int idSocio)
+        {
+            Historia tmpHistoria = new Historia();
+            return tmpHistoria.devolverHistoriaPorIdSocioCompleta(idSocio);
+        }
+
         public DataSet DevolverFechasCierres()
         {
             FechaCierre tmpFechaCierre = new FechaCierre();

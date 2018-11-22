@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsHistoricoPrestamosSocio" targetNamespace="http://tempuri.org/dsHistoricoPrestamosSocio.xsd" xmlns:mstns="http://tempuri.org/dsHistoricoPrestamosSocio.xsd" xmlns="http://tempuri.org/dsHistoricoPrestamosSocio.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsHistoricoPrestamosSocio" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsHistoricoPrestamosSocio" msprop:Generator_UserDSName="dsHistoricoPrestamosSocio">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="historico" msprop:Generator_TableClassName="historicoDataTable" msprop:Generator_TableVarName="tablehistorico" msprop:Generator_TablePropName="historico" msprop:Generator_RowDeletingName="historicoRowDeleting" msprop:Generator_RowChangingName="historicoRowChanging" msprop:Generator_RowEvHandlerName="historicoRowChangeEventHandler" msprop:Generator_RowDeletedName="historicoRowDeleted" msprop:Generator_UserTableName="historico" msprop:Generator_RowChangedName="historicoRowChanged" msprop:Generator_RowEvArgName="historicoRowChangeEvent" msprop:Generator_RowClassName="historicoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="NumeroPrestamo" msprop:Generator_ColumnVarNameInTable="columnNumeroPrestamo" msprop:Generator_ColumnPropNameInRow="NumeroPrestamo" msprop:Generator_ColumnPropNameInTable="NumeroPrestamoColumn" msprop:Generator_UserColumnName="NumeroPrestamo" type="xs:string" minOccurs="0" />
+              <xs:element name="fecha" msprop:Generator_ColumnVarNameInTable="columnfecha" msprop:Generator_ColumnPropNameInRow="fecha" msprop:Generator_ColumnPropNameInTable="fechaColumn" msprop:Generator_UserColumnName="fecha" type="xs:string" minOccurs="0" />
+              <xs:element name="monteopedido" msprop:Generator_ColumnVarNameInTable="columnmonteopedido" msprop:Generator_ColumnPropNameInRow="monteopedido" msprop:Generator_ColumnPropNameInTable="monteopedidoColumn" msprop:Generator_UserColumnName="monteopedido" type="xs:string" minOccurs="0" />
+              <xs:element name="amortizacionVencer" msprop:Generator_ColumnVarNameInTable="columnamortizacionVencer" msprop:Generator_ColumnPropNameInRow="amortizacionVencer" msprop:Generator_ColumnPropNameInTable="amortizacionVencerColumn" msprop:Generator_UserColumnName="amortizacionVencer" type="xs:string" minOccurs="0" />
+              <xs:element name="totalvale" msprop:Generator_ColumnVarNameInTable="columntotalvale" msprop:Generator_ColumnPropNameInRow="totalvale" msprop:Generator_ColumnPropNameInTable="totalvaleColumn" msprop:Generator_UserColumnName="totalvale" type="xs:string" minOccurs="0" />
+              <xs:element name="cantidadcuotas" msprop:Generator_ColumnVarNameInTable="columncantidadcuotas" msprop:Generator_ColumnPropNameInRow="cantidadcuotas" msprop:Generator_ColumnPropNameInTable="cantidadcuotasColumn" msprop:Generator_UserColumnName="cantidadcuotas" type="xs:string" minOccurs="0" />
+              <xs:element name="importecuota" msprop:Generator_ColumnVarNameInTable="columnimportecuota" msprop:Generator_ColumnPropNameInRow="importecuota" msprop:Generator_ColumnPropNameInTable="importecuotaColumn" msprop:Generator_UserColumnName="importecuota" type="xs:string" minOccurs="0" />
+              <xs:element name="numeroPrestamoAnt" msprop:Generator_ColumnVarNameInTable="columnnumeroPrestamoAnt" msprop:Generator_ColumnPropNameInRow="numeroPrestamoAnt" msprop:Generator_ColumnPropNameInTable="numeroPrestamoAntColumn" msprop:Generator_UserColumnName="numeroPrestamoAnt" type="xs:string" minOccurs="0" />
+              <xs:element name="cuotasPactadas" msprop:Generator_ColumnVarNameInTable="columncuotasPactadas" msprop:Generator_ColumnPropNameInRow="cuotasPactadas" msprop:Generator_ColumnPropNameInTable="cuotasPactadasColumn" msprop:Generator_UserColumnName="cuotasPactadas" type="xs:string" minOccurs="0" />
+              <xs:element name="cuotasPagadas" msprop:Generator_ColumnVarNameInTable="columncuotasPagadas" msprop:Generator_ColumnPropNameInRow="cuotasPagadas" msprop:Generator_ColumnPropNameInTable="cuotasPagadasColumn" msprop:Generator_UserColumnName="cuotasPagadas" type="xs:string" minOccurs="0" />
+              <xs:element name="porcentagePagado" msprop:Generator_ColumnVarNameInTable="columnporcentagePagado" msprop:Generator_ColumnPropNameInRow="porcentagePagado" msprop:Generator_ColumnPropNameInTable="porcentagePagadoColumn" msprop:Generator_UserColumnName="porcentagePagado" type="xs:string" minOccurs="0" />
+              <xs:element name="socio_nro" msprop:Generator_ColumnVarNameInTable="columnsocio_nro" msprop:Generator_ColumnPropNameInRow="socio_nro" msprop:Generator_ColumnPropNameInTable="socio_nroColumn" msprop:Generator_UserColumnName="socio_nro" type="xs:string" minOccurs="0" />
+              <xs:element name="socio_apellido" msprop:Generator_ColumnVarNameInTable="columnsocio_apellido" msprop:Generator_ColumnPropNameInRow="socio_apellido" msprop:Generator_ColumnPropNameInTable="socio_apellidoColumn" msprop:Generator_UserColumnName="socio_apellido" type="xs:string" minOccurs="0" />
+              <xs:element name="socio_nombre" msprop:Generator_ColumnVarNameInTable="columnsocio_nombre" msprop:Generator_ColumnPropNameInRow="socio_nombre" msprop:Generator_ColumnPropNameInTable="socio_nombreColumn" msprop:Generator_UserColumnName="socio_nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
