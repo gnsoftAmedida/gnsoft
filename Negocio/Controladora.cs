@@ -158,6 +158,13 @@ namespace Negocio
             return cadena2;
         }
 
+
+        public DataSet devolverExcedidosPorSocio(int idSocio)
+        {
+            Excedidos tmpExcedido = new Excedidos();
+            return tmpExcedido.devolverExcedidosPorSocio(idSocio);
+        }
+
         private void generarPrimariaExcel(String unidad, String nombreArchivo, DataSet resultado)
         {
             Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();

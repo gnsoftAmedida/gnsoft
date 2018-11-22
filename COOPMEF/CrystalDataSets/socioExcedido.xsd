@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="socioExcedido" targetNamespace="http://tempuri.org/socioExcedido.xsd" xmlns:mstns="http://tempuri.org/socioExcedido.xsd" xmlns="http://tempuri.org/socioExcedido.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="socioExcedido" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="socioExcedido" msprop:Generator_UserDSName="socioExcedido">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="excedido" msprop:Generator_TableClassName="excedidoDataTable" msprop:Generator_TableVarName="tableexcedido" msprop:Generator_TablePropName="excedido" msprop:Generator_RowDeletingName="excedidoRowDeleting" msprop:Generator_RowChangingName="excedidoRowChanging" msprop:Generator_RowEvHandlerName="excedidoRowChangeEventHandler" msprop:Generator_RowDeletedName="excedidoRowDeleted" msprop:Generator_UserTableName="excedido" msprop:Generator_RowChangedName="excedidoRowChanged" msprop:Generator_RowEvArgName="excedidoRowChangeEvent" msprop:Generator_RowClassName="excedidoRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="presupuesto" msprop:Generator_ColumnVarNameInTable="columnpresupuesto" msprop:Generator_ColumnPropNameInRow="presupuesto" msprop:Generator_ColumnPropNameInTable="presupuestoColumn" msprop:Generator_UserColumnName="presupuesto" type="xs:string" minOccurs="0" />
+              <xs:element name="aretener" msprop:Generator_ColumnVarNameInTable="columnaretener" msprop:Generator_ColumnPropNameInRow="aretener" msprop:Generator_ColumnPropNameInTable="aretenerColumn" msprop:Generator_UserColumnName="aretener" type="xs:string" minOccurs="0" />
+              <xs:element name="retenido" msprop:Generator_ColumnVarNameInTable="columnretenido" msprop:Generator_ColumnPropNameInRow="retenido" msprop:Generator_ColumnPropNameInTable="retenidoColumn" msprop:Generator_UserColumnName="retenido" type="xs:string" minOccurs="0" />
+              <xs:element name="saldo" msprop:Generator_ColumnVarNameInTable="columnsaldo" msprop:Generator_ColumnPropNameInRow="saldo" msprop:Generator_ColumnPropNameInTable="saldoColumn" msprop:Generator_UserColumnName="saldo" type="xs:string" minOccurs="0" />
+              <xs:element name="mora" msprop:Generator_ColumnVarNameInTable="columnmora" msprop:Generator_ColumnPropNameInRow="mora" msprop:Generator_ColumnPropNameInTable="moraColumn" msprop:Generator_UserColumnName="mora" type="xs:string" minOccurs="0" />
+              <xs:element name="importepagado" msprop:Generator_ColumnVarNameInTable="columnimportepagado" msprop:Generator_ColumnPropNameInRow="importepagado" msprop:Generator_ColumnPropNameInTable="importepagadoColumn" msprop:Generator_UserColumnName="importepagado" type="xs:string" minOccurs="0" />
+              <xs:element name="presupuestodelpago" msprop:Generator_ColumnVarNameInTable="columnpresupuestodelpago" msprop:Generator_ColumnPropNameInRow="presupuestodelpago" msprop:Generator_ColumnPropNameInTable="presupuestodelpagoColumn" msprop:Generator_UserColumnName="presupuestodelpago" type="xs:string" minOccurs="0" />
+              <xs:element name="socio_nro" msprop:Generator_ColumnVarNameInTable="columnsocio_nro" msprop:Generator_ColumnPropNameInRow="socio_nro" msprop:Generator_ColumnPropNameInTable="socio_nroColumn" msprop:Generator_UserColumnName="socio_nro" type="xs:string" minOccurs="0" />
+              <xs:element name="socio_apellido" msprop:Generator_ColumnVarNameInTable="columnsocio_apellido" msprop:Generator_ColumnPropNameInRow="socio_apellido" msprop:Generator_ColumnPropNameInTable="socio_apellidoColumn" msprop:Generator_UserColumnName="socio_apellido" type="xs:string" minOccurs="0" />
+              <xs:element name="socio_nombre" msprop:Generator_ColumnVarNameInTable="columnsocio_nombre" msprop:Generator_ColumnPropNameInRow="socio_nombre" msprop:Generator_ColumnPropNameInTable="socio_nombreColumn" msprop:Generator_UserColumnName="socio_nombre" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

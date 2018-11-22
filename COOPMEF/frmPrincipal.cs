@@ -31,6 +31,7 @@ namespace COOPMEF
         private dsCancelacionAnticipada cancelaciones = new dsCancelacionAnticipada();
         private dsPrestamosPendientes prestamosPendientesDs = new dsPrestamosPendientes();
         private dsHistoricoUtilidades dsdsHistoricoUtilidades = new dsHistoricoUtilidades();
+        private socioExcedido dssocioExcedido = new socioExcedido();
 
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
@@ -3385,6 +3386,53 @@ Agregar emisión
             {
                 frmExcedidosDeUnMes tmpFrmExcedidosDeUnMes = new frmExcedidosDeUnMes();
                 tmpFrmExcedidosDeUnMes.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+
+            if (VerificarPermisosUsuario("frmExcedidosPorSocio"))
+            {
+                if (!(idSocioSeleccionado == 0))
+                {
+                    DataSet historicoExcedidoSocio = empresa.devolverExcedidosPorSocio(idSocioSeleccionado);
+
+                    if (historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows.Count > 0)
+                    {
+                        for (int n = 0; n <= historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows.Count - 1; n++)
+                        {
+                            String presupuesto = historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][0].ToString();
+                            Double aretener = Convert.ToDouble(historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][1].ToString());
+                            Double retenido = Convert.ToDouble(historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][2].ToString());
+                            Double saldo = Convert.ToDouble(historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][3].ToString());
+                            Double mora = Convert.ToDouble(historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][4].ToString());
+                            Double importepagado = Convert.ToDouble(historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][5].ToString());
+                            String presupuestodelpago = historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][6].ToString();
+                            String socio_nro = historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][7].ToString();
+                            String socio_apellido = historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][8].ToString();
+                            String socio_nombre = historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][9].ToString();
+
+                            dssocioExcedido.excedido.Rows.Add(presupuesto, aretener.ToString("##0.00"), retenido.ToString("##0.00"), saldo.ToString("##0.00"), mora.ToString("##0.00"), importepagado.ToString("##0.00"), presupuestodelpago, socio_nro, socio_apellido, socio_nombre);
+                        }
+
+                        frmVerReportes reporte = new frmVerReportes(dssocioExcedido, "EXCEDIDOS_SOCIO_HISTORICO");
+                        reporte.ShowDialog();
+                        dssocioExcedido.excedido.Rows.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El socio no posee histórico de excedido");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un socio");
+                }
             }
             else
             {

@@ -216,6 +216,30 @@ namespace Persistencia
                 throw ex;
             }
         }
+
+        public DataSet devolverExcedidosPorSocio(int idSocio)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT e.presupuesto, e.aretener, e.retenido, ((e.aretener - e.retenido)) as saldo, h.mora, e.importepagado, e.presupuestodelpago, s.socio_nro, s.socio_apellido, s.socio_nombre FROM excedidos e, historia h, socio s where e.socio_id = s.socio_id and e.socio_id = h.socio_id and e.presupuesto = h.Presupuesto and e.socio_id='" + idSocio + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "excedidosPorSocio");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
         
         public DataSet devolverExcedidosPorSocioIdyPresupuesto(int idSocio, string presupuesto)
         {

@@ -190,6 +190,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSolicitudIngreso.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\socioExcedido.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>socioExcedido.xsd</DependentUpon>
+    </Compile>
     <Compile Include="frmExcedidosDeUnMes.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -496,6 +501,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reportes\reporteExcedidoSocioHistorico.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteExcedidoSocioHistorico.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\reporteExcedidosDeUnMes.cs">
       <DependentUpon>reporteExcedidosDeUnMes.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -785,6 +796,10 @@
     <EmbeddedResource Include="Reportes\CancelacionFallecimiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CancelacionFallecimiento.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteExcedidoSocioHistorico.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteExcedidoSocioHistorico.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteExcedidosDeUnMes.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1080,6 +1095,17 @@
     </None>
     <None Include="CrystalDataSets\dsVale.xss">
       <DependentUpon>dsVale.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\socioExcedido.xsc">
+      <DependentUpon>socioExcedido.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\socioExcedido.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>socioExcedido.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\socioExcedido.xss">
+      <DependentUpon>socioExcedido.xsd</DependentUpon>
     </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

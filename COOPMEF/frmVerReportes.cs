@@ -237,7 +237,16 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpReporteExcedidosDeUnMes;
             }
-            
+
+            if (tipo.Equals("EXCEDIDOS_SOCIO_HISTORICO"))
+            {
+                COOPMEF.Reportes.reporteExcedidoSocioHistorico tmpReporteExcedidoSocioHistorico = new COOPMEF.Reportes.reporteExcedidoSocioHistorico();
+
+                tmpReporteExcedidoSocioHistorico.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteExcedidoSocioHistorico;
+            }
+
             if (tipo.Equals("UTILIDAD"))
             {
                 COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();

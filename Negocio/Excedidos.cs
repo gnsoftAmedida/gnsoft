@@ -69,6 +69,12 @@ namespace Negocio
               }
       */
 
+        public DataSet devolverExcedidosPorSocio(int idSocio)
+        {
+            pExcedidos tmpExcedido = new pExcedidos();
+            return tmpExcedido.devolverExcedidosPorSocio(idSocio);
+        }
+
         public DataSet devolverExcedidosPorSocioIdyPresupuesto(int idSocio, string presupuesto)
         {
             pExcedidos tmpExcedido = new pExcedidos();
