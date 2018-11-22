@@ -172,6 +172,18 @@
   <data name="presupuestoDeUnMesToolStripMenuItem.Text" xml:space="preserve">
     <value>Presupuesto de un mes</value>
   </data>
+  <data name="excedidosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 22</value>
+  </data>
+  <data name="excedidosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Excedidos de un mes</value>
+  </data>
+  <data name="pagosDeExcedidosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>228, 22</value>
+  </data>
+  <data name="pagosDeExcedidosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Pagos de Excedidos</value>
+  </data>
   <data name="porPagoDeSociosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>189, 22</value>
   </data>
@@ -189,12 +201,6 @@
   </data>
   <data name="cancelacionAnticipadaDePréstamosToolStripMenuItem.Text" xml:space="preserve">
     <value>Cancelacion anticipada</value>
-  </data>
-  <data name="pagosDeExcedidosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>228, 22</value>
-  </data>
-  <data name="pagosDeExcedidosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Pagos de Excedidos</value>
   </data>
   <data name="informesToolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 22</value>
@@ -6247,6 +6253,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -6329,6 +6338,12 @@
     <value>porFallecimientoToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;porFallecimientoToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pagosDeExcedidosToolStripMenuItem.Name" xml:space="preserve">
+    <value>pagosDeExcedidosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;pagosDeExcedidosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
@@ -6613,10 +6628,10 @@
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;pagosDeExcedidosToolStripMenuItem.Name" xml:space="preserve">
-    <value>pagosDeExcedidosToolStripMenuItem</value>
+  <data name="&gt;&gt;excedidosToolStripMenuItem.Name" xml:space="preserve">
+    <value>excedidosToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;pagosDeExcedidosToolStripMenuItem.Type" xml:space="preserve">
+  <data name="&gt;&gt;excedidosToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

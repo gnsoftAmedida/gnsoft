@@ -3266,7 +3266,7 @@ Agregar emisión
 
                         String fecha = DateTime.Today.ToShortDateString();
 
-                        cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, " ", fecha);
+                        cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa.ToString("##0.00"), MontoVale.ToString("##0.00"), ImporteCuota.ToString("##0.00"), AmortizacionVencer.ToString("##0.00"), InteresesVencer.ToString("##0.00"), " ", fecha);
                     }
 
                     frmVerReportes reporte = new frmVerReportes(cancelaciones, "CANCELACION_FALLECIMIENTO");
@@ -3372,6 +3372,19 @@ Agregar emisión
             {
                 frmPagosDeExcedidos tmpFrmPagosDeExcedidos = new frmPagosDeExcedidos();
                 tmpFrmPagosDeExcedidos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void excedidosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmExcedidosDeUnMes"))
+            {
+                frmExcedidosDeUnMes tmpFrmExcedidosDeUnMes = new frmExcedidosDeUnMes();
+                tmpFrmExcedidosDeUnMes.ShowDialog();
             }
             else
             {

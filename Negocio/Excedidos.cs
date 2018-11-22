@@ -86,5 +86,11 @@ namespace Negocio
             pExcedidos tmpExcedido = new pExcedidos();
             return tmpExcedido.PagoDeExcedidosPorPresupuesto(presupuesto);
         }
+
+        public DataSet ExcedidosDeUnMes(string presupuesto)
+        {
+            pExcedidos tmpExcedido = new pExcedidos();
+            return tmpExcedido.ExcedidosDeUnMes(presupuesto);
+        }
     }
 }

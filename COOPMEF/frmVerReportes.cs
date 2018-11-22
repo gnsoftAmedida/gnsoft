@@ -229,7 +229,15 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpReportePagoExcedidosPresupuesto;
             }
+            if (tipo.Equals("EXCEDIDOS_DE_UN_MES"))
+            {
+                COOPMEF.Reportes.reporteExcedidosDeUnMes tmpReporteExcedidosDeUnMes = new COOPMEF.Reportes.reporteExcedidosDeUnMes();
 
+                tmpReporteExcedidosDeUnMes.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteExcedidosDeUnMes;
+            }
+            
             if (tipo.Equals("UTILIDAD"))
             {
                 COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();

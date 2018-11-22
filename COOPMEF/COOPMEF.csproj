@@ -190,6 +190,12 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSolicitudIngreso.xsd</DependentUpon>
     </Compile>
+    <Compile Include="frmExcedidosDeUnMes.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmExcedidosDeUnMes.Designer.cs">
+      <DependentUpon>frmExcedidosDeUnMes.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmAnulacionPrestamo.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -490,6 +496,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reportes\reporteExcedidosDeUnMes.cs">
+      <DependentUpon>reporteExcedidosDeUnMes.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reportes\reporteHistoricoUtilidades.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -628,6 +640,9 @@
       <DependentUpon>solicitudPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="frmExcedidosDeUnMes.resx">
+      <DependentUpon>frmExcedidosDeUnMes.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmAnulacionPrestamo.resx">
       <DependentUpon>frmAnulacionPrestamo.cs</DependentUpon>
     </EmbeddedResource>
@@ -770,6 +785,10 @@
     <EmbeddedResource Include="Reportes\CancelacionFallecimiento.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CancelacionFallecimiento.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteExcedidosDeUnMes.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteExcedidosDeUnMes.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteHistoricoUtilidades.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

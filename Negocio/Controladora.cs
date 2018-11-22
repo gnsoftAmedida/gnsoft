@@ -107,6 +107,12 @@ namespace Negocio
             return tmpExcedido.PagoDeExcedidosPorPresupuesto(presupuesto);
         }
 
+        public DataSet ExcedidosDeUnMes(string presupuesto)
+        {
+            Excedidos tmpExcedido = new Excedidos();
+            return tmpExcedido.ExcedidosDeUnMes(presupuesto);
+        }
+
         public bool esNumerico(object Expression)
         {
 
