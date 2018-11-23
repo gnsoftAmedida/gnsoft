@@ -1413,12 +1413,21 @@ namespace COOPMEF
 
         public int devolverEstadoSocio()
         {
-            //int esta = 0;
+
+            if (lblEstadoDeBaja.Visible == false)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
+
+            // Lo cambié porque daba error
+            /*//int esta = 0;
             int index = dgvSociosCampo.CurrentRow.Index;
             int esta = (int)dgvSociosCampo.Rows[index].Cells["socio_activo"].Value;
-
-
-            return esta;
+            */
         }
 
         private void cmbSocios_SelectedIndexChanged(object sender, EventArgs e)
@@ -2349,6 +2358,7 @@ namespace COOPMEF
 
 
                 int estado = devolverEstadoSocio();
+
                 if (estado == 1)
                 {
                     DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
@@ -3446,7 +3456,7 @@ Agregar emisión
             if (VerificarPermisosUsuario("frmHistorialPrestamosPorSocio"))
             {
                 if (!(idSocioSeleccionado == 0))
-                {                                   //devolverHistoriaPorIdSocioCompleta
+                {
                     DataSet historicoPrestamosSocio = empresa.devolverHistoriaPorIdSocioCompleta(idSocioSeleccionado);
 
                     if (historicoPrestamosSocio.Tables["historiasIdSocio"].Rows.Count > 0)
@@ -3460,15 +3470,27 @@ Agregar emisión
                             Double totalvale = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][4].ToString());
                             int cantidadcuotas = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][5].ToString());
                             Double importecuota = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][6].ToString());
-                            int numeroPrestamoAnt = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][7].ToString());
-                            int cuotasPactadas = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][8].ToString());
-                            int cuotasPagadas = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][9].ToString());
+                            String numeroPrestamoAnt = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][7].ToString();
+                            String cuotasPactadas = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][8].ToString();
+                            String cuotasPagadas = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][9].ToString();
                             String porcentagePagado = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][10].ToString();
                             String socio_nro = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][11].ToString();
                             String socio_apellido = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][12].ToString();
                             String socio_nombre = historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][13].ToString();
 
-                            tmpDsHistoricoPrestamosSocio.historico.Rows.Add(NumeroPrestamo, fecha, monteopedido.ToString("##0.00"), amortizacionVencer.ToString("##0.00"), totalvale.ToString("##0.00"), cantidadcuotas, importecuota.ToString("##0.00"), numeroPrestamoAnt, cuotasPactadas, cuotasPagadas.ToString("##0.00"), porcentagePagado, socio_nro, socio_apellido, socio_nombre);
+                            if (numeroPrestamoAnt == "0")
+                            {
+                                numeroPrestamoAnt = "---";
+                                cuotasPactadas = "---";
+                                cuotasPagadas = "---";
+                                porcentagePagado = "---";
+
+                                tmpDsHistoricoPrestamosSocio.historico.Rows.Add(NumeroPrestamo, fecha, monteopedido.ToString("##0.00"), amortizacionVencer.ToString("##0.00"), totalvale.ToString("##0.00"), cantidadcuotas, importecuota.ToString("##0.00"), numeroPrestamoAnt, cuotasPactadas, cuotasPagadas, porcentagePagado, socio_nro, socio_apellido, socio_nombre);
+                            }
+                            else
+                            {
+                                tmpDsHistoricoPrestamosSocio.historico.Rows.Add(NumeroPrestamo, fecha, monteopedido.ToString("##0.00"), amortizacionVencer.ToString("##0.00"), totalvale.ToString("##0.00"), cantidadcuotas, importecuota.ToString("##0.00"), numeroPrestamoAnt, cuotasPactadas, cuotasPagadas, Convert.ToDouble(porcentagePagado).ToString("##0.00"), socio_nro, socio_apellido, socio_nombre);
+                            }
                         }
 
                         frmVerReportes reporte = new frmVerReportes(tmpDsHistoricoPrestamosSocio, "PRESTAMOS_SOCIO_HISTORICO");

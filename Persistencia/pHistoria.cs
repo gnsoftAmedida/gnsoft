@@ -279,7 +279,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT h.NumeroPrestamo, p.fecha, p.monteopedido, p.amortizacionVencer, (h.cantidadcuotas * h.importecuota) as totalvale, h.cantidadcuotas, h.importecuota, p.numeroPrestamoAnt, p.cuotasPactadas, p.cuotasPagadas,  ((p.cuotasPactadas * 100)/p.cuotasPagadas) as porcentagePagado, s.socio_nro, s.socio_apellido, s.socio_nombre FROM historia h, prestamo p, socio s where s.socio_id = h.socio_id and h.NumeroPrestamo = p.prestamo_id and h.socio_id='" + idSocio + "'";
+                string sql = "SELECT h.NumeroPrestamo, p.fecha, p.monteopedido, p.amortizacionVencer, (h.cantidadcuotas * h.importecuota) as totalvale, h.cantidadcuotas, h.importecuota, p.numeroPrestamoAnt, p.cuotasPactadas, p.cuotasPagadas,  ((p.cuotasPagadas * 100)/p.cuotasPactadas) as porcentagePagado, s.socio_nro, s.socio_apellido, s.socio_nombre FROM historia h, prestamo p, socio s where s.socio_id = h.socio_id and h.NumeroPrestamo = p.prestamo_id and h.socio_id='" + idSocio + "'";
                 DataSet ds = new DataSet();
 
                 connection.Open();
