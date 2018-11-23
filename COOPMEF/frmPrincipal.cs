@@ -1957,7 +1957,7 @@ namespace COOPMEF
                                 tasaAnteriorPrestamo = Convert.ToDouble(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][3].ToString());
                                 nro_prestamoAnterior = Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString());
                                 montoAnterior = Convert.ToDouble(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][5].ToString());
-                                txtTotalDeuda.Text = montoAnterior.ToString();
+                                txtTotalDeuda.Text = txtAmortización.Text.Replace(".", ",");
 
                                 if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString()) != 0)
                                 {
@@ -2119,9 +2119,19 @@ namespace COOPMEF
 
                         tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
 
-                        txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtAmortización.Text.Replace(".", ",")));
+                        if (txtPagas.Text == "0.0")
+                        {
+                            txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtMonto.Text.Replace(".", ",")));
+
+                        }
+                        else
+                        {
+                            txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtAmortización.Text.Replace(".", ",")));
+                        }
 
                         totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
+
+                        
 
                         cuota = empresa.Cuota(tasaConIva, cantidadCuotas, totalDeuda);
 
@@ -2135,7 +2145,14 @@ namespace COOPMEF
                     else
                     {
                         txtImporteCuota.Text = "0.00";
-                        txtTotalDeuda.Text = montoAnterior.ToString();
+                        if (txtPagas.Text == "0.0")
+                        {
+                            txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtMonto.Text.Replace(".", ",")));
+                        }
+                        else
+                        {
+                            txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtAmortización.Text.Replace(".", ",")));
+                        }
                         cantidadCuotas = 0;
                         tasaAnualEfectivaSinIVA = 0;
                         iva = 0;
@@ -2233,6 +2250,8 @@ namespace COOPMEF
                         double interesCuota = Convert.ToDouble((cuota - amorticacionCuota) / Wiva);
                         double ivaCuota = cuota - amorticacionCuota - interesCuota;
 
+                        totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
+
                         empresa.GuardarCobranzaProvisoria(idPrestamo, nro_socio, tasaConIva, tasaAnualEfectivaSinIVA, totalDeuda, cantidadCuotas, 1, cuota, amorticacionCuota, interesCuota, ivaCuota, amortizacionVencer, interesesVencer, idSocioSeleccionado);
 
                         if (exitiaProvisoria)
@@ -2319,7 +2338,11 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
-
+            txtNuevoImporte.ReadOnly = false;
+            cmbPlanPréstamo.Enabled = true;
+            btnGuardarPrestamo.Enabled = false;
+            btnSolicitar.Enabled = false;
+            txtNuevoImporte.Text = "";
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -2361,11 +2384,15 @@ namespace COOPMEF
 
                 if (estado == 1)
                 {
+                    totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
+
                     DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
                     frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
                     reporte.ShowDialog();
                     DE.solicitud.Rows.Clear();
                     btnGuardarPrestamo.Enabled = true;
+                    txtNuevoImporte.ReadOnly = true;
+                    cmbPlanPréstamo.Enabled = false;
                 }
                 else
                 {
