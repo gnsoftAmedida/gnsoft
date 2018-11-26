@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsDatosPresupuesto" targetNamespace="http://tempuri.org/dsDatosPresupuesto.xsd" xmlns:mstns="http://tempuri.org/dsDatosPresupuesto.xsd" xmlns="http://tempuri.org/dsDatosPresupuesto.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsDatosPresupuesto" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsDatosPresupuesto" msprop:Generator_UserDSName="dsDatosPresupuesto">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="datos" msprop:Generator_TableClassName="datosDataTable" msprop:Generator_TableVarName="tabledatos" msprop:Generator_RowChangedName="datosRowChanged" msprop:Generator_TablePropName="datos" msprop:Generator_RowDeletingName="datosRowDeleting" msprop:Generator_RowChangingName="datosRowChanging" msprop:Generator_RowEvHandlerName="datosRowChangeEventHandler" msprop:Generator_RowDeletedName="datosRowDeleted" msprop:Generator_RowClassName="datosRow" msprop:Generator_UserTableName="datos" msprop:Generator_RowEvArgName="datosRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Presupuesto" msprop:Generator_ColumnVarNameInTable="columnPresupuesto" msprop:Generator_ColumnPropNameInRow="Presupuesto" msprop:Generator_ColumnPropNameInTable="PresupuestoColumn" msprop:Generator_UserColumnName="Presupuesto" type="xs:string" minOccurs="0" />
+              <xs:element name="InteresVencer" msprop:Generator_ColumnVarNameInTable="columnInteresVencer" msprop:Generator_ColumnPropNameInRow="InteresVencer" msprop:Generator_ColumnPropNameInTable="InteresVencerColumn" msprop:Generator_UserColumnName="InteresVencer" type="xs:string" minOccurs="0" />
+              <xs:element name="AmortizacionVencer" msprop:Generator_ColumnVarNameInTable="columnAmortizacionVencer" msprop:Generator_ColumnPropNameInRow="AmortizacionVencer" msprop:Generator_ColumnPropNameInTable="AmortizacionVencerColumn" msprop:Generator_UserColumnName="AmortizacionVencer" type="xs:string" minOccurs="0" />
+              <xs:element name="mora" msprop:Generator_ColumnVarNameInTable="columnmora" msprop:Generator_ColumnPropNameInRow="mora" msprop:Generator_ColumnPropNameInTable="moraColumn" msprop:Generator_UserColumnName="mora" type="xs:string" minOccurs="0" />
+              <xs:element name="ejercicio" msprop:Generator_ColumnVarNameInTable="columnejercicio" msprop:Generator_ColumnPropNameInRow="ejercicio" msprop:Generator_ColumnPropNameInTable="ejercicioColumn" msprop:Generator_UserColumnName="ejercicio" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

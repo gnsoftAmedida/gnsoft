@@ -134,19 +134,6 @@ namespace COOPMEF
             this.Close();
         }
 
-        private void toolStripMenuItemAgenda_Click(object sender, EventArgs e)
-        {
-            if (VerificarPermisosUsuario("frmAgenda"))
-            {
-                frmAgenda a = new frmAgenda();
-                a.Show();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
-        }
-
         private void frmPrincipal_FormClosing(object sender, FormClosingEventArgs e)
         {
             string message = "¿Está seguro que desea salir de la aplicación?";
@@ -301,19 +288,6 @@ namespace COOPMEF
             }
         }
 
-        private void eventosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (VerificarPermisosUsuario("frmReporteEvento"))
-            {
-                frmReporteEventos frmReportes = new frmReporteEventos();
-                frmReportes.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
-        }
-
         private void frmPrincipal_FormClosing_1(object sender, FormClosingEventArgs e)
         {
             string message = "¿Está seguro que desea salir de la aplicación?";
@@ -371,47 +345,17 @@ namespace COOPMEF
         private void oficinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (VerificarPermisosUsuario("frmMantOficinas"))
-            {
-                frmMantOficinas mantOficina = new frmMantOficinas();
-                mantOficina.ShowDialog();
-                cargarIncisosOficinas();
-
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
-
+         
         }
 
         private void incisoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("frmMantenimientoInciso"))
-            {
-                frmMantenimientoInciso minciso = new frmMantenimientoInciso();
-                minciso.ShowDialog();
-                cargarIncisosOficinas();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
-
-
+           
         }
 
         private void planDePréstamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("frmPlanDePrestamo"))
-            {
-                frmPlanDePrestamo plan = new frmPlanDePrestamo();
-                plan.Show();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
+           
 
         }
 
@@ -3136,37 +3080,7 @@ Agregar emisión
         private void sociosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-            if (VerificarPermisosUsuario("SOCIOS_ACTIVOS_EDAD"))
-            {
-                DataSet sociosResultado = empresa.devolverSociosActivosEdad();
-
-                String fechaActual = DateTime.Today.ToShortDateString();
-
-                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
-                {
-                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
-                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
-                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
-                    DateTime fechaNacimiento = Convert.ToDateTime(sociosResultado.Tables["socios"].Rows[n][5].ToString());
-                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
-                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
-                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
-                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
-                    int edad = this.EdadPersona(fechaNacimiento);
-
-                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, edad, Inciso, oficina, numerocobro);
-                }
-
-                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS_EDAD");
-                reporte.ShowDialog();
-                estadoSocios.Clear();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
+         
 
         }
 
@@ -3245,15 +3159,7 @@ Agregar emisión
 
         private void cuadroFranjasEdadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("frmPadronEdades"))
-            {
-                frmPadronEdades tmpfrmPadronEdades = new frmPadronEdades();
-                tmpfrmPadronEdades.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
+         
         }
 
         private void porPagoDeSociosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3374,37 +3280,7 @@ Agregar emisión
 
         private void históricoPorEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("frmInformeHistoricoUtilidades"))
-            {
-
-                DataSet historicoUtilidades = empresa.historicoAportesInteresesUtilidades();
-
-                if (historicoUtilidades.Tables["historicoGanancias"].Rows.Count > 0)
-                {
-                    for (int n = 0; n <= historicoUtilidades.Tables["historicoGanancias"].Rows.Count - 1; n++)
-                    {
-                        String ejercicio = historicoUtilidades.Tables["historicoGanancias"].Rows[n][0].ToString();
-                        Double aportesCapital = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][1].ToString());
-                        Double interesesAportados = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][2].ToString());
-                        Double utilidades = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][3].ToString());
-
-                        dsdsHistoricoUtilidades.historico.Rows.Add(aportesCapital.ToString("###,###,##0.00"), interesesAportados.ToString("###,###,##0.00"), utilidades.ToString("###,###,##0.00"), ejercicio);
-                    }
-
-                    frmVerReportes reporte = new frmVerReportes(dsdsHistoricoUtilidades, "HISTORICO_GANANCIAS");
-                    reporte.ShowDialog();
-                    dsdsHistoricoUtilidades.historico.Rows.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("No se encuentran registros históricos");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
+         
         }
 
         private void pagosDeExcedidosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3544,39 +3420,63 @@ Agregar emisión
 
         private void padrónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("frmDevolverPadron"))
+            
+        }
+
+        private void utilidadDelSocioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void datosDelPresupuestoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmDatosPresupuesto"))
             {
-                DataSet padron = empresa.devolverPadron();
-
-                if (padron.Tables["padron"].Rows.Count > 0)
-                {
-                    for (int n = 0; n <= padron.Tables["padron"].Rows.Count - 1; n++)
-                    {
-                        String inciso = padron.Tables["padron"].Rows[n][0].ToString();
-                        String oficina = padron.Tables["padron"].Rows[n][1].ToString();
-                        String telefono = padron.Tables["padron"].Rows[n][2].ToString();
-                        String contacto = padron.Tables["padron"].Rows[n][3].ToString();
-
-                        tmpDsPadron.padronIncisoOficinas.Rows.Add(inciso, oficina, telefono, contacto);
-                    }
-
-                    frmVerReportes reporte = new frmVerReportes(tmpDsPadron, "PADRON");
-                    reporte.ShowDialog();
-                    tmpDsPadron.padronIncisoOficinas.Rows.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("No exíste un padrón de incisos y oficinas");
-                }
+                frmDatosDelPresupuesto tmpFrmDatosDelPresupuesto = new frmDatosDelPresupuesto();
+                tmpFrmDatosDelPresupuesto.ShowDialog();
             }
             else
             {
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
-
         }
 
-        private void utilidadDelSocioToolStripMenuItem_Click(object sender, EventArgs e)
+        private void históricoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmInformeHistoricoUtilidades"))
+            {
+
+                DataSet historicoUtilidades = empresa.historicoAportesInteresesUtilidades();
+
+                if (historicoUtilidades.Tables["historicoGanancias"].Rows.Count > 0)
+                {
+                    for (int n = 0; n <= historicoUtilidades.Tables["historicoGanancias"].Rows.Count - 1; n++)
+                    {
+                        String ejercicio = historicoUtilidades.Tables["historicoGanancias"].Rows[n][0].ToString();
+                        Double aportesCapital = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][1].ToString());
+                        Double interesesAportados = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][2].ToString());
+                        Double utilidades = Convert.ToDouble(historicoUtilidades.Tables["historicoGanancias"].Rows[n][3].ToString());
+
+                        dsdsHistoricoUtilidades.historico.Rows.Add(aportesCapital.ToString("###,###,##0.00"), interesesAportados.ToString("###,###,##0.00"), utilidades.ToString("###,###,##0.00"), ejercicio);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(dsdsHistoricoUtilidades, "HISTORICO_GANANCIAS");
+                    reporte.ShowDialog();
+                    dsdsHistoricoUtilidades.historico.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No se encuentran registros históricos");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void utilidadDelSocioToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             if (VerificarPermisosUsuario("frmUtilidadDelSocio"))
             {
@@ -3631,6 +3531,187 @@ Agregar emisión
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
+
+        private void cuadroDeFranjasDeEdadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void agendaToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmAgenda"))
+            {
+                frmAgenda a = new frmAgenda();
+                a.Show();
+            }
+            else if (VerificarPermisosUsuario("frmReporteEvento"))
+            {
+                frmReporteEventos frmReportes = new frmReporteEventos();
+                frmReportes.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void cuadroDeFranjasDeEdadToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmPadronEdades"))
+            {
+                frmPadronEdades tmpfrmPadronEdades = new frmPadronEdades();
+                tmpfrmPadronEdades.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void cumpleañosDelMesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmCumpleanios"))
+            {
+                frmCumpleanios tmpfrmCumpleanios = new frmCumpleanios();
+                tmpfrmCumpleanios.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void listadoPorEdadToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("SOCIOS_ACTIVOS_EDAD"))
+            {
+                DataSet sociosResultado = empresa.devolverSociosActivosEdad();
+
+                String fechaActual = DateTime.Today.ToShortDateString();
+
+                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                {
+                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                    DateTime fechaNacimiento = Convert.ToDateTime(sociosResultado.Tables["socios"].Rows[n][5].ToString());
+                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                    int edad = this.EdadPersona(fechaNacimiento);
+
+                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, edad, Inciso, oficina, numerocobro);
+                }
+
+                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS_EDAD");
+                reporte.ShowDialog();
+                estadoSocios.Clear();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void eventosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmReporteEvento"))
+            {
+                frmReporteEventos frmReportes = new frmReporteEventos();
+                frmReportes.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void incisoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmMantenimientoInciso"))
+            {
+                frmMantenimientoInciso minciso = new frmMantenimientoInciso();
+                minciso.ShowDialog();
+                cargarIncisosOficinas();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
+
+        }
+
+        private void oficinaToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmMantOficinas"))
+            {
+                frmMantOficinas mantOficina = new frmMantOficinas();
+                mantOficina.ShowDialog();
+                cargarIncisosOficinas();
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
+        }
+
+        private void padrónToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmDevolverPadron"))
+            {
+                DataSet padron = empresa.devolverPadron();
+
+                if (padron.Tables["padron"].Rows.Count > 0)
+                {
+                    for (int n = 0; n <= padron.Tables["padron"].Rows.Count - 1; n++)
+                    {
+                        String inciso = padron.Tables["padron"].Rows[n][0].ToString();
+                        String oficina = padron.Tables["padron"].Rows[n][1].ToString();
+                        String telefono = padron.Tables["padron"].Rows[n][2].ToString();
+                        String contacto = padron.Tables["padron"].Rows[n][3].ToString();
+
+                        tmpDsPadron.padronIncisoOficinas.Rows.Add(inciso, oficina, telefono, contacto);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(tmpDsPadron, "PADRON");
+                    reporte.ShowDialog();
+                    tmpDsPadron.padronIncisoOficinas.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No exíste un padrón de incisos y oficinas");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
+        }
+
+        private void planDePréstamosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmPlanDePrestamo"))
+            {
+                frmPlanDePrestamo plan = new frmPlanDePrestamo();
+                plan.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+
     }
 }
 

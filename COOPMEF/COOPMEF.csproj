@@ -124,6 +124,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsDatosPresupuesto.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsDatosPresupuesto.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsDistribucion.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +214,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>socioExcedido.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="frmDatosDelPresupuesto.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatosDelPresupuesto.Designer.cs">
+      <DependentUpon>frmDatosDelPresupuesto.cs</DependentUpon>
     </Compile>
     <Compile Include="frmExcedidosDeUnMes.cs">
       <SubType>Form</SubType>
@@ -516,6 +527,12 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reportes\reporteDatosPresupuesto.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteDatosPresupuesto.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\reporteExcedidoSocioHistorico.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -684,6 +701,9 @@
       <DependentUpon>solicitudPrestamo.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <EmbeddedResource Include="frmDatosDelPresupuesto.resx">
+      <DependentUpon>frmDatosDelPresupuesto.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="frmExcedidosDeUnMes.resx">
       <DependentUpon>frmExcedidosDeUnMes.cs</DependentUpon>
     </EmbeddedResource>
@@ -830,6 +850,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CancelacionFallecimiento.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteDatosPresupuesto.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteDatosPresupuesto.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteExcedidoSocioHistorico.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reporteExcedidoSocioHistorico.cs</LastGenOutput>
@@ -975,6 +999,17 @@
     </None>
     <None Include="CrystalDataSets\dsCuentaCorriente.xss">
       <DependentUpon>dsCuentaCorriente.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsDatosPresupuesto.xsc">
+      <DependentUpon>dsDatosPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsDatosPresupuesto.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsDatosPresupuesto.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsDatosPresupuesto.xss">
+      <DependentUpon>dsDatosPresupuesto.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsDistribucion.xsc">
       <DependentUpon>dsDistribucion.xsd</DependentUpon>

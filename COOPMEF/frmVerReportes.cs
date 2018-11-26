@@ -272,6 +272,16 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpReportePadron;
             }
+
+            if (tipo.Equals("DATOS_PRSUPUESTO"))
+            {
+                COOPMEF.Reportes.reporteDatosPresupuesto tmpReporteDatosPresupuesto = new COOPMEF.Reportes.reporteDatosPresupuesto();
+
+                tmpReporteDatosPresupuesto.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteDatosPresupuesto;
+            }
+
             if (tipo.Equals("UTILIDAD"))
             {
                 COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();

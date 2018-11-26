@@ -247,6 +247,30 @@ namespace Persistencia
             }
 
         }
+        
+        public DataSet devolverDatosPresupuesto(string presupuesto)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT distinctrow h.Presupuesto, SUM(h.InteresVencer), SUM(h.AmortizacionVencer), sum(h.mora) FROM coopmef.historia h where h.presupuesto= '" + presupuesto + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "datosPresupuesto");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
         public DataSet devolverHistoriaPorIDyPresupuesto(int idSocio, string presupuesto)
         {

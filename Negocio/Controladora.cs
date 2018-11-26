@@ -3115,6 +3115,13 @@ namespace Negocio
             tmDistribucion.eliminarDistribucion(ejercicio);
         }
 
+        public DataSet devolverDatosPresupuesto(string presupuesto)
+        {
+            Historia tmpHistoria = new Historia();
+            DataSet historias = tmpHistoria.devolverDatosPresupuesto(presupuesto);
+            return historias;
+        }
+
         public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)
         {
             Historia tmpHistoria = new Historia();

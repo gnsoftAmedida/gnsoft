@@ -252,34 +252,7 @@ namespace COOPMEF
             else
             {
                 MessageBox.Show("No hay utilidades para liquidar.");
-            }
-            /*         If Not Flag Then
-            MsgBox "El Socio No tiene utilidades sin liquidar.", vbOKOnly + vbInformation, Me.Caption
-            Exit Sub
-         Else
-            If TxtFecha = "__/__/____" Or TxtCheque = "" Then
-               MsgBox "No ha completado los datos. Falta" & Chr(13) _
-               & "Fecha de Liquidación y/o Cheque", vbOKOnly + vbcritial, Me.Caption
-               Exit Sub
-            ElseIf Not FlagImpresion Then
-               MsgBox "No ha impreso Recibo.", vbOKOnly + vbInformation, Me.Caption
-               Exit Sub
-            End If
-            If RsUtilidades.RecordCount > 0 Then
-               RsUtilidades.MoveFirst
-               While Not RsUtilidades.EOF
-                  If IsNull(RsUtilidades!cheque) Then
-                     RsUtilidades.Edit
-                     RsUtilidades!pagadopor = LblUsuario
-                     RsUtilidades!Fecha = TxtFecha
-                     RsUtilidades!cheque = TxtCheque
-                     RsUtilidades.Update
-                  End If
-                  RsUtilidades.MoveNext
-               Wend
-            End If
-         End If
-             * */
+            }         
         }
     }
 }
