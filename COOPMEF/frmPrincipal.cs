@@ -2438,23 +2438,7 @@ namespace COOPMEF
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("frmCancelacionAnticipadaDePrestmos"))
-            {
-                if (idSocioSeleccionado > 0)
-                {
-                    frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado, txtInciso.Text, txtOficina.Text);
-                    frmCancelacion.ShowDialog();
-                    cargarPlanPrestamoSocio();
-                }
-                else
-                {
-                    MessageBox.Show("Debe seleccionar un socio para poder cancelar");
-                }
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
+           
         }
 
         private Double calcularMoraYSaldos(Double saldo, string _presupuesto)
@@ -3146,15 +3130,7 @@ Agregar emisión
 
         private void cancelaciónAnticipadaPorFallecimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("frmCancelacionFallecimiento"))
-            {
-                frmCancelacionFallecimiento tmpFrmCancelacionFallecimiento = new frmCancelacionFallecimiento();
-                tmpFrmCancelacionFallecimiento.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
+         
         }
 
         private void cuadroFranjasEdadToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3704,6 +3680,53 @@ Agregar emisión
             {
                 frmPlanDePrestamo plan = new frmPlanDePrestamo();
                 plan.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void planDePréstamosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmPlanDePrestamo"))
+            {
+                frmPlanDePrestamo plan = new frmPlanDePrestamo();
+                plan.Show();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void porPagoDeSocioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmCancelacionAnticipadaDePrestmos"))
+            {
+                if (idSocioSeleccionado > 0)
+                {
+                    frmCancelacionAnticipadaDePrestmos frmCancelacion = new frmCancelacionAnticipadaDePrestmos(idSocioSeleccionado, txtInciso.Text, txtOficina.Text);
+                    frmCancelacion.ShowDialog();
+                    cargarPlanPrestamoSocio();
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un socio para poder cancelar");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void porFallecimientoToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmCancelacionFallecimiento"))
+            {
+                frmCancelacionFallecimiento tmpFrmCancelacionFallecimiento = new frmCancelacionFallecimiento();
+                tmpFrmCancelacionFallecimiento.ShowDialog();
             }
             else
             {

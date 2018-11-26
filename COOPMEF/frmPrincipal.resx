@@ -230,16 +230,10 @@
     <value>Oficinas</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Anulación</value>
-  </data>
-  <data name="planDePréstamosToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
-  </data>
-  <data name="planDePréstamosToolStripMenuItem1.Text" xml:space="preserve">
-    <value>Plan de préstamos</value>
   </data>
   <data name="resumenDePréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>286, 22</value>
@@ -260,7 +254,7 @@
     <value>Préstamos Pendientes</value>
   </data>
   <data name="informesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>194, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="informesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Informes</value>
@@ -377,34 +371,40 @@
     <value>Presupuestos</value>
   </data>
   <data name="toolStripMenuItem11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 22</value>
+    <value>321, 22</value>
   </data>
   <data name="toolStripMenuItem11.Text" xml:space="preserve">
     <value>Listado de retenciones</value>
   </data>
-  <data name="toolStripMenuItem14.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 22</value>
-  </data>
-  <data name="toolStripMenuItem14.Text" xml:space="preserve">
-    <value>Cancelación anticipada de préstamos</value>
-  </data>
-  <data name="cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 22</value>
-  </data>
-  <data name="cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Text" xml:space="preserve">
-    <value>Cancelación Anticipada por fallecimiento</value>
-  </data>
   <data name="discoParaRetencionesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 22</value>
+    <value>321, 22</value>
   </data>
   <data name="discoParaRetencionesToolStripMenuItem.Text" xml:space="preserve">
     <value>Discos para retenciones</value>
   </data>
   <data name="facturaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>342, 22</value>
+    <value>321, 22</value>
   </data>
   <data name="facturaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Facturación</value>
+  </data>
+  <data name="porPagoDeSocioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 22</value>
+  </data>
+  <data name="porPagoDeSocioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Por pago del Socio</value>
+  </data>
+  <data name="porFallecimientoToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>195, 22</value>
+  </data>
+  <data name="porFallecimientoToolStripMenuItem1.Text" xml:space="preserve">
+    <value>Por Fallecimiento</value>
+  </data>
+  <data name="cancelaciónAnticipadaDePréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>321, 22</value>
+  </data>
+  <data name="cancelaciónAnticipadaDePréstamosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Cancelación Anticipada de Préstamos</value>
   </data>
   <data name="reportesToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 9.75pt</value>
@@ -513,6 +513,12 @@
   </data>
   <data name="parámetrosDelSistemaToolStripMenuItem.Text" xml:space="preserve">
     <value>Parámetros del Sistema</value>
+  </data>
+  <data name="planDePréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 22</value>
+  </data>
+  <data name="planDePréstamosToolStripMenuItem.Text" xml:space="preserve">
+    <value>Plan de préstamos</value>
   </data>
   <data name="mToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 9.75pt</value>
@@ -6499,18 +6505,6 @@
   <data name="&gt;&gt;toolStripMenuItem11.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem14.Name" xml:space="preserve">
-    <value>toolStripMenuItem14</value>
-  </data>
-  <data name="&gt;&gt;toolStripMenuItem14.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Name" xml:space="preserve">
-    <value>cancelaciónAnticipadaPorFallecimientoToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;cancelaciónAnticipadaPorFallecimientoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
   <data name="&gt;&gt;discoParaRetencionesToolStripMenuItem.Name" xml:space="preserve">
     <value>discoParaRetencionesToolStripMenuItem</value>
   </data>
@@ -6769,10 +6763,28 @@
   <data name="&gt;&gt;padrónToolStripMenuItem2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;planDePréstamosToolStripMenuItem1.Name" xml:space="preserve">
-    <value>planDePréstamosToolStripMenuItem1</value>
+  <data name="&gt;&gt;planDePréstamosToolStripMenuItem.Name" xml:space="preserve">
+    <value>planDePréstamosToolStripMenuItem</value>
   </data>
-  <data name="&gt;&gt;planDePréstamosToolStripMenuItem1.Type" xml:space="preserve">
+  <data name="&gt;&gt;planDePréstamosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cancelaciónAnticipadaDePréstamosToolStripMenuItem.Name" xml:space="preserve">
+    <value>cancelaciónAnticipadaDePréstamosToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;cancelaciónAnticipadaDePréstamosToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;porPagoDeSocioToolStripMenuItem.Name" xml:space="preserve">
+    <value>porPagoDeSocioToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;porPagoDeSocioToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;porFallecimientoToolStripMenuItem1.Name" xml:space="preserve">
+    <value>porFallecimientoToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;porFallecimientoToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">
