@@ -153,6 +153,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsInterfaces.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsPadron.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPadron.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsPagoExcedidosPresupuesto.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -194,6 +199,11 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>dsSolicitudIngreso.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="CrystalDataSets\dsUtilidadSocio.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsUtilidadSocio.xsd</DependentUpon>
     </Compile>
     <Compile Include="CrystalDataSets\socioExcedido.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -530,6 +540,12 @@
       <DependentUpon>reporteHistoricoUtilidades.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="Reportes\reportePadron.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reportePadron.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Reportes\reportePagoExcedidosPresupuesto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -570,6 +586,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>ReporteInterfacesGenerales.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Reportes\reporteUtilidadSocio.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>reporteUtilidadSocio.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="Reportes\socioEdad.cs">
@@ -824,6 +846,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reporteHistoricoUtilidades.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportePadron.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportePadron.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reportePagoExcedidosPresupuesto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reportePagoExcedidosPresupuesto.cs</LastGenOutput>
@@ -851,6 +877,10 @@
     <EmbeddedResource Include="Reportes\ReporteInterfacesGenerales.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ReporteInterfacesGenerales.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reporteUtilidadSocio.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reporteUtilidadSocio.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="Reportes\socioEdad.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
@@ -1023,6 +1053,17 @@
     <None Include="CrystalDataSets\dsInterfaces.xss">
       <DependentUpon>dsInterfaces.xsd</DependentUpon>
     </None>
+    <None Include="CrystalDataSets\dsPadron.xsc">
+      <DependentUpon>dsPadron.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPadron.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPadron.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsPadron.xss">
+      <DependentUpon>dsPadron.xsd</DependentUpon>
+    </None>
     <None Include="CrystalDataSets\dsPagoExcedidosPresupuesto.xsc">
       <DependentUpon>dsPagoExcedidosPresupuesto.xsd</DependentUpon>
     </None>
@@ -1110,6 +1151,17 @@
     </None>
     <None Include="CrystalDataSets\dsSolicitudIngreso.xss">
       <DependentUpon>dsSolicitudIngreso.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsUtilidadSocio.xsc">
+      <DependentUpon>dsUtilidadSocio.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsUtilidadSocio.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsUtilidadSocio.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsUtilidadSocio.xss">
+      <DependentUpon>dsUtilidadSocio.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsVale.xsc">
       <DependentUpon>dsVale.xsd</DependentUpon>

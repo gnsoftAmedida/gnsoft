@@ -27,6 +27,12 @@ namespace Negocio
             }
         }
 
+        public DataSet devolverPadron()
+        {
+            Inciso tmpInciso = new Inciso();
+            return tmpInciso.devolverPadron();
+        }
+
         public bool controlarLicencia()
         {
             if (FuncionesSeguridad.GetMacAddress().ToString() == VariablesGlobales.Licencia.ToString())
@@ -2065,6 +2071,12 @@ namespace Negocio
         {
             Distribucion tmpDistribucion = new Distribucion();
             return tmpDistribucion.detalleUtilidadesLiquidadasYnoLiquidadas(socio_id);
+        }
+
+        public DataSet utilidadesSocio(int socio_id)
+        {
+            Distribucion tmpDistribucion = new Distribucion();
+            return tmpDistribucion.utilidadesSocio(socio_id);
         }
 
         public DataSet buscarSociosPorCampo(string campo, string valor)

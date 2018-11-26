@@ -111,6 +111,12 @@ namespace Negocio
             return tmppDistribucion.detalleUtilidadesLiquidadasYnoLiquidadas(socio_id);
         }
 
+        public DataSet utilidadesSocio(int socio_id)
+        {
+            pDistribucion tmppDistribucion = new pDistribucion();
+            return tmppDistribucion.utilidadesSocio(socio_id);
+        }
+
         public void eliminarDistribucion(String ejercicio)
         {
             pDistribucion tmppDistribucion = new pDistribucion();
@@ -128,5 +134,6 @@ namespace Negocio
             pDistribucion tmppDistribucion = new pDistribucion();
             return tmppDistribucion.historicoAportesInteresesUtilidades();
         }
+
     }
 }

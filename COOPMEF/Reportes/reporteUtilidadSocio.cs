@@ -16,14 +16,14 @@ namespace COOPMEF.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class reporteCuentaCorriente : ReportClass {
+    public class reporteUtilidadSocio : ReportClass {
         
-        public reporteCuentaCorriente() {
+        public reporteUtilidadSocio() {
         }
         
         public override string ResourceName {
             get {
-                return "reporteCuentaCorriente.rpt";
+                return "reporteUtilidadSocio.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace COOPMEF.Reportes {
         
         public override string FullResourceName {
             get {
-                return "COOPMEF.Reportes.reporteCuentaCorriente.rpt";
+                return "COOPMEF.Reportes.reporteUtilidadSocio.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace COOPMEF.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedreporteCuentaCorriente : Component, ICachedReport {
+    public class CachedreporteUtilidadSocio : Component, ICachedReport {
         
-        public CachedreporteCuentaCorriente() {
+        public CachedreporteUtilidadSocio() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace COOPMEF.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            reporteCuentaCorriente rpt = new reporteCuentaCorriente();
+            reporteUtilidadSocio rpt = new reporteUtilidadSocio();
             rpt.Site = this.Site;
             return rpt;
         }

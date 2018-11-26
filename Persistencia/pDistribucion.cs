@@ -50,7 +50,6 @@ namespace Persistencia
             }
         }
 
-
         public DataSet detalleUtilidadesLiquidadasYnoLiquidadas(int socio_id)
         {
             try
@@ -65,6 +64,30 @@ namespace Persistencia
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
                 MySqlAdapter.SelectCommand.CommandText = sql;
                 MySqlAdapter.Fill(ds, "utilidadesLiquidadasYnoLiquidadas");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataSet utilidadesSocio(int socio_id)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT d.ejercicio, d.aportescapital, d.interesesaportados, d.utilidades, ( d.aportescapital + d.interesesaportados + d.utilidades) as total, d.cheque, d.fecha, s.socio_nro, s.socio_apellido, s.socio_nombre FROM distribucion d, socio s where s.socio_id = d.socio_id and d.socio_id ='" + socio_id.ToString() + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "utilidadDesSocio");
                 connection.Close();
                 return ds;
 

@@ -256,6 +256,22 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = tmpReporteExcedidoSocioHistorico;
             }
 
+            if (tipo.Equals("PADRON"))
+            {
+                COOPMEF.Reportes.reporteUtilidadSocio tmpReporteUtilidadSocio = new COOPMEF.Reportes.reporteUtilidadSocio();
+
+                tmpReporteUtilidadSocio.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReporteUtilidadSocio;
+            }
+            if (tipo.Equals("UTILIDAD_SOCIO"))
+            {
+                COOPMEF.Reportes.reporteUtilidadSocio tmpReportePadron = new COOPMEF.Reportes.reporteUtilidadSocio();
+
+                tmpReportePadron.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReportePadron;
+            }
             if (tipo.Equals("UTILIDAD"))
             {
                 COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();

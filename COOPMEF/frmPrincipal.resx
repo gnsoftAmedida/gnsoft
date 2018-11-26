@@ -209,22 +209,28 @@
     <value>Informes</value>
   </data>
   <data name="distribuciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>188, 22</value>
   </data>
   <data name="distribuciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Distribución</value>
   </data>
   <data name="liquidaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>188, 22</value>
   </data>
   <data name="liquidaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Liquidación</value>
   </data>
   <data name="históricoPorEjercicioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>187, 22</value>
+    <value>188, 22</value>
   </data>
   <data name="históricoPorEjercicioToolStripMenuItem.Text" xml:space="preserve">
     <value>Reporte histórico</value>
+  </data>
+  <data name="utilidadDelSocioToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>188, 22</value>
+  </data>
+  <data name="utilidadDelSocioToolStripMenuItem.Text" xml:space="preserve">
+    <value>Utilidad del Socio</value>
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>165, 22</value>
@@ -480,6 +486,18 @@
   </data>
   <data name="parámetrosDelSistemaToolStripMenuItem.Text" xml:space="preserve">
     <value>Parámetros del Sistema</value>
+  </data>
+  <data name="padrónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 22</value>
+  </data>
+  <data name="padrónToolStripMenuItem.Text" xml:space="preserve">
+    <value>Padrón</value>
+  </data>
+  <data name="informesToolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>230, 22</value>
+  </data>
+  <data name="informesToolStripMenuItem3.Text" xml:space="preserve">
+    <value>Informes</value>
   </data>
   <data name="mToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
     <value>Arial Rounded MT Bold, 9.75pt</value>
@@ -6643,6 +6661,18 @@
   <data name="&gt;&gt;parámetrosDelSistemaToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
+  <data name="&gt;&gt;informesToolStripMenuItem3.Name" xml:space="preserve">
+    <value>informesToolStripMenuItem3</value>
+  </data>
+  <data name="&gt;&gt;informesToolStripMenuItem3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;padrónToolStripMenuItem.Name" xml:space="preserve">
+    <value>padrónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;padrónToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <data name="&gt;&gt;utilitariosToolStripMenuItem.Name" xml:space="preserve">
     <value>utilitariosToolStripMenuItem</value>
   </data>
@@ -6659,6 +6689,12 @@
     <value>ayudaToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;utilidadDelSocioToolStripMenuItem.Name" xml:space="preserve">
+    <value>utilidadDelSocioToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;utilidadDelSocioToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

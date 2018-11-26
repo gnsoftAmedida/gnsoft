@@ -33,6 +33,8 @@ namespace COOPMEF
         private dsHistoricoUtilidades dsdsHistoricoUtilidades = new dsHistoricoUtilidades();
         private socioExcedido dssocioExcedido = new socioExcedido();
         private dsHistoricoPrestamosSocio tmpDsHistoricoPrestamosSocio = new dsHistoricoPrestamosSocio();
+        private dsPadron tmpDsPadron = new dsPadron();
+        private dsUtilidadSocio tmpDsUtilidadSocio = new dsUtilidadSocio();
 
         private bool nuevo = true;
         private int edadDeRiesgo = 58;
@@ -2131,7 +2133,7 @@ namespace COOPMEF
 
                         totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
 
-                        
+
 
                         cuota = empresa.Cuota(tasaConIva, cantidadCuotas, totalDeuda);
 
@@ -3527,6 +3529,96 @@ Agregar emisión
                     else
                     {
                         MessageBox.Show("El socio no posee histórico de préstamos");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Debe seleccionar un socio");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void padrónToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmDevolverPadron"))
+            {
+                DataSet padron = empresa.devolverPadron();
+
+                if (padron.Tables["padron"].Rows.Count > 0)
+                {
+                    for (int n = 0; n <= padron.Tables["padron"].Rows.Count - 1; n++)
+                    {
+                        String inciso = padron.Tables["padron"].Rows[n][0].ToString();
+                        String oficina = padron.Tables["padron"].Rows[n][1].ToString();
+                        String telefono = padron.Tables["padron"].Rows[n][2].ToString();
+                        String contacto = padron.Tables["padron"].Rows[n][3].ToString();
+
+                        tmpDsPadron.padronIncisoOficinas.Rows.Add(inciso, oficina, telefono, contacto);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(tmpDsPadron, "PADRON");
+                    reporte.ShowDialog();
+                    tmpDsPadron.padronIncisoOficinas.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No exíste un padrón de incisos y oficinas");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
+        }
+
+        private void utilidadDelSocioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmUtilidadDelSocio"))
+            {
+                if (!(idSocioSeleccionado == 0))
+                {
+                    DataSet utilidadesSocio = empresa.utilidadesSocio(idSocioSeleccionado);
+
+                    if (utilidadesSocio.Tables["utilidadDesSocio"].Rows.Count > 0)
+                    {
+                        for (int n = 0; n <= utilidadesSocio.Tables["utilidadDesSocio"].Rows.Count - 1; n++)
+                        {
+                            String ejercicio = utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][0].ToString();
+                            Double aportescapital = Convert.ToDouble(utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][1].ToString());
+                            Double interesesaportados = Convert.ToDouble(utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][2].ToString());
+                            Double utilidades = Convert.ToDouble(utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][3].ToString());
+                            Double total = Convert.ToDouble(utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][4].ToString());
+                            String cheque = utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][5].ToString();
+                            //DateTime fecha = Convert.ToDateTime(utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][6].ToString());
+                            String socio_nro = utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][7].ToString();
+                            String socio_apellido = utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][8].ToString();
+                            String socio_nombre = utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][9].ToString();
+
+                            if (cheque == "")
+                            {
+                                cheque = "---";
+                                String sinFecha = "---";
+                                tmpDsUtilidadSocio.Utilidad.Rows.Add(ejercicio, aportescapital.ToString("##0.00"), interesesaportados.ToString("##0.00"), utilidades.ToString("##0.00"), total.ToString("##0.00"), cheque, sinFecha, socio_nro, socio_apellido.Trim() + " " + socio_nombre.Trim());
+                            }
+                            else
+                            {
+                                DateTime fecha = Convert.ToDateTime(utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][6].ToString());
+                                tmpDsUtilidadSocio.Utilidad.Rows.Add(ejercicio, aportescapital.ToString("##0.00"), interesesaportados.ToString("##0.00"), utilidades.ToString("##0.00"), total.ToString("##0.00"), cheque, fecha, socio_nro, socio_apellido.Trim() + " " + socio_nombre.Trim());
+                            }
+                        }
+
+                        frmVerReportes reporte = new frmVerReportes(tmpDsUtilidadSocio, "UTILIDAD_SOCIO");
+                        reporte.ShowDialog();
+                        tmpDsUtilidadSocio.Utilidad.Rows.Clear();
+                    }
+                    else
+                    {
+                        MessageBox.Show("El socio no posee histórico de utilidades");
                     }
                 }
                 else

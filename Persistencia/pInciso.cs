@@ -36,6 +36,30 @@ namespace Persistencia
             }
         }
 
+        public DataSet devolverPadron()
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
+
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre), o.oficina_telefono, o.oficina_nombrecontacto FROM oficina o, inciso i where o.inciso_inciso_id = i.inciso_id order by i.inciso_codigo asc, o.oficina_codigo asc";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "padron");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+      
         public void eliminarInciso(int Id)
         {
 

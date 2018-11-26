@@ -89,6 +89,8 @@
             this.oficinaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.planDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.parámetrosDelSistemaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.padrónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.utilitariosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.queTasaEstánCobrandoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.ayudaToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -284,6 +286,7 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.utilidadDelSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -436,7 +439,8 @@
             this.toolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.distribuciónToolStripMenuItem,
             this.liquidaciónToolStripMenuItem,
-            this.históricoPorEjercicioToolStripMenuItem});
+            this.históricoPorEjercicioToolStripMenuItem,
+            this.utilidadDelSocioToolStripMenuItem});
             this.toolStripMenuItem2.Name = "toolStripMenuItem2";
             resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             // 
@@ -655,7 +659,8 @@
             this.incisoToolStripMenuItem,
             this.oficinaToolStripMenuItem,
             this.planDePréstamosToolStripMenuItem,
-            this.parámetrosDelSistemaToolStripMenuItem});
+            this.parámetrosDelSistemaToolStripMenuItem,
+            this.informesToolStripMenuItem3});
             resources.ApplyResources(this.mToolStripMenuItem, "mToolStripMenuItem");
             this.mToolStripMenuItem.Name = "mToolStripMenuItem";
             this.mToolStripMenuItem.Click += new System.EventHandler(this.mToolStripMenuItem_Click);
@@ -736,6 +741,19 @@
             this.parámetrosDelSistemaToolStripMenuItem.Name = "parámetrosDelSistemaToolStripMenuItem";
             resources.ApplyResources(this.parámetrosDelSistemaToolStripMenuItem, "parámetrosDelSistemaToolStripMenuItem");
             this.parámetrosDelSistemaToolStripMenuItem.Click += new System.EventHandler(this.parámetrosDelSistemaToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem3
+            // 
+            this.informesToolStripMenuItem3.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.padrónToolStripMenuItem});
+            this.informesToolStripMenuItem3.Name = "informesToolStripMenuItem3";
+            resources.ApplyResources(this.informesToolStripMenuItem3, "informesToolStripMenuItem3");
+            // 
+            // padrónToolStripMenuItem
+            // 
+            this.padrónToolStripMenuItem.Name = "padrónToolStripMenuItem";
+            resources.ApplyResources(this.padrónToolStripMenuItem, "padrónToolStripMenuItem");
+            this.padrónToolStripMenuItem.Click += new System.EventHandler(this.padrónToolStripMenuItem_Click);
             // 
             // utilitariosToolStripMenuItem
             // 
@@ -2100,6 +2118,12 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
+            // utilidadDelSocioToolStripMenuItem
+            // 
+            this.utilidadDelSocioToolStripMenuItem.Name = "utilidadDelSocioToolStripMenuItem";
+            resources.ApplyResources(this.utilidadDelSocioToolStripMenuItem, "utilidadDelSocioToolStripMenuItem");
+            this.utilidadDelSocioToolStripMenuItem.Click += new System.EventHandler(this.utilidadDelSocioToolStripMenuItem_Click);
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2415,6 +2439,9 @@
         private System.Windows.Forms.ToolStripMenuItem pagosDeExcedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excedidosToolStripMenuItem;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem3;
+        private System.Windows.Forms.ToolStripMenuItem padrónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem utilidadDelSocioToolStripMenuItem;
     }
 }
 

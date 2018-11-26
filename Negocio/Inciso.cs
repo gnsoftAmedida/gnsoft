@@ -63,5 +63,11 @@ namespace Negocio
             pInciso tmpInciso = new pInciso();
             tmpInciso.modificarInciso(Inciso_codigo, Inciso_nombre, Inciso_abreviatura, Inciso_id);
         }
+
+        public DataSet devolverPadron()
+        {
+            pInciso tmpInciso = new pInciso();
+            return tmpInciso.devolverPadron();
+        }
     }
 }

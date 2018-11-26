@@ -1,0 +1,28 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="dsPadron" targetNamespace="http://tempuri.org/dsPadron.xsd" xmlns:mstns="http://tempuri.org/dsPadron.xsd" xmlns="http://tempuri.org/dsPadron.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="dsPadron" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="dsPadron" msprop:Generator_UserDSName="dsPadron">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="padronIncisoOficinas" msprop:Generator_TableClassName="padronIncisoOficinasDataTable" msprop:Generator_TableVarName="tablepadronIncisoOficinas" msprop:Generator_RowChangedName="padronIncisoOficinasRowChanged" msprop:Generator_TablePropName="padronIncisoOficinas" msprop:Generator_RowDeletingName="padronIncisoOficinasRowDeleting" msprop:Generator_RowChangingName="padronIncisoOficinasRowChanging" msprop:Generator_RowEvHandlerName="padronIncisoOficinasRowChangeEventHandler" msprop:Generator_RowDeletedName="padronIncisoOficinasRowDeleted" msprop:Generator_RowClassName="padronIncisoOficinasRow" msprop:Generator_UserTableName="padronIncisoOficinas" msprop:Generator_RowEvArgName="padronIncisoOficinasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="inciso" msprop:Generator_ColumnVarNameInTable="columninciso" msprop:Generator_ColumnPropNameInRow="inciso" msprop:Generator_ColumnPropNameInTable="incisoColumn" msprop:Generator_UserColumnName="inciso" type="xs:string" minOccurs="0" />
+              <xs:element name="oficina" msprop:Generator_ColumnVarNameInTable="columnoficina" msprop:Generator_ColumnPropNameInRow="oficina" msprop:Generator_ColumnPropNameInTable="oficinaColumn" msprop:Generator_UserColumnName="oficina" type="xs:string" minOccurs="0" />
+              <xs:element name="telefono" msprop:Generator_ColumnVarNameInTable="columntelefono" msprop:Generator_ColumnPropNameInRow="telefono" msprop:Generator_ColumnPropNameInTable="telefonoColumn" msprop:Generator_UserColumnName="telefono" type="xs:string" minOccurs="0" />
+              <xs:element name="contacto" msprop:Generator_ColumnVarNameInTable="columncontacto" msprop:Generator_ColumnPropNameInRow="contacto" msprop:Generator_ColumnPropNameInTable="contactoColumn" msprop:Generator_UserColumnName="contacto" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
