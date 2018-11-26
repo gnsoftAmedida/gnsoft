@@ -49,6 +49,7 @@
             this.distribuciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.liquidaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.históricoPorEjercicioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.utilidadDelSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.reportesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem11 = new System.Windows.Forms.ToolStripMenuItem();
@@ -286,7 +287,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.utilidadDelSocioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -461,6 +461,12 @@
             this.históricoPorEjercicioToolStripMenuItem.Name = "históricoPorEjercicioToolStripMenuItem";
             resources.ApplyResources(this.históricoPorEjercicioToolStripMenuItem, "históricoPorEjercicioToolStripMenuItem");
             this.históricoPorEjercicioToolStripMenuItem.Click += new System.EventHandler(this.históricoPorEjercicioToolStripMenuItem_Click);
+            // 
+            // utilidadDelSocioToolStripMenuItem
+            // 
+            this.utilidadDelSocioToolStripMenuItem.Name = "utilidadDelSocioToolStripMenuItem";
+            resources.ApplyResources(this.utilidadDelSocioToolStripMenuItem, "utilidadDelSocioToolStripMenuItem");
+            this.utilidadDelSocioToolStripMenuItem.Click += new System.EventHandler(this.utilidadDelSocioToolStripMenuItem_Click);
             // 
             // toolStripSeparator1
             // 
@@ -2117,12 +2123,6 @@
             resources.ApplyResources(this.btnOtrosDatos, "btnOtrosDatos");
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
-            // 
-            // utilidadDelSocioToolStripMenuItem
-            // 
-            this.utilidadDelSocioToolStripMenuItem.Name = "utilidadDelSocioToolStripMenuItem";
-            resources.ApplyResources(this.utilidadDelSocioToolStripMenuItem, "utilidadDelSocioToolStripMenuItem");
-            this.utilidadDelSocioToolStripMenuItem.Click += new System.EventHandler(this.utilidadDelSocioToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 

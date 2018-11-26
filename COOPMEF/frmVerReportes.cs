@@ -256,7 +256,7 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = tmpReporteExcedidoSocioHistorico;
             }
 
-            if (tipo.Equals("PADRON"))
+            if (tipo.Equals("UTILIDAD_SOCIO"))
             {
                 COOPMEF.Reportes.reporteUtilidadSocio tmpReporteUtilidadSocio = new COOPMEF.Reportes.reporteUtilidadSocio();
 
@@ -264,9 +264,9 @@ namespace COOPMEF
 
                 this.crystalReportViewer1.ReportSource = tmpReporteUtilidadSocio;
             }
-            if (tipo.Equals("UTILIDAD_SOCIO"))
+            if (tipo.Equals("PADRON"))
             {
-                COOPMEF.Reportes.reporteUtilidadSocio tmpReportePadron = new COOPMEF.Reportes.reporteUtilidadSocio();
+                COOPMEF.Reportes.reportePadron tmpReportePadron = new COOPMEF.Reportes.reportePadron();
 
                 tmpReportePadron.SetDataSource(DS);
 
