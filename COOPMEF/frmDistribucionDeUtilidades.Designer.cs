@@ -102,6 +102,7 @@
             // txtUtilidades
             // 
             this.txtUtilidades.Location = new System.Drawing.Point(18, 33);
+            this.txtUtilidades.MaxLength = 10;
             this.txtUtilidades.Name = "txtUtilidades";
             this.txtUtilidades.Size = new System.Drawing.Size(104, 26);
             this.txtUtilidades.TabIndex = 5;

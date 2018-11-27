@@ -136,6 +136,7 @@
             // txtConcepto
             // 
             this.txtConcepto.Location = new System.Drawing.Point(21, 49);
+            this.txtConcepto.MaxLength = 249;
             this.txtConcepto.Name = "txtConcepto";
             this.txtConcepto.Size = new System.Drawing.Size(188, 24);
             this.txtConcepto.TabIndex = 0;

@@ -389,7 +389,7 @@ namespace COOPMEF
 
             if (VerificarPermisosUsuario("AltaSocio"))
             {
-
+                cancelar(false);
 
                 limpiarDatosGralesDeSocio();
                 activarAltaSocio();
@@ -445,6 +445,8 @@ namespace COOPMEF
                 }
 
                 txtNroSocio.Focus();
+
+                this.btnGuardarPrestamo.Enabled = false;
             }
             else
             {
@@ -1774,6 +1776,12 @@ namespace COOPMEF
 
         private void btnCancelarBusqueda_Click(object sender, EventArgs e)
         {
+            cancelar(true);
+
+        }
+
+        private void cancelar(bool todo)
+        {
 
             this.idSocioSeleccionado = 0;
 
@@ -1902,8 +1910,11 @@ namespace COOPMEF
 
             txtTotalDeuda.Text = "0.00";
 
-            // Trampa para generar columnas en el datagridview
-            socioPorCampo("socio_nro", "#");
+            if (todo)
+            {
+                // Trampa para generar columnas en el datagridview
+                socioPorCampo("socio_nro", "#");
+            }
         }
 
         private void cmbInciso_SelectedIndexChanged(object sender, EventArgs e)
@@ -2466,24 +2477,42 @@ namespace COOPMEF
             if (VerificarPermisosUsuario("solicitarPrestamo"))
             {
 
-
-                int estado = devolverEstadoSocio();
-
-                if (estado == 1)
+                if (Convert.ToDouble(txtImporteCuota.Text) >= 1)
                 {
-                    totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
 
-                    DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text), cantidadCuotas, montoAnterior, txtInteresesAVencer.Text, cuota, totalDeuda - montoAnterior, totalDeuda, cuotaAnteriorPrestamo);
-                    frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
-                    reporte.ShowDialog();
-                    DE.solicitud.Rows.Clear();
-                    btnGuardarPrestamo.Enabled = true;
-                    txtNuevoImporte.ReadOnly = true;
-                    cmbPlanPréstamo.Enabled = false;
+                    int estado = devolverEstadoSocio();
+
+                    if (estado == 1)
+                    {
+                        totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
+
+
+                        String saldoAnterior = "";
+                        if (txtPagas.Text == "0")
+                        {
+                            saldoAnterior = montoAnterior.ToString("##0.00");
+                        }
+                        else
+                        {
+                            saldoAnterior = Convert.ToDouble(txtAmortización.Text).ToString("##0.00");
+                        }
+
+                        DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text).ToString("##0.00"), cantidadCuotas, saldoAnterior, txtInteresesAVencer.Text, cuota, (totalDeuda - Convert.ToDouble(saldoAnterior)).ToString("##0.00"), totalDeuda.ToString("##0.00"), cuotaAnteriorPrestamo.ToString("##0.00"));
+                        frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
+                        reporte.ShowDialog();
+                        DE.solicitud.Rows.Clear();
+                        btnGuardarPrestamo.Enabled = true;
+                        txtNuevoImporte.ReadOnly = true;
+                        cmbPlanPréstamo.Enabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("El socio no está dado de alta en el sistema");
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("El socio no está dado de alta en el sistema");
+                    MessageBox.Show("El importe de la cuota no puede ser menor a $1.00");
                 }
             }
             else
@@ -3678,17 +3707,9 @@ Agregar emisión
             if (VerificarPermisosUsuario("frmAgenda"))
             {
                 frmAgenda a = new frmAgenda();
-                a.Show();
-            }
-            else if (VerificarPermisosUsuario("frmReporteEvento"))
-            {
-                frmReporteEventos frmReportes = new frmReporteEventos();
-                frmReportes.ShowDialog();
+                a.ShowDialog();
             }
             else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
             {
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }

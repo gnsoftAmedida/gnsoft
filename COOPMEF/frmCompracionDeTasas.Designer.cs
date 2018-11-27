@@ -125,6 +125,7 @@
             // 
             this.txtCantCuotas.Location = new System.Drawing.Point(149, 61);
             this.txtCantCuotas.Margin = new System.Windows.Forms.Padding(2);
+            this.txtCantCuotas.MaxLength = 10;
             this.txtCantCuotas.Name = "txtCantCuotas";
             this.txtCantCuotas.Size = new System.Drawing.Size(64, 20);
             this.txtCantCuotas.TabIndex = 1;
@@ -133,6 +134,7 @@
             // 
             this.txtMontoCuota.Location = new System.Drawing.Point(149, 84);
             this.txtMontoCuota.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMontoCuota.MaxLength = 10;
             this.txtMontoCuota.Name = "txtMontoCuota";
             this.txtMontoCuota.Size = new System.Drawing.Size(64, 20);
             this.txtMontoCuota.TabIndex = 2;
@@ -142,6 +144,7 @@
             this.txtTotalAPagar.Enabled = false;
             this.txtTotalAPagar.Location = new System.Drawing.Point(149, 106);
             this.txtTotalAPagar.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTotalAPagar.MaxLength = 10;
             this.txtTotalAPagar.Name = "txtTotalAPagar";
             this.txtTotalAPagar.Size = new System.Drawing.Size(64, 20);
             this.txtTotalAPagar.TabIndex = 5;
@@ -151,6 +154,7 @@
             this.txtTasa.Enabled = false;
             this.txtTasa.Location = new System.Drawing.Point(149, 129);
             this.txtTasa.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTasa.MaxLength = 10;
             this.txtTasa.Name = "txtTasa";
             this.txtTasa.Size = new System.Drawing.Size(64, 20);
             this.txtTasa.TabIndex = 6;
@@ -159,6 +163,7 @@
             // 
             this.txtMonto.Location = new System.Drawing.Point(149, 38);
             this.txtMonto.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMonto.MaxLength = 10;
             this.txtMonto.Name = "txtMonto";
             this.txtMonto.Size = new System.Drawing.Size(64, 20);
             this.txtMonto.TabIndex = 0;
@@ -183,6 +188,7 @@
             this.txtMontoCuotaCoop.Enabled = false;
             this.txtMontoCuotaCoop.Location = new System.Drawing.Point(8, 33);
             this.txtMontoCuotaCoop.Margin = new System.Windows.Forms.Padding(2);
+            this.txtMontoCuotaCoop.MaxLength = 10;
             this.txtMontoCuotaCoop.Name = "txtMontoCuotaCoop";
             this.txtMontoCuotaCoop.Size = new System.Drawing.Size(81, 20);
             this.txtMontoCuotaCoop.TabIndex = 7;
@@ -192,6 +198,7 @@
             this.txtTotalAPagarCoop.Enabled = false;
             this.txtTotalAPagarCoop.Location = new System.Drawing.Point(8, 56);
             this.txtTotalAPagarCoop.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTotalAPagarCoop.MaxLength = 10;
             this.txtTotalAPagarCoop.Name = "txtTotalAPagarCoop";
             this.txtTotalAPagarCoop.Size = new System.Drawing.Size(81, 20);
             this.txtTotalAPagarCoop.TabIndex = 8;
@@ -201,6 +208,7 @@
             this.txtAhorro.Enabled = false;
             this.txtAhorro.Location = new System.Drawing.Point(42, 79);
             this.txtAhorro.Margin = new System.Windows.Forms.Padding(2);
+            this.txtAhorro.MaxLength = 10;
             this.txtAhorro.Name = "txtAhorro";
             this.txtAhorro.Size = new System.Drawing.Size(47, 20);
             this.txtAhorro.TabIndex = 10;
@@ -210,6 +218,7 @@
             this.txtTasaCoop.Enabled = false;
             this.txtTasaCoop.Location = new System.Drawing.Point(8, 79);
             this.txtTasaCoop.Margin = new System.Windows.Forms.Padding(2);
+            this.txtTasaCoop.MaxLength = 10;
             this.txtTasaCoop.Name = "txtTasaCoop";
             this.txtTasaCoop.Size = new System.Drawing.Size(30, 20);
             this.txtTasaCoop.TabIndex = 9;

@@ -203,7 +203,6 @@
             this.btnGuardarPrestamo = new System.Windows.Forms.Button();
             this.btnSalirPrestamo = new System.Windows.Forms.Button();
             this.btnCancelarPrestamo = new System.Windows.Forms.Button();
-            this.txtObs = new System.Windows.Forms.TextBox();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
             this.cmbPlanPréstamo = new System.Windows.Forms.ComboBox();
             this.txtImporteCuota = new System.Windows.Forms.TextBox();
@@ -235,7 +234,6 @@
             this.txtOficina = new System.Windows.Forms.TextBox();
             this.lblOficina = new System.Windows.Forms.Label();
             this.lblInciso = new System.Windows.Forms.Label();
-            this.lblObs = new System.Windows.Forms.Label();
             this.tabCobranzaExcedidos = new System.Windows.Forms.TabPage();
             this.button1 = new System.Windows.Forms.Button();
             this.btnPagarCobranza = new System.Windows.Forms.Button();
@@ -1538,11 +1536,9 @@
             this.tabPrestamo.Controls.Add(this.btnGuardarPrestamo);
             this.tabPrestamo.Controls.Add(this.btnSalirPrestamo);
             this.tabPrestamo.Controls.Add(this.btnCancelarPrestamo);
-            this.tabPrestamo.Controls.Add(this.txtObs);
             this.tabPrestamo.Controls.Add(this.groupBox6);
             this.tabPrestamo.Controls.Add(this.groupBox5);
             this.tabPrestamo.Controls.Add(this.groupBox4);
-            this.tabPrestamo.Controls.Add(this.lblObs);
             resources.ApplyResources(this.tabPrestamo, "tabPrestamo");
             this.tabPrestamo.Name = "tabPrestamo";
             this.tabPrestamo.Click += new System.EventHandler(this.tabPrestamo_Click);
@@ -1578,11 +1574,6 @@
             this.btnCancelarPrestamo.Name = "btnCancelarPrestamo";
             this.btnCancelarPrestamo.UseVisualStyleBackColor = true;
             this.btnCancelarPrestamo.Click += new System.EventHandler(this.btnCancelarPrestamo_Click);
-            // 
-            // txtObs
-            // 
-            resources.ApplyResources(this.txtObs, "txtObs");
-            this.txtObs.Name = "txtObs";
             // 
             // groupBox6
             // 
@@ -1786,11 +1777,6 @@
             // 
             resources.ApplyResources(this.lblInciso, "lblInciso");
             this.lblInciso.Name = "lblInciso";
-            // 
-            // lblObs
-            // 
-            resources.ApplyResources(this.lblObs, "lblObs");
-            this.lblObs.Name = "lblObs";
             // 
             // tabCobranzaExcedidos
             // 
@@ -2021,6 +2007,7 @@
             // 
             // txtBusqueda
             // 
+            this.txtBusqueda.CausesValidation = false;
             resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
             this.txtBusqueda.Name = "txtBusqueda";
             // 
@@ -2214,7 +2201,6 @@
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
             this.tabPrestamo.ResumeLayout(false);
-            this.tabPrestamo.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
             this.groupBox5.ResumeLayout(false);
@@ -2271,14 +2257,12 @@
         private System.Windows.Forms.Label lblMonto;
         private System.Windows.Forms.Label lblNroPréstamo;
         private System.Windows.Forms.Label lblCuotas;
-        private System.Windows.Forms.Label lblObs;
         private System.Windows.Forms.Label lblPagas;
         private System.Windows.Forms.GroupBox groupBox4;
         private System.Windows.Forms.TextBox txtInciso;
         private System.Windows.Forms.TextBox txtOficina;
         private System.Windows.Forms.Label lblOficina;
         private System.Windows.Forms.Label lblInciso;
-        private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.GroupBox groupBox6;
         private System.Windows.Forms.TextBox txtImporteCuota;
         private System.Windows.Forms.TextBox txtTotalDeuda;

@@ -146,6 +146,7 @@
             // texBoxNombrePlan
             // 
             this.texBoxNombrePlan.Location = new System.Drawing.Point(188, 62);
+            this.texBoxNombrePlan.MaxLength = 49;
             this.texBoxNombrePlan.Name = "texBoxNombrePlan";
             this.texBoxNombrePlan.Size = new System.Drawing.Size(132, 20);
             this.texBoxNombrePlan.TabIndex = 1;
@@ -153,6 +154,7 @@
             // txtBoxCantCuotas
             // 
             this.txtBoxCantCuotas.Location = new System.Drawing.Point(188, 108);
+            this.txtBoxCantCuotas.MaxLength = 10;
             this.txtBoxCantCuotas.Name = "txtBoxCantCuotas";
             this.txtBoxCantCuotas.Size = new System.Drawing.Size(132, 20);
             this.txtBoxCantCuotas.TabIndex = 2;
@@ -187,6 +189,7 @@
             // txtBoxTasaAnualSinIVA
             // 
             this.txtBoxTasaAnualSinIVA.Location = new System.Drawing.Point(188, 152);
+            this.txtBoxTasaAnualSinIVA.MaxLength = 10;
             this.txtBoxTasaAnualSinIVA.Name = "txtBoxTasaAnualSinIVA";
             this.txtBoxTasaAnualSinIVA.Size = new System.Drawing.Size(132, 20);
             this.txtBoxTasaAnualSinIVA.TabIndex = 3;
@@ -294,6 +297,7 @@
             // txtBoxIVA
             // 
             this.txtBoxIVA.Location = new System.Drawing.Point(188, 191);
+            this.txtBoxIVA.MaxLength = 10;
             this.txtBoxIVA.Name = "txtBoxIVA";
             this.txtBoxIVA.Size = new System.Drawing.Size(132, 20);
             this.txtBoxIVA.TabIndex = 4;

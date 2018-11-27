@@ -79,6 +79,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(151, 188);
+            this.txtTelefono.MaxLength = 44;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(142, 20);
             this.txtTelefono.TabIndex = 31;
@@ -86,6 +87,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(151, 152);
+            this.txtCorreo.MaxLength = 44;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(142, 20);
             this.txtCorreo.TabIndex = 29;
@@ -93,6 +95,7 @@
             // txtConfirmacionClave
             // 
             this.txtConfirmacionClave.Location = new System.Drawing.Point(151, 114);
+            this.txtConfirmacionClave.MaxLength = 49;
             this.txtConfirmacionClave.Name = "txtConfirmacionClave";
             this.txtConfirmacionClave.PasswordChar = '*';
             this.txtConfirmacionClave.Size = new System.Drawing.Size(142, 20);
@@ -101,6 +104,7 @@
             // txtClave
             // 
             this.txtClave.Location = new System.Drawing.Point(151, 76);
+            this.txtClave.MaxLength = 49;
             this.txtClave.Name = "txtClave";
             this.txtClave.PasswordChar = '*';
             this.txtClave.Size = new System.Drawing.Size(142, 20);
@@ -109,6 +113,7 @@
             // txtAlias
             // 
             this.txtAlias.Location = new System.Drawing.Point(151, 38);
+            this.txtAlias.MaxLength = 44;
             this.txtAlias.Name = "txtAlias";
             this.txtAlias.Size = new System.Drawing.Size(142, 20);
             this.txtAlias.TabIndex = 22;

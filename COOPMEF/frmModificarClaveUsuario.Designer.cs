@@ -71,6 +71,7 @@
             // txtClaveAnterior
             // 
             this.txtClaveAnterior.Location = new System.Drawing.Point(147, 25);
+            this.txtClaveAnterior.MaxLength = 49;
             this.txtClaveAnterior.Name = "txtClaveAnterior";
             this.txtClaveAnterior.PasswordChar = '*';
             this.txtClaveAnterior.Size = new System.Drawing.Size(142, 20);
@@ -79,6 +80,7 @@
             // txtConfirmacionClave
             // 
             this.txtConfirmacionClave.Location = new System.Drawing.Point(147, 102);
+            this.txtConfirmacionClave.MaxLength = 49;
             this.txtConfirmacionClave.Name = "txtConfirmacionClave";
             this.txtConfirmacionClave.PasswordChar = '*';
             this.txtConfirmacionClave.Size = new System.Drawing.Size(142, 20);
@@ -87,6 +89,7 @@
             // txtClaveNueva
             // 
             this.txtClaveNueva.Location = new System.Drawing.Point(147, 64);
+            this.txtClaveNueva.MaxLength = 49;
             this.txtClaveNueva.Name = "txtClaveNueva";
             this.txtClaveNueva.PasswordChar = '*';
             this.txtClaveNueva.Size = new System.Drawing.Size(142, 20);

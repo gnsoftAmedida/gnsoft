@@ -177,93 +177,106 @@
             // txtDeptoCoop
             // 
             this.txtDeptoCoop.Location = new System.Drawing.Point(104, 109);
+            this.txtDeptoCoop.MaxLength = 44;
             this.txtDeptoCoop.Name = "txtDeptoCoop";
             this.txtDeptoCoop.Size = new System.Drawing.Size(242, 20);
-            this.txtDeptoCoop.TabIndex = 25;
+            this.txtDeptoCoop.TabIndex = 3;
             // 
             // txtInteresMoraCoop
             // 
             this.txtInteresMoraCoop.Location = new System.Drawing.Point(281, 255);
+            this.txtInteresMoraCoop.MaxLength = 44;
             this.txtInteresMoraCoop.Name = "txtInteresMoraCoop";
             this.txtInteresMoraCoop.Size = new System.Drawing.Size(65, 20);
-            this.txtInteresMoraCoop.TabIndex = 24;
+            this.txtInteresMoraCoop.TabIndex = 11;
             // 
             // txtMaxUnidCoop
             // 
             this.txtMaxUnidCoop.Location = new System.Drawing.Point(281, 227);
+            this.txtMaxUnidCoop.MaxLength = 44;
             this.txtMaxUnidCoop.Name = "txtMaxUnidCoop";
             this.txtMaxUnidCoop.Size = new System.Drawing.Size(65, 20);
-            this.txtMaxUnidCoop.TabIndex = 23;
+            this.txtMaxUnidCoop.TabIndex = 9;
             // 
             // txtCodPostal
             // 
             this.txtCodPostal.Location = new System.Drawing.Point(104, 138);
+            this.txtCodPostal.MaxLength = 44;
             this.txtCodPostal.Name = "txtCodPostal";
             this.txtCodPostal.Size = new System.Drawing.Size(103, 20);
-            this.txtCodPostal.TabIndex = 22;
+            this.txtCodPostal.TabIndex = 4;
             // 
             // txtIVACoop
             // 
             this.txtIVACoop.Location = new System.Drawing.Point(104, 255);
+            this.txtIVACoop.MaxLength = 44;
             this.txtIVACoop.Name = "txtIVACoop";
             this.txtIVACoop.Size = new System.Drawing.Size(103, 20);
-            this.txtIVACoop.TabIndex = 21;
+            this.txtIVACoop.TabIndex = 10;
             // 
             // txtAporteCoop
             // 
             this.txtAporteCoop.Location = new System.Drawing.Point(104, 227);
+            this.txtAporteCoop.MaxLength = 44;
             this.txtAporteCoop.Name = "txtAporteCoop";
             this.txtAporteCoop.Size = new System.Drawing.Size(103, 20);
-            this.txtAporteCoop.TabIndex = 20;
+            this.txtAporteCoop.TabIndex = 8;
             // 
             // txtFaxCoop
             // 
             this.txtFaxCoop.Location = new System.Drawing.Point(243, 168);
+            this.txtFaxCoop.MaxLength = 44;
             this.txtFaxCoop.Name = "txtFaxCoop";
             this.txtFaxCoop.Size = new System.Drawing.Size(103, 20);
-            this.txtFaxCoop.TabIndex = 19;
+            this.txtFaxCoop.TabIndex = 6;
             // 
             // txtTelCoop
             // 
             this.txtTelCoop.Location = new System.Drawing.Point(104, 168);
+            this.txtTelCoop.MaxLength = 44;
             this.txtTelCoop.Name = "txtTelCoop";
             this.txtTelCoop.Size = new System.Drawing.Size(103, 20);
-            this.txtTelCoop.TabIndex = 18;
+            this.txtTelCoop.TabIndex = 5;
             // 
             // txtEmailCoop
             // 
             this.txtEmailCoop.Location = new System.Drawing.Point(104, 286);
+            this.txtEmailCoop.MaxLength = 44;
             this.txtEmailCoop.Name = "txtEmailCoop";
             this.txtEmailCoop.Size = new System.Drawing.Size(242, 20);
-            this.txtEmailCoop.TabIndex = 17;
+            this.txtEmailCoop.TabIndex = 12;
             // 
             // txtRUTCoop
             // 
             this.txtRUTCoop.Location = new System.Drawing.Point(104, 198);
+            this.txtRUTCoop.MaxLength = 44;
             this.txtRUTCoop.Name = "txtRUTCoop";
             this.txtRUTCoop.Size = new System.Drawing.Size(242, 20);
-            this.txtRUTCoop.TabIndex = 16;
+            this.txtRUTCoop.TabIndex = 7;
             // 
             // txtDirecciónCoop
             // 
             this.txtDirecciónCoop.Location = new System.Drawing.Point(104, 83);
+            this.txtDirecciónCoop.MaxLength = 44;
             this.txtDirecciónCoop.Name = "txtDirecciónCoop";
             this.txtDirecciónCoop.Size = new System.Drawing.Size(242, 20);
-            this.txtDirecciónCoop.TabIndex = 15;
+            this.txtDirecciónCoop.TabIndex = 2;
             // 
             // txtSiglaCoop
             // 
             this.txtSiglaCoop.Location = new System.Drawing.Point(104, 62);
+            this.txtSiglaCoop.MaxLength = 44;
             this.txtSiglaCoop.Name = "txtSiglaCoop";
             this.txtSiglaCoop.Size = new System.Drawing.Size(242, 20);
-            this.txtSiglaCoop.TabIndex = 14;
+            this.txtSiglaCoop.TabIndex = 1;
             // 
             // txtNombreCoop
             // 
             this.txtNombreCoop.Location = new System.Drawing.Point(104, 40);
+            this.txtNombreCoop.MaxLength = 99;
             this.txtNombreCoop.Name = "txtNombreCoop";
             this.txtNombreCoop.Size = new System.Drawing.Size(242, 20);
-            this.txtNombreCoop.TabIndex = 13;
+            this.txtNombreCoop.TabIndex = 0;
             // 
             // label13
             // 
@@ -409,42 +422,47 @@
             this.dtpFechaEleccion.Location = new System.Drawing.Point(221, 201);
             this.dtpFechaEleccion.Name = "dtpFechaEleccion";
             this.dtpFechaEleccion.Size = new System.Drawing.Size(92, 20);
-            this.dtpFechaEleccion.TabIndex = 31;
+            this.dtpFechaEleccion.TabIndex = 5;
             // 
             // txtTesoreroCoop
             // 
             this.txtTesoreroCoop.Location = new System.Drawing.Point(96, 62);
+            this.txtTesoreroCoop.MaxLength = 44;
             this.txtTesoreroCoop.Name = "txtTesoreroCoop";
             this.txtTesoreroCoop.Size = new System.Drawing.Size(217, 20);
-            this.txtTesoreroCoop.TabIndex = 30;
+            this.txtTesoreroCoop.TabIndex = 1;
             // 
             // txtSecretarioCoop
             // 
             this.txtSecretarioCoop.Location = new System.Drawing.Point(96, 87);
+            this.txtSecretarioCoop.MaxLength = 44;
             this.txtSecretarioCoop.Name = "txtSecretarioCoop";
             this.txtSecretarioCoop.Size = new System.Drawing.Size(217, 20);
-            this.txtSecretarioCoop.TabIndex = 29;
+            this.txtSecretarioCoop.TabIndex = 2;
             // 
             // txtPrimerVocalCoop
             // 
             this.txtPrimerVocalCoop.Location = new System.Drawing.Point(96, 111);
+            this.txtPrimerVocalCoop.MaxLength = 44;
             this.txtPrimerVocalCoop.Name = "txtPrimerVocalCoop";
             this.txtPrimerVocalCoop.Size = new System.Drawing.Size(217, 20);
-            this.txtPrimerVocalCoop.TabIndex = 28;
+            this.txtPrimerVocalCoop.TabIndex = 3;
             // 
             // txtSegVocalCoop
             // 
             this.txtSegVocalCoop.Location = new System.Drawing.Point(96, 138);
+            this.txtSegVocalCoop.MaxLength = 44;
             this.txtSegVocalCoop.Name = "txtSegVocalCoop";
             this.txtSegVocalCoop.Size = new System.Drawing.Size(217, 20);
-            this.txtSegVocalCoop.TabIndex = 27;
+            this.txtSegVocalCoop.TabIndex = 4;
             // 
             // txtPresidenteCoop
             // 
             this.txtPresidenteCoop.Location = new System.Drawing.Point(96, 38);
+            this.txtPresidenteCoop.MaxLength = 44;
             this.txtPresidenteCoop.Name = "txtPresidenteCoop";
             this.txtPresidenteCoop.Size = new System.Drawing.Size(217, 20);
-            this.txtPresidenteCoop.TabIndex = 26;
+            this.txtPresidenteCoop.TabIndex = 0;
             // 
             // label19
             // 
@@ -508,7 +526,7 @@
             this.btnSalirParametrosSistema.Location = new System.Drawing.Point(664, 328);
             this.btnSalirParametrosSistema.Name = "btnSalirParametrosSistema";
             this.btnSalirParametrosSistema.Size = new System.Drawing.Size(96, 29);
-            this.btnSalirParametrosSistema.TabIndex = 33;
+            this.btnSalirParametrosSistema.TabIndex = 1;
             this.btnSalirParametrosSistema.Text = "     Salir";
             this.btnSalirParametrosSistema.UseVisualStyleBackColor = true;
             this.btnSalirParametrosSistema.Click += new System.EventHandler(this.btnSalirParametrosSistema_Click);
@@ -521,7 +539,7 @@
             this.btnGuardarParametrosSistema.Location = new System.Drawing.Point(551, 328);
             this.btnGuardarParametrosSistema.Name = "btnGuardarParametrosSistema";
             this.btnGuardarParametrosSistema.Size = new System.Drawing.Size(96, 31);
-            this.btnGuardarParametrosSistema.TabIndex = 32;
+            this.btnGuardarParametrosSistema.TabIndex = 0;
             this.btnGuardarParametrosSistema.Text = "     Guardar";
             this.btnGuardarParametrosSistema.UseVisualStyleBackColor = true;
             this.btnGuardarParametrosSistema.Click += new System.EventHandler(this.btnGuardarParametrosSistema_Click);
@@ -537,7 +555,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "ParámetrosDelSistema";
-            this.Text = "ParametrosDelSistema";
+            this.Text = "Parámetros del Sistema";
             this.Load += new System.EventHandler(this.ParámetrosDelSistema_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

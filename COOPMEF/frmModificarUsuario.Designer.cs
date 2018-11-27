@@ -75,6 +75,7 @@
             // txtTelefono
             // 
             this.txtTelefono.Location = new System.Drawing.Point(135, 96);
+            this.txtTelefono.MaxLength = 44;
             this.txtTelefono.Name = "txtTelefono";
             this.txtTelefono.Size = new System.Drawing.Size(142, 20);
             this.txtTelefono.TabIndex = 44;
@@ -82,6 +83,7 @@
             // txtCorreo
             // 
             this.txtCorreo.Location = new System.Drawing.Point(135, 60);
+            this.txtCorreo.MaxLength = 44;
             this.txtCorreo.Name = "txtCorreo";
             this.txtCorreo.Size = new System.Drawing.Size(142, 20);
             this.txtCorreo.TabIndex = 43;
@@ -89,6 +91,7 @@
             // txtAlias
             // 
             this.txtAlias.Location = new System.Drawing.Point(135, 24);
+            this.txtAlias.MaxLength = 44;
             this.txtAlias.Name = "txtAlias";
             this.txtAlias.Size = new System.Drawing.Size(142, 20);
             this.txtAlias.TabIndex = 42;
