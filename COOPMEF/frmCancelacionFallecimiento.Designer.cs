@@ -458,6 +458,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.btnCancelarBusqueda);
             this.Controls.Add(this.groupBox4);
+            this.MaximizeBox = false;
             this.Name = "frmCancelacionFallecimiento";
             this.Text = "Cancelación de deudas por fallecimiento";
             this.Load += new System.EventHandler(this.frmCancelacionFallecimiento_Load);

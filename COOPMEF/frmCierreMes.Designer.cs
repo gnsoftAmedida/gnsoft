@@ -32,19 +32,19 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.btnCancelarBusqueda = new System.Windows.Forms.Button();
-            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
-            this.lblFechaPresupuestoAnterior = new System.Windows.Forms.Label();
-            this.lblHoraPresupuestoAnterior = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.lblHoraPresupuestoAnterior = new System.Windows.Forms.Label();
+            this.lblFechaPresupuestoAnterior = new System.Windows.Forms.Label();
+            this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.lblFechaPresupuestoUltimo = new System.Windows.Forms.Label();
             this.lblHoraPresupuestoUltimo = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.lblFechaVencimientoPresupuesto = new System.Windows.Forms.Label();
+            this.btnCancelarBusqueda = new System.Windows.Forms.Button();
+            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lblFechaCierre = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
@@ -89,6 +89,42 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Cierre Pres. Ant.";
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(6, 70);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(48, 20);
+            this.label2.TabIndex = 3;
+            this.label2.Text = "Hora";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(6, 37);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(59, 20);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Fecha";
+            // 
+            // lblHoraPresupuestoAnterior
+            // 
+            this.lblHoraPresupuestoAnterior.AutoSize = true;
+            this.lblHoraPresupuestoAnterior.Location = new System.Drawing.Point(100, 70);
+            this.lblHoraPresupuestoAnterior.Name = "lblHoraPresupuestoAnterior";
+            this.lblHoraPresupuestoAnterior.Size = new System.Drawing.Size(57, 20);
+            this.lblHoraPresupuestoAnterior.TabIndex = 1;
+            this.lblHoraPresupuestoAnterior.Text = "label1";
+            // 
+            // lblFechaPresupuestoAnterior
+            // 
+            this.lblFechaPresupuestoAnterior.AutoSize = true;
+            this.lblFechaPresupuestoAnterior.Location = new System.Drawing.Point(100, 37);
+            this.lblFechaPresupuestoAnterior.Name = "lblFechaPresupuestoAnterior";
+            this.lblFechaPresupuestoAnterior.Size = new System.Drawing.Size(57, 20);
+            this.lblFechaPresupuestoAnterior.TabIndex = 1;
+            this.lblFechaPresupuestoAnterior.Text = "label1";
+            // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label6);
@@ -103,6 +139,42 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Cierre Ult. Pres.";
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(6, 70);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(48, 20);
+            this.label6.TabIndex = 3;
+            this.label6.Text = "Hora";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(6, 37);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(59, 20);
+            this.label5.TabIndex = 2;
+            this.label5.Text = "Fecha";
+            // 
+            // lblFechaPresupuestoUltimo
+            // 
+            this.lblFechaPresupuestoUltimo.AutoSize = true;
+            this.lblFechaPresupuestoUltimo.Location = new System.Drawing.Point(100, 37);
+            this.lblFechaPresupuestoUltimo.Name = "lblFechaPresupuestoUltimo";
+            this.lblFechaPresupuestoUltimo.Size = new System.Drawing.Size(57, 20);
+            this.lblFechaPresupuestoUltimo.TabIndex = 1;
+            this.lblFechaPresupuestoUltimo.Text = "label1";
+            // 
+            // lblHoraPresupuestoUltimo
+            // 
+            this.lblHoraPresupuestoUltimo.AutoSize = true;
+            this.lblHoraPresupuestoUltimo.Location = new System.Drawing.Point(100, 70);
+            this.lblHoraPresupuestoUltimo.Name = "lblHoraPresupuestoUltimo";
+            this.lblHoraPresupuestoUltimo.Size = new System.Drawing.Size(57, 20);
+            this.lblHoraPresupuestoUltimo.TabIndex = 1;
+            this.lblHoraPresupuestoUltimo.Text = "label1";
+            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.lblFechaVencimientoPresupuesto);
@@ -113,6 +185,15 @@
             this.groupBox4.TabIndex = 1;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Vto. Ult. Pres";
+            // 
+            // lblFechaVencimientoPresupuesto
+            // 
+            this.lblFechaVencimientoPresupuesto.AutoSize = true;
+            this.lblFechaVencimientoPresupuesto.Location = new System.Drawing.Point(59, 31);
+            this.lblFechaVencimientoPresupuesto.Name = "lblFechaVencimientoPresupuesto";
+            this.lblFechaVencimientoPresupuesto.Size = new System.Drawing.Size(57, 20);
+            this.lblFechaVencimientoPresupuesto.TabIndex = 1;
+            this.lblFechaVencimientoPresupuesto.Text = "label1";
             // 
             // btnCancelarBusqueda
             // 
@@ -139,87 +220,6 @@
             this.btnSeleccionarSocio.Text = "     Aceptar";
             this.btnSeleccionarSocio.UseVisualStyleBackColor = true;
             this.btnSeleccionarSocio.Click += new System.EventHandler(this.btnSeleccionarSocio_Click);
-            // 
-            // lblFechaPresupuestoAnterior
-            // 
-            this.lblFechaPresupuestoAnterior.AutoSize = true;
-            this.lblFechaPresupuestoAnterior.Location = new System.Drawing.Point(100, 37);
-            this.lblFechaPresupuestoAnterior.Name = "lblFechaPresupuestoAnterior";
-            this.lblFechaPresupuestoAnterior.Size = new System.Drawing.Size(57, 20);
-            this.lblFechaPresupuestoAnterior.TabIndex = 1;
-            this.lblFechaPresupuestoAnterior.Text = "label1";
-            // 
-            // lblHoraPresupuestoAnterior
-            // 
-            this.lblHoraPresupuestoAnterior.AutoSize = true;
-            this.lblHoraPresupuestoAnterior.Location = new System.Drawing.Point(100, 70);
-            this.lblHoraPresupuestoAnterior.Name = "lblHoraPresupuestoAnterior";
-            this.lblHoraPresupuestoAnterior.Size = new System.Drawing.Size(57, 20);
-            this.lblHoraPresupuestoAnterior.TabIndex = 1;
-            this.lblHoraPresupuestoAnterior.Text = "label1";
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(6, 37);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(59, 20);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Fecha";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(6, 70);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(48, 20);
-            this.label2.TabIndex = 3;
-            this.label2.Text = "Hora";
-            // 
-            // lblFechaPresupuestoUltimo
-            // 
-            this.lblFechaPresupuestoUltimo.AutoSize = true;
-            this.lblFechaPresupuestoUltimo.Location = new System.Drawing.Point(100, 37);
-            this.lblFechaPresupuestoUltimo.Name = "lblFechaPresupuestoUltimo";
-            this.lblFechaPresupuestoUltimo.Size = new System.Drawing.Size(57, 20);
-            this.lblFechaPresupuestoUltimo.TabIndex = 1;
-            this.lblFechaPresupuestoUltimo.Text = "label1";
-            // 
-            // lblHoraPresupuestoUltimo
-            // 
-            this.lblHoraPresupuestoUltimo.AutoSize = true;
-            this.lblHoraPresupuestoUltimo.Location = new System.Drawing.Point(100, 70);
-            this.lblHoraPresupuestoUltimo.Name = "lblHoraPresupuestoUltimo";
-            this.lblHoraPresupuestoUltimo.Size = new System.Drawing.Size(57, 20);
-            this.lblHoraPresupuestoUltimo.TabIndex = 1;
-            this.lblHoraPresupuestoUltimo.Text = "label1";
-            // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(6, 37);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(59, 20);
-            this.label5.TabIndex = 2;
-            this.label5.Text = "Fecha";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(6, 70);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(48, 20);
-            this.label6.TabIndex = 3;
-            this.label6.Text = "Hora";
-            // 
-            // lblFechaVencimientoPresupuesto
-            // 
-            this.lblFechaVencimientoPresupuesto.AutoSize = true;
-            this.lblFechaVencimientoPresupuesto.Location = new System.Drawing.Point(59, 31);
-            this.lblFechaVencimientoPresupuesto.Name = "lblFechaVencimientoPresupuesto";
-            this.lblFechaVencimientoPresupuesto.Size = new System.Drawing.Size(57, 20);
-            this.lblFechaVencimientoPresupuesto.TabIndex = 1;
-            this.lblFechaVencimientoPresupuesto.Text = "label1";
             // 
             // label7
             // 
@@ -254,6 +254,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "frmCierreMes";
             this.Text = "Cierre de Presupuesto";
             this.Load += new System.EventHandler(this.frmCierreMes_Load);

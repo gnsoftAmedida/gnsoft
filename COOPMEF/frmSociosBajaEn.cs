@@ -49,7 +49,6 @@ namespace COOPMEF
             DateTime fechaInicial = Convert.ToDateTime(anio + "-" + mes + "-" + "01");
             DateTime fechaFinal = fechaInicial.AddMonths(1).AddDays(-1);
 
-
             DataSet sociosResultado = empresa.devolverBajasEntreFechas(fechaInicial, fechaFinal);
 
             if (sociosResultado.Tables["sociosEntreFechas"].Rows.Count > 0)
@@ -68,11 +67,15 @@ namespace COOPMEF
 
                     ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, baja, telefono, mesNombre, anio, Inciso, oficina, numerocobro);
                 }
-            }
 
-            frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_BAJA_EN");
-            reporte.ShowDialog();
-            ingresadosEn.SociosIngresadosEn.Rows.Clear();
+                frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_BAJA_EN");
+                reporte.ShowDialog();
+                ingresadosEn.SociosIngresadosEn.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("No se encuentran socios dados de baja en la fechas seleccionadas");
+            }
         }
 
         private void btnSalirPrestamo_Click(object sender, EventArgs e)

@@ -2028,10 +2028,11 @@ namespace COOPMEF
                                 {
                                     txtTotalDeuda.Text = montoAnterior.ToString("##0.00");
                                 }
-                                else {
+                                else
+                                {
                                     txtTotalDeuda.Text = txtAmortización.Text.Replace(".", ",");
                                 }
-                                
+
 
                                 if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString()) != 0)
                                 {
@@ -3087,26 +3088,31 @@ Agregar emisión
 
                 DataSet sociosResultado = empresa.devolverSociosSegunEstado(1);
                 String fechaActual = DateTime.Today.ToShortDateString();
-
-                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                if (sociosResultado.Tables["socios"].Rows.Count > 0)
                 {
-                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
-                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
-                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
-                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
-                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
-                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
-                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                    for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                    {
+                        string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                        string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                        string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                        string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                        string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                        string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                        string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                        string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                        string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
 
-                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                        estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS");
+                    reporte.ShowDialog();
+                    estadoSocios.Clear();
                 }
-
-                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS");
-                reporte.ShowDialog();
-                estadoSocios.Clear();
-
+                else
+                {
+                    MessageBox.Show("No se encuentra un padrón de socios activos");
+                }
             }
             else
             {
@@ -3121,24 +3127,31 @@ Agregar emisión
                 DataSet sociosResultado = empresa.devolverSociosSegunEstado(0);
                 String fechaActual = DateTime.Today.ToShortDateString();
 
-                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                if (sociosResultado.Tables["socios"].Rows.Count > 0)
                 {
-                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
-                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
-                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
-                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
-                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
-                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
-                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                    for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                    {
+                        string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                        string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                        string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                        string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                        string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                        string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                        string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                        string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                        string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
 
-                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                        estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_HISTORICOS");
+                    reporte.ShowDialog();
+                    estadoSocios.Clear();
                 }
-
-                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_HISTORICOS");
-                reporte.ShowDialog();
-                estadoSocios.Clear();
+                else
+                {
+                    MessageBox.Show("No se encuentra un histórico de socios");
+                }
             }
             else
             {
@@ -3190,7 +3203,7 @@ Agregar emisión
 
         private void discoParaRetencionesToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            if (VerificarPermisosUsuario("c"))
+            if (VerificarPermisosUsuario("frmGeneracionDiscosRetenciones"))
             {
                 frmGeneracionDiscosRetenciones tmpfrmGeneracionDiscosRetenciones = new frmGeneracionDiscosRetenciones();
                 tmpfrmGeneracionDiscosRetenciones.ShowDialog();
@@ -3236,8 +3249,15 @@ Agregar emisión
 
         private void salidasEIngresosPorPréstamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            frmSalidasIngresosBancos tmpfrmSalidasIngresosBancos = new frmSalidasIngresosBancos();
-            tmpfrmSalidasIngresosBancos.ShowDialog();
+            if (VerificarPermisosUsuario("frmSalidasIngresosBancos"))
+            {
+                frmSalidasIngresosBancos tmpfrmSalidasIngresosBancos = new frmSalidasIngresosBancos();
+                tmpfrmSalidasIngresosBancos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
         }
 
         private void distribuciónToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3708,26 +3728,32 @@ Agregar emisión
 
                 String fechaActual = DateTime.Today.ToShortDateString();
 
-                for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                if (sociosResultado.Tables["socios"].Rows.Count > 0)
                 {
-                    string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
-                    string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
-                    string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
-                    DateTime fechaNacimiento = Convert.ToDateTime(sociosResultado.Tables["socios"].Rows[n][5].ToString());
-                    string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
-                    string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
-                    string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
-                    string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                    string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                    string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
-                    int edad = this.EdadPersona(fechaNacimiento);
+                    for (int n = 0; n <= sociosResultado.Tables["socios"].Rows.Count - 1; n++)
+                    {
+                        string socio_apellido = sociosResultado.Tables["socios"].Rows[n][3].ToString();
+                        string socio_nombre = sociosResultado.Tables["socios"].Rows[n][2].ToString();
+                        string numerocobro = sociosResultado.Tables["socios"].Rows[n][4].ToString();
+                        DateTime fechaNacimiento = Convert.ToDateTime(sociosResultado.Tables["socios"].Rows[n][5].ToString());
+                        string numeroSocio = sociosResultado.Tables["socios"].Rows[n][1].ToString();
+                        string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
+                        string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
+                        string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
+                        string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
+                        string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                        int edad = this.EdadPersona(fechaNacimiento);
 
-                    estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, edad, Inciso, oficina, numerocobro);
+                        estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, edad, Inciso, oficina, numerocobro);
+                    }
+                    frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS_EDAD");
+                    reporte.ShowDialog();
+                    estadoSocios.Clear();
                 }
-
-                frmVerReportes reporte = new frmVerReportes(estadoSocios, "SOCIOS_ACTIVOS_EDAD");
-                reporte.ShowDialog();
-                estadoSocios.Clear();
+                else
+                {
+                    MessageBox.Show("No se encuentran resultados");
+                }
             }
             else
             {

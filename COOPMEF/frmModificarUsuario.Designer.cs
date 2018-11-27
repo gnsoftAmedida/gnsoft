@@ -157,6 +157,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
+            this.MaximizeBox = false;
             this.Name = "frmModificarUsuario";
             this.Text = "Modificar Usuario";
             this.Load += new System.EventHandler(this.frmModificarUsuario_Load);

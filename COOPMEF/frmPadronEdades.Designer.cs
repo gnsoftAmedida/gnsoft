@@ -50,16 +50,16 @@
             this.col5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.col6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
-            this.label1 = new System.Windows.Forms.Label();
-            this.lblSumaTotales = new System.Windows.Forms.Label();
-            this.lblTotalSexoMInterior = new System.Windows.Forms.Label();
-            this.lblTotalSexoFINterior = new System.Windows.Forms.Label();
-            this.lblTotalSexoMMdeo = new System.Windows.Forms.Label();
-            this.lblTotalSexFMdeo = new System.Windows.Forms.Label();
-            this.lblTotalSexoMasc = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.lblTotalSexoFem = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.lblTotalSexoFem = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.lblTotalSexoMasc = new System.Windows.Forms.Label();
+            this.lblTotalSexFMdeo = new System.Windows.Forms.Label();
+            this.lblTotalSexoMMdeo = new System.Windows.Forms.Label();
+            this.lblTotalSexoFINterior = new System.Windows.Forms.Label();
+            this.lblTotalSexoMInterior = new System.Windows.Forms.Label();
+            this.lblSumaTotales = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -71,10 +71,9 @@
             // 
             this.label44.AutoSize = true;
             this.label44.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label44.Location = new System.Drawing.Point(40, 108);
-            this.label44.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label44.Location = new System.Drawing.Point(30, 88);
             this.label44.Name = "label44";
-            this.label44.Size = new System.Drawing.Size(155, 20);
+            this.label44.Size = new System.Drawing.Size(135, 17);
             this.label44.TabIndex = 61;
             this.label44.Text = "Intervalo de Años";
             // 
@@ -134,10 +133,9 @@
             "48",
             "49",
             "50"});
-            this.cmbEdadComienzo.Location = new System.Drawing.Point(213, 71);
-            this.cmbEdadComienzo.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbEdadComienzo.Location = new System.Drawing.Point(160, 58);
             this.cmbEdadComienzo.Name = "cmbEdadComienzo";
-            this.cmbEdadComienzo.Size = new System.Drawing.Size(62, 28);
+            this.cmbEdadComienzo.Size = new System.Drawing.Size(48, 25);
             this.cmbEdadComienzo.TabIndex = 58;
             // 
             // cmbFranjas
@@ -165,20 +163,18 @@
             "18",
             "19",
             "20"});
-            this.cmbFranjas.Location = new System.Drawing.Point(213, 36);
-            this.cmbFranjas.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbFranjas.Location = new System.Drawing.Point(160, 29);
             this.cmbFranjas.Name = "cmbFranjas";
-            this.cmbFranjas.Size = new System.Drawing.Size(62, 28);
+            this.cmbFranjas.Size = new System.Drawing.Size(48, 25);
             this.cmbFranjas.TabIndex = 57;
             // 
             // label36
             // 
             this.label36.AutoSize = true;
             this.label36.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label36.Location = new System.Drawing.Point(34, 75);
-            this.label36.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label36.Location = new System.Drawing.Point(26, 61);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(166, 20);
+            this.label36.Size = new System.Drawing.Size(143, 17);
             this.label36.TabIndex = 60;
             this.label36.Text = "Edad de Comienzo";
             // 
@@ -186,10 +182,9 @@
             // 
             this.label35.AutoSize = true;
             this.label35.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label35.Location = new System.Drawing.Point(27, 39);
-            this.label35.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label35.Location = new System.Drawing.Point(20, 32);
             this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(173, 20);
+            this.label35.Size = new System.Drawing.Size(150, 17);
             this.label35.TabIndex = 59;
             this.label35.Text = "Cantidad de franjas";
             // 
@@ -219,10 +214,9 @@
             "18",
             "19",
             "20"});
-            this.cmbIntervalo.Location = new System.Drawing.Point(213, 105);
-            this.cmbIntervalo.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbIntervalo.Location = new System.Drawing.Point(160, 85);
             this.cmbIntervalo.Name = "cmbIntervalo";
-            this.cmbIntervalo.Size = new System.Drawing.Size(62, 28);
+            this.cmbIntervalo.Size = new System.Drawing.Size(48, 25);
             this.cmbIntervalo.TabIndex = 62;
             // 
             // groupBox1
@@ -234,9 +228,11 @@
             this.groupBox1.Controls.Add(this.cmbFranjas);
             this.groupBox1.Controls.Add(this.cmbEdadComienzo);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox1.Location = new System.Drawing.Point(14, 19);
+            this.groupBox1.Location = new System.Drawing.Point(10, 15);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(318, 162);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(238, 132);
             this.groupBox1.TabIndex = 63;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Configuración";
@@ -246,9 +242,11 @@
             this.groupBox2.Controls.Add(this.radioButton2);
             this.groupBox2.Controls.Add(this.radioButton1);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox2.Location = new System.Drawing.Point(14, 200);
+            this.groupBox2.Location = new System.Drawing.Point(10, 162);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(318, 88);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(238, 72);
             this.groupBox2.TabIndex = 64;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Configuración";
@@ -256,9 +254,10 @@
             // radioButton2
             // 
             this.radioButton2.AutoSize = true;
-            this.radioButton2.Location = new System.Drawing.Point(153, 43);
+            this.radioButton2.Location = new System.Drawing.Point(115, 35);
+            this.radioButton2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(107, 24);
+            this.radioButton2.Size = new System.Drawing.Size(90, 21);
             this.radioButton2.TabIndex = 65;
             this.radioButton2.Text = "Histórico";
             this.radioButton2.UseVisualStyleBackColor = true;
@@ -267,9 +266,10 @@
             // 
             this.radioButton1.AutoSize = true;
             this.radioButton1.Checked = true;
-            this.radioButton1.Location = new System.Drawing.Point(40, 43);
+            this.radioButton1.Location = new System.Drawing.Point(30, 35);
+            this.radioButton1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.radioButton1.Name = "radioButton1";
-            this.radioButton1.Size = new System.Drawing.Size(92, 24);
+            this.radioButton1.Size = new System.Drawing.Size(78, 21);
             this.radioButton1.TabIndex = 65;
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = "Activos";
@@ -279,9 +279,11 @@
             // 
             this.groupBox3.Controls.Add(this.dtpFechaIng);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(14, 315);
+            this.groupBox3.Location = new System.Drawing.Point(10, 256);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(318, 88);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(238, 72);
             this.groupBox3.TabIndex = 66;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Socios Ingresados a la Fecha";
@@ -290,10 +292,9 @@
             // 
             this.dtpFechaIng.Checked = false;
             this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIng.Location = new System.Drawing.Point(44, 39);
-            this.dtpFechaIng.Margin = new System.Windows.Forms.Padding(4);
+            this.dtpFechaIng.Location = new System.Drawing.Point(33, 32);
             this.dtpFechaIng.Name = "dtpFechaIng";
-            this.dtpFechaIng.Size = new System.Drawing.Size(189, 27);
+            this.dtpFechaIng.Size = new System.Drawing.Size(143, 23);
             this.dtpFechaIng.TabIndex = 6;
             // 
             // btnSalirCobranza
@@ -301,10 +302,9 @@
             this.btnSalirCobranza.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out1;
             this.btnSalirCobranza.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirCobranza.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirCobranza.Location = new System.Drawing.Point(157, 410);
-            this.btnSalirCobranza.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalirCobranza.Location = new System.Drawing.Point(118, 333);
             this.btnSalirCobranza.Name = "btnSalirCobranza";
-            this.btnSalirCobranza.Size = new System.Drawing.Size(117, 39);
+            this.btnSalirCobranza.Size = new System.Drawing.Size(88, 32);
             this.btnSalirCobranza.TabIndex = 68;
             this.btnSalirCobranza.Text = "   Salir";
             this.btnSalirCobranza.UseVisualStyleBackColor = true;
@@ -315,10 +315,9 @@
             this.btnGuardarPrestamo.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             this.btnGuardarPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarPrestamo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardarPrestamo.Location = new System.Drawing.Point(14, 410);
-            this.btnGuardarPrestamo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardarPrestamo.Location = new System.Drawing.Point(10, 333);
             this.btnGuardarPrestamo.Name = "btnGuardarPrestamo";
-            this.btnGuardarPrestamo.Size = new System.Drawing.Size(117, 39);
+            this.btnGuardarPrestamo.Size = new System.Drawing.Size(88, 32);
             this.btnGuardarPrestamo.TabIndex = 69;
             this.btnGuardarPrestamo.Text = "    Aceptar";
             this.btnGuardarPrestamo.UseVisualStyleBackColor = true;
@@ -334,10 +333,9 @@
             this.col4,
             this.col5,
             this.col6});
-            this.dgvSociosPadron.Location = new System.Drawing.Point(368, 31);
-            this.dgvSociosPadron.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSociosPadron.Location = new System.Drawing.Point(276, 25);
             this.dgvSociosPadron.Name = "dgvSociosPadron";
-            this.dgvSociosPadron.Size = new System.Drawing.Size(654, 313);
+            this.dgvSociosPadron.Size = new System.Drawing.Size(490, 254);
             this.dgvSociosPadron.TabIndex = 70;
             this.dgvSociosPadron.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvSociosPadron_CellContentClick);
             // 
@@ -383,107 +381,119 @@
             this.groupBox4.Controls.Add(this.lblTotalSexoMInterior);
             this.groupBox4.Controls.Add(this.lblSumaTotales);
             this.groupBox4.Controls.Add(this.label1);
-            this.groupBox4.Location = new System.Drawing.Point(368, 369);
+            this.groupBox4.Location = new System.Drawing.Point(276, 300);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(656, 94);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(492, 76);
             this.groupBox4.TabIndex = 71;
             this.groupBox4.TabStop = false;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 17);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 17);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Totales";
-            // 
-            // lblSumaTotales
-            // 
-            this.lblSumaTotales.AutoSize = true;
-            this.lblSumaTotales.Location = new System.Drawing.Point(567, 17);
-            this.lblSumaTotales.Name = "lblSumaTotales";
-            this.lblSumaTotales.Size = new System.Drawing.Size(20, 17);
-            this.lblSumaTotales.TabIndex = 1;
-            this.lblSumaTotales.Text = "...";
-            // 
-            // lblTotalSexoMInterior
-            // 
-            this.lblTotalSexoMInterior.AutoSize = true;
-            this.lblTotalSexoMInterior.Location = new System.Drawing.Point(470, 18);
-            this.lblTotalSexoMInterior.Name = "lblTotalSexoMInterior";
-            this.lblTotalSexoMInterior.Size = new System.Drawing.Size(20, 17);
-            this.lblTotalSexoMInterior.TabIndex = 2;
-            this.lblTotalSexoMInterior.Text = "...";
-            // 
-            // lblTotalSexoFINterior
-            // 
-            this.lblTotalSexoFINterior.AutoSize = true;
-            this.lblTotalSexoFINterior.Location = new System.Drawing.Point(373, 18);
-            this.lblTotalSexoFINterior.Name = "lblTotalSexoFINterior";
-            this.lblTotalSexoFINterior.Size = new System.Drawing.Size(20, 17);
-            this.lblTotalSexoFINterior.TabIndex = 3;
-            this.lblTotalSexoFINterior.Text = "...";
-            // 
-            // lblTotalSexoMMdeo
-            // 
-            this.lblTotalSexoMMdeo.AutoSize = true;
-            this.lblTotalSexoMMdeo.Location = new System.Drawing.Point(273, 18);
-            this.lblTotalSexoMMdeo.Name = "lblTotalSexoMMdeo";
-            this.lblTotalSexoMMdeo.Size = new System.Drawing.Size(20, 17);
-            this.lblTotalSexoMMdeo.TabIndex = 4;
-            this.lblTotalSexoMMdeo.Text = "...";
-            // 
-            // lblTotalSexFMdeo
-            // 
-            this.lblTotalSexFMdeo.AutoSize = true;
-            this.lblTotalSexFMdeo.Location = new System.Drawing.Point(177, 17);
-            this.lblTotalSexFMdeo.Name = "lblTotalSexFMdeo";
-            this.lblTotalSexFMdeo.Size = new System.Drawing.Size(20, 17);
-            this.lblTotalSexFMdeo.TabIndex = 5;
-            this.lblTotalSexFMdeo.Text = "...";
-            // 
-            // lblTotalSexoMasc
-            // 
-            this.lblTotalSexoMasc.AutoSize = true;
-            this.lblTotalSexoMasc.Location = new System.Drawing.Point(567, 64);
-            this.lblTotalSexoMasc.Name = "lblTotalSexoMasc";
-            this.lblTotalSexoMasc.Size = new System.Drawing.Size(20, 17);
-            this.lblTotalSexoMasc.TabIndex = 6;
-            this.lblTotalSexoMasc.Text = "...";
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(364, 64);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 17);
-            this.label8.TabIndex = 7;
-            this.label8.Text = "Total sexo masculino";
-            // 
-            // lblTotalSexoFem
-            // 
-            this.lblTotalSexoFem.AutoSize = true;
-            this.lblTotalSexoFem.Location = new System.Drawing.Point(273, 64);
-            this.lblTotalSexoFem.Name = "lblTotalSexoFem";
-            this.lblTotalSexoFem.Size = new System.Drawing.Size(20, 17);
-            this.lblTotalSexoFem.TabIndex = 8;
-            this.lblTotalSexoFem.Text = "...";
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(63, 63);
+            this.label10.Location = new System.Drawing.Point(47, 51);
+            this.label10.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(135, 17);
+            this.label10.Size = new System.Drawing.Size(102, 13);
             this.label10.TabIndex = 9;
             this.label10.Text = "Total sexo femenino";
             // 
+            // lblTotalSexoFem
+            // 
+            this.lblTotalSexoFem.AutoSize = true;
+            this.lblTotalSexoFem.Location = new System.Drawing.Point(205, 52);
+            this.lblTotalSexoFem.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalSexoFem.Name = "lblTotalSexoFem";
+            this.lblTotalSexoFem.Size = new System.Drawing.Size(16, 13);
+            this.lblTotalSexoFem.TabIndex = 8;
+            this.lblTotalSexoFem.Text = "...";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(273, 52);
+            this.label8.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(106, 13);
+            this.label8.TabIndex = 7;
+            this.label8.Text = "Total sexo masculino";
+            // 
+            // lblTotalSexoMasc
+            // 
+            this.lblTotalSexoMasc.AutoSize = true;
+            this.lblTotalSexoMasc.Location = new System.Drawing.Point(425, 52);
+            this.lblTotalSexoMasc.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalSexoMasc.Name = "lblTotalSexoMasc";
+            this.lblTotalSexoMasc.Size = new System.Drawing.Size(16, 13);
+            this.lblTotalSexoMasc.TabIndex = 6;
+            this.lblTotalSexoMasc.Text = "...";
+            // 
+            // lblTotalSexFMdeo
+            // 
+            this.lblTotalSexFMdeo.AutoSize = true;
+            this.lblTotalSexFMdeo.Location = new System.Drawing.Point(133, 14);
+            this.lblTotalSexFMdeo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalSexFMdeo.Name = "lblTotalSexFMdeo";
+            this.lblTotalSexFMdeo.Size = new System.Drawing.Size(16, 13);
+            this.lblTotalSexFMdeo.TabIndex = 5;
+            this.lblTotalSexFMdeo.Text = "...";
+            // 
+            // lblTotalSexoMMdeo
+            // 
+            this.lblTotalSexoMMdeo.AutoSize = true;
+            this.lblTotalSexoMMdeo.Location = new System.Drawing.Point(205, 15);
+            this.lblTotalSexoMMdeo.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalSexoMMdeo.Name = "lblTotalSexoMMdeo";
+            this.lblTotalSexoMMdeo.Size = new System.Drawing.Size(16, 13);
+            this.lblTotalSexoMMdeo.TabIndex = 4;
+            this.lblTotalSexoMMdeo.Text = "...";
+            // 
+            // lblTotalSexoFINterior
+            // 
+            this.lblTotalSexoFINterior.AutoSize = true;
+            this.lblTotalSexoFINterior.Location = new System.Drawing.Point(280, 15);
+            this.lblTotalSexoFINterior.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalSexoFINterior.Name = "lblTotalSexoFINterior";
+            this.lblTotalSexoFINterior.Size = new System.Drawing.Size(16, 13);
+            this.lblTotalSexoFINterior.TabIndex = 3;
+            this.lblTotalSexoFINterior.Text = "...";
+            // 
+            // lblTotalSexoMInterior
+            // 
+            this.lblTotalSexoMInterior.AutoSize = true;
+            this.lblTotalSexoMInterior.Location = new System.Drawing.Point(352, 15);
+            this.lblTotalSexoMInterior.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblTotalSexoMInterior.Name = "lblTotalSexoMInterior";
+            this.lblTotalSexoMInterior.Size = new System.Drawing.Size(16, 13);
+            this.lblTotalSexoMInterior.TabIndex = 2;
+            this.lblTotalSexoMInterior.Text = "...";
+            // 
+            // lblSumaTotales
+            // 
+            this.lblSumaTotales.AutoSize = true;
+            this.lblSumaTotales.Location = new System.Drawing.Point(425, 14);
+            this.lblSumaTotales.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lblSumaTotales.Name = "lblSumaTotales";
+            this.lblSumaTotales.Size = new System.Drawing.Size(16, 13);
+            this.lblSumaTotales.TabIndex = 1;
+            this.lblSumaTotales.Text = "...";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(47, 14);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(42, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Totales";
+            // 
             // frmPadronEdades
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1058, 479);
+            this.ClientSize = new System.Drawing.Size(794, 389);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.dgvSociosPadron);
             this.Controls.Add(this.btnGuardarPrestamo);
@@ -491,6 +501,8 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmPadronEdades";
             this.Text = "Padrón de Edades";
             this.Load += new System.EventHandler(this.frmPadronEdades_Load);

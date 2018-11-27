@@ -63,12 +63,14 @@ namespace COOPMEF
 
                     ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, direccion, bajaResultado, telefono, DateTime.Today.ToShortDateString(), DateTime.Today.ToShortTimeString(), Inciso, oficina, numerocobro);
                 }
+                frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_LISTADO_DEPTO");
+                reporte.ShowDialog();
+                ingresadosEn.SociosIngresadosEn.Rows.Clear();
             }
-
-            frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_LISTADO_DEPTO");
-            reporte.ShowDialog();
-            ingresadosEn.SociosIngresadosEn.Rows.Clear();
-
+            else
+            {
+                MessageBox.Show("No se encuentran socios en el departamento seleccionado");
+            }
         }
     }
 }

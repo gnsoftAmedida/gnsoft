@@ -151,11 +151,11 @@ namespace COOPMEF
             }
             if (tipo.Equals("SOCIOS_INGRESADOS_EN"))
             {
-                COOPMEF.Reportes.socioDepartamento tmpSocioDepartamento = new COOPMEF.Reportes.socioDepartamento();
+                COOPMEF.Reportes.reporteIngresadosEn tmpReporteIngresadosEn = new COOPMEF.Reportes.reporteIngresadosEn();
 
-                tmpSocioDepartamento.SetDataSource(DS);
+                tmpReporteIngresadosEn.SetDataSource(DS);
 
-                this.crystalReportViewer1.ReportSource = tmpSocioDepartamento;
+                this.crystalReportViewer1.ReportSource = tmpReporteIngresadosEn;
 
             }
             if (tipo.Equals("INTERFACES_GENERALES"))

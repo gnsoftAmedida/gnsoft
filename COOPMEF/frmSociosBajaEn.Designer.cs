@@ -213,7 +213,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmSociosBajaEn";
-            this.Text = "frmSociosBajaEn";
+            this.Text = "Socios dados de baja en";
             this.Load += new System.EventHandler(this.frmSociosBajaEn_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

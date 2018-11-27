@@ -60,10 +60,9 @@
             this.cmbBancos.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBancos.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbBancos.FormattingEnabled = true;
-            this.cmbBancos.Location = new System.Drawing.Point(33, 49);
-            this.cmbBancos.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbBancos.Location = new System.Drawing.Point(25, 40);
             this.cmbBancos.Name = "cmbBancos";
-            this.cmbBancos.Size = new System.Drawing.Size(402, 28);
+            this.cmbBancos.Size = new System.Drawing.Size(302, 24);
             this.cmbBancos.TabIndex = 0;
             this.cmbBancos.SelectedIndexChanged += new System.EventHandler(this.cmbBancos_SelectedIndexChanged);
             // 
@@ -71,9 +70,11 @@
             // 
             this.groupBox1.Controls.Add(this.cmbBancos);
             this.groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
-            this.groupBox1.Location = new System.Drawing.Point(26, 12);
+            this.groupBox1.Location = new System.Drawing.Point(20, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(470, 116);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(352, 94);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Bancos y Números de Cuentas";
@@ -81,9 +82,11 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.lblSaldoActual);
-            this.groupBox2.Location = new System.Drawing.Point(33, 40);
+            this.groupBox2.Location = new System.Drawing.Point(25, 32);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(200, 89);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Size = new System.Drawing.Size(150, 72);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Saldo Actual";
@@ -91,9 +94,10 @@
             // lblSaldoActual
             // 
             this.lblSaldoActual.AutoSize = true;
-            this.lblSaldoActual.Location = new System.Drawing.Point(99, 40);
+            this.lblSaldoActual.Location = new System.Drawing.Point(74, 32);
+            this.lblSaldoActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSaldoActual.Name = "lblSaldoActual";
-            this.lblSaldoActual.Size = new System.Drawing.Size(40, 20);
+            this.lblSaldoActual.Size = new System.Drawing.Size(36, 17);
             this.lblSaldoActual.TabIndex = 0;
             this.lblSaldoActual.Text = "0,00";
             // 
@@ -101,9 +105,11 @@
             // 
             this.groupBox3.Controls.Add(this.rbtDeposito);
             this.groupBox3.Controls.Add(this.rbtCheque);
-            this.groupBox3.Location = new System.Drawing.Point(33, 192);
+            this.groupBox3.Location = new System.Drawing.Point(25, 156);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(259, 100);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Size = new System.Drawing.Size(194, 81);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Tipo Movimiento";
@@ -111,9 +117,10 @@
             // rbtDeposito
             // 
             this.rbtDeposito.AutoSize = true;
-            this.rbtDeposito.Location = new System.Drawing.Point(144, 45);
+            this.rbtDeposito.Location = new System.Drawing.Point(108, 37);
+            this.rbtDeposito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtDeposito.Name = "rbtDeposito";
-            this.rbtDeposito.Size = new System.Drawing.Size(97, 24);
+            this.rbtDeposito.Size = new System.Drawing.Size(82, 21);
             this.rbtDeposito.TabIndex = 1;
             this.rbtDeposito.TabStop = true;
             this.rbtDeposito.Text = "Depósito";
@@ -122,9 +129,10 @@
             // rbtCheque
             // 
             this.rbtCheque.AutoSize = true;
-            this.rbtCheque.Location = new System.Drawing.Point(31, 45);
+            this.rbtCheque.Location = new System.Drawing.Point(23, 37);
+            this.rbtCheque.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.rbtCheque.Name = "rbtCheque";
-            this.rbtCheque.Size = new System.Drawing.Size(87, 24);
+            this.rbtCheque.Size = new System.Drawing.Size(75, 21);
             this.rbtCheque.TabIndex = 0;
             this.rbtCheque.TabStop = true;
             this.rbtCheque.Text = "Cheque";
@@ -133,19 +141,22 @@
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.txtNumeroComprobante);
-            this.groupBox4.Location = new System.Drawing.Point(368, 192);
+            this.groupBox4.Location = new System.Drawing.Point(276, 156);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Size = new System.Drawing.Size(180, 100);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Size = new System.Drawing.Size(135, 81);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
             this.groupBox4.Text = "Nº Comprobante";
             // 
             // txtNumeroComprobante
             // 
-            this.txtNumeroComprobante.Location = new System.Drawing.Point(22, 45);
+            this.txtNumeroComprobante.Location = new System.Drawing.Point(16, 37);
+            this.txtNumeroComprobante.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtNumeroComprobante.MaxLength = 100;
             this.txtNumeroComprobante.Name = "txtNumeroComprobante";
-            this.txtNumeroComprobante.Size = new System.Drawing.Size(139, 27);
+            this.txtNumeroComprobante.Size = new System.Drawing.Size(105, 23);
             this.txtNumeroComprobante.TabIndex = 0;
             // 
             // groupBox5
@@ -162,9 +173,11 @@
             this.groupBox5.Controls.Add(this.groupBox2);
             this.groupBox5.Controls.Add(this.groupBox4);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox5.Location = new System.Drawing.Point(26, 146);
+            this.groupBox5.Location = new System.Drawing.Point(20, 119);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(645, 341);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Size = new System.Drawing.Size(484, 277);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
             this.groupBox5.Text = "Detalles";
@@ -174,10 +187,9 @@
             this.lblErrorGenerico.AutoSize = true;
             this.lblErrorGenerico.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorGenerico.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorGenerico.Location = new System.Drawing.Point(30, 310);
-            this.lblErrorGenerico.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblErrorGenerico.Location = new System.Drawing.Point(22, 252);
             this.lblErrorGenerico.Name = "lblErrorGenerico";
-            this.lblErrorGenerico.Size = new System.Drawing.Size(49, 16);
+            this.lblErrorGenerico.Size = new System.Drawing.Size(39, 12);
             this.lblErrorGenerico.TabIndex = 32;
             this.lblErrorGenerico.Text = "label2";
             // 
@@ -186,10 +198,9 @@
             this.lblComprobante.AutoSize = true;
             this.lblComprobante.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblComprobante.ForeColor = System.Drawing.Color.Red;
-            this.lblComprobante.Location = new System.Drawing.Point(555, 276);
-            this.lblComprobante.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblComprobante.Location = new System.Drawing.Point(416, 224);
             this.lblComprobante.Name = "lblComprobante";
-            this.lblComprobante.Size = new System.Drawing.Size(49, 16);
+            this.lblComprobante.Size = new System.Drawing.Size(39, 12);
             this.lblComprobante.TabIndex = 31;
             this.lblComprobante.Text = "label2";
             // 
@@ -198,10 +209,9 @@
             this.lblConcepto.AutoSize = true;
             this.lblConcepto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblConcepto.ForeColor = System.Drawing.Color.Red;
-            this.lblConcepto.Location = new System.Drawing.Point(555, 149);
-            this.lblConcepto.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblConcepto.Location = new System.Drawing.Point(416, 121);
             this.lblConcepto.Name = "lblConcepto";
-            this.lblConcepto.Size = new System.Drawing.Size(49, 16);
+            this.lblConcepto.Size = new System.Drawing.Size(39, 12);
             this.lblConcepto.TabIndex = 31;
             this.lblConcepto.Text = "label2";
             // 
@@ -210,46 +220,49 @@
             this.lblImporteBanco.AutoSize = true;
             this.lblImporteBanco.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblImporteBanco.ForeColor = System.Drawing.Color.Red;
-            this.lblImporteBanco.Location = new System.Drawing.Point(555, 51);
-            this.lblImporteBanco.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.lblImporteBanco.Location = new System.Drawing.Point(416, 41);
             this.lblImporteBanco.Name = "lblImporteBanco";
-            this.lblImporteBanco.Size = new System.Drawing.Size(49, 16);
+            this.lblImporteBanco.Size = new System.Drawing.Size(39, 12);
             this.lblImporteBanco.TabIndex = 31;
             this.lblImporteBanco.Text = "label2";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(268, 83);
+            this.label3.Location = new System.Drawing.Point(201, 67);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(94, 60);
+            this.label3.Size = new System.Drawing.Size(79, 51);
             this.label3.TabIndex = 7;
             this.label3.Text = " Concepto\r\n      del\r\nMovimiento";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(297, 43);
+            this.label2.Location = new System.Drawing.Point(223, 35);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(65, 20);
+            this.label2.Size = new System.Drawing.Size(55, 17);
             this.label2.TabIndex = 6;
             this.label2.Text = "Importe";
             // 
             // txtConcepto
             // 
-            this.txtConcepto.Location = new System.Drawing.Point(368, 80);
+            this.txtConcepto.Location = new System.Drawing.Point(276, 65);
+            this.txtConcepto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtConcepto.MaxLength = 250;
             this.txtConcepto.Multiline = true;
             this.txtConcepto.Name = "txtConcepto";
-            this.txtConcepto.Size = new System.Drawing.Size(180, 85);
+            this.txtConcepto.Size = new System.Drawing.Size(136, 70);
             this.txtConcepto.TabIndex = 1;
             // 
             // txtImporte
             // 
-            this.txtImporte.Location = new System.Drawing.Point(368, 40);
+            this.txtImporte.Location = new System.Drawing.Point(276, 32);
+            this.txtImporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.txtImporte.MaxLength = 100;
             this.txtImporte.Name = "txtImporte";
-            this.txtImporte.Size = new System.Drawing.Size(180, 27);
+            this.txtImporte.Size = new System.Drawing.Size(136, 23);
             this.txtImporte.TabIndex = 0;
             // 
             // btnSalirBanco
@@ -257,10 +270,9 @@
             this.btnSalirBanco.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirBanco.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirBanco.Location = new System.Drawing.Point(543, 81);
-            this.btnSalirBanco.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalirBanco.Location = new System.Drawing.Point(407, 66);
             this.btnSalirBanco.Name = "btnSalirBanco";
-            this.btnSalirBanco.Size = new System.Drawing.Size(128, 36);
+            this.btnSalirBanco.Size = new System.Drawing.Size(96, 29);
             this.btnSalirBanco.TabIndex = 3;
             this.btnSalirBanco.Text = "     Salir";
             this.btnSalirBanco.UseVisualStyleBackColor = true;
@@ -271,10 +283,9 @@
             this.btnGuardarBanco.Image = global::COOPMEF.Properties.Resources._1486108920_Save;
             this.btnGuardarBanco.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnGuardarBanco.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnGuardarBanco.Location = new System.Drawing.Point(543, 22);
-            this.btnGuardarBanco.Margin = new System.Windows.Forms.Padding(4);
+            this.btnGuardarBanco.Location = new System.Drawing.Point(407, 18);
             this.btnGuardarBanco.Name = "btnGuardarBanco";
-            this.btnGuardarBanco.Size = new System.Drawing.Size(128, 38);
+            this.btnGuardarBanco.Size = new System.Drawing.Size(96, 31);
             this.btnGuardarBanco.TabIndex = 2;
             this.btnGuardarBanco.Text = "     Guardar";
             this.btnGuardarBanco.UseVisualStyleBackColor = true;
@@ -282,13 +293,15 @@
             // 
             // frmMovimientosBancarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(701, 505);
+            this.ClientSize = new System.Drawing.Size(526, 410);
             this.Controls.Add(this.btnSalirBanco);
             this.Controls.Add(this.btnGuardarBanco);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmMovimientosBancarios";
             this.Text = "Movimientos Bancarios - Cheques";
             this.Load += new System.EventHandler(this.frmMovimientosBancarios_Load);

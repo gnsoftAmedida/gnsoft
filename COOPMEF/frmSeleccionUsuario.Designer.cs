@@ -90,6 +90,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "frmSeleccionUsuario";
             this.Text = "Baja Usuario";
             this.Load += new System.EventHandler(this.frmBajaUsuario_Load);

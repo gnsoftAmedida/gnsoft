@@ -28,17 +28,23 @@ namespace COOPMEF
         {
             eventosDataSet = empresa.devolverEventosEntreFechas(this.dtpFechaDesde.Value, this.dtpFechaHasta.Value);
 
-            for (int n = 0; n <= eventosDataSet.Tables["eventos"].Rows.Count - 1; n++)
+            if (eventosDataSet.Tables["eventos"].Rows.Count > 0)
             {
-                DateTime fecha = eventosDataSet.Tables["eventos"].Rows[n].Field<DateTime>("fecha");
-                String descripcion = eventosDataSet.Tables["eventos"].Rows[n].Field<String>("descripcion");
+                for (int n = 0; n <= eventosDataSet.Tables["eventos"].Rows.Count - 1; n++)
+                {
+                    DateTime fecha = eventosDataSet.Tables["eventos"].Rows[n].Field<DateTime>("fecha");
+                    String descripcion = eventosDataSet.Tables["eventos"].Rows[n].Field<String>("descripcion");
 
-                DE.evento.Rows.Add(fecha.ToString("dd/MM/yyyy"), descripcion);
+                    DE.evento.Rows.Add(fecha.ToString("dd/MM/yyyy"), descripcion);
+                }
+                frmVerReportes reporte = new frmVerReportes(DE, "RP_EVENTOS");
+                reporte.ShowDialog();
+                DE.evento.Rows.Clear();
             }
-
-            frmVerReportes reporte = new frmVerReportes (DE, "RP_EVENTOS");
-            reporte.ShowDialog();
-            DE.evento.Rows.Clear();
+            else
+            {
+                MessageBox.Show("No se encuentran registros para las fechas seleccionadas");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)

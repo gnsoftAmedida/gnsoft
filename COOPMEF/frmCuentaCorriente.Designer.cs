@@ -176,6 +176,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "frmCuentaCorriente";
             this.Text = "Cuentas Corrientes";
             this.Load += new System.EventHandler(this.frmCuentaCorriente_Load);

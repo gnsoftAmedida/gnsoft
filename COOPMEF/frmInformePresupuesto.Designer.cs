@@ -212,6 +212,7 @@
             this.Controls.Add(this.btnSalirPrestamo);
             this.Controls.Add(this.groupBox2);
             this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "frmInformePresupuesto";
             this.Text = "Informe Presupuesto";
             this.Load += new System.EventHandler(this.frmInformePresupuesto_Load);

@@ -36,10 +36,9 @@
             // dgvSaldosBancarios
             // 
             this.dgvSaldosBancarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvSaldosBancarios.Location = new System.Drawing.Point(13, 27);
-            this.dgvSaldosBancarios.Margin = new System.Windows.Forms.Padding(4);
+            this.dgvSaldosBancarios.Location = new System.Drawing.Point(10, 22);
             this.dgvSaldosBancarios.Name = "dgvSaldosBancarios";
-            this.dgvSaldosBancarios.Size = new System.Drawing.Size(661, 302);
+            this.dgvSaldosBancarios.Size = new System.Drawing.Size(496, 245);
             this.dgvSaldosBancarios.TabIndex = 4;
             // 
             // btnSalirPlan
@@ -47,10 +46,9 @@
             this.btnSalirPlan.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirPlan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirPlan.Location = new System.Drawing.Point(537, 337);
-            this.btnSalirPlan.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalirPlan.Location = new System.Drawing.Point(403, 274);
             this.btnSalirPlan.Name = "btnSalirPlan";
-            this.btnSalirPlan.Size = new System.Drawing.Size(137, 41);
+            this.btnSalirPlan.Size = new System.Drawing.Size(103, 33);
             this.btnSalirPlan.TabIndex = 37;
             this.btnSalirPlan.Text = "     Salir";
             this.btnSalirPlan.UseVisualStyleBackColor = true;
@@ -58,11 +56,13 @@
             // 
             // frmConsultaSaldosBancarios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(692, 404);
+            this.ClientSize = new System.Drawing.Size(519, 328);
             this.Controls.Add(this.btnSalirPlan);
             this.Controls.Add(this.dgvSaldosBancarios);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmConsultaSaldosBancarios";
             this.Text = "Consulta de Saldos Bancarios";
             this.Load += new System.EventHandler(this.frmConsultaSaldosBancarios_Load);

@@ -118,6 +118,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBoxPrioridad);
             this.Controls.Add(this.btnActualizar);
+            this.MaximizeBox = false;
             this.Name = "frmReporteEventos";
             this.Text = "Reporte de Eventos de Agenda";
             this.groupBoxPrioridad.ResumeLayout(false);

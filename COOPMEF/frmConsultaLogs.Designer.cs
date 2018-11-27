@@ -155,6 +155,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBoxPrioridad);
+            this.MaximizeBox = false;
             this.Name = "frmConsultaLogs";
             this.Text = "Consulta Logs";
             this.groupBox1.ResumeLayout(false);

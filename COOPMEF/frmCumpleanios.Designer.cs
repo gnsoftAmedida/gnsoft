@@ -40,9 +40,11 @@
             // 
             this.groupBox1.Controls.Add(this.cmbMeses);
             this.groupBox1.Controls.Add(this.label1);
-            this.groupBox1.Location = new System.Drawing.Point(12, 12);
+            this.groupBox1.Location = new System.Drawing.Point(9, 10);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(250, 78);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Size = new System.Drawing.Size(188, 63);
             this.groupBox1.TabIndex = 18;
             this.groupBox1.TabStop = false;
             // 
@@ -63,18 +65,18 @@
             "OCTUBRE",
             "NOVIEMBRE",
             "DICIEMBRE"});
-            this.cmbMeses.Location = new System.Drawing.Point(66, 27);
-            this.cmbMeses.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbMeses.Location = new System.Drawing.Point(50, 22);
             this.cmbMeses.Name = "cmbMeses";
-            this.cmbMeses.Size = new System.Drawing.Size(145, 24);
+            this.cmbMeses.Size = new System.Drawing.Size(110, 21);
             this.cmbMeses.TabIndex = 57;
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(21, 30);
+            this.label1.Location = new System.Drawing.Point(16, 24);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(38, 17);
+            this.label1.Size = new System.Drawing.Size(30, 13);
             this.label1.TabIndex = 15;
             this.label1.Text = "Mes ";
             // 
@@ -84,10 +86,9 @@
             this.btnBuscar.Image = global::COOPMEF.Properties.Resources._1486108741_Search;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBuscar.Location = new System.Drawing.Point(16, 97);
-            this.btnBuscar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnBuscar.Location = new System.Drawing.Point(12, 79);
             this.btnBuscar.Name = "btnBuscar";
-            this.btnBuscar.Size = new System.Drawing.Size(119, 37);
+            this.btnBuscar.Size = new System.Drawing.Size(89, 30);
             this.btnBuscar.TabIndex = 20;
             this.btnBuscar.Text = "Ver";
             this.btnBuscar.UseVisualStyleBackColor = true;
@@ -98,10 +99,9 @@
             this.btnSalirPrestamo.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirPrestamo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirPrestamo.Location = new System.Drawing.Point(143, 97);
-            this.btnSalirPrestamo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalirPrestamo.Location = new System.Drawing.Point(107, 79);
             this.btnSalirPrestamo.Name = "btnSalirPrestamo";
-            this.btnSalirPrestamo.Size = new System.Drawing.Size(119, 37);
+            this.btnSalirPrestamo.Size = new System.Drawing.Size(89, 30);
             this.btnSalirPrestamo.TabIndex = 19;
             this.btnSalirPrestamo.Text = "Salir";
             this.btnSalirPrestamo.UseVisualStyleBackColor = true;
@@ -109,12 +109,14 @@
             // 
             // frmCumpleanios
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(293, 166);
+            this.ClientSize = new System.Drawing.Size(220, 135);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnSalirPrestamo);
             this.Controls.Add(this.groupBox1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmCumpleanios";
             this.Text = "Cumpleaños";
             this.Load += new System.EventHandler(this.frmCumpleanios_Load);

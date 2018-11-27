@@ -41,18 +41,20 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(75, 38);
+            this.label1.Location = new System.Drawing.Point(56, 31);
+            this.label1.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(34, 17);
+            this.label1.Size = new System.Drawing.Size(27, 13);
             this.label1.TabIndex = 2;
             this.label1.Text = "Mes";
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(292, 38);
+            this.label2.Location = new System.Drawing.Point(219, 31);
+            this.label2.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(33, 17);
+            this.label2.Size = new System.Drawing.Size(26, 13);
             this.label2.TabIndex = 3;
             this.label2.Text = "Año";
             // 
@@ -73,18 +75,20 @@
             "10",
             "11",
             "12"});
-            this.cmbMes.Location = new System.Drawing.Point(143, 35);
+            this.cmbMes.Location = new System.Drawing.Point(107, 28);
+            this.cmbMes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbMes.Name = "cmbMes";
-            this.cmbMes.Size = new System.Drawing.Size(105, 24);
+            this.cmbMes.Size = new System.Drawing.Size(80, 21);
             this.cmbMes.TabIndex = 4;
             // 
             // cmbAnio
             // 
             this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(345, 31);
+            this.cmbAnio.Location = new System.Drawing.Point(259, 25);
+            this.cmbAnio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.cmbAnio.Name = "cmbAnio";
-            this.cmbAnio.Size = new System.Drawing.Size(121, 24);
+            this.cmbAnio.Size = new System.Drawing.Size(92, 21);
             this.cmbAnio.TabIndex = 5;
             // 
             // cmbBancosMovPromedio
@@ -92,18 +96,18 @@
             this.cmbBancosMovPromedio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbBancosMovPromedio.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F);
             this.cmbBancosMovPromedio.FormattingEnabled = true;
-            this.cmbBancosMovPromedio.Location = new System.Drawing.Point(143, 115);
-            this.cmbBancosMovPromedio.Margin = new System.Windows.Forms.Padding(4);
+            this.cmbBancosMovPromedio.Location = new System.Drawing.Point(107, 93);
             this.cmbBancosMovPromedio.Name = "cmbBancosMovPromedio";
-            this.cmbBancosMovPromedio.Size = new System.Drawing.Size(323, 28);
+            this.cmbBancosMovPromedio.Size = new System.Drawing.Size(243, 24);
             this.cmbBancosMovPromedio.TabIndex = 6;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(75, 121);
+            this.label3.Location = new System.Drawing.Point(56, 98);
+            this.label3.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(48, 17);
+            this.label3.Size = new System.Drawing.Size(38, 13);
             this.label3.TabIndex = 7;
             this.label3.Text = "Banco";
             // 
@@ -112,10 +116,9 @@
             this.btnSalirMovPromedio.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirMovPromedio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirMovPromedio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirMovPromedio.Location = new System.Drawing.Point(338, 212);
-            this.btnSalirMovPromedio.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalirMovPromedio.Location = new System.Drawing.Point(254, 172);
             this.btnSalirMovPromedio.Name = "btnSalirMovPromedio";
-            this.btnSalirMovPromedio.Size = new System.Drawing.Size(128, 36);
+            this.btnSalirMovPromedio.Size = new System.Drawing.Size(96, 29);
             this.btnSalirMovPromedio.TabIndex = 8;
             this.btnSalirMovPromedio.Text = "     Salir";
             this.btnSalirMovPromedio.UseVisualStyleBackColor = true;
@@ -126,10 +129,9 @@
             this.btnAceptar.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
             this.btnAceptar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnAceptar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnAceptar.Location = new System.Drawing.Point(143, 212);
-            this.btnAceptar.Margin = new System.Windows.Forms.Padding(4);
+            this.btnAceptar.Location = new System.Drawing.Point(107, 172);
             this.btnAceptar.Name = "btnAceptar";
-            this.btnAceptar.Size = new System.Drawing.Size(134, 36);
+            this.btnAceptar.Size = new System.Drawing.Size(100, 29);
             this.btnAceptar.TabIndex = 9;
             this.btnAceptar.Text = "    Aceptar";
             this.btnAceptar.UseVisualStyleBackColor = true;
@@ -137,9 +139,9 @@
             // 
             // frmCantidadMovimientos
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(553, 281);
+            this.ClientSize = new System.Drawing.Size(415, 228);
             this.Controls.Add(this.btnAceptar);
             this.Controls.Add(this.btnSalirMovPromedio);
             this.Controls.Add(this.label3);
@@ -148,6 +150,8 @@
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmCantidadMovimientos";
             this.Text = "Cantidad de Movimientos y Promedio";
             this.Load += new System.EventHandler(this.frmCantidadMovimientos_Load);

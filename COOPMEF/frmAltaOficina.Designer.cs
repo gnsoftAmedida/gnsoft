@@ -548,6 +548,7 @@
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevaOficina);
             this.Controls.Add(this.groupBox1);
+            this.MaximizeBox = false;
             this.Name = "frmMantOficinas";
             this.Text = "Mantenimiento de Oficina";
             this.Load += new System.EventHandler(this.frmMantOficinas_Load);

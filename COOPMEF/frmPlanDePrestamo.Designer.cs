@@ -43,14 +43,14 @@
             this.txtBoxTasaAnualSinIVA = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.chkVigencia = new System.Windows.Forms.CheckBox();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
+            this.lblIva = new System.Windows.Forms.Label();
             this.lblTasaAnual = new System.Windows.Forms.Label();
             this.lblCantCuotas = new System.Windows.Forms.Label();
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtBoxIVA = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
-            this.chkVigencia = new System.Windows.Forms.CheckBox();
-            this.lblIva = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -224,6 +224,18 @@
             this.panel1.Size = new System.Drawing.Size(463, 292);
             this.panel1.TabIndex = 0;
             // 
+            // chkVigencia
+            // 
+            this.chkVigencia.AutoSize = true;
+            this.chkVigencia.Checked = true;
+            this.chkVigencia.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.chkVigencia.Location = new System.Drawing.Point(188, 230);
+            this.chkVigencia.Name = "chkVigencia";
+            this.chkVigencia.Size = new System.Drawing.Size(108, 17);
+            this.chkVigencia.TabIndex = 12;
+            this.chkVigencia.Text = "Habilitar Vigencia";
+            this.chkVigencia.UseVisualStyleBackColor = true;
+            // 
             // lblErrorGenerico
             // 
             this.lblErrorGenerico.AutoSize = true;
@@ -234,6 +246,17 @@
             this.lblErrorGenerico.TabIndex = 11;
             this.lblErrorGenerico.Text = "label5";
             this.lblErrorGenerico.Visible = false;
+            // 
+            // lblIva
+            // 
+            this.lblIva.AutoSize = true;
+            this.lblIva.ForeColor = System.Drawing.Color.Red;
+            this.lblIva.Location = new System.Drawing.Point(330, 194);
+            this.lblIva.Name = "lblIva";
+            this.lblIva.Size = new System.Drawing.Size(35, 13);
+            this.lblIva.TabIndex = 10;
+            this.lblIva.Text = "label5";
+            this.lblIva.Visible = false;
             // 
             // lblTasaAnual
             // 
@@ -284,29 +307,6 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "% IVA a sumar a Tasa Anual";
             // 
-            // chkVigencia
-            // 
-            this.chkVigencia.AutoSize = true;
-            this.chkVigencia.Checked = true;
-            this.chkVigencia.CheckState = System.Windows.Forms.CheckState.Checked;
-            this.chkVigencia.Location = new System.Drawing.Point(188, 230);
-            this.chkVigencia.Name = "chkVigencia";
-            this.chkVigencia.Size = new System.Drawing.Size(108, 17);
-            this.chkVigencia.TabIndex = 12;
-            this.chkVigencia.Text = "Habilitar Vigencia";
-            this.chkVigencia.UseVisualStyleBackColor = true;
-            // 
-            // lblIva
-            // 
-            this.lblIva.AutoSize = true;
-            this.lblIva.ForeColor = System.Drawing.Color.Red;
-            this.lblIva.Location = new System.Drawing.Point(330, 194);
-            this.lblIva.Name = "lblIva";
-            this.lblIva.Size = new System.Drawing.Size(35, 13);
-            this.lblIva.TabIndex = 10;
-            this.lblIva.Text = "label5";
-            this.lblIva.Visible = false;
-            // 
             // frmPlanDePrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -319,6 +319,7 @@
             this.Controls.Add(this.btnEliminarPlan);
             this.Controls.Add(this.btnEditarPlan);
             this.Controls.Add(this.btnNuevoPlan);
+            this.MaximizeBox = false;
             this.Name = "frmPlanDePrestamo";
             this.Text = "Plan de Préstamo";
             this.Load += new System.EventHandler(this.frmPlanDePrestamo_Load);

@@ -104,6 +104,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.txtDescripcion);
             this.Controls.Add(this.dtpFecha);
+            this.MaximizeBox = false;
             this.Name = "frmModificarEvento";
             this.Text = "Modificar Evento";
             this.Load += new System.EventHandler(this.frmModificarEvento_Load);

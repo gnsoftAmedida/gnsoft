@@ -35,7 +35,6 @@ namespace COOPMEF
             DateTime fechaInicial = Convert.ToDateTime(anio + "-" + mes + "-" + "01");
             DateTime fechaFinal = fechaInicial.AddMonths(1).AddDays(-1);
 
-
             DataSet sociosResultado = empresa.devolverIngresadosEntreFechas(fechaInicial, fechaFinal);
 
             if (sociosResultado.Tables["sociosEntreFechas"].Rows.Count > 0)
@@ -61,12 +60,14 @@ namespace COOPMEF
 
                     ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, bajaResultado, telefono, mesNombre, anio, Inciso, oficina, numerocobro);
                 }
+                frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_INGRESADOS_EN");
+                reporte.ShowDialog();
+                ingresadosEn.SociosIngresadosEn.Rows.Clear();
             }
-
-            frmVerReportes reporte = new frmVerReportes(ingresadosEn, "SOCIOS_INGRESADOS_EN");
-            reporte.ShowDialog();
-            ingresadosEn.SociosIngresadosEn.Rows.Clear();
-
+            else
+            {
+                MessageBox.Show("No se encuentran socios ingresados en las fechas seleccionadas");
+            }
         }
 
         private void frmSociosIngresadosEn_Load(object sender, EventArgs e)

@@ -285,6 +285,7 @@
             this.Controls.Add(this.btnEditarInciso);
             this.Controls.Add(this.btnNuevoInciso);
             this.Controls.Add(this.groupBox12);
+            this.MaximizeBox = false;
             this.Name = "frmMantenimientoInciso";
             this.Text = "Mantenimiento de Inciso";
             this.Load += new System.EventHandler(this.frmMantenimientoInciso_Load);

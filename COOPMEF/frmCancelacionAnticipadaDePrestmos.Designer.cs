@@ -178,9 +178,9 @@
             this.groupBox1.Controls.Add(this.label3);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Location = new System.Drawing.Point(38, 121);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(242, 218);
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
@@ -189,7 +189,7 @@
             // txtInteresesAVencerCA
             // 
             this.txtInteresesAVencerCA.Location = new System.Drawing.Point(134, 180);
-            this.txtInteresesAVencerCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtInteresesAVencerCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtInteresesAVencerCA.Name = "txtInteresesAVencerCA";
             this.txtInteresesAVencerCA.ReadOnly = true;
             this.txtInteresesAVencerCA.Size = new System.Drawing.Size(89, 20);
@@ -198,7 +198,7 @@
             // txtAmortizacionAVencerCA
             // 
             this.txtAmortizacionAVencerCA.Location = new System.Drawing.Point(134, 154);
-            this.txtAmortizacionAVencerCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAmortizacionAVencerCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtAmortizacionAVencerCA.Name = "txtAmortizacionAVencerCA";
             this.txtAmortizacionAVencerCA.ReadOnly = true;
             this.txtAmortizacionAVencerCA.Size = new System.Drawing.Size(89, 20);
@@ -207,7 +207,7 @@
             // txtImporteCuotaCA
             // 
             this.txtImporteCuotaCA.Location = new System.Drawing.Point(134, 128);
-            this.txtImporteCuotaCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtImporteCuotaCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtImporteCuotaCA.Name = "txtImporteCuotaCA";
             this.txtImporteCuotaCA.ReadOnly = true;
             this.txtImporteCuotaCA.Size = new System.Drawing.Size(89, 20);
@@ -216,7 +216,7 @@
             // txtMontoDelValeCA
             // 
             this.txtMontoDelValeCA.Location = new System.Drawing.Point(134, 104);
-            this.txtMontoDelValeCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtMontoDelValeCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtMontoDelValeCA.Name = "txtMontoDelValeCA";
             this.txtMontoDelValeCA.ReadOnly = true;
             this.txtMontoDelValeCA.Size = new System.Drawing.Size(89, 20);
@@ -225,7 +225,7 @@
             // txtTasAnualEfecCA
             // 
             this.txtTasAnualEfecCA.Location = new System.Drawing.Point(134, 80);
-            this.txtTasAnualEfecCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtTasAnualEfecCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtTasAnualEfecCA.Name = "txtTasAnualEfecCA";
             this.txtTasAnualEfecCA.ReadOnly = true;
             this.txtTasAnualEfecCA.Size = new System.Drawing.Size(89, 20);
@@ -234,7 +234,7 @@
             // txtCuotasPactadasCA
             // 
             this.txtCuotasPactadasCA.Location = new System.Drawing.Point(178, 54);
-            this.txtCuotasPactadasCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCuotasPactadasCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtCuotasPactadasCA.Name = "txtCuotasPactadasCA";
             this.txtCuotasPactadasCA.ReadOnly = true;
             this.txtCuotasPactadasCA.Size = new System.Drawing.Size(44, 20);
@@ -243,7 +243,7 @@
             // txtCuotasPagadasCA
             // 
             this.txtCuotasPagadasCA.Location = new System.Drawing.Point(134, 54);
-            this.txtCuotasPagadasCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCuotasPagadasCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtCuotasPagadasCA.Name = "txtCuotasPagadasCA";
             this.txtCuotasPagadasCA.ReadOnly = true;
             this.txtCuotasPagadasCA.Size = new System.Drawing.Size(42, 20);
@@ -252,7 +252,7 @@
             // txtNroPrestamoCA
             // 
             this.txtNroPrestamoCA.Location = new System.Drawing.Point(134, 27);
-            this.txtNroPrestamoCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNroPrestamoCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtNroPrestamoCA.Name = "txtNroPrestamoCA";
             this.txtNroPrestamoCA.ReadOnly = true;
             this.txtNroPrestamoCA.Size = new System.Drawing.Size(89, 20);
@@ -298,9 +298,9 @@
             this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.label13);
             this.groupBox2.Location = new System.Drawing.Point(296, 121);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(184, 122);
             this.groupBox2.TabIndex = 10;
             this.groupBox2.TabStop = false;
@@ -309,7 +309,7 @@
             // txtPresupuestoDeCancelacion
             // 
             this.txtPresupuestoDeCancelacion.Location = new System.Drawing.Point(110, 92);
-            this.txtPresupuestoDeCancelacion.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtPresupuestoDeCancelacion.Margin = new System.Windows.Forms.Padding(2);
             this.txtPresupuestoDeCancelacion.Name = "txtPresupuestoDeCancelacion";
             this.txtPresupuestoDeCancelacion.ReadOnly = true;
             this.txtPresupuestoDeCancelacion.Size = new System.Drawing.Size(69, 20);
@@ -318,7 +318,7 @@
             // txtAPagarPorCajaCA
             // 
             this.txtAPagarPorCajaCA.Location = new System.Drawing.Point(110, 28);
-            this.txtAPagarPorCajaCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtAPagarPorCajaCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtAPagarPorCajaCA.Name = "txtAPagarPorCajaCA";
             this.txtAPagarPorCajaCA.ReadOnly = true;
             this.txtAPagarPorCajaCA.Size = new System.Drawing.Size(69, 20);
@@ -378,7 +378,7 @@
             // txtCiCA
             // 
             this.txtCiCA.Location = new System.Drawing.Point(141, 25);
-            this.txtCiCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtCiCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtCiCA.Name = "txtCiCA";
             this.txtCiCA.ReadOnly = true;
             this.txtCiCA.Size = new System.Drawing.Size(120, 20);
@@ -387,7 +387,7 @@
             // txtApeNomCA
             // 
             this.txtApeNomCA.Location = new System.Drawing.Point(141, 51);
-            this.txtApeNomCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtApeNomCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtApeNomCA.Name = "txtApeNomCA";
             this.txtApeNomCA.ReadOnly = true;
             this.txtApeNomCA.Size = new System.Drawing.Size(333, 20);
@@ -396,7 +396,7 @@
             // txtNroCobroCA
             // 
             this.txtNroCobroCA.Location = new System.Drawing.Point(349, 28);
-            this.txtNroCobroCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNroCobroCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtNroCobroCA.Name = "txtNroCobroCA";
             this.txtNroCobroCA.ReadOnly = true;
             this.txtNroCobroCA.Size = new System.Drawing.Size(126, 20);
@@ -405,7 +405,7 @@
             // txtIncisoCA
             // 
             this.txtIncisoCA.Location = new System.Drawing.Point(141, 80);
-            this.txtIncisoCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtIncisoCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtIncisoCA.Name = "txtIncisoCA";
             this.txtIncisoCA.ReadOnly = true;
             this.txtIncisoCA.Size = new System.Drawing.Size(120, 20);
@@ -414,7 +414,7 @@
             // txtOficinaCA
             // 
             this.txtOficinaCA.Location = new System.Drawing.Point(349, 76);
-            this.txtOficinaCA.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtOficinaCA.Margin = new System.Windows.Forms.Padding(2);
             this.txtOficinaCA.Name = "txtOficinaCA";
             this.txtOficinaCA.ReadOnly = true;
             this.txtOficinaCA.Size = new System.Drawing.Size(126, 20);
@@ -494,7 +494,8 @@
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
+            this.MaximizeBox = false;
             this.Name = "frmCancelacionAnticipadaDePrestmos";
             this.Text = "Cancelación anticipada de préstamos";
             this.Load += new System.EventHandler(this.CancelacionAnticipadaDePrestmos_Load);

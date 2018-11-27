@@ -36,10 +36,11 @@
             // dgvPrestamosSinLiquidar
             // 
             this.dgvPrestamosSinLiquidar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvPrestamosSinLiquidar.Location = new System.Drawing.Point(23, 25);
+            this.dgvPrestamosSinLiquidar.Location = new System.Drawing.Point(17, 20);
+            this.dgvPrestamosSinLiquidar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.dgvPrestamosSinLiquidar.Name = "dgvPrestamosSinLiquidar";
             this.dgvPrestamosSinLiquidar.RowTemplate.Height = 24;
-            this.dgvPrestamosSinLiquidar.Size = new System.Drawing.Size(751, 301);
+            this.dgvPrestamosSinLiquidar.Size = new System.Drawing.Size(563, 245);
             this.dgvPrestamosSinLiquidar.TabIndex = 0;
             this.dgvPrestamosSinLiquidar.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestamosSinLiquidar_CellClick);
             this.dgvPrestamosSinLiquidar.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvPrestamosSinLiquidar_CellDoubleClick);
@@ -49,10 +50,9 @@
             this.btnSalirPrestamo.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirPrestamo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirPrestamo.Location = new System.Drawing.Point(662, 333);
-            this.btnSalirPrestamo.Margin = new System.Windows.Forms.Padding(4);
+            this.btnSalirPrestamo.Location = new System.Drawing.Point(496, 271);
             this.btnSalirPrestamo.Name = "btnSalirPrestamo";
-            this.btnSalirPrestamo.Size = new System.Drawing.Size(112, 32);
+            this.btnSalirPrestamo.Size = new System.Drawing.Size(84, 26);
             this.btnSalirPrestamo.TabIndex = 14;
             this.btnSalirPrestamo.Text = "Salir";
             this.btnSalirPrestamo.UseVisualStyleBackColor = true;
@@ -60,11 +60,13 @@
             // 
             // frmAnulacionPrestamo
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(797, 382);
+            this.ClientSize = new System.Drawing.Size(598, 310);
             this.Controls.Add(this.btnSalirPrestamo);
             this.Controls.Add(this.dgvPrestamosSinLiquidar);
+            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.MaximizeBox = false;
             this.Name = "frmAnulacionPrestamo";
             this.Text = "Anulación de préstamos sin liquidar";
             this.Load += new System.EventHandler(this.frmAnulacionPrestamo_Load);

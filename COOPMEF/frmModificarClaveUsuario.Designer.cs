@@ -125,6 +125,7 @@
             this.Controls.Add(this.txtClaveNueva);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
+            this.MaximizeBox = false;
             this.Name = "frmModificarClaveUsuario";
             this.Text = "Modificar Clave Usuario";
             this.Load += new System.EventHandler(this.frmModificarClaveUsuario_Load);

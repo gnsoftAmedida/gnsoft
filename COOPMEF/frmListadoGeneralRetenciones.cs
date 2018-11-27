@@ -43,7 +43,7 @@ namespace COOPMEF
             catch
             {
                 MessageBox.Show("Verifique que la fecha de su ordenador sea correcta");
-            }   
+            }
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
@@ -52,15 +52,16 @@ namespace COOPMEF
             string mesNombre = cmbMeses.SelectedItem.ToString(); ;
             string anio = cmbAnios.SelectedItem.ToString();
 
-             string presupuesto;
+            string presupuesto;
 
-             if (mes < 10)
-             {
-                 presupuesto = "0" + mes + "/" + anio;
-             }
-             else {
-                 presupuesto = mes + "/" + anio;
-             }
+            if (mes < 10)
+            {
+                presupuesto = "0" + mes + "/" + anio;
+            }
+            else
+            {
+                presupuesto = mes + "/" + anio;
+            }
 
             DataSet interfacesGenerales = empresa.devolverInterfacesGeneralesInforme(presupuesto);
 
@@ -83,18 +84,23 @@ namespace COOPMEF
                     Double Excedido = Convert.ToDouble(interfacesGenerales.Tables["interfacesInforme"].Rows[n][10].ToString());
                     Double Mora = Convert.ToDouble(interfacesGenerales.Tables["interfacesInforme"].Rows[n][11].ToString());
                     Double IvaMora = Convert.ToDouble(interfacesGenerales.Tables["interfacesInforme"].Rows[n][12].ToString());
-             
+
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
                     String fecha = DateTime.Today.ToLongDateString();
 
-                    tablaInterface.Interface.Rows.Add(cedula,nombres,apellidos,numeroCobro,resultadoInter,inciso, oficina, presupuesto, fecha);
+                    tablaInterface.Interface.Rows.Add(cedula, nombres, apellidos, numeroCobro, resultadoInter.ToString("##0.00"), inciso, oficina, presupuesto, fecha);
                 }
+                frmVerReportes reporte = new frmVerReportes(tablaInterface, "INTERFACES_GENERALES");
+                reporte.ShowDialog();
+                tablaInterface.Interface.Rows.Clear();
+            }
+            else
+            {
+                MessageBox.Show("No se encuentran registros");
             }
 
-            frmVerReportes reporte = new frmVerReportes(tablaInterface, "INTERFACES_GENERALES");
-            reporte.ShowDialog();
-            tablaInterface.Interface.Rows.Clear();
+
         }
     }
 }
