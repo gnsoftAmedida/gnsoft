@@ -345,17 +345,17 @@ namespace COOPMEF
         private void oficinaToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-         
+
         }
 
         private void incisoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void planDePréstamosToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
 
         }
 
@@ -1774,6 +1774,97 @@ namespace COOPMEF
 
         private void btnCancelarBusqueda_Click(object sender, EventArgs e)
         {
+
+            this.idSocioSeleccionado = 0;
+
+            this.txtNroSocio.Enabled = false;
+            this.txtNombres.Enabled = false;
+            this.txtApellidos.Enabled = false;
+            this.txtNroCobro.Enabled = false;
+            this.txtTelefono.Enabled = false;
+            this.txtDireccion.Enabled = false;
+            this.txtEmail.Enabled = false;
+            this.txtPostal.Enabled = false;
+            this.dtpFechaNac.Enabled = false;
+            this.cmbOficina.Enabled = false;
+            this.cmbInciso.Enabled = false;
+            this.cmbEstadoCivil.Enabled = false;
+            this.cmbDepartamento.Enabled = false;
+            this.gBoxEstado.Enabled = false;
+            this.gBoxSexo.Enabled = false;
+            this.txtMostrarDetalles.ReadOnly = true;
+            this.txtCesion.Enabled = false;
+
+            btnGuardarSocio.Enabled = false;
+            btnCancelarSocio.Enabled = false;
+            btnEliminarSocio.Enabled = true;
+            btnNuevoSocio.Enabled = true;
+            this.btnEditarSocio.Enabled = true;
+            this.btnVerMasSocio.Enabled = true;
+
+            borrarErroresNuevoSocio();
+
+            this.btnExcedido.Visible = false;
+
+            lblNumeroSocio.Text = "";
+            lblNombreSocio.Text = "";
+            lblApellidosSocio.Text = "";
+            lblFechaNacSocio.Text = "";
+            lblFechaIngresoSocio.Text = "";
+            lblEstadoCivilSocio.Text = "";
+
+            lblEdadSocio.Text = "";
+            lblTelefonoSocio.Text = "";
+
+            this.txtNombres.Text = "";
+            this.txtApellidos.Text = "";
+            this.txtNroSocio.Text = "";
+            this.txtNroCobro.Text = "";
+
+            txtNroDeCobro.Text = "";
+
+            this.dtpFechaNac.Text = "";
+            this.dtpFechaIng.Text = "";
+            this.cmbEstadoCivil.Text = "";
+
+            this.cmbDepartamento.Text = "";
+
+            rBtnActivo.Checked = true;
+            rBtnPasivo.Checked = false;
+
+            this.btnEliminarSocio.Text = "Alta";
+
+            rbtnMasculino.Checked = true;
+            rbtnFemenino.Checked = false;
+
+            lblEdadSocio.ForeColor = Color.Black;
+
+            this.lblEdadSocio.Text = "";
+
+            cmbInciso.SelectedIndex = 0;
+            cmbOficina.SelectedIndex = 0;
+
+            this.cmbOficina.Enabled = false;
+
+            txtInciso.Text = "";
+            txtIncisoCobExcedidos.Text = "";
+
+            txtOficina.Text = ""; ;
+            txtOficinaCobExcedidos.Text = "";
+
+            txtNroDeCobro.Text = "";
+            txtCI.Text = "";
+
+            this.txtTelefono.Text = "";
+            this.txtDireccion.Text = "";
+            this.txtEmail.Text = "";
+            this.txtPostal.Text = "";
+            this.txtMostrarDetalles.Text = "";
+            this.txtCesion.Text = "";
+
+            limpiarPantallaDeCobranza();
+            limpiarPantallaIngresoDeExcedidos();
+
             lblNumeroSocio.Text = "...";
             lblNombreSocio.Text = "...";
             lblApellidosSocio.Text = "...";
@@ -1783,9 +1874,36 @@ namespace COOPMEF
             lblEdadSocio.Text = "...";
             lblTelefonoSocio.Text = "...";
 
+            lblEstadoActivo.Visible = false;
+            lblEstadoDeBaja.Visible = false;
+
+
+            // Prestamo
+            txtNuevoImporte.Text = "";
+
+            btnSolicitar.Enabled = false;
+
+
+            //  txtNuevoImporte.ReadOnly = false;
+
+            txtTotalDeuda.Text = "0.00";
+            txtNroPréstamo.Text = "";
+            txtCuotas.Text = "";
+            txtPagas.Text = "";
+            txtTasa.Text = "";
+            txtMonto.Text = "";
+            txtImporteCuotaPendiente.Text = "";
+            txtAmortización.Text = "";
+            txtInteresesAVencer.Text = "";
+            cuotaAnteriorPrestamo = 0;
+            tasaAnteriorPrestamo = 0;
+            nro_prestamoAnterior = 0;
+            montoAnterior = 0;
+
+            txtTotalDeuda.Text = "0.00";
+
             // Trampa para generar columnas en el datagridview
             socioPorCampo("socio_nro", "#");
-
         }
 
         private void cmbInciso_SelectedIndexChanged(object sender, EventArgs e)
@@ -1846,6 +1964,7 @@ namespace COOPMEF
                 this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
                 this.cmbPlanPréstamo.DisplayMember = "plan_nombre";
                 this.cmbPlanPréstamo.ValueMember = "plan_id";
+                this.cmbPlanPréstamo.SelectedIndex = 0;
 
                 txtNuevoImporte.Clear();
                 txtTotalDeuda.Text = "0.00";
@@ -1903,7 +2022,16 @@ namespace COOPMEF
                                 tasaAnteriorPrestamo = Convert.ToDouble(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][3].ToString());
                                 nro_prestamoAnterior = Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][1].ToString());
                                 montoAnterior = Convert.ToDouble(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][5].ToString());
-                                txtTotalDeuda.Text = txtAmortización.Text.Replace(".", ",");
+
+
+                                if (txtPagas.Text == "0")
+                                {
+                                    txtTotalDeuda.Text = montoAnterior.ToString("##0.00");
+                                }
+                                else {
+                                    txtTotalDeuda.Text = txtAmortización.Text.Replace(".", ",");
+                                }
+                                
 
                                 if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString()) != 0)
                                 {
@@ -1921,6 +2049,7 @@ namespace COOPMEF
                             tasaAnteriorPrestamo = Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][3].ToString());
                             nro_prestamoAnterior = Convert.ToInt32(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][1].ToString());
                             montoAnterior = Convert.ToDouble(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][5].ToString());
+
                             txtTotalDeuda.Text = montoAnterior.ToString();
 
                             id_cobranzaProvisoria = Convert.ToInt32(dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows[0][0].ToString());
@@ -1947,23 +2076,19 @@ namespace COOPMEF
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabBusqueda"]))
             {
-                //  if (!(this.txtBusqueda.Text.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == ""))
-                //  {
+                if ((txtBusqueda.Text == " ,   ,   -") || (txtBusqueda.Text.Trim() == ""))
+                {
+                    socioPorCampo("socio_nro", "#");
+                }
+                else
+                {
+                    this.buscarCampo();
+                }
 
-                // Trampa para generar columnas en el datagridview
-                string valor = txtBusqueda.Text;
+                /*
+                string valor = txtBusqueda.Text;                          
+                 * */
 
-                //                if (valor.Replace("-", "").Replace(",", "").Replace(".", "").Replace("_", "").Trim() == "")
-                //                {
-
-                //       socioPorCampo("socio_nro", "#");
-
-
-                //                }
-                //else {
-
-                this.buscarCampo();
-                //}
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabHistorial"]))
             {
@@ -2065,7 +2190,7 @@ namespace COOPMEF
 
                         tasaConIva = empresa.agregarleIvaAtasaAnual(tasaAnualEfectivaSinIVA, iva);
 
-                        if (txtPagas.Text == "0.0")
+                        if (txtPagas.Text == "0")
                         {
                             txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtMonto.Text.Replace(".", ",")));
 
@@ -2091,13 +2216,13 @@ namespace COOPMEF
                     else
                     {
                         txtImporteCuota.Text = "0.00";
-                        if (txtPagas.Text == "0.0")
+                        if (txtPagas.Text == "0")
                         {
-                            txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtMonto.Text.Replace(".", ",")));
+                            txtTotalDeuda.Text = txtMonto.Text.Replace(".", ",");
                         }
                         else
                         {
-                            txtTotalDeuda.Text = Convert.ToString(Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")) + Convert.ToDouble(txtAmortización.Text.Replace(".", ",")));
+                            txtTotalDeuda.Text = txtAmortización.Text.Replace(".", ",");
                         }
                         cantidadCuotas = 0;
                         tasaAnualEfectivaSinIVA = 0;
@@ -2284,11 +2409,26 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
-            txtNuevoImporte.ReadOnly = false;
+            txtNuevoImporte.Text = "0";
+            CalcularImporteCuota();
+            txtNuevoImporte.Text = "";
+
+            if (idSocioSeleccionado == 0)
+            {
+                txtNuevoImporte.ReadOnly = true;
+            }
+            else
+            {
+                txtNuevoImporte.ReadOnly = false;
+            }
+
+            txtNuevoImporte.Text = "";
+
             cmbPlanPréstamo.Enabled = true;
             btnGuardarPrestamo.Enabled = false;
             btnSolicitar.Enabled = false;
-            txtNuevoImporte.Text = "";
+
+            this.cmbPlanPréstamo.SelectedIndex = 0;
         }
 
         private void toolStripMenuItem4_Click(object sender, EventArgs e)
@@ -2438,7 +2578,7 @@ namespace COOPMEF
 
         private void toolStripMenuItem14_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private Double calcularMoraYSaldos(Double saldo, string _presupuesto)
@@ -3064,7 +3204,7 @@ Agregar emisión
         private void sociosToolStripMenuItem_Click(object sender, EventArgs e)
         {
 
-         
+
 
         }
 
@@ -3130,12 +3270,12 @@ Agregar emisión
 
         private void cancelaciónAnticipadaPorFallecimientoToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void cuadroFranjasEdadToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void porPagoDeSociosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3256,7 +3396,7 @@ Agregar emisión
 
         private void históricoPorEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-         
+
         }
 
         private void pagosDeExcedidosToolStripMenuItem_Click(object sender, EventArgs e)
@@ -3396,12 +3536,12 @@ Agregar emisión
 
         private void padrónToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            
+
         }
 
         private void utilidadDelSocioToolStripMenuItem_Click(object sender, EventArgs e)
         {
-           
+
         }
 
         private void datosDelPresupuestoToolStripMenuItem_Click(object sender, EventArgs e)
