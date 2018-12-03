@@ -19,7 +19,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, o.oficina_codigo, i.inciso_codigo, s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento, s.socio_cesion, o.oficina_abreviatura, i.inciso_abreviatura FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and " + campo + " like " + " '%" + valor + "%' ORDER BY " + campo + " ASC ";
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaNac, s.socio_fechaIngreso, s.socio_estadoCivil, s.socio_sexo, s.socio_estado, s.socio_edad, s.socio_oficinaId, s.socio_incisoId, s.socio_tel, s.socio_direccion, s.socio_email, o.oficina_codigo, i.inciso_codigo, s.socio_activo, s.socio_detalles, s.socio_postal, s.socio_departamento, s.socio_cesion, o.oficina_abreviatura, i.inciso_abreviatura FROM socio s, inciso i, oficina o  where s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and " + campo + " like " + " '%" + valor.Replace("-", "").Replace(".", "").Replace(",", "") + "%' ORDER BY " + campo + " ASC ";
                 DataSet ds = new DataSet();
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
@@ -43,7 +43,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaIngreso, s.socio_cesion, s.socio_direccion FROM socio s where s.socio_nro ='" + cedula + "'";
+                string sql = "SELECT s.socio_id, s.socio_nro, s.socio_nombre, s.socio_apellido, s.socio_nroCobro, s.socio_fechaIngreso, s.socio_cesion, s.socio_direccion FROM socio s where s.socio_nro ='" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "'";
                 DataSet ds = new DataSet();
                 connection.Open();
                 MySqlAdapter.SelectCommand = connection.CreateCommand();
@@ -323,7 +323,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO fallecidos (NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, Cedula, Usuario, FechaCancelacion, socio_id) VALUES ('" + NumeroPrestamo + "','" + CuotasPactadas + "','" + CuotasPagadas + "','" + Tasa.ToString().Replace(",", ".") + "','" + MontoVale.ToString().Replace(",", ".") + "','" + ImporteCuota.ToString().Replace(",", ".") + "','" + AmortizacionVencer.ToString().Replace(",", ".") + "','" + InteresesVencer.ToString().Replace(",", ".") + "','" + Cedula + "','" + Usuario + "','" + FechaCancelacion.ToString("yyyy/MM/dd") + "','" + socio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO fallecidos (NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa, MontoVale, ImporteCuota, AmortizacionVencer, InteresesVencer, Cedula, Usuario, FechaCancelacion, socio_id) VALUES ('" + NumeroPrestamo + "','" + CuotasPactadas + "','" + CuotasPagadas + "','" + Tasa.ToString().Replace(",", ".") + "','" + MontoVale.ToString().Replace(",", ".") + "','" + ImporteCuota.ToString().Replace(",", ".") + "','" + AmortizacionVencer.ToString().Replace(",", ".") + "','" + InteresesVencer.ToString().Replace(",", ".") + "','" + Cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "','" + Usuario + "','" + FechaCancelacion.ToString("yyyy/MM/dd") + "','" + socio_id + "');" + "Select last_insert_id()";
                                                                                                                                                                                                                                
             try
             {
@@ -466,7 +466,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO socio (socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email,socio_activo, socio_detalles, socio_postal, socio_departamento, socio_cesion) VALUES ('" + Tsocio_nombre.Replace("'", "") + "','" + Tsocio_apellido.Replace("'", "") + "','" + Tsocio_nro + "','" + Tsocio_nroCobro.Replace("'", "") + "','" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "','" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "','" + Tsocio_estadoCivil + "','" + Tsocio_sexo + "','" + Tsocio_estado + "','" + Tsocio_edad + "','" + Tsocio_oficinaId + "','" + Tsocio_incisoId + "','" + Tsocio_tel.Replace("'", "") + "','" + Tsocio_direccion.Replace("'", "") + "','" + Tsocio_email.Replace("'", "") + "','" + Tsocio_activo + "','" + detalles + "','" + Tsocio_postal + "','" + Departamento + "','" + socioCesion + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO socio (socio_nombre, socio_apellido, socio_nro, socio_nroCobro, socio_fechaNac, socio_fechaIngreso, socio_estadoCivil, socio_sexo, socio_estado, socio_edad, socio_oficinaId, socio_incisoId, socio_tel, socio_direccion, socio_email,socio_activo, socio_detalles, socio_postal, socio_departamento, socio_cesion) VALUES ('" + Tsocio_nombre.Replace("'", "") + "','" + Tsocio_apellido.Replace("'", "") + "','" + Tsocio_nro.Replace("-", "").Replace(".", "").Replace(",", "") + "','" + Tsocio_nroCobro.Replace("'", "") + "','" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "','" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "','" + Tsocio_estadoCivil + "','" + Tsocio_sexo + "','" + Tsocio_estado + "','" + Tsocio_edad + "','" + Tsocio_oficinaId + "','" + Tsocio_incisoId + "','" + Tsocio_tel.Replace("'", "") + "','" + Tsocio_direccion.Replace("'", "") + "','" + Tsocio_email.Replace("'", "") + "','" + Tsocio_activo + "','" + detalles + "','" + Tsocio_postal + "','" + Departamento + "','" + socioCesion + "');" + "Select last_insert_id()";
 
             try
             {
@@ -525,7 +525,7 @@ namespace Persistencia
 
             string sql;
 
-            sql = "Update socio set socio_nombre ='" + Tsocio_nombre.Replace("'", "") + "', socio_nro  ='" + socio_nro + "', socio_apellido ='" + Tsocio_apellido.Replace("'", "") + "', socio_nroCobro ='" + Tsocio_nroCobro.Replace("'", "") + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_cesion = '" + socioCesion + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel.Replace("'", "") + "', socio_direccion='" + Tsocio_direccion.Replace("'", "") + "', socio_email='" + Tsocio_email.Replace("'", "") + "', socio_detalles='" + detalles + "', socio_postal='" + postal + "', socio_departamento='" + departamento + "' WHERE socio_id =" + Tsocio_id;
+            sql = "Update socio set socio_nombre ='" + Tsocio_nombre.Replace("'", "") + "', socio_nro  ='" + socio_nro.Replace("-", "").Replace(".", "").Replace(",", "") + "', socio_apellido ='" + Tsocio_apellido.Replace("'", "") + "', socio_nroCobro ='" + Tsocio_nroCobro.Replace("'", "") + "',socio_fechaNac='" + Tsocio_fechaNac.ToString("yyyy/MM/dd") + "',socio_fechaIngreso ='" + Tsocio_fechaIngreso.ToString("yyyy/MM/dd") + "',socio_sexo = '" + Tsocio_sexo + "', socio_estado = '" + Tsocio_estado + "', socio_cesion = '" + socioCesion + "', socio_estadoCivil = '" + Tsocio_estadoCivil + "', socio_edad='" + Tsocio_edad + "', socio_oficinaId = '" + Tsocio_oficinaId + "', socio_incisoId = '" + Tsocio_incisoId + "', socio_tel='" + Tsocio_tel.Replace("'", "") + "', socio_direccion='" + Tsocio_direccion.Replace("'", "") + "', socio_email='" + Tsocio_email.Replace("'", "") + "', socio_detalles='" + detalles + "', socio_postal='" + postal + "', socio_departamento='" + departamento + "' WHERE socio_id =" + Tsocio_id;
 
             try
             {

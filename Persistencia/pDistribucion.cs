@@ -21,7 +21,7 @@ namespace Persistencia
 
             string sql;
             // sql = "INSERT INTO distribucion (socio_id, cedula, ejercicio, aportesCapital, interesesAportados, utilidades, pagadopor, fecha, cheque) VALUES ('" + socio_id + "', '" + cedula + "', '" + ejercicio + "','" + aportesCapital.ToString().Replace(",", ".") + "','" + interesesAportados.ToString().Replace(",", ".") + "','" + utilidades.ToString().Replace(",", ".") + "','" + pagadopor + "','" + fecha.ToString("yyyy/MM/dd hh:mm:ss") + "', '" + cheque + "');" + "Select last_insert_id()";
-            sql = "INSERT INTO distribucion (socio_id, cedula, ejercicio, aportesCapital, interesesAportados) VALUES ('" + socio_id + "', '" + cedula + "', '" + ejercicio + "','" + aportesCapital.ToString().Replace(",", ".") + "','" + interesesAportados.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO distribucion (socio_id, cedula, ejercicio, aportesCapital, interesesAportados) VALUES ('" + socio_id + "', '" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', '" + ejercicio + "','" + aportesCapital.ToString().Replace(",", ".") + "','" + interesesAportados.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
 
             try
             {

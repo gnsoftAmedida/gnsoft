@@ -2121,10 +2121,9 @@ namespace COOPMEF
             }
         }
 
-
         private void cargarPantallaHistoria()
         {
-            DataSet dsHistoria = empresa.devolverHistoriaPorIdSocio(idSocioSeleccionado);
+            DataSet dsHistoria = empresa.devolverHistoriaPorIdSocioCompleta(idSocioSeleccionado);
 
             dgvHistoria.DataSource = dsHistoria.Tables["historiasIdSocio"];
 
@@ -2142,26 +2141,46 @@ namespace COOPMEF
             dgvHistoria.BackgroundColor = BackColor;
             dgvHistoria.BorderStyle = BorderStyle.None;
 
-            dgvHistoria.Columns["Presupuesto"].HeaderText = "Presupuesto";
-            dgvHistoria.Columns["Presupuesto"].Width = 120;
+            dgvHistoria.Columns["socio_nro"].Visible = false;
+            dgvHistoria.Columns["socio_apellido"].Visible = false;
+            dgvHistoria.Columns["socio_nombre"].Visible = false;
+            dgvHistoria.Columns["porcentagePagado"].Visible = false;
+            dgvHistoria.Columns["cuotasPagadas"].Visible = false;
+            dgvHistoria.Columns["cuotasPactadas"].Visible = false;
+            dgvHistoria.Columns["numeroPrestamoAnt"].Visible = false;
+                
+            dgvHistoria.Columns["fecha"].HeaderText = "Fecha";
+            dgvHistoria.Columns["fecha"].Width = 85;
 
             dgvHistoria.Columns["NumeroPrestamo"].HeaderText = "Nº Préstamo";
-            dgvHistoria.Columns["NumeroPrestamo"].Width = 120;
+            dgvHistoria.Columns["NumeroPrestamo"].Width = 110 ;
 
-            dgvHistoria.Columns["montopedido"].HeaderText = "Monto";
-            dgvHistoria.Columns["montopedido"].Width = 120;
+            dgvHistoria.Columns["monteopedido"].HeaderText = "Monto concedido $";
+            dgvHistoria.Columns["monteopedido"].Width = 160;
 
-            dgvHistoria.Columns["cantidadcuotas"].HeaderText = "Cuotas";
-            dgvHistoria.Columns["cantidadcuotas"].Width = 120;
+            dgvHistoria.Columns["amortizacionVencer"].HeaderText = "Amortización Vencer $";
+            dgvHistoria.Columns["amortizacionVencer"].Width = 170;
 
-            dgvHistoria.Columns["nrocuotas"].HeaderText = "Nro Cuota";
-            dgvHistoria.Columns["nrocuotas"].Width = 120;
+            dgvHistoria.Columns["totalvale"].HeaderText = "Total vale $";
+            dgvHistoria.Columns["totalvale"].Width = 120;
 
-            dgvHistoria.Columns["importecuota"].HeaderText = "Importe Cuota";
-            dgvHistoria.Columns["importecuota"].Width = 120;
+            dgvHistoria.Columns["cantidadcuotas"].HeaderText = "Cantidad Cuotas";
+            dgvHistoria.Columns["cantidadcuotas"].Width = 140;
 
-            dgvHistoria.Columns["tasa"].HeaderText = "Tasa";
-            dgvHistoria.Columns["tasa"].Width = 120;
+            dgvHistoria.Columns["importecuota"].HeaderText = "Importe cuota $";
+            dgvHistoria.Columns["importecuota"].Width = 127;
+
+            dgvHistoria.Columns["numeroPrestamoAnt"].HeaderText = "Nro Préstamo Anterior";
+            dgvHistoria.Columns["numeroPrestamoAnt"].Width = 120;
+
+            dgvHistoria.Columns["cuotasPactadas"].HeaderText = "Cuotas Pactadas";
+            dgvHistoria.Columns["cuotasPactadas"].Width = 120;
+
+            dgvHistoria.Columns["cuotasPagadas"].HeaderText = "Cuotas Pagadas";
+            dgvHistoria.Columns["cuotasPagadas"].Width = 120;
+                            
+            dgvHistoria.Columns["porcentagePagado"].HeaderText = "porcentagePagado";
+            dgvHistoria.Columns["porcentagePagado"].Width = 120;
         }
 
         private void dgvSociosCampo_CellClick(object sender, DataGridViewCellEventArgs e)

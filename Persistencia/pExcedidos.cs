@@ -85,7 +85,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula + "', aretener = '" + aretener.ToString().Replace(",", ".") + "', retenido = '" + retenido.ToString().Replace(",", ".") + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital.ToString().Replace(",", ".") + "', socio_id ='" + socio_id + "' WHERE excedidos_id =" + idExcedido;
+            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', aretener = '" + aretener.ToString().Replace(",", ".") + "', retenido = '" + retenido.ToString().Replace(",", ".") + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital.ToString().Replace(",", ".") + "', socio_id ='" + socio_id + "' WHERE excedidos_id =" + idExcedido;
 
             try
             {
@@ -116,7 +116,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido,  fechadepago,  importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula + "','" + aretener.ToString().Replace(",", ".") + "','" + retenido.ToString().Replace(",", ".") + "','" + fechadepago + "','" + importepagado.ToString().Replace(",", ".") + "','" + presupuestodelpago + "','" + aportecapital.ToString().Replace(",", ".") + "','" + socio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido,  fechadepago,  importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "','" + aretener.ToString().Replace(",", ".") + "','" + retenido.ToString().Replace(",", ".") + "','" + fechadepago + "','" + importepagado.ToString().Replace(",", ".") + "','" + presupuestodelpago + "','" + aportecapital.ToString().Replace(",", ".") + "','" + socio_id + "');" + "Select last_insert_id()";
 
             try
             {
@@ -264,32 +264,7 @@ namespace Persistencia
                 throw ex;
             }
         }
-
-        /*  public DataSet devolverExcedidosPorCI(string ci)
-          {
-              try
-              {
-                  MySqlConnection connection = conectar();
-
-                  MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                  string sql = "SELECT * FROM excedidos where cedula='" + ci + "'";
-                  DataSet ds = new DataSet();
-
-                  connection.Open();
-                  MySqlAdapter.SelectCommand = connection.CreateCommand();
-                  MySqlAdapter.SelectCommand.CommandText = sql;
-                  MySqlAdapter.Fill(ds, "excedidosPorCI");
-                  connection.Close();
-                  return ds;
-
-              }
-              catch (Exception ex)
-              {
-                  throw ex;
-              }
-          }
-  */
-
+       
         public DataSet devolverTodos()
         {
             try
