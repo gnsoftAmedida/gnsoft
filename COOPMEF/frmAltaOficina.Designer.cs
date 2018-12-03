@@ -70,14 +70,20 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
+            this.txtFax = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.lblErrorFax = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.txtFax);
             this.groupBox1.Controls.Add(this.lblErrorGenerico);
             this.groupBox1.Controls.Add(this.lblErrContacto);
             this.groupBox1.Controls.Add(this.lblErrMail);
+            this.groupBox1.Controls.Add(this.lblErrorFax);
             this.groupBox1.Controls.Add(this.lblErrTelefono);
             this.groupBox1.Controls.Add(this.lblErrDepartamento);
             this.groupBox1.Controls.Add(this.lblErrCodigoPostal);
@@ -112,7 +118,7 @@
             this.groupBox1.Controls.Add(this.lblNroSocio);
             this.groupBox1.Location = new System.Drawing.Point(12, 12);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(429, 374);
+            this.groupBox1.Size = new System.Drawing.Size(429, 399);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
@@ -121,7 +127,7 @@
             this.lblErrorGenerico.AutoSize = true;
             this.lblErrorGenerico.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrorGenerico.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorGenerico.Location = new System.Drawing.Point(19, 352);
+            this.lblErrorGenerico.Location = new System.Drawing.Point(19, 377);
             this.lblErrorGenerico.Name = "lblErrorGenerico";
             this.lblErrorGenerico.Size = new System.Drawing.Size(39, 12);
             this.lblErrorGenerico.TabIndex = 32;
@@ -132,7 +138,7 @@
             this.lblErrContacto.AutoSize = true;
             this.lblErrContacto.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrContacto.ForeColor = System.Drawing.Color.Red;
-            this.lblErrContacto.Location = new System.Drawing.Point(310, 320);
+            this.lblErrContacto.Location = new System.Drawing.Point(310, 345);
             this.lblErrContacto.Name = "lblErrContacto";
             this.lblErrContacto.Size = new System.Drawing.Size(39, 12);
             this.lblErrContacto.TabIndex = 31;
@@ -143,7 +149,7 @@
             this.lblErrMail.AutoSize = true;
             this.lblErrMail.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblErrMail.ForeColor = System.Drawing.Color.Red;
-            this.lblErrMail.Location = new System.Drawing.Point(310, 294);
+            this.lblErrMail.Location = new System.Drawing.Point(310, 319);
             this.lblErrMail.Name = "lblErrMail";
             this.lblErrMail.Size = new System.Drawing.Size(39, 12);
             this.lblErrMail.TabIndex = 31;
@@ -239,7 +245,7 @@
             // 
             // txtNombreContacto
             // 
-            this.txtNombreContacto.Location = new System.Drawing.Point(138, 316);
+            this.txtNombreContacto.Location = new System.Drawing.Point(138, 341);
             this.txtNombreContacto.MaxLength = 100;
             this.txtNombreContacto.Name = "txtNombreContacto";
             this.txtNombreContacto.Size = new System.Drawing.Size(166, 20);
@@ -291,7 +297,7 @@
             // 
             this.label24.AutoSize = true;
             this.label24.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label24.Location = new System.Drawing.Point(17, 316);
+            this.label24.Location = new System.Drawing.Point(17, 341);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(104, 13);
             this.label24.TabIndex = 15;
@@ -301,7 +307,7 @@
             // 
             this.label23.AutoSize = true;
             this.label23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label23.Location = new System.Drawing.Point(17, 293);
+            this.label23.Location = new System.Drawing.Point(17, 318);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(35, 13);
             this.label23.TabIndex = 14;
@@ -317,7 +323,7 @@
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(138, 290);
+            this.txtEmail.Location = new System.Drawing.Point(138, 315);
             this.txtEmail.MaxLength = 45;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(166, 20);
@@ -535,12 +541,41 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
+            // txtFax
+            // 
+            this.txtFax.Location = new System.Drawing.Point(138, 289);
+            this.txtFax.MaxLength = 45;
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(121, 20);
+            this.txtFax.TabIndex = 33;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(18, 291);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Fax";
+            // 
+            // lblErrorFax
+            // 
+            this.lblErrorFax.AutoSize = true;
+            this.lblErrorFax.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorFax.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorFax.Location = new System.Drawing.Point(272, 293);
+            this.lblErrorFax.Name = "lblErrorFax";
+            this.lblErrorFax.Size = new System.Drawing.Size(39, 12);
+            this.lblErrorFax.TabIndex = 31;
+            this.lblErrorFax.Text = "label2";
+            // 
             // frmMantOficinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.btnSalir;
-            this.ClientSize = new System.Drawing.Size(579, 398);
+            this.ClientSize = new System.Drawing.Size(579, 420);
             this.Controls.Add(this.btnSalir);
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnGuardar);
@@ -602,5 +637,8 @@
         private System.Windows.Forms.Label lblErrorGenerico;
         private System.Windows.Forms.ComboBox cmbTodosIncisos;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox txtFax;
+        private System.Windows.Forms.Label lblErrorFax;
     }
 }

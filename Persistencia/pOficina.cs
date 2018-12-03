@@ -50,13 +50,13 @@ namespace Persistencia
         }
 
 
-        public void modificarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto, int idOficina)
+        public void modificarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto, int idOficina, string fax)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update oficina set oficina_codigo = '" + oficina_codigo + "', oficina_nombre = '" + oficina_nombre + "', oficina_abreviatura = '" + oficina_abreviatura + "', oficina_direccion = '" + oficina_direccion + "', inciso_inciso_id = '" + oficina_inciso + "', departamento_departamento_id = '" + departamento + "', oficina_codigopostal = '" + oficina_codigopostal + "', oficina_telefono = '" + oficina_telefono + "', oficina_email = '" + oficina_email + "', oficina_nombrecontacto = '" + oficina_nombrecontacto + "' WHERE oficina_id =" + idOficina;
+            string sql = "Update oficina set oficina_codigo = '" + oficina_codigo + "', oficina_nombre = '" + oficina_nombre + "', oficina_abreviatura = '" + oficina_abreviatura + "', oficina_direccion = '" + oficina_direccion + "', inciso_inciso_id = '" + oficina_inciso + "', departamento_departamento_id = '" + departamento + "', oficina_codigopostal = '" + oficina_codigopostal + "', oficina_telefono = '" + oficina_telefono + "', oficina_email = '" + oficina_email + "', oficina_nombrecontacto = '" + oficina_nombrecontacto + "', fax = '" + fax + "' WHERE oficina_id =" + idOficina;
 
             try
             {
@@ -88,7 +88,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT oficina_id, oficina_codigo, oficina_nombre, oficina_abreviatura, oficina_direccion, inciso_inciso_id, departamento_departamento_id, oficina_codigopostal, oficina_telefono, oficina_email, oficina_nombrecontacto, CONCAT(oficina_codigo , ' - ' , oficina_abreviatura) as mostrar_nombre FROM oficina where inciso_inciso_id =" + idInciso;
+                string sql = "SELECT oficina_id, oficina_codigo, oficina_nombre, oficina_abreviatura, oficina_direccion, inciso_inciso_id, departamento_departamento_id, oficina_codigopostal, oficina_telefono, oficina_email, oficina_nombrecontacto, CONCAT(oficina_codigo , ' - ' , oficina_abreviatura) as mostrar_nombre, fax FROM oficina where inciso_inciso_id =" + idInciso;
                 DataSet ds = new DataSet();
 
                 connection.Open();
@@ -105,14 +105,14 @@ namespace Persistencia
             }
         }
 
-        public void GuardarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto)
+        public void GuardarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto, string fax)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO oficina (oficina_codigo, oficina_nombre, oficina_abreviatura, oficina_direccion, inciso_inciso_id, departamento_departamento_id, oficina_codigopostal, oficina_telefono, oficina_email, oficina_nombrecontacto) VALUES ('" + oficina_codigo + "','" + oficina_nombre + "','" + oficina_abreviatura + "','" + oficina_direccion + "','" + oficina_inciso + "','" + departamento + "','" + oficina_codigopostal + "','" + oficina_telefono + "','" + oficina_email + "','" + oficina_nombrecontacto + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO oficina (oficina_codigo, oficina_nombre, oficina_abreviatura, oficina_direccion, inciso_inciso_id, departamento_departamento_id, oficina_codigopostal, oficina_telefono, oficina_email, oficina_nombrecontacto, fax) VALUES ('" + oficina_codigo + "','" + oficina_nombre + "','" + oficina_abreviatura + "','" + oficina_direccion + "','" + oficina_inciso + "','" + departamento + "','" + oficina_codigopostal + "','" + oficina_telefono + "','" + oficina_email + "','" + oficina_nombrecontacto + "','" + fax + "');" + "Select last_insert_id()";
 
             try
             {

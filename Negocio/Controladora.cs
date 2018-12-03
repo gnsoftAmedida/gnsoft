@@ -1667,7 +1667,7 @@ namespace Negocio
             tmpMovimiento.Guardar();
         }
 
-        public void AltaOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto)
+        public void AltaOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto, string fax)
         {
             Oficina tmpOficina = new Oficina();
 
@@ -1687,6 +1687,7 @@ namespace Negocio
             tmpOficina.Oficina_telefono = telefono;
             tmpOficina.Oficina_email = email;
             tmpOficina.Oficina_nombrecontacto = nombreContacto;
+            tmpOficina.Oficina_fax = fax;
             tmpOficina.Guardar();
         }
 
@@ -1762,7 +1763,7 @@ namespace Negocio
             tmpExcedido.actualizarExcedidoCierre();
         }
 
-        public void modificarOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto, int idOficina)
+        public void modificarOficina(string codigo, string nombre, string abreviatura, string direccion, int idInciso, int idDepartamento, string codigoPostal, string telefono, string email, string nombreContacto, int idOficina, string fax)
         {
             Oficina tmpOficina = new Oficina();
 
@@ -1783,6 +1784,7 @@ namespace Negocio
             tmpOficina.Oficina_email = email;
             tmpOficina.Oficina_nombrecontacto = nombreContacto;
             tmpOficina.Oficina_id = idOficina;
+            tmpOficina.Oficina_fax = fax;
             tmpOficina.modificarOficina();
         }
 

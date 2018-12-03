@@ -82,6 +82,7 @@ namespace COOPMEF
             this.txtCodigoPostal.Enabled = false;
             this.cmbDepartamento.Enabled = false;
             this.txtTelefono.Enabled = false;
+            this.txtFax.Enabled = false;
             this.txtEmail.Enabled = false;
             this.txtNombreContacto.Enabled = false;
 
@@ -92,6 +93,7 @@ namespace COOPMEF
             this.txtDireccion.Clear();
             this.txtCodigoPostal.Clear();
             this.txtTelefono.Clear();
+            this.txtFax.Clear();
             this.txtEmail.Clear();
             this.txtNombreContacto.Clear();
 
@@ -127,6 +129,7 @@ namespace COOPMEF
             this.cmbDepartamento.Enabled = true;
             this.cmbDepartamento.SelectedIndex = -1;
             this.txtTelefono.Enabled = true;
+            this.txtFax.Enabled = true;
             this.txtEmail.Enabled = true;
             this.txtNombreContacto.Enabled = true;
 
@@ -137,6 +140,7 @@ namespace COOPMEF
             this.txtDireccion.Clear();
             this.txtCodigoPostal.Clear();
             this.txtTelefono.Clear();
+            this.txtFax.Clear();
             this.txtEmail.Clear();
             this.txtNombreContacto.Clear();
 
@@ -205,6 +209,7 @@ namespace COOPMEF
                     this.txtCodigoPostal.Enabled = false;
                     this.cmbDepartamento.Enabled = false;
                     this.txtTelefono.Enabled = false;
+                    this.txtFax.Enabled = false;
                     this.txtEmail.Enabled = false;
                     this.txtNombreContacto.Enabled = false;
 
@@ -221,6 +226,7 @@ namespace COOPMEF
                     this.txtTelefono.Text = dsOficinas.Tables["oficinas"].Rows[index][8].ToString();
                     this.txtEmail.Text = dsOficinas.Tables["oficinas"].Rows[index][9].ToString();
                     this.txtNombreContacto.Text = dsOficinas.Tables["oficinas"].Rows[index][10].ToString();
+                    this.txtFax.Text = dsOficinas.Tables["oficinas"].Rows[index][12].ToString(); ;
 
                     //Elijo el departamento de la oficina seleccionada
                     for (int i = 0; i < dsDepartamentos.Tables["departamentos"].Rows.Count; i++)
@@ -316,6 +322,13 @@ namespace COOPMEF
                 valido = false;
             }
 
+            if (this.txtFax.Text.Trim() == "")
+            {
+                this.lblErrorFax.Visible = true;
+                this.lblErrorFax.Text = "Campo obligatorio";
+                valido = false;
+            }
+
             if (this.txtEmail.Text.Trim() == "")
             {
                 this.lblErrMail.Visible = true;
@@ -359,7 +372,7 @@ namespace COOPMEF
                         int id_departamento = Convert.ToInt32(dsDepartamentos.Tables["departamentos"].Rows[this.cmbDepartamento.SelectedIndex][0].ToString());
                         int index = this.cmbOficinas.SelectedIndex;
 
-                        empresa.modificarOficina(txtCodigo.Text.Replace("'", ""), txtNombre.Text.Replace("'", ""), txtAbreviatura.Text.Replace("'", ""), txtDireccion.Text.Replace("'", ""), id_inciso, id_departamento, txtCodigoPostal.Text.Replace("'", ""), txtTelefono.Text.Replace("'", ""), txtEmail.Text.Replace("'", ""), txtNombreContacto.Text.Replace("'", ""), Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[index][0].ToString()));
+                        empresa.modificarOficina(txtCodigo.Text.Replace("'", ""), txtNombre.Text.Replace("'", ""), txtAbreviatura.Text.Replace("'", ""), txtDireccion.Text.Replace("'", ""), id_inciso, id_departamento, txtCodigoPostal.Text.Replace("'", ""), txtTelefono.Text.Replace("'", ""), txtEmail.Text.Replace("'", ""), txtNombreContacto.Text.Replace("'", ""), Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[index][0].ToString()), txtFax.Text.Replace("'", ""));
 
                         MessageBox.Show("Oficina creada correctamente");
 
@@ -439,6 +452,13 @@ namespace COOPMEF
                 valido = false;
             }
 
+            if (this.txtFax.Text.Trim() == "")
+            {
+                this.lblErrorFax.Visible = true;
+                this.lblErrorFax.Text = "Campo obligatorio";
+                valido = false;
+            }
+
             if (this.txtEmail.Text.Trim() == "")
             {
                 this.lblErrMail.Visible = true;
@@ -470,7 +490,7 @@ namespace COOPMEF
                     int id_inciso = Convert.ToInt32(dsIncisos.Tables["incisos"].Rows[this.cmbIncisos.SelectedIndex][0].ToString());
                     int id_departamento = Convert.ToInt32(dsDepartamentos.Tables["departamentos"].Rows[this.cmbDepartamento.SelectedIndex][0].ToString());
 
-                    empresa.AltaOficina(txtCodigo.Text.Replace("'", ""), txtNombre.Text.Replace("'", ""), txtAbreviatura.Text.Replace("'", ""), txtDireccion.Text.Replace("'", ""), id_inciso, id_departamento, txtCodigoPostal.Text, txtTelefono.Text, txtEmail.Text, txtNombreContacto.Text);
+                    empresa.AltaOficina(txtCodigo.Text.Replace("'", ""), txtNombre.Text.Replace("'", ""), txtAbreviatura.Text.Replace("'", ""), txtDireccion.Text.Replace("'", ""), id_inciso, id_departamento, txtCodigoPostal.Text, txtTelefono.Text, txtEmail.Text, txtNombreContacto.Text, txtFax.Text.Replace("'", ""));
 
                     MessageBox.Show("Oficina creada correctamente");
 
@@ -501,6 +521,7 @@ namespace COOPMEF
             this.lblErrNombre.Visible = false;
             this.lblErrCodigoPostal.Visible = false;
             this.lblErrTelefono.Visible = false;
+            this.lblErrorFax.Visible = false;
             this.lblErrorGenerico.Visible = false;
 
             this.lblErrAbreviatura.Text = "";
@@ -513,6 +534,7 @@ namespace COOPMEF
             this.lblErrNombre.Text = "";
             this.lblErrCodigoPostal.Text = "";
             this.lblErrTelefono.Text = "";
+            this.lblErrorFax.Text = "";
             this.lblErrorGenerico.Text = "";
         }
 
@@ -559,6 +581,7 @@ namespace COOPMEF
             this.txtCodigoPostal.Enabled = true;
             this.cmbDepartamento.Enabled = true;
             this.txtTelefono.Enabled = true;
+            this.txtFax.Enabled = true;
             this.txtEmail.Enabled = true;
             this.txtNombreContacto.Enabled = true;
 

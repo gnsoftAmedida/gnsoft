@@ -21,7 +21,8 @@ namespace Negocio
         private string oficina_email;
         private Inciso oficina_inciso;
         private Departamento departamento;
-
+        private string oficina_fax;
+        
         public int Oficina_id
         {
             get { return oficina_id; }
@@ -88,6 +89,12 @@ namespace Negocio
             set { departamento = value; }
         }
 
+        public string Oficina_fax
+        {
+            get { return oficina_fax; }
+            set { oficina_fax = value; }
+        }
+
         public DataSet devolverOficinas()
         {
             pOficina tmpInciso = new pOficina();
@@ -105,13 +112,13 @@ namespace Negocio
         public void Guardar()
         {
             pOficina tmpOficina = new pOficina();
-            tmpOficina.GuardarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto);
+            tmpOficina.GuardarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto, Oficina_fax);
         }
 
         public void modificarOficina()
         {
             pOficina tmpOficina = new pOficina();
-            tmpOficina.modificarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto, Oficina_id);
+            tmpOficina.modificarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto, Oficina_id, Oficina_fax);
         }
 
         public void eliminar()
