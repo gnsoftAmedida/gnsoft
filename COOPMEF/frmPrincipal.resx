@@ -182,7 +182,7 @@
     <value>Informes de Socios sobre edad</value>
   </data>
   <data name="reportesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="reportesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Informes</value>
@@ -197,13 +197,13 @@
     <value>Socios</value>
   </data>
   <data name="incisoToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="incisoToolStripMenuItem1.Text" xml:space="preserve">
     <value>Inciso</value>
   </data>
   <data name="oficinaToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="oficinaToolStripMenuItem1.Text" xml:space="preserve">
     <value>Oficina</value>
@@ -215,7 +215,7 @@
     <value>Padrón</value>
   </data>
   <data name="informesToolStripMenuItem6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="informesToolStripMenuItem6.Text" xml:space="preserve">
     <value>Informes</value>
@@ -230,40 +230,22 @@
     <value>Oficinas</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="anulaciónToolStripMenuItem.Text" xml:space="preserve">
     <value>Anulación</value>
   </data>
-  <data name="resumenDePréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
-  </data>
-  <data name="resumenDePréstamosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Resumen de Préstamos</value>
-  </data>
-  <data name="salidasEIngresosPorPréstamosToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
-  </data>
-  <data name="salidasEIngresosPorPréstamosToolStripMenuItem.Text" xml:space="preserve">
-    <value>Salidas e Ingresos por préstamos</value>
-  </data>
-  <data name="préstamosPendientesToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>286, 22</value>
-  </data>
-  <data name="préstamosPendientesToolStripMenuItem.Text" xml:space="preserve">
-    <value>Préstamos Pendientes</value>
-  </data>
   <data name="informesToolStripMenuItem1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>140, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="informesToolStripMenuItem1.Text" xml:space="preserve">
     <value>Informes</value>
   </data>
   <data name="archivoToolStripMenuItem.Font" type="System.Drawing.Font, System.Drawing">
-    <value>Arial, 9.75pt, style=Bold</value>
+    <value>Arial Rounded MT Bold, 9.75pt</value>
   </data>
   <data name="archivoToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>90, 20</value>
+    <value>92, 20</value>
   </data>
   <data name="archivoToolStripMenuItem.Text" xml:space="preserve">
     <value>Préstamos </value>
@@ -530,7 +512,7 @@
     <value>Mantenimiento</value>
   </data>
   <data name="agendaToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="agendaToolStripMenuItem.Text" xml:space="preserve">
     <value>Agenda</value>
@@ -542,7 +524,7 @@
     <value>Eventos</value>
   </data>
   <data name="informesToolStripMenuItem5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>131, 22</value>
+    <value>152, 22</value>
   </data>
   <data name="informesToolStripMenuItem5.Text" xml:space="preserve">
     <value>Informes</value>
@@ -897,6 +879,51 @@
   <data name="&gt;&gt;lblErrorGenerico.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="dtpFechaIng.Enabled" type="System.Boolean, mscorlib">
+    <value>False</value>
+  </data>
+  <data name="dtpFechaIng.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 116</value>
+  </data>
+  <data name="dtpFechaIng.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="dtpFechaIng.TabIndex" type="System.Int32, mscorlib">
+    <value>60</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaIng.Name" xml:space="preserve">
+    <value>dtpFechaIng</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaIng.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaIng.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaIng.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="dtpFechaNac.Location" type="System.Drawing.Point, System.Drawing">
+    <value>158, 90</value>
+  </data>
+  <data name="dtpFechaNac.Size" type="System.Drawing.Size, System.Drawing">
+    <value>143, 22</value>
+  </data>
+  <data name="dtpFechaNac.TabIndex" type="System.Int32, mscorlib">
+    <value>59</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNac.Name" xml:space="preserve">
+    <value>dtpFechaNac</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNac.Type" xml:space="preserve">
+    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNac.Parent" xml:space="preserve">
+    <value>groupBox1</value>
+  </data>
+  <data name="&gt;&gt;dtpFechaNac.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
@@ -925,13 +952,13 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="txtCesion.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 331</value>
   </data>
   <data name="txtCesion.MaxLength" type="System.Int32, mscorlib">
-    <value>149</value>
+    <value>249</value>
   </data>
   <data name="txtCesion.Size" type="System.Drawing.Size, System.Drawing">
     <value>306, 22</value>
@@ -949,7 +976,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtCesion.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="cmbDepartamento.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -973,7 +1000,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;cmbDepartamento.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label44.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1003,7 +1030,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label44.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="lblErrorFechas.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1033,7 +1060,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblErrorFechas.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="txtPostal.Location" type="System.Drawing.Point, System.Drawing">
     <value>371, 216</value>
@@ -1057,7 +1084,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtPostal.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label43.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1087,7 +1114,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;label43.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="lblFechaIng.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1117,7 +1144,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblFechaIng.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="lblFechaNac.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1147,7 +1174,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblFechaNac.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="lblNroSocioFormatoInvalido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1180,7 +1207,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblNroSocioFormatoInvalido.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="lblFormatoInvalido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1210,7 +1237,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblFormatoInvalido.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="lblEmailFormatoInvalido.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1243,7 +1270,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblEmailFormatoInvalido.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="lblYaExiste.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1273,7 +1300,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExiste.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="txtNroSocio.Location" type="System.Drawing.Point, System.Drawing">
     <value>158, 11</value>
@@ -1297,7 +1324,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;txtNroSocio.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="lblYaExisteMail.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1327,7 +1354,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteMail.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="lblYaExisteTel.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1357,7 +1384,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteTel.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="lblReferenciaError.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1387,7 +1414,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblReferenciaError.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="lblYaExisteCobro.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1417,7 +1444,7 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteCobro.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="lblYaExisteSocio.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1447,51 +1474,6 @@
     <value>groupBox1</value>
   </data>
   <data name="&gt;&gt;lblYaExisteSocio.ZOrder" xml:space="preserve">
-    <value>18</value>
-  </data>
-  <data name="dtpFechaIng.Enabled" type="System.Boolean, mscorlib">
-    <value>False</value>
-  </data>
-  <data name="dtpFechaIng.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 115</value>
-  </data>
-  <data name="dtpFechaIng.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
-  </data>
-  <data name="dtpFechaIng.TabIndex" type="System.Int32, mscorlib">
-    <value>7</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaIng.Name" xml:space="preserve">
-    <value>dtpFechaIng</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaIng.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaIng.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaIng.ZOrder" xml:space="preserve">
-    <value>19</value>
-  </data>
-  <data name="dtpFechaNac.Location" type="System.Drawing.Point, System.Drawing">
-    <value>158, 90</value>
-  </data>
-  <data name="dtpFechaNac.Size" type="System.Drawing.Size, System.Drawing">
-    <value>143, 22</value>
-  </data>
-  <data name="dtpFechaNac.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaNac.Name" xml:space="preserve">
-    <value>dtpFechaNac</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaNac.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DateTimePicker, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaNac.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;dtpFechaNac.ZOrder" xml:space="preserve">
     <value>20</value>
   </data>
   <data name="lblDir.AutoSize" type="System.Boolean, mscorlib">
@@ -2023,7 +2005,7 @@
     <value>158, 275</value>
   </data>
   <data name="txtDireccion.MaxLength" type="System.Int32, mscorlib">
-    <value>44</value>
+    <value>249</value>
   </data>
   <data name="txtDireccion.Size" type="System.Drawing.Size, System.Drawing">
     <value>306, 22</value>
@@ -2233,15 +2215,18 @@
     <value>42</value>
   </data>
   <data name="cmbEstadoCivil.Items" xml:space="preserve">
-    <value>Soltero/a</value>
+    <value>Sin Datos</value>
   </data>
   <data name="cmbEstadoCivil.Items1" xml:space="preserve">
-    <value>Casado/a</value>
+    <value>Soltero/a</value>
   </data>
   <data name="cmbEstadoCivil.Items2" xml:space="preserve">
-    <value>Divorciado/a</value>
+    <value>Casado/a</value>
   </data>
   <data name="cmbEstadoCivil.Items3" xml:space="preserve">
+    <value>Divorciado/a</value>
+  </data>
+  <data name="cmbEstadoCivil.Items4" xml:space="preserve">
     <value>Viudo/a</value>
   </data>
   <data name="cmbEstadoCivil.Location" type="System.Drawing.Point, System.Drawing">
@@ -6295,6 +6280,9 @@
         AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=
 </value>
   </data>
+  <data name="$this.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
     <value>CenterScreen</value>
   </data>
@@ -6407,36 +6395,6 @@
     <value>archivoToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;archivoToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;anulaciónToolStripMenuItem.Name" xml:space="preserve">
-    <value>anulaciónToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;anulaciónToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;informesToolStripMenuItem1.Name" xml:space="preserve">
-    <value>informesToolStripMenuItem1</value>
-  </data>
-  <data name="&gt;&gt;informesToolStripMenuItem1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;resumenDePréstamosToolStripMenuItem.Name" xml:space="preserve">
-    <value>resumenDePréstamosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;resumenDePréstamosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;salidasEIngresosPorPréstamosToolStripMenuItem.Name" xml:space="preserve">
-    <value>salidasEIngresosPorPréstamosToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;salidasEIngresosPorPréstamosToolStripMenuItem.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;préstamosPendientesToolStripMenuItem.Name" xml:space="preserve">
-    <value>préstamosPendientesToolStripMenuItem</value>
-  </data>
-  <data name="&gt;&gt;préstamosPendientesToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;verToolStripMenuItem.Name" xml:space="preserve">
@@ -6731,6 +6689,18 @@
     <value>ayudaToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;ayudaToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;anulaciónToolStripMenuItem.Name" xml:space="preserve">
+    <value>anulaciónToolStripMenuItem</value>
+  </data>
+  <data name="&gt;&gt;anulaciónToolStripMenuItem.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;informesToolStripMenuItem1.Name" xml:space="preserve">
+    <value>informesToolStripMenuItem1</value>
+  </data>
+  <data name="&gt;&gt;informesToolStripMenuItem1.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;$this.Name" xml:space="preserve">

@@ -1439,9 +1439,6 @@ namespace COOPMEF
 
             if (!(dgvSociosCampo.CurrentRow == null))
             {
-                //   pantallaInicialSocio();
-                //desactivarAltaSocio();
-
                 if (!(idSocioSeleccionado == 0))
                 {
                     DataSet tmpsocio = empresa.buscarSociosPorCampo("socio_id", idSocioSeleccionado.ToString());
@@ -1541,6 +1538,9 @@ namespace COOPMEF
 
                 this.dtpFechaNac.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString();
                 this.dtpFechaIng.Text = dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString();
+
+                this.dtpFechaNac.Value = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaNac"].Value.ToString());
+                this.dtpFechaIng.Value = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString());
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
 
                 this.cmbDepartamento.Text = dgvSociosCampo.Rows[index].Cells["socio_departamento"].Value.ToString();
@@ -2148,12 +2148,12 @@ namespace COOPMEF
             dgvHistoria.Columns["cuotasPagadas"].Visible = false;
             dgvHistoria.Columns["cuotasPactadas"].Visible = false;
             dgvHistoria.Columns["numeroPrestamoAnt"].Visible = false;
-                
+
             dgvHistoria.Columns["fecha"].HeaderText = "Fecha";
             dgvHistoria.Columns["fecha"].Width = 85;
 
             dgvHistoria.Columns["NumeroPrestamo"].HeaderText = "Nº Préstamo";
-            dgvHistoria.Columns["NumeroPrestamo"].Width = 110 ;
+            dgvHistoria.Columns["NumeroPrestamo"].Width = 110;
 
             dgvHistoria.Columns["monteopedido"].HeaderText = "Monto concedido $";
             dgvHistoria.Columns["monteopedido"].Width = 160;
@@ -2178,7 +2178,7 @@ namespace COOPMEF
 
             dgvHistoria.Columns["cuotasPagadas"].HeaderText = "Cuotas Pagadas";
             dgvHistoria.Columns["cuotasPagadas"].Width = 120;
-                            
+
             dgvHistoria.Columns["porcentagePagado"].HeaderText = "porcentagePagado";
             dgvHistoria.Columns["porcentagePagado"].Width = 120;
         }

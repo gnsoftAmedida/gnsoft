@@ -48,11 +48,6 @@
             this.informesToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.padrónToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.préstamosPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.informesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -134,8 +129,6 @@
             this.lblReferenciaError = new System.Windows.Forms.Label();
             this.lblYaExisteCobro = new System.Windows.Forms.Label();
             this.lblYaExisteSocio = new System.Windows.Forms.Label();
-            this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.lblDir = new System.Windows.Forms.Label();
             this.lblTel = new System.Windows.Forms.Label();
             this.lblApellido = new System.Windows.Forms.Label();
@@ -292,6 +285,10 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
+            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -460,39 +457,6 @@
             this.informesToolStripMenuItem1});
             resources.ApplyResources(this.archivoToolStripMenuItem, "archivoToolStripMenuItem");
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            // 
-            // anulaciónToolStripMenuItem
-            // 
-            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
-            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
-            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
-            // 
-            // informesToolStripMenuItem1
-            // 
-            this.informesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.resumenDePréstamosToolStripMenuItem,
-            this.salidasEIngresosPorPréstamosToolStripMenuItem,
-            this.préstamosPendientesToolStripMenuItem});
-            this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
-            resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
-            // 
-            // resumenDePréstamosToolStripMenuItem
-            // 
-            this.resumenDePréstamosToolStripMenuItem.Name = "resumenDePréstamosToolStripMenuItem";
-            resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
-            this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click);
-            // 
-            // salidasEIngresosPorPréstamosToolStripMenuItem
-            // 
-            this.salidasEIngresosPorPréstamosToolStripMenuItem.Name = "salidasEIngresosPorPréstamosToolStripMenuItem";
-            resources.ApplyResources(this.salidasEIngresosPorPréstamosToolStripMenuItem, "salidasEIngresosPorPréstamosToolStripMenuItem");
-            this.salidasEIngresosPorPréstamosToolStripMenuItem.Click += new System.EventHandler(this.salidasEIngresosPorPréstamosToolStripMenuItem_Click);
-            // 
-            // préstamosPendientesToolStripMenuItem
-            // 
-            this.préstamosPendientesToolStripMenuItem.Name = "préstamosPendientesToolStripMenuItem";
-            resources.ApplyResources(this.préstamosPendientesToolStripMenuItem, "préstamosPendientesToolStripMenuItem");
-            this.préstamosPendientesToolStripMenuItem.Click += new System.EventHandler(this.préstamosPendientesToolStripMenuItem_Click);
             // 
             // verToolStripMenuItem
             // 
@@ -949,6 +913,8 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.dtpFechaIng);
+            this.groupBox1.Controls.Add(this.dtpFechaNac);
             this.groupBox1.Controls.Add(this.label9);
             this.groupBox1.Controls.Add(this.txtCesion);
             this.groupBox1.Controls.Add(this.cmbDepartamento);
@@ -968,8 +934,6 @@
             this.groupBox1.Controls.Add(this.lblReferenciaError);
             this.groupBox1.Controls.Add(this.lblYaExisteCobro);
             this.groupBox1.Controls.Add(this.lblYaExisteSocio);
-            this.groupBox1.Controls.Add(this.dtpFechaIng);
-            this.groupBox1.Controls.Add(this.dtpFechaNac);
             this.groupBox1.Controls.Add(this.lblDir);
             this.groupBox1.Controls.Add(this.lblTel);
             this.groupBox1.Controls.Add(this.lblApellido);
@@ -1114,20 +1078,6 @@
             resources.ApplyResources(this.lblYaExisteSocio, "lblYaExisteSocio");
             this.lblYaExisteSocio.ForeColor = System.Drawing.Color.Blue;
             this.lblYaExisteSocio.Name = "lblYaExisteSocio";
-            // 
-            // dtpFechaIng
-            // 
-            this.dtpFechaIng.Checked = false;
-            resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
-            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIng.Name = "dtpFechaIng";
-            // 
-            // dtpFechaNac
-            // 
-            this.dtpFechaNac.Checked = false;
-            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
-            this.dtpFechaNac.Name = "dtpFechaNac";
             // 
             // lblDir
             // 
@@ -1292,7 +1242,8 @@
             resources.GetString("cmbEstadoCivil.Items"),
             resources.GetString("cmbEstadoCivil.Items1"),
             resources.GetString("cmbEstadoCivil.Items2"),
-            resources.GetString("cmbEstadoCivil.Items3")});
+            resources.GetString("cmbEstadoCivil.Items3"),
+            resources.GetString("cmbEstadoCivil.Items4")});
             resources.ApplyResources(this.cmbEstadoCivil, "cmbEstadoCivil");
             this.cmbEstadoCivil.Name = "cmbEstadoCivil";
             // 
@@ -2167,6 +2118,30 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
+            // anulaciónToolStripMenuItem
+            // 
+            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
+            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
+            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem1
+            // 
+            this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
+            resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
+            // 
+            // dtpFechaNac
+            // 
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Value = new System.DateTime(2018, 12, 3, 18, 42, 18, 0);
+            // 
+            // dtpFechaIng
+            // 
+            resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
+            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaIng.Name = "dtpFechaIng";
+            // 
             // frmPrincipal
             // 
             this.AcceptButton = this.btnBuscar;
@@ -2387,8 +2362,6 @@
         private System.Windows.Forms.Label lblNroCo;
         private System.Windows.Forms.Label lblNroS;
         private System.Windows.Forms.Label lblErrorGenerico;
-        private System.Windows.Forms.DateTimePicker dtpFechaIng;
-        private System.Windows.Forms.DateTimePicker dtpFechaNac;
         private System.Windows.Forms.Label lblReferenciaError;
         private System.Windows.Forms.Label lblYaExisteTel;
         private System.Windows.Forms.Label lblYaExisteCobro;
@@ -2427,7 +2400,6 @@
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnPagarCobranza;
         private System.Windows.Forms.Label label42;
-        private System.Windows.Forms.ToolStripMenuItem anulaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem movimientosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem ingresoToolStripMenuItem;
@@ -2435,8 +2407,6 @@
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem cantidadYPromedioToolStripMenuItem;
         private System.Windows.Forms.Button btnExcedido;
-        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem resumenDePréstamosToolStripMenuItem;
         private System.Windows.Forms.TextBox txtMostrarDetalles;
         private System.Windows.Forms.TextBox txtPostal;
         private System.Windows.Forms.Label label43;
@@ -2454,7 +2424,6 @@
         private System.Windows.Forms.ToolStripMenuItem facturaciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem utilitariosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem queTasaEstánCobrandoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem salidasEIngresosPorPréstamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem distribuciónToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem liquidaciónToolStripMenuItem;
         private System.Windows.Forms.TextBox txtCesion;
@@ -2464,7 +2433,6 @@
         private System.Windows.Forms.ToolStripMenuItem porPagoDeSociosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem presupuestoDeUnMesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porFallecimientoToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem préstamosPendientesToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosDeExcedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excedidosToolStripMenuItem;
         private System.Windows.Forms.Button button1;
@@ -2489,6 +2457,10 @@
         private System.Windows.Forms.ToolStripMenuItem cancelaciónAnticipadaDePréstamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porPagoDeSocioToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem porFallecimientoToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem anulaciónToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem1;
+        private System.Windows.Forms.DateTimePicker dtpFechaIng;
+        private System.Windows.Forms.DateTimePicker dtpFechaNac;
     }
 }
 
