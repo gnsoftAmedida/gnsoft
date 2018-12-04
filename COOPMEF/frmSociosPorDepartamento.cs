@@ -62,8 +62,8 @@ namespace COOPMEF
                     }
 
                     string telefono = sociosResultado.Tables["sociosDepartamento"].Rows[n][13].ToString();
-                    string oficina = sociosResultado.Tables["sociosDepartamento"].Rows[n][17].ToString();
-                    string Inciso = sociosResultado.Tables["sociosDepartamento"].Rows[n][16].ToString();
+                    string oficina = sociosResultado.Tables["sociosDepartamento"].Rows[n][16].ToString();
+                    string Inciso = sociosResultado.Tables["sociosDepartamento"].Rows[n][17].ToString();
 
                     ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, direccion, bajaResultado, telefono, DateTime.Today.ToShortDateString(), DateTime.Today.ToShortTimeString(), Inciso, oficina, numerocobro);
                 }

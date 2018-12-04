@@ -106,16 +106,16 @@ namespace COOPMEF
                             tempSexo = dsSocios.Tables["socios"].Rows[i][8].ToString();
                             tempDepto = dsSocios.Tables["socios"].Rows[i][18].ToString();
 
-                            if (tempSexo == "F" && tempDepto == "Montevideo")
+                            if (tempSexo == "F" && tempDepto == "10")
                                 contSexoFMontevideo++;
 
-                            if (tempSexo == "F" && tempDepto != "Montevideo")
+                            if (tempSexo == "F" && tempDepto != "10")
                                 contSexoFInterior++;
 
-                            if (tempSexo == "M" && tempDepto == "Montevideo")
+                            if (tempSexo == "M" && tempDepto == "10")
                                 contSexoMMontevideo++;
 
-                            if (tempSexo == "M" && tempDepto != "Montevideo")
+                            if (tempSexo == "M" && tempDepto != "10")
                                 contSexoMInterior++;
                         }
                     }

@@ -62,8 +62,8 @@ namespace COOPMEF
                     string fechaIngreso = sociosResultado.Tables["sociosEntreFechas"].Rows[n][6].ToString();
                     string baja = sociosResultado.Tables["sociosEntreFechas"].Rows[n][22].ToString();
                     string telefono = sociosResultado.Tables["sociosEntreFechas"].Rows[n][13].ToString();
-                    string oficina = sociosResultado.Tables["sociosEntreFechas"].Rows[n][17].ToString();
-                    string Inciso = sociosResultado.Tables["sociosEntreFechas"].Rows[n][16].ToString();
+                    string oficina = sociosResultado.Tables["sociosEntreFechas"].Rows[n][16].ToString();
+                    string Inciso = sociosResultado.Tables["sociosEntreFechas"].Rows[n][17].ToString();
 
                     ingresadosEn.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, baja, telefono, mesNombre, anio, Inciso, oficina, numerocobro);
                 }
