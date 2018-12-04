@@ -90,7 +90,8 @@ namespace COOPMEF
             {
                 int index = dgvPrestamosSinLiquidar.CurrentRow.Index;
                 int idCobranzaProvisoria = (int)dgvPrestamosSinLiquidar.Rows[index].Cells["cobranzaProvisoria_id"].Value;
-
+                int idPrestamo = (int)dgvPrestamosSinLiquidar.Rows[index].Cells["prestamo_id"].Value;
+    
                 if (index != -1)
                 {
                     string message = "¿Está seguro que desea anular el préstamo?";
@@ -103,6 +104,8 @@ namespace COOPMEF
                     if (result == System.Windows.Forms.DialogResult.Yes)
                     {
                         empresa.eliminarCobranzaProvisoria(idCobranzaProvisoria);
+                        empresa.anularPrestamo(idPrestamo);
+
                         MessageBox.Show("Préstamo anulado correctamente");
 
                         RegistroSLogs registroLogs = new RegistroSLogs();

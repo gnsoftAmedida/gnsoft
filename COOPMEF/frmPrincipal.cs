@@ -799,7 +799,7 @@ namespace COOPMEF
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
-                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, edadd, of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""), txtCesion.Text);
+                    empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, '0', of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""), txtCesion.Text);
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
                     //******
@@ -1572,7 +1572,7 @@ namespace COOPMEF
                 }
 
                 //this.cmbEdad.Text = dgvSociosCampo.Rows[index].Cells["socio_edad"].Value.ToString();
-                int edad = (int)dgvSociosCampo.Rows[index].Cells["socio_edad"].Value;
+                int edad = Convert.ToInt32(lblEdadSocio.Text);
                 if (edad > edadDeRiesgo) lblEdadSocio.ForeColor = Color.Red;
                 else lblEdadSocio.ForeColor = Color.Blue;
                 this.lblEdadSocio.Text = edad.ToString();
@@ -3552,8 +3552,8 @@ Agregar emisión
                     {
                         for (int n = 0; n <= historicoPrestamosSocio.Tables["historiasIdSocio"].Rows.Count - 1; n++)
                         {
-                            int NumeroPrestamo = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][0].ToString());
-                            DateTime fecha = Convert.ToDateTime(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][1].ToString());
+                            DateTime fecha = Convert.ToDateTime(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][0].ToString());
+                            int NumeroPrestamo = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][1].ToString());                            
                             Double monteopedido = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][2].ToString());
                             Double amortizacionVencer = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][3].ToString());
                             Double totalvale = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][4].ToString());
@@ -3939,6 +3939,11 @@ Agregar emisión
             {
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
+        }
+
+        private void informesToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
         }
 
 

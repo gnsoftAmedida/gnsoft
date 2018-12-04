@@ -23,7 +23,12 @@ namespace COOPMEF
 
         private void frmSociosPorDepartamento_Load(object sender, EventArgs e)
         {
-            this.cmbDepartamento.SelectedIndex = 0;
+            DataSet dsDepartamentos = empresa.DevolverDepartamentos();
+            this.cmbDepartamento.DataSource = dsDepartamentos.Tables["departamentos"];
+            this.cmbDepartamento.DisplayMember = "departamento_nombre";
+            this.cmbDepartamento.ValueMember = "departamento_id";
+            this.cmbDepartamento.SelectedIndex = 9;
+
             this.cmbSigno.SelectedIndex = 0;
         }
 
@@ -34,8 +39,7 @@ namespace COOPMEF
 
         private void btnBuscar_Click(object sender, EventArgs e)
         {
-
-            string departamento = cmbDepartamento.SelectedItem.ToString();
+            string departamento = cmbDepartamento.SelectedValue.ToString();           
             string signo = cmbSigno.SelectedItem.ToString();
 
             DataSet sociosResultado = empresa.listadoSociosDepartamento(signo, departamento);

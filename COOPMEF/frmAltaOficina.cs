@@ -65,7 +65,7 @@ namespace COOPMEF
             this.cmbTodosIncisos.DisplayMember = "inciso_nombre";
             this.cmbTodosIncisos.ValueMember = "inciso_id";
             this.cmbTodosIncisos.SelectedIndex = -1;
-
+            
             this.cmbDepartamento.DataSource = dsDepartamentos.Tables["departamentos"];
             this.cmbDepartamento.DisplayMember = "departamento_nombre";
             this.cmbDepartamento.ValueMember = "departamento_id";

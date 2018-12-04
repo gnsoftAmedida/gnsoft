@@ -54,26 +54,6 @@
             // 
             this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbDepartamento.FormattingEnabled = true;
-            this.cmbDepartamento.Items.AddRange(new object[] {
-            "Montevideo",
-            "Colonia",
-            "Cerro Largo",
-            "Artigas",
-            "Durazno",
-            "Canelones",
-            "Flores",
-            "Florida",
-            "Lavalleja",
-            "Maldonado",
-            "Treinta y Tres",
-            "Paysandú",
-            "Río Negro",
-            "Rivera",
-            "Rocha",
-            "Salto",
-            "San José",
-            "Soriano",
-            "Tacuarembó"});
             this.cmbDepartamento.Location = new System.Drawing.Point(216, 32);
             this.cmbDepartamento.Name = "cmbDepartamento";
             this.cmbDepartamento.Size = new System.Drawing.Size(93, 21);

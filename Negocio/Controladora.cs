@@ -2685,6 +2685,12 @@ namespace Negocio
             return tmpPrestamo.Guardar();
         }
 
+        public void anularPrestamo(int nroPrestamo)
+        {
+            Prestamo tmpPrestamo = new Prestamo();
+            tmpPrestamo.anularPrestamo(nroPrestamo);
+        }
+
         public DateTime VtoPrimerCuota(DateTime Fecha)
         {
             DateTime VtoPrimerCuota;
