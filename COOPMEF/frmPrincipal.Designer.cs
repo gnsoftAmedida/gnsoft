@@ -48,6 +48,8 @@
             this.informesToolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.padrónToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.informesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -110,6 +112,8 @@
             this.btnCancelarSocio = new System.Windows.Forms.Button();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
+            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
             this.txtCesion = new System.Windows.Forms.TextBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
@@ -285,10 +289,9 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
-            this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
-            this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
+            this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.préstamosPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -457,6 +460,22 @@
             this.informesToolStripMenuItem1});
             resources.ApplyResources(this.archivoToolStripMenuItem, "archivoToolStripMenuItem");
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
+            // 
+            // anulaciónToolStripMenuItem
+            // 
+            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
+            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
+            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem1
+            // 
+            this.informesToolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.resumenDePréstamosToolStripMenuItem,
+            this.salidasEIngresosPorPréstamosToolStripMenuItem,
+            this.préstamosPendientesToolStripMenuItem});
+            this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
+            resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
+            this.informesToolStripMenuItem1.Click += new System.EventHandler(this.informesToolStripMenuItem1_Click);
             // 
             // verToolStripMenuItem
             // 
@@ -969,6 +988,19 @@
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
+            // 
+            // dtpFechaIng
+            // 
+            resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
+            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dtpFechaIng.Name = "dtpFechaIng";
+            // 
+            // dtpFechaNac
+            // 
+            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
+            this.dtpFechaNac.Name = "dtpFechaNac";
+            this.dtpFechaNac.Value = new System.DateTime(2018, 12, 3, 18, 42, 18, 0);
             // 
             // label9
             // 
@@ -2118,29 +2150,23 @@
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
             // 
-            // anulaciónToolStripMenuItem
+            // resumenDePréstamosToolStripMenuItem
             // 
-            this.anulaciónToolStripMenuItem.Name = "anulaciónToolStripMenuItem";
-            resources.ApplyResources(this.anulaciónToolStripMenuItem, "anulaciónToolStripMenuItem");
-            this.anulaciónToolStripMenuItem.Click += new System.EventHandler(this.anulaciónToolStripMenuItem_Click);
+            this.resumenDePréstamosToolStripMenuItem.Name = "resumenDePréstamosToolStripMenuItem";
+            resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
+            this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click_1);
             // 
-            // informesToolStripMenuItem1
+            // salidasEIngresosPorPréstamosToolStripMenuItem
             // 
-            this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
-            resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
+            this.salidasEIngresosPorPréstamosToolStripMenuItem.Name = "salidasEIngresosPorPréstamosToolStripMenuItem";
+            resources.ApplyResources(this.salidasEIngresosPorPréstamosToolStripMenuItem, "salidasEIngresosPorPréstamosToolStripMenuItem");
+            this.salidasEIngresosPorPréstamosToolStripMenuItem.Click += new System.EventHandler(this.salidasEIngresosPorPréstamosToolStripMenuItem_Click);
             // 
-            // dtpFechaNac
+            // préstamosPendientesToolStripMenuItem
             // 
-            this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
-            this.dtpFechaNac.Name = "dtpFechaNac";
-            this.dtpFechaNac.Value = new System.DateTime(2018, 12, 3, 18, 42, 18, 0);
-            // 
-            // dtpFechaIng
-            // 
-            resources.ApplyResources(this.dtpFechaIng, "dtpFechaIng");
-            this.dtpFechaIng.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dtpFechaIng.Name = "dtpFechaIng";
+            this.préstamosPendientesToolStripMenuItem.Name = "préstamosPendientesToolStripMenuItem";
+            resources.ApplyResources(this.préstamosPendientesToolStripMenuItem, "préstamosPendientesToolStripMenuItem");
+            this.préstamosPendientesToolStripMenuItem.Click += new System.EventHandler(this.préstamosPendientesToolStripMenuItem_Click_1);
             // 
             // frmPrincipal
             // 
@@ -2461,6 +2487,9 @@
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem1;
         private System.Windows.Forms.DateTimePicker dtpFechaIng;
         private System.Windows.Forms.DateTimePicker dtpFechaNac;
+        private System.Windows.Forms.ToolStripMenuItem resumenDePréstamosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem salidasEIngresosPorPréstamosToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem préstamosPendientesToolStripMenuItem;
     }
 }
 

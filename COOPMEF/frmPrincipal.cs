@@ -3062,21 +3062,7 @@ Agregar emisión
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
-
-        private void resumenDePréstamosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (VerificarPermisosUsuario("frmInformePrestamo"))
-            {
-                frmInformePrestamo frmTmpInformeCierre = new frmInformePrestamo();
-                frmTmpInformeCierre.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
-        }
-
-
+     
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
             if (VerificarPermisosUsuario("frmListadoGeneralRetenciones"))
@@ -3295,19 +3281,6 @@ Agregar emisión
             }
         }
 
-        private void salidasEIngresosPorPréstamosToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (VerificarPermisosUsuario("frmSalidasIngresosBancos"))
-            {
-                frmSalidasIngresosBancos tmpfrmSalidasIngresosBancos = new frmSalidasIngresosBancos();
-                tmpfrmSalidasIngresosBancos.ShowDialog();
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
-        }
-
         private void distribuciónToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (VerificarPermisosUsuario("frmDistribucionDeUtilidades"))
@@ -3414,59 +3387,8 @@ Agregar emisión
             {
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
-
         }
-
-        private void préstamosPendientesToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (VerificarPermisosUsuario("frmInformePrestamosPendientes"))
-            {
-
-                DataSet prestamosPendientes = empresa.devolverPrestamosPendientes();
-
-                if (prestamosPendientes.Tables["prestamoPendientes"].Rows.Count > 0)
-                {
-                    for (int n = 0; n <= prestamosPendientes.Tables["prestamoPendientes"].Rows.Count - 1; n++)
-                    {
-                        String inciso_codigo = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][0].ToString();
-                        String oficina_codigo = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][1].ToString();
-                        String socio_nroCobro = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][2].ToString();
-                        String cedula = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][3].ToString();
-                        int prestamo_id = Convert.ToInt32(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][4].ToString());
-                        Double solicitud = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][5].ToString());
-                        Double total = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][6].ToString());
-                        Double intereses = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][7].ToString());
-                        int cantidadcuotas = Convert.ToInt32(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][8].ToString());
-                        Double importecuota = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][9].ToString());
-                        Double AmortizacionVencer = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][10].ToString());
-                        Double InteresVencer = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][11].ToString());
-
-                        String fecha = DateTime.Today.ToShortDateString();
-
-                        prestamosPendientesDs.prestamosPendientes.Rows.Add(inciso_codigo, oficina_codigo, socio_nroCobro, cedula, prestamo_id, solicitud.ToString("###,###,##0.00"), total.ToString("###,###,##0.00"), intereses.ToString("###,###,##0.00"), cantidadcuotas, importecuota.ToString("###,###,##0.00"), AmortizacionVencer.ToString("###,###,##0.00"), InteresVencer.ToString("###,###,##0.00"));
-                    }
-
-                    frmVerReportes reporte = new frmVerReportes(prestamosPendientesDs, "PRESTAMOS_PENDIENTES");
-                    reporte.ShowDialog();
-                    prestamosPendientesDs.prestamosPendientes.Rows.Clear();
-                }
-                else
-                {
-                    MessageBox.Show("No se encuentran préstamos pendientes");
-                }
-
-            }
-            else
-            {
-                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
-            }
-        }
-
-        private void históricoPorEjercicioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-        }
-
+  
         private void pagosDeExcedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (VerificarPermisosUsuario("frmPagosDeExcedidos"))
@@ -3944,6 +3866,79 @@ Agregar emisión
         private void informesToolStripMenuItem1_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void resumenDePréstamosToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmInformePrestamo"))
+            {
+                frmInformePrestamo frmTmpInformeCierre = new frmInformePrestamo();
+                frmTmpInformeCierre.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+        }
+
+        private void salidasEIngresosPorPréstamosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmSalidasIngresosBancos"))
+            {
+                frmSalidasIngresosBancos tmpfrmSalidasIngresosBancos = new frmSalidasIngresosBancos();
+                tmpfrmSalidasIngresosBancos.ShowDialog();
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+
+        }
+
+        private void préstamosPendientesToolStripMenuItem_Click_1(object sender, EventArgs e)
+        {
+            if (VerificarPermisosUsuario("frmInformePrestamosPendientes"))
+            {
+
+                DataSet prestamosPendientes = empresa.devolverPrestamosPendientes();
+
+                if (prestamosPendientes.Tables["prestamoPendientes"].Rows.Count > 0)
+                {
+                    for (int n = 0; n <= prestamosPendientes.Tables["prestamoPendientes"].Rows.Count - 1; n++)
+                    {
+                        String inciso_codigo = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][0].ToString();
+                        String oficina_codigo = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][1].ToString();
+                        String socio_nroCobro = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][2].ToString();
+                        String cedula = prestamosPendientes.Tables["prestamoPendientes"].Rows[n][3].ToString();
+                        int prestamo_id = Convert.ToInt32(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][4].ToString());
+                        Double solicitud = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][5].ToString());
+                        Double total = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][6].ToString());
+                        Double intereses = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][7].ToString());
+                        int cantidadcuotas = Convert.ToInt32(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][8].ToString());
+                        Double importecuota = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][9].ToString());
+                        Double AmortizacionVencer = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][10].ToString());
+                        Double InteresVencer = Convert.ToDouble(prestamosPendientes.Tables["prestamoPendientes"].Rows[n][11].ToString());
+
+                        String fecha = DateTime.Today.ToShortDateString();
+
+                        prestamosPendientesDs.prestamosPendientes.Rows.Add(inciso_codigo, oficina_codigo, socio_nroCobro, cedula, prestamo_id, solicitud.ToString("###,###,##0.00"), total.ToString("###,###,##0.00"), intereses.ToString("###,###,##0.00"), cantidadcuotas, importecuota.ToString("###,###,##0.00"), AmortizacionVencer.ToString("###,###,##0.00"), InteresVencer.ToString("###,###,##0.00"));
+                    }
+
+                    frmVerReportes reporte = new frmVerReportes(prestamosPendientesDs, "PRESTAMOS_PENDIENTES");
+                    reporte.ShowDialog();
+                    prestamosPendientesDs.prestamosPendientes.Rows.Clear();
+                }
+                else
+                {
+                    MessageBox.Show("No se encuentran préstamos pendientes");
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Usted no tiene permisos para realizar esta acción");
+            }
+ 
         }
 
 
