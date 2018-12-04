@@ -3255,6 +3255,7 @@ namespace Negocio
                     if (!estaEnCobranza)
                     {
                         guardarCobranza(id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, cantidadCuotasProvisorio, CuotasVanProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
+                        estaEnCobranza = false;
                     }
                 }
             }

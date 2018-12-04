@@ -1982,7 +1982,9 @@ namespace COOPMEF
 
                 txtNuevoImporte.Clear();
                 txtTotalDeuda.Text = "0.00";
+                txtImporteCuota.Text = "0.00";
                 btnSolicitar.Enabled = false;
+                btnGuardarPrestamo.Enabled = false;
 
 
                 if (!(idSocioSeleccionado == 0))
@@ -2365,6 +2367,7 @@ namespace COOPMEF
                         if (exitiaProvisoria)
                         {
                             empresa.eliminarCobranzaProvisoria(id_cobranzaProvisoria);
+                            empresa.anularPrestamo(idPrestamo);
                             exitiaProvisoria = false;
                         }
 
@@ -2375,8 +2378,7 @@ namespace COOPMEF
                         DataSet dsParametros = empresa.DevolverEmpresa();
                         String FechaPrimerCuota = empresa.VtoPrimerCuota(Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString())).ToString("dd/MM/yyyy");
                         DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15);
-
-                        cargarPlanPrestamoSocio();
+                                              
 
                         // *****************Imprimir Vale
                         DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, empresa.formatoFechaMid4(FechaVto), "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota, DateTime.Today.ToLongDateString());
@@ -2387,6 +2389,8 @@ namespace COOPMEF
 
                         reporte.ShowDialog();
                         DE.solicitud.Rows.Clear();
+
+                        cargarPlanPrestamoSocio();
                         //******************************
 
                         btnSolicitar.Enabled = false;
