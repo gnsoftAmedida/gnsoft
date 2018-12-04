@@ -56,7 +56,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update cobranza set aportecapital = '" + parAporteCapital.ToString().Replace(",", ".") + "' WHERE cobranza_id =" + parCobranza_id;
+            string sql = "Update cobranza set aportecapital = '" + parAporteCapital.ToString("##0.00").Replace(",", ".") + "' WHERE cobranza_id =" + parCobranza_id;
 
             try
             {
@@ -118,7 +118,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update cobranza set prestamo_id = '" + parPrestamo_id + "', cedula = '" + parCedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', tasa = '" + parTasa.ToString().Replace(",", ".") + "', porcentajeiva = '" + parPorcentajeiva.ToString().Replace(",", ".") + "', montopedido = '" + parMontopedido.ToString().Replace(",", ".") + "', cantidadcuotas = '" + parCantidadcuotas + "', nrodecuotas = '" + parNrodecuotas + "', importecuota = '" + parImportecuota.ToString().Replace(",", ".") + "', AmortizacionCuota = '" + parAmortizacioncuota.ToString().Replace(",", ".") + "', InteresCuota = '" + parInteresCuota.ToString().Replace(",", ".") + "', IvaCuota = '" + parIvaCuota.ToString().Replace(",", ".") + "', AmortizacionVencer = '" + parAmortizacionVencer.ToString().Replace(",", ".") + "', InteresVencer = '" + parInteresVencer.ToString().Replace(",", ".") + "', aportecapital = '" + parAporteCapital.ToString().Replace(",", ".") + "', socio_id = '" + parSocio_id + "' WHERE cobranza_id =" + parCobranza_id;
+            string sql = "Update cobranza set prestamo_id = '" + parPrestamo_id + "', cedula = '" + parCedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', tasa = '" + parTasa.ToString("##0.00").Replace(",", ".") + "', porcentajeiva = '" + parPorcentajeiva.ToString("##0.00").Replace(",", ".") + "', montopedido = '" + parMontopedido.ToString("##0.00").Replace(",", ".") + "', cantidadcuotas = '" + parCantidadcuotas + "', nrodecuotas = '" + parNrodecuotas + "', importecuota = '" + parImportecuota.ToString("##0.00").Replace(",", ".") + "', AmortizacionCuota = '" + parAmortizacioncuota.ToString("##0.00").Replace(",", ".") + "', InteresCuota = '" + parInteresCuota.ToString("##0.00").Replace(",", ".") + "', IvaCuota = '" + parIvaCuota.ToString("##0.00").Replace(",", ".") + "', AmortizacionVencer = '" + parAmortizacionVencer.ToString("##0.00").Replace(",", ".") + "', InteresVencer = '" + parInteresVencer.ToString("##0.00").Replace(",", ".") + "', aportecapital = '" + parAporteCapital.ToString("##0.00").Replace(",", ".") + "', socio_id = '" + parSocio_id + "' WHERE cobranza_id =" + parCobranza_id;
 
             try
             {
@@ -149,7 +149,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO cobranza (prestamo_id, cedula , tasa , porcentajeiva , montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota , IvaCuota , AmortizacionVencer , InteresVencer , aportecapital, socio_id ) VALUES ('" + parPrestamo_id + "', '" + parCedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', '" + parTasa.ToString().Replace(",", ".") + "','" + parPorcentajeiva.ToString().Replace(",", ".") + "','" + parMontopedido.ToString().Replace(",", ".") + "', '" + parCantidadcuotas + "', '" + parNrodecuotas + "','" + parImportecuota.ToString().Replace(",", ".") + "','" + parAmortizacioncuota.ToString().Replace(",", ".") + "','" + parInteresCuota.ToString().Replace(",", ".") + "','" + parIvaCuota.ToString().Replace(",", ".") + "', '" + parAmortizacionVencer.ToString().Replace(",", ".") + "', '" + parInteresVencer.ToString().Replace(",", ".") + "','" + parAporteCapital.ToString().Replace(",", ".") + "','" + parSocio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO cobranza (prestamo_id, cedula , tasa , porcentajeiva , montopedido, cantidadcuotas, nrodecuotas, importecuota, AmortizacionCuota, InteresCuota , IvaCuota , AmortizacionVencer , InteresVencer , aportecapital, socio_id ) VALUES ('" + parPrestamo_id + "', '" + parCedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', '" + parTasa.ToString("##0.00").Replace(",", ".") + "','" + parPorcentajeiva.ToString("##0.00").Replace(",", ".") + "','" + parMontopedido.ToString("##0.00").Replace(",", ".") + "', '" + parCantidadcuotas + "', '" + parNrodecuotas + "','" + parImportecuota.ToString("##0.00").Replace(",", ".") + "','" + parAmortizacioncuota.ToString("##0.00").Replace(",", ".") + "','" + parInteresCuota.ToString("##0.00").Replace(",", ".") + "','" + parIvaCuota.ToString("##0.00").Replace(",", ".") + "', '" + parAmortizacionVencer.ToString("##0.00").Replace(",", ".") + "', '" + parInteresVencer.ToString("##0.00").Replace(",", ".") + "','" + parAporteCapital.ToString("##0.00").Replace(",", ".") + "','" + parSocio_id + "');" + "Select last_insert_id()";
 
             try
             {

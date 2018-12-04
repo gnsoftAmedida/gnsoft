@@ -1948,6 +1948,7 @@ namespace COOPMEF
 
         public void cargarPlanPrestamos(object sender, EventArgs e)
         {
+          
             cargarPlanPrestamoSocio();
 
         }
@@ -1970,6 +1971,8 @@ namespace COOPMEF
         {
             if (tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabPrestamo"])
             {
+              
+
                 //Cargar combo préstamos
                 dsPlanes = empresa.DevolverPlanesActivos();
                 this.cmbPlanPréstamo.DataSource = dsPlanes.Tables["planprestamo"];
@@ -1981,8 +1984,11 @@ namespace COOPMEF
                 txtTotalDeuda.Text = "0.00";
                 btnSolicitar.Enabled = false;
 
+
                 if (!(idSocioSeleccionado == 0))
                 {
+                    cmbPlanPréstamo.Enabled = true;
+
                     excedido = estaExcedido();
 
                     if (!excedido)
@@ -2440,6 +2446,11 @@ namespace COOPMEF
 
         private void btnCancelarPrestamo_Click(object sender, EventArgs e)
         {
+            cancelarPrestamo();
+        }
+
+        private void cancelarPrestamo()
+        {
             txtNuevoImporte.Text = "0";
             CalcularImporteCuota();
             txtNuevoImporte.Text = "";
@@ -2509,14 +2520,14 @@ namespace COOPMEF
                         String saldoAnterior = "";
                         if (txtPagas.Text == "0")
                         {
-                            saldoAnterior = montoAnterior.ToString("##0.00");
+                            saldoAnterior = montoAnterior.ToString("##0.00").Replace(".", ",");
                         }
                         else
                         {
-                            saldoAnterior = Convert.ToDouble(txtAmortización.Text).ToString("##0.00");
+                            saldoAnterior = Convert.ToDouble(txtAmortización.Text).ToString("##0.00").Replace(".", ",");
                         }
 
-                        DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text).ToString("##0.00"), cantidadCuotas, saldoAnterior, txtInteresesAVencer.Text, cuota, (totalDeuda - Convert.ToDouble(saldoAnterior)).ToString("##0.00"), totalDeuda.ToString("##0.00"), cuotaAnteriorPrestamo.ToString("##0.00"));
+                        DE.solicitud.Rows.Add(txtNroSocio.Text, txtInciso.Text.Trim() + " / " + txtOficina.Text.Trim(), lblNumeroSocio.Text, lblApellidosSocio.Text.Trim() + ", " + lblNombreSocio.Text.Trim(), lblNombreSocio.Text.Trim(), Convert.ToDouble(txtNuevoImporte.Text.Replace(".", ",")).ToString("##0.00"), cantidadCuotas, saldoAnterior, txtInteresesAVencer.Text, cuota, (totalDeuda - Convert.ToDouble(saldoAnterior)).ToString("##0.00"), totalDeuda.ToString("##0.00"), cuotaAnteriorPrestamo.ToString("##0.00"));
                         frmVerReportes reporte = new frmVerReportes(DE, "SOLICITUD_PRESTAMO");
                         reporte.ShowDialog();
                         DE.solicitud.Rows.Clear();
@@ -3062,7 +3073,7 @@ Agregar emisión
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
-     
+
         private void toolStripMenuItem11_Click(object sender, EventArgs e)
         {
             if (VerificarPermisosUsuario("frmListadoGeneralRetenciones"))
@@ -3388,7 +3399,7 @@ Agregar emisión
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
         }
-  
+
         private void pagosDeExcedidosToolStripMenuItem_Click(object sender, EventArgs e)
         {
             if (VerificarPermisosUsuario("frmPagosDeExcedidos"))
@@ -3475,7 +3486,7 @@ Agregar emisión
                         for (int n = 0; n <= historicoPrestamosSocio.Tables["historiasIdSocio"].Rows.Count - 1; n++)
                         {
                             DateTime fecha = Convert.ToDateTime(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][0].ToString());
-                            int NumeroPrestamo = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][1].ToString());                            
+                            int NumeroPrestamo = Convert.ToInt32(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][1].ToString());
                             Double monteopedido = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][2].ToString());
                             Double amortizacionVencer = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][3].ToString());
                             Double totalvale = Convert.ToDouble(historicoPrestamosSocio.Tables["historiasIdSocio"].Rows[n][4].ToString());
@@ -3938,7 +3949,7 @@ Agregar emisión
             {
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
- 
+
         }
 
 

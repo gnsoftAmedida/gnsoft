@@ -100,7 +100,7 @@ namespace Persistencia
             try
             {
 
-                string sql = "Update banco set saldo = '" + saldo.ToString().Replace(",", ".") + "'  WHERE codigobanco =" + codigobanco;
+                string sql = "Update banco set saldo = '" + saldo.ToString("##0.00").Replace(",", ".") + "'  WHERE codigobanco =" + codigobanco;
 
                 connection.Open();
                 transaction = connection.BeginTransaction();

@@ -90,7 +90,7 @@ namespace Persistencia
 
 
             string sql;
-            sql = "INSERT INTO movimientos (fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, saldo) VALUES ('" + fecha.ToString("yyyy/MM/dd hh:mm:ss") + "','" + codigobanco + "','" + numerocta + "','" + numerodocumento + "','" + debehaber + "','" + importe.ToString().Replace(",", ".") + "','" + concepto + "','" + saldo.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO movimientos (fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, saldo) VALUES ('" + fecha.ToString("yyyy/MM/dd hh:mm:ss") + "','" + codigobanco + "','" + numerocta + "','" + numerodocumento + "','" + debehaber + "','" + importe.ToString("##0.00").Replace(",", ".") + "','" + concepto + "','" + saldo.ToString("##0.00").Replace(",", ".") + "');" + "Select last_insert_id()";
 
             try
             {

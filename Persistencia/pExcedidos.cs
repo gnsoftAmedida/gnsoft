@@ -53,7 +53,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update excedidos set fechadepago = '" + fechadepago.ToString("yyyy/MM/dd") + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "' WHERE excedidos_id =" + idExcedido;
+            string sql = "Update excedidos set fechadepago = '" + fechadepago.ToString("yyyy/MM/dd") + "', importepagado = '" + importepagado.ToString("##0.00").Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "' WHERE excedidos_id =" + idExcedido;
 
             try
             {
@@ -85,7 +85,7 @@ namespace Persistencia
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
-            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', aretener = '" + aretener.ToString().Replace(",", ".") + "', retenido = '" + retenido.ToString().Replace(",", ".") + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado.ToString().Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital.ToString().Replace(",", ".") + "', socio_id ='" + socio_id + "' WHERE excedidos_id =" + idExcedido;
+            string sql = "Update excedidos set presupuesto = '" + presupuesto + "', cedula = '" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', aretener = '" + aretener.ToString("##0.00").Replace(",", ".") + "', retenido = '" + retenido.ToString("##0.00").Replace(",", ".") + "', fechadepago = '" + fechadepago + "', importepagado = '" + importepagado.ToString("##0.00").Replace(",", ".") + "', presupuestodelpago = '" + presupuestodelpago + "', aportecapital = '" + aportecapital.ToString("##0.00").Replace(",", ".") + "', socio_id ='" + socio_id + "' WHERE excedidos_id =" + idExcedido;
 
             try
             {
@@ -116,7 +116,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido,  fechadepago,  importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "','" + aretener.ToString().Replace(",", ".") + "','" + retenido.ToString().Replace(",", ".") + "','" + fechadepago + "','" + importepagado.ToString().Replace(",", ".") + "','" + presupuestodelpago + "','" + aportecapital.ToString().Replace(",", ".") + "','" + socio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido,  fechadepago,  importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "','" + aretener.ToString("##0.00").Replace(",", ".") + "','" + retenido.ToString("##0.00").Replace(",", ".") + "','" + fechadepago + "','" + importepagado.ToString("##0.00").Replace(",", ".") + "','" + presupuestodelpago + "','" + aportecapital.ToString("##0.00").Replace(",", ".") + "','" + socio_id + "');" + "Select last_insert_id()";
 
             try
             {
@@ -176,7 +176,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT DISTINCTROW s.socio_apellido, s.socio_nombre, s.socio_nroCobro, s.socio_nro, 'presupuesto del pago N/A', e.aretener, e.retenido, (e.aretener - e.retenido) as deuda, 'Mora N/A', 'total N/A', CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM coopmef.excedidos e, coopmef.oficina o, coopmef.inciso i, coopmef.socio s where e.socio_id = s.socio_id and s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and e.presupuestodelpago = '' and e.presupuesto = '" + presupuesto + "'";
+                string sql = "SELECT DISTINCT s.socio_apellido, s.socio_nombre, s.socio_nroCobro, s.socio_nro, 'presupuesto del pago N/A', e.aretener, e.retenido, (e.aretener - e.retenido) as deuda, 'Mora N/A', 'total N/A', CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM coopmef.excedidos e, coopmef.oficina o, coopmef.inciso i, coopmef.socio s where e.socio_id = s.socio_id and s.socio_oficinaId = o.oficina_id and s.socio_incisoId = i.inciso_id and e.presupuestodelpago = '' and e.presupuesto = '" + presupuesto + "'";
                 DataSet ds = new DataSet();
 
                 connection.Open();

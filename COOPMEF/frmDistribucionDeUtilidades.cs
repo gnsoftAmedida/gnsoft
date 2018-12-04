@@ -228,7 +228,7 @@ namespace COOPMEF
                 int mes = i;
                 int cantDias = Convert.ToInt32(DateTime.DaysInMonth(anio, mes));
 
-                utilidadMes = empresa.devolverUtilidadesPorPresupuesto(mes + "/" + anio);
+                utilidadMes = empresa.devolverUtilidadesPorPresupuesto('0'.ToString() + mes + "/" + anio);
 
                 if (utilidadMes.Tables["devolverUtilidadesPorPresupuesto"].Rows.Count > 0)
                 {
