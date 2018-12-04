@@ -3133,8 +3133,8 @@ Agregar emisión
                         string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
                         string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
                         string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                        string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                        string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                        string oficina = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                        string Inciso = sociosResultado.Tables["socios"].Rows[n][17].ToString();
 
                         estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
                     }
@@ -3172,8 +3172,8 @@ Agregar emisión
                         string fechaIngreso = sociosResultado.Tables["socios"].Rows[n][6].ToString();
                         string direccion = sociosResultado.Tables["socios"].Rows[n][14].ToString();
                         string telefono = sociosResultado.Tables["socios"].Rows[n][13].ToString();
-                        string oficina = sociosResultado.Tables["socios"].Rows[n][17].ToString();
-                        string Inciso = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                        string oficina = sociosResultado.Tables["socios"].Rows[n][16].ToString();
+                        string Inciso = sociosResultado.Tables["socios"].Rows[n][17].ToString();
 
                         estadoSocios.SociosIngresadosEn.Rows.Add(socio_apellido, socio_nombre, numeroSocio, fechaIngreso, direccion, telefono, fechaActual, fechaActual, Inciso, oficina, numerocobro);
                     }
