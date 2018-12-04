@@ -105,14 +105,14 @@ namespace Persistencia
             }
         }
 
-        public void GuardarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto, string fax)
+        public void GuardarOficina(String oficina_codigo, String oficina_nombre, String oficina_abreviatura, String oficina_direccion, int oficina_inciso, int departamento, String oficina_codigopostal, String oficina_telefono, String oficina_email, String oficina_nombrecontacto, string fax, DateTime fechaIngreso)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO oficina (oficina_codigo, oficina_nombre, oficina_abreviatura, oficina_direccion, inciso_inciso_id, departamento_departamento_id, oficina_codigopostal, oficina_telefono, oficina_email, oficina_nombrecontacto, fax) VALUES ('" + oficina_codigo + "','" + oficina_nombre + "','" + oficina_abreviatura + "','" + oficina_direccion + "','" + oficina_inciso + "','" + departamento + "','" + oficina_codigopostal + "','" + oficina_telefono + "','" + oficina_email + "','" + oficina_nombrecontacto + "','" + fax + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO oficina (oficina_codigo, oficina_nombre, oficina_abreviatura, oficina_direccion, inciso_inciso_id, departamento_departamento_id, oficina_codigopostal, oficina_telefono, oficina_email, oficina_nombrecontacto, fax, fechaIngreso) VALUES ('" + oficina_codigo + "','" + oficina_nombre + "','" + oficina_abreviatura + "','" + oficina_direccion + "','" + oficina_inciso + "','" + departamento + "','" + oficina_codigopostal + "','" + oficina_telefono + "','" + oficina_email + "','" + oficina_nombrecontacto + "','" + fax + "','" + fechaIngreso.ToString("yyyy/MM/dd") + "');" + "Select last_insert_id()";
 
             try
             {

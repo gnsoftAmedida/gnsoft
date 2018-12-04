@@ -287,6 +287,8 @@ namespace COOPMEF.CrystalDataSets {
             
             private global::System.Data.DataColumn columncontacto;
             
+            private global::System.Data.DataColumn columnfax;
+            
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public padronIncisoOficinasDataTable() {
@@ -354,6 +356,14 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public global::System.Data.DataColumn faxColumn {
+                get {
+                    return this.columnfax;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             [global::System.ComponentModel.Browsable(false)]
             public int Count {
                 get {
@@ -389,13 +399,14 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
-            public padronIncisoOficinasRow AddpadronIncisoOficinasRow(string inciso, string oficina, string telefono, string contacto) {
+            public padronIncisoOficinasRow AddpadronIncisoOficinasRow(string inciso, string oficina, string telefono, string contacto, string fax) {
                 padronIncisoOficinasRow rowpadronIncisoOficinasRow = ((padronIncisoOficinasRow)(this.NewRow()));
                 object[] columnValuesArray = new object[] {
                         inciso,
                         oficina,
                         telefono,
-                        contacto};
+                        contacto,
+                        fax};
                 rowpadronIncisoOficinasRow.ItemArray = columnValuesArray;
                 this.Rows.Add(rowpadronIncisoOficinasRow);
                 return rowpadronIncisoOficinasRow;
@@ -422,6 +433,7 @@ namespace COOPMEF.CrystalDataSets {
                 this.columnoficina = base.Columns["oficina"];
                 this.columntelefono = base.Columns["telefono"];
                 this.columncontacto = base.Columns["contacto"];
+                this.columnfax = base.Columns["fax"];
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -435,6 +447,8 @@ namespace COOPMEF.CrystalDataSets {
                 base.Columns.Add(this.columntelefono);
                 this.columncontacto = new global::System.Data.DataColumn("contacto", typeof(string), null, global::System.Data.MappingType.Element);
                 base.Columns.Add(this.columncontacto);
+                this.columnfax = new global::System.Data.DataColumn("fax", typeof(string), null, global::System.Data.MappingType.Element);
+                base.Columns.Add(this.columnfax);
             }
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
@@ -641,6 +655,22 @@ namespace COOPMEF.CrystalDataSets {
             
             [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public string fax {
+                get {
+                    try {
+                        return ((string)(this[this.tablepadronIncisoOficinas.faxColumn]));
+                    }
+                    catch (global::System.InvalidCastException e) {
+                        throw new global::System.Data.StrongTypingException("The value for column \'fax\' in table \'padronIncisoOficinas\' is DBNull.", e);
+                    }
+                }
+                set {
+                    this[this.tablepadronIncisoOficinas.faxColumn] = value;
+                }
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public bool IsincisoNull() {
                 return this.IsNull(this.tablepadronIncisoOficinas.incisoColumn);
             }
@@ -685,6 +715,18 @@ namespace COOPMEF.CrystalDataSets {
             [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
             public void SetcontactoNull() {
                 this[this.tablepadronIncisoOficinas.contactoColumn] = global::System.Convert.DBNull;
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public bool IsfaxNull() {
+                return this.IsNull(this.tablepadronIncisoOficinas.faxColumn);
+            }
+            
+            [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+            [global::System.CodeDom.Compiler.GeneratedCodeAttribute("System.Data.Design.TypedDataSetGenerator", "4.0.0.0")]
+            public void SetfaxNull() {
+                this[this.tablepadronIncisoOficinas.faxColumn] = global::System.Convert.DBNull;
             }
         }
         

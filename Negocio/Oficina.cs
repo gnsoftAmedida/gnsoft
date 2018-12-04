@@ -22,6 +22,7 @@ namespace Negocio
         private Inciso oficina_inciso;
         private Departamento departamento;
         private string oficina_fax;
+        private DateTime fechaIngreso;
         
         public int Oficina_id
         {
@@ -95,6 +96,12 @@ namespace Negocio
             set { oficina_fax = value; }
         }
 
+        public DateTime FechaIngreso
+        {
+            get { return fechaIngreso; }
+            set { fechaIngreso = value; }
+        }
+
         public DataSet devolverOficinas()
         {
             pOficina tmpInciso = new pOficina();
@@ -112,7 +119,7 @@ namespace Negocio
         public void Guardar()
         {
             pOficina tmpOficina = new pOficina();
-            tmpOficina.GuardarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto, Oficina_fax);
+            tmpOficina.GuardarOficina(Oficina_codigo, Oficina_nombre, Oficina_abreviatura, Oficina_direccion, Oficina_inciso.Inciso_id, Departamento.Departamento_id, Oficina_codigopostal, Oficina_telefono, Oficina_email, Oficina_nombrecontacto, Oficina_fax, FechaIngreso);
         }
 
         public void modificarOficina()

@@ -1688,6 +1688,7 @@ namespace Negocio
             tmpOficina.Oficina_email = email;
             tmpOficina.Oficina_nombrecontacto = nombreContacto;
             tmpOficina.Oficina_fax = fax;
+            tmpOficina.FechaIngreso = DateTime.Today;
             tmpOficina.Guardar();
         }
 

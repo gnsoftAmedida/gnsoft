@@ -374,7 +374,7 @@ namespace COOPMEF
 
                         empresa.modificarOficina(txtCodigo.Text.Replace("'", ""), txtNombre.Text.Replace("'", ""), txtAbreviatura.Text.Replace("'", ""), txtDireccion.Text.Replace("'", ""), id_inciso, id_departamento, txtCodigoPostal.Text.Replace("'", ""), txtTelefono.Text.Replace("'", ""), txtEmail.Text.Replace("'", ""), txtNombreContacto.Text.Replace("'", ""), Convert.ToInt32(dsOficinas.Tables["oficinas"].Rows[index][0].ToString()), txtFax.Text.Replace("'", ""));
 
-                        MessageBox.Show("Oficina creada correctamente");
+                        MessageBox.Show("Oficina modificada correctamente");
 
                         RegistroSLogs registroLogs = new RegistroSLogs();
                         registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Editar oficina " + txtNombre.Text.Replace("'", ""));

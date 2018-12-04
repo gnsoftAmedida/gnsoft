@@ -3860,8 +3860,9 @@ Agregar emisión
                         String oficina = padron.Tables["padron"].Rows[n][1].ToString();
                         String telefono = padron.Tables["padron"].Rows[n][2].ToString();
                         String contacto = padron.Tables["padron"].Rows[n][3].ToString();
+                        String fax = padron.Tables["padron"].Rows[n][4].ToString();
 
-                        tmpDsPadron.padronIncisoOficinas.Rows.Add(inciso, oficina, telefono, contacto);
+                        tmpDsPadron.padronIncisoOficinas.Rows.Add(inciso, oficina, telefono, contacto, fax);
                     }
 
                     frmVerReportes reporte = new frmVerReportes(tmpDsPadron, "PADRON");
