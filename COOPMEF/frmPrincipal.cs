@@ -2856,6 +2856,7 @@ namespace COOPMEF
                             //btnImprimirCobranza.Enabled = false;
                             limpiarPantallaIngresoDeExcedidos();
                             limpiarPantallaDeCobranza();
+                            btnExcedido.Visible = false;//agrego 5/12/18
                         }
                     }
                 }
