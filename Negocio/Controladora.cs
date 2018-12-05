@@ -3242,7 +3242,8 @@ namespace Negocio
                     double int_vencerProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][13].ToString());
                     double aporteCapitalProvisorio = Convert.ToDouble(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][14].ToString());
                     int socio_idProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString());
-
+                    //agrego***
+                    estaEnCobranza = false;
                     for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                     {
                         if (Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][15].ToString()))
@@ -3254,15 +3255,15 @@ namespace Negocio
 
                     if (!estaEnCobranza)
                     {
-                        guardarCobranza(id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, cantidadCuotasProvisorio, CuotasVanProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);
-                        estaEnCobranza = false;
+                        guardarCobranza(id_prestamoProvisorio, cedulaProvisorio, tasaProvisorio, WivaProvisorio, montoPedidoProvisorio, cantidadCuotasProvisorio, CuotasVanProvisorio, importeCuotaProvisorio, amo_cuotaProvisorio, InteresCuotaProvisorio, IvaCuotaProvisorio, amo_vencerProvisorio, int_vencerProvisorio, aporteCapitalProvisorio, socio_idProvisorio);                        
                     }
+                    //estaEnCobranza = false;***
                 }
             }
 
             //agrego todos los socios tengan o no prestamos que no
             //hayan sido dados de baja
-            estaEnCobranza = false;
+            //estaEnCobranza = false;***
 
             DataSet dsCobranzasIncorporarAporte = DevolverCobranzas();
 
@@ -3423,10 +3424,9 @@ namespace Negocio
 
                     tmpHistoria.Guardar();
 
-                    // **************Vaciar la tabla cobranza privosoria*****************
 
                 }
-
+                // Vaciar cobranza provisoria
             }
             VaciarTablaCobranzaProvisoria();
         }

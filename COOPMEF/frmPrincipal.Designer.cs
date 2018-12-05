@@ -50,6 +50,9 @@
             this.archivoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.anulaciónToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informesToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.préstamosPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.verToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.informesToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
@@ -289,9 +292,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.resumenDePréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.salidasEIngresosPorPréstamosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.préstamosPendientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -476,6 +476,24 @@
             this.informesToolStripMenuItem1.Name = "informesToolStripMenuItem1";
             resources.ApplyResources(this.informesToolStripMenuItem1, "informesToolStripMenuItem1");
             this.informesToolStripMenuItem1.Click += new System.EventHandler(this.informesToolStripMenuItem1_Click);
+            // 
+            // resumenDePréstamosToolStripMenuItem
+            // 
+            this.resumenDePréstamosToolStripMenuItem.Name = "resumenDePréstamosToolStripMenuItem";
+            resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
+            this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click_1);
+            // 
+            // salidasEIngresosPorPréstamosToolStripMenuItem
+            // 
+            this.salidasEIngresosPorPréstamosToolStripMenuItem.Name = "salidasEIngresosPorPréstamosToolStripMenuItem";
+            resources.ApplyResources(this.salidasEIngresosPorPréstamosToolStripMenuItem, "salidasEIngresosPorPréstamosToolStripMenuItem");
+            this.salidasEIngresosPorPréstamosToolStripMenuItem.Click += new System.EventHandler(this.salidasEIngresosPorPréstamosToolStripMenuItem_Click);
+            // 
+            // préstamosPendientesToolStripMenuItem
+            // 
+            this.préstamosPendientesToolStripMenuItem.Name = "préstamosPendientesToolStripMenuItem";
+            resources.ApplyResources(this.préstamosPendientesToolStripMenuItem, "préstamosPendientesToolStripMenuItem");
+            this.préstamosPendientesToolStripMenuItem.Click += new System.EventHandler(this.préstamosPendientesToolStripMenuItem_Click_1);
             // 
             // verToolStripMenuItem
             // 
@@ -1154,12 +1172,14 @@
             // 
             // cmbOficina
             // 
+            this.cmbOficina.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbOficina.FormattingEnabled = true;
             resources.ApplyResources(this.cmbOficina, "cmbOficina");
             this.cmbOficina.Name = "cmbOficina";
             // 
             // cmbInciso
             // 
+            this.cmbInciso.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbInciso.FormattingEnabled = true;
             resources.ApplyResources(this.cmbInciso, "cmbInciso");
             this.cmbInciso.Name = "cmbInciso";
@@ -2149,24 +2169,6 @@
             resources.ApplyResources(this.btnOtrosDatos, "btnOtrosDatos");
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
-            // 
-            // resumenDePréstamosToolStripMenuItem
-            // 
-            this.resumenDePréstamosToolStripMenuItem.Name = "resumenDePréstamosToolStripMenuItem";
-            resources.ApplyResources(this.resumenDePréstamosToolStripMenuItem, "resumenDePréstamosToolStripMenuItem");
-            this.resumenDePréstamosToolStripMenuItem.Click += new System.EventHandler(this.resumenDePréstamosToolStripMenuItem_Click_1);
-            // 
-            // salidasEIngresosPorPréstamosToolStripMenuItem
-            // 
-            this.salidasEIngresosPorPréstamosToolStripMenuItem.Name = "salidasEIngresosPorPréstamosToolStripMenuItem";
-            resources.ApplyResources(this.salidasEIngresosPorPréstamosToolStripMenuItem, "salidasEIngresosPorPréstamosToolStripMenuItem");
-            this.salidasEIngresosPorPréstamosToolStripMenuItem.Click += new System.EventHandler(this.salidasEIngresosPorPréstamosToolStripMenuItem_Click);
-            // 
-            // préstamosPendientesToolStripMenuItem
-            // 
-            this.préstamosPendientesToolStripMenuItem.Name = "préstamosPendientesToolStripMenuItem";
-            resources.ApplyResources(this.préstamosPendientesToolStripMenuItem, "préstamosPendientesToolStripMenuItem");
-            this.préstamosPendientesToolStripMenuItem.Click += new System.EventHandler(this.préstamosPendientesToolStripMenuItem_Click_1);
             // 
             // frmPrincipal
             // 

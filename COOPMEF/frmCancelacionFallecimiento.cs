@@ -75,13 +75,13 @@ namespace COOPMEF
                                     string mes = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15).ToString().Substring(3, 2);
 
                                     MessageBox.Show("El Préstamo queda cancelado a partir del vencimiento del presupuesto del mes " + mes + "/" + anio);
-                                    sePuedeCancelar = false;
+                                    sePuedeCancelar = true;
 
                                 }
                                 else
                                 {
                                     MessageBox.Show("El Socio no tiene Préstamos");
-                                    sePuedeCancelar = false;
+                                    sePuedeCancelar = true;
                                 }
                             }
                         }

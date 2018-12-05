@@ -1016,57 +1016,65 @@ namespace COOPMEF
 
                 if (idSocioSeleccionado != 0)
                 {
+
+                    int estadoActual = devolverEstadoSocio();
                     Boolean puedeDarseDeBaja = true;
-                    Boolean excedido = true;
-                    DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
-                    DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
-                    String mensaje = "El socio no puede darse de baja por";
+                    String mensaje = "";
+                    if (estadoActual == 1)
+                    {                      
+                        Boolean excedido = true;
+                        DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
+                        DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
+                        mensaje =  "El socio no puede darse de baja por";
 
-                    excedido = estaExcedido();
-
-                    if (excedido)
-                    {
-                        puedeDarseDeBaja = false;
-                        mensaje += " estar excedido";
-                    }
-
-                    if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count != 0)
-                    {
-
-                        puedeDarseDeBaja = false;
+                        excedido = estaExcedido();
 
                         if (excedido)
                         {
-                            mensaje += " y tener préstamo pendiente";
+                            puedeDarseDeBaja = false;
+                            mensaje += " estar excedido";
+                        }
+
+                        if (dsCobranzaProvisoriaSocio.Tables["cobranzasProvisoriasSocio"].Rows.Count != 0)
+                        {
+
+                            puedeDarseDeBaja = false;
+
+                            if (excedido)
+                            {
+                                mensaje += " y tener préstamo pendiente";
+                            }
+                            else
+                            {
+                                mensaje += " tener préstamo pendiente";
+                            }
+
                         }
                         else
                         {
-                            mensaje += " tener préstamo pendiente";
-                        }
-
-                    }
-                    else
-                    {
-                        if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count != 0)
-                        {
-                            if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString() != "0")
+                            if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows.Count != 0)
                             {
-                                puedeDarseDeBaja = false;
+                                if (dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][12].ToString() != "0")
+                                {
+                                    puedeDarseDeBaja = false;
 
-                                if (excedido)
-                                {
-                                    mensaje += " y tener préstamo pendiente";
-                                }
-                                else
-                                {
-                                    mensaje += " tener préstamo pendiente";
+                                    if (excedido)
+                                    {
+                                        mensaje += " y tener préstamo pendiente";
+                                    }
+                                    else
+                                    {
+                                        mensaje += " tener préstamo pendiente";
+                                    }
                                 }
                             }
                         }
+
                     }
 
-                    if (puedeDarseDeBaja)
+                    if (puedeDarseDeBaja || estadoActual == 0)
                     {
+                   
                         string message = "¿Está seguro de que desea cambiar de estado al socio?";
                         string caption = "Estado Socio";
                         MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -1079,7 +1087,7 @@ namespace COOPMEF
                             try
                             {
 
-                                int estadoActual = devolverEstadoSocio();
+                                estadoActual = devolverEstadoSocio();
                                 nuevo = false;
                                 activarAltaSocio();
                                 this.btnNuevoSocio.Enabled = false;
@@ -1482,6 +1490,9 @@ namespace COOPMEF
 
 
         }
+
+
+
         private void marcarExcedido()
         {
             if (this.estaExcedido())
@@ -1912,8 +1923,10 @@ namespace COOPMEF
 
             if (todo)
             {
+                txtBusqueda.Text = "";
                 // Trampa para generar columnas en el datagridview
                 socioPorCampo("socio_nro", "#");
+
             }
         }
 
@@ -1948,7 +1961,7 @@ namespace COOPMEF
 
         public void cargarPlanPrestamos(object sender, EventArgs e)
         {
-          
+
             cargarPlanPrestamoSocio();
 
         }
@@ -1971,7 +1984,7 @@ namespace COOPMEF
         {
             if (tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabPrestamo"])
             {
-              
+
 
                 //Cargar combo préstamos
                 dsPlanes = empresa.DevolverPlanesActivos();
@@ -2367,7 +2380,7 @@ namespace COOPMEF
                         if (exitiaProvisoria)
                         {
                             empresa.eliminarCobranzaProvisoria(id_cobranzaProvisoria);
-                            empresa.anularPrestamo(idPrestamo);
+                            empresa.anularPrestamo(Convert.ToInt32(txtNroPréstamo.Text));
                             exitiaProvisoria = false;
                         }
 
@@ -2378,7 +2391,7 @@ namespace COOPMEF
                         DataSet dsParametros = empresa.DevolverEmpresa();
                         String FechaPrimerCuota = empresa.VtoPrimerCuota(Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString())).ToString("dd/MM/yyyy");
                         DateTime FechaVto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][27].ToString()).AddDays(15);
-                                              
+
 
                         // *****************Imprimir Vale
                         DV.vale.Rows.Add(totalDeuda.ToString("###,###,##0.00"), lblNumeroSocio.Text, cantidadCuotas, cuota.ToString("###,###,##0.00"), tasaAnualEfectivaSinIVA, iva + "%", ivaSobreIntereses.ToString("###,###,##0.00"), (cuota * cantidadCuotas).ToString("###,###,##0.00"), montoIntereses.ToString("###,###,##0.00"), empresa.ESCNUM(Convert.ToString(cuota * cantidadCuotas)), txtApellidos.Text.Trim() + ", " + txtNombres.Text.Trim(), txtNroCobro.Text, idPrestamo, txtInciso.Text + " / " + txtOficina.Text, empresa.formatoFechaMid4(FechaVto), "(" + empresa.ESCNUM(cantidadCuotas.ToString()) + ")", empresa.ESCNUM(cuota.ToString()), FechaPrimerCuota, DateTime.Today.ToLongDateString());
@@ -2388,6 +2401,7 @@ namespace COOPMEF
                         registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Nuevo Préstamo Socio Nro " + txtNroSocio.Text.Replace(",", "."));
 
                         reporte.ShowDialog();
+                        DV.vale.Rows.Clear();
                         DE.solicitud.Rows.Clear();
 
                         cargarPlanPrestamoSocio();
@@ -3871,6 +3885,11 @@ Agregar emisión
             {
                 frmCancelacionFallecimiento tmpFrmCancelacionFallecimiento = new frmCancelacionFallecimiento();
                 tmpFrmCancelacionFallecimiento.ShowDialog();
+
+                if (idSocioSeleccionado != '0')
+                {
+                    cancelar();
+                }
             }
             else
             {
