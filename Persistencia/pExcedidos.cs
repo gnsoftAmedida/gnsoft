@@ -109,14 +109,14 @@ namespace Persistencia
             }
         }
 
-        public void GuardarExcedido(String presupuesto, String cedula, double aretener, double retenido, DateTime fechadepago, double importepagado, String presupuestodelpago, double aportecapital, int socio_id)
+        public void GuardarExcedido(String presupuesto, String cedula, double aretener, double retenido, double importepagado, String presupuestodelpago, double aportecapital, int socio_id)
         {
             MySqlConnection connection = conectar();
             MySqlTransaction transaction = null;
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
 
             string sql;
-            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido,  fechadepago,  importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "','" + aretener.ToString("##0.00").Replace(",", ".") + "','" + retenido.ToString("##0.00").Replace(",", ".") + "','" + fechadepago + "','" + importepagado.ToString("##0.00").Replace(",", ".") + "','" + presupuestodelpago + "','" + aportecapital.ToString("##0.00").Replace(",", ".") + "','" + socio_id + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO excedidos (presupuesto,  cedula,  aretener,  retenido, importepagado,  presupuestodelpago,  aportecapital, socio_id) VALUES ('" + presupuesto + "','" + cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "','" + aretener.ToString("##0.00").Replace(",", ".") + "','" + retenido.ToString("##0.00").Replace(",", ".") + "','" + importepagado.ToString("##0.00").Replace(",", ".") + "','" + presupuestodelpago + "','" + aportecapital.ToString("##0.00").Replace(",", ".") + "','" + socio_id + "');" + "Select last_insert_id()";
 
             try
             {

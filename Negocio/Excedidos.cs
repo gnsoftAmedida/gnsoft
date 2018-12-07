@@ -41,7 +41,7 @@ namespace Negocio
         public void Guardar()
         {
             pExcedidos tmpExcedido = new pExcedidos();
-            tmpExcedido.GuardarExcedido(_presupuesto, _cedula, _aretener, _retenido, _fechadepago, _importepagado, _presupuestodelpago, _aportecapital, _socio_id);
+            tmpExcedido.GuardarExcedido(_presupuesto, _cedula, _aretener, _retenido, _importepagado, _presupuestodelpago, _aportecapital, _socio_id);
         }
 
         public void modificarExcedido()

@@ -60,6 +60,7 @@ namespace COOPMEF
         int id_cobranzaProvisoria;
         //#############################################################################
 
+        Double aporteCapital = 0;
         private System.Data.DataSet eventosDataSet;
         private dsSolicitu DE = new dsSolicitu();
         private dsSolicitudIngreso DS = new dsSolicitudIngreso();
@@ -1795,7 +1796,7 @@ namespace COOPMEF
         {
 
             this.idSocioSeleccionado = 0;
-
+            aporteCapital = 0;
             this.txtNroSocio.Enabled = false;
             this.txtNombres.Enabled = false;
             this.txtApellidos.Enabled = false;
@@ -2614,6 +2615,7 @@ namespace COOPMEF
                                 ex._presupuesto = txtPresupuestoIngExc.Text;
                                 ex._cedula = txtNroSocio.Text;
                                 ex._socio_id = this.idSocioSeleccionado;
+                                ex._aportecapital = aporteCapital;                               
 
                                 DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuestoIngExc.Text);
 
@@ -2910,12 +2912,23 @@ Agregar emisión
             if (historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows.Count > 0)
             {
                 double importeCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][9].ToString());
-                double aporteCapital = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][15].ToString());
+                aporteCapital = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][15].ToString());
                 double excedido = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][19].ToString());
                 double mora = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][20].ToString());
                 double ivaMora = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][21].ToString());
                 double ivaCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][12].ToString());
-                double total = importeCuota + aporteCapital + excedido + mora + ivaMora + ivaCuota;
+
+                if (mora < 0) {
+                    mora = 0;
+                }
+
+                if (ivaMora < 0)
+                {
+                    ivaMora = 0;
+                }
+
+                double total = importeCuota + aporteCapital + excedido + mora + ivaMora;  //+ ivaCuota;
+                
                 txtARetenerIngExc.Text = total.ToString("##0.00");
 
                 calcularSaldoMorayTotal();
