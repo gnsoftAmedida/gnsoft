@@ -21,13 +21,15 @@ namespace COOPMEF
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
         {
-            iniciar();            
+            iniciar();
         }
 
-        private void iniciar() {
+        private void iniciar()
+        {
             dgvIngresosSalidas.Rows.Clear();
-
+            
             int anio = Convert.ToInt32(cmbAnio.SelectedItem.ToString());
+            
             DataSet movimientoPro;
             Double sumaCheques = 0;
             Double sumaDepositos = 0;
@@ -39,18 +41,17 @@ namespace COOPMEF
             for (int i = 10; i <= 12; i++)
             {
                 int mes = i;
-                int cantDias = Convert.ToInt32(DateTime.DaysInMonth(anio, mes));
 
-                movimientoPro = empresa.salidasIngresos(1, cantDias, mes, anio);
+                movimientoPro = empresa.salidasIngresos(mes.ToString(), anio);
 
                 if (movimientoPro.Tables["salidaIngreso"].Rows.Count > 0)
                 {
 
                     try
                     {
-                        if (movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString() != "")
+                        if (movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString() != "")
                         {
-                            cheque = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString());
+                            cheque = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString());
                             sumaCheques += cheque;
                         }
                         else
@@ -65,9 +66,9 @@ namespace COOPMEF
 
                     try
                     {
-                        if (movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString() != "")
+                        if (movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString() != "")
                         {
-                            deposito = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString());
+                            deposito = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString());
                             sumaDepositos += deposito;
                         }
                         else
@@ -95,8 +96,7 @@ namespace COOPMEF
             for (int i = 1; i <= 9; i++)
             {
                 int mes = i;
-                int cantDias = Convert.ToInt32(DateTime.DaysInMonth(anio, mes));
-                movimientoPro = empresa.salidasIngresos(1, cantDias, mes, anio);
+                movimientoPro = empresa.salidasIngresos('0'.ToString() + mes.ToString(), anio);
 
 
                 if (movimientoPro.Tables["salidaIngreso"].Rows.Count > 0)
@@ -104,9 +104,9 @@ namespace COOPMEF
 
                     try
                     {
-                        if (movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString() != "")
+                        if (movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString() != "")
                         {
-                            cheque = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString());
+                            cheque = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString());
                             sumaCheques += cheque;
                         }
                         else
@@ -121,9 +121,9 @@ namespace COOPMEF
 
                     try
                     {
-                        if (movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString() != "")
+                        if (movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString() != "")
                         {
-                            deposito = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[0][0].ToString());
+                            deposito = Convert.ToDouble(movimientoPro.Tables["salidaIngreso"].Rows[1][0].ToString());
                             sumaDepositos += deposito;
                         }
                         else
@@ -166,7 +166,7 @@ namespace COOPMEF
 
             dgvIngresosSalidas.RowHeadersVisible = false;
             dgvIngresosSalidas.ReadOnly = true;
-            dgvIngresosSalidas.MultiSelect = false;            
+            dgvIngresosSalidas.MultiSelect = false;
             dgvIngresosSalidas.ReadOnly = true;
             dgvIngresosSalidas.AllowDrop = false;
             dgvIngresosSalidas.AllowUserToAddRows = false;
@@ -178,7 +178,6 @@ namespace COOPMEF
             dgvIngresosSalidas.BackgroundColor = BackColor;
             dgvIngresosSalidas.BorderStyle = BorderStyle.None;
 
-            iniciar();  
         }
 
         private void cmbAnio_SelectedIndexChanged(object sender, EventArgs e)

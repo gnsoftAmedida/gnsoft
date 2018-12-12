@@ -10,7 +10,7 @@ using System.Data.OleDb;
 
 namespace Persistencia
 {
-    public class pHistoria: CapaDatos
+    public class pHistoria : CapaDatos
     {
 
         public DataSet devolverBusquedaInterfaz(String sql)
@@ -20,7 +20,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                
+
                 DataSet ds = new DataSet();
 
                 connection.Open();
@@ -96,7 +96,7 @@ namespace Persistencia
                         MisExcepciones ep = new MisExcepciones("Datos muy largos");
                         throw ep;
 
-                   
+
                 }
 
                 MisExcepciones eg = new MisExcepciones("(Error: " + ex.Number + ")" + " Consulte con el departamento de Sistemas");
@@ -110,9 +110,9 @@ namespace Persistencia
             }
         }
 
-        public void modificarHistoria(int Id, string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa,double _porcentajeiva,
-            double _montopedido,double _cantidadcuotas, double _nrodecuotas,double _importecuota,double _AmortizacionCuota,double _InteresCuota,double _IvaCuota,
-            double _AmortizacionVencer,double _InteresVencer,double _aportecapital,string _numerocobro,int _Inciso,int _oficina,double _excedido,double _mora,
+        public void modificarHistoria(int Id, string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
+            double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
+            double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, int _Inciso, int _oficina, double _excedido, double _mora,
             double _IvaMora, int _socio_id)
         {
             MySqlConnection connection = conectar();
@@ -123,7 +123,7 @@ namespace Persistencia
             {
 
                 string sql = "Update historia set Presupuesto = '" + _Presupuesto + "', NumeroPrestamo = '" + _NumeroPrestamo + "',cedula = '" + _cedula.Replace("-", "").Replace(".", "").Replace(",", "") + "', tasa = '" + _tasa.ToString("##0.00").Replace(",", ".") + "', porcentajeiva = '" + _porcentajeiva.ToString("##0.00").Replace(",", ".") + "', montopedido = '" + _montopedido.ToString("##0.00").Replace(",", ".") + "', cantidadcuotas = '" + _cantidadcuotas + "', nrodecuotas = '" + _nrodecuotas + "', importecuota = '" + _importecuota.ToString("##0.00").Replace(",", ".") + "', AmortizacionCuota = '" + _AmortizacionCuota.ToString("##0.00").Replace(",", ".") + "', InteresCuota = '" + _InteresCuota.ToString("##0.00").Replace(",", ".") + "', IvaCuota = '" + _IvaCuota.ToString("##0.00").Replace(",", ".") + "',  AmortizacionVencer = '" + _AmortizacionVencer.ToString("##0.00").Replace(",", ".") + "', InteresVencer = '" + _InteresVencer.ToString("##0.00").Replace(",", ".") + "', aportecapital = '" + _aportecapital.ToString("##0.00").Replace(",", ".") + "' , numerocobro = '" + _numerocobro + "', Inciso = '" + _Inciso + "', oficina = '" + _oficina + "', excedido = '" + _excedido.ToString("##0.00").Replace(",", ".") + "', mora = '" + _mora.ToString("##0.00").Replace(",", ".") + "', IvaMora = '" + _IvaMora.ToString("##0.00").Replace(",", ".") + "', socio_id='" + _socio_id + "' WHERE historia_id =" + Id;
-                           
+
                 connection.Open();
                 transaction = connection.BeginTransaction();
                 MySqlAdapter.UpdateCommand = connection.CreateCommand();
@@ -220,7 +220,7 @@ namespace Persistencia
 
         }
 
-        public DataSet facturacion (string presupuesto)
+        public DataSet facturacion(string presupuesto)
         {
             try
             {
@@ -247,7 +247,7 @@ namespace Persistencia
             }
 
         }
-        
+
         public DataSet devolverDatosPresupuesto(string presupuesto)
         {
             try
@@ -279,7 +279,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT * FROM historia where socio_id='" + idSocio + "' and Presupuesto= '"+ presupuesto + "'";
+                string sql = "SELECT * FROM historia where socio_id='" + idSocio + "' and Presupuesto= '" + presupuesto + "'";
                 DataSet ds = new DataSet();
 
                 connection.Open();
@@ -343,82 +343,101 @@ namespace Persistencia
                 throw ex;
             }
         }
-       
-              public DataSet devolverPrestamosOtorgadosPresupuesto(string presupuesto)
-              {
-               try
-                  {
-                      MySqlConnection connection = conectar();
 
-                      MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                      string sql = "SELECT h.numerocobro, h.cedula, p.fecha, h.NumeroPrestamo, (p.monteopedido - p.AmortizacionVencer), p.AmortizacionVencer, h.montopedido, h.InteresVencer, p.interesesVencer, h.InteresVencer - p.interesesVencer, CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM historia h, prestamo p, oficina o, inciso i where h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.NumeroPrestamo = p.prestamo_id and h.Presupuesto ='" + presupuesto + "' and h.nrocuotas = 1";
-                      DataSet ds = new DataSet();
+        public DataSet devolverPrestamosOtorgadosPresupuesto(string presupuesto)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
 
-                      connection.Open();
-                      MySqlAdapter.SelectCommand = connection.CreateCommand();
-                      MySqlAdapter.SelectCommand.CommandText = sql;
-                      MySqlAdapter.Fill(ds, "prestamosOtorgadosPresupuesto");
-                      connection.Close();
-                      return ds;
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT h.numerocobro, h.cedula, p.fecha, h.NumeroPrestamo, (p.monteopedido - p.AmortizacionVencer), p.AmortizacionVencer, h.montopedido, h.InteresVencer, p.interesesVencer, h.InteresVencer - p.interesesVencer, CONCAT(i.inciso_codigo, ' - ', i.inciso_nombre), CONCAT(o.oficina_codigo, ' - ', o.oficina_nombre) FROM historia h, prestamo p, oficina o, inciso i where h.oficina = o.oficina_id and h.Inciso = i.inciso_id and h.NumeroPrestamo = p.prestamo_id and h.Presupuesto ='" + presupuesto + "' and h.nrocuotas = 1";
+                DataSet ds = new DataSet();
 
-                  }
-                  catch (Exception ex)
-                  {
-                      throw ex;
-                  }
-   
-              }     
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "prestamosOtorgadosPresupuesto");
+                connection.Close();
+                return ds;
 
-              public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)
-              {
-                  try
-                  {
-                      MySqlConnection connection = conectar();
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
 
-                      MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                      string sql = "SELECT SUM(InteresCuota), SUM(aportecapital) FROM coopmef.historia where Presupuesto='" + presupuesto + "'";
-                      DataSet ds = new DataSet();
+        }
 
-                      connection.Open();
-                      MySqlAdapter.SelectCommand = connection.CreateCommand();
-                      MySqlAdapter.SelectCommand.CommandText = sql;
-                      MySqlAdapter.Fill(ds, "devolverUtilidadesPorPresupuesto");
-                      connection.Close();
-                      return ds;
+        public DataSet devolverUtilidadesPorPresupuesto(string presupuesto)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
 
-                  }
-                  catch (Exception ex)
-                  {
-                      throw ex;
-                  }
-              }
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = "SELECT SUM(InteresCuota), SUM(aportecapital) FROM coopmef.historia where Presupuesto='" + presupuesto + "'";
+                DataSet ds = new DataSet();
+
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "devolverUtilidadesPorPresupuesto");
+                connection.Close();
+                return ds;
+
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
 
 
         //**************************************
-              public DataSet distribucionUtilidadesPorPresupuesto(string consultaPrevia)
-              {
-                  try
-                  {
-                      MySqlConnection connection = conectar();
+        public DataSet distribucionUtilidadesPorPresupuesto(string consultaPrevia)
+        {
+            try
+            {
+                MySqlConnection connection = conectar();
 
-                      MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                      string sql = consultaPrevia;
-                      DataSet ds = new DataSet();
+                MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+                string sql = consultaPrevia;
+                DataSet ds = new DataSet();
 
-                      connection.Open();
-                      MySqlAdapter.SelectCommand = connection.CreateCommand();
-                      MySqlAdapter.SelectCommand.CommandText = sql;
-                      MySqlAdapter.Fill(ds, "utilidadesPorPresupuesto");
-                      connection.Close();
-                      return ds;
+                connection.Open();
+                MySqlAdapter.SelectCommand = connection.CreateCommand();
+                MySqlAdapter.SelectCommand.CommandText = sql;
+                MySqlAdapter.Fill(ds, "utilidadesPorPresupuesto");
+                connection.Close();
+                return ds;
 
-                  }
-                  catch (Exception ex)
-                  {
-                      throw ex;
-                  }
-              }
-        
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+
+        public DataSet salidasIngresos(string mes, int anio)
+        {
+            MySqlConnection connection = conectar();
+
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            // pagos e ingresos
+            string sql = "select sum(p.monteopedido - p.amortizacionVencer) as pagos from coopmef.prestamo p where month(p.fecha) = '" + mes + "' and year(p.fecha) = '" + anio + "' and not p.anulado union select sum(h.importecuota + h.aportecapital + h.mora) as ingresos from coopmef.historia h where h.Presupuesto = '" + mes + "/" + anio + "'";
+
+            DataSet ds = new DataSet();
+
+            connection.Open();
+            MySqlAdapter.SelectCommand = connection.CreateCommand();
+            MySqlAdapter.SelectCommand.CommandText = sql;
+            MySqlAdapter.Fill(ds, "salidaIngreso");
+            connection.Close();
+            return ds;
+        }
+
         public void GuardarHistoria(string _Presupuesto, int _NumeroPrestamo, string _cedula, double _tasa, double _porcentajeiva,
             double _montopedido, double _cantidadcuotas, double _nrodecuotas, double _importecuota, double _AmortizacionCuota, double _InteresCuota, double _IvaCuota,
             double _AmortizacionVencer, double _InteresVencer, double _aportecapital, string _numerocobro, int _Inciso, int _oficina, double _excedido, double _mora,

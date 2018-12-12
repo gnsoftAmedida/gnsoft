@@ -1803,10 +1803,10 @@ namespace Negocio
             return consulta;
         }
 
-        public DataSet salidasIngresos(int diaDesde, int diaHasta, int mes, int anio)
+        public DataSet salidasIngresos(string mes, int anio)
         {
-            Movimiento tmpMovimiento = new Movimiento();
-            DataSet consulta = tmpMovimiento.salidasIngresos(diaDesde, diaHasta, mes, anio);
+            Historia tmpHistoria = new Historia();
+            DataSet consulta = tmpHistoria.salidasIngresos(mes, anio);
             return consulta;
         }
 
