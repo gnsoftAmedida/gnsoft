@@ -53,6 +53,7 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtEjercicio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
+            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -62,14 +63,15 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnSeleccionarSocio);
             this.groupBox1.Controls.Add(this.cmbAnio);
             this.groupBox1.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.groupBox1.Location = new System.Drawing.Point(632, 97);
+            this.groupBox1.Location = new System.Drawing.Point(632, 54);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox1.Size = new System.Drawing.Size(140, 87);
+            this.groupBox1.Size = new System.Drawing.Size(289, 87);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Año";
@@ -78,7 +80,7 @@
             // 
             this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAnio.FormattingEnabled = true;
-            this.cmbAnio.Location = new System.Drawing.Point(20, 32);
+            this.cmbAnio.Location = new System.Drawing.Point(37, 32);
             this.cmbAnio.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(103, 28);
@@ -90,28 +92,28 @@
             this.groupBox2.Controls.Add(this.txtUtilidades);
             this.groupBox2.Font = new System.Drawing.Font("Arial Narrow", 12F);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Highlight;
-            this.groupBox2.Location = new System.Drawing.Point(787, 97);
+            this.groupBox2.Location = new System.Drawing.Point(631, 346);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
-            this.groupBox2.Size = new System.Drawing.Size(135, 87);
+            this.groupBox2.Size = new System.Drawing.Size(290, 87);
             this.groupBox2.TabIndex = 1;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Utilidades $";
             // 
             // txtUtilidades
             // 
-            this.txtUtilidades.Location = new System.Drawing.Point(18, 33);
+            this.txtUtilidades.Location = new System.Drawing.Point(18, 34);
             this.txtUtilidades.MaxLength = 10;
             this.txtUtilidades.Name = "txtUtilidades";
-            this.txtUtilidades.Size = new System.Drawing.Size(104, 26);
+            this.txtUtilidades.Size = new System.Drawing.Size(239, 26);
             this.txtUtilidades.TabIndex = 5;
             // 
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.label1);
             this.groupBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.groupBox3.Location = new System.Drawing.Point(632, 241);
+            this.groupBox3.Location = new System.Drawing.Point(631, 154);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
@@ -324,11 +326,26 @@
             this.label7.TabIndex = 31;
             this.label7.Text = "Ejercicio";
             // 
+            // btnSeleccionarSocio
+            // 
+            this.btnSeleccionarSocio.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            this.btnSeleccionarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeleccionarSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSeleccionarSocio.Location = new System.Drawing.Point(155, 29);
+            this.btnSeleccionarSocio.Name = "btnSeleccionarSocio";
+            this.btnSeleccionarSocio.Size = new System.Drawing.Size(103, 33);
+            this.btnSeleccionarSocio.TabIndex = 32;
+            this.btnSeleccionarSocio.Text = "     Consultar";
+            this.btnSeleccionarSocio.UseVisualStyleBackColor = true;
+            this.btnSeleccionarSocio.Click += new System.EventHandler(this.btnSeleccionarSocio_Click);
+            // 
             // frmDistribucionDeUtilidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(941, 537);
+            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.txtEjercicio);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dgvUtilidades);
@@ -338,8 +355,6 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmDistribucionDeUtilidades";
@@ -384,5 +399,6 @@
         private System.Windows.Forms.ComboBox cmbAnio;
         private System.Windows.Forms.TextBox txtEjercicio;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Button btnSeleccionarSocio;
     }
 }

@@ -27,9 +27,9 @@ namespace COOPMEF
         private void iniciar()
         {
             dgvIngresosSalidas.Rows.Clear();
-            
+
             int anio = Convert.ToInt32(cmbAnio.SelectedItem.ToString());
-            
+
             DataSet movimientoPro;
             Double sumaCheques = 0;
             Double sumaDepositos = 0;
@@ -178,6 +178,10 @@ namespace COOPMEF
             dgvIngresosSalidas.BackgroundColor = BackColor;
             dgvIngresosSalidas.BorderStyle = BorderStyle.None;
 
+            for (int i = 1; i <= 15; i++)
+            {
+                dgvIngresosSalidas.Rows.Add("---", "---", "---");
+            }
         }
 
         private void cmbAnio_SelectedIndexChanged(object sender, EventArgs e)

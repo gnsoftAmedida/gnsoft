@@ -376,7 +376,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT SUM(InteresCuota), SUM(aportecapital) FROM coopmef.historia where Presupuesto='" + presupuesto + "'";
+                string sql = "SELECT Round(SUM(InteresCuota),2), Round(SUM(aportecapital),2) FROM coopmef.historia where Presupuesto='" + presupuesto + "'";
                 DataSet ds = new DataSet();
 
                 connection.Open();
