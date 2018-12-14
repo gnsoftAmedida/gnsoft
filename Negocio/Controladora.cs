@@ -2753,7 +2753,7 @@ namespace Negocio
 
         public double Pago_Mora(double Importe, string Presupuesto, double Xmora, string QueFecha)
         {
-            double Pago_Mora;
+            double Pago_Mora_retorno;
 
             // Importe es la base de cálculo que quedó debiendo
             // Presupuesto es el mes en que no se le pudo descontar
@@ -2804,9 +2804,9 @@ namespace Negocio
 
             TasaDeCobro = Math.Pow(TasaDeCobro, Convert.ToDouble(Decimal.Divide(CantidadDias, 360)));
             TasaDeCobro = TasaDeCobro - 1;
-            Pago_Mora = Importe * TasaDeCobro;
+            Pago_Mora_retorno = Importe * TasaDeCobro;
 
-            return Pago_Mora;
+            return Pago_Mora_retorno;
         }
 
         public double AmortVencer(double tasa, int CantidadCuotas, int NroCuota, double ImpCuota)
@@ -3178,7 +3178,6 @@ namespace Negocio
             DataSet dsFechasCierres = DevolverFechasCierres();
             DataSet dsCobranzasProvisorias = DevolverCobranzasProvisorias();
 
-
             CuotaCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][22].ToString());
             Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
             WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
@@ -3388,8 +3387,10 @@ namespace Negocio
                     if (dsExcedidosSinPago.Tables["excedidosSinPago"].Rows.Count > 0)
                     {
                         int id_exedido = Convert.ToInt32(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][0].ToString());
+                        string excedidoPresupuesto = dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][1].ToString();
                         double aRetener = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][3].ToString());
                         double retenido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][4].ToString());
+                        
                         double aporteCapitalExcedido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][8].ToString());
                         double _excedido = aRetener - retenido;
                         double moraExcedido = 0;
@@ -3399,7 +3400,7 @@ namespace Negocio
 
                         if ((aRetener - retenido) > aporteCapitalExcedido)
                         {
-                            moraExcedido = Convert.ToDouble(Strings.Format(Pago_Mora(aRetener - retenido - aporteCapitalExcedido, _Presupuesto, Wmora, fechaVto.ToString("dd/MM/yyyy")), "###,###,##0.00"));
+                            moraExcedido = Convert.ToDouble(Strings.Format(Pago_Mora(aRetener - retenido - aporteCapitalExcedido, excedidoPresupuesto, Wmora, fechaVto.ToString("dd/MM/yyyy")), "###,###,##0.00"));
 
                             ivaMoraExcedido = Convert.ToDouble(Strings.Format(moraExcedido * (WIvaMora / 100), "###,###,##0.00"));
 

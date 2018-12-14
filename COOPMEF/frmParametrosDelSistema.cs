@@ -24,35 +24,36 @@ namespace COOPMEF
             this.StartPosition = FormStartPosition.CenterScreen;
         }
 
-        private void ParámetrosDelSistema_Load(object sender, EventArgs e) {
-           
+        private void ParámetrosDelSistema_Load(object sender, EventArgs e)
+        {
+            actualizar();
+        }
+
+        private void actualizar()
+        {
+
             dsEmpresas = empresa.DevolverEmpresa();
 
             txtNombreCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][0].ToString();
-            txtSiglaCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][1].ToString();
-            txtDirecciónCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][2].ToString();
-            txtDeptoCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][3].ToString();
-            txtCodPostal.Text= dsEmpresas.Tables["empresas"].Rows[0][4].ToString();
-            txtTelCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][5].ToString();
-            txtFaxCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][6].ToString();
-            txtRUTCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][7].ToString();
-            txtAporteCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][8].ToString();
-            txtMaxUnidCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][9].ToString();
-            txtIVACoop.Text= dsEmpresas.Tables["empresas"].Rows[0][10].ToString();
+            txtSiglaCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][1].ToString();
+            txtDirecciónCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][2].ToString();
+            txtDeptoCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][3].ToString();
+            txtCodPostal.Text = dsEmpresas.Tables["empresas"].Rows[0][4].ToString();
+            txtTelCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][5].ToString();
+            txtFaxCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][6].ToString();
+            txtRUTCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][7].ToString();
+            txtAporteCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][8].ToString();
+            txtMaxUnidCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][9].ToString();
+            txtIVACoop.Text = dsEmpresas.Tables["empresas"].Rows[0][10].ToString();
             txtInteresMoraCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][11].ToString();
-            txtEmailCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][12].ToString();
-            txtPresidenteCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][13].ToString(); 
-            txtTesoreroCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][14].ToString();
-            txtSecretarioCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][15].ToString();
-            txtPrimerVocalCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][16].ToString();
-            txtSegVocalCoop.Text= dsEmpresas.Tables["empresas"].Rows[0][17].ToString();
-            dtpFechaEleccion.Text = dsEmpresas.Tables["empresas"].Rows[0][18].ToString(); 
-
-
-        
-        
+            txtEmailCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][12].ToString();
+            txtPresidenteCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][13].ToString();
+            txtTesoreroCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][14].ToString();
+            txtSecretarioCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][15].ToString();
+            txtPrimerVocalCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][16].ToString();
+            txtSegVocalCoop.Text = dsEmpresas.Tables["empresas"].Rows[0][17].ToString();
+            dtpFechaEleccion.Text = dsEmpresas.Tables["empresas"].Rows[0][18].ToString();
         }
-        
 
         private void btnSalirParametrosSistema_Click(object sender, EventArgs e)
         {
@@ -65,7 +66,7 @@ namespace COOPMEF
             try
             {
                 Decimal num = Convert.ToDecimal(numero);
-                
+
                 if (num >= 1)
                 {
                     return true;
@@ -86,43 +87,44 @@ namespace COOPMEF
             nuevaEmpresa();
         }
 
-        private void nuevaEmpresa() {
+        private void nuevaEmpresa()
+        {
             int iva;
             bool parametrosOK = true;
-            string nombreCoop =this.txtNombreCoop.Text.Trim();
-            string ivaCoop =this.txtIVACoop.Text.Trim() ;
-            string aporteCoop =this.txtAporteCoop.Text.Trim();
-            string interesMoraCoop =this.txtInteresMoraCoop.Text.Trim() ;
-            string maxUnidCoop =this.txtMaxUnidCoop.Text.Trim() ;
+            string nombreCoop = this.txtNombreCoop.Text.Trim();
+            string ivaCoop = this.txtIVACoop.Text.Trim();
+            string aporteCoop = this.txtAporteCoop.Text.Trim();
+            string interesMoraCoop = this.txtInteresMoraCoop.Text.Trim();
+            string maxUnidCoop = this.txtMaxUnidCoop.Text.Trim();
 
 
-            if ( nombreCoop == "")
+            if (nombreCoop == "")
             {
                 parametrosOK = false;
             }
 
-            if (!validarNumericoPositivo(ivaCoop) || ivaCoop== "")
+            if (!validarNumericoPositivo(ivaCoop) || ivaCoop == "")
             {
                 parametrosOK = false;
             }
             else iva = Convert.ToInt32(txtIVACoop.Text);
 
-            if (!validarNumericoPositivo(aporteCoop)|| aporteCoop== "")
+            if (!validarNumericoPositivo(aporteCoop) || aporteCoop == "")
             {
                 parametrosOK = false;
             }
 
-            if (!validarNumericoPositivo(interesMoraCoop) || interesMoraCoop== "")
+            if (!validarNumericoPositivo(interesMoraCoop) || interesMoraCoop == "")
             {
                 parametrosOK = false;
             }
 
-            if (!validarNumericoPositivo(maxUnidCoop) || maxUnidCoop== "")
+            if (!validarNumericoPositivo(maxUnidCoop) || maxUnidCoop == "")
             {
                 parametrosOK = false;
             }
-            
-            
+
+
             if (parametrosOK)
             {
                 DateTime fechaEleccion = Convert.ToDateTime(dtpFechaEleccion.Value);
@@ -132,11 +134,12 @@ namespace COOPMEF
                 RegistroSLogs registroLogs = new RegistroSLogs();
                 registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Parámetros Empresa Modificados");
 
-                this.Close();
-            }else
+                actualizar();
+            }
+            else
                 MessageBox.Show("Falta cargar datos obligatorios * o los mismos no tienen el formato correcto ");
 
-        
+
         }
     }
 }

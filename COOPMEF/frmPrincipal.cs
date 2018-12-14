@@ -383,6 +383,7 @@ namespace COOPMEF
             this.txtPostal.Clear();
             this.txtMostrarDetalles.Clear();
             this.txtCesion.Clear();
+            this.dtpFechaIng.Text = DateTime.Today.ToShortDateString();
         }
 
         private void btnNuevoSocio_Click(object sender, EventArgs e)
@@ -434,11 +435,21 @@ namespace COOPMEF
                 this.lblErrorGenerico.Visible = false;
                 this.Solicitud.Enabled = true;
 
-                String fecha = empresa.presupuesto();
 
-                if (empresa.cierreEfectuado(fecha))
+                DataSet dsParametros = empresa.DevolverEmpresa();
+
+                DateTime fechaCierreUltimoPresupuesto = Convert.ToDateTime(dsParametros.Tables["empresas"].Rows[0][25].ToString());
+
+                if (fechaCierreUltimoPresupuesto.Month == DateTime.Today.Month)
                 {
-                    this.dtpFechaIng.Text = Convert.ToDateTime("01/" + fecha.ToString()).AddMonths(1).ToString();
+                    if (Convert.ToDateTime(fechaCierreUltimoPresupuesto.ToShortDateString()) <= Convert.ToDateTime(DateTime.Today.ToShortDateString()))
+                    {
+                        this.dtpFechaIng.Text = Convert.ToDateTime("01/" + DateTime.Today.AddMonths(1).Month + "/" + DateTime.Today.AddMonths(1).Year).ToShortDateString();
+                    }
+                    else
+                    {
+                        this.dtpFechaIng.Text = DateTime.Today.ToShortDateString();
+                    }
                 }
                 else
                 {
@@ -1022,11 +1033,11 @@ namespace COOPMEF
                     Boolean puedeDarseDeBaja = true;
                     String mensaje = "";
                     if (estadoActual == 1)
-                    {                      
+                    {
                         Boolean excedido = true;
                         DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocioSeleccionado);
                         DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocioSeleccionado);
-                        mensaje =  "El socio no puede darse de baja por";
+                        mensaje = "El socio no puede darse de baja por";
 
                         excedido = estaExcedido();
 
@@ -1075,7 +1086,7 @@ namespace COOPMEF
 
                     if (puedeDarseDeBaja || estadoActual == 0)
                     {
-                   
+
                         string message = "¿Está seguro de que desea cambiar de estado al socio?";
                         string caption = "Estado Socio";
                         MessageBoxButtons buttons = MessageBoxButtons.YesNo;
@@ -2069,7 +2080,7 @@ namespace COOPMEF
 
                                 if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString()) != 0)
                                 {
-                                    if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString()) < Math.Abs(Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString())) / 2)
+                                    if (Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][7].ToString()) < Math.Abs(Convert.ToInt32(dsCobranzaSocio.Tables["cobranzaSocio"].Rows[0][6].ToString())) / 2)
                                     {
                                         MessageBox.Show("El prestamo no tiene más del 50% de cuotas pagas.");
                                     }
@@ -2615,7 +2626,7 @@ namespace COOPMEF
                                 ex._presupuesto = txtPresupuestoIngExc.Text;
                                 ex._cedula = txtNroSocio.Text;
                                 ex._socio_id = this.idSocioSeleccionado;
-                                ex._aportecapital = aporteCapital;                               
+                                ex._aportecapital = aporteCapital;
 
                                 DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuestoIngExc.Text);
 
@@ -2675,7 +2686,8 @@ namespace COOPMEF
             //Double mora = (saldo - aporteCapital)*porcentajeMora/100;
 
             DateTime fechaVto = empresa.VtoPto(DateTime.Today);
-            Double mora = Convert.ToDouble((empresa.Pago_Mora(saldo - aporteCapitalExcedido, _presupuesto, porcentajeMora, fechaVto.ToString("dd/MM/yyyy"))));
+            //Double mora = Convert.ToDouble((empresa.Pago_Mora(saldo - aporteCapitalExcedido, _presupuesto, porcentajeMora, fechaVto.ToString("dd/MM/yyyy"))));
+            Double mora = Convert.ToDouble((empresa.Pago_Mora(saldo - aporteCapitalExcedido, _presupuesto, porcentajeMora, "")));
 
             return mora;
 
@@ -2918,7 +2930,8 @@ Agregar emisión
                 double ivaMora = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][21].ToString());
                 double ivaCuota = Convert.ToDouble(historiaID_Presupuesto.Tables["historiasIdyPresupuesto"].Rows[0][12].ToString());
 
-                if (mora < 0) {
+                if (mora < 0)
+                {
                     mora = 0;
                 }
 
@@ -2928,7 +2941,7 @@ Agregar emisión
                 }
 
                 double total = importeCuota + aporteCapital + excedido + mora + ivaMora;  //+ ivaCuota;
-                
+
                 txtARetenerIngExc.Text = total.ToString("##0.00");
 
                 calcularSaldoMorayTotal();

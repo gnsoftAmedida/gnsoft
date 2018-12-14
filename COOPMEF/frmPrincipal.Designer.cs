@@ -1018,7 +1018,7 @@
             this.dtpFechaNac.Format = System.Windows.Forms.DateTimePickerFormat.Short;
             resources.ApplyResources(this.dtpFechaNac, "dtpFechaNac");
             this.dtpFechaNac.Name = "dtpFechaNac";
-            this.dtpFechaNac.Value = new System.DateTime(2018, 12, 3, 18, 42, 18, 0);
+            this.dtpFechaNac.Value = new System.DateTime(2018, 12, 14, 0, 0, 0, 0);
             // 
             // label9
             // 

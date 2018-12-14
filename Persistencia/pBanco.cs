@@ -21,7 +21,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT codigobanco, nombrebanco, agenciabanco, direccionbanco, telefonobanco, faxbanco, numerocta, moneda, saldo, CONCAT(codigobanco , ' - ' , numerocta, ' - ' , nombrebanco, ' - ' , moneda ) as mostrarse FROM banco";
+                string sql = "SELECT codigobanco, nombrebanco, agenciabanco, direccionbanco, telefonobanco, faxbanco, numerocta, moneda, ROUND(saldo, 2) AS saldo, CONCAT(codigobanco , ' - ' , numerocta, ' - ' , nombrebanco, ' - ' , moneda ) as mostrarse FROM banco";
                 DataSet ds = new DataSet();
 
                 connection.Open();
