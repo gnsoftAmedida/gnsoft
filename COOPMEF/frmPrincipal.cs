@@ -811,6 +811,7 @@ namespace COOPMEF
                     //si socioActivo = 1 el socio está activo, si es 0 no
                     int socioActivo = 1;
 
+                    // Cesión de derecho ahora es número de telefono
                     empresa.AltaSocio(socioActivo, socioNro.Replace(",", ".").Trim(), nroCobro, txtNombres.Text, txtApellidos.Text, fnac, fing, estado_civil, sexoo, estadoPoA, '0', of, inc, txtTelefono.Text, txtDireccion.Text, txtEmail.Text, this.txtPostal.Text, departamento, txtMostrarDetalles.Text.Replace("'", ""), txtCesion.Text);
                     //*******
                     actualizarDatosGeneralesDelSocio(estado_civil, edadd);
@@ -1258,6 +1259,16 @@ namespace COOPMEF
                 campo = "socio_direccion";
                 valor = this.txtBusqueda.Text.Replace("'", "");
             }
+            else if (this.cmbBusqueda.SelectedItem.ToString() == "Teléfono")
+            {
+                campo = "socio_tel";
+                valor = this.txtBusqueda.Text.Replace("'", "");
+            }
+            else if (this.cmbBusqueda.SelectedItem.ToString() == "Celular")
+            {
+                campo = "socio_cesion";
+                valor = this.txtBusqueda.Text.Replace("'", "");
+            }
 
             socioPorCampo(campo, valor.Replace(",", "."));
 
@@ -1303,17 +1314,17 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_direccion"].Visible = false;
             dgvSociosCampo.Columns["socio_edad"].Visible = false;
             dgvSociosCampo.Columns["socio_activo"].Visible = false;
-            dgvSociosCampo.Columns["socio_tel"].Visible = false;
+            //dgvSociosCampo.Columns["socio_tel"].Visible = false;
             dgvSociosCampo.Columns["socio_detalles"].Visible = false;
             dgvSociosCampo.Columns["socio_postal"].Visible = false;
             dgvSociosCampo.Columns["socio_departamento"].Visible = false;
-            dgvSociosCampo.Columns["socio_cesion"].Visible = false;
+            //dgvSociosCampo.Columns["socio_cesion"].Visible = false;
             dgvSociosCampo.Columns["inciso_abreviatura"].Visible = false;
 
             dgvSociosCampo.Columns["oficina_abreviatura"].Visible = false;
 
             dgvSociosCampo.Columns["socio_nro"].HeaderText = "Documento";
-            dgvSociosCampo.Columns["socio_nro"].Width = 150;
+            dgvSociosCampo.Columns["socio_nro"].Width = 90;
 
             dgvSociosCampo.Columns["socio_nombre"].HeaderText = "Nombre";
             dgvSociosCampo.Columns["socio_nombre"].Width = 180;
@@ -1328,7 +1339,7 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_fechaNac"].Width = 100;
 
             dgvSociosCampo.Columns["socio_fechaIngreso"].HeaderText = "Ingreso";
-            dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 150;
+            dgvSociosCampo.Columns["socio_fechaIngreso"].Width = 90;
 
             dgvSociosCampo.Columns["socio_estadoCivil"].HeaderText = "Estado Civil";
             dgvSociosCampo.Columns["socio_estadoCivil"].Width = 100;
@@ -1345,6 +1356,9 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_tel"].HeaderText = "Teléfono";
             dgvSociosCampo.Columns["socio_tel"].Width = 100;
 
+            dgvSociosCampo.Columns["socio_cesion"].HeaderText = "Celular";
+            dgvSociosCampo.Columns["socio_cesion"].Width = 100;
+
             dgvSociosCampo.Columns["socio_direccion"].HeaderText = "Dirección";
             dgvSociosCampo.Columns["socio_direccion"].Width = 100;
 
@@ -1352,10 +1366,10 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_email"].Width = 100;
 
             dgvSociosCampo.Columns["oficina_codigo"].HeaderText = "Oficina";
-            dgvSociosCampo.Columns["oficina_codigo"].Width = 90;
+            dgvSociosCampo.Columns["oficina_codigo"].Width = 77;
 
             dgvSociosCampo.Columns["inciso_codigo"].HeaderText = "Inciso";
-            dgvSociosCampo.Columns["inciso_codigo"].Width = 90;
+            dgvSociosCampo.Columns["inciso_codigo"].Width = 77;
 
             dgvSociosCampo.Columns["socio_activo"].HeaderText = "De baja";
             dgvSociosCampo.Columns["socio_activo"].Width = 50;
@@ -2141,8 +2155,17 @@ namespace COOPMEF
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabCobranzaExcedidos"]))
             {
+                tmpMora = 0;
+                tmpSaldo = 0;
+
+                txtMora.Text = Convert.ToDouble("0.00").ToString("###,###,##0.00");
+                txtTotal.Text = Convert.ToDouble("0.00").ToString("###,###,##0.00");
+
+                rbtnSI.Checked = true;
+
                 if (!(idSocioSeleccionado == 0))
                 {
+
                     excedido = estaExcedido();
 
                     if (excedido)
@@ -2863,6 +2886,13 @@ namespace COOPMEF
                             ex.eliminar();
                             MessageBox.Show("Deuda saldada");
 
+                            tmpMora = 0;
+                            tmpSaldo = 0;
+
+                            txtMora.Text = Convert.ToDouble("0.00").ToString("###,###,##0.00");
+                            txtTotal.Text = Convert.ToDouble("0.00").ToString("###,###,##0.00");
+
+
                             RegistroSLogs registroLogs = new RegistroSLogs();
                             registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Cobranza excedido Socio Nro " + txtNroSocio.Text.Replace(",", "."));
 
@@ -2890,18 +2920,26 @@ namespace COOPMEF
 
         private void btnImprimirCobranza_Click(object sender, EventArgs e)
         {
-
-            if (txtARetener.Text != "")
+            if (!(idSocioSeleccionado == 0))
             {
-                // MessageBox.Show("Se manda a imprimir el doc");
-                DEx.Clear();
-                DEx.Excedido.Rows.Add(txtCI.Text, txtARetener.Text, txtRetenido.Text, txtSaldo.Text, txtMora.Text, txtTotal.Text);
-                frmVerReportes reporte = new frmVerReportes(DEx, "EXCEDIDO");
-                reporte.ShowDialog();
-                this.btnPagarCobranza.Enabled = true;
+                if (txtARetener.Text != "")
+                {
+                    // MessageBox.Show("Se manda a imprimir el doc");
+                    DEx.Clear();
+                    DEx.Excedido.Rows.Add(txtCI.Text, txtARetener.Text, txtRetenido.Text, txtSaldo.Text, txtMora.Text, txtTotal.Text);
+                    frmVerReportes reporte = new frmVerReportes(DEx, "EXCEDIDO");
+                    reporte.ShowDialog();
+                    this.btnPagarCobranza.Enabled = true;
+                }
+                else
+                {
+                    MessageBox.Show("No hay deudas para imprimir");
+                }
             }
             else
-                MessageBox.Show("No hay deudas para imprimir");
+            {
+                MessageBox.Show("Debe seleccionar un socio");
+            }
         }
 
         private void tabPrestamo_Click(object sender, EventArgs e)
@@ -3999,6 +4037,11 @@ Agregar emisión
             {
                 MessageBox.Show("Usted no tiene permisos para realizar esta acción");
             }
+
+        }
+
+        private void rbtnNo_CheckedChanged(object sender, EventArgs e)
+        {
 
         }
 

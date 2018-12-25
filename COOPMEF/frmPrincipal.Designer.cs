@@ -118,9 +118,9 @@
             this.dtpFechaIng = new System.Windows.Forms.DateTimePicker();
             this.dtpFechaNac = new System.Windows.Forms.DateTimePicker();
             this.label9 = new System.Windows.Forms.Label();
-            this.txtCesion = new System.Windows.Forms.TextBox();
             this.cmbDepartamento = new System.Windows.Forms.ComboBox();
             this.label44 = new System.Windows.Forms.Label();
+            this.txtCesion = new System.Windows.Forms.TextBox();
             this.lblErrorFechas = new System.Windows.Forms.Label();
             this.txtPostal = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
@@ -953,9 +953,9 @@
             this.groupBox1.Controls.Add(this.dtpFechaIng);
             this.groupBox1.Controls.Add(this.dtpFechaNac);
             this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.txtCesion);
             this.groupBox1.Controls.Add(this.cmbDepartamento);
             this.groupBox1.Controls.Add(this.label44);
+            this.groupBox1.Controls.Add(this.txtCesion);
             this.groupBox1.Controls.Add(this.lblErrorFechas);
             this.groupBox1.Controls.Add(this.txtPostal);
             this.groupBox1.Controls.Add(this.label43);
@@ -1025,11 +1025,6 @@
             resources.ApplyResources(this.label9, "label9");
             this.label9.Name = "label9";
             // 
-            // txtCesion
-            // 
-            resources.ApplyResources(this.txtCesion, "txtCesion");
-            this.txtCesion.Name = "txtCesion";
-            // 
             // cmbDepartamento
             // 
             this.cmbDepartamento.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
@@ -1041,6 +1036,11 @@
             // 
             resources.ApplyResources(this.label44, "label44");
             this.label44.Name = "label44";
+            // 
+            // txtCesion
+            // 
+            resources.ApplyResources(this.txtCesion, "txtCesion");
+            this.txtCesion.Name = "txtCesion";
             // 
             // lblErrorFechas
             // 
@@ -1924,6 +1924,7 @@
             resources.ApplyResources(this.rbtnNo, "rbtnNo");
             this.rbtnNo.Name = "rbtnNo";
             this.rbtnNo.UseVisualStyleBackColor = true;
+            this.rbtnNo.CheckedChanged += new System.EventHandler(this.rbtnNo_CheckedChanged);
             // 
             // txtPresupuesto
             // 
@@ -2032,7 +2033,9 @@
             resources.GetString("cmbBusqueda.Items"),
             resources.GetString("cmbBusqueda.Items1"),
             resources.GetString("cmbBusqueda.Items2"),
-            resources.GetString("cmbBusqueda.Items3")});
+            resources.GetString("cmbBusqueda.Items3"),
+            resources.GetString("cmbBusqueda.Items4"),
+            resources.GetString("cmbBusqueda.Items5")});
             this.cmbBusqueda.Name = "cmbBusqueda";
             this.cmbBusqueda.SelectedIndexChanged += new System.EventHandler(this.cmbBusqueda_SelectedIndexChanged);
             // 

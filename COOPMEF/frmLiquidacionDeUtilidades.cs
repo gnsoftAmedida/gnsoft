@@ -56,7 +56,6 @@ namespace COOPMEF
                 {
                     lblNombresApellidos.Text = empresa.NomPropio(dsSocio.Tables["socioUtilidades"].Rows[0][3].ToString()) + ", " + empresa.NomPropio(dsSocio.Tables["socioUtilidades"].Rows[0][2].ToString());
                     lblDireccion.Text = dsSocio.Tables["socioUtilidades"].Rows[0][7].ToString();
-                    lblCesion.Text = dsSocio.Tables["socioUtilidades"].Rows[0][6].ToString();
                     lblFechaIngresoSocio.Text = dsSocio.Tables["socioUtilidades"].Rows[0][5].ToString().Substring(0, 10);
 
                     moledarDGV(Convert.ToInt32(dsSocio.Tables["socioUtilidades"].Rows[0][0]));
@@ -207,7 +206,7 @@ namespace COOPMEF
             {
                 reciboImpreso = true;             
                 dsD.Clear();
-                dsD.utilidad.Rows.Add(lblTotal.Text, txtCedula.Text, lblNombresApellidos.Text, dtpFechaPago.Value.ToShortDateString(), txtNroCheque.Text, primerEjercicio, ultimoEjercicio, lblCesion.Text);
+                dsD.utilidad.Rows.Add(lblTotal.Text, txtCedula.Text, lblNombresApellidos.Text, dtpFechaPago.Value.ToShortDateString(), txtNroCheque.Text, primerEjercicio, ultimoEjercicio, "");
                 frmVerReportes reporte = new frmVerReportes(dsD, "UTILIDAD");
                 reporte.ShowDialog();
             }
