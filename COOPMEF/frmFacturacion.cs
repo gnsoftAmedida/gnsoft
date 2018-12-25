@@ -9,6 +9,8 @@ using System.Windows.Forms;
 using Negocio;
 using COOPMEF.CrystalDataSets;
 using System.IO;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace COOPMEF
 {
@@ -25,6 +27,37 @@ namespace COOPMEF
         private void btnSalirPrestamo_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void CrearDocumentoXML()
+        {
+            XDocument miXML = new XDocument(
+            new XDeclaration("1.0", "utf-8", "yes"),
+            new XComment("Lista de Alumnos"),
+            new XElement("Alumnos",
+                                new XElement("Alumno",
+                                    new XAttribute("NoControl", "05231104"),
+                                    new XElement("Nombre", "Edison García"),
+                                    new XElement("Semestre", "7")),
+
+                                 new XElement("Alumno",
+                                    new XAttribute("NoControl", "05231106"),
+                                    new XElement("Nombre", "Abraham Gomez García"),
+                                    new XElement("Semestre", "9")),
+
+                                new XElement("Alumno",
+                                    new XAttribute("NoControl", "05231108"),
+                                    new XElement("Nombre", "Alejandre Carvajal"),
+                                    new XElement("Semestre", "7")),
+
+                                new XElement("Alumno",
+                                    new XAttribute("NoControl", "06231110"),
+                                    new XElement("Nombre", "Luis Armando"),
+                                    new XElement("Semestre", "10"))
+                   )
+            );
+
+            miXML.Save(@"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") +  ".xml");           
         }
 
         private void frmFacturacion_Load(object sender, EventArgs e)
@@ -68,9 +101,9 @@ namespace COOPMEF
             if (facturasPresupuesto.Tables["facturacion"].Rows.Count > 0)
             {
 
-                StreamWriter swd = new StreamWriter("C:\\Facturas\\facturacion_"  + DateTime.Today.ToString("dd_MM_yyyy") + ".TXT", true);
-                String r="";
-
+                StreamWriter swd = new StreamWriter("C:\\Facturas\\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + ".TXT", true);
+                String r = "";
+                    
                 for (int n = 0; n <= facturasPresupuesto.Tables["facturacion"].Rows.Count - 1; n++)
                 {
                     string socio_apellido = facturasPresupuesto.Tables["facturacion"].Rows[n][0].ToString();
@@ -86,7 +119,7 @@ namespace COOPMEF
                     string cedula = facturasPresupuesto.Tables["facturacion"].Rows[n][11].ToString();
 
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
-                    
+
                     Double descartoCeros = Convert.ToDouble(InteresCuota) + Convert.ToDouble(ivaCuota) + Convert.ToDouble(mora) + Convert.ToDouble(ivaMora);
 
                     if (!(descartoCeros == 0))
@@ -180,7 +213,11 @@ namespace COOPMEF
 
                         swd.WriteLine(r);
 
+                        CrearDocumentoXML();
+
                         tmpDsFactura.factura.Rows.Add(nombre_apellido_inciso_oficina, InteresCuota, ivaCuota, mora, ivaMora, fecha, subtotal_1_string, subtotal_2_string, total_string, iva1, iva2);
+
+                        
                     }
                 }
 
@@ -198,8 +235,8 @@ namespace COOPMEF
                 {
                     frmVerReportes reporte = new frmVerReportes(tmpDsFactura, "FACTURAS");
                     reporte.ShowDialog();
-                    tmpDsFactura.factura.Rows.Clear();    
-                }                
+                    tmpDsFactura.factura.Rows.Clear();
+                }
             }
             else
             {
