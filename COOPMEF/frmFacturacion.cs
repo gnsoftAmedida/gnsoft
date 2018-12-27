@@ -30,34 +30,36 @@ namespace COOPMEF
         }
 
         private void CrearDocumentoXML()
-        {
-            XDocument miXML = new XDocument(
-            new XDeclaration("1.0", "utf-8", "yes"),
-            new XComment("Lista de Alumnos"),
-            new XElement("Alumnos",
-                                new XElement("Alumno",
-                                    new XAttribute("NoControl", "05231104"),
-                                    new XElement("Nombre", "Edison García"),
-                                    new XElement("Semestre", "7")),
+        {            
+            XmlDocument factura = new XmlDocument();
 
-                                 new XElement("Alumno",
-                                    new XAttribute("NoControl", "05231106"),
-                                    new XElement("Nombre", "Abraham Gomez García"),
-                                    new XElement("Semestre", "9")),
+            //Se crea la declaración
+            XmlDeclaration declaracionXML = factura.CreateXmlDeclaration("1.0", "UTF-8", null);
 
-                                new XElement("Alumno",
-                                    new XAttribute("NoControl", "05231108"),
-                                    new XElement("Nombre", "Alejandre Carvajal"),
-                                    new XElement("Semestre", "7")),
+            //Se agrega el nodo a la factura
+            XmlElement root = factura.DocumentElement;
 
-                                new XElement("Alumno",
-                                    new XAttribute("NoControl", "06231110"),
-                                    new XElement("Nombre", "Luis Armando"),
-                                    new XElement("Semestre", "10"))
-                   )
-            );
+            factura.InsertBefore(declaracionXML, root);
 
-            miXML.Save(@"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") +  ".xml");           
+            XmlElement adenda = factura.CreateElement("CFE_Adenda");
+
+            factura.AppendChild(adenda);
+
+            XmlElement encabezado = factura.CreateElement("Encabezado");
+            adenda.AppendChild(encabezado);
+
+            XmlElement tipoCFE = factura.CreateElement("TipoCFE");
+            tipoCFE.AppendChild(factura.CreateTextNode("101"));
+
+            encabezado.AppendChild(tipoCFE);
+
+            factura.DocumentElement.SetAttribute("xmlns:ns0", "http://cfe.dgi.gub.uy");
+            factura.DocumentElement.SetAttribute("xmlns:ds", "http://www.w3.org/2000/09/xmldsig#");
+            factura.DocumentElement.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
+            factura.DocumentElement.SetAttribute("xsi:schemaLocation", "http://cfe.dgi.gub.uy CFEEmpresas_v1.8.xsd ");
+
+            factura.Save(@"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + ".xml");
+
         }
 
         private void frmFacturacion_Load(object sender, EventArgs e)
@@ -103,7 +105,7 @@ namespace COOPMEF
 
                 StreamWriter swd = new StreamWriter("C:\\Facturas\\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + ".TXT", true);
                 String r = "";
-                    
+
                 for (int n = 0; n <= facturasPresupuesto.Tables["facturacion"].Rows.Count - 1; n++)
                 {
                     string socio_apellido = facturasPresupuesto.Tables["facturacion"].Rows[n][0].ToString();
@@ -217,7 +219,7 @@ namespace COOPMEF
 
                         tmpDsFactura.factura.Rows.Add(nombre_apellido_inciso_oficina, InteresCuota, ivaCuota, mora, ivaMora, fecha, subtotal_1_string, subtotal_2_string, total_string, iva1, iva2);
 
-                        
+
                     }
                 }
 
