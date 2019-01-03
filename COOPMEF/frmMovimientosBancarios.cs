@@ -15,6 +15,7 @@ namespace COOPMEF
     {
         private Controladora empresa = Controladora.Instance;
         DataSet dsBancos;
+        private int indexBancoSeleccionado = -1;
 
         public frmMovimientosBancarios()
         {
@@ -29,7 +30,15 @@ namespace COOPMEF
         }
 
         public void borrarPantalla()
-        {           
+        {
+
+            dsBancos = empresa.DevolverBancos();
+            this.cmbBancos.DataSource = dsBancos.Tables["bancos"];
+            this.cmbBancos.DisplayMember = "mostrarse";
+            this.cmbBancos.ValueMember = "codigobanco";
+            this.cmbBancos.SelectedIndex = indexBancoSeleccionado;
+            this.cmbBancos.Enabled = true;
+
             this.rbtCheque.Checked = true;
             this.txtConcepto.Clear();
             this.txtImporte.Clear();
@@ -135,8 +144,8 @@ namespace COOPMEF
             {
                 try
                 {
-                    int index = this.cmbBancos.SelectedIndex;
-                    if (index != -1)
+                     indexBancoSeleccionado = this.cmbBancos.SelectedIndex;
+                     if (indexBancoSeleccionado != -1)
                     {
 
                         int codigoBanco = Convert.ToInt32(dsBancos.Tables["bancos"].Rows[index][0].ToString());
