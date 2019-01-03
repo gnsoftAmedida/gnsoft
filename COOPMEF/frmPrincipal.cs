@@ -2153,6 +2153,17 @@ namespace COOPMEF
             {
                 cargarPantallaHistoria();
             }
+            else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabCobranza"]))
+            {
+                if (idSocioSeleccionado == 0)
+                {
+                    txtPresupuestoIngExc.Enabled = false;
+                }
+                else
+                {
+                    txtPresupuestoIngExc.Enabled = true;
+                }
+            }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabCobranzaExcedidos"]))
             {
                 tmpMora = 0;
@@ -2634,45 +2645,37 @@ namespace COOPMEF
                             calcularSaldoMorayTotal();
                         }
                         else
-                            if (retenidoActual > Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ",")))
-                            {
-                                MessageBox.Show("El importe Retenido debe ser mayor a lo que ya se habia retenido");
-                                calcularSaldoMorayTotal();
-                            }
+                        {
+                            Excedidos ex = new Excedidos();
+                            ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text.Replace(".", ","));
+                            ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ","));
+                            ex._presupuesto = txtPresupuestoIngExc.Text;
+                            ex._cedula = txtNroSocio.Text;
+                            ex._socio_id = this.idSocioSeleccionado;
+                            ex._aportecapital = aporteCapital;
 
+                            DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuestoIngExc.Text);
+
+                            int filas = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count;
+                            if (filas <= 0)
+                            {
+                                ex.Guardar();
+                                MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
+                                marcarExcedido();
+                                RegistroSLogs registroLogs = new RegistroSLogs();
+                                registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Socio ingresado como excedido " + txtNroSocio.Text.Replace(",", "."));
+
+                            }
                             else
                             {
-
-                                Excedidos ex = new Excedidos();
-                                ex._aretener = Convert.ToDouble(txtARetenerIngExc.Text.Replace(".", ","));
-                                ex._retenido = Convert.ToDouble(txtRetenidoIngExc.Text.Replace(".", ","));
-                                ex._presupuesto = txtPresupuestoIngExc.Text;
-                                ex._cedula = txtNroSocio.Text;
-                                ex._socio_id = this.idSocioSeleccionado;
-                                ex._aportecapital = aporteCapital;
-
-                                DataSet dsExcedidoSocioIdPresupuesto = empresa.devolverExcedidosPorSocioIdyPresupuesto(idSocioSeleccionado, txtPresupuestoIngExc.Text);
-
-                                int filas = dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows.Count;
-                                if (filas <= 0)
-                                {
-                                    ex.Guardar();
-                                    MessageBox.Show("Persona ingresada como 'Excedida' correctamente");
-                                    marcarExcedido();
-                                    RegistroSLogs registroLogs = new RegistroSLogs();
-                                    registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Socio ingresado como excedido " + txtNroSocio.Text.Replace(",", "."));
-
-                                }
-                                else
-                                {
-                                    ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
-                                    ex.modificarExcedido();
-                                    MessageBox.Show("El valor retenido fue actualizado correctamente");
-                                }
-
-                                llenarCamposDeCobranzaExcedidos(dsExcedidoSocioIdPresupuesto, "excedidosPorSocioIdyPresupuesto");
-                                calcularSaldoMorayTotal();
+                                ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
+                                ex.modificarExcedido();
+                                MessageBox.Show("El valor retenido fue actualizado correctamente");
                             }
+
+                            llenarCamposDeCobranzaExcedidos(dsExcedidoSocioIdPresupuesto, "excedidosPorSocioIdyPresupuesto");
+                            calcularSaldoMorayTotal();
+                        }
                     }
                     else
                     {
@@ -2747,6 +2750,12 @@ namespace COOPMEF
 
                 txtSaldoIngExc.Text = Convert.ToDouble(saldo.ToString()).ToString("##0.00");
                 Double mora = calcularMoraYSaldos(saldo, _Presupuesto);
+
+                if (mora < 0)
+                {
+                    mora = 0;
+                }
+
                 txtMoraIngExc.Text = mora.ToString("##0.00");
                 txtTotalIngExc.Text = (saldo + mora).ToString("##0.00");
             }
@@ -2883,7 +2892,14 @@ namespace COOPMEF
                         else
                         {
                             ex._idExcedido = Convert.ToInt32(dsExcedidoSocioIdPresupuesto.Tables["excedidosPorSocioIdyPresupuesto"].Rows[0][0].ToString());
-                            ex.eliminar();
+
+
+                            double importePagadoExcedido = (ex._aretener - ex._retenido) + Convert.ToDouble(txtMora.Text);
+
+                            empresa.actualizarExcedidoCierre(ex._idExcedido, DateTime.Today, importePagadoExcedido, txtPresupuesto.Text);
+
+                            //Se cambia a pedido de Carolina y Leonardo
+                            // ex.eliminar();
                             MessageBox.Show("Deuda saldada");
 
                             tmpMora = 0;

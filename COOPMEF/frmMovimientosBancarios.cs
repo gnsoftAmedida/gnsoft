@@ -28,6 +28,19 @@ namespace COOPMEF
             pantallaInicial();
         }
 
+        public void borrarPantalla()
+        {           
+            this.rbtCheque.Checked = true;
+            this.txtConcepto.Clear();
+            this.txtImporte.Clear();
+            this.txtNumeroComprobante.Clear();
+            this.lblSaldoActual.Text = "0.00";
+
+            this.lblConcepto.Visible = false;
+            this.lblComprobante.Visible = false;
+            this.lblErrorGenerico.Visible = false;
+            this.lblImporteBanco.Visible = false;
+        }
 
         public void pantallaInicial()
         {
@@ -142,7 +155,7 @@ namespace COOPMEF
                             debeHaber = "Deposito";
                         }
 
-                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text), txtConcepto.Text, saldo);
+                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text.Replace(".", ",")), txtConcepto.Text, saldo);
 
                         empresa.actualizarSaldo(codigoBanco, saldo + factorMultiplicador * (Convert.ToDouble(txtImporte.Text)));
 
@@ -151,7 +164,7 @@ namespace COOPMEF
                         RegistroSLogs registroLogs = new RegistroSLogs();
                         registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Movimiento bancario ingresado para Banco " + codigoBanco + " Nro Cta " +  numeroCuenta);
 
-                        pantallaInicial();
+                        borrarPantalla();
                     }
                     else
                     {
