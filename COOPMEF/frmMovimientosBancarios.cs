@@ -148,10 +148,10 @@ namespace COOPMEF
                      if (indexBancoSeleccionado != -1)
                     {
 
-                        int codigoBanco = Convert.ToInt32(dsBancos.Tables["bancos"].Rows[index][0].ToString());
-                        string numeroCuenta = dsBancos.Tables["bancos"].Rows[index][6].ToString();
+                        int codigoBanco = Convert.ToInt32(dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][0].ToString());
+                        string numeroCuenta = dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][6].ToString();
                         string debeHaber;
-                        double saldo = Convert.ToDouble(dsBancos.Tables["bancos"].Rows[index][8].ToString());
+                        double saldo = Convert.ToDouble(dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][8].ToString());
                         int factorMultiplicador = 1;
 
                         if (rbtCheque.Checked)
