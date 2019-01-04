@@ -25,7 +25,7 @@ namespace COOPMEF
         private void frmMovimientosBancarios_Load(object sender, EventArgs e)
         {
             //Cargo Bancos
-            dsBancos = empresa.DevolverBancos();
+            // dsBancos = empresa.DevolverBancos();
             pantallaInicial();
         }
 
@@ -39,11 +39,17 @@ namespace COOPMEF
             this.cmbBancos.SelectedIndex = indexBancoSeleccionado;
             this.cmbBancos.Enabled = true;
 
-            this.rbtCheque.Checked = true;
+            /*  if (indexBancoSeleccionado != -1)
+              {
+                  this.lblSaldoActual.Text = dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][8].ToString();
+              }
+            */
+
+         // this.rbtCheque.Checked = true;
             this.txtConcepto.Clear();
             this.txtImporte.Clear();
             this.txtNumeroComprobante.Clear();
-            this.lblSaldoActual.Text = "0.00";
+         // this.lblSaldoActual.Text = "0.00";
 
             this.lblConcepto.Visible = false;
             this.lblComprobante.Visible = false;
@@ -133,7 +139,7 @@ namespace COOPMEF
                 valido = false;
             }
 
-             if (!esDecimal(txtImporte.Text.Replace(".", ",")) || (!esDecimal(txtImporte.Text.Replace(".", ","))))
+            if (!esDecimal(txtImporte.Text.Replace(".", ",")) || (!esDecimal(txtImporte.Text.Replace(".", ","))))
             {
                 this.lblImporteBanco.Visible = true;
                 this.lblImporteBanco.Text = "Numérico";
@@ -144,8 +150,8 @@ namespace COOPMEF
             {
                 try
                 {
-                     indexBancoSeleccionado = this.cmbBancos.SelectedIndex;
-                     if (indexBancoSeleccionado != -1)
+                    indexBancoSeleccionado = this.cmbBancos.SelectedIndex;
+                    if (indexBancoSeleccionado != -1)
                     {
 
                         int codigoBanco = Convert.ToInt32(dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][0].ToString());
@@ -157,7 +163,7 @@ namespace COOPMEF
                         if (rbtCheque.Checked)
                         {
                             debeHaber = "Cheque";
-                            factorMultiplicador = - factorMultiplicador;
+                            factorMultiplicador = -factorMultiplicador;
                         }
                         else
                         {
@@ -171,7 +177,7 @@ namespace COOPMEF
                         MessageBox.Show("Movimiento ingresado correctamente");
 
                         RegistroSLogs registroLogs = new RegistroSLogs();
-                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Movimiento bancario ingresado para Banco " + codigoBanco + " Nro Cta " +  numeroCuenta);
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Movimiento bancario ingresado para Banco " + codigoBanco + " Nro Cta " + numeroCuenta);
 
                         borrarPantalla();
                     }
