@@ -2718,19 +2718,21 @@ namespace Negocio
                     VtoPto = Convert.ToDateTime("28" + "/" + Fecha.Month + "/" + Fecha.Year);
                 }
             }
-
-            if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 12))
-            { // Si mes es igual a 12 y día mayor a 10 debe cerrar 
-
-                VtoPto = Convert.ToDateTime("30" + "/01/" + (Fecha.Year + 1)); // El mes siguiente del año siguiente
-            }
-            else if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 1))
-            {
-                VtoPto = Convert.ToDateTime("28" + "/02/" + (Fecha.Year));
-            }
             else
             {
-                VtoPto = Convert.ToDateTime("30" + "/" + (Fecha.Month + 1) + "/" + Fecha.Year);
+                if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 12))
+                { // Si mes es igual a 12 y día mayor a 10 debe cerrar 
+
+                    VtoPto = Convert.ToDateTime("30" + "/01/" + (Fecha.Year + 1)); // El mes siguiente del año siguiente
+                }
+                else if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 1))
+                {
+                    VtoPto = Convert.ToDateTime("28" + "/02/" + (Fecha.Year));
+                }
+                else
+                {
+                    VtoPto = Convert.ToDateTime("30" + "/" + (Fecha.Month + 1) + "/" + Fecha.Year);
+                }
             }
             return VtoPto;
         }
@@ -3390,7 +3392,7 @@ namespace Negocio
                         string excedidoPresupuesto = dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][1].ToString();
                         double aRetener = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][3].ToString());
                         double retenido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][4].ToString());
-                        
+
                         double aporteCapitalExcedido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][8].ToString());
                         double _excedido = aRetener - retenido;
                         double moraExcedido = 0;

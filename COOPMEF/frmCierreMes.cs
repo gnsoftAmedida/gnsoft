@@ -42,10 +42,11 @@ namespace COOPMEF
 
 
             this.lblFechaPresupuestoAnterior.Text = fechaPresupuestoAnterior.ToString("dd/MM/yyyy");
-            this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.AddHours(12).ToString("HH:mm:ss");
-
+         //   this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.AddHours(12).ToString("HH:mm:ss");
+            this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.ToString("HH:mm:ss");
             this.lblFechaPresupuestoUltimo.Text = fechaPresupuestoUltimo.ToString("dd/MM/yyyy");
-            this.lblHoraPresupuestoUltimo.Text = horaPresupuestoUltimo.AddHours(12).ToString("HH:mm:ss");
+            //this.lblHoraPresupuestoUltimo.Text = horaPresupuestoUltimo.AddHours(12).ToString("HH:mm:ss");
+            this.lblHoraPresupuestoUltimo.Text = horaPresupuestoUltimo.ToString("HH:mm:ss");
             this.lblFechaVencimientoPresupuesto.Text = fechaVencimientoPresupuesto.ToString("dd/MM/yyyy");
 
             this.lblFechaCierre.Text = empresa.presupuesto();
