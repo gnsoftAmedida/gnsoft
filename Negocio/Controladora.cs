@@ -3245,6 +3245,7 @@ namespace Negocio
                     int socio_idProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString());
                     //agrego***
                     estaEnCobranza = false;
+              
                     for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                     {
                         if (Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][15].ToString()))

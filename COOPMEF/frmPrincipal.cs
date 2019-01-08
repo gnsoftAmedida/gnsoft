@@ -2421,7 +2421,7 @@ namespace COOPMEF
 
                         totalDeuda = Convert.ToDouble(txtTotalDeuda.Text.Replace(".", ","));
 
-                        empresa.GuardarCobranzaProvisoria(idPrestamo, nro_socio, tasaConIva, tasaAnualEfectivaSinIVA, totalDeuda, cantidadCuotas, 1, cuota, amorticacionCuota, interesCuota, ivaCuota, amortizacionVencer, interesesVencer, idSocioSeleccionado);
+                        empresa.GuardarCobranzaProvisoria(idPrestamo, nro_socio, tasaConIva, iva, totalDeuda, cantidadCuotas, 1, cuota, amorticacionCuota, interesCuota, ivaCuota, amortizacionVencer, interesesVencer, idSocioSeleccionado);
 
                         if (exitiaProvisoria)
                         {
