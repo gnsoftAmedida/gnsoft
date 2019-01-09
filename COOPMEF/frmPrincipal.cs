@@ -73,7 +73,7 @@ namespace COOPMEF
         public frmPrincipal()
         {
             InitializeComponent();
-            this.StartPosition = FormStartPosition.CenterScreen;
+            //this.StartPosition = FormStartPosition.CenterScreen;
         }
 
         private void cargarIncisosOficinas()
@@ -1349,9 +1349,21 @@ namespace COOPMEF
             dgvSociosCampo.Columns["socio_activo"].HeaderText = "De baja";
             dgvSociosCampo.Columns["socio_activo"].Width = 50;
 
+
+            //******************Se agrega 8/1/19 para que en caso de que el resultado 
+            //de la búsqueda sea una sola persona, ya cargue las demás pestnias sin tener que seleccionarlo
+            if (dsSociosPorCampo.Tables["socios"].Rows.Count == 1)
+            {
+                seleccionarSocioBotonClick();
+                tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
+            }
+            else
+                tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
+
+
             this.EstablecerColoresNotificaciones();
 
-            tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
+            //tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
         }
 
         public void EstablecerColoresNotificaciones()
@@ -3990,6 +4002,11 @@ Agregar emisión
         }
 
 
+
+        internal void StartPosition(object p)
+        {
+            throw new NotImplementedException();
+        }
     }
 }
 

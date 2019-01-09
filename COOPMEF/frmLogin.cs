@@ -23,6 +23,8 @@ namespace COOPMEF
             txtUsuario.Focus();
         }
 
+        //public System.Windows.Forms.FormStartPosition StartPosition { get; set; }/////////
+
         private void btnLogin_Click(object sender, EventArgs e)
         {
         //frmPrincipal  principal = new frmPrincipal();
@@ -47,7 +49,13 @@ namespace COOPMEF
                         registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Ingreso al sistema");
 
                         frmPrincipal principal = new frmPrincipal();
+
+                       
+                 
                         principal.ShowDialog();
+                       // this.StartPosition = FormStartPosition.CenterScreen;
+                        
+
                         this.Close();
                     }
                     else
