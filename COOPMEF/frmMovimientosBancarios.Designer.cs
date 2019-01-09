@@ -71,9 +71,9 @@
             this.groupBox1.Controls.Add(this.cmbBancos);
             this.groupBox1.Font = new System.Drawing.Font("Arial Rounded MT Bold", 9.75F);
             this.groupBox1.Location = new System.Drawing.Point(20, 10);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(352, 94);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
@@ -83,9 +83,9 @@
             // 
             this.groupBox2.Controls.Add(this.lblSaldoActual);
             this.groupBox2.Location = new System.Drawing.Point(25, 32);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(150, 72);
             this.groupBox2.TabIndex = 3;
             this.groupBox2.TabStop = false;
@@ -94,7 +94,7 @@
             // lblSaldoActual
             // 
             this.lblSaldoActual.AutoSize = true;
-            this.lblSaldoActual.Location = new System.Drawing.Point(74, 32);
+            this.lblSaldoActual.Location = new System.Drawing.Point(57, 32);
             this.lblSaldoActual.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
             this.lblSaldoActual.Name = "lblSaldoActual";
             this.lblSaldoActual.Size = new System.Drawing.Size(36, 17);
@@ -106,9 +106,9 @@
             this.groupBox3.Controls.Add(this.rbtDeposito);
             this.groupBox3.Controls.Add(this.rbtCheque);
             this.groupBox3.Location = new System.Drawing.Point(25, 156);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(194, 81);
             this.groupBox3.TabIndex = 2;
             this.groupBox3.TabStop = false;
@@ -118,7 +118,7 @@
             // 
             this.rbtDeposito.AutoSize = true;
             this.rbtDeposito.Location = new System.Drawing.Point(108, 37);
-            this.rbtDeposito.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtDeposito.Margin = new System.Windows.Forms.Padding(2);
             this.rbtDeposito.Name = "rbtDeposito";
             this.rbtDeposito.Size = new System.Drawing.Size(82, 21);
             this.rbtDeposito.TabIndex = 1;
@@ -130,7 +130,7 @@
             // 
             this.rbtCheque.AutoSize = true;
             this.rbtCheque.Location = new System.Drawing.Point(23, 37);
-            this.rbtCheque.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.rbtCheque.Margin = new System.Windows.Forms.Padding(2);
             this.rbtCheque.Name = "rbtCheque";
             this.rbtCheque.Size = new System.Drawing.Size(75, 21);
             this.rbtCheque.TabIndex = 0;
@@ -142,9 +142,9 @@
             // 
             this.groupBox4.Controls.Add(this.txtNumeroComprobante);
             this.groupBox4.Location = new System.Drawing.Point(276, 156);
-            this.groupBox4.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox4.Name = "groupBox4";
-            this.groupBox4.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox4.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox4.Size = new System.Drawing.Size(135, 81);
             this.groupBox4.TabIndex = 4;
             this.groupBox4.TabStop = false;
@@ -153,7 +153,7 @@
             // txtNumeroComprobante
             // 
             this.txtNumeroComprobante.Location = new System.Drawing.Point(16, 37);
-            this.txtNumeroComprobante.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtNumeroComprobante.Margin = new System.Windows.Forms.Padding(2);
             this.txtNumeroComprobante.MaxLength = 100;
             this.txtNumeroComprobante.Name = "txtNumeroComprobante";
             this.txtNumeroComprobante.Size = new System.Drawing.Size(105, 23);
@@ -174,9 +174,9 @@
             this.groupBox5.Controls.Add(this.groupBox4);
             this.groupBox5.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox5.Location = new System.Drawing.Point(20, 119);
-            this.groupBox5.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox5.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox5.Size = new System.Drawing.Size(484, 277);
             this.groupBox5.TabIndex = 1;
             this.groupBox5.TabStop = false;
@@ -249,7 +249,7 @@
             // txtConcepto
             // 
             this.txtConcepto.Location = new System.Drawing.Point(276, 65);
-            this.txtConcepto.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtConcepto.Margin = new System.Windows.Forms.Padding(2);
             this.txtConcepto.MaxLength = 250;
             this.txtConcepto.Multiline = true;
             this.txtConcepto.Name = "txtConcepto";
@@ -259,7 +259,7 @@
             // txtImporte
             // 
             this.txtImporte.Location = new System.Drawing.Point(276, 32);
-            this.txtImporte.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.txtImporte.Margin = new System.Windows.Forms.Padding(2);
             this.txtImporte.MaxLength = 100;
             this.txtImporte.Name = "txtImporte";
             this.txtImporte.Size = new System.Drawing.Size(136, 23);
@@ -300,7 +300,7 @@
             this.Controls.Add(this.btnGuardarBanco);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.groupBox5);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmMovimientosBancarios";
             this.Text = "Movimientos Bancarios - Cheques";

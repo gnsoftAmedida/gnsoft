@@ -1803,10 +1803,10 @@ namespace Negocio
             return consulta;
         }
 
-        public DataSet salidasIngresos(int diaDesde, int diaHasta, int mes, int anio)
+        public DataSet salidasIngresos(string mes, int anio)
         {
-            Movimiento tmpMovimiento = new Movimiento();
-            DataSet consulta = tmpMovimiento.salidasIngresos(diaDesde, diaHasta, mes, anio);
+            Historia tmpHistoria = new Historia();
+            DataSet consulta = tmpHistoria.salidasIngresos(mes, anio);
             return consulta;
         }
 
@@ -2718,19 +2718,21 @@ namespace Negocio
                     VtoPto = Convert.ToDateTime("28" + "/" + Fecha.Month + "/" + Fecha.Year);
                 }
             }
-
-            if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 12))
-            { // Si mes es igual a 12 y día mayor a 10 debe cerrar 
-
-                VtoPto = Convert.ToDateTime("30" + "/01/" + (Fecha.Year + 1)); // El mes siguiente del año siguiente
-            }
-            else if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 1))
-            {
-                VtoPto = Convert.ToDateTime("28" + "/02/" + (Fecha.Year));
-            }
             else
             {
-                VtoPto = Convert.ToDateTime("30" + "/" + (Fecha.Month + 1) + "/" + Fecha.Year);
+                if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 12))
+                { // Si mes es igual a 12 y día mayor a 10 debe cerrar 
+
+                    VtoPto = Convert.ToDateTime("30" + "/01/" + (Fecha.Year + 1)); // El mes siguiente del año siguiente
+                }
+                else if ((Microsoft.VisualBasic.Conversion.Val(Fecha.Month) == 1))
+                {
+                    VtoPto = Convert.ToDateTime("28" + "/02/" + (Fecha.Year));
+                }
+                else
+                {
+                    VtoPto = Convert.ToDateTime("30" + "/" + (Fecha.Month + 1) + "/" + Fecha.Year);
+                }
             }
             return VtoPto;
         }
@@ -2753,7 +2755,7 @@ namespace Negocio
 
         public double Pago_Mora(double Importe, string Presupuesto, double Xmora, string QueFecha)
         {
-            double Pago_Mora;
+            double Pago_Mora_retorno;
 
             // Importe es la base de cálculo que quedó debiendo
             // Presupuesto es el mes en que no se le pudo descontar
@@ -2804,9 +2806,9 @@ namespace Negocio
 
             TasaDeCobro = Math.Pow(TasaDeCobro, Convert.ToDouble(Decimal.Divide(CantidadDias, 360)));
             TasaDeCobro = TasaDeCobro - 1;
-            Pago_Mora = Importe * TasaDeCobro;
+            Pago_Mora_retorno = Importe * TasaDeCobro;
 
-            return Pago_Mora;
+            return Pago_Mora_retorno;
         }
 
         public double AmortVencer(double tasa, int CantidadCuotas, int NroCuota, double ImpCuota)
@@ -3178,7 +3180,6 @@ namespace Negocio
             DataSet dsFechasCierres = DevolverFechasCierres();
             DataSet dsCobranzasProvisorias = DevolverCobranzasProvisorias();
 
-
             CuotaCapital = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][22].ToString());
             Wmora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][11].ToString());
             WIvaMora = Convert.ToDouble(dsParametros.Tables["empresas"].Rows[0][10].ToString());
@@ -3244,6 +3245,7 @@ namespace Negocio
                     int socio_idProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString());
                     //agrego***
                     estaEnCobranza = false;
+              
                     for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                     {
                         if (Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][15].ToString()))
@@ -3388,8 +3390,10 @@ namespace Negocio
                     if (dsExcedidosSinPago.Tables["excedidosSinPago"].Rows.Count > 0)
                     {
                         int id_exedido = Convert.ToInt32(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][0].ToString());
+                        string excedidoPresupuesto = dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][1].ToString();
                         double aRetener = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][3].ToString());
                         double retenido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][4].ToString());
+
                         double aporteCapitalExcedido = Convert.ToDouble(dsExcedidosSinPago.Tables["excedidosSinPago"].Rows[0][8].ToString());
                         double _excedido = aRetener - retenido;
                         double moraExcedido = 0;
@@ -3399,7 +3403,7 @@ namespace Negocio
 
                         if ((aRetener - retenido) > aporteCapitalExcedido)
                         {
-                            moraExcedido = Convert.ToDouble(Strings.Format(Pago_Mora(aRetener - retenido - aporteCapitalExcedido, _Presupuesto, Wmora, fechaVto.ToString("dd/MM/yyyy")), "###,###,##0.00"));
+                            moraExcedido = Convert.ToDouble(Strings.Format(Pago_Mora(aRetener - retenido - aporteCapitalExcedido, excedidoPresupuesto, Wmora, fechaVto.ToString("dd/MM/yyyy")), "###,###,##0.00"));
 
                             ivaMoraExcedido = Convert.ToDouble(Strings.Format(moraExcedido * (WIvaMora / 100), "###,###,##0.00"));
 

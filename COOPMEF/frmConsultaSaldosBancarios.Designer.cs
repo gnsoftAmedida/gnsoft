@@ -38,7 +38,7 @@
             this.dgvSaldosBancarios.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvSaldosBancarios.Location = new System.Drawing.Point(10, 22);
             this.dgvSaldosBancarios.Name = "dgvSaldosBancarios";
-            this.dgvSaldosBancarios.Size = new System.Drawing.Size(496, 245);
+            this.dgvSaldosBancarios.Size = new System.Drawing.Size(654, 245);
             this.dgvSaldosBancarios.TabIndex = 4;
             // 
             // btnSalirPlan
@@ -46,7 +46,7 @@
             this.btnSalirPlan.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirPlan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirPlan.Location = new System.Drawing.Point(403, 274);
+            this.btnSalirPlan.Location = new System.Drawing.Point(561, 273);
             this.btnSalirPlan.Name = "btnSalirPlan";
             this.btnSalirPlan.Size = new System.Drawing.Size(103, 33);
             this.btnSalirPlan.TabIndex = 37;
@@ -58,10 +58,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(519, 328);
+            this.ClientSize = new System.Drawing.Size(678, 315);
             this.Controls.Add(this.btnSalirPlan);
             this.Controls.Add(this.dgvSaldosBancarios);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmConsultaSaldosBancarios";
             this.Text = "Consulta de Saldos Bancarios";

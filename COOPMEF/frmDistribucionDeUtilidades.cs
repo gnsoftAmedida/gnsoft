@@ -14,6 +14,7 @@ namespace COOPMEF
     public partial class frmDistribucionDeUtilidades : Form
     {
         private Controladora empresa = Controladora.Instance;
+        private bool yaConsulte = false;
 
         public frmDistribucionDeUtilidades()
         {
@@ -27,40 +28,48 @@ namespace COOPMEF
 
         private void btnDistribuir_Click(object sender, EventArgs e)
         {
-            int anio = Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + 1;
-            if (empresa.cierreEfectuado("09/" + anio.ToString()))
-            {                
-                if (txtUtilidades.Text.Trim() != "")
+            if (yaConsulte)
+            {
+
+                int anio = Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + 1;
+                if (empresa.cierreEfectuado("09/" + anio.ToString()))
                 {
-                    if (empresa.esEntero(txtUtilidades.Text))
+                    if (txtUtilidades.Text.Trim() != "")
                     {
-                        if (Convert.ToInt32(txtUtilidades.Text) > 0)
+                        if (empresa.esEntero(txtUtilidades.Text))
                         {
-                            if (Convert.ToInt32(txtUtilidades.Text) <= Convert.ToDouble(lblInteres.Text))
+                            if (Convert.ToInt32(txtUtilidades.Text) > 0)
                             {
-                                if (!(empresa.ejercicioProcesado(txtEjercicio.Text)))
+                                if (Convert.ToInt32(txtUtilidades.Text) <= Convert.ToDouble(lblInteres.Text))
                                 {
-
-                                    string message = "¿Está seguro que desea distribuir las utilidades?";
-                                    string caption = "Gestión COOPMEF";
-                                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                                    DialogResult result;
-
-                                    result = MessageBox.Show(message, caption, buttons);
-
-                                    if (result == System.Windows.Forms.DialogResult.Yes)
+                                    if (!(empresa.ejercicioProcesado(txtEjercicio.Text)))
                                     {
-                                        generarDistribucion();
+
+                                        string message = "¿Está seguro que desea distribuir las utilidades?";
+                                        string caption = "Gestión COOPMEF";
+                                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                                        DialogResult result;
+
+                                        result = MessageBox.Show(message, caption, buttons);
+
+                                        if (result == System.Windows.Forms.DialogResult.Yes)
+                                        {
+                                            generarDistribucion();
+                                        }
+                                    }
+                                    else
+                                    {
+                                        MessageBox.Show("El Ejercicio ya fue procesado");
                                     }
                                 }
                                 else
                                 {
-                                    MessageBox.Show("El Ejercicio ya fue procesado");
+                                    MessageBox.Show("Las utilidades deben ser menores a los intereses");
                                 }
                             }
                             else
                             {
-                                MessageBox.Show("Las utilidades deben ser menores a los intereses");
+                                MessageBox.Show("Debe ingresar un valor numérico entero positivo para utilidades");
                             }
                         }
                         else
@@ -70,18 +79,18 @@ namespace COOPMEF
                     }
                     else
                     {
-                        MessageBox.Show("Debe ingresar un valor numérico entero positivo para utilidades");
+                        MessageBox.Show("Debe ingresar un valor para utilidades");
                     }
+
                 }
                 else
                 {
-                    MessageBox.Show("Debe ingresar un valor para utilidades");
+                    MessageBox.Show("El Ejercicio no está cerrado");
                 }
-
             }
             else
             {
-                MessageBox.Show("El Ejercicio no está cerrado");
+                MessageBox.Show("Debe consultar primero un ejercicio");
             }
         }
 
@@ -162,6 +171,16 @@ namespace COOPMEF
             dgvUtilidades.BackgroundColor = BackColor;
             dgvUtilidades.BorderStyle = BorderStyle.None;
 
+            for (int s = 0; s <= 11; s++)
+            {
+
+                dgvUtilidades.Rows.Add("---", "---", "---", "---");
+            }
+
+            this.lblInteres.Text = "0.00";
+            this.lblAportes.Text = "0.00";
+            this.lblTotal.Text = "0.00";
+
 
             //centrar los datos y los cabezales en el dgv
             for (int i = 0; i <= 11; i++)
@@ -171,11 +190,11 @@ namespace COOPMEF
 
             dgvUtilidades.ColumnHeadersDefaultCellStyle.Alignment = DataGridViewContentAlignment.MiddleCenter;
 
-
         }
 
         private void iniciar()
         {
+            yaConsulte = true;
             dgvUtilidades.Rows.Clear();
 
             int anio = Convert.ToInt32(cmbAnio.SelectedItem.ToString());
@@ -265,7 +284,6 @@ namespace COOPMEF
         private void cmbAnio_SelectedIndexChanged(object sender, EventArgs e)
         {
             this.txtEjercicio.Text = Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + "/" + (Convert.ToInt32(cmbAnio.SelectedItem.ToString()) + 1);
-            iniciar();
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -285,32 +303,44 @@ namespace COOPMEF
 
         private void btnEliminarUtili_Click(object sender, EventArgs e)
         {
-            if (empresa.ejercicioProcesado(txtEjercicio.Text))
+            if (yaConsulte)
             {
-                if (empresa.verificarEjercicioSinPagos(txtEjercicio.Text))
+                if (empresa.ejercicioProcesado(txtEjercicio.Text))
                 {
-                    string message = "¿Confirma que desea eliminar la distribución del ejercicio " + txtEjercicio.Text + "?";
-                    string caption = "Gestión COOPMEF";
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result;
-
-                    result = MessageBox.Show(message, caption, buttons);
-
-                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    if (empresa.verificarEjercicioSinPagos(txtEjercicio.Text))
                     {
-                        empresa.eliminarDistribucion(txtEjercicio.Text);
-                        MessageBox.Show("Se ha Eliminado la distribución del ejercicio " + txtEjercicio.Text);
+                        string message = "¿Confirma que desea eliminar la distribución del ejercicio " + txtEjercicio.Text + "?";
+                        string caption = "Gestión COOPMEF";
+                        MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                        DialogResult result;
+
+                        result = MessageBox.Show(message, caption, buttons);
+
+                        if (result == System.Windows.Forms.DialogResult.Yes)
+                        {
+                            empresa.eliminarDistribucion(txtEjercicio.Text);
+                            MessageBox.Show("Se ha Eliminado la distribución del ejercicio " + txtEjercicio.Text);
+                        }
+                    }
+                    else
+                    {
+                        MessageBox.Show("Imposible Eliminar ese Ejercicio. Ya" + Environment.NewLine + "se han hecho pagos sobre el mismo." + Environment.NewLine + "La Operación ha sido Cancelada.");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Imposible Eliminar ese Ejercicio. Ya" + Environment.NewLine + "se han hecho pagos sobre el mismo." + Environment.NewLine + "La Operación ha sido Cancelada.");
+                    MessageBox.Show("No se ubica el Ejercicio " + txtEjercicio.Text);
                 }
             }
             else
             {
-                MessageBox.Show("No se ubica el Ejercicio " + txtEjercicio.Text);
+                MessageBox.Show("Debe consultar primero un ejercicio");
             }
+        }
+
+        private void btnSeleccionarSocio_Click(object sender, EventArgs e)
+        {
+            iniciar();
         }
     }
 }

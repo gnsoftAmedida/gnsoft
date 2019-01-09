@@ -98,7 +98,7 @@ namespace Persistencia
                         throw es;
 
                     case 1451:
-                        MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten oficinas asociadas ");
+                        MisExcepciones fk = new MisExcepciones("No se puede eliminar ya que exísten oficinas y/o socios asociados ");
                         throw fk;
                 }
 

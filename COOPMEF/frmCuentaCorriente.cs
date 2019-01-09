@@ -81,6 +81,8 @@ namespace COOPMEF
                             debe = "";
                             haber = importe;
                             totalHaber = totalHaber + Convert.ToDouble(importe);
+
+                            saldo = (Convert.ToDouble(saldo) + Convert.ToDouble(importe)).ToString("##0.00");
                         }
 
                         if (debehaber == "Cheque")
@@ -88,6 +90,8 @@ namespace COOPMEF
                             debe = importe;
                             haber = "";
                             totalDebe = totalDebe + Convert.ToDouble(importe);
+
+                            saldo = (Convert.ToDouble(saldo) - Convert.ToDouble(importe)).ToString("##0.00");
                         }
                         tablaCuentaCorriente.CuentaCorriente.Rows.Add(nombrebanco, numerocta, moneda, movimiento, fecha.ToString("dd/MM/yyyy"), numerodocumento, conceptoCompleto, debe, haber, importe, saldo, fechaActual, totalDebe, totalHaber);
                     }

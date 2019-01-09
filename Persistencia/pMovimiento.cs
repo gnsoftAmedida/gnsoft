@@ -20,14 +20,14 @@ namespace Persistencia
             MySqlConnection connection = conectar();
 
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-    
+
             //Ver condición de que la tabla debeHaber tenga valor "Cheque" en migración
             //string sql = "SELECT count(debeHaber), count(movimiento), AVG(saldo) FROM movimientos where codigobanco = '" + codigoBancoConsulta + "' and fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "'";
 
 
             string sql = "SELECT count(debeHaber), AVG(saldo) FROM movimientos where codigobanco = '" + codigoBancoConsulta + "' and fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Deposito' union SELECT count(debeHaber), AVG(saldo) FROM movimientos where codigobanco = '" + codigoBancoConsulta + "' and fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Cheque'";
 
-            DataSet ds= new DataSet();
+            DataSet ds = new DataSet();
 
             connection.Open();
             MySqlAdapter.SelectCommand = connection.CreateCommand();
@@ -36,31 +36,12 @@ namespace Persistencia
             connection.Close();
             return ds;
         }
-
-
-        public DataSet salidasIngresos(int diaDesde, int diaHasta, int mes, int anio)
-        {
-            MySqlConnection connection = conectar();
-
-            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-
-            string sql = "SELECT sum(importe) FROM movimientos where fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Deposito' union SELECT sum(importe) FROM movimientos where fecha <= '" + anio + "/" + mes + "/" + diaHasta + "' and fecha >= '" + +anio + "/" + mes + "/" + diaDesde + "' and debehaber = 'Cheque'";
-
-            DataSet ds = new DataSet();
-
-            connection.Open();
-            MySqlAdapter.SelectCommand = connection.CreateCommand();
-            MySqlAdapter.SelectCommand.CommandText = sql;
-            MySqlAdapter.Fill(ds, "salidaIngreso");
-            connection.Close();
-            return ds;
-        }
-
+        
         public DataSet devolverCuentaCorriente(int id_banco, DateTime fechaDesde, DateTime fechaHasta, String concepto)
         {
             try
             {
-                
+
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
@@ -90,7 +71,7 @@ namespace Persistencia
 
 
             string sql;
-            sql = "INSERT INTO movimientos (fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, saldo) VALUES ('" + fecha.ToString("yyyy/MM/dd hh:mm:ss") + "','" + codigobanco + "','" + numerocta + "','" + numerodocumento + "','" + debehaber + "','" + importe.ToString("##0.00").Replace(",", ".") + "','" + concepto + "','" + saldo.ToString("##0.00").Replace(",", ".") + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO movimientos (fecha, codigobanco, numerocta, numerodocumento, debehaber, importe, concepto, saldo) VALUES ('" + fecha.ToString("yyyy/MM/dd") + "','" + codigobanco + "','" + numerocta + "','" + numerodocumento + "','" + debehaber + "','" + importe.ToString("##0.00").Replace(",", ".") + "','" + concepto + "','" + saldo.ToString("##0.00").Replace(",", ".") + "');" + "Select last_insert_id()";
 
             try
             {

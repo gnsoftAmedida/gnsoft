@@ -157,6 +157,13 @@ namespace Negocio
             return tmpHistoria.devolverHistoriaPorIdSocioCompleta(idSocio);
         }
 
+        public DataSet salidasIngresos(string mes, int anio)
+        {
+            pHistoria tmpHistoria = new pHistoria();
+            DataSet consulta = tmpHistoria.salidasIngresos(mes, anio);
+            return consulta;
+        }
+
         public DataSet distribucionUtilidadesPorPresupuesto(string consultaPrevia)
         {
             pHistoria tmpHistoria = new pHistoria();

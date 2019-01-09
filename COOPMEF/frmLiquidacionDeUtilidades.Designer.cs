@@ -46,11 +46,9 @@
             this.txtNroCheque = new System.Windows.Forms.TextBox();
             this.txtCedula = new System.Windows.Forms.MaskedTextBox();
             this.label24 = new System.Windows.Forms.Label();
-            this.label23 = new System.Windows.Forms.Label();
             this.lblApellidos = new System.Windows.Forms.Label();
             this.lblNroSocio = new System.Windows.Forms.Label();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
-            this.lblCesion = new System.Windows.Forms.Label();
             this.lblDireccion = new System.Windows.Forms.Label();
             this.lblNombresApellidos = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
@@ -77,7 +75,7 @@
             // groupBox1
             // 
             this.groupBox1.Controls.Add(this.dgvDetalleUtilidades);
-            this.groupBox1.Location = new System.Drawing.Point(18, 198);
+            this.groupBox1.Location = new System.Drawing.Point(18, 185);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
@@ -104,7 +102,7 @@
             this.groupBox2.Controls.Add(this.label4);
             this.groupBox2.Controls.Add(this.lblAporte);
             this.groupBox2.Controls.Add(this.lblAp);
-            this.groupBox2.Location = new System.Drawing.Point(18, 387);
+            this.groupBox2.Location = new System.Drawing.Point(18, 375);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
@@ -271,16 +269,6 @@
             this.label24.TabIndex = 37;
             this.label24.Text = "Dirección:";
             // 
-            // label23
-            // 
-            this.label23.AutoSize = true;
-            this.label23.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label23.Location = new System.Drawing.Point(11, 75);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(106, 13);
-            this.label23.TabIndex = 34;
-            this.label23.Text = "Cesión de Derechos:";
-            // 
             // lblApellidos
             // 
             this.lblApellidos.AutoSize = true;
@@ -304,30 +292,18 @@
             // 
             // groupBox3
             // 
-            this.groupBox3.Controls.Add(this.lblCesion);
             this.groupBox3.Controls.Add(this.lblDireccion);
             this.groupBox3.Controls.Add(this.lblNombresApellidos);
             this.groupBox3.Controls.Add(this.label11);
             this.groupBox3.Controls.Add(this.lblFechaIngresoSocio);
             this.groupBox3.Controls.Add(this.label24);
-            this.groupBox3.Controls.Add(this.label23);
             this.groupBox3.Controls.Add(this.lblApellidos);
             this.groupBox3.Location = new System.Drawing.Point(18, 71);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(584, 122);
+            this.groupBox3.Size = new System.Drawing.Size(584, 103);
             this.groupBox3.TabIndex = 38;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Datos del Cooperativista";
-            // 
-            // lblCesion
-            // 
-            this.lblCesion.AutoSize = true;
-            this.lblCesion.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblCesion.Location = new System.Drawing.Point(119, 75);
-            this.lblCesion.Name = "lblCesion";
-            this.lblCesion.Size = new System.Drawing.Size(16, 13);
-            this.lblCesion.TabIndex = 42;
-            this.lblCesion.Text = "...";
             // 
             // lblDireccion
             // 
@@ -354,7 +330,7 @@
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F);
             this.label11.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label11.Location = new System.Drawing.Point(24, 98);
+            this.label11.Location = new System.Drawing.Point(24, 74);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(92, 13);
             this.label11.TabIndex = 39;
@@ -364,7 +340,7 @@
             // 
             this.lblFechaIngresoSocio.AutoSize = true;
             this.lblFechaIngresoSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.lblFechaIngresoSocio.Location = new System.Drawing.Point(119, 98);
+            this.lblFechaIngresoSocio.Location = new System.Drawing.Point(119, 74);
             this.lblFechaIngresoSocio.Name = "lblFechaIngresoSocio";
             this.lblFechaIngresoSocio.Size = new System.Drawing.Size(16, 13);
             this.lblFechaIngresoSocio.TabIndex = 38;
@@ -405,7 +381,7 @@
             this.groupBox5.Controls.Add(this.btnLiquidar);
             this.groupBox5.Location = new System.Drawing.Point(626, 71);
             this.groupBox5.Name = "groupBox5";
-            this.groupBox5.Size = new System.Drawing.Size(122, 303);
+            this.groupBox5.Size = new System.Drawing.Size(122, 290);
             this.groupBox5.TabIndex = 45;
             this.groupBox5.TabStop = false;
             // 
@@ -471,7 +447,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(770, 513);
+            this.ClientSize = new System.Drawing.Size(770, 483);
             this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.txtUsuario);
             this.Controls.Add(this.groupBox4);
@@ -514,13 +490,11 @@
         private System.Windows.Forms.TextBox txtNroCheque;
         private System.Windows.Forms.MaskedTextBox txtCedula;
         private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.Label label23;
         private System.Windows.Forms.Label lblApellidos;
         private System.Windows.Forms.Label lblNroSocio;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label lblFechaIngresoSocio;
-        private System.Windows.Forms.Label lblCesion;
         private System.Windows.Forms.Label lblDireccion;
         private System.Windows.Forms.Label lblNombresApellidos;
         private System.Windows.Forms.Button btnBuscar;

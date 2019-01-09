@@ -85,7 +85,7 @@ namespace COOPMEF
 
                 double promedioTotal = (promedioDeposito + PromedioCheques) / 2;
 
-                MessageBox.Show("Depositos: " + depositos + Environment.NewLine + "Cheques: " + cheques + Environment.NewLine + "Total: " + (Convert.ToInt32(depositos) + Convert.ToInt32(cheques)) + Environment.NewLine + "Promedio Mensual: " + promedioTotal + Environment.NewLine + "A la fecha: " + dia + "/" + mes + "/" + anio);
+                MessageBox.Show("Depositos: " + depositos + Environment.NewLine + "Cheques: " + cheques + Environment.NewLine + "Total: " + (Convert.ToInt32(depositos) + Convert.ToInt32(cheques)) + Environment.NewLine + "Promedio Mensual: " + promedioTotal.ToString("##0.00") + Environment.NewLine + "A la fecha: " + dia + "/" + mes + "/" + anio);
             }
             else
             {

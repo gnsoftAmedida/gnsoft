@@ -83,14 +83,7 @@ namespace Negocio
             DataSet consulta = tmpMovimiento.movimientosPromedio(codigoBancoConsulta, diaDesde, diaHasta, mes, anio);
             return consulta;
         }
-
-        public DataSet salidasIngresos(int diaDesde, int diaHasta, int mes, int anio)
-        {
-            pMovimiento tmpMovimiento = new pMovimiento();
-            DataSet consulta = tmpMovimiento.salidasIngresos(diaDesde, diaHasta, mes, anio);
-            return consulta;
-        }
-
+      
         public void Guardar()
         {
             pMovimiento tmpMovimiento = new pMovimiento();

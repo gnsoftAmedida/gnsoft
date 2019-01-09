@@ -15,6 +15,7 @@ namespace COOPMEF
     {
         private Controladora empresa = Controladora.Instance;
         DataSet dsBancos;
+        private int indexBancoSeleccionado = -1;
 
         public frmMovimientosBancarios()
         {
@@ -24,10 +25,37 @@ namespace COOPMEF
         private void frmMovimientosBancarios_Load(object sender, EventArgs e)
         {
             //Cargo Bancos
-            dsBancos = empresa.DevolverBancos();
+            // dsBancos = empresa.DevolverBancos();
             pantallaInicial();
         }
 
+        public void borrarPantalla()
+        {
+
+            dsBancos = empresa.DevolverBancos();
+            this.cmbBancos.DataSource = dsBancos.Tables["bancos"];
+            this.cmbBancos.DisplayMember = "mostrarse";
+            this.cmbBancos.ValueMember = "codigobanco";
+            this.cmbBancos.SelectedIndex = indexBancoSeleccionado;
+            this.cmbBancos.Enabled = true;
+
+            /*  if (indexBancoSeleccionado != -1)
+              {
+                  this.lblSaldoActual.Text = dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][8].ToString();
+              }
+            */
+
+         // this.rbtCheque.Checked = true;
+            this.txtConcepto.Clear();
+            this.txtImporte.Clear();
+            this.txtNumeroComprobante.Clear();
+         // this.lblSaldoActual.Text = "0.00";
+
+            this.lblConcepto.Visible = false;
+            this.lblComprobante.Visible = false;
+            this.lblErrorGenerico.Visible = false;
+            this.lblImporteBanco.Visible = false;
+        }
 
         public void pantallaInicial()
         {
@@ -111,7 +139,7 @@ namespace COOPMEF
                 valido = false;
             }
 
-             if (!esDecimal(txtImporte.Text.Replace(".", ",")) || (!esDecimal(txtImporte.Text.Replace(".", ","))))
+            if (!esDecimal(txtImporte.Text.Replace(".", ",")) || (!esDecimal(txtImporte.Text.Replace(".", ","))))
             {
                 this.lblImporteBanco.Visible = true;
                 this.lblImporteBanco.Text = "Numérico";
@@ -122,36 +150,36 @@ namespace COOPMEF
             {
                 try
                 {
-                    int index = this.cmbBancos.SelectedIndex;
-                    if (index != -1)
+                    indexBancoSeleccionado = this.cmbBancos.SelectedIndex;
+                    if (indexBancoSeleccionado != -1)
                     {
 
-                        int codigoBanco = Convert.ToInt32(dsBancos.Tables["bancos"].Rows[index][0].ToString());
-                        string numeroCuenta = dsBancos.Tables["bancos"].Rows[index][6].ToString();
+                        int codigoBanco = Convert.ToInt32(dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][0].ToString());
+                        string numeroCuenta = dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][6].ToString();
                         string debeHaber;
-                        double saldo = Convert.ToDouble(dsBancos.Tables["bancos"].Rows[index][8].ToString());
+                        double saldo = Convert.ToDouble(dsBancos.Tables["bancos"].Rows[indexBancoSeleccionado][8].ToString());
                         int factorMultiplicador = 1;
 
                         if (rbtCheque.Checked)
                         {
                             debeHaber = "Cheque";
-                            factorMultiplicador = - factorMultiplicador;
+                            factorMultiplicador = -factorMultiplicador;
                         }
                         else
                         {
                             debeHaber = "Deposito";
                         }
 
-                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text), txtConcepto.Text, saldo);
+                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text.Replace(".", ",")), txtConcepto.Text, saldo);
 
                         empresa.actualizarSaldo(codigoBanco, saldo + factorMultiplicador * (Convert.ToDouble(txtImporte.Text)));
 
                         MessageBox.Show("Movimiento ingresado correctamente");
 
                         RegistroSLogs registroLogs = new RegistroSLogs();
-                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Movimiento bancario ingresado para Banco " + codigoBanco + " Nro Cta " +  numeroCuenta);
+                        registroLogs.grabarLog(DateTime.Now, Utilidades.UsuarioLogueado.Alias, "Movimiento bancario ingresado para Banco " + codigoBanco + " Nro Cta " + numeroCuenta);
 
-                        pantallaInicial();
+                        borrarPantalla();
                     }
                     else
                     {

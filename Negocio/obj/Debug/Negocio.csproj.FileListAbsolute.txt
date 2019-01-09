@@ -43,3 +43,12 @@ C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\bin\Debug\Utilidades.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\obj\Debug\Negocio.dll
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\obj\Debug\Negocio.pdb
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\bin\Debug\Negocio.dll
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\bin\Debug\Negocio.pdb
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\bin\Debug\Persistencia.dll
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\bin\Debug\Utilidades.dll
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\bin\Debug\Persistencia.pdb
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\bin\Debug\Utilidades.pdb
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\obj\Debug\Negocio.csprojResolveAssemblyReference.cache
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\obj\Debug\Negocio.dll
+C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\obj\Debug\Negocio.pdb
