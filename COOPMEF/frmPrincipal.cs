@@ -1169,7 +1169,7 @@ namespace COOPMEF
         private void buscarSocio()
         {
             this.buscarCampo();
-            estaVaciaDataGrid = false;
+            //estaVaciaDataGrid = false;
         }
 
 
@@ -1376,18 +1376,49 @@ namespace COOPMEF
 
             //******************Se agrega 8/1/19 para que en caso de que el resultado 
             //de la búsqueda sea una sola persona, ya cargue las demás pestnias sin tener que seleccionarlo
-            if (dsSociosPorCampo.Tables["socios"].Rows.Count == 1)
+
+            if (dsSociosPorCampo.Tables["socios"].Rows.Count == 0)
             {
+                estaVaciaDataGrid = true;
+
+                //   tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
+            }
+            else if (dsSociosPorCampo.Tables["socios"].Rows.Count == 1)
+            {
+                estaVaciaDataGrid = false;
                 seleccionarSocioBotonClick();
-                tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
+
+                if (tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabCobranza"])
+                {
+                    if (idSocioSeleccionado == 0)
+                    {
+                        txtPresupuestoIngExc.Enabled = false;
+                    }
+                    else
+                    {
+                        txtPresupuestoIngExc.Enabled = true;
+                    }
+
+                    button2.Focus();
+
+                    tbcPestanas.SelectedTab = tbcPestanas.TabPages[3];
+                }
+                else
+                {
+                    tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
+                }
             }
             else
+            {
+                estaVaciaDataGrid = false;
+                // seleccionarSocioBotonClick();
+                this.EstablecerColoresNotificaciones();
                 tbcPestanas.SelectedTab = tbcPestanas.TabPages[0];
+            }
 
 
-            this.EstablecerColoresNotificaciones();
 
-            
+
         }
 
         public void EstablecerColoresNotificaciones()
@@ -1647,7 +1678,7 @@ namespace COOPMEF
                 this.txtCesion.Text = dgvSociosCampo.Rows[index].Cells["socio_cesion"].Value.ToString();
             }
 
-            tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
+            //   tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
 
             txtInciso.Text = cmbInciso.Text;
             txtIncisoCobExcedidos.Text = cmbInciso.Text;
@@ -1778,7 +1809,7 @@ namespace COOPMEF
                 //Reseteo los campos de ingreso de excedidos
                 txtARetenerIngExc.Text = "";
                 txtRetenidoIngExc.Text = "";
-                txtPresupuestoIngExc.Text = "";
+                //   txtPresupuestoIngExc.Text = "";
                 txtSaldoIngExc.Text = "";
                 txtMoraIngExc.Text = "";
                 txtTotalIngExc.Text = "";
@@ -2174,6 +2205,8 @@ namespace COOPMEF
                 {
                     txtPresupuestoIngExc.Enabled = true;
                 }
+
+                button2.Focus();
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabCobranzaExcedidos"]))
             {
@@ -2804,7 +2837,7 @@ namespace COOPMEF
 
             txtARetenerIngExc.Text = "";
             txtRetenidoIngExc.Text = "";
-            txtPresupuestoIngExc.Text = "";
+            //  txtPresupuestoIngExc.Text = "";
             txtSaldoIngExc.Text = "";
             txtMoraIngExc.Text = "";
             txtTotalIngExc.Text = "";
@@ -3029,48 +3062,7 @@ Agregar emisión
 
         private void txtPresupuestoIngExc_Leave(object sender, EventArgs e)
         {
-            int anioActual;
-            int anioPresup;
-            bool anioBien = false;
-            retenidoActual = 0;
 
-            if (txtPresupuestoIngExc.Text.Length == 7)
-            {
-                anioActual = DateTime.Today.Year;
-                anioPresup = Convert.ToInt32(this.txtPresupuestoIngExc.Text.Substring(3, 4));
-
-                if (anioActual != anioPresup)
-                {
-                    string message = "El año ingresado no se corresponde con el año en curso. ¿Continúa?";
-                    string caption = "Excedidos";
-                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
-                    DialogResult result;
-                    result = MessageBox.Show(message, caption, buttons);
-
-                    if (result == System.Windows.Forms.DialogResult.Yes)
-                    {
-                        anioBien = true;
-                    }
-                }
-                else
-                {
-                    anioBien = true;
-                }
-
-                if (anioBien)
-                {
-                    txtRetenido.Focus();
-                    cargarARetener();
-                }
-                else
-                {
-                    txtPresupuesto.Clear();
-                }
-            }
-            else
-            {
-                MessageBox.Show("Formato de presupuesto incorrecto");
-            }
         }
 
 
@@ -4068,6 +4060,59 @@ Agregar emisión
         }
 
         private void rbtnNo_CheckedChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            int anioActual;
+            int anioPresup;
+            //    bool anioBien = false;
+            retenidoActual = 0;
+
+            if (txtPresupuestoIngExc.Text.Length == 7)
+            {
+                anioActual = DateTime.Today.Year;
+                anioPresup = Convert.ToInt32(this.txtPresupuestoIngExc.Text.Substring(3, 4));
+
+                /*
+                if (anioActual != anioPresup)
+                {
+                    string message = "El año ingresado no se corresponde con el año en curso. ¿Continúa?";
+                    string caption = "Excedidos";
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    DialogResult result;
+                    result = MessageBox.Show(message, caption, buttons);
+
+                    if (result == System.Windows.Forms.DialogResult.Yes)
+                    {
+                        anioBien = true;
+                    }
+                }
+                else
+                {
+                    anioBien = true;
+                }
+                */
+
+                //if (anioBien)
+                // {
+                txtRetenido.Focus();
+                cargarARetener();
+                //}
+                // else
+                // {
+                //   txtPresupuesto.Clear();
+                //}
+            }
+            else
+            {
+                MessageBox.Show("Formato de presupuesto incorrecto");
+            }
+        }
+
+        private void menuStrip1_ItemClicked(object sender, ToolStripItemClickedEventArgs e)
         {
 
         }

@@ -182,21 +182,23 @@
             this.button7 = new System.Windows.Forms.Button();
             this.dgvHistoria = new System.Windows.Forms.DataGridView();
             this.tabCobranza = new System.Windows.Forms.TabPage();
-            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
+            this.groupBox8 = new System.Windows.Forms.GroupBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.txtARetenerIngExc = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
-            this.label42 = new System.Windows.Forms.Label();
             this.txtTotalIngExc = new System.Windows.Forms.TextBox();
+            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.txtMoraIngExc = new System.Windows.Forms.TextBox();
             this.txtSaldoIngExc = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.label38 = new System.Windows.Forms.Label();
             this.txtRetenidoIngExc = new System.Windows.Forms.TextBox();
-            this.txtARetenerIngExc = new System.Windows.Forms.TextBox();
-            this.txtPresupuestoIngExc = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.label26 = new System.Windows.Forms.Label();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.button2 = new System.Windows.Forms.Button();
+            this.txtPresupuestoIngExc = new System.Windows.Forms.TextBox();
+            this.label42 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPrestamo = new System.Windows.Forms.TabPage();
             this.btnSolicitar = new System.Windows.Forms.Button();
@@ -303,7 +305,9 @@
             this.tabHistorial.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoria)).BeginInit();
             this.tabCobranza.SuspendLayout();
+            this.groupBox8.SuspendLayout();
             this.groupBox7.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.tabPrestamo.SuspendLayout();
             this.groupBox6.SuspendLayout();
             this.groupBox5.SuspendLayout();
@@ -333,6 +337,7 @@
             this.ayudaToolStripMenuItem});
             resources.ApplyResources(this.menuStrip1, "menuStrip1");
             this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.ItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.menuStrip1_ItemClicked);
             // 
             // calendarioToolStripMenuItem
             // 
@@ -1423,11 +1428,52 @@
             // 
             this.tabCobranza.BackColor = System.Drawing.Color.WhiteSmoke;
             this.tabCobranza.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.tabCobranza.Controls.Add(this.btnGuardarIngExcedidos);
+            this.tabCobranza.Controls.Add(this.groupBox8);
             this.tabCobranza.Controls.Add(this.groupBox7);
+            this.tabCobranza.Controls.Add(this.groupBox2);
             resources.ApplyResources(this.tabCobranza, "tabCobranza");
             this.tabCobranza.Name = "tabCobranza";
             this.tabCobranza.Click += new System.EventHandler(this.tabCobranza_Click);
+            // 
+            // groupBox8
+            // 
+            this.groupBox8.Controls.Add(this.label26);
+            this.groupBox8.Controls.Add(this.btnGuardarIngExcedidos);
+            this.groupBox8.Controls.Add(this.txtARetenerIngExc);
+            this.groupBox8.Controls.Add(this.label27);
+            this.groupBox8.Controls.Add(this.txtRetenidoIngExc);
+            resources.ApplyResources(this.groupBox8, "groupBox8");
+            this.groupBox8.Name = "groupBox8";
+            this.groupBox8.TabStop = false;
+            // 
+            // label26
+            // 
+            resources.ApplyResources(this.label26, "label26");
+            this.label26.Name = "label26";
+            // 
+            // txtARetenerIngExc
+            // 
+            resources.ApplyResources(this.txtARetenerIngExc, "txtARetenerIngExc");
+            this.txtARetenerIngExc.Name = "txtARetenerIngExc";
+            this.txtARetenerIngExc.ReadOnly = true;
+            // 
+            // groupBox7
+            // 
+            this.groupBox7.Controls.Add(this.txtTotalIngExc);
+            this.groupBox7.Controls.Add(this.txtMoraIngExc);
+            this.groupBox7.Controls.Add(this.txtSaldoIngExc);
+            this.groupBox7.Controls.Add(this.label41);
+            this.groupBox7.Controls.Add(this.label40);
+            this.groupBox7.Controls.Add(this.label39);
+            resources.ApplyResources(this.groupBox7, "groupBox7");
+            this.groupBox7.Name = "groupBox7";
+            this.groupBox7.TabStop = false;
+            // 
+            // txtTotalIngExc
+            // 
+            resources.ApplyResources(this.txtTotalIngExc, "txtTotalIngExc");
+            this.txtTotalIngExc.Name = "txtTotalIngExc";
+            this.txtTotalIngExc.ReadOnly = true;
             // 
             // btnGuardarIngExcedidos
             // 
@@ -1436,37 +1482,6 @@
             this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
             this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
             this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
-            // 
-            // groupBox7
-            // 
-            this.groupBox7.Controls.Add(this.label42);
-            this.groupBox7.Controls.Add(this.txtTotalIngExc);
-            this.groupBox7.Controls.Add(this.txtMoraIngExc);
-            this.groupBox7.Controls.Add(this.txtSaldoIngExc);
-            this.groupBox7.Controls.Add(this.label41);
-            this.groupBox7.Controls.Add(this.label40);
-            this.groupBox7.Controls.Add(this.label39);
-            this.groupBox7.Controls.Add(this.label38);
-            this.groupBox7.Controls.Add(this.txtRetenidoIngExc);
-            this.groupBox7.Controls.Add(this.txtARetenerIngExc);
-            this.groupBox7.Controls.Add(this.txtPresupuestoIngExc);
-            this.groupBox7.Controls.Add(this.label27);
-            this.groupBox7.Controls.Add(this.label26);
-            this.groupBox7.Controls.Add(this.label10);
-            resources.ApplyResources(this.groupBox7, "groupBox7");
-            this.groupBox7.Name = "groupBox7";
-            this.groupBox7.TabStop = false;
-            // 
-            // label42
-            // 
-            resources.ApplyResources(this.label42, "label42");
-            this.label42.Name = "label42";
-            // 
-            // txtTotalIngExc
-            // 
-            resources.ApplyResources(this.txtTotalIngExc, "txtTotalIngExc");
-            this.txtTotalIngExc.Name = "txtTotalIngExc";
-            this.txtTotalIngExc.ReadOnly = true;
             // 
             // txtMoraIngExc
             // 
@@ -1495,21 +1510,33 @@
             resources.ApplyResources(this.label39, "label39");
             this.label39.Name = "label39";
             // 
-            // label38
-            // 
-            resources.ApplyResources(this.label38, "label38");
-            this.label38.Name = "label38";
-            // 
             // txtRetenidoIngExc
             // 
             resources.ApplyResources(this.txtRetenidoIngExc, "txtRetenidoIngExc");
             this.txtRetenidoIngExc.Name = "txtRetenidoIngExc";
             // 
-            // txtARetenerIngExc
+            // label27
             // 
-            resources.ApplyResources(this.txtARetenerIngExc, "txtARetenerIngExc");
-            this.txtARetenerIngExc.Name = "txtARetenerIngExc";
-            this.txtARetenerIngExc.ReadOnly = true;
+            resources.ApplyResources(this.label27, "label27");
+            this.label27.Name = "label27";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.button2);
+            this.groupBox2.Controls.Add(this.txtPresupuestoIngExc);
+            this.groupBox2.Controls.Add(this.label42);
+            this.groupBox2.Controls.Add(this.label10);
+            resources.ApplyResources(this.groupBox2, "groupBox2");
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.TabStop = false;
+            // 
+            // button2
+            // 
+            this.button2.Image = global::COOPMEF.Properties.Resources._1486256671_personal_loan;
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // txtPresupuestoIngExc
             // 
@@ -1517,15 +1544,10 @@
             this.txtPresupuestoIngExc.Name = "txtPresupuestoIngExc";
             this.txtPresupuestoIngExc.Leave += new System.EventHandler(this.txtPresupuestoIngExc_Leave);
             // 
-            // label27
+            // label42
             // 
-            resources.ApplyResources(this.label27, "label27");
-            this.label27.Name = "label27";
-            // 
-            // label26
-            // 
-            resources.ApplyResources(this.label26, "label26");
-            this.label26.Name = "label26";
+            resources.ApplyResources(this.label42, "label42");
+            this.label42.Name = "label42";
             // 
             // label10
             // 
@@ -2204,8 +2226,12 @@
             this.tabHistorial.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvHistoria)).EndInit();
             this.tabCobranza.ResumeLayout(false);
+            this.groupBox8.ResumeLayout(false);
+            this.groupBox8.PerformLayout();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.tabPrestamo.ResumeLayout(false);
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
@@ -2428,7 +2454,6 @@
         private System.Windows.Forms.Label label41;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Button btnPagarCobranza;
         private System.Windows.Forms.Label label42;
         private System.Windows.Forms.ToolStripMenuItem mantenimientoToolStripMenuItem;
@@ -2495,6 +2520,9 @@
         private System.Windows.Forms.ToolStripMenuItem resumenDePréstamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem salidasEIngresosPorPréstamosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem préstamosPendientesToolStripMenuItem;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.GroupBox groupBox8;
     }
 }
 
