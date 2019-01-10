@@ -172,7 +172,7 @@ namespace COOPMEF
 
                         empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text.Replace(".", ",")), txtConcepto.Text, saldo);
 
-                        empresa.actualizarSaldo(codigoBanco, saldo + factorMultiplicador * (Convert.ToDouble(txtImporte.Text)));
+                        empresa.actualizarSaldo(codigoBanco, saldo + factorMultiplicador * (Convert.ToDouble(txtImporte.Text.Replace(".", ","))));
 
                         MessageBox.Show("Movimiento ingresado correctamente");
 
