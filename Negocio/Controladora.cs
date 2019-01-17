@@ -215,7 +215,47 @@ namespace Negocio
             Marshal.ReleaseComObject(xlApp);
         }
 
-        private void generarInterfacesExcel(String unidad, String nombreArchivo, DataSet resultado, String inciso, String oficina)
+        private string devolverNombreMes(String presupuesto)
+        {
+
+
+            String caseSwitch = Microsoft.VisualBasic.Strings.Mid(presupuesto, 1, 2);
+
+            switch (caseSwitch)
+            {
+                case "01":
+                    return "ENERO";
+                case "02":
+                    return "FEBRERO";
+                case "03":
+                    return "MARZO";
+                case "04":
+                    return "ABRIL";
+                case "05":
+                    return "MAYO";
+                case "06":
+                    return "JUNIO";
+                case "07":
+                    return "JULIO";
+                case "08":
+                    return "AGOSTO";
+                case "09":
+                    return "SEPTIEMBRE";
+                case "10":
+                    return "OCTUBRE";
+                case "11":
+                    return "NOVIEMBRE";
+                case "12":
+                    return "DICIEMBRE";
+            
+                default:
+                    return "CONSULTAR";
+            }
+        }
+
+
+
+        private void generarInterfacesExcel(String unidad, String nombreArchivo, DataSet resultado, String inciso, String oficina, String txtMes, String txtAnio)
         {
             Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
 
@@ -236,8 +276,29 @@ namespace Negocio
             int contador = 0;
             double total = 0;
 
-            xlWorkSheet.Cells[1, 1] = inciso;
-            xlWorkSheet.Cells[3, 2] = oficina;
+            //agregado para mostrar logo imagen
+
+            Microsoft.Office.Interop.Excel.Range Rango;
+
+            Excel.Range c1 = xlWorkSheet.Cells[3, 2];
+            Excel.Range c2 = xlWorkSheet.Cells[6, 6];
+
+            Rango = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.get_Range(c1, c2);
+            Rango.EntireColumn.AutoFit();
+            Rango.Select();
+
+            Microsoft.Office.Interop.Excel.Pictures oPictures = (Microsoft.Office.Interop.Excel.Pictures)
+            xlWorkSheet.Pictures(System.Reflection.Missing.Value);
+            xlWorkSheet.Shapes.AddPicture(@"C:\log\logo.jpg",
+            Microsoft.Office.Core.MsoTriState.msoFalse,
+            Microsoft.Office.Core.MsoTriState.msoCTrue,
+            float.Parse(Rango.Left.ToString()), float.Parse(Rango.Top.ToString()),
+            float.Parse(Rango.Width.ToString()), float.Parse(Rango.Height.ToString()));
+            //
+
+            xlWorkSheet.Cells[8, 5] = "PRESUPUESTO " + devolverNombreMes(txtMes) + " " + txtAnio;
+            xlWorkSheet.Cells[10, 1] = inciso;
+            xlWorkSheet.Cells[12, 2] = oficina;
 
             for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
             {
@@ -253,20 +314,47 @@ namespace Negocio
 
                 Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
-                xlWorkSheet.Cells[n + 5, 1] = cedula;
-                xlWorkSheet.Cells[n + 5, 3] = apellidos;
-                xlWorkSheet.Cells[n + 5, 5] = nombres;
-                xlWorkSheet.Cells[n + 5, 7] = numeroCobro;
-                xlWorkSheet.Cells[n + 5, 9] = resultadoInter;
+                xlWorkSheet.Cells[n + 14, 1] = cedula;
+                xlWorkSheet.Cells[n + 14, 3] = apellidos;
+                xlWorkSheet.Cells[n + 14, 5] = nombres;
+                xlWorkSheet.Cells[n + 14, 7] = numeroCobro;
+                xlWorkSheet.Cells[n + 14, 9] = resultadoInter;
 
                 contador++;
                 total = total + resultadoInter;
             }
 
-            xlWorkSheet.Cells[contador + 7, 1] = "Registros";
-            xlWorkSheet.Cells[contador + 7, 2] = contador;
-            xlWorkSheet.Cells[contador + 7, 8] = "Total";
-            xlWorkSheet.Cells[contador + 7, 9] = total;
+            xlWorkSheet.Cells[contador + 16, 1] = "Registros";
+            xlWorkSheet.Cells[contador + 16, 2] = contador;
+            xlWorkSheet.Cells[contador + 16, 8] = "Total";
+            xlWorkSheet.Cells[contador + 16, 9] = total;
+
+            xlWorkSheet.Cells[contador + 18, 1] = "En el marco de la aplicación de la Ley Nº 17829 del 17 de setiembre de 2004 hacemos constar que en nuestros registros figura expreso consentimiento";
+            xlWorkSheet.Cells[contador + 19, 1] = "de los asociados para que se le retenga por intermedio de ustedes el importe mencionado a continuación.";
+
+            //agregado para mostrar firma imagen
+
+            Microsoft.Office.Interop.Excel.Range RangoB;
+
+            Excel.Range c1b = xlWorkSheet.Cells[contador + 22, 4];
+            Excel.Range c2b = xlWorkSheet.Cells[contador + 25, 4];
+
+            xlWorkSheet.Cells[contador + 26, 4] = "LEONARDO";
+            xlWorkSheet.Cells[contador + 26, 5] = "BARRIOS";
+            xlWorkSheet.Cells[contador + 27, 4] = "PRESIDENTE";
+                       
+            RangoB = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.get_Range(c1b, c2b);
+            RangoB.EntireColumn.AutoFit();
+            RangoB.Select();
+
+            Microsoft.Office.Interop.Excel.Pictures oPicturesB = (Microsoft.Office.Interop.Excel.Pictures)
+            xlWorkSheet.Pictures(System.Reflection.Missing.Value);
+            xlWorkSheet.Shapes.AddPicture(@"C:\log\firma.jpg",
+            Microsoft.Office.Core.MsoTriState.msoFalse,
+            Microsoft.Office.Core.MsoTriState.msoCTrue,
+            float.Parse(RangoB.Left.ToString()), float.Parse(RangoB.Top.ToString()),
+            float.Parse(RangoB.Width.ToString()), float.Parse(RangoB.Height.ToString()));
+            //
 
             String ruta = unidad + nombreArchivo;
 
@@ -620,7 +708,7 @@ namespace Negocio
                 swd.Flush();
                 swd.Dispose();
 
-                generarInterfacesExcel(unidad, "DGI" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             //Open "a:\" & NombreArchivo For Output As #Canal
@@ -646,7 +734,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
                 //contaduria,Direccion General de Comercio, Registro Civil
             }
             else if (Control == "0502" || Control == "0514" || Control == "1121")
@@ -676,7 +764,7 @@ namespace Negocio
 
                 }
 
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
             else if (Control == "0509")
             {
@@ -704,7 +792,7 @@ namespace Negocio
 
                 }
 
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "0505")
@@ -739,7 +827,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
             else if (Control == "0507") //(Verificada)
             { // Aduanas
@@ -786,7 +874,7 @@ namespace Negocio
                 archivoAduanas.Flush();
                 archivoAduanas.Dispose();
 
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             //AGREGADO PARA RETENCIONES DE ENERO DE 2014
@@ -812,7 +900,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Oficina == "99") //BPS
@@ -844,7 +932,7 @@ namespace Negocio
                     Total = Total + resultadoInter;
                     CantidadGente = CantidadGente + 1;
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "1301") //MTSS (Verificada)
@@ -875,7 +963,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
              //elseIf Control = "1201" Then // MSP
@@ -906,7 +994,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "1001") //Control = "1001" Then MTOP (Verificada)
@@ -945,7 +1033,7 @@ namespace Negocio
 
                     //End If
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "9797") // Empleados DGSS (No se encuentra archivo 0887.txt)
@@ -990,7 +1078,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "0508") // LOTERIAS (Verificada)
@@ -1022,7 +1110,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
             else if (Control == "9604") // SECUNDARIA (Verificada)
             {
@@ -1045,7 +1133,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
             else if (Control == "9603") // UTU (Verificada)
             {
@@ -1068,7 +1156,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "9610") // UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
@@ -1101,7 +1189,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "9602") // CODICEN
@@ -1133,7 +1221,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
@@ -1219,7 +1307,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
             else if (Control == "2609") // FACULTAD DE ODONTOLOGIA
             {
@@ -1265,7 +1353,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "2615") //  HOSPITAL DE CLINICAS
@@ -1312,7 +1400,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "3001") // ANTEL (Verificada)
@@ -1341,7 +1429,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "0406") // JEFATURA DE POLICIA DE CANELONES
@@ -1375,7 +1463,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
             else if (Control == "1201") // SALUD PUBLICA
@@ -1419,7 +1507,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
             }
 
            // Agregado por Nico para contemplar el resto de las oficinas que no tienen interfaces programadas y son solo Excel.
@@ -1443,7 +1531,7 @@ namespace Negocio
                     String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
                 }
-                generarInterfacesExcel(unidad, NombreArchivo.Substring(0, NombreArchivo.Length - 4) + ".xls", resultado, CboIncisos, CboOficinas);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
 
             }
 
@@ -3245,7 +3333,7 @@ namespace Negocio
                     int socio_idProvisorio = Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString());
                     //agrego***
                     estaEnCobranza = false;
-              
+
                     for (int j = 0; !estaEnCobranza && j < dsCobranzas.Tables["cobranzas"].Rows.Count; j++)
                     {
                         if (Convert.ToInt32(dsCobranzasProvisorias.Tables["cobranzasProvisorias"].Rows[i][15].ToString()) == Convert.ToInt32(dsCobranzas.Tables["cobranzas"].Rows[j][15].ToString()))
