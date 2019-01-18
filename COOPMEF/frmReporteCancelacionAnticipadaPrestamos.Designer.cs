@@ -213,6 +213,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmReporteCancelacionAnticipadaPrestamos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte cancelaciones anticipadas";
             this.Load += new System.EventHandler(this.frmReporteCancelacionAnticipadaPrestamos_Load);
             this.groupBox1.ResumeLayout(false);

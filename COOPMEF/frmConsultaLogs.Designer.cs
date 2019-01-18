@@ -157,6 +157,7 @@
             this.Controls.Add(this.groupBoxPrioridad);
             this.MaximizeBox = false;
             this.Name = "frmConsultaLogs";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta Logs";
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridLogs)).EndInit();

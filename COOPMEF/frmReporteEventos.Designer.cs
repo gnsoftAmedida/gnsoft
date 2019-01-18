@@ -120,6 +120,7 @@
             this.Controls.Add(this.btnActualizar);
             this.MaximizeBox = false;
             this.Name = "frmReporteEventos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Reporte de Eventos de Agenda";
             this.groupBoxPrioridad.ResumeLayout(false);
             this.groupBoxPrioridad.PerformLayout();

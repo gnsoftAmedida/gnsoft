@@ -303,6 +303,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmMovimientosBancarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Movimientos Bancarios - Cheques";
             this.Load += new System.EventHandler(this.frmMovimientosBancarios_Load);
             this.groupBox1.ResumeLayout(false);

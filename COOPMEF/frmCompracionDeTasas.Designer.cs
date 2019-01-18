@@ -262,6 +262,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmCompracionDeTasas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Comparación de tasas";
             this.Load += new System.EventHandler(this.frmCompracionDeTasas_Load);
             this.groupBox1.ResumeLayout(false);

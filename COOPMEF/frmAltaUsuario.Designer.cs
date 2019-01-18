@@ -206,6 +206,7 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "frmAltaUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Alta Usuario";
             this.Load += new System.EventHandler(this.AltaUsuario_Load);
             this.groupBoxPermisos.ResumeLayout(false);

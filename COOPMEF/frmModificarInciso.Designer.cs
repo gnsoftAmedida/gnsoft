@@ -287,6 +287,7 @@
             this.Controls.Add(this.groupBox12);
             this.MaximizeBox = false;
             this.Name = "frmMantenimientoInciso";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Inciso";
             this.Load += new System.EventHandler(this.frmMantenimientoInciso_Load);
             this.groupBox12.ResumeLayout(false);

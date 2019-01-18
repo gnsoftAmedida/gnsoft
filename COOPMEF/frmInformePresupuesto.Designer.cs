@@ -214,6 +214,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmInformePresupuesto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Informe Presupuesto";
             this.Load += new System.EventHandler(this.frmInformePresupuesto_Load);
             this.groupBox2.ResumeLayout(false);

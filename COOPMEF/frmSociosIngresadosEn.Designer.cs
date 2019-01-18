@@ -214,6 +214,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "frmSociosIngresadosEn";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Socios Ingresados en...";
             this.Load += new System.EventHandler(this.frmSociosIngresadosEn_Load);
             this.groupBox1.ResumeLayout(false);

@@ -106,6 +106,7 @@
             this.Controls.Add(this.dtpFecha);
             this.MaximizeBox = false;
             this.Name = "frmModificarEvento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Evento";
             this.Load += new System.EventHandler(this.frmModificarEvento_Load);
             this.ResumeLayout(false);

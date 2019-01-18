@@ -458,6 +458,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmLiquidacionDeUtilidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Liquidación de Utilidades";
             this.Load += new System.EventHandler(this.frmLiquidacionDeUtilidades_Load);
             this.groupBox1.ResumeLayout(false);

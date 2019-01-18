@@ -325,6 +325,7 @@
             this.Controls.Add(this.btnNuevoPlan);
             this.MaximizeBox = false;
             this.Name = "frmPlanDePrestamo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Plan de Préstamo";
             this.Load += new System.EventHandler(this.frmPlanDePrestamo_Load);
             this.panel1.ResumeLayout(false);

@@ -29,9 +29,12 @@
         private void InitializeComponent()
         {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.txtFax = new System.Windows.Forms.TextBox();
             this.lblErrorGenerico = new System.Windows.Forms.Label();
             this.lblErrContacto = new System.Windows.Forms.Label();
             this.lblErrMail = new System.Windows.Forms.Label();
+            this.lblErrorFax = new System.Windows.Forms.Label();
             this.lblErrTelefono = new System.Windows.Forms.Label();
             this.lblErrDepartamento = new System.Windows.Forms.Label();
             this.lblErrCodigoPostal = new System.Windows.Forms.Label();
@@ -70,9 +73,6 @@
             this.btnEliminar = new System.Windows.Forms.Button();
             this.btnEditar = new System.Windows.Forms.Button();
             this.btnSalir = new System.Windows.Forms.Button();
-            this.txtFax = new System.Windows.Forms.TextBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.lblErrorFax = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -122,6 +122,24 @@
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label2.Location = new System.Drawing.Point(18, 291);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(24, 13);
+            this.label2.TabIndex = 34;
+            this.label2.Text = "Fax";
+            // 
+            // txtFax
+            // 
+            this.txtFax.Location = new System.Drawing.Point(138, 289);
+            this.txtFax.MaxLength = 45;
+            this.txtFax.Name = "txtFax";
+            this.txtFax.Size = new System.Drawing.Size(121, 20);
+            this.txtFax.TabIndex = 33;
+            // 
             // lblErrorGenerico
             // 
             this.lblErrorGenerico.AutoSize = true;
@@ -154,6 +172,17 @@
             this.lblErrMail.Size = new System.Drawing.Size(39, 12);
             this.lblErrMail.TabIndex = 31;
             this.lblErrMail.Text = "label2";
+            // 
+            // lblErrorFax
+            // 
+            this.lblErrorFax.AutoSize = true;
+            this.lblErrorFax.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblErrorFax.ForeColor = System.Drawing.Color.Red;
+            this.lblErrorFax.Location = new System.Drawing.Point(272, 293);
+            this.lblErrorFax.Name = "lblErrorFax";
+            this.lblErrorFax.Size = new System.Drawing.Size(39, 12);
+            this.lblErrorFax.TabIndex = 31;
+            this.lblErrorFax.Text = "label2";
             // 
             // lblErrTelefono
             // 
@@ -541,35 +570,6 @@
             this.btnSalir.UseVisualStyleBackColor = true;
             this.btnSalir.Click += new System.EventHandler(this.btnSalir_Click);
             // 
-            // txtFax
-            // 
-            this.txtFax.Location = new System.Drawing.Point(138, 289);
-            this.txtFax.MaxLength = 45;
-            this.txtFax.Name = "txtFax";
-            this.txtFax.Size = new System.Drawing.Size(121, 20);
-            this.txtFax.TabIndex = 33;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.label2.Location = new System.Drawing.Point(18, 291);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(24, 13);
-            this.label2.TabIndex = 34;
-            this.label2.Text = "Fax";
-            // 
-            // lblErrorFax
-            // 
-            this.lblErrorFax.AutoSize = true;
-            this.lblErrorFax.Font = new System.Drawing.Font("Arial Rounded MT Bold", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblErrorFax.ForeColor = System.Drawing.Color.Red;
-            this.lblErrorFax.Location = new System.Drawing.Point(272, 293);
-            this.lblErrorFax.Name = "lblErrorFax";
-            this.lblErrorFax.Size = new System.Drawing.Size(39, 12);
-            this.lblErrorFax.TabIndex = 31;
-            this.lblErrorFax.Text = "label2";
-            // 
             // frmMantOficinas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -585,6 +585,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmMantOficinas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Mantenimiento de Oficina";
             this.Load += new System.EventHandler(this.frmMantOficinas_Load);
             this.groupBox1.ResumeLayout(false);

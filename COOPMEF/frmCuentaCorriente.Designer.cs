@@ -179,6 +179,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmCuentaCorriente";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cuentas Corrientes";
             this.Load += new System.EventHandler(this.frmCuentaCorriente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dsFactura1)).EndInit();

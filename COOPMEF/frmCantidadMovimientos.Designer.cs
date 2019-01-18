@@ -76,7 +76,7 @@
             "11",
             "12"});
             this.cmbMes.Location = new System.Drawing.Point(107, 28);
-            this.cmbMes.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbMes.Margin = new System.Windows.Forms.Padding(2);
             this.cmbMes.Name = "cmbMes";
             this.cmbMes.Size = new System.Drawing.Size(80, 21);
             this.cmbMes.TabIndex = 4;
@@ -86,7 +86,7 @@
             this.cmbAnio.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbAnio.FormattingEnabled = true;
             this.cmbAnio.Location = new System.Drawing.Point(259, 25);
-            this.cmbAnio.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbAnio.Margin = new System.Windows.Forms.Padding(2);
             this.cmbAnio.Name = "cmbAnio";
             this.cmbAnio.Size = new System.Drawing.Size(92, 21);
             this.cmbAnio.TabIndex = 5;
@@ -150,9 +150,10 @@
             this.Controls.Add(this.cmbMes);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmCantidadMovimientos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cantidad de Movimientos y Promedio";
             this.Load += new System.EventHandler(this.frmCantidadMovimientos_Load);
             this.ResumeLayout(false);

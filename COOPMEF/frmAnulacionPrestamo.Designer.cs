@@ -37,7 +37,7 @@
             // 
             this.dgvPrestamosSinLiquidar.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvPrestamosSinLiquidar.Location = new System.Drawing.Point(17, 20);
-            this.dgvPrestamosSinLiquidar.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dgvPrestamosSinLiquidar.Margin = new System.Windows.Forms.Padding(2);
             this.dgvPrestamosSinLiquidar.Name = "dgvPrestamosSinLiquidar";
             this.dgvPrestamosSinLiquidar.RowTemplate.Height = 24;
             this.dgvPrestamosSinLiquidar.Size = new System.Drawing.Size(563, 245);
@@ -65,9 +65,10 @@
             this.ClientSize = new System.Drawing.Size(598, 310);
             this.Controls.Add(this.btnSalirPrestamo);
             this.Controls.Add(this.dgvPrestamosSinLiquidar);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmAnulacionPrestamo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Anulación de préstamos sin liquidar";
             this.Load += new System.EventHandler(this.frmAnulacionPrestamo_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvPrestamosSinLiquidar)).EndInit();

@@ -92,6 +92,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmSeleccionUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Baja Usuario";
             this.Load += new System.EventHandler(this.frmBajaUsuario_Load);
             this.groupBox1.ResumeLayout(false);

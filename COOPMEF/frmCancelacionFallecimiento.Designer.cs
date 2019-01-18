@@ -460,6 +460,7 @@
             this.Controls.Add(this.groupBox4);
             this.MaximizeBox = false;
             this.Name = "frmCancelacionFallecimiento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cancelación de deudas por fallecimiento";
             this.Load += new System.EventHandler(this.frmCancelacionFallecimiento_Load);
             this.groupBox2.ResumeLayout(false);

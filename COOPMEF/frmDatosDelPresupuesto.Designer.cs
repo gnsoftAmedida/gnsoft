@@ -132,6 +132,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmDatosDelPresupuesto";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Datos del presupuesto";
             this.Load += new System.EventHandler(this.frmDatosDelPresupuesto_Load);
             this.groupBox1.ResumeLayout(false);

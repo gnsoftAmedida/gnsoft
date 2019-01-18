@@ -213,6 +213,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmExcedidosDeUnMes";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Excedidos de un mes";
             this.Load += new System.EventHandler(this.frmExcedidosDeUnMes_Load);
             this.groupBox1.ResumeLayout(false);

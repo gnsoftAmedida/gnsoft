@@ -555,6 +555,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "ParámetrosDelSistema";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Parámetros del Sistema";
             this.Load += new System.EventHandler(this.ParámetrosDelSistema_Load);
             this.groupBox1.ResumeLayout(false);

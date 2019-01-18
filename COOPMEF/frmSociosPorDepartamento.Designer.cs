@@ -120,6 +120,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmSociosPorDepartamento";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de socios";
             this.Load += new System.EventHandler(this.frmSociosPorDepartamento_Load);
             this.groupBox1.ResumeLayout(false);

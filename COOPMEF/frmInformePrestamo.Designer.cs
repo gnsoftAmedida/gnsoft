@@ -214,6 +214,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmInformePrestamo";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Listado de Préstamos Otorgados";
             this.Load += new System.EventHandler(this.frmInformePrestamo_Load);
             this.groupBox2.ResumeLayout(false);

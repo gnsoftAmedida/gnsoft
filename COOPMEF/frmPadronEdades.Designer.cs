@@ -504,6 +504,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmPadronEdades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Padrón de Edades";
             this.Load += new System.EventHandler(this.frmPadronEdades_Load);
             this.groupBox1.ResumeLayout(false);

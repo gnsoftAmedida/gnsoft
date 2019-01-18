@@ -213,6 +213,7 @@
             this.Controls.Add(this.groupBox1);
             this.MaximizeBox = false;
             this.Name = "frmPagosDeExcedidos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Pagos de excedidos";
             this.Load += new System.EventHandler(this.frmPagosDeExcedidos_Load);
             this.groupBox1.ResumeLayout(false);

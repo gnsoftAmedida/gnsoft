@@ -53,3 +53,4 @@ C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\obj\Debug\Negocio.csprojResolveAss
 C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\obj\Debug\Negocio.dll
 C:\Users\GNSoft\Desktop\gnsoft-master\Negocio\obj\Debug\Negocio.pdb
 C:\Users\GNSoft\Documents\GitHub\gnsoft\Negocio\obj\Debug\Negocio.csproj.ResolveComReference.cache
+C:\Users\Public\Documents\GitHub\gnsoft\Negocio\obj\Debug\Negocio.csproj.ResolveComReference.cache

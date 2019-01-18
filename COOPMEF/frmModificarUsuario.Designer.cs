@@ -162,6 +162,7 @@
             this.Controls.Add(this.label1);
             this.MaximizeBox = false;
             this.Name = "frmModificarUsuario";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Modificar Usuario";
             this.Load += new System.EventHandler(this.frmModificarUsuario_Load);
             this.groupBoxPermisos.ResumeLayout(false);

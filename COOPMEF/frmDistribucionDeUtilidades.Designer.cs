@@ -30,6 +30,7 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmDistribucionDeUtilidades));
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.cmbAnio = new System.Windows.Forms.ComboBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.txtUtilidades = new System.Windows.Forms.TextBox();
@@ -53,7 +54,6 @@
             this.Total = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.txtEjercicio = new System.Windows.Forms.TextBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -75,6 +75,19 @@
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Año";
+            // 
+            // btnSeleccionarSocio
+            // 
+            this.btnSeleccionarSocio.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
+            this.btnSeleccionarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnSeleccionarSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnSeleccionarSocio.Location = new System.Drawing.Point(155, 29);
+            this.btnSeleccionarSocio.Name = "btnSeleccionarSocio";
+            this.btnSeleccionarSocio.Size = new System.Drawing.Size(103, 33);
+            this.btnSeleccionarSocio.TabIndex = 32;
+            this.btnSeleccionarSocio.Text = "     Consultar";
+            this.btnSeleccionarSocio.UseVisualStyleBackColor = true;
+            this.btnSeleccionarSocio.Click += new System.EventHandler(this.btnSeleccionarSocio_Click);
             // 
             // cmbAnio
             // 
@@ -326,19 +339,6 @@
             this.label7.TabIndex = 31;
             this.label7.Text = "Ejercicio";
             // 
-            // btnSeleccionarSocio
-            // 
-            this.btnSeleccionarSocio.Image = global::COOPMEF.Properties.Resources._1486109086_Check1;
-            this.btnSeleccionarSocio.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.btnSeleccionarSocio.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSeleccionarSocio.Location = new System.Drawing.Point(155, 29);
-            this.btnSeleccionarSocio.Name = "btnSeleccionarSocio";
-            this.btnSeleccionarSocio.Size = new System.Drawing.Size(103, 33);
-            this.btnSeleccionarSocio.TabIndex = 32;
-            this.btnSeleccionarSocio.Text = "     Consultar";
-            this.btnSeleccionarSocio.UseVisualStyleBackColor = true;
-            this.btnSeleccionarSocio.Click += new System.EventHandler(this.btnSeleccionarSocio_Click);
-            // 
             // frmDistribucionDeUtilidades
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -358,6 +358,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmDistribucionDeUtilidades";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Distribución de Utilidades";
             this.Load += new System.EventHandler(this.frmDistribucionDeUtilidades_Load);
             this.groupBox1.ResumeLayout(false);

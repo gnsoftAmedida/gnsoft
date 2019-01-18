@@ -69,7 +69,7 @@
             this.cmbUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cmbUnidades.FormattingEnabled = true;
             this.cmbUnidades.Location = new System.Drawing.Point(89, 32);
-            this.cmbUnidades.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.cmbUnidades.Margin = new System.Windows.Forms.Padding(2);
             this.cmbUnidades.Name = "cmbUnidades";
             this.cmbUnidades.Size = new System.Drawing.Size(65, 21);
             this.cmbUnidades.TabIndex = 5;
@@ -78,7 +78,7 @@
             // treeView1
             // 
             this.treeView1.Location = new System.Drawing.Point(89, 75);
-            this.treeView1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
             this.treeView1.Name = "treeView1";
             this.treeView1.Size = new System.Drawing.Size(165, 90);
             this.treeView1.TabIndex = 6;
@@ -134,9 +134,9 @@
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.groupBox1.Location = new System.Drawing.Point(10, 66);
-            this.groupBox1.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox1.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox1.Size = new System.Drawing.Size(298, 76);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
@@ -283,9 +283,9 @@
             this.groupBox2.Controls.Add(this.treeView1);
             this.groupBox2.Controls.Add(this.cmbUnidades);
             this.groupBox2.Location = new System.Drawing.Point(439, 66);
-            this.groupBox2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox2.Size = new System.Drawing.Size(268, 177);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
@@ -308,9 +308,9 @@
             this.groupBox3.Controls.Add(this.label36);
             this.groupBox3.Controls.Add(this.label35);
             this.groupBox3.Location = new System.Drawing.Point(10, 147);
-            this.groupBox3.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Margin = new System.Windows.Forms.Padding(2);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Padding = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.groupBox3.Padding = new System.Windows.Forms.Padding(2);
             this.groupBox3.Size = new System.Drawing.Size(297, 96);
             this.groupBox3.TabIndex = 28;
             this.groupBox3.TabStop = false;
@@ -352,9 +352,10 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.textBox1);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmGeneracionDiscosRetenciones";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Generación de Discos para Retenciones";
             this.Load += new System.EventHandler(this.frmGeneracionDiscosRetenciones_Load);
             this.groupBox1.ResumeLayout(false);

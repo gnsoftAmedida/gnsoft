@@ -152,6 +152,7 @@
             this.Controls.Add(this.btnSeleccionarSocio);
             this.MaximizeBox = false;
             this.Name = "frmSalidasIngresosBancos";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Salidas de bancos por préstamos e ingresos según presupuesto del mes";
             this.Load += new System.EventHandler(this.frmSalidasIngresosBancos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvIngresosSalidas)).EndInit();

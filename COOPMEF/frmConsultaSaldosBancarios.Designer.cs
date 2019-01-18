@@ -64,6 +64,7 @@
             this.Margin = new System.Windows.Forms.Padding(2);
             this.MaximizeBox = false;
             this.Name = "frmConsultaSaldosBancarios";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Consulta de Saldos Bancarios";
             this.Load += new System.EventHandler(this.frmConsultaSaldosBancarios_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgvSaldosBancarios)).EndInit();
