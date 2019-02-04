@@ -89,7 +89,7 @@ namespace COOPMEF
 
                     String fecha = DateTime.Today.ToLongDateString();
 
-                    tablaInterface.Interface.Rows.Add(cedula, nombres, apellidos, numeroCobro, resultadoInter.ToString("##0.00"), inciso, oficina, presupuesto, fecha);
+                    tablaInterface.Interface.Rows.Add(cedula, nombres, apellidos, numeroCobro,/* resultadoInter.ToString("##0.00"),*/resultadoInter.ToString("#,##0.00"), inciso, oficina, presupuesto, fecha);
                 }
                 frmVerReportes reporte = new frmVerReportes(tablaInterface, "INTERFACES_GENERALES");
                 reporte.ShowDialog();

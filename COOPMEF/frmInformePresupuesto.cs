@@ -77,7 +77,10 @@ namespace COOPMEF
                     String Inciso = prestamosPresupuesto.Tables["presupuestoMes"].Rows[n][16].ToString();
                     String fecha = DateTime.Today.ToLongDateString();
 
-                    DE.InformePresupuesto.Rows.Add(socio_apellido, socio_nombre, numerocobro, cantidadcuotas, nrocuotas, AmortizacionCuota.ToString("##0.00"), InteresCuota.ToString("##0.00"), iva.ToString("##0.00"), aportecapital.ToString("##0.00"), excedido.ToString("##0.00"), mora.ToString("##0.00"), ivaMora.ToString("##0.00"), totalADescontar.ToString("##0.00"), AmortizacionVencer.ToString("##0.00"), InteresVencer.ToString("##0.00"), IvaVencer.ToString("##0.00"), oficina, Inciso, fecha, presupuesto);
+                   // DE.InformePresupuesto.Rows.Add(socio_apellido, socio_nombre, numerocobro, cantidadcuotas, nrocuotas, AmortizacionCuota.ToString("##0.00"), InteresCuota.ToString("##0.00"), iva.ToString("##0.00"), aportecapital.ToString("##0.00"), excedido.ToString("##0.00"), mora.ToString("##0.00"), ivaMora.ToString("##0.00"), totalADescontar.ToString("##0.00"), AmortizacionVencer.ToString("##0.00"), InteresVencer.ToString("##0.00"), IvaVencer.ToString("##0.00"), oficina, Inciso, fecha, presupuesto);
+                    DE.InformePresupuesto.Rows.Add(socio_apellido, socio_nombre, numerocobro, cantidadcuotas, nrocuotas, AmortizacionCuota.ToString("#,##0.00"), InteresCuota.ToString("#,##0.00"), iva.ToString("#,##0.00"), aportecapital.ToString("#,##0.00"), excedido.ToString("#,##0.00"), mora.ToString("#,##0.00"), ivaMora.ToString("#,##0.00"), totalADescontar.ToString("#,##0.00"), AmortizacionVencer.ToString("#,##0.00"), InteresVencer.ToString("#,##0.00"), IvaVencer.ToString("#,##0.00"), oficina, Inciso, fecha, presupuesto);
+                
+                
                 }
                 
                 frmVerReportes reporte = new frmVerReportes(DE, "PRESUPUESTO_MES");
