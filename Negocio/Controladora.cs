@@ -247,7 +247,7 @@ namespace Negocio
                     return "NOVIEMBRE";
                 case "12":
                     return "DICIEMBRE";
-            
+
                 default:
                     return "CONSULTAR";
             }
@@ -342,7 +342,7 @@ namespace Negocio
             xlWorkSheet.Cells[contador + 26, 4] = "LEONARDO";
             xlWorkSheet.Cells[contador + 26, 5] = "BARRIOS";
             xlWorkSheet.Cells[contador + 27, 4] = "PRESIDENTE";
-                       
+
             RangoB = (Microsoft.Office.Interop.Excel.Range)xlWorkSheet.get_Range(c1b, c2b);
             RangoB.EntireColumn.AutoFit();
             RangoB.Select();
@@ -590,6 +590,14 @@ namespace Negocio
                 Oficina = "01";
                 WInciso = "12";
             }
+            // Agregado por Nico como parte del plan de informatizar lo que antes hacían manual para UDELAR
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "26" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")
+            {
+                Primero = "D"; //UDELAR
+                NombreArchivo = "DTO" + TxtMes + ' ' + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".368";
+                Oficina = "01";
+                WInciso = "26";
+            }
             else
             {
                 // Agregado por Nico para contemplar el resto de las oficinas que no tienen interfaces programadas y son solo Excel.
@@ -651,6 +659,19 @@ namespace Negocio
                       "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
                       "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
                       "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
+                      "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
+                      "AND historia.inciso = " + "'" + id_inciso + "'" +
+                      "ORDER BY historia.cedula;";
+            }
+            // Agregado por Nico como parte del plan de informatizar lo que antes hacían manual para UDELAR
+            if (Control == "2601")
+            {
+                Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
+                      "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
+                      "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
+                      "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso, socio.socio_detalles, oficina.oficina_codigo " +
+                      "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
+                      "INNER JOIN oficina on oficina.oficina_id =historia.oficina " +
                       "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" +
                       "AND historia.inciso = " + "'" + id_inciso + "'" +
                       "ORDER BY historia.cedula;";
@@ -734,7 +755,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
                 //contaduria,Direccion General de Comercio, Registro Civil
             }
             else if (Control == "0502" || Control == "0514" || Control == "1121")
@@ -764,7 +785,7 @@ namespace Negocio
 
                 }
 
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
             else if (Control == "0509")
             {
@@ -792,7 +813,7 @@ namespace Negocio
 
                 }
 
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "0505")
@@ -827,7 +848,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
             else if (Control == "0507") //(Verificada)
             { // Aduanas
@@ -874,7 +895,7 @@ namespace Negocio
                 archivoAduanas.Flush();
                 archivoAduanas.Dispose();
 
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             //AGREGADO PARA RETENCIONES DE ENERO DE 2014
@@ -900,7 +921,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Oficina == "99") //BPS
@@ -932,7 +953,7 @@ namespace Negocio
                     Total = Total + resultadoInter;
                     CantidadGente = CantidadGente + 1;
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "1301") //MTSS (Verificada)
@@ -963,7 +984,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
              //elseIf Control = "1201" Then // MSP
@@ -994,7 +1015,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "1001") //Control = "1001" Then MTOP (Verificada)
@@ -1033,7 +1054,75 @@ namespace Negocio
 
                     //End If
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+            }
+            // Agregado por Nico como parte del plan de informatizar lo que antes hacían manual para UDELAR
+            else if (Control == "2601") //UDELAR y Oficina Central
+            {
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    String oficina = resultado.Tables["interfaz"].Rows[n][16].ToString();
+
+                    //If RsHistoria!Oficina <> "03" Then
+                   // Primero = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(nombres) + " " + Microsoft.VisualBasic.Strings.Trim(apellidos) + Microsoft.VisualBasic.Strings.Space(60);
+                    nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 23);
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    String r = Primero + oficina + "00000000" + "368" + Padeo(resultadoInter.ToString("#####0"), 18) + "00" + "         " + nombreApellido.ToUpper() + "X" + Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7) + Microsoft.VisualBasic.Strings.Mid(cedula, 8, 1);
+
+                    sw.WriteLine(r);
+
+                    //End If
+                }
+
+                // Se agregar para que con la oficina central salga un archivo con todas las unidades ejecutoras de la UDELAR y un excel solo con la oficina central                                
+                Busqueda = "SELECT DISTINCTROW historia.presupuesto,historia.numeroprestamo, " +
+                       "historia.cedula,historia.importecuota,historia.aportecapital,historia.numerocobro, " +
+                       "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
+                       "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
+                       "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
+                       "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + id_inciso + "'" +
+                       "AND historia.oficina=" + "'" + id_oficina + "'" +
+                       "ORDER BY historia.cedula;";
+
+                resultado = this.devolverBusquedaInterfaz(Busqueda);
+
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                }
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+            
             }
 
             else if (Control == "9797") // Empleados DGSS (No se encuentra archivo 0887.txt)
@@ -1078,7 +1167,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "0508") // LOTERIAS (Verificada)
@@ -1110,7 +1199,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
             else if (Control == "9604") // SECUNDARIA (Verificada)
             {
@@ -1156,7 +1245,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "9610") // UTU ESTE ES EL QUE VA A QUEDAR EN UN FUTURO NO EL ANTERIOR 29/10/2010
@@ -1189,7 +1278,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "9602") // CODICEN
@@ -1221,7 +1310,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
@@ -1307,7 +1396,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
             else if (Control == "2609") // FACULTAD DE ODONTOLOGIA
             {
@@ -1353,7 +1442,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "2615") //  HOSPITAL DE CLINICAS
@@ -1400,7 +1489,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "3001") // ANTEL (Verificada)
@@ -1429,7 +1518,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "0406") // JEFATURA DE POLICIA DE CANELONES
@@ -1463,7 +1552,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "1201") // SALUD PUBLICA
@@ -1507,7 +1596,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
            // Agregado por Nico para contemplar el resto de las oficinas que no tienen interfaces programadas y son solo Excel.
@@ -1531,7 +1620,7 @@ namespace Negocio
                     String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
                 }
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas,  TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
 
             }
 
