@@ -46,6 +46,7 @@ namespace COOPMEF
                     string numerocobro = sociosResultado.Tables["sociosEntreFechas"].Rows[n][4].ToString();
                     string numeroSocio = sociosResultado.Tables["sociosEntreFechas"].Rows[n][1].ToString();
                     string fechaIngreso = sociosResultado.Tables["sociosEntreFechas"].Rows[n][6].ToString();
+                    //DateTime fechaIngresoFormateada = (Convert.ToDateTime(fechaIngreso.ToString())).ToShortDateString();
                     string baja = sociosResultado.Tables["sociosEntreFechas"].Rows[n][18].ToString();
                     string bajaResultado = "NO";
 
