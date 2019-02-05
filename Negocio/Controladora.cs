@@ -1077,7 +1077,7 @@ namespace Negocio
                     String oficina = resultado.Tables["interfaz"].Rows[n][16].ToString();
 
                     //If RsHistoria!Oficina <> "03" Then
-                   // Primero = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+                    // Primero = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
                     String nombreApellido = Microsoft.VisualBasic.Strings.Trim(nombres) + " " + Microsoft.VisualBasic.Strings.Trim(apellidos) + Microsoft.VisualBasic.Strings.Space(60);
                     nombreApellido = Microsoft.VisualBasic.Strings.Mid(nombreApellido, 1, 23);
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
@@ -1122,7 +1122,7 @@ namespace Negocio
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
                 }
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
-            
+
             }
 
             else if (Control == "9797") // Empleados DGSS (No se encuentra archivo 0887.txt)
@@ -3450,6 +3450,8 @@ namespace Negocio
             {
                 for (int i = 0; i < dsSociosActivos.Tables["socio"].Rows.Count; i++)
                 {
+                    // Se agrega el 05/02/2019
+                    estaEnCobranza = false;
 
                     for (int j = 0; !estaEnCobranza && j < dsCobranzasIncorporarAporte.Tables["cobranzas"].Rows.Count; j++)
                     {
@@ -3465,7 +3467,7 @@ namespace Negocio
                         guardarCobranza(0, dsSociosActivos.Tables["socio"].Rows[i][3].ToString(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, CuotaCapital, Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][0].ToString()));
 
                     }
-                    estaEnCobranza = false;
+               // Se saca el 05//02/2019 por el primer socio que no entra     estaEnCobranza = false;
                 }
             }
 

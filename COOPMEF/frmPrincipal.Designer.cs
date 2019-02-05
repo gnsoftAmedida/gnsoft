@@ -184,23 +184,24 @@
             this.tabCobranza = new System.Windows.Forms.TabPage();
             this.groupBox8 = new System.Windows.Forms.GroupBox();
             this.label26 = new System.Windows.Forms.Label();
+            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.txtARetenerIngExc = new System.Windows.Forms.TextBox();
+            this.label27 = new System.Windows.Forms.Label();
+            this.txtRetenidoIngExc = new System.Windows.Forms.TextBox();
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.txtTotalIngExc = new System.Windows.Forms.TextBox();
-            this.btnGuardarIngExcedidos = new System.Windows.Forms.Button();
             this.txtMoraIngExc = new System.Windows.Forms.TextBox();
             this.txtSaldoIngExc = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
             this.label39 = new System.Windows.Forms.Label();
-            this.txtRetenidoIngExc = new System.Windows.Forms.TextBox();
-            this.label27 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.button2 = new System.Windows.Forms.Button();
             this.txtPresupuestoIngExc = new System.Windows.Forms.TextBox();
             this.label42 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
             this.tabPrestamo = new System.Windows.Forms.TabPage();
+            this.button3 = new System.Windows.Forms.Button();
             this.btnSolicitar = new System.Windows.Forms.Button();
             this.btnGuardarPrestamo = new System.Windows.Forms.Button();
             this.btnSalirPrestamo = new System.Windows.Forms.Button();
@@ -237,7 +238,6 @@
             this.lblOficina = new System.Windows.Forms.Label();
             this.lblInciso = new System.Windows.Forms.Label();
             this.tabCobranzaExcedidos = new System.Windows.Forms.TabPage();
-            this.button1 = new System.Windows.Forms.Button();
             this.btnPagarCobranza = new System.Windows.Forms.Button();
             this.btnSalirCobranza = new System.Windows.Forms.Button();
             this.btnImprimirCobranza = new System.Windows.Forms.Button();
@@ -1451,11 +1451,29 @@
             resources.ApplyResources(this.label26, "label26");
             this.label26.Name = "label26";
             // 
+            // btnGuardarIngExcedidos
+            // 
+            this.btnGuardarIngExcedidos.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
+            resources.ApplyResources(this.btnGuardarIngExcedidos, "btnGuardarIngExcedidos");
+            this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
+            this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
+            this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
+            // 
             // txtARetenerIngExc
             // 
             resources.ApplyResources(this.txtARetenerIngExc, "txtARetenerIngExc");
             this.txtARetenerIngExc.Name = "txtARetenerIngExc";
             this.txtARetenerIngExc.ReadOnly = true;
+            // 
+            // label27
+            // 
+            resources.ApplyResources(this.label27, "label27");
+            this.label27.Name = "label27";
+            // 
+            // txtRetenidoIngExc
+            // 
+            resources.ApplyResources(this.txtRetenidoIngExc, "txtRetenidoIngExc");
+            this.txtRetenidoIngExc.Name = "txtRetenidoIngExc";
             // 
             // groupBox7
             // 
@@ -1474,14 +1492,6 @@
             resources.ApplyResources(this.txtTotalIngExc, "txtTotalIngExc");
             this.txtTotalIngExc.Name = "txtTotalIngExc";
             this.txtTotalIngExc.ReadOnly = true;
-            // 
-            // btnGuardarIngExcedidos
-            // 
-            this.btnGuardarIngExcedidos.Image = global::COOPMEF.Properties.Resources._1486108920_Save1;
-            resources.ApplyResources(this.btnGuardarIngExcedidos, "btnGuardarIngExcedidos");
-            this.btnGuardarIngExcedidos.Name = "btnGuardarIngExcedidos";
-            this.btnGuardarIngExcedidos.UseVisualStyleBackColor = true;
-            this.btnGuardarIngExcedidos.Click += new System.EventHandler(this.btnGuardarIngExcedidos_Click);
             // 
             // txtMoraIngExc
             // 
@@ -1509,16 +1519,6 @@
             // 
             resources.ApplyResources(this.label39, "label39");
             this.label39.Name = "label39";
-            // 
-            // txtRetenidoIngExc
-            // 
-            resources.ApplyResources(this.txtRetenidoIngExc, "txtRetenidoIngExc");
-            this.txtRetenidoIngExc.Name = "txtRetenidoIngExc";
-            // 
-            // label27
-            // 
-            resources.ApplyResources(this.label27, "label27");
-            this.label27.Name = "label27";
             // 
             // groupBox2
             // 
@@ -1557,6 +1557,7 @@
             // tabPrestamo
             // 
             this.tabPrestamo.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.tabPrestamo.Controls.Add(this.button3);
             this.tabPrestamo.Controls.Add(this.btnSolicitar);
             this.tabPrestamo.Controls.Add(this.btnGuardarPrestamo);
             this.tabPrestamo.Controls.Add(this.btnSalirPrestamo);
@@ -1567,6 +1568,14 @@
             resources.ApplyResources(this.tabPrestamo, "tabPrestamo");
             this.tabPrestamo.Name = "tabPrestamo";
             this.tabPrestamo.Click += new System.EventHandler(this.tabPrestamo_Click);
+            // 
+            // button3
+            // 
+            this.button3.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
+            resources.ApplyResources(this.button3, "button3");
+            this.button3.Name = "button3";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // btnSolicitar
             // 
@@ -1806,7 +1815,6 @@
             // tabCobranzaExcedidos
             // 
             this.tabCobranzaExcedidos.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.tabCobranzaExcedidos.Controls.Add(this.button1);
             this.tabCobranzaExcedidos.Controls.Add(this.btnPagarCobranza);
             this.tabCobranzaExcedidos.Controls.Add(this.btnSalirCobranza);
             this.tabCobranzaExcedidos.Controls.Add(this.btnImprimirCobranza);
@@ -1814,14 +1822,6 @@
             this.tabCobranzaExcedidos.Controls.Add(this.groupBox9);
             resources.ApplyResources(this.tabCobranzaExcedidos, "tabCobranzaExcedidos");
             this.tabCobranzaExcedidos.Name = "tabCobranzaExcedidos";
-            // 
-            // button1
-            // 
-            this.button1.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
-            resources.ApplyResources(this.button1, "button1");
-            this.button1.Name = "button1";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // btnPagarCobranza
             // 
@@ -2491,7 +2491,6 @@
         private System.Windows.Forms.ToolStripMenuItem porFallecimientoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem pagosDeExcedidosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem excedidosToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.ToolStripMenuItem datosDelPresupuestoToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem4;
         private System.Windows.Forms.ToolStripMenuItem históricoToolStripMenuItem;
@@ -2523,6 +2522,7 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.GroupBox groupBox8;
+        private System.Windows.Forms.Button button3;
     }
 }
 
