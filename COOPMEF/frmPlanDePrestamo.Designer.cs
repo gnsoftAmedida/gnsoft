@@ -51,6 +51,8 @@
             this.lblNombre = new System.Windows.Forms.Label();
             this.txtBoxIVA = new System.Windows.Forms.TextBox();
             this.label5 = new System.Windows.Forms.Label();
+            this.btnReporte = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -311,15 +313,42 @@
             this.label5.TabIndex = 5;
             this.label5.Text = "% IVA a sumar a Tasa Anual";
             // 
+            // btnReporte
+            // 
+            this.btnReporte.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
+            this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.btnReporte.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.btnReporte.Location = new System.Drawing.Point(494, 194);
+            this.btnReporte.Name = "btnReporte";
+            this.btnReporte.Size = new System.Drawing.Size(96, 30);
+            this.btnReporte.TabIndex = 3;
+            this.btnReporte.Text = "     Reporte";
+            this.btnReporte.UseVisualStyleBackColor = true;
+            this.btnReporte.Click += new System.EventHandler(this.btnReporte_Click);
+            // 
+            // button1
+            // 
+            this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button1.Location = new System.Drawing.Point(494, 235);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(96, 30);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Listado c/1000";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // frmPlanDePrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 345);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalirPlan);
             this.Controls.Add(this.btnCancelarPlan);
             this.Controls.Add(this.btnGuardarPlan);
+            this.Controls.Add(this.btnReporte);
             this.Controls.Add(this.btnEliminarPlan);
             this.Controls.Add(this.btnEditarPlan);
             this.Controls.Add(this.btnNuevoPlan);
@@ -359,5 +388,7 @@
         private System.Windows.Forms.TextBox txtBoxIVA;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label lblIva;
+        private System.Windows.Forms.Button btnReporte;
+        private System.Windows.Forms.Button button1;
     }
 }

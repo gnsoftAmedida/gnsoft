@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms;
 using Negocio;
+using COOPMEF.CrystalDataSets;
 using Logs;
 
 
@@ -16,6 +17,7 @@ namespace COOPMEF
     {
         private Controladora empresa = Controladora.Instance;
         DataSet dsPlanes;
+        private dsPlanesPrestamos tmpPlanesPrestamo = new dsPlanesPrestamos();
         private bool nuevo = true;
         private bool yaHizoLoad = false;
 
@@ -23,7 +25,6 @@ namespace COOPMEF
         {
             InitializeComponent();
         }
-
 
         private void frmPlanDePrestamo_Load(object sender, EventArgs e)
         {
@@ -283,7 +284,11 @@ namespace COOPMEF
                             vigencia = 0;
                         }
 
+ 
                         double CuotaCada1000 = 0; // Calcular luego de hablar con la coop
+
+                        Double tasaConIva = empresa.agregarleIvaAtasaAnual(Convert.ToDouble(txtBoxTasaAnualSinIVA.Text.Replace(".", ",")), Convert.ToDouble(txtBoxIVA.Text.Replace(".", ",")));
+                        CuotaCada1000 = empresa.Cuota(tasaConIva, Convert.ToInt32(txtBoxCantCuotas.Text), 1000);
 
                         empresa.ModificarPlan(Convert.ToInt32(dsPlanes.Tables["planprestamo"].Rows[index][0].ToString()), Convert.ToInt32(txtBoxCantCuotas.Text), Convert.ToDouble(txtBoxTasaAnualSinIVA.Text.Replace(".", ",")), Convert.ToDouble(txtBoxIVA.Text.Replace(".", ",")), vigencia, texBoxNombrePlan.Text, CuotaCada1000);
                         MessageBox.Show("Plan modificado correctamente");
@@ -396,6 +401,9 @@ namespace COOPMEF
 
                     double CuotaCada1000 = 0; // Calcular luego de hablar con la coop
 
+                    Double tasaConIva = empresa.agregarleIvaAtasaAnual(Convert.ToDouble(txtBoxTasaAnualSinIVA.Text.Replace(".", ",")), Convert.ToDouble(txtBoxIVA.Text.Replace(".", ",")));
+                    CuotaCada1000 = empresa.Cuota(tasaConIva, Convert.ToInt32(txtBoxCantCuotas.Text), 1000);
+
                     empresa.AltaPlan(Convert.ToInt32(txtBoxCantCuotas.Text), Convert.ToDouble(txtBoxTasaAnualSinIVA.Text.Replace(".", ",")), Convert.ToDouble(txtBoxIVA.Text.Replace(".", ",")), vigencia, texBoxNombrePlan.Text, CuotaCada1000);
 
                     MessageBox.Show("Plan creado correctamente");
@@ -419,6 +427,71 @@ namespace COOPMEF
                 this.lblTasaAnual.Visible = false;
             }
 
+        }
+
+
+
+
+        private void btnEditarPlan_Click(object sender, EventArgs e)
+        {
+            this.nuevo = false;
+
+            this.cmbPlan.Enabled = false;
+
+            this.texBoxNombrePlan.Enabled = true;
+
+            this.txtBoxCantCuotas.Enabled = true;
+
+            this.txtBoxTasaAnualSinIVA.Enabled = true;
+
+            this.txtBoxIVA.Enabled = true;
+
+            this.btnGuardarPlan.Enabled = true;
+            this.btnEditarPlan.Enabled = true;
+            this.btnCancelarPlan.Enabled = true;
+            this.btnEliminarPlan.Enabled = false;
+            this.btnNuevoPlan.Enabled = false;
+            this.chkVigencia.Enabled = true;
+
+            this.btnEditarPlan.Enabled = false;
+
+        }
+
+        private void btnReporte_Click(object sender, EventArgs e)
+        {
+            DataSet planesResultado = empresa.DevolverPlanes();
+            String fechaActual = DateTime.Today.ToShortDateString();
+
+            if (planesResultado.Tables["planprestamo"].Rows.Count > 0)
+            {
+                for (int n = 0; n <= planesResultado.Tables["planprestamo"].Rows.Count - 1; n++)
+                {
+                    string plan_NroCuotas = planesResultado.Tables["planprestamo"].Rows[n][1].ToString();
+                    string plan_TasaAnualEfectiva = planesResultado.Tables["planprestamo"].Rows[n][2].ToString();
+                    string plan_IvaSobreIntereses = planesResultado.Tables["planprestamo"].Rows[n][3].ToString();
+                    string plan_vigente = planesResultado.Tables["planprestamo"].Rows[n][4].ToString();
+                    string plan_nombre = planesResultado.Tables["planprestamo"].Rows[n][5].ToString();
+
+                    if (plan_vigente == "1")
+                    {
+                        plan_vigente = "Sí";
+                    }
+                    else
+                    {
+                        plan_vigente = "No";
+                    }
+
+                    tmpPlanesPrestamo.planes.Rows.Add(plan_NroCuotas, Convert.ToDouble(plan_TasaAnualEfectiva).ToString("###.00"), Convert.ToDouble(plan_IvaSobreIntereses).ToString("###.00"), plan_vigente, plan_nombre, fechaActual);
+                }
+
+                frmVerReportes reporte = new frmVerReportes(tmpPlanesPrestamo, "REPORTE_PLANES_PRESTAMOS");
+                reporte.ShowDialog();
+                tmpPlanesPrestamo.Clear();
+            }
+            else
+            {
+                MessageBox.Show("No se encuentran planes de préstamos");
+            }
         }
 
         private void btnEliminarPlan_Click(object sender, EventArgs e)
@@ -462,29 +535,28 @@ namespace COOPMEF
             }
         }
 
-        private void btnEditarPlan_Click(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            this.nuevo = false;
+            DataSet planesResultado = empresa.DevolverPlanes();
+            String fechaActual = DateTime.Today.ToShortDateString();
 
-            this.cmbPlan.Enabled = false;
+            if (planesResultado.Tables["planprestamo"].Rows.Count > 0)
+            {
+                for (int n = 0; n <= planesResultado.Tables["planprestamo"].Rows.Count - 1; n++)
+                {
+                    string plan_NroCuotas = planesResultado.Tables["planprestamo"].Rows[n][1].ToString();                
+                    string importe = planesResultado.Tables["planprestamo"].Rows[n][6].ToString();
+                    tmpPlanesPrestamo.planes.Rows.Add(plan_NroCuotas, Convert.ToDouble(importe).ToString("###.00"), "", "", "","");
+                }
 
-            this.texBoxNombrePlan.Enabled = true;
-
-            this.txtBoxCantCuotas.Enabled = true;
-
-            this.txtBoxTasaAnualSinIVA.Enabled = true;
-
-            this.txtBoxIVA.Enabled = true;
-
-            this.btnGuardarPlan.Enabled = true;
-            this.btnEditarPlan.Enabled = true;
-            this.btnCancelarPlan.Enabled = true;
-            this.btnEliminarPlan.Enabled = false;
-            this.btnNuevoPlan.Enabled = false;
-            this.chkVigencia.Enabled = true;
-
-            this.btnEditarPlan.Enabled = false;
-
+                frmVerReportes reporte = new frmVerReportes(tmpPlanesPrestamo, "REPORTE_PLANES_CADA_1000");
+                reporte.ShowDialog();
+                tmpPlanesPrestamo.Clear();
+            }
+            else
+            {
+                MessageBox.Show("No se encuentran planes de préstamos");
+            }
         }
     }
 }

@@ -168,6 +168,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>dsPagoExcedidosPresupuesto.xsd</DependentUpon>
     </Compile>
+    <Compile Include="CrystalDataSets\dsPlanesPrestamos.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>dsPlanesPrestamos.xsd</DependentUpon>
+    </Compile>
     <Compile Include="CrystalDataSets\dsPrestamosCierre.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -527,6 +532,18 @@
       <SubType>Component</SubType>
       <DesignTime>True</DesignTime>
     </Compile>
+    <Compile Include="Reportes\reportePlanesPrestamosCada1000.cs">
+      <DependentUpon>reportePlanesPrestamosCada1000.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Reportes\reportePlanesPrestamos.cs">
+      <DependentUpon>reportePlanesPrestamos.rpt</DependentUpon>
+      <AutoGen>True</AutoGen>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+    </Compile>
     <Compile Include="Reportes\reporteDatosPresupuesto.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -850,6 +867,14 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>CancelacionFallecimiento.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportePlanesPrestamosCada1000.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportePlanesPrestamosCada1000.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Reportes\reportePlanesPrestamos.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>reportePlanesPrestamos.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reportes\reporteDatosPresupuesto.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>reporteDatosPresupuesto.cs</LastGenOutput>
@@ -1109,6 +1134,17 @@
     </None>
     <None Include="CrystalDataSets\dsPagoExcedidosPresupuesto.xss">
       <DependentUpon>dsPagoExcedidosPresupuesto.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPlanesPrestamos.xsc">
+      <DependentUpon>dsPlanesPrestamos.xsd</DependentUpon>
+    </None>
+    <None Include="CrystalDataSets\dsPlanesPrestamos.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>dsPlanesPrestamos.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="CrystalDataSets\dsPlanesPrestamos.xss">
+      <DependentUpon>dsPlanesPrestamos.xsd</DependentUpon>
     </None>
     <None Include="CrystalDataSets\dsPrestamosCierre.xsc">
       <DependentUpon>dsPrestamosCierre.xsd</DependentUpon>

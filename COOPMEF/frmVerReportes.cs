@@ -282,6 +282,25 @@ namespace COOPMEF
                 this.crystalReportViewer1.ReportSource = tmpReporteDatosPresupuesto;
             }
 
+            if (tipo.Equals("REPORTE_PLANES_CADA_1000"))
+            {
+                COOPMEF.Reportes.reportePlanesPrestamosCada1000 tmpReportePlanesPrestamosCada1000 = new COOPMEF.Reportes.reportePlanesPrestamosCada1000();
+
+                tmpReportePlanesPrestamosCada1000.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmpReportePlanesPrestamosCada1000;
+            }
+
+            if (tipo.Equals("REPORTE_PLANES_PRESTAMOS"))
+            {
+                COOPMEF.Reportes.reportePlanesPrestamos tmprReportePlanesPrestamos = new COOPMEF.Reportes.reportePlanesPrestamos();
+
+                tmprReportePlanesPrestamos.SetDataSource(DS);
+
+                this.crystalReportViewer1.ReportSource = tmprReportePlanesPrestamos;
+            }
+
+
             if (tipo.Equals("UTILIDAD"))
             {
                 COOPMEF.Reportes.pagoUtilidad tmpPagoUtilidad = new COOPMEF.Reportes.pagoUtilidad();
