@@ -61,8 +61,8 @@ namespace COOPMEF
                             Double InteresVencer = Convert.ToDouble(presupuesto.Tables["datosPresupuesto"].Rows[n][1].ToString());
                             Double AmortizacionVencer = Convert.ToDouble(presupuesto.Tables["datosPresupuesto"].Rows[n][2].ToString());
                             Double mora = Convert.ToDouble(presupuesto.Tables["datosPresupuesto"].Rows[n][3].ToString());
-
-                            tmpDsDatosPresupuesto.datos.Rows.Add(Presupuesto, InteresVencer.ToString("##0.00"), AmortizacionVencer.ToString("##0.00"), mora.ToString("##0.00"), this.txtEjercicio.Text);
+                            String ejercicio = txtEjercicio.Text;
+                            tmpDsDatosPresupuesto.datos.Rows.Add(Presupuesto, InteresVencer.ToString("#,##0.00"), AmortizacionVencer.ToString("#,##0.00"), mora.ToString("#,##0.00"), ejercicio);
                         } 
                         else
                         {

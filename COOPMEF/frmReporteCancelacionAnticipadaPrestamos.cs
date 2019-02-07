@@ -85,7 +85,7 @@ namespace COOPMEF
 
                     String fecha = DateTime.Today.ToShortDateString();
 
-                    cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa.ToString("##0.00"), MontoVale.ToString("##0.00"), ImporteCuota.ToString("##0.00"), AmortizacionVencer.ToString("##0.00"), InteresesVencer.ToString("##0.00"), presupuesto, fecha);
+                    cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa.ToString("#,##0.00"), MontoVale.ToString("#,##0.00"), ImporteCuota.ToString("#,##0.00"), AmortizacionVencer.ToString("#,##0.00"), InteresesVencer.ToString("#,##0.00"), presupuesto, fecha);
                 }
 
                 frmVerReportes reporte = new frmVerReportes(cancelaciones, "CANCELACION_ANTICIPADA");

@@ -57,7 +57,7 @@ namespace COOPMEF
                     String inciso = pagoExcedidosPresupuesto.Tables["pagoExecidosPorPresupuesto"].Rows[n][10].ToString();
                     String oficina = pagoExcedidosPresupuesto.Tables["pagoExecidosPorPresupuesto"].Rows[n][11].ToString();
 
-                    tmpDsPagoExcedidosPresupuesto.excedidos.Rows.Add(socio_apellido, socio_nombre, socio_nroCobro, socio_nro, presupuestodelpago, aretener.ToString("##0.00"), retenido.ToString("##0.00"), deuda.ToString("##0.00"), mora, total, inciso, oficina, presupuesto);
+                    tmpDsPagoExcedidosPresupuesto.excedidos.Rows.Add(socio_apellido, socio_nombre, socio_nroCobro, socio_nro, presupuestodelpago, aretener.ToString("#,##0.00"), retenido.ToString("#,##0.00"), deuda.ToString("#,##0.00"), mora, total, inciso, oficina, presupuesto);
                 }
 
                 frmVerReportes reporte = new frmVerReportes(tmpDsPagoExcedidosPresupuesto, "EXCEDIDOS_DE_UN_MES");
