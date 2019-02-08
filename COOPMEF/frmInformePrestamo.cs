@@ -66,7 +66,7 @@ namespace COOPMEF
                     String inciso = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][10].ToString();
                     String oficina = prestamosPresupuesto.Tables["prestamosOtorgadosPresupuesto"].Rows[n][11].ToString();
 
-                    DE.PrestamosPresupuseto.Rows.Add(numerocobro, cedula, fecha.ToShortDateString(), NumeroPrestamo, monto.ToString("##0.00"), saldoAnterior.ToString("##0.00"), total.ToString("##0.00"), totalIntereses.ToString("##0.00"), interesesDeducidos.ToString("##0.00"), saldoIntereses.ToString("##0.00"), inciso, oficina, presupuesto);
+                    DE.PrestamosPresupuseto.Rows.Add(numerocobro, cedula, fecha.ToShortDateString(), NumeroPrestamo, monto.ToString("#,##0.00"), saldoAnterior.ToString("#,##0.00"), total.ToString("#,##0.00"), totalIntereses.ToString("#,##0.00"), interesesDeducidos.ToString("#,##0.00"), saldoIntereses.ToString("#,##0.00"), inciso, oficina, presupuesto);
                 }
 
                 frmVerReportes reporte = new frmVerReportes(DE, "PRESTAMOS_PRESUPUESTO");

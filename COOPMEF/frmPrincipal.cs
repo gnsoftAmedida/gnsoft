@@ -3483,7 +3483,7 @@ Agregar emisión
 
                         String fecha = DateTime.Today.ToShortDateString();
 
-                        cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa.ToString("##0.00"), MontoVale.ToString("##0.00"), ImporteCuota.ToString("##0.00"), AmortizacionVencer.ToString("##0.00"), InteresesVencer.ToString("##0.00"), " ", fecha);
+                        cancelaciones.cancelacion.Rows.Add(FechaCancelacion, socio_nro, socio_nombre, socio_apellido, NumeroPrestamo, CuotasPactadas, CuotasPagadas, Tasa.ToString("#,##0.00"), MontoVale.ToString("#,##0.00"), ImporteCuota.ToString("#,##0.00"), AmortizacionVencer.ToString("#,##0.00"), InteresesVencer.ToString("#,##0.00"), " ", fecha);
                     }
 
                     frmVerReportes reporte = new frmVerReportes(cancelaciones, "CANCELACION_FALLECIMIENTO");
@@ -3676,12 +3676,12 @@ Agregar emisión
                             {
                                 cheque = "---";
                                 String sinFecha = "---";
-                                tmpDsUtilidadSocio.Utilidad.Rows.Add(ejercicio, aportescapital.ToString("##0.00"), interesesaportados.ToString("##0.00"), utilidades.ToString("##0.00"), total.ToString("##0.00"), cheque, sinFecha, socio_nro, socio_apellido.Trim() + " " + socio_nombre.Trim());
+                                tmpDsUtilidadSocio.Utilidad.Rows.Add(ejercicio, aportescapital.ToString("#,##0.00"), interesesaportados.ToString("#,##0.00"), utilidades.ToString("#,##0.00"), total.ToString("#,##0.00"), cheque, sinFecha, socio_nro, socio_apellido.Trim() + " " + socio_nombre.Trim());
                             }
                             else
                             {
                                 DateTime fecha = Convert.ToDateTime(utilidadesSocio.Tables["utilidadDesSocio"].Rows[n][6].ToString());
-                                tmpDsUtilidadSocio.Utilidad.Rows.Add(ejercicio, aportescapital.ToString("##0.00"), interesesaportados.ToString("##0.00"), utilidades.ToString("##0.00"), total.ToString("##0.00"), cheque, fecha, socio_nro, socio_apellido.Trim() + " " + socio_nombre.Trim());
+                                tmpDsUtilidadSocio.Utilidad.Rows.Add(ejercicio, aportescapital.ToString("#,##0.00"), interesesaportados.ToString("#,##0.00"), utilidades.ToString("#,##0.00"), total.ToString("#,##0.00"), cheque, fecha, socio_nro, socio_apellido.Trim() + " " + socio_nombre.Trim());
                             }
                         }
 
