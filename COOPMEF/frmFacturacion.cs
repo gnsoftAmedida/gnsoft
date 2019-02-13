@@ -11,6 +11,7 @@ using COOPMEF.CrystalDataSets;
 using System.IO;
 using System.Xml;
 using System.Xml.Linq;
+using Utilidades;
 
 namespace COOPMEF
 {
@@ -29,36 +30,60 @@ namespace COOPMEF
             this.Close();
         }
 
-        private void CrearDocumentoXML()
+        private void CrearDocumentoXML(string documentoReceptor, string nombreReceptor, String montoNetoIva, String porcentajeIva, String interesCuota, String ivaCuota, String mora, String ivaMora)
         {            
-            XmlDocument factura = new XmlDocument();
 
-            //Se crea la declaración
-            XmlDeclaration declaracionXML = factura.CreateXmlDeclaration("1.0", "UTF-8", null);
 
-            //Se agrega el nodo a la factura
-            XmlElement root = factura.DocumentElement;
+            string fechaFacturacion = DateTime.Today.ToString("yyyy-MM-dd");
 
-            factura.InsertBefore(declaracionXML, root);
+            //Datos del documento
+            var documento = new Dictionary<string, string>();
+            documento["FchEmis"] = fechaFacturacion;
+            documento["MntBruto"] = "1";
 
-            XmlElement adenda = factura.CreateElement("CFE_Adenda");
+            //Datos del emisor
+            var emisor = new Dictionary<string, string>();
+            emisor["RUCEmisor"] = "211964430019";
+            emisor["RznSoc"] = "CACFSMEF";
+            emisor["CdgDGISucur"] = "2";
+            emisor["DomFiscal"] = "Colonia 1319";
+            emisor["Ciudad"] = "MONTEVIDEO";
+            emisor["Departamento"] = "MONTEVIDEO";
 
-            factura.AppendChild(adenda);
+            //Datos del receptor
+            var receptor = new Dictionary<string, string>();
+            receptor["TipoDocRecep"] = "3";
+            receptor["CodPaisRecep"] = "UY";
+            receptor["DocRecep"] = documentoReceptor;
+            receptor["RznSocRecep"] = nombreReceptor;
 
-            XmlElement encabezado = factura.CreateElement("Encabezado");
-            adenda.AppendChild(encabezado);
+            Double montoIva = Convert.ToDouble(montoNetoIva) * (Convert.ToDouble(porcentajeIva) / 100);
+            Double total = Convert.ToDouble(montoNetoIva) + montoIva;
 
-            XmlElement tipoCFE = factura.CreateElement("TipoCFE");
-            tipoCFE.AppendChild(factura.CreateTextNode("101"));
+            //Datos de los totales
+            var totales = new Dictionary<string, string>();
+            totales["MntNoGrv"] = "0";
+            totales["MntNetoIvaTasaMin"] = "0";
+            totales["MntNetoIVATasaBasica"] = montoNetoIva;
+            totales["IVATasaMin"] = "0";
+            totales["IVATasaBasica"] = porcentajeIva.ToString();
+            totales["MntIVATasaMin"] = "0";
+            totales["MntIVATasaBasica"] = montoIva.ToString("#,##0.00");
+            totales["MntTotal"] = total.ToString("#,##0.00");
+            totales["CantLinDet"] = "4";
+            totales["MntPagar"] = total.ToString("#,##0.00");
 
-            encabezado.AppendChild(tipoCFE);
+            //Datos de los items
+            var items = new Dictionary<string, string>();
+            items["PrecioUnitario1"] = String.Format(interesCuota.ToString(), "#,##0.00");
+            items["PrecioUnitario2"] = String.Format(ivaCuota.ToString(), "#,##0.00");
+            items["PrecioUnitario3"] = String.Format(mora.ToString(), "#,##0.00");
+            items["PrecioUnitario4"] = String.Format(ivaMora.ToString(), "#,##0.00");
+            
 
-            factura.DocumentElement.SetAttribute("xmlns:ns0", "http://cfe.dgi.gub.uy");
-            factura.DocumentElement.SetAttribute("xmlns:ds", "http://www.w3.org/2000/09/xmldsig#");
-            factura.DocumentElement.SetAttribute("xmlns:xsi", "http://www.w3.org/2001/XMLSchema-instance");
-            factura.DocumentElement.SetAttribute("xsi:schemaLocation", "http://cfe.dgi.gub.uy CFEEmpresas_v1.8.xsd ");
-
-            factura.Save(@"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + ".xml");
+            ExportXML exportar = new ExportXML();
+            string nombre = @"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + "_" + documentoReceptor + ".xml";
+            exportar.downloadXML(nombre, documento, emisor, receptor, totales, items);
 
         }
 
@@ -215,7 +240,10 @@ namespace COOPMEF
 
                         swd.WriteLine(r);
 
-                        CrearDocumentoXML();
+                        Double montoNetoIva = Convert.ToDouble(InteresCuota) + Convert.ToDouble(ivaCuota) + Convert.ToDouble(mora) + Convert.ToDouble(ivaMora);
+                        String montoNetoIvaStringFormateado = montoNetoIva.ToString("#,##0.00");
+
+                        this.CrearDocumentoXML(cedula, nombre_apellido_inciso_oficina, montoNetoIvaStringFormateado, "22", InteresCuota, ivaCuota, mora, ivaMora);
 
                         tmpDsFactura.factura.Rows.Add(nombre_apellido_inciso_oficina, InteresCuota, ivaCuota, mora, ivaMora, fecha, subtotal_1_string, subtotal_2_string, total_string, iva1, iva2);
 

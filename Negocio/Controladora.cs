@@ -381,14 +381,14 @@ namespace Negocio
             String Control;
             String Busqueda;
             String Mensaje = "";
-            Double Parcial = 0;
+            //    Double Parcial = 0;
             String MesAno;
             bool interfacePorDisco = true;
             String NombreArchivo_Formato_Nuevo; //agregado formato nuevos aduana 18/09/2018
 
             Presupuesto = TxtMes + "/" + TxtAño;
             NombreArchivo = "NoHayCodigos";
-            Parcial = 0;
+            //      Parcial = 0;
 
             NombreArchivo_Formato_Nuevo = "NoHayCodigos"; // agregado formato nuevos aduana 18/09/2018
 
@@ -413,7 +413,10 @@ namespace Negocio
             }
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "05" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "02")
             {
-                Primero = "S0205020002630"; //contaduría General
+                //  Primero = "S0205020002630"; //contaduría General
+                // MODIFICADO 23/01/2019
+                Primero = "S0205020002000123";
+
                 NombreArchivo = "CONT" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
                 Oficina = "02";
                 WInciso = "05";
@@ -453,7 +456,9 @@ namespace Negocio
             {
                 NombreArchivo = "ADUANA.TXT"; // Aduanas
                 NombreArchivo_Formato_Nuevo = "ADUANA_2.TXT"; //Segundo Formato de Aduanas 18/09/2018
-                Primero = "S0205007000000070";
+                //Primero = "S0205007000000070";
+                //23/01/2019 se Modifica
+                Primero = "S0205007000007039";
                 Oficina = "07";
                 WInciso = "05";
 
@@ -506,10 +511,13 @@ namespace Negocio
                 WInciso = "97";
                 Oficina = "97";
             }
+
+                 //modificado 09/01/2019 retenciones loterias
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "05" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "08")  //Loterias
             {
                 NombreArchivo = "Loterias.txt";
-                Primero = "S0200005008595";
+                // Primero = "S0200005008595";
+                Primero = "S020500800800059500000000";
                 WInciso = "05";
                 Oficina = "08";
             }
@@ -573,6 +581,10 @@ namespace Negocio
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "30" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // ANTEL
             {
                 NombreArchivo = "ANTEL" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + ".TXT";
+
+                //Modificado 20/11/2018 - segundo archivo para antel y hasta febrero de 2019
+                NombreArchivo_Formato_Nuevo = "ANTEL_nuevo_formato_" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + ".txt";
+
                 WInciso = "30";
                 Oficina = "01";
             }
@@ -583,6 +595,16 @@ namespace Negocio
                 Oficina = "06";
                 WInciso = "04";
             }
+
+                // Agregado del 12/02/2019 por Gino y Nico 
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "04" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "09")
+            {
+                Primero = "S0204009000000375"; //Jefatura de Durazno
+                NombreArchivo = "JEFATURA_DURAZNO" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
+                Oficina = "09";
+                WInciso = "04";
+            }
+
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "12" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")
             {
                 Primero = "00030470"; //Salud Pública
@@ -756,9 +778,10 @@ namespace Negocio
                     sw.WriteLine(r);
                 }
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
-                //contaduria,Direccion General de Comercio, Registro Civil
+
+                //Direccion General de Comercio, Registro Civil
             }
-            else if (Control == "0502" || Control == "0514" || Control == "1121")
+            else if (Control == "0514" || Control == "1121")
             {
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
@@ -787,6 +810,39 @@ namespace Negocio
 
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
+
+            //Contaduría General de la nación modificado 24/01/2019
+            else if (Control == "0502")
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    //Corregido
+                    string cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    // Agregado por si ponen un nro de cobro mayor a 4
+                    if (numeroCobro.Length > 4)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 4, 4);
+                    }
+
+                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + "0000";
+                    sw.WriteLine(r);
+                }
+
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+            }
+
             else if (Control == "0509")
             {
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
@@ -1170,10 +1226,13 @@ namespace Negocio
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
+            //Modificado retenciones 09/01/2019
             else if (Control == "0508") // LOTERIAS (Verificada)
             {
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
+                    //cambie el numero de cobro pasandolo de 4 a 7 lugares Hablado con leticia de loterias 05/10/2018
+
                     String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
                     String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
                     Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
@@ -1187,6 +1246,8 @@ namespace Negocio
 
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
                     numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
 
                     // Agregado por si ponen un nro de cobro mayor a 4
@@ -1195,7 +1256,7 @@ namespace Negocio
                         numeroCobro = numeroCobro.Substring(numeroCobro.Length - 4, 4);
                     }
 
-                    String r = Primero + Padeo(numeroCobro, 4) + Padeo(resultadoInter.ToString("#####0"), 5) + "00";
+                    String r = Primero + Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7) + Padeo(resultadoInter.ToString("#####0"), 6) + "000000";
 
                     sw.WriteLine(r);
                 }
@@ -1518,10 +1579,83 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+
+                //agregado para antel formato nuevo 20/11/2018
+                StreamWriter swAdicional = null;
+                swAdicional = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, true);
+
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    MesAno = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2);
+                    MesAno = Padeo(MesAno, 2);
+
+                    //String r = MesAno + Padeo(Microsoft.VisualBasic.Strings.Mid(cedula.Replace(".", "").Replace(",", "").Replace("-", ""), 1, 7), 7) + "B20" + Padeo(resultadoInter.ToString("#####0"), 8) + "00";
+
+                    String r = "DE;" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + ";" + Padeo(Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2), 2) + ";4702;" + Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 8), 8) + ";" + resultadoInter.ToString("###,##0") + ",00;" + "UYU;" + numeroPrestamo + ";" + Microsoft.VisualBasic.Strings.Mid(DateTime.Now.ToString(), 7, 4) + Microsoft.VisualBasic.Strings.Mid(DateTime.Now.ToString(), 4, 2) + Padeo(Microsoft.VisualBasic.Strings.Mid(DateTime.Now.ToString(), 1, 2), 2);
+
+                    swAdicional.WriteLine(r);
+                }
+
+                swAdicional.Flush();
+                swAdicional.Dispose();
+
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
             else if (Control == "0406") // JEFATURA DE POLICIA DE CANELONES
+            {
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+                    String departamento = resultado.Tables["interfaz"].Rows[n][13].ToString();
+                    String fechaIngreso = resultado.Tables["interfaz"].Rows[n][14].ToString();
+                    String observaciones = resultado.Tables["interfaz"].Rows[n][15].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    if (cedula.Length > 8)
+                    {
+                        cedula = cedula.Substring(cedula.Length - 8, 8);
+                    }
+
+                    String r = Primero + Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + "0000";
+
+                    sw.WriteLine(r);
+                }
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+            }
+
+            else if (Control == "0409") // JEFATURA DE POLICIA DE DURAZNO
             {
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
@@ -3467,7 +3601,7 @@ namespace Negocio
                         guardarCobranza(0, dsSociosActivos.Tables["socio"].Rows[i][3].ToString(), 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, CuotaCapital, Convert.ToInt32(dsSociosActivos.Tables["socio"].Rows[i][0].ToString()));
 
                     }
-               // Se saca el 05//02/2019 por el primer socio que no entra     estaEnCobranza = false;
+                    // Se saca el 05//02/2019 por el primer socio que no entra     estaEnCobranza = false;
                 }
             }
 
