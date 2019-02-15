@@ -35,7 +35,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnBuscar = new System.Windows.Forms.Button();
             this.btnSalirPrestamo = new System.Windows.Forms.Button();
+            this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.treeView1 = new System.Windows.Forms.TreeView();
+            this.cmbUnidades = new System.Windows.Forms.ComboBox();
             this.groupBox1.SuspendLayout();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -51,6 +57,7 @@
             this.groupBox1.Size = new System.Drawing.Size(298, 63);
             this.groupBox1.TabIndex = 21;
             this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "Presupuesto de...";
             // 
             // cmbAnios
             // 
@@ -181,11 +188,11 @@
             this.btnBuscar.Image = global::COOPMEF.Properties.Resources._1486108741_Search;
             this.btnBuscar.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnBuscar.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnBuscar.Location = new System.Drawing.Point(70, 88);
+            this.btnBuscar.Location = new System.Drawing.Point(95, 260);
             this.btnBuscar.Name = "btnBuscar";
             this.btnBuscar.Size = new System.Drawing.Size(100, 30);
             this.btnBuscar.TabIndex = 23;
-            this.btnBuscar.Text = "Ver";
+            this.btnBuscar.Text = "Emitir";
             this.btnBuscar.UseVisualStyleBackColor = true;
             this.btnBuscar.Click += new System.EventHandler(this.btnBuscar_Click);
             // 
@@ -194,7 +201,7 @@
             this.btnSalirPrestamo.Image = global::COOPMEF.Properties.Resources._1486109187_Log_Out;
             this.btnSalirPrestamo.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnSalirPrestamo.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnSalirPrestamo.Location = new System.Drawing.Point(183, 88);
+            this.btnSalirPrestamo.Location = new System.Drawing.Point(208, 260);
             this.btnSalirPrestamo.Name = "btnSalirPrestamo";
             this.btnSalirPrestamo.Size = new System.Drawing.Size(100, 30);
             this.btnSalirPrestamo.TabIndex = 22;
@@ -202,11 +209,67 @@
             this.btnSalirPrestamo.UseVisualStyleBackColor = true;
             this.btnSalirPrestamo.Click += new System.EventHandler(this.btnSalirPrestamo_Click);
             // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.label4);
+            this.groupBox2.Controls.Add(this.label3);
+            this.groupBox2.Controls.Add(this.treeView1);
+            this.groupBox2.Controls.Add(this.cmbUnidades);
+            this.groupBox2.Location = new System.Drawing.Point(13, 78);
+            this.groupBox2.Margin = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Padding = new System.Windows.Forms.Padding(2);
+            this.groupBox2.Size = new System.Drawing.Size(296, 177);
+            this.groupBox2.TabIndex = 28;
+            this.groupBox2.TabStop = false;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label4.Location = new System.Drawing.Point(19, 75);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(65, 17);
+            this.label4.TabIndex = 27;
+            this.label4.Text = "Carpetas";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.label3.Location = new System.Drawing.Point(18, 36);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(68, 17);
+            this.label3.TabIndex = 26;
+            this.label3.Text = "Unidades";
+            // 
+            // treeView1
+            // 
+            this.treeView1.Location = new System.Drawing.Point(89, 75);
+            this.treeView1.Margin = new System.Windows.Forms.Padding(2);
+            this.treeView1.Name = "treeView1";
+            this.treeView1.Size = new System.Drawing.Size(190, 90);
+            this.treeView1.TabIndex = 6;
+            // 
+            // cmbUnidades
+            // 
+            this.cmbUnidades.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cmbUnidades.FormattingEnabled = true;
+            this.cmbUnidades.Location = new System.Drawing.Point(89, 32);
+            this.cmbUnidades.Margin = new System.Windows.Forms.Padding(2);
+            this.cmbUnidades.Name = "cmbUnidades";
+            this.cmbUnidades.Size = new System.Drawing.Size(65, 21);
+            this.cmbUnidades.TabIndex = 5;
+            this.cmbUnidades.SelectedIndexChanged += new System.EventHandler(this.cmbUnidades_SelectedIndexChanged);
+            // 
             // frmFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(334, 138);
+            this.ClientSize = new System.Drawing.Size(327, 306);
+            this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnBuscar);
             this.Controls.Add(this.btnSalirPrestamo);
             this.Controls.Add(this.groupBox1);
@@ -217,6 +280,8 @@
             this.Load += new System.EventHandler(this.frmFacturacion_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -230,5 +295,10 @@
         private System.Windows.Forms.ComboBox cmbMeses;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.GroupBox groupBox2;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.TreeView treeView1;
+        private System.Windows.Forms.ComboBox cmbUnidades;
     }
 }
