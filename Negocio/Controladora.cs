@@ -562,7 +562,7 @@ namespace Negocio
                 Oficina = "01";
             }
 
-            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "01" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // INISA
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "35" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // INISA
             {
 
                 NombreArchivo = "INISA " + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "-" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4, 4) + " 976.csv";
