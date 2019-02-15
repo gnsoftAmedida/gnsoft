@@ -611,6 +611,7 @@ namespace Negocio
                 NombreArchivo = "HAB" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "001CACFSMEF.xls";
                 Oficina = "02";
                 WInciso = "30";
+                interfacePorDisco = false;
             }
 
            // Agregado del 12/02/2019 por Gino y Nico 
@@ -1755,10 +1756,7 @@ namespace Negocio
 
             //Agregado 13/02/2019
             else if (Control == "3002") // OSE
-            {
-                sw.Flush();
-                sw.Dispose();
-
+            {            
                 Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
                 Excel.Workbook xlWorkBook;
                 Excel.Worksheet xlWorkSheet;
@@ -1798,7 +1796,7 @@ namespace Negocio
                     xlWorkSheet.Cells[n + 1, 2] = "7044"; // Consultar
                     xlWorkSheet.Cells[n + 1, 3] = resultadoInter.ToString("#####0");
                     xlWorkSheet.Cells[n + 1, 4] = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);                    
-                    xlWorkSheet.Cells[n + 1, 6] = "48";
+                    xlWorkSheet.Cells[n + 1, 5] = "48";
 
                     contador++;
                 }
