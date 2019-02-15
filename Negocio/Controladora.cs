@@ -1438,12 +1438,13 @@ namespace Negocio
                     String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
 
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
-                    //###,##0
 
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
 
-                    //Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
-                    String r = "1," + cedula + ",00000,976," + resultadoInter.ToString("#####0") + "00," + apellidos + ",,";
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + " " + Microsoft.VisualBasic.Strings.Trim(nombres);
+
+                    String r = "1," + cedula + ",00000,976," + resultadoInter.ToString("#####0") + "00," + nombreApellido;
 
                     sw.WriteLine(r);
                 }
@@ -1470,8 +1471,10 @@ namespace Negocio
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
-                   
-                    String r = "1," + cedula + ",00000,976," + resultadoInter.ToString("#####0") + "00," + apellidos + ",,";
+
+                    String nombreApellido = Microsoft.VisualBasic.Strings.Trim(apellidos) + " " + Microsoft.VisualBasic.Strings.Trim(nombres);
+
+                    String r = "1," + cedula + ",00000,976," + resultadoInter.ToString("#####0") + "00," + nombreApellido;
 
                     sw.WriteLine(r);
                 }
