@@ -558,5 +558,15 @@ namespace COOPMEF
                 MessageBox.Show("No se encuentran planes de préstamos");
             }
         }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            frmModificarTodasLasTasas tmpFrmModificarTodasLasTasas = new frmModificarTodasLasTasas();
+            tmpFrmModificarTodasLasTasas.ShowDialog();
+
+            dsPlanes = empresa.DevolverPlanes();
+            pantallaInicial();
+            yaHizoLoad = true;
+        }
     }
 }

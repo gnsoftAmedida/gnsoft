@@ -53,6 +53,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.btnReporte = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -101,7 +102,7 @@
             this.btnEliminarPlan.Image = global::COOPMEF.Properties.Resources.delete16;
             this.btnEliminarPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEliminarPlan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEliminarPlan.Location = new System.Drawing.Point(494, 148);
+            this.btnEliminarPlan.Location = new System.Drawing.Point(494, 126);
             this.btnEliminarPlan.Name = "btnEliminarPlan";
             this.btnEliminarPlan.Size = new System.Drawing.Size(96, 30);
             this.btnEliminarPlan.TabIndex = 3;
@@ -114,7 +115,7 @@
             this.btnEditarPlan.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
             this.btnEditarPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnEditarPlan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnEditarPlan.Location = new System.Drawing.Point(494, 97);
+            this.btnEditarPlan.Location = new System.Drawing.Point(494, 90);
             this.btnEditarPlan.Name = "btnEditarPlan";
             this.btnEditarPlan.Size = new System.Drawing.Size(96, 30);
             this.btnEditarPlan.TabIndex = 2;
@@ -127,7 +128,7 @@
             this.btnNuevoPlan.Image = global::COOPMEF.Properties.Resources._1486109530_new_file;
             this.btnNuevoPlan.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnNuevoPlan.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnNuevoPlan.Location = new System.Drawing.Point(494, 46);
+            this.btnNuevoPlan.Location = new System.Drawing.Point(494, 54);
             this.btnNuevoPlan.Name = "btnNuevoPlan";
             this.btnNuevoPlan.Size = new System.Drawing.Size(96, 30);
             this.btnNuevoPlan.TabIndex = 1;
@@ -318,7 +319,7 @@
             this.btnReporte.Image = global::COOPMEF.Properties.Resources._1486109481_edit_file;
             this.btnReporte.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.btnReporte.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.btnReporte.Location = new System.Drawing.Point(494, 194);
+            this.btnReporte.Location = new System.Drawing.Point(494, 165);
             this.btnReporte.Name = "btnReporte";
             this.btnReporte.Size = new System.Drawing.Size(96, 30);
             this.btnReporte.TabIndex = 3;
@@ -330,7 +331,7 @@
             // 
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.button1.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.button1.Location = new System.Drawing.Point(494, 235);
+            this.button1.Location = new System.Drawing.Point(494, 201);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(96, 30);
             this.button1.TabIndex = 7;
@@ -338,11 +339,24 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.button2.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.button2.Location = new System.Drawing.Point(494, 237);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(96, 30);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Modificar Tasas";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // frmPlanDePrestamo
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(602, 345);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.btnSalirPlan);
@@ -390,5 +404,6 @@
         private System.Windows.Forms.Label lblIva;
         private System.Windows.Forms.Button btnReporte;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }

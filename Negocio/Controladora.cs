@@ -1837,7 +1837,7 @@ namespace Negocio
 
             //Agregado 13/02/2019
             else if (Control == "3002") // OSE
-            {            
+            {
                 Excel.Application xlApp = new Microsoft.Office.Interop.Excel.Application();
                 Excel.Workbook xlWorkBook;
                 Excel.Worksheet xlWorkSheet;
@@ -1876,7 +1876,7 @@ namespace Negocio
                     xlWorkSheet.Cells[n + 1, 1] = cedula;
                     xlWorkSheet.Cells[n + 1, 2] = "7044"; // Consultar
                     xlWorkSheet.Cells[n + 1, 3] = resultadoInter.ToString("#####0");
-                    xlWorkSheet.Cells[n + 1, 4] = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);                    
+                    xlWorkSheet.Cells[n + 1, 4] = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
                     xlWorkSheet.Cells[n + 1, 5] = "48";
 
                     contador++;
@@ -1884,7 +1884,7 @@ namespace Negocio
 
                 xlWorkSheet.Cells[contador + 1, 1] = "99999999";
 
-                String ruta = unidad +  NombreArchivo; 
+                String ruta = unidad + NombreArchivo;
 
                 xlWorkBook.SaveAs(ruta, Excel.XlFileFormat.xlWorkbookNormal, misValue, misValue, misValue, misValue, Excel.XlSaveAsAccessMode.xlExclusive, misValue, misValue, misValue, misValue, misValue);
                 xlWorkBook.Close(true, misValue, misValue);
@@ -1894,7 +1894,7 @@ namespace Negocio
                 Marshal.ReleaseComObject(xlWorkBook);
                 Marshal.ReleaseComObject(xlApp);
 
-               generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
             }
 
                   //Agregado 13/02/2019
@@ -2766,6 +2766,13 @@ namespace Negocio
             tmpPlan.Plan_nombre = Plan_nombre;
             tmpPlan.Plan_CuotaCada1000 = Plan_CuotaCada1000;
             tmpPlan.Guardar();
+        }
+
+        public void modificarTasas(double nuevaTasa)
+        {
+            Plan tmpPlan = new Plan();
+            tmpPlan.Plan_TasaAnualEfectiva = nuevaTasa;
+            tmpPlan.modificarTasas(nuevaTasa);
         }
 
         public void ModificarPlan(int id_plan, int Plan_cantCuotas, double Plan_TasaAnualEfectiva, double Plan_IvaSobreIntereses, int Plan_vigencia, string Plan_nombre, double Plan_CuotaCada1000)

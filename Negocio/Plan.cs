@@ -22,13 +22,13 @@ namespace Negocio
             get { return plan_id; }
             set { plan_id = value; }
         }
-        
+
         public int Plan_cantCuotas
         {
             get { return plan_cantCuotas; }
             set { plan_cantCuotas = value; }
         }
-       
+
         public double Plan_TasaAnualEfectiva
         {
             get { return plan_TasaAnualEfectiva; }
@@ -40,19 +40,19 @@ namespace Negocio
             get { return plan_IvaSobreIntereses; }
             set { plan_IvaSobreIntereses = value; }
         }
-      
+
         public int Plan_vigencia
         {
             get { return plan_vigencia; }
             set { plan_vigencia = value; }
         }
-    
+
         public string Plan_nombre
         {
             get { return plan_nombre; }
             set { plan_nombre = value; }
         }
-       
+
         public double Plan_CuotaCada1000
         {
             get { return plan_CuotaCada1000; }
@@ -98,6 +98,12 @@ namespace Negocio
         {
             pPlan tmpPlan = new pPlan();
             tmpPlan.modificarPlan(Plan_id, Plan_cantCuotas, Plan_TasaAnualEfectiva, Plan_IvaSobreIntereses, Plan_vigencia, Plan_nombre, Plan_CuotaCada1000);
+        }
+
+        public void modificarTasas(double nuevaTasa)
+        {
+            pPlan tmpPlan = new pPlan();
+            tmpPlan.modificarTasas(nuevaTasa);
         }
     }
 }

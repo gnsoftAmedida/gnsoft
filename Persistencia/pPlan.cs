@@ -144,7 +144,38 @@ namespace Persistencia
             try
             {
 
-                string sql = "Update planprestamo set plan_NroCuotas = " + plan_cantCuotas + ", plan_TasaAnualEfectiva = " + plan_TasaAnualEfectiva.ToString().Replace(",", ".") + ", plan_IvaSobreIntereses = " + plan_IvaSobreIntereses.ToString().Replace(",", ".") + ", plan_vigente = " + plan_vigencia + ", plan_nombre = '" + plan_nombre + "', plan_CuotaCada1000 = " + plan_CuotaCada1000 + " WHERE plan_id =" + id_plan;
+                string sql = "Update planprestamo set plan_NroCuotas = " + plan_cantCuotas + ", plan_TasaAnualEfectiva = " + plan_TasaAnualEfectiva.ToString().Replace(",", ".") + ", plan_IvaSobreIntereses = " + plan_IvaSobreIntereses.ToString().Replace(",", ".") + ", plan_vigente = " + plan_vigencia + ", plan_nombre = '" + plan_nombre + "', plan_CuotaCada1000 = " + plan_CuotaCada1000.ToString().Replace(",", ".") + " WHERE plan_id =" + id_plan;
+
+                connection.Open();
+                transaction = connection.BeginTransaction();
+                MySqlAdapter.UpdateCommand = connection.CreateCommand();
+                MySqlAdapter.UpdateCommand.Transaction = transaction;
+
+                MySqlAdapter.UpdateCommand.CommandText = sql;
+                MySqlAdapter.UpdateCommand.ExecuteNonQuery();
+
+                transaction.Commit();
+
+                connection.Close();
+            }
+            catch (Exception ex)
+            {
+                transaction.Rollback();
+                connection.Close();
+                throw ex;
+            }
+        }
+
+
+        public void modificarTasas(double nuevaTasa)
+        {
+            MySqlConnection connection = conectar();
+            MySqlTransaction transaction = null;
+            MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
+
+            try
+            {                 
+                string sql = "Update planprestamo set plan_TasaAnualEfectiva = '" + nuevaTasa.ToString().Replace(",", ".") + "'";
 
                 connection.Open();
                 transaction = connection.BeginTransaction();
@@ -173,7 +204,7 @@ namespace Persistencia
             MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
           
             string sql;
-            sql = "INSERT INTO planprestamo (plan_NroCuotas, plan_TasaAnualEfectiva, plan_IvaSobreIntereses, plan_vigente, plan_nombre, plan_CuotaCada1000) VALUES ('" + plan_cantCuotas + "','" + plan_TasaAnualEfectiva.ToString().Replace(",", ".") + "','" + plan_IvaSobreIntereses.ToString().Replace(",", ".") + "','" + plan_vigencia + "','" + plan_nombre + "','" + plan_CuotaCada1000 + "');" + "Select last_insert_id()";
+            sql = "INSERT INTO planprestamo (plan_NroCuotas, plan_TasaAnualEfectiva, plan_IvaSobreIntereses, plan_vigente, plan_nombre, plan_CuotaCada1000) VALUES ('" + plan_cantCuotas + "','" + plan_TasaAnualEfectiva.ToString().Replace(",", ".") + "','" + plan_IvaSobreIntereses.ToString().Replace(",", ".") + "','" + plan_vigencia + "','" + plan_nombre + "','" + plan_CuotaCada1000.ToString().Replace(",", ".") + "');" + "Select last_insert_id()";
 
             try
             {

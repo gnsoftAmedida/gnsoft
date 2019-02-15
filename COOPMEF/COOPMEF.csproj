@@ -416,6 +416,12 @@
     <Compile Include="frmModificarInciso.Designer.cs">
       <DependentUpon>frmModificarInciso.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmModificarTodasLasTasas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmModificarTodasLasTasas.Designer.cs">
+      <DependentUpon>frmModificarTodasLasTasas.cs</DependentUpon>
+    </Compile>
     <Compile Include="frmMovimientosBancarios.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -793,6 +799,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmModificarInciso.resx">
       <DependentUpon>frmModificarInciso.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmModificarTodasLasTasas.resx">
+      <DependentUpon>frmModificarTodasLasTasas.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="frmMovimientosBancarios.resx">
       <DependentUpon>frmMovimientosBancarios.cs</DependentUpon>

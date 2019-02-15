@@ -347,3 +347,4 @@ C:\Users\GNSoft\Desktop\gnsoft-master\COOPMEF\obj\x86\Debug\COOPMEF.Properties.R
 C:\Users\GNSoft\Desktop\gnsoft-master\COOPMEF\obj\x86\Debug\COOPMEF.frmPrincipal.gsw.resources
 C:\Users\GNSoft\Desktop\gnsoft-master\COOPMEF\obj\x86\Debug\COOPMEF.csproj.GenerateResource.Cache
 C:\Users\GNSoft\Desktop\gnsoft-master\COOPMEF\obj\x86\Debug\gsw\COOPMEF.resources.dll
+C:\Users\GNSoft\Documents\GitHub\gnsoft\COOPMEF\obj\x86\Debug\COOPMEF.frmModificarTodasLasTasas.resources
