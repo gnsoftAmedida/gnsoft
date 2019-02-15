@@ -546,7 +546,7 @@ namespace Negocio
             {
                 //Modificado 19/05/2010 según instrucciones del codicen
                 //NombreArchivo = "Codicen.csv" Cambio en nombre de archivo
-                NombreArchivo = "Cacfsmef_739.csv";
+                NombreArchivo = "Cacfsmef.csv";
                 Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
                 WInciso = "96";
                 Oficina = "02";
@@ -1393,7 +1393,7 @@ namespace Negocio
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
 
                     //Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
-                    String r = "," + cedula + ",,739," + Padeo(resultadoInter.ToString("#####0"), 8) + "00," + apellidos;
+                    String r = "," + cedula + ",,739," + resultadoInter.ToString("#####0") + "00," + apellidos + ",,";
 
                     sw.WriteLine(r);
                 }
