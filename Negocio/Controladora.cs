@@ -542,6 +542,7 @@ namespace Negocio
                 Oficina = "10";
 
             }
+
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "96" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "02")  // CODICEN
             {
                 //Modificado 19/05/2010 según instrucciones del codicen
@@ -551,6 +552,25 @@ namespace Negocio
                 WInciso = "96";
                 Oficina = "02";
             }
+
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "27" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // INAU
+            {
+
+                NombreArchivo = "inau " + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "-" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4, 4) + " 976.csv";
+                Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
+                WInciso = "27";
+                Oficina = "01";
+            }
+
+            else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "01" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // INISA
+            {
+
+                NombreArchivo = "INISA " + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "-" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4, 4) + " 976.csv";
+                Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
+                WInciso = "35";
+                Oficina = "01";
+            }
+
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "96" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // CONSEJO EDUC. PRIMARIA
             {
                 NombreArchivo = "CEP.txt";
@@ -1394,6 +1414,64 @@ namespace Negocio
 
                     //Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
                     String r = "," + cedula + ",,739," + resultadoInter.ToString("#####0") + "00," + apellidos + ",,";
+
+                    sw.WriteLine(r);
+                }
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+            }
+
+            else if (Control == "2701") // INAU
+            {
+                sw.WriteLine(Primero);
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                    //###,##0
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    //Print #Canal, "1," & RsHistoria!cedula & "," & RsHistoria!numerocobro & ",739," & Parcial & "00," & RsHistoria!apellidos
+                    String r = "1," + cedula + ",00000,976," + resultadoInter.ToString("#####0") + "00," + apellidos + ",,";
+
+                    sw.WriteLine(r);
+                }
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+            }
+
+            else if (Control == "3501") // INISA
+            {
+                sw.WriteLine(Primero);
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+                   
+                    String r = "1," + cedula + ",00000,976," + resultadoInter.ToString("#####0") + "00," + apellidos + ",,";
 
                     sw.WriteLine(r);
                 }
