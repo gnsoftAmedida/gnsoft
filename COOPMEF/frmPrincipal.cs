@@ -94,7 +94,7 @@ namespace COOPMEF
 
             this.cmbDepartamento.DataSource = dsDepartamentos.Tables["departamentos"];
             this.cmbDepartamento.DisplayMember = "departamento_nombre";
-            this.cmbDepartamento.ValueMember = "departamento_nombre";
+            this.cmbDepartamento.ValueMember = "departamento_id";
             this.cmbDepartamento.SelectedIndex = 0;
         }
 
@@ -1622,7 +1622,7 @@ namespace COOPMEF
                 this.dtpFechaIng.Value = Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fechaIngreso"].Value.ToString());
                 this.cmbEstadoCivil.Text = dgvSociosCampo.Rows[index].Cells["socio_estadoCivil"].Value.ToString();
 
-                this.cmbDepartamento.Text = dgvSociosCampo.Rows[index].Cells["socio_departamento"].Value.ToString();
+                this.cmbDepartamento.SelectedValue = dgvSociosCampo.Rows[index].Cells["socio_departamento"].Value.ToString();
 
                 if (dgvSociosCampo.Rows[index].Cells["socio_estado"].Value.Equals("Activo"))
                 {

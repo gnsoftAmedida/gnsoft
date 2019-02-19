@@ -170,7 +170,7 @@ namespace COOPMEF
                             debeHaber = "Deposito";
                         }
 
-                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text.Replace(".", ",")), txtConcepto.Text, saldo);
+                        empresa.AltaMovimiento(DateTime.Today, codigoBanco, numeroCuenta, txtNumeroComprobante.Text, debeHaber, Convert.ToDouble(txtImporte.Text.Replace(".", ",")), txtConcepto.Text.ToUpper(), saldo);
 
                         empresa.actualizarSaldo(codigoBanco, saldo + factorMultiplicador * (Convert.ToDouble(txtImporte.Text.Replace(".", ","))));
 

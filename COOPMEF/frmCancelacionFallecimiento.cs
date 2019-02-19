@@ -30,14 +30,14 @@ namespace COOPMEF
 
             if (socioSeleccionado.Tables["socios"].Rows.Count > 0)
             {
-                if (Convert.ToInt32(socioSeleccionado.Tables["socios"].Rows[0][18].ToString()) == 1)
+                if (Convert.ToInt32(socioSeleccionado.Tables["socios"].Rows[0][19].ToString()) == 1)
                 {
 
                     this.txtApeNomCA.Text = socioSeleccionado.Tables["socios"].Rows[0][3].ToString().Trim() + "," + socioSeleccionado.Tables["socios"].Rows[0][2].ToString().Trim();
                     this.txtNroCobroCA.Text = socioSeleccionado.Tables["socios"].Rows[0][4].ToString();
 
-                    txtOficinaCA.Text = socioSeleccionado.Tables["socios"].Rows[0][16].ToString() + " - " + socioSeleccionado.Tables["socios"].Rows[0][23].ToString();
-                    txtIncisoCA.Text = socioSeleccionado.Tables["socios"].Rows[0][17].ToString() + " - " + socioSeleccionado.Tables["socios"].Rows[0][24].ToString();
+                    txtOficinaCA.Text = socioSeleccionado.Tables["socios"].Rows[0][17].ToString() + " - " + socioSeleccionado.Tables["socios"].Rows[0][23].ToString();
+                    txtIncisoCA.Text = socioSeleccionado.Tables["socios"].Rows[0][18].ToString() + " - " + socioSeleccionado.Tables["socios"].Rows[0][24].ToString();
 
                     DataSet dsCobranzaProvisoriaSocio = empresa.devolverCobranzaProvisoriaSocio(idSocio);
                     DataSet dsCobranzaSocio = empresa.devolverCobranzaSocio(idSocio);
@@ -163,6 +163,7 @@ namespace COOPMEF
             idCobranza = 0;
             idCobranzaProvisoria = 0;
             idSocio = 0;
+            this.btnCancelarDeudas.Enabled = false;
         }
 
         private void btnBuscar_Click(object sender, EventArgs e)
