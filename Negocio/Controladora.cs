@@ -448,7 +448,8 @@ namespace Negocio
             {
                 Primero = "D02"; //Impositiva
                 Segundo = "000907";
-                NombreArchivo = "DETALLE.TXT";
+                NombreArchivo = "DGI" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
+                // NombreArchivo = "DETALLE.TXT";
                 Oficina = "05";
                 WInciso = "05";
             }
@@ -574,6 +575,7 @@ namespace Negocio
             else if (Microsoft.VisualBasic.Strings.Mid(CboIncisos, 1, 2) == "96" && Microsoft.VisualBasic.Strings.Mid(CboOficinas, 1, 2) == "01")  // CONSEJO EDUC. PRIMARIA
             {
                 NombreArchivo = "CEP.txt";
+                NombreArchivo_Formato_Nuevo = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "-" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4, 4) + "_8381_CACFSMEF.TXT";
                 //Primero = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario"
                 WInciso = "96";
                 Oficina = "01";
@@ -767,39 +769,39 @@ namespace Negocio
             }
 
             // este if luego ponerlo en el lugar que esta ahora impositiva. NUEVA MODALIDAD A  PARTIR DE MARZO DE 2007
-            if (Control == "0505") //DGI
-            {
-                StreamWriter swd = new StreamWriter(unidad + "DGI" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT", true);
-
-                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+            /*    if (Control == "0505") //DGI
                 {
-                    //Corregido
-                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
-                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
-                    string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
-                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
-                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
-                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
-                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+                  //  StreamWriter swd = new StreamWriter(unidad + NombreArchivo, true);
 
-                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
-
-                    // Agregado por si ponen un nro de cobro mayor a 6
-                    if (numeroCobro.Length > 6)
+                    for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                     {
-                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 6, 6);
+                        //Corregido
+                        Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                        Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                        string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                        Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                        Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                        Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                        Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                        numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                        // Agregado por si ponen un nro de cobro mayor a 6
+                        if (numeroCobro.Length > 6)
+                        {
+                            numeroCobro = numeroCobro.Substring(numeroCobro.Length - 6, 6);
+                        }
+
+                        String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter.ToString("#####0"), 8) + "00";
+
+                        //    swd.WriteLine(r);
                     }
+                 //   swd.Flush();
+                    //   swd.Dispose();
 
-                    String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter.ToString("#####0"), 8) + "00";
-
-                    swd.WriteLine(r);
+                    generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
                 }
-                swd.Flush();
-                swd.Dispose();
-
-                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
-            }
-
+    */
             //Open "a:\" & NombreArchivo For Output As #Canal
             //secretaria
             if (Control == "0501")
@@ -920,8 +922,34 @@ namespace Negocio
 
             else if (Control == "0505")
             { //DGI
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    //Corregido
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    string numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
 
+                    // Agregado por si ponen un nro de cobro mayor a 6
+                    if (numeroCobro.Length > 6)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 6, 6);
+                    }
+
+                    String r = this.Padeo(numeroCobro, 6) + "5154" + this.Padeo(resultadoInter.ToString("#####0"), 8) + "00";
+
+                    sw.WriteLine(r);
+                }
+                //   swd.Flush();
+                //   swd.Dispose();
+
+                generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+                /*
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
                     //Corregido
@@ -951,6 +979,7 @@ namespace Negocio
                     sw.WriteLine(r);
                 }
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+                 * */
             }
             else if (Control == "0507") //(Verificada)
             { // Aduanas
@@ -1484,7 +1513,7 @@ namespace Negocio
             else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
             {
 
-                StreamWriter swPrimaria = new StreamWriter(unidad + "primaria.txt", true);
+                StreamWriter swPrimaria = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, true);
                 string linea1 = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
                 swPrimaria.WriteLine(linea1);
 
@@ -1875,9 +1904,11 @@ namespace Negocio
 
                     xlWorkSheet.Cells[n + 1, 1] = cedula;
                     xlWorkSheet.Cells[n + 1, 2] = "7044"; // Consultar
-                    xlWorkSheet.Cells[n + 1, 3] = resultadoInter.ToString("#####0");
+                    xlWorkSheet.Cells[n + 1, 3] = resultadoInter.ToString("#####0") + "00";
                     xlWorkSheet.Cells[n + 1, 4] = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
-                    xlWorkSheet.Cells[n + 1, 5] = "48";
+                    xlWorkSheet.Cells[n + 1, 5] = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2);
+                    xlWorkSheet.Cells[n + 1, 6] = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + "/01/" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 6);
+                    xlWorkSheet.Cells[n + 1, 7] = "048";
 
                     contador++;
                 }
@@ -2015,11 +2046,12 @@ namespace Negocio
             if (Control == "0505") // 'totales DGI
             {
                 //Open "A:\CONTROL.TXT" For Output As #Canal       
-                sw = new StreamWriter(unidad + "CONTROL.TXT", true);
-                String r = "T02" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + "0000000" + Padeo(CantidadGente.ToString(), 3) + Padeo(Total.ToString().Replace(",", "").Replace(".", ""), 10) + "00";
-                sw.WriteLine(r);
-                sw.Flush();
-                sw.Dispose();
+                /*  sw = new StreamWriter(unidad + "CONTROL.TXT", true);
+                  String r = "T02" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4) + "0000000" + Padeo(CantidadGente.ToString(), 3) + Padeo(Total.ToString().Replace(",", "").Replace(".", ""), 10) + "00";
+                  sw.WriteLine(r);
+                  sw.Flush();
+                  sw.Dispose();
+                 * */
             }
             else if (Oficina == "99") //totales BPS
             {
