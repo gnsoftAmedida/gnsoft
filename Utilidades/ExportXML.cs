@@ -19,7 +19,7 @@ namespace Utilidades
             XmlNode docNode = doc.CreateXmlDeclaration("1.0", "UTF-8\" standalone=\"yes", "");
             doc.AppendChild(docNode);
 
-            string xml = @"<?xml version='1.0' encoding='UTF -8' ?>
+            string xml = @"<?xml version='1.0' encoding='UTF-8' ?>
                         <ns0:CFE_Adenda xmlns:ns0='http://cfe.dgi.gub.uy' xmlns:ds='http://www.w3.org/2000/09/xmldsig#' xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xsi:schemaLocation='http://cfe.dgi.gub.uy CFEEmpresas_v1.8.xsd ' >
 	                        <ns0:CFE version= '1.0' xmlns:ns0= 'http://cfe.dgi.gub.uy' >
                                 <ns0:eTck>
@@ -104,8 +104,8 @@ namespace Utilidades
 	                        <ns0:Adenda>
 		                        <Rondanet>
 			                        <A01>
-				                        <Numerar>1</Numerar>
-				                        <Firmar>1</Firmar>				
+				                        <NumerarPDV>1</NumerarPDV>
+				                        <FirmarPDV>1</FirmarPDV>				
 			                        </A01>
 		                        </Rondanet>
 	                        </ns0:Adenda>	

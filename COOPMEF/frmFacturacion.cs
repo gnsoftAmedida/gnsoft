@@ -65,21 +65,21 @@ namespace COOPMEF
             var totales = new Dictionary<string, string>();
             totales["MntNoGrv"] = "0";
             totales["MntNetoIvaTasaMin"] = "0";
-            totales["MntNetoIVATasaBasica"] = montoNetoIva;
+            totales["MntNetoIVATasaBasica"] =  Convert.ToDouble(montoNetoIva).ToString("##0.00").Replace(",", ".");
             totales["IVATasaMin"] = "0";
             totales["IVATasaBasica"] = porcentajeIva.ToString();
             totales["MntIVATasaMin"] = "0";
-            totales["MntIVATasaBasica"] = montoIva.ToString("#,##0.00");
-            totales["MntTotal"] = total.ToString("#,##0.00");
+            totales["MntIVATasaBasica"] = montoIva.ToString("##0.00").Replace(",", ".");
+            totales["MntTotal"] = total.ToString("##0.00").Replace(",", ".");
             totales["CantLinDet"] = "4";
-            totales["MntPagar"] = total.ToString("#,##0.00");
+            totales["MntPagar"] = total.ToString("##0.00").Replace(",", ".");
 
             //Datos de los items
             var items = new Dictionary<string, string>();
-            items["PrecioUnitario1"] = String.Format(interesCuota.ToString(), "#,##0.00");
-            items["PrecioUnitario2"] = String.Format(ivaCuota.ToString(), "#,##0.00");
-            items["PrecioUnitario3"] = String.Format(mora.ToString(), "#,##0.00");
-            items["PrecioUnitario4"] = String.Format(ivaMora.ToString(), "#,##0.00");
+            items["PrecioUnitario1"] = String.Format(interesCuota.ToString(), "##0.00").Replace(",", ".");
+            items["PrecioUnitario2"] = String.Format(ivaCuota.ToString(), "##0.00").Replace(",", ".");
+            items["PrecioUnitario3"] = String.Format(mora.ToString(), "##0.00").Replace(",", ".");
+            items["PrecioUnitario4"] = String.Format(ivaMora.ToString(), "##0.00").Replace(",", ".");
 
 
             ExportXML exportar = new ExportXML();
