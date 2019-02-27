@@ -99,6 +99,12 @@ namespace Utilidades
 					                        <ns0:MontoItem>" + items["PrecioUnitario4"] + @"</ns0:MontoItem>
 				                        </ns0:Item>				   				   				   				                        
 			                        </ns0:Detalle>
+                                    <ns0:CAEData>
+				                        <ns0:CAE_ID></ns0:CAE_ID>
+				                        <ns0:DNro></ns0:DNro>
+				                        <ns0:HNro></ns0:HNro>
+				                        <ns0:FecVenc></ns0:FecVenc>
+			                        </ns0:CAEData>
 		                        </ns0:eTck>
 	                        </ns0:CFE>	
 	                        <ns0:Adenda>

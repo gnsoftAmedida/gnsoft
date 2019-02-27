@@ -301,7 +301,7 @@ namespace Persistencia
                 MySqlConnection connection = conectar();
 
                 MySqlDataAdapter MySqlAdapter = new MySqlDataAdapter();
-                string sql = "SELECT Distinct p.fecha, h.NumeroPrestamo, p.monteopedido, p.amortizacionVencer, Round((h.cantidadcuotas * h.importecuota),2) as totalvale, h.cantidadcuotas, h.importecuota, p.numeroPrestamoAnt, p.cuotasPactadas, p.cuotasPagadas,  ((p.cuotasPagadas * 100)/p.cuotasPactadas) as porcentagePagado, s.socio_nro, s.socio_apellido, s.socio_nombre FROM historia h, prestamo p, socio s where s.socio_id = h.socio_id and h.NumeroPrestamo = p.prestamo_id and h.socio_id='" + idSocio + "' ORDER BY p.fecha DESC";
+                string sql = "SELECT Distinct p.fecha, h.NumeroPrestamo, ROUND(p.monteopedido - p.amortizacionVencer) as monteopedido , p.amortizacionVencer, Round((h.cantidadcuotas * h.importecuota),2) as totalvale, h.cantidadcuotas, h.importecuota, p.numeroPrestamoAnt, p.cuotasPactadas, p.cuotasPagadas,  ((p.cuotasPagadas * 100)/p.cuotasPactadas) as porcentagePagado, s.socio_nro, s.socio_apellido, s.socio_nombre FROM historia h, prestamo p, socio s where s.socio_id = h.socio_id and h.NumeroPrestamo = p.prestamo_id and h.socio_id='" + idSocio + "' ORDER BY p.fecha DESC";
                 DataSet ds = new DataSet();
 
                 connection.Open();

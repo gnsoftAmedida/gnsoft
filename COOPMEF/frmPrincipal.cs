@@ -601,7 +601,7 @@ namespace COOPMEF
                 {
 
                     string numSocioTable = dsSocios.Tables["socios"].Rows[i][3].ToString();
-                    if (nroSocio == numSocioTable.Trim())
+                    if (nroSocio.Replace(".", "").Replace(",", "").Replace("-", "") == numSocioTable.Trim())
                     {
                         this.lblYaExisteSocio.Visible = true;
                         this.lblYaExisteSocio.Text = "#";
