@@ -608,13 +608,13 @@ namespace COOPMEF
                         valido = false;
                     }
 
-                    if (nroCobro == dsSocios.Tables["socios"].Rows[i][4].ToString())
+                /*    if (nroCobro == dsSocios.Tables["socios"].Rows[i][4].ToString())
                     {
                         this.lblYaExisteCobro.Visible = true;
                         this.lblYaExisteCobro.Text = "#";
                         valido = false;
                     };
-
+               */
                     if (valido == false)
                     {
                         lblYaExiste.Visible = true;
