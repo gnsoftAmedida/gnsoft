@@ -66,7 +66,7 @@ namespace COOPMEF
             totales["MntNoGrv"] = "0";
             totales["MntNetoIvaTasaMin"] = "0";
             totales["MntNetoIVATasaBasica"] =  Convert.ToDouble(montoNetoIva).ToString("##0.00").Replace(",", ".");
-            totales["IVATasaMin"] = "0";
+            totales["IVATasaMin"] = "10";
             totales["IVATasaBasica"] = porcentajeIva.ToString();
             totales["MntIVATasaMin"] = "0";
             totales["MntIVATasaBasica"] = montoIva.ToString("##0.00").Replace(",", ".");
