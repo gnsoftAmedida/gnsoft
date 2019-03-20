@@ -74,30 +74,12 @@ namespace Utilidades
                                         <ns0:Item>
 					                        <ns0:NroLinDet>2</ns0:NroLinDet>
 					                        <ns0:IndFact>3</ns0:IndFact>
-					                        <ns0:NomItem>I.V.A. cuota</ns0:NomItem>
+					                        <ns0:NomItem>Mora</ns0:NomItem>
 					                        <ns0:Cantidad>1</ns0:Cantidad>
 					                        <ns0:UniMed>N/A</ns0:UniMed>
 					                        <ns0:PrecioUnitario>" + items["PrecioUnitario2"] + @"</ns0:PrecioUnitario>
 					                        <ns0:MontoItem>" + items["PrecioUnitario2"] + @"</ns0:MontoItem>
-				                        </ns0:Item>
-                                         <ns0:Item>
-					                        <ns0:NroLinDet>3</ns0:NroLinDet>
-					                        <ns0:IndFact>3</ns0:IndFact>
-					                        <ns0:NomItem>Mora</ns0:NomItem>
-					                        <ns0:Cantidad>1</ns0:Cantidad>
-					                        <ns0:UniMed>N/A</ns0:UniMed>
-					                        <ns0:PrecioUnitario>" + items["PrecioUnitario3"] + @"</ns0:PrecioUnitario>
-					                        <ns0:MontoItem>" + items["PrecioUnitario3"] + @"</ns0:MontoItem>
-				                        </ns0:Item>
-                                         <ns0:Item>
-					                        <ns0:NroLinDet>4</ns0:NroLinDet>
-					                        <ns0:IndFact>3</ns0:IndFact>
-					                        <ns0:NomItem>I.V.A. Mora</ns0:NomItem>
-					                        <ns0:Cantidad>1</ns0:Cantidad>
-					                        <ns0:UniMed>N/A</ns0:UniMed>
-					                        <ns0:PrecioUnitario>" + items["PrecioUnitario4"] + @"</ns0:PrecioUnitario>
-					                        <ns0:MontoItem>" + items["PrecioUnitario4"] + @"</ns0:MontoItem>
-				                        </ns0:Item>				   				   				   				                        
+				                        </ns0:Item>                             			   				   				   				                        
 			                        </ns0:Detalle>
                                     <ns0:CAEData>
 				                        <ns0:CAE_ID></ns0:CAE_ID>

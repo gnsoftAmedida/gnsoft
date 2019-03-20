@@ -58,8 +58,8 @@ namespace COOPMEF
             receptor["DocRecep"] = documentoReceptor;
             receptor["RznSocRecep"] = nombreReceptor;
 
-            Double montoIva = Convert.ToDouble(montoNetoIva) * (Convert.ToDouble(porcentajeIva) / 100);
-            Double total = Convert.ToDouble(montoNetoIva) + montoIva;
+            Double montoIva = Convert.ToDouble(montoNetoIva);
+            Double total = Convert.ToDouble(montoNetoIva) + Convert.ToDouble(interesCuota) + Convert.ToDouble(mora);
 
             //Datos de los totales
             var totales = new Dictionary<string, string>();
@@ -71,17 +71,14 @@ namespace COOPMEF
             totales["MntIVATasaMin"] = "0";
             totales["MntIVATasaBasica"] = montoIva.ToString("##0.00").Replace(",", ".");
             totales["MntTotal"] = total.ToString("##0.00").Replace(",", ".");
-            totales["CantLinDet"] = "4";
+            totales["CantLinDet"] = "2";
             totales["MntPagar"] = total.ToString("##0.00").Replace(",", ".");
 
             //Datos de los items
             var items = new Dictionary<string, string>();
             items["PrecioUnitario1"] = String.Format(interesCuota.ToString(), "##0.00").Replace(",", ".");
-            items["PrecioUnitario2"] = String.Format(ivaCuota.ToString(), "##0.00").Replace(",", ".");
-            items["PrecioUnitario3"] = String.Format(mora.ToString(), "##0.00").Replace(",", ".");
-            items["PrecioUnitario4"] = String.Format(ivaMora.ToString(), "##0.00").Replace(",", ".");
-
-
+            items["PrecioUnitario2"] = String.Format(mora.ToString(), "##0.00").Replace(",", ".");
+            
             ExportXML exportar = new ExportXML();
             string nombre = @"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + "_" + documentoReceptor + ".xml";
             exportar.downloadXML(nombre, documento, emisor, receptor, totales, items);
@@ -275,7 +272,7 @@ namespace COOPMEF
 
                             //        swd.WriteLine(r);
 
-                            Double montoNetoIva = Convert.ToDouble(InteresCuota) + Convert.ToDouble(ivaCuota) + Convert.ToDouble(mora) + Convert.ToDouble(ivaMora);
+                            Double montoNetoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
                             String montoNetoIvaStringFormateado = montoNetoIva.ToString("#,##0.00");
 
                             this.CrearDocumentoXML(cedula, nombre_apellido_inciso_oficina, montoNetoIvaStringFormateado, "22", InteresCuota, ivaCuota, mora, ivaMora);
