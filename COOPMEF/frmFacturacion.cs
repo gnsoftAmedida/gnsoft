@@ -59,7 +59,7 @@ namespace COOPMEF
             receptor["RznSocRecep"] = nombreReceptor;
 
             Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
-            Double total = Convert.ToDouble(montoNetoIva) + Convert.ToDouble(interesCuota) + Convert.ToDouble(mora);
+            Double total = Convert.ToDouble(montoNetoIva) + Convert.ToDouble(montoIva);
 
             //Datos de los totales
             var totales = new Dictionary<string, string>();
