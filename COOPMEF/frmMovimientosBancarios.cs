@@ -200,7 +200,7 @@ namespace COOPMEF
             int index = this.cmbBancos.SelectedIndex;
             if (index != -1)
             {
-                this.lblSaldoActual.Text = dsBancos.Tables["bancos"].Rows[index][8].ToString();
+                this.lblSaldoActual.Text = Convert.ToDouble(dsBancos.Tables["bancos"].Rows[index][8].ToString()).ToString("###,###,##0.00");
             }
         }
     }
