@@ -58,7 +58,7 @@ namespace COOPMEF
             receptor["DocRecep"] = documentoReceptor;
             receptor["RznSocRecep"] = nombreReceptor;
 
-            Double montoIva = Convert.ToDouble(montoNetoIva);
+            Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
             Double total = Convert.ToDouble(montoNetoIva) + Convert.ToDouble(interesCuota) + Convert.ToDouble(mora);
 
             //Datos de los totales
@@ -272,7 +272,7 @@ namespace COOPMEF
 
                             //        swd.WriteLine(r);
 
-                            Double montoNetoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
+                            Double montoNetoIva = Convert.ToDouble(mora) + Convert.ToDouble(InteresCuota);
                             String montoNetoIvaStringFormateado = montoNetoIva.ToString("#,##0.00");
 
                             this.CrearDocumentoXML(cedula, nombre_apellido_inciso_oficina, montoNetoIvaStringFormateado, "22", InteresCuota, ivaCuota, mora, ivaMora);
