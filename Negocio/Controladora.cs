@@ -318,10 +318,10 @@ namespace Negocio
                 xlWorkSheet.Cells[n + 14, 3] = apellidos;
                 xlWorkSheet.Cells[n + 14, 5] = nombres;
                 xlWorkSheet.Cells[n + 14, 7] = numeroCobro;
-                xlWorkSheet.Cells[n + 14, 9] = resultadoInter;
+                xlWorkSheet.Cells[n + 14, 9] = resultadoInter.ToString("#####0");
 
                 contador++;
-                total = total + resultadoInter;
+                total = total + Convert.ToDouble(resultadoInter.ToString("#####0"));
             }
 
             xlWorkSheet.Cells[contador + 16, 1] = "Registros";
@@ -765,7 +765,7 @@ namespace Negocio
 
             if (interfacePorDisco)
             {
-                sw = new StreamWriter(unidad + NombreArchivo, true);
+                sw = new StreamWriter(unidad + NombreArchivo, false);
             }
 
             // este if luego ponerlo en el lugar que esta ahora impositiva. NUEVA MODALIDAD A  PARTIR DE MARZO DE 2007
@@ -986,7 +986,7 @@ namespace Negocio
 
                 //agregado para aduana formato nuevo 18/09/2018
                 StreamWriter archivoAduanas = null;
-                archivoAduanas = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, true);
+                archivoAduanas = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, false);
 
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
                 {
@@ -1513,7 +1513,7 @@ namespace Negocio
             else if (Control == "9601") // CONSEJO EDUCACION PRIMARIA
             {
 
-                StreamWriter swPrimaria = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, true);
+                StreamWriter swPrimaria = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, false);
                 string linea1 = "Formato1,Cedula,Funcionario,Codigo,Importe,Nombre,CedulaBeneficiario,NombreBeneficiario";
                 swPrimaria.WriteLine(linea1);
 
@@ -1718,7 +1718,7 @@ namespace Negocio
 
                 //agregado para antel formato nuevo 20/11/2018
                 StreamWriter swAdicional = null;
-                swAdicional = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, true);
+                swAdicional = new StreamWriter(unidad + NombreArchivo_Formato_Nuevo, false);
 
 
                 for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
@@ -2055,7 +2055,7 @@ namespace Negocio
             }
             else if (Oficina == "99") //totales BPS
             {
-                sw = new StreamWriter(unidad + "Tot685" + Primero + ".dat", true);
+                sw = new StreamWriter(unidad + "Tot685" + Primero + ".dat", false);
                 String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString().Replace(",", "").Replace(".", ""), 10);
                 sw.WriteLine(r);
                 sw.Flush();
