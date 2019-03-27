@@ -58,14 +58,16 @@ namespace COOPMEF
             receptor["DocRecep"] = documentoReceptor;
             receptor["RznSocRecep"] = nombreReceptor;
 
-            Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
+            //Cambio 27/03/2019 para ver si funciona el tema del IVA por los dos lugares después de la coma
+            Double montoIva = ((Convert.ToDouble(montoNetoIva) * (1 + (Convert.ToDouble(porcentajeIva) / 100))) - (Convert.ToDouble(montoNetoIva)));
+            //   Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
             Double total = Convert.ToDouble(montoNetoIva) + Convert.ToDouble(montoIva);
 
             //Datos de los totales
             var totales = new Dictionary<string, string>();
             totales["MntNoGrv"] = "0";
             totales["MntNetoIvaTasaMin"] = "0";
-            totales["MntNetoIVATasaBasica"] =  Convert.ToDouble(montoNetoIva).ToString("##0.00").Replace(",", ".");
+            totales["MntNetoIVATasaBasica"] = Convert.ToDouble(montoNetoIva).ToString("##0.00").Replace(",", ".");
             totales["IVATasaMin"] = "10";
             totales["IVATasaBasica"] = porcentajeIva.ToString();
             totales["MntIVATasaMin"] = "0";
@@ -78,7 +80,7 @@ namespace COOPMEF
             var items = new Dictionary<string, string>();
             items["PrecioUnitario1"] = String.Format(interesCuota.ToString(), "##0.00").Replace(",", ".");
             items["PrecioUnitario2"] = String.Format(mora.ToString(), "##0.00").Replace(",", ".");
-            
+
             ExportXML exportar = new ExportXML();
             string nombre = @"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + "_" + documentoReceptor + ".xml";
             exportar.downloadXML(nombre, documento, emisor, receptor, totales, items);
