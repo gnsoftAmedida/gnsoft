@@ -1146,7 +1146,53 @@ namespace Negocio
 
                     sw.WriteLine(r);
                 }
+
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
+
+
+                //Segundo archivo para ASSE agregado por 04/04/2019 por pedido de Leo
+
+                NombreArchivo = "MSP" + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2) + Microsoft.VisualBasic.Strings.Mid(Presupuesto, 6, 2) + ".txt";
+                StreamWriter swd = new StreamWriter(unidad + NombreArchivo, true);
+
+                for (int n = 0; n <= resultado.Tables["interfaz"].Rows.Count - 1; n++)
+                {
+                    String numeroPrestamo = resultado.Tables["interfaz"].Rows[n][1].ToString();
+                    String cedula = resultado.Tables["interfaz"].Rows[n][2].ToString();
+                    Double importeCuota = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][3].ToString());
+                    Double aportecapital = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][4].ToString());
+                    String numeroCobro = resultado.Tables["interfaz"].Rows[n][5].ToString();
+                    Double Excedido = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][8].ToString());
+                    Double Mora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][9].ToString());
+                    Double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
+                    String nombres = resultado.Tables["interfaz"].Rows[n][11].ToString();
+                    String apellidos = resultado.Tables["interfaz"].Rows[n][12].ToString();
+
+                    Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
+
+                    cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
+                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+
+                    Primero = "00083047";
+                    Segundo = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 1, 2);
+                    Tercero = Microsoft.VisualBasic.Strings.Mid(Presupuesto, 4);
+
+                    if (numeroCobro.Length > 8)
+                    {
+                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 10, 10);
+                    }
+
+                    if (numeroPrestamo.Length > 8)
+                    {
+                        numeroPrestamo = numeroPrestamo.Substring(numeroPrestamo.Length - 10, 10);
+                    }
+
+                    String r = Primero + Segundo + Tercero + PadeoBlancos(numeroCobro, 8) + PadeoBlancos(resultadoInter.ToString("#####0"), 10) + "00" + PadeoBlancos(numeroPrestamo, 8) + Microsoft.VisualBasic.Strings.Space(12) + Microsoft.VisualBasic.Strings.Space(5) + "C" + " " + cedula;
+
+                    swd.WriteLine(r);
+                }
+                swd.Flush();
+                swd.Dispose();
             }
 
             else if (Control == "1001") //Control = "1001" Then MTOP (Verificada)
