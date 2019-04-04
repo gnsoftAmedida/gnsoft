@@ -59,8 +59,8 @@ namespace COOPMEF
             receptor["RznSocRecep"] = nombreReceptor;
 
             //Cambio 27/03/2019 para ver si funciona el tema del IVA por los dos lugares después de la coma
-            Double montoIva = ((Convert.ToDouble(montoNetoIva) * (1 + (Convert.ToDouble(porcentajeIva) / 100))) - (Convert.ToDouble(montoNetoIva)));
-            //   Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
+            //Double montoIva = ((Convert.ToDouble(montoNetoIva) * (1 + (Convert.ToDouble(porcentajeIva) / 100))) - (Convert.ToDouble(montoNetoIva)));
+            Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
             Double total = Convert.ToDouble(montoNetoIva) + Convert.ToDouble(montoIva);
 
             //Datos de los totales
@@ -161,6 +161,11 @@ namespace COOPMEF
 
                 if (facturasPresupuesto.Tables["facturacion"].Rows.Count > 0)
                 {
+
+                    double totalNetoSinIVA = 0;
+                    double totalIVAFacturado = 0;
+                    double totalFinal = 0;
+                    int cantidadFacturas = 0;
 
                     //         StreamWriter swd = new StreamWriter(unidad + "facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + ".TXT", true);
                     String r = "";
@@ -281,11 +286,18 @@ namespace COOPMEF
 
                             tmpDsFactura.factura.Rows.Add(nombre_apellido_inciso_oficina, InteresCuota, ivaCuota, mora, ivaMora, fecha, subtotal_1_string, subtotal_2_string, total_string, iva1, iva2);
 
+                            Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
+
+                            totalNetoSinIVA = totalNetoSinIVA + montoNetoIva;
+                            totalIVAFacturado = totalIVAFacturado + montoIva;
+                            cantidadFacturas = cantidadFacturas + 1;
 
                         }
                     }
 
-                    MessageBox.Show("Facturas generadas correctamente en " + unidad);
+                    totalFinal = totalNetoSinIVA + totalIVAFacturado;
+
+                    MessageBox.Show("Facturas generadas correctamente en " + unidad + Environment.NewLine + "Cantidad de facturas generadas: " + cantidadFacturas + Environment.NewLine + "Total Neto sin IVA: " + totalNetoSinIVA.ToString("##0.00") + Environment.NewLine + "Total IVA Facturado: " + totalIVAFacturado.ToString("##0.00") + Environment.NewLine + "Total: " + totalFinal.ToString("##0.00"));
 
                     /*
                                         swd.Flush();
