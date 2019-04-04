@@ -2070,6 +2070,9 @@ namespace COOPMEF
 
                 if (!(idSocioSeleccionado == 0))
                 {
+                    //Agregado para arreglar problema oficina
+                    txtOficina.Text = cmbOficina.Text;
+
                     cmbPlanPréstamo.Enabled = true;
 
                     excedido = estaExcedido();
