@@ -2102,7 +2102,7 @@ namespace Negocio
             else if (Oficina == "99") //totales BPS
             {
                 sw = new StreamWriter(unidad + "Tot685" + Primero + ".dat", false);
-                String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString().Replace(",", "").Replace(".", ""), 10);
+                String r = Primero + "0006685" + Padeo(CantidadGente.ToString(), 7) + Padeo(Total.ToString("#####0").Replace(",", "").Replace(".", ""), 10);
                 sw.WriteLine(r);
                 sw.Flush();
                 sw.Dispose();
