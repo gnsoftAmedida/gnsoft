@@ -608,13 +608,13 @@ namespace COOPMEF
                         valido = false;
                     }
 
-                /*    if (nroCobro == dsSocios.Tables["socios"].Rows[i][4].ToString())
-                    {
-                        this.lblYaExisteCobro.Visible = true;
-                        this.lblYaExisteCobro.Text = "#";
-                        valido = false;
-                    };
-               */
+                    /*    if (nroCobro == dsSocios.Tables["socios"].Rows[i][4].ToString())
+                        {
+                            this.lblYaExisteCobro.Visible = true;
+                            this.lblYaExisteCobro.Text = "#";
+                            valido = false;
+                        };
+                   */
                     if (valido == false)
                     {
                         lblYaExiste.Visible = true;
@@ -4097,7 +4097,7 @@ Agregar emisión
                             String socio_apellido = historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][8].ToString();
                             String socio_nombre = historicoExcedidoSocio.Tables["excedidosPorSocio"].Rows[n][9].ToString();
 
-                            dssocioExcedido.excedido.Rows.Add(presupuesto, aretener.ToString("##0.00"), retenido.ToString("##0.00"), saldo.ToString("##0.00"), mora.ToString("##0.00"), importepagado.ToString("##0.00"), presupuestodelpago, socio_nro, socio_apellido, socio_nombre);
+                            dssocioExcedido.excedido.Rows.Add(presupuesto, aretener.ToString("#,##0"), retenido.ToString("#,##0"), saldo.ToString("#,##0"), mora.ToString("#,##0"), importepagado.ToString("#,##0"), presupuestodelpago, socio_nro, socio_apellido, socio_nombre);
                         }
 
                         frmVerReportes reporte = new frmVerReportes(dssocioExcedido, "EXCEDIDOS_SOCIO_HISTORICO");
@@ -4120,7 +4120,16 @@ Agregar emisión
             }
         }
 
-
+        private void txtBusqueda_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                if (txtBusqueda.Focus() == true)
+                {
+                    buscarSocio();
+                }
+            }
+        }
     }
 }
 

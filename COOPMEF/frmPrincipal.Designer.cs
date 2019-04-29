@@ -2036,6 +2036,7 @@
             this.txtBusqueda.CausesValidation = false;
             resources.ApplyResources(this.txtBusqueda, "txtBusqueda");
             this.txtBusqueda.Name = "txtBusqueda";
+            this.txtBusqueda.KeyDown += new System.Windows.Forms.KeyEventHandler(this.txtBusqueda_KeyDown);
             // 
             // btnBuscar
             // 
@@ -2197,7 +2198,6 @@
             // 
             // frmPrincipal
             // 
-            this.AcceptButton = this.btnBuscar;
             resources.ApplyResources(this, "$this");
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.Controls.Add(this.button9);
