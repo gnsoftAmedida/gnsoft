@@ -2989,7 +2989,7 @@ namespace COOPMEF
                 {
                     // MessageBox.Show("Se manda a imprimir el doc");
                     DEx.Clear();
-                    DEx.Excedido.Rows.Add(txtCI.Text, txtARetener.Text, txtRetenido.Text, txtSaldo.Text, txtMora.Text, txtTotal.Text);
+                    DEx.Excedido.Rows.Add(txtCI.Text, "$" + empresa.PadeoBlancos(txtARetener.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtRetenido.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtSaldo.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtMora.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtTotal.Text.Trim(), 14).ToString().Replace(" ", "*"), "Son " + empresa.ESCNUM(txtTotal.Text), txtPresupuesto.Text, DateTime.Today.ToShortDateString(), lblApellidosSocio.Text + " " + lblNombreSocio.Text, txtNroDeCobro.Text, txtOficinaCobExcedidos.Text);
                     frmVerReportes reporte = new frmVerReportes(DEx, "EXCEDIDO");
                     reporte.ShowDialog();
                     this.btnPagarCobranza.Enabled = true;

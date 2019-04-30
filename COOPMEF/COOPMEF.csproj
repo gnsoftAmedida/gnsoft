@@ -808,6 +808,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPadronEdades.resx">
       <DependentUpon>frmPadronEdades.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmPagosDeExcedidos.resx">
       <DependentUpon>frmPagosDeExcedidos.cs</DependentUpon>
@@ -817,6 +818,7 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmPrincipal.gsw.resx">
       <DependentUpon>frmPrincipal.cs</DependentUpon>
+      <SubType>Designer</SubType>
     </EmbeddedResource>
     <EmbeddedResource Include="frmReporteCancelacionAnticipadaPrestamos.resx">
       <DependentUpon>frmReporteCancelacionAnticipadaPrestamos.cs</DependentUpon>
