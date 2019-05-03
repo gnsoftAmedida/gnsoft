@@ -728,7 +728,7 @@ namespace COOPMEF
             {
                 if (resultado.ToString().Length >= 7)
                 {
-                    if (!(empresa.validoCedula(resultado.ToString()).Equals(resultado.ToString().Substring(resultado.ToString().Length - 1, 1))))
+                    if (!(empresa.validoCedula(nro_socio.Replace(".", "").Replace(",", "").Replace("-", "")).Equals(nro_socio.Replace(".", "").Replace(",", "").Replace("-", "").Substring(nro_socio.Replace(".", "").Replace(",", "").Replace("-", "").Length - 1, 1))))
                     {
                         formatoCiOK = false;
                     }
@@ -890,7 +890,7 @@ namespace COOPMEF
                 {
                     if (resultado.ToString().Length >= 7)
                     {
-                        if (!(empresa.validoCedula(resultado.ToString()).Equals(resultado.ToString().Substring(resultado.ToString().Length - 1, 1))))
+                        if (!(empresa.validoCedula(nro_socio.Replace(".", "").Replace(",", "").Replace("-", "")).Equals(nro_socio.Replace(".", "").Replace(",", "").Replace("-", "").Substring(nro_socio.Replace(".", "").Replace(",", "").Replace("-", "").Length - 1, 1))))
                         {
                             formatoCiOK = false;
                         }
@@ -2213,6 +2213,9 @@ namespace COOPMEF
             }
             else if ((tbcPestanas.SelectedTab == tbcPestanas.TabPages["tabCobranzaExcedidos"]))
             {
+                //Agregado para arreglar problema oficina
+                txtOficinaCobExcedidos.Text = cmbOficina.Text;
+
                 tmpMora = 0;
                 tmpSaldo = 0;
 
@@ -2989,7 +2992,7 @@ namespace COOPMEF
                 {
                     // MessageBox.Show("Se manda a imprimir el doc");
                     DEx.Clear();
-                    DEx.Excedido.Rows.Add(txtCI.Text, "$" + empresa.PadeoBlancos(txtARetener.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtRetenido.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtSaldo.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtMora.Text.Trim(), 14).ToString().Replace(" ", "*"), "$" + empresa.PadeoBlancos(txtTotal.Text.Trim(), 14).ToString().Replace(" ", "*"), "Son " + empresa.ESCNUM(txtTotal.Text), txtPresupuesto.Text, DateTime.Today.ToShortDateString(), lblApellidosSocio.Text + " " + lblNombreSocio.Text, txtNroDeCobro.Text, txtOficinaCobExcedidos.Text);
+                    DEx.Excedido.Rows.Add(txtNroSocio.Text, Convert.ToDouble(txtARetener.Text.Trim().ToString()).ToString("###,###,##0.00"), Convert.ToDouble(txtRetenido.Text.Trim().ToString()).ToString("###,###,##0.00"), txtSaldo.Text.Trim(), txtMora.Text.Trim().ToString(), txtTotal.Text.Trim().ToString(), "Son " + empresa.ESCNUM(txtTotal.Text), txtPresupuesto.Text, DateTime.Today.ToShortDateString(), lblApellidosSocio.Text + " " + lblNombreSocio.Text, txtNroDeCobro.Text, txtOficinaCobExcedidos.Text);
                     frmVerReportes reporte = new frmVerReportes(DEx, "EXCEDIDO");
                     reporte.ShowDialog();
                     this.btnPagarCobranza.Enabled = true;
