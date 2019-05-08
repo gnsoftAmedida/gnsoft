@@ -13,6 +13,7 @@ using System.Xml;
 using System.Xml.Linq;
 using Microsoft.VisualBasic;
 using Utilidades;
+using System.Threading;
 
 namespace COOPMEF
 {
@@ -20,6 +21,7 @@ namespace COOPMEF
     {
         private Controladora empresa = Controladora.Instance;
         private dsFactura tmpDsFactura = new dsFactura();
+        private String ruta = "";
 
         public frmFacturacion()
         {
@@ -29,7 +31,9 @@ namespace COOPMEF
         private void btnSalirPrestamo_Click(object sender, EventArgs e)
         {
             this.Close();
+
         }
+
 
         private void CrearDocumentoXML(string documentoReceptor, string nombreReceptor, String montoNetoIva, String porcentajeIva, String interesCuota, String ivaCuota, String mora, String ivaMora)
         {
@@ -82,7 +86,8 @@ namespace COOPMEF
             items["PrecioUnitario2"] = String.Format(mora.ToString(), "##0.00").Replace(",", ".");
 
             ExportXML exportar = new ExportXML();
-            string nombre = @"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + "_" + documentoReceptor + ".xml";
+            //  string nombre = @"c:\Facturas\facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + "_" + documentoReceptor + ".xml";
+            string nombre = ruta + "facturacion_" + DateTime.Today.ToString("dd_MM_yyyy") + "_" + documentoReceptor + ".xml";
             exportar.downloadXML(nombre, documento, emisor, receptor, totales, items);
 
         }
@@ -94,18 +99,6 @@ namespace COOPMEF
             int anioActual = DateTime.Today.Year;
 
             posAnio = anioActual - anio + posAnio;
-
-            DriveInfo[] allDrives = DriveInfo.GetDrives();
-
-            foreach (DriveInfo d in allDrives)
-            {
-                cmbUnidades.Items.Add(d);
-            }
-
-            if (cmbUnidades.Items.Count > 0)
-            {
-                cmbUnidades.SelectedIndex = 0;
-            }
 
             try
             {
@@ -121,27 +114,22 @@ namespace COOPMEF
         private void btnBuscar_Click(object sender, EventArgs e)
         {
             Boolean unidadBien = false;
-            string unidad = "";
 
-            try
+
+            if (ruta != "")
             {
-                unidad = treeView1.SelectedNode.Text;
+                unidadBien = true;
 
-                if (unidad.Substring(unidad.Length - 1, 1) != @"\")
+
+                if (ruta.Substring(ruta.Length - 1, 1) != @"\")
                 {
-                    unidad = unidad + @"\";
+                    ruta = ruta + @"\";
                 }
 
-                unidadBien = true;
-            }
-            catch
-            {
-                MessageBox.Show("Debe seleccionar una unidad de destino para generar la interface");
             }
 
             if (unidadBien)
             {
-
                 int mes = Convert.ToInt32(this.cmbMeses.SelectedIndex + 1);
                 string mesNombre = cmbMeses.SelectedItem.ToString(); ;
                 string anio = cmbAnios.SelectedItem.ToString();
@@ -282,23 +270,37 @@ namespace COOPMEF
                             Double montoNetoIva = Convert.ToDouble(mora) + Convert.ToDouble(InteresCuota);
                             String montoNetoIvaStringFormateado = montoNetoIva.ToString("#,##0.00");
 
-                            this.CrearDocumentoXML(cedula, nombre_apellido_inciso_oficina, montoNetoIvaStringFormateado, "22", InteresCuota, ivaCuota, mora, ivaMora);
+                            try
+                            {
+                                this.CrearDocumentoXML(cedula, nombre_apellido_inciso_oficina, montoNetoIvaStringFormateado, "22", InteresCuota, ivaCuota, mora, ivaMora);
 
-                            tmpDsFactura.factura.Rows.Add(nombre_apellido_inciso_oficina, InteresCuota, ivaCuota, mora, ivaMora, fecha, subtotal_1_string, subtotal_2_string, total_string, iva1, iva2);
+                                tmpDsFactura.factura.Rows.Add(nombre_apellido_inciso_oficina, InteresCuota, ivaCuota, mora, ivaMora, fecha, subtotal_1_string, subtotal_2_string, total_string, iva1, iva2);
 
-                            Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
+                                Double montoIva = Convert.ToDouble(ivaCuota) + Convert.ToDouble(ivaMora);
 
-                            totalNetoSinIVA = totalNetoSinIVA + montoNetoIva;
-                            totalIVAFacturado = totalIVAFacturado + montoIva;
-                            cantidadFacturas = cantidadFacturas + 1;
+                                totalNetoSinIVA = totalNetoSinIVA + montoNetoIva;
+                                totalIVAFacturado = totalIVAFacturado + montoIva;
+                                cantidadFacturas = cantidadFacturas + 1;
 
+                                unidadBien = true;
+                            }
+                            catch
+                            {
+                                unidadBien = false;
+                            }
                         }
                     }
 
-                    totalFinal = totalNetoSinIVA + totalIVAFacturado;
+                    if (unidadBien == true)
+                    {
+                        totalFinal = totalNetoSinIVA + totalIVAFacturado;
 
-                    MessageBox.Show("Facturas generadas correctamente en " + unidad + Environment.NewLine + "Cantidad de facturas generadas: " + cantidadFacturas + Environment.NewLine + "Total Neto sin IVA: " + totalNetoSinIVA.ToString("##0.00") + Environment.NewLine + "Total IVA Facturado: " + totalIVAFacturado.ToString("##0.00") + Environment.NewLine + "Total: " + totalFinal.ToString("##0.00"));
-
+                        MessageBox.Show("Facturas generadas correctamente en " + ruta + Environment.NewLine + "Cantidad de facturas generadas: " + cantidadFacturas + Environment.NewLine + "Total Neto sin IVA: " + totalNetoSinIVA.ToString("##0.00") + Environment.NewLine + "Total IVA Facturado: " + totalIVAFacturado.ToString("##0.00") + Environment.NewLine + "Total: " + totalFinal.ToString("##0.00"));
+                    }
+                    else
+                    {
+                        MessageBox.Show("Verifique permisos en la carpeta seleccionada");
+                    }
                     /*
                                         swd.Flush();
                                         swd.Dispose();
@@ -325,22 +327,25 @@ namespace COOPMEF
             }
         }
 
-        private void cmbUnidades_SelectedIndexChanged(object sender, EventArgs e)
+        private void button1_Click(object sender, EventArgs e)
         {
-            try
-            {
-                String[] dirs = System.IO.Directory.GetDirectories(cmbUnidades.SelectedItem.ToString());
+            var thread = new Thread(explorarCarpetas);
+            thread.SetApartmentState(ApartmentState.STA);
+            thread.Start();
+            thread.Join();
+            this.textBox1.Text = ruta;
+        }
 
-                treeView1.Nodes.Clear();
+        private void explorarCarpetas()
+        {
 
-                foreach (String dir in dirs)
-                {
-                    treeView1.Nodes.Add(dir.ToString());
-                }
-            }
-            catch
+            FolderBrowserDialog dirVir = new FolderBrowserDialog();
+
+            dirVir.Description = "Seleccione el directorio de facturación";
+
+            if (dirVir.ShowDialog() == DialogResult.OK)
             {
-                MessageBox.Show("El dispositivo no está listo");
+                ruta = dirVir.SelectedPath;
             }
         }
     }
