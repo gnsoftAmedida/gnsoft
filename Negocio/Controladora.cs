@@ -1081,7 +1081,7 @@ namespace Negocio
 
                     sw.WriteLine(r);
 
-                    Total = Total + resultadoInter;
+                    Total = Total + Convert.ToDouble(resultadoInter.ToString("#####0"));
                     CantidadGente = CantidadGente + 1;
                 }
                 generarInterfacesExcel(unidad, "CACFSMEF.PTO(" + TxtMes + "-" + TxtAño + ")" + ".xls", resultado, CboIncisos, CboOficinas, TxtMes, TxtAño);
