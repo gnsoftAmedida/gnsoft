@@ -325,6 +325,10 @@ namespace COOPMEF
                     MessageBox.Show("No se encuentran facturas para emitir");
                 }
             }
+            else
+            {
+                MessageBox.Show("Seleccione un directorio");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
