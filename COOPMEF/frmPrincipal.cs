@@ -1676,6 +1676,17 @@ namespace COOPMEF
                 this.txtPostal.Text = dgvSociosCampo.Rows[index].Cells["socio_postal"].Value.ToString();
                 this.txtMostrarDetalles.Text = dgvSociosCampo.Rows[index].Cells["socio_detalles"].Value.ToString();
                 this.txtCesion.Text = dgvSociosCampo.Rows[index].Cells["socio_cesion"].Value.ToString();
+
+                try
+                {
+                    this.lblFechaBaja.Text = "(Fecha de Baja: " + Convert.ToDateTime(dgvSociosCampo.Rows[index].Cells["socio_fecha_baja"].Value.ToString()).ToShortDateString() + ")";
+                }
+                catch
+                {
+
+                    this.lblFechaBaja.Text = "";
+                }
+
             }
 
             //   tbcPestanas.SelectedTab = tbcPestanas.TabPages[1];
@@ -1960,6 +1971,7 @@ namespace COOPMEF
             lblEstadoCivilSocio.Text = "...";
             lblEdadSocio.Text = "...";
             lblTelefonoSocio.Text = "...";
+            this.lblFechaBaja.Text = "";
 
             lblEstadoActivo.Visible = false;
             lblEstadoDeBaja.Visible = false;
@@ -4132,6 +4144,11 @@ Agregar emisión
                     buscarSocio();
                 }
             }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
         }
     }
 }
