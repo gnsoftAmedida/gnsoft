@@ -692,8 +692,9 @@ namespace Negocio
                         "historia.inciso, historia.oficina,historia.excedido, historia.mora,historia.ivamora,socio.socio_nombre, " +
                         "socio.socio_apellido, socio.socio_departamento, socio.socio_fechaIngreso,socio.socio_detalles " +
                         "FROM socio INNER JOIN historia on socio.socio_nro=historia.cedula " +
-                        "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + WInciso + "'" +
-                        "AND historia.oficina= " + "'" + id_oficina + "'" +
+                        "WHERE historia.presupuesto=" + "'" + Presupuesto + "'" + "AND historia.inciso = " + "'" + id_inciso + "'" +
+                        //"AND historia.oficina= " + "'" + id_oficina + "'" +
+                        "AND historia.oficina= " + "'141'" +
                         "ORDER BY historia.cedula;";
                 }
                 else
