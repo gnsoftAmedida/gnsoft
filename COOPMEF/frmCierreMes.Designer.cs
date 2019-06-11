@@ -47,6 +47,7 @@
             this.btnSeleccionarSocio = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
             this.lblFechaCierre = new System.Windows.Forms.Label();
+            this.lblTrabajando = new System.Windows.Forms.Label();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
@@ -241,11 +242,24 @@
             this.lblFechaCierre.TabIndex = 1;
             this.lblFechaCierre.Text = "lblFechaCierre";
             // 
+            // lblTrabajando
+            // 
+            this.lblTrabajando.AutoSize = true;
+            this.lblTrabajando.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTrabajando.ForeColor = System.Drawing.Color.Red;
+            this.lblTrabajando.Location = new System.Drawing.Point(51, 237);
+            this.lblTrabajando.Name = "lblTrabajando";
+            this.lblTrabajando.Size = new System.Drawing.Size(330, 31);
+            this.lblTrabajando.TabIndex = 8;
+            this.lblTrabajando.Text = "CIERRE EN PROCESO...";
+            this.lblTrabajando.Visible = false;
+            // 
             // frmCierreMes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(683, 339);
+            this.ClientSize = new System.Drawing.Size(681, 339);
+            this.Controls.Add(this.lblTrabajando);
             this.Controls.Add(this.lblFechaCierre);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.btnCancelarBusqueda);
@@ -292,5 +306,6 @@
         private System.Windows.Forms.Label lblFechaVencimientoPresupuesto;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label lblFechaCierre;
+        private System.Windows.Forms.Label lblTrabajando;
     }
 }

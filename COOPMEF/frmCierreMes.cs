@@ -29,6 +29,10 @@ namespace COOPMEF
 
         private void inicio()
         {
+            lblTrabajando.Visible = false;
+
+            btnSeleccionarSocio.Enabled = true;
+            btnCancelarBusqueda.Enabled = true;
 
             DataSet dsEmpresas = empresa.DevolverEmpresa();
             DateTime fechaPresupuestoAnterior = Convert.ToDateTime(dsEmpresas.Tables["empresas"].Rows[0][23].ToString().ToString());
@@ -42,7 +46,7 @@ namespace COOPMEF
 
 
             this.lblFechaPresupuestoAnterior.Text = fechaPresupuestoAnterior.ToString("dd/MM/yyyy");
-         //   this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.AddHours(12).ToString("HH:mm:ss");
+            //   this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.AddHours(12).ToString("HH:mm:ss");
             this.lblHoraPresupuestoAnterior.Text = horaPresupuestoAnterior.ToString("HH:mm:ss");
             this.lblFechaPresupuestoUltimo.Text = fechaPresupuestoUltimo.ToString("dd/MM/yyyy");
             //this.lblHoraPresupuestoUltimo.Text = horaPresupuestoUltimo.AddHours(12).ToString("HH:mm:ss");
@@ -54,6 +58,7 @@ namespace COOPMEF
 
         private void btnSeleccionarSocio_Click(object sender, EventArgs e)
         {
+            lblTrabajando.Visible = true;
 
             if (!(empresa.cierreEfectuado(empresa.presupuesto())))
             {
@@ -65,7 +70,12 @@ namespace COOPMEF
 
                 if (result == System.Windows.Forms.DialogResult.Yes)
                 {
+
+                    btnSeleccionarSocio.Enabled = false;
+                    btnCancelarBusqueda.Enabled = false;
+
                     empresa.cierre();
+
                     MessageBox.Show("Cierre efectuado correctamente");
 
                     RegistroSLogs registroLogs = new RegistroSLogs();
@@ -73,9 +83,14 @@ namespace COOPMEF
 
                     inicio();
                 }
+                else
+                {
+                    lblTrabajando.Visible = false;
+                }
             }
             else
             {
+                lblTrabajando.Visible = false;
                 MessageBox.Show("El cierre para el presupuesto " + empresa.presupuesto() + " ya fué realizado");
             }
         }
