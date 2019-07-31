@@ -274,6 +274,7 @@
             this.btnBuscar = new System.Windows.Forms.Button();
             this.cmbBusqueda = new System.Windows.Forms.ComboBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.lblFechaBaja = new System.Windows.Forms.Label();
             this.label45 = new System.Windows.Forms.Label();
             this.btnExcedido = new System.Windows.Forms.Button();
             this.label7 = new System.Windows.Forms.Label();
@@ -294,7 +295,6 @@
             this.label8 = new System.Windows.Forms.Label();
             this.button9 = new System.Windows.Forms.Button();
             this.btnOtrosDatos = new System.Windows.Forms.Button();
-            this.lblFechaBaja = new System.Windows.Forms.Label();
             this.menuStrip1.SuspendLayout();
             this.tbcPestanas.SuspendLayout();
             this.tabBusqueda.SuspendLayout();
@@ -2091,6 +2091,11 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Enter += new System.EventHandler(this.groupBox3_Enter);
             // 
+            // lblFechaBaja
+            // 
+            resources.ApplyResources(this.lblFechaBaja, "lblFechaBaja");
+            this.lblFechaBaja.Name = "lblFechaBaja";
+            // 
             // label45
             // 
             resources.ApplyResources(this.label45, "label45");
@@ -2198,11 +2203,6 @@
             resources.ApplyResources(this.btnOtrosDatos, "btnOtrosDatos");
             this.btnOtrosDatos.Name = "btnOtrosDatos";
             this.btnOtrosDatos.UseVisualStyleBackColor = true;
-            // 
-            // lblFechaBaja
-            // 
-            resources.ApplyResources(this.lblFechaBaja, "lblFechaBaja");
-            this.lblFechaBaja.Name = "lblFechaBaja";
             // 
             // frmPrincipal
             // 

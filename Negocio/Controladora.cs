@@ -415,7 +415,7 @@ namespace Negocio
             {
                 //  Primero = "S0205020002630"; //contaduría General
                 // MODIFICADO 23/01/2019
-                Primero = "S0205020002000123";
+                Primero = "S0205020002000907";
 
                 NombreArchivo = "CONT" + TxtMes + Microsoft.VisualBasic.Strings.Mid(TxtAño, 3) + ".TXT";
                 Oficina = "02";
@@ -875,17 +875,30 @@ namespace Negocio
                     double IvaMora = Convert.ToDouble(resultado.Tables["interfaz"].Rows[n][10].ToString());
                     Double resultadoInter = importeCuota + aportecapital + Excedido + Mora + IvaMora;
 
-                    numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
+                    //   numeroCobro = numeroCobro.Replace(".", "").Replace(",", "").Replace("-", "");
 
                     cedula = cedula.Replace(".", "").Replace(",", "").Replace("-", "");
 
-                    // Agregado por si ponen un nro de cobro mayor a 4
-                    if (numeroCobro.Length > 4)
+                    String r = "";
+
+                    if (cedula == "19027647")
                     {
-                        numeroCobro = numeroCobro.Substring(numeroCobro.Length - 4, 4);
+                        cedula = "190276404";
+                        r = Primero + this.Padeo(cedula, 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + "0000";
+                    }
+                    else
+                    {
+                        r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + "0000";
                     }
 
-                    String r = Primero + this.Padeo(Microsoft.VisualBasic.Strings.Mid(cedula, 1, 7), 15) + Padeo(resultadoInter.ToString("#####0"), 6) + "00" + "0000";
+                    // Agregado por si ponen un nro de cobro mayor a 4
+                    /*    if (numeroCobro.Length > 4)
+                        {
+                            numeroCobro = numeroCobro.Substring(numeroCobro.Length - 4, 4);
+                        }
+                    */
+
+
                     sw.WriteLine(r);
                 }
 
